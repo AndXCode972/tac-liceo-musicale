@@ -331,6 +331,13 @@
 
   function leggiNote(testo) {
     return String(testo).trim().split(/[\s,]+/).filter(Boolean).map(gettone => {
+      /* La stanghetta si scrive « | » in mezzo alle note. Non dura niente e
+         non suona: è un segno per l'occhio, ed è esattamente questo che
+         serve mostrare quando si spiega che cos'è una battuta. */
+      if (gettone === '|' || gettone === '||' || gettone === '|:' || gettone === ':|') {
+        return { keys: [], dur: 'q', puntata: false, pausa: false,
+                 battiti: 0, stanghetta: gettone };
+      }
       const [parteNote, parteDur = 'q'] = gettone.split(':');
       const puntata = parteDur.includes('.');
       const dur = parteDur.replace(/\./g, '') || 'q';
@@ -340,6 +347,25 @@
       if (puntata) battiti *= 1.5;
       return { keys, dur, puntata, pausa, battiti };
     });
+  }
+
+  /* Il segno di battuta, nella forma che VexFlow si aspetta. Se questa
+     versione della libreria non avesse BarNote si ripiega su una pausa
+     invisibile: meglio una stanghetta mancante che un pentagramma vuoto. */
+  function stanghettaVF(VF, segno) {
+    try {
+      const b = new VF.BarNote();
+      const T = VF.Barline ? VF.Barline.type : null;
+      if (T) {
+        if (segno === '||') b.setType(T.DOUBLE);
+        else if (segno === '|:') b.setType(T.REPEAT_BEGIN);
+        else if (segno === ':|') b.setType(T.REPEAT_END);
+        else b.setType(T.SINGLE);
+      }
+      return b;
+    } catch (e) {
+      return new VF.GhostNote({ duration: 'q' });
+    }
   }
 
   /* ==========================================================
@@ -417,6 +443,7 @@
         this._datiB = leggiNote(testoBasso);
         if (this._datiB.length) {
           const noteB = this._datiB.map(d => {
+            if (d.stanghetta) return stanghettaVF(VF, d.stanghetta);
             const sn = new VF.StaveNote({ keys: d.keys, duration: d.dur + (d.pausa ? 'r' : ''), clef: 'bass' });
             if (!d.pausa) d.keys.forEach((k, i) => {
               const p = N.scomponi(k);
@@ -429,7 +456,8 @@
           const vB = new VF.Voice({ numBeats: Math.max(1, Math.ceil(totB)), beatValue: 4 });
           vB.setMode(VF.VoiceMode.SOFT);
           vB.addTickables(noteB);
-          const travB = VF.Beam.generateBeams(noteB.filter((n, i) => !this._datiB[i].pausa));
+          const travB = VF.Beam.generateBeams(
+            noteB.filter((n, i) => !this._datiB[i].pausa && !this._datiB[i].stanghetta));
           new VF.Formatter().joinVoices([vB]).format([vB], larghezza - 110);
           vB.draw(ctx, staveB);
           travB.forEach(b => b.setContext(ctx).draw());
@@ -438,6 +466,7 @@
 
       if (dati.length) {
         const note = dati.map(d => {
+          if (d.stanghetta) return stanghettaVF(VF, d.stanghetta);
           const sn = new VF.StaveNote({
             keys: d.keys,
             duration: d.dur + (d.pausa ? 'r' : ''),
@@ -458,7 +487,15 @@
         voce.setMode(VF.VoiceMode.SOFT);
         voce.addTickables(note);
 
-        const travature = VF.Beam.generateBeams(note.filter((n, i) => !dati[i].pausa));
+        /* le travature non attraversano una stanghetta, e i gruppi si
+           formano dentro ciascuna battuta separatamente */
+        const travature = [];
+        let gruppo = [];
+        dati.forEach((d, i) => {
+          if (d.stanghetta) { travature.push(...VF.Beam.generateBeams(gruppo)); gruppo = []; return; }
+          if (!d.pausa) gruppo.push(note[i]);
+        });
+        travature.push(...VF.Beam.generateBeams(gruppo));
         new VF.Formatter().joinVoices([voce]).format([voce], larghezza - 90);
         voce.draw(ctx, stave);
         travature.forEach(b => b.setContext(ctx).draw());
@@ -466,7 +503,7 @@
         this._note = note;
       }
 
-      if (this.hasAttribute('play') && dati.some(d => !d.pausa)) {
+      if (this.hasAttribute('play') && dati.some(d => !d.pausa && !d.stanghetta)) {
         const barra = document.createElement('div');
         barra.className = 'tac-barra no-stampa';
         const bt = document.createElement('button');
@@ -498,6 +535,7 @@
       let t = Tone.now() + 0.15;
 
       this._dati.forEach((d, i) => {
+        if (d.stanghetta) return;          /* non dura e non suona */
         const secondi = d.battiti * durBattito;
         if (!d.pausa) {
           Audio.synth.triggerAttackRelease(
@@ -1444,20 +1482,38 @@
       if (this._reg) box.appendChild(this._reg);
 
       /* Sulla slide non va nessuna partitura: non ci sta e non si legge.
-         Resta un pulsante che apre la pagina intera, dove ci sono la
-         partitura completa e tutti i comandi d'ascolto. */
+         E non vanno nemmeno i comandi: proiettati sono minuti, e chi guarda
+         non deve scegliere fra sei pulsanti. Sulla slide resta la scheda del
+         brano, e la scheda intera è il pulsante che apre la pagina piena —
+         dove ci sono la partitura completa e tutti i comandi d'ascolto. */
       if (this._parti.length) {
         const cont = document.createElement('div');
         cont.className = 'tac-brano-part';
         this._parti.forEach(x => { x.hidden = true; cont.appendChild(x); });
         box.appendChild(cont);
 
-        const t = document.createElement('button');
-        t.className = 'btn tac-tutta';
-        t.innerHTML = '&#9838; Partitura ed esecuzione';
-        t.title = 'Apre la partitura completa con i comandi d\'ascolto';
-        t.onclick = () => this.schermoIntero(t);
-        barra.appendChild(t);
+        const invito = document.createElement('div');
+        invito.className = 'tac-brano-invito no-stampa';
+        invito.innerHTML = '<span>&#9838; Partitura ed esecuzione</span>' +
+                           '<span class="freccia">&#8599;</span>';
+        box.appendChild(invito);
+
+        box.classList.add('apribile');
+        box.tabIndex = 0;
+        box.setAttribute('role', 'button');
+        box.title = 'Apre la partitura completa con i comandi d\'ascolto';
+        /* i comandi vivono qui dentro anche se sulla slide sono nascosti:
+           un clic su di essi non deve aprire la pagina piena */
+        const suComandi = e => !!(e.target.closest &&
+          e.target.closest('.tac-barra, .tac-metro, .tac-pulsazioni, .tac-tubo, audio'));
+        box.addEventListener('click', e => {
+          if (suComandi(e)) return;
+          this.schermoIntero(box);
+        });
+        box.addEventListener('keydown', e => {
+          if (suComandi(e)) return;
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.schermoIntero(box); }
+        });
       }
 
       /* Compatibilità: partitura come immagine esterna */
@@ -1641,10 +1697,14 @@
       corpo.className = 'tac-schermo-corpo';
       fig.hidden = false;
       corpo.appendChild(fig);
-      if (puls) { this._tornano.push([puls, puls.parentNode]); }
 
       const piede = document.createElement('div');
       piede.className = 'tac-schermo-piede';
+      /* anche la registrazione libera, se c'è, sta qui: sulla slide non serve */
+      if (this._reg && this._reg.parentNode === this._box) {
+        this._tornano.push([this._reg, this._box]);
+        piede.appendChild(this._reg);
+      }
       const chiudi = document.createElement('button');
       chiudi.className = 'btn secondario';
       chiudi.innerHTML = '&#10005; Chiudi  (Esc)';

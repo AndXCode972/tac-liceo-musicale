@@ -826,6 +826,43 @@ body.modalita-studio .tac-brano-part figure[data-quale="incipit"] svg,
 .tac-schermo-corpo figure[hidden] { display: none; }
 .btn.tac-tutta { background: var(--viola); color: #fff; }
 
+/* ------------------------------------------------------------
+   La scheda del brano è essa stessa il pulsante
+
+   Proiettata, la scheda mostrava sei comandi minuti che nessuno
+   dalla terza fila poteva leggere, e che comunque si usano solo a
+   pagina piena. Restano nel documento — servono all'apertura, e
+   traslocano nella testata dell'overlay senza essere duplicati —
+   ma sulla slide non si vedono: la cornice intera si clicca.
+   ------------------------------------------------------------ */
+.tac-brano-box.apribile { cursor: pointer; transition: border-color .12s, box-shadow .12s, transform .12s; }
+.tac-brano-box.apribile > .tac-barra,
+.tac-brano-box.apribile > .tac-metro,
+.tac-brano-box.apribile > .tac-pulsazioni,
+.tac-brano-box.apribile > .tac-brano-reg { display: none; }
+
+.tac-brano-invito {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  margin-top: .55rem; padding-top: .5rem; border-top: 1px dashed var(--bordo);
+  font-size: .92rem; font-weight: 700; color: var(--viola);
+}
+.tac-brano-invito .freccia { font-size: 1.1rem; opacity: .75; }
+
+.tac-brano-box.apribile:hover,
+.tac-brano-box.apribile:focus-visible {
+  border-color: var(--viola);
+  box-shadow: 0 6px 20px rgba(76, 29, 149, .18);
+  transform: translateY(-2px);
+  outline: none;
+}
+.tac-brano-box.apribile:hover .tac-brano-invito .freccia { opacity: 1; }
+.tac-brano-box.apribile:active { transform: translateY(0); }
+
+/* A pagina piena la cornice non è più un pulsante: lì i comandi ci sono
+   davvero e il clic sulla scheda non deve fare nulla. */
+.tac-schermo .tac-brano-invito { display: none; }
+@media print { .tac-brano-invito { display: none !important; } }
+
 /* ============================================================
    12. COPERTINA — sfondo astratto e aforisma
    ============================================================ */

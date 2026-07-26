@@ -1492,12 +1492,6 @@
         this._parti.forEach(x => { x.hidden = true; cont.appendChild(x); });
         box.appendChild(cont);
 
-        const invito = document.createElement('div');
-        invito.className = 'tac-brano-invito no-stampa';
-        invito.innerHTML = '<span>&#9838; Partitura ed esecuzione</span>' +
-                           '<span class="freccia">&#8599;</span>';
-        box.appendChild(invito);
-
         box.classList.add('apribile');
         box.tabIndex = 0;
         box.setAttribute('role', 'button');
@@ -1628,30 +1622,40 @@
         });
       });
 
-      /* metronomo e conta-battute */
+      /* Metronomo e conta-battute.
+
+         Se il brano comincia in levare, il primo battere non cade
+         all'inizio: cade dopo l'anacrusi. Contare da zero metterebbe
+         l'accento forte sulla nota d'avvio — cioè esattamente
+         sull'unica nota che forte non è, e in una lezione sul metro
+         sarebbe l'errore peggiore possibile. Il conto parte quindi dal
+         primo battere e torna indietro sul levare. */
       const quartiPerPuls = (d.metro === '6/8' || d.metro === '9/8') ? 1.5 : 1;
+      const anac = parseFloat(d.anacrusi || 0) || 0;
       const durata = Math.max(...d.voci.flat().map(e => e[0] + e[1]));
-      const nPuls = Math.ceil(durata / quartiPerPuls);
       const conMetro = this._metro && this._metro.dataset.on === '1';
-      for (let i = 0; i < nPuls; i++) {
-        const quando = t0 + i * quartiPerPuls * secQuarto;
-        const forte = (i % this._perBattuta) === 0;
-        const k = i % this._perBattuta;
+      const jDa = -Math.floor(anac / quartiPerPuls + 1e-9);
+      for (let j = jDa; ; j++) {
+        const q = anac + j * quartiPerPuls;
+        if (q > durata + 1e-9) break;
+        if (q < -1e-9) continue;
+        const k = ((j % this._perBattuta) + this._perBattuta) % this._perBattuta;
         Tone.Transport.scheduleOnce(t => {
-          if (conMetro) Audio.metronomo(forte, t);
+          if (conMetro) Audio.metronomo(k === 0, t);
           Tone.Draw.schedule(() => {
-            [...this._puls.children].forEach((p, j) => p.classList.toggle('on', j === k));
+            [...this._puls.children].forEach((p, i) => p.classList.toggle('on', i === k));
           }, t);
-        }, quando);
+        }, t0 + q * secQuarto);
       }
-      /* la battuta in corso si accende: è il ponte fra ascolto e lettura */
+      /* la battuta in corso si accende: è il ponte fra ascolto e lettura.
+         La battuta in levare esiste anche nella partitura incisa, ed è la
+         prima: i due conti devono corrispondere. */
       const quartiPerBattuta = this._perBattuta * quartiPerPuls;
-      const nBattute = Math.ceil(durata / quartiPerBattuta);
-      for (let k = 0; k < nBattute; k++) {
-        Tone.Transport.scheduleOnce(
-          t => Tone.Draw.schedule(() => this.illumina(k), t),
-          t0 + k * quartiPerBattuta * secQuarto);
-      }
+      const confini = anac > 0 ? [0] : [];
+      for (let q = anac; q < durata - 1e-9; q += quartiPerBattuta) confini.push(q);
+      confini.forEach((q, k) => Tone.Transport.scheduleOnce(
+        t => Tone.Draw.schedule(() => this.illumina(k), t),
+        t0 + q * secQuarto));
 
       Tone.Transport.scheduleOnce(
         t => Tone.Draw.schedule(() => this.ferma(), t),

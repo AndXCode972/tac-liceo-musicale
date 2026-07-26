@@ -722,9 +722,25 @@ body.con-schermo { overflow: hidden; }
 .tac-schermo-corpo {
   flex: 1 1 auto; overflow: auto; padding: 2rem 2.5rem;
   display: flex; align-items: center; justify-content: center;
+  /* Con la partitura spezzata su più sistemi il contenuto può essere più
+     alto del riquadro. Centrandolo in modo normale il flexbox ne taglia
+     la parte superiore e la rende irraggiungibile anche scorrendo: «safe»
+     dice al browser di allineare in alto quando non ci sta, e di centrare
+     quando ci sta. */
+  align-items: safe center; justify-content: safe center;
+  scroll-behavior: smooth;
 }
-.tac-schermo-corpo figure { margin: 0; width: 100%; }
-.tac-schermo-corpo svg { width: 100%; height: auto; }
+.tac-schermo-corpo figure { margin: 0; width: 100%; min-height: 0; }
+/* La partitura si adatta ai due lati del riquadro, non solo alla larghezza.
+   Fissando solo la larghezza, una partitura alta sbordava in basso e
+   costringeva a scorrere proprio mentre la musica va — che è il momento
+   peggiore. Così invece rimpicciolisce quel tanto che basta e ci sta
+   sempre, su qualunque schermo. */
+.tac-schermo-corpo svg {
+  display: block; margin: 0 auto;
+  width: auto; height: auto;
+  max-width: 100%; max-height: 100%;
+}
 
 /* ============================================================
    10. TRAFILETTI — storia, aneddoti, curiosità
@@ -801,7 +817,7 @@ body.con-schermo { overflow: hidden; }
 /* Nella versione di studio, nella dispensa e a tutta pagina il limite cade:
    lì lo spazio non manca e la partitura si legge per intero. */
 body.modalita-studio .tac-brano-part figure[data-quale="incipit"] svg,
-.tac-schermo .tac-brano-part figure svg { max-height: none; width: 100%; }
+.tac-schermo .tac-brano-part figure svg { max-height: 100%; width: auto; }
 @media print {
   .tac-brano-part figure[data-quale="incipit"] svg { max-height: none !important; width: 100% !important; }
 }

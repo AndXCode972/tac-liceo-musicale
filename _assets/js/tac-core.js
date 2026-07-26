@@ -1756,17 +1756,24 @@
       const m = this.misure();
       if (!m.length) return;
       m.forEach(x => x.classList.remove('suona'));
-      if (m[k]) {
-        m[k].classList.add('suona');
-        if (m[k].scrollIntoView) {
-          const c = m[k].closest('.tac-brano-part');
-          if (c && c.scrollWidth > c.clientWidth) {
-            const r = m[k].getBoundingClientRect(), rc = c.getBoundingClientRect();
-            if (r.right > rc.right || r.left < rc.left)
-              c.scrollLeft += r.left - rc.left - rc.width / 3;
-          }
-        }
-      }
+      if (!m[k]) return;
+      m[k].classList.add('suona');
+
+      /* Il riquadro che scorre è diverso a seconda di dove ci troviamo: sulla
+         slide è il contenitore della partitura, a pagina piena è il corpo
+         dell'overlay. Cercarlo qui invece di darlo per scontato evita che
+         l'inseguimento della battuta smetta di funzionare proprio dove
+         serve di più. Ora che la partitura è spezzata in sistemi lo
+         scorrimento è soprattutto verticale, non più orizzontale. */
+      const c = m[k].closest('.tac-schermo-corpo, .tac-brano-part');
+      if (!c) return;
+      const r = m[k].getBoundingClientRect(), rc = c.getBoundingClientRect();
+      if (c.scrollHeight > c.clientHeight + 2 &&
+          (r.bottom > rc.bottom - 8 || r.top < rc.top + 8))
+        c.scrollTop += r.top - rc.top - rc.height / 3;
+      if (c.scrollWidth > c.clientWidth + 2 &&
+          (r.right > rc.right || r.left < rc.left))
+        c.scrollLeft += r.left - rc.left - rc.width / 3;
     }
 
     ferma() {

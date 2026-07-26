@@ -982,6 +982,50 @@ figure.figura figcaption {
   color: var(--inchiostro2); background: var(--carta2);
   border-top: 1px solid var(--bordo);
 }
+/* ------------------------------------------------------------
+   Simboli musicali dentro il testo — MusGlyphs
+
+   Dan Kreider, licenza SIL Open Font 1.1: si può incorporare e
+   ridistribuire, purché il testo della licenza viaggi col font.
+   Sta accanto ai file, in _assets/font/OFL-MusGlyphs.txt.
+
+   Funziona per legature: si scrive «q» e appare una semiminima,
+   «q.» una semiminima puntata, «2/4» un'indicazione di tempo
+   impilata come si deve. Le legature vanno quindi lasciate accese.
+
+   Attenzione a quale dei due file si usa. MusGlyphs-Text serve a
+   scrivere testo e simboli mescolati, e lì ogni simbolo va introdotto
+   da una chiocciola: «@q». MusGlyphs semplice — quello che usiamo —
+   converte direttamente, ed è giusto così perché i simboli stanno
+   comunque dentro un elemento loro. Con il file sbagliato non
+   succede niente di appariscente: si vedono le lettere, e sembra che
+   il font non si sia caricato.
+
+   Nel sorgente resta però una lettera, che senza il font non vuol
+   dire niente e che un lettore di schermo pronuncerebbe «q». Ogni
+   uso porta perciò il suo nome in italiano:
+
+       <span class="mus" role="img" aria-label="semiminima">q</span>
+   ------------------------------------------------------------ */
+@font-face {
+  font-family: 'MusGlyphs';
+  src: url('../font/MusGlyphs.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'MusAnalysis';
+  src: url('../font/MusAnalysis.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+.mus, .analisi {
+  font-feature-settings: 'liga' 1, 'kern' 1;
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
+}
+.mus     { font-family: 'MusGlyphs', serif; }
+.analisi { font-family: 'MusAnalysis', serif; }
+/* proiettato, un simbolo alla misura del testo è troppo piccolo */
+.slide .mus { font-size: 1.15em; }
+
 figure.figura figcaption strong { color: var(--inchiostro); }
 figure.figura .fonte { display: block; font-size: .72rem; opacity: .7; margin-top: .15rem; }
 

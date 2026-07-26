@@ -1370,7 +1370,7 @@
       const barra = document.createElement('div');
       barra.className = 'tac-barra no-stampa';
       this._play = document.createElement('button');
-      this._play.className = 'btn';
+      this._play.className = 'btn tac-play';
       this._play.innerHTML = '&#9654; Ascolta';
       this._play.onclick = () => this._suona ? this.ferma() : this.avvia();
       barra.appendChild(this._play);

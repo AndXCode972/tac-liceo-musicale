@@ -836,10 +836,21 @@ body.modalita-studio .tac-brano-part figure[data-quale="incipit"] svg,
    ma sulla slide non si vedono: la cornice intera si clicca.
    ------------------------------------------------------------ */
 .tac-brano-box.apribile { cursor: pointer; transition: border-color .12s, box-shadow .12s, transform .12s; }
-.tac-brano-box.apribile > .tac-barra,
-.tac-brano-box.apribile > .tac-metro,
-.tac-brano-box.apribile > .tac-pulsazioni,
-.tac-brano-box.apribile > .tac-brano-reg { display: none; }
+.slide .tac-brano-box.apribile > .tac-metro,
+.slide .tac-brano-box.apribile > .tac-pulsazioni,
+.slide .tac-brano-box.apribile > .tac-brano-reg { display: none; }
+
+/* Sulla slide resta solo Ascolta: serve a far sentire il brano senza
+   aprire la partitura, e in quella fase è l'unica cosa che si fa. Il
+   metronomo, la velocità e l'esecuzione reale stanno a pagina piena. */
+.slide .tac-brano-box.apribile > .tac-barra > * { display: none; }
+.slide .tac-brano-box.apribile > .tac-barra > .tac-play { display: inline-block; }
+
+/* Il metro e il numero di battute non si dichiarano prima dell'ascolto:
+   sono la risposta alla domanda che si sta per fare alla classe, non la
+   didascalia. Restano nel documento — servono alla stampa e alla
+   dispensa — ma proiettati no. */
+.slide .tac-brano-box.apribile .tac-brano-metro { display: none; }
 
 .tac-brano-box.apribile:hover,
 .tac-brano-box.apribile:focus-visible {

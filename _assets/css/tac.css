@@ -969,6 +969,14 @@ figure.figura figcaption {
 figure.figura figcaption strong { color: var(--inchiostro); }
 figure.figura .fonte { display: block; font-size: .72rem; opacity: .7; margin-top: .15rem; }
 
+/* Gli anni di nascita e morte accanto al nome. Restano leggibili ma non
+   competono col nome: sono una collocazione nel tempo, e agli studenti
+   servono soprattutto per accorgersi di chi è contemporaneo di chi. */
+figure.figura figcaption .anni {
+  white-space: nowrap; font-variant-numeric: tabular-nums;
+  font-size: .95em; color: var(--inchiostro2); opacity: .8;
+}
+
 /* Ritratto accanto a un trafiletto o a un riquadro: colonna stretta a destra */
 .con-ritratto {
   display: grid; grid-template-columns: 1fr minmax(150px, 210px);

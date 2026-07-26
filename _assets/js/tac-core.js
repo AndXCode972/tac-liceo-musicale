@@ -1633,7 +1633,6 @@
       const quartiPerPuls = (d.metro === '6/8' || d.metro === '9/8') ? 1.5 : 1;
       const anac = parseFloat(d.anacrusi || 0) || 0;
       const durata = Math.max(...d.voci.flat().map(e => e[0] + e[1]));
-      const conMetro = this._metro && this._metro.dataset.on === '1';
       const jDa = -Math.floor(anac / quartiPerPuls + 1e-9);
       for (let j = jDa; ; j++) {
         const q = anac + j * quartiPerPuls;
@@ -1641,7 +1640,11 @@
         if (q < -1e-9) continue;
         const k = ((j % this._perBattuta) + this._perBattuta) % this._perBattuta;
         Tone.Transport.scheduleOnce(t => {
-          if (conMetro) Audio.metronomo(k === 0, t);
+          /* La domanda si fa qui, un battito per volta, e non una volta sola
+             all'avvio: così il metronomo entra ed esce mentre la musica va,
+             che è il modo in cui serve in classe — lo si accende quando la
+             classe perde il passo e lo si toglie appena l'ha ritrovato. */
+          if (this._metro && this._metro.dataset.on === '1') Audio.metronomo(k === 0, t);
           Tone.Draw.schedule(() => {
             [...this._puls.children].forEach((p, i) => p.classList.toggle('on', i === k));
           }, t);

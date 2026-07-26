@@ -1496,10 +1496,15 @@
         box.tabIndex = 0;
         box.setAttribute('role', 'button');
         box.title = 'Apre la partitura completa con i comandi d\'ascolto';
-        /* i comandi vivono qui dentro anche se sulla slide sono nascosti:
-           un clic su di essi non deve aprire la pagina piena */
+        /* Un clic su un comando non deve aprire la pagina piena. Ma il
+           comando è il pulsante, non la striscia che lo contiene: la barra
+           attraversa tutta la cornice, e prendendo per comando anche lei si
+           rendeva morta una fascia larga quanto il lettore. Chi cliccava lì
+           — che è il centro della cornice, cioè il punto più naturale dove
+           cliccare — non otteneva niente, e doveva riprovare più in alto.
+           Si guarda quindi solo agli elementi che reagiscono davvero. */
         const suComandi = e => !!(e.target.closest &&
-          e.target.closest('.tac-barra, .tac-metro, .tac-pulsazioni, .tac-tubo, audio'));
+          e.target.closest('button, a, input, select, label, audio, .tac-tubo'));
         box.addEventListener('click', e => {
           if (suComandi(e)) return;
           this.schermoIntero(box);

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scheda di lavoro autonomo — Tornata 1 | TAC Classe 1ª</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script src="../../_assets/js/tac-core.js" defer></script>
+<style>
+  .soluzioni { display: none; }
+  body.con-soluzioni .soluzioni { display: block; }
+  .barra-alto { position: sticky; top: 0; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  .blocco { border-top: 4px solid var(--viola); padding-top: 1rem; margin: 2.5rem 0;
+            page-break-inside: avoid; }
+  .blocco > .testa { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1rem;
+                     flex-wrap: wrap; }
+  .blocco > .testa h2 { border: 0; margin: 0; font-size: 1.5rem; }
+  .blocco > .testa .durata { margin-left: auto; background: var(--viola); color: #fff;
+                             padding: .25rem .9rem; border-radius: 999px; font-size: .85rem;
+                             font-weight: 800; }
+  .checklist { width: auto; }
+  .checklist td, .checklist th { text-align: center; }
+  .checklist td:first-child, .checklist th:first-child { text-align: left; }
+  .quadretto { display: inline-block; width: 1.3rem; height: 1.3rem; border: 2px solid var(--inchiostro2);
+               border-radius: 4px; vertical-align: middle; }
+</style>
+</head>
+<body class="documento">
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa</button>
+  <button class="btn" id="bt-sol">Mostra le soluzioni</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Scheda di lavoro autonomo</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">Tornata 1 · Il battito della musica · metro, pulsazione, suddivisione</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale — Classe 1ª<br>
+      Quattro blocchi da 12 minuti
+    </div>
+  </div>
+
+  <div class="riga-nome">
+    <span>Nome e cognome</span>
+    <span style="flex:.5">Compagno di coppia</span>
+    <span style="flex:.3">Data</span>
+  </div>
+
+  <div class="riquadro attenzione">
+    <span class="etichetta">Come funziona quest'ora</span>
+    <p>Mentre quattro compagni vengono interrogati, tu lavori su questa scheda. <strong>Ogni volta che cambia l'interrogato, cambia il tuo blocco.</strong> Non alzare la mano: le soluzioni sono in fondo, ma si guardano <em>dopo</em> aver finito, non durante. A fine ora consegni la scheda.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="blocco">
+    <div class="testa">
+      <h2>Blocco A — Lettura ritmica a coppie</h2>
+      <span class="durata">12 minuti</span>
+    </div>
+
+    <p>Uno legge il ritmo con una sillaba libera (<em>pam</em>, <em>ta</em>), l'altro batte la pulsazione con la mano. Dopo i primi due modelli <strong>vi scambiate</strong>.</p>
+    <div class="riquadro attenzione"><span class="etichetta">A bassa voce</span><p>Si legge <strong>a mezza voce</strong>, quanto basta perché vi sentiate voi due. Alla cattedra un compagno sta eseguendo un solfeggio a prima vista e ha diritto di sentire sé stesso.</p></div>
+
+    <tac-stave clef="percussion" time="2/4" caption="Modello 1" notes="b/4:q b/4:8 b/4:8 b/4:q b/4:q b/4:8 b/4:8 b/4:8 b/4:8 b/4:q" width="680" tempo="80" play slow></tac-stave>
+
+    <tac-stave clef="percussion" time="2/4" caption="Modello 2" notes="b/4:8 b/4:8 b/4:q b/4:q b/4:qr b/4:8 b/4:8 b/4:8 b/4:8 b/4:h" width="680" tempo="80" play slow></tac-stave>
+
+    <tac-stave clef="percussion" time="6/8" caption="Modello 3" notes="b/4:q. b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:q." width="680" tempo="112" play slow></tac-stave>
+
+    <tac-stave clef="percussion" time="3/4" caption="Modello 4" notes="b/4:q b/4:q b/4:8 b/4:8 b/4:h b/4:q b/4:8 b/4:8 b/4:q b/4:q" width="680" tempo="88" play slow></tac-stave>
+
+    <p><strong>Controllo reciproco.</strong> Segna una crocetta per ogni criterio rispettato dal tuo compagno.</p>
+
+    <table class="checklist">
+      <thead><tr><th>Criterio</th><th>Mod. 1</th><th>Mod. 2</th><th>Mod. 3</th><th>Mod. 4</th></tr></thead>
+      <tbody>
+        <tr><td>Ha tenuto la pulsazione stabile dall'inizio alla fine</td><td><span class="quadretto"></span></td><td><span class="quadretto"></span></td><td><span class="quadretto"></span></td><td><span class="quadretto"></span></td></tr>
+        <tr><td>Ha eseguito correttamente le suddivisioni</td><td><span class="quadretto"></span></td><td><span class="quadretto"></span></td><td><span class="quadretto"></span></td><td><span class="quadretto"></span></td></tr>
+        <tr><td>Non si è interrotto né è ripartito da capo</td><td><span class="quadretto"></span></td><td><span class="quadretto"></span></td><td><span class="quadretto"></span></td><td><span class="quadretto"></span></td></tr>
+        <tr><td>Ha marcato l'accento forte a inizio battuta</td><td><span class="quadretto"></span></td><td><span class="quadretto"></span></td><td><span class="quadretto"></span></td><td><span class="quadretto"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="blocco salto-pagina">
+    <div class="testa">
+      <h2>Blocco B — Scheda scritta</h2>
+      <span class="durata">12 minuti</span>
+    </div>
+
+    <div class="esercizio">
+      <div class="titolo-es">B1 — Riconosci il metro <span class="punti">4 punti</span></div>
+      <p>Per ciascun frammento scrivi l'indicazione di metro corretta e di' se è semplice o composto.</p>
+      <table>
+        <thead><tr><th>Frammento</th><th>Pulsazioni per battuta</th><th>Indicazione</th><th>Semplice o composto</th></tr></thead>
+        <tbody>
+          <tr><td>Due pulsazioni, ciascuna divisa in due</td><td></td><td></td><td></td></tr>
+          <tr><td>Tre pulsazioni, ciascuna divisa in due</td><td></td><td></td><td></td></tr>
+          <tr><td>Due pulsazioni, ciascuna divisa in tre</td><td></td><td></td><td></td></tr>
+          <tr><td>Tre pulsazioni, ciascuna divisa in tre</td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="esercizio">
+      <div class="titolo-es">B2 — Aritmetica delle figure <span class="punti">6 punti</span></div>
+      <table>
+        <thead><tr><th>Domanda</th><th>Risposta</th></tr></thead>
+        <tbody>
+          <tr><td>Quanti quarti valgono un intero?</td><td></td></tr>
+          <tr><td>Quanti ottavi valgono una metà?</td><td></td></tr>
+          <tr><td>Quanti sedicesimi valgono un quarto?</td><td></td></tr>
+          <tr><td>Quanti ottavi vale un quarto puntato?</td><td></td></tr>
+          <tr><td>Quanti sedicesimi vale un ottavo puntato?</td><td></td></tr>
+          <tr><td>Quanti ottavi valgono un intero?</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="esercizio">
+      <div class="titolo-es">B3 — Trova l'errore <span class="punti">4 punti</span></div>
+      <p>In ciascuna affermazione c'è un errore. Individualo e correggilo.</p>
+      <ol class="spaziato">
+        <li>«In 6/8 ci sono sei pulsazioni per battuta.»<div class="spazio-risposta"></div></li>
+        <li>«Il punto di valore raddoppia la durata della figura.»<div class="spazio-risposta"></div></li>
+        <li>«La stanghetta indica che bisogna fare una piccola pausa.»<div class="spazio-risposta"></div></li>
+        <li>«In 3/4 la pulsazione è composta, perché il tre indica una divisione in tre.»<div class="spazio-risposta"></div></li>
+      </ol>
+    </div>
+
+    <div class="esercizio">
+      <div class="titolo-es">B4 — Completa la battuta <span class="punti">3 punti</span></div>
+      <p>Aggiungi la figura o le figure mancanti perché ogni battuta sia completa.</p>
+      <ol class="spaziato">
+        <li>In <strong>2/4</strong>: un quarto + un ottavo + <span style="display:inline-block;border-bottom:1.5px dotted #b8b2d4;width:12rem"></span></li>
+        <li>In <strong>3/4</strong>: una metà + <span style="display:inline-block;border-bottom:1.5px dotted #b8b2d4;width:12rem"></span></li>
+        <li>In <strong>6/8</strong>: un quarto puntato + tre ottavi + <span style="display:inline-block;border-bottom:1.5px dotted #b8b2d4;width:12rem"></span></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="blocco">
+    <div class="testa">
+      <h2>Blocco C — Dettato reciproco a coppie</h2>
+      <span class="durata">12 minuti</span>
+    </div>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Come si fa</span>
+      <p>Si lavora in due <strong>senza mostrare la propria scheda al compagno</strong>: copritela con il quaderno.</p>
+      <ol class="spaziato">
+        <li><strong>A percuote sul banco</strong> il ritmo <strong>A1</strong>, due volte di seguito, tenendo una pulsazione regolare. Non lo dice a voce: lo batte soltanto.</li>
+        <li><strong>B lo trascrive</strong> nel proprio spazio qui sotto.</li>
+        <li>A scopre la scheda, confrontate e correggete insieme.</li>
+        <li>Si invertono i ruoli con <strong>B1</strong>. Poi A2 e B2, e avanti così finché il tempo non finisce.</li>
+      </ol>
+    </div>
+
+    <div class="colonne">
+      <div>
+        <p><strong>Schede di A</strong> — le batte A, le trascrive B</p>
+      <tac-stave clef="percussion" time="2/4" caption="A1" notes="b/4:q b/4:q b/4:8 b/4:8 b/4:q" width="300"></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="A2" notes="b/4:8 b/4:8 b/4:q b/4:q b/4:q" width="300"></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="A3" notes="b/4:q b/4:8 b/4:8 b/4:q b/4:q" width="300"></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="A4" notes="b/4:8 b/4:8 b/4:8 b/4:8 b/4:q b/4:qr" width="300"></tac-stave>
+      </div>
+      <div>
+        <p><strong>Schede di B</strong> — le batte B, le trascrive A</p>
+      <tac-stave clef="percussion" time="2/4" caption="B1" notes="b/4:q b/4:q b/4:q b/4:qr" width="300"></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="B2" notes="b/4:8 b/4:8 b/4:q b/4:8 b/4:8 b/4:q" width="300"></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="B3" notes="b/4:q b/4:8 b/4:8 b/4:8 b/4:8 b/4:q" width="300"></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="B4" notes="b/4:qr b/4:q b/4:8 b/4:8 b/4:8 b/4:8" width="300"></tac-stave>
+      </div>
+    </div>
+
+    <p style="margin-top:1.5rem"><strong>Spazio per le tue trascrizioni</strong> — indica sempre il metro all'inizio.</p>
+    <div style="border:2px dashed var(--bordo); border-radius:12px; height:8rem;
+                display:grid; place-items:center; color:var(--inchiostro2)">
+      usa il foglio pentagrammato: quattro dettati, due battute ciascuno
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Se ti perdi</span>
+      <p>Non cercare di scrivere mentre ascolti. Fatti battere il ritmo <strong>due volte</strong>, tienilo a mente, e scrivi solo dopo. Se non ci riesci, chiedi una terza esecuzione: il compagno non è un registratore che si spegne.</p>
+      <p>Prima di scrivere le figure, conta quante <strong>pulsazioni</strong> ci sono. Poi chiediti, per ciascuna, se contiene un solo suono o due.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="blocco salto-pagina">
+    <div class="testa">
+      <h2>Blocco D — Scrittura e correzione reciproca</h2>
+      <span class="durata">12 minuti</span>
+    </div>
+
+    <div class="esercizio">
+      <div class="titolo-es">D1 — Correggete insieme i compiti</div>
+      <p>Scambiatevi i quaderni e correggete il compito assegnato la volta scorsa usando le soluzioni in fondo a questa scheda. Segnate gli errori a matita, non a penna rossa: servono a chi ha scritto, non a chi corregge.</p>
+    </div>
+
+    <div class="esercizio">
+      <div class="titolo-es">D2 — Scrivi tu</div>
+      <p>Su un rigo ritmico a una linea, componi <strong>quattro battute</strong> rispettando queste consegne. Poi passale al compagno, che dovrà leggerle a voce mentre tu batti la pulsazione.</p>
+      <ol class="spaziato">
+        <li>Scegli tu il metro fra <strong>2/4, 3/4 e 6/8</strong> e scrivilo all'inizio.</li>
+        <li>Usa almeno tre figure di valore diverse.</li>
+        <li>Inserisci almeno una pausa.</li>
+        <li>Le battute devono essere <strong>complete</strong>: verificale contando prima di passarle.</li>
+      </ol>
+      <div style="border:2px dashed var(--bordo); border-radius:12px; height:9rem; margin-top:1rem;
+                  display:grid; place-items:center; color:var(--inchiostro2)">
+        spazio per la scrittura — usa il foglio pentagrammato
+      </div>
+    </div>
+
+    <div class="esercizio">
+      <div class="titolo-es">D3 — Riscontro del compagno</div>
+      <table class="checklist">
+        <thead><tr><th>Il ritmo che hai ricevuto…</th><th>sì</th><th>no</th></tr></thead>
+        <tbody>
+          <tr><td>ha tutte le battute complete</td><td><span class="quadretto"></span></td><td><span class="quadretto"></span></td></tr>
+          <tr><td>usa almeno tre figure diverse</td><td><span class="quadretto"></span></td><td><span class="quadretto"></span></td></tr>
+          <tr><td>contiene almeno una pausa</td><td><span class="quadretto"></span></td><td><span class="quadretto"></span></td></tr>
+          <tr><td>è leggibile: i gruppi sono uniti bene</td><td><span class="quadretto"></span></td><td><span class="quadretto"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="soluzioni">
+    <h2>Soluzioni — da consultare solo dopo aver finito</h2>
+
+    <p><strong>B1.</strong> Due pulsazioni divise in due → <strong>2/4</strong>, semplice · Tre divise in due → <strong>3/4</strong>, semplice · Due divise in tre → <strong>6/8</strong>, composto · Tre divise in tre → <strong>9/8</strong>, composto.</p>
+
+    <p><strong>B2.</strong> 4 quarti · 4 ottavi · 4 sedicesimi · 3 ottavi · 3 sedicesimi · 8 ottavi.</p>
+
+    <p><strong>B3.</strong> (1) In 6/8 le pulsazioni sono <strong>due</strong>: il sei conta le suddivisioni. (2) Il punto aggiunge <strong>la metà</strong> del valore, non lo raddoppia. (3) La stanghetta <strong>non è una pausa</strong>: delimita la battuta e orienta l'occhio. (4) In 3/4 la pulsazione è <strong>semplice</strong>: il tre indica quante pulsazioni ci sono, non come si dividono.</p>
+
+    <p><strong>B4.</strong> (1) un ottavo — oppure due sedicesimi. (2) un quarto. (3) tre ottavi — oppure un quarto puntato. Sono accettabili tutte le combinazioni che completano correttamente la battuta.</p>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Per l'insegnante</span>
+      <p><strong>Punteggio del Blocco B</strong>: 17 punti. Sufficienza a 10. Si raccolgono tutte le schede e se ne correggono cinque o sei a rotazione, annotando il punteggio sul registro come valutazione formativa.</p>
+      <p><strong>Blocco C</strong>: le soluzioni sono le schede stesse, e la correzione avviene fra i due compagni subito dopo ogni dettato. Passando fra i banchi, controlla soprattutto che indichino il metro e che le battute tornino: l'errore tipico non è sbagliare una figura ma perdere il conto delle pulsazioni. Considerare buono chi trascrive correttamente almeno tre dettati su quattro.</p>
+      <p><strong>Blocco D2</strong> è l'esercizio che discrimina meglio: chi ha capito scrive battute complete al primo tentativo, chi ha memorizzato le scrive incomplete e se ne accorge solo contando.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  document.getElementById('bt-sol').onclick = function () {
+    const on = document.body.classList.toggle('con-soluzioni');
+    this.textContent = on ? 'Nascondi le soluzioni' : 'Mostra le soluzioni';
+    this.classList.toggle('ambra', on);
+  };
+</script>
+</body>
+</html>

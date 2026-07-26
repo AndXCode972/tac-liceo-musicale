@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbook — UdA 1 · Il battito della musica | TAC Classe 1ª</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script src="../../_assets/js/tac-core.js" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 0; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  .lez { border-top: 4px solid var(--verde); padding-top: .9rem; margin: 2.2rem 0;
+         page-break-before: always; }
+  .lez:first-of-type { page-break-before: avoid; }
+  .lez > .testa { display: flex; align-items: baseline; gap: 1rem; margin-bottom: .9rem; flex-wrap: wrap; }
+  .lez > .testa h2 { border: 0; margin: 0; font-size: 1.4rem; }
+  .lez > .testa .tag { margin-left: auto; background: var(--verde); color: #fff;
+                       padding: .22rem .85rem; border-radius: 999px; font-size: .8rem; font-weight: 800; }
+  .consegna { background: var(--carta2); border-left: 5px solid var(--verde);
+              padding: .8rem 1.1rem; margin: .8rem 0 1rem; border-radius: 0 8px 8px 0; }
+  .consegna p:first-child { margin-top: 0; }
+  .consegna p:last-child { margin-bottom: 0; }
+</style>
+</head>
+<body class="documento">
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa il workbook</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Workbook</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">UdA 1 · Il battito della musica — esercizi da svolgere a casa</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale — Classe 1ª<br>
+      Un esercizio per lezione
+    </div>
+  </div>
+
+  <div class="riga-nome">
+    <span>Nome e cognome</span>
+    <span style="flex:.4">Classe</span>
+    <span style="flex:.4">Data</span>
+  </div>
+
+  <div class="riquadro attenzione">
+    <span class="etichetta">Come si usa</span>
+    <p>Stampa questo fascicolo all'inizio dell'unità e tienilo in cartella. Dopo ogni lezione svolgi la pagina corrispondente <strong>a matita</strong>, direttamente sui pentagrammi stampati. Si corregge in classe: gli errori a matita si cancellano, quelli a penna restano lì a fissarsi in memoria.</p>
+    <p>Se un rigo non ti basta, riscrivi tutto sul rigo successivo invece di stipare. Una scrittura illeggibile è già un errore, anche quando le note sono giuste.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="lez">
+    <div class="testa">
+      <h2>Dopo la lezione 1 — Dove sta il battito</h2>
+      <span class="tag">Ritmo</span>
+    </div>
+
+    <div class="consegna">
+      <p><strong>1.1</strong> — Sui righi qui sotto scrivi <strong>quattro battute in 2/4</strong> usando soltanto quarti e ottavi. Prima di scrivere, batti mentalmente la pulsazione e conta.</p>
+    </div>
+    <tac-griglia sistemi="2" tipo="ritmico" time="2/4" numera width="640"></tac-griglia>
+
+    <div class="consegna">
+      <p><strong>1.2</strong> — Ascolta un brano che ti piace. Batti la pulsazione e conta quanti battiti passano in trenta secondi. Poi scrivi qui titolo e numero.</p>
+      <p>Titolo: <span class="puntini" style="min-width:20rem"></span></p>
+      <p>Pulsazioni in trenta secondi: <span class="puntini" style="min-width:6rem"></span> &nbsp;→&nbsp; al minuto: <span class="puntini" style="min-width:6rem"></span></p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="lez">
+    <div class="testa">
+      <h2>Dopo la lezione 2 — Forte e debole</h2>
+      <span class="tag">Ritmo · Armonia</span>
+    </div>
+
+    <div class="consegna">
+      <p><strong>2.1</strong> — Il rigo qui sotto è <strong>parzialmente scritto</strong>: mancano le stanghette. Aggiungile tu, sapendo che il metro è <strong>2/4</strong>. Poi segna con <em>F</em> e <em>D</em> gli accenti forti e deboli.</p>
+    </div>
+    <tac-stave clef="percussion" caption="Aggiungi le stanghette" notes="b/4:q b/4:8 b/4:8 b/4:q b/4:q b/4:8 b/4:8 b/4:8 b/4:8 b/4:q b/4:q b/4:q" width="640"></tac-stave>
+
+    <div class="consegna">
+      <p><strong>2.2</strong> — Scrivi <strong>quattro battute in 3/4</strong>, poi passa il foglio a un compagno perché le legga. Se non riesce a leggerle, il problema è della scrittura, non di chi legge.</p>
+    </div>
+    <tac-griglia sistemi="2" tipo="ritmico" time="3/4" numera width="640"></tac-griglia>
+
+    <div class="consegna">
+      <p><strong>2.3 — Ascolto</strong> — Riascolta il brano dell'esercizio 1.2. Prova a stabilire se, quando la musica si ferma su un accordo, questo ti dà una sensazione di <strong>riposo</strong> oppure di <strong>attesa</strong>. Scrivi in due righe che cosa hai notato.</p>
+      <div class="spazio-risposta"></div>
+      <div class="spazio-risposta"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="lez">
+    <div class="testa">
+      <h2>Dopo la lezione 3 — Dividere il battito</h2>
+      <span class="tag">Ritmo</span>
+    </div>
+
+    <div class="consegna">
+      <p><strong>3.1</strong> — Completa le battute incomplete aggiungendo le figure mancanti. Il metro è indicato all'inizio.</p>
+    </div>
+    <tac-stave clef="percussion" time="6/8" caption="Completa: mancano figure in ogni battuta" notes="b/4:q. b/4:8 b/4:8 b/4:8 b/4:q." width="640"></tac-stave>
+
+    <div class="consegna">
+      <p><strong>3.2</strong> — Scrivi <strong>quattro battute in 6/8</strong>. Ricorda: due pulsazioni per battuta, ciascuna divisa in tre.</p>
+    </div>
+    <tac-griglia sistemi="2" tipo="ritmico" time="6/8" numera width="640"></tac-griglia>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="lez">
+    <div class="testa">
+      <h2>Dopo la lezione 4 — Le figure e le pause</h2>
+      <span class="tag">Ritmo · Notazione</span>
+    </div>
+
+    <div class="consegna">
+      <p><strong>4.1</strong> — Riscrivi la stessa sequenza raggruppando correttamente le figure con i tratti di unione. Il metro è 2/4.</p>
+    </div>
+    <tac-stave clef="percussion" time="2/4" caption="Sequenza da riscrivere" notes="b/4:16 b/4:16 b/4:16 b/4:16 b/4:8 b/4:8 b/4:8 b/4:16 b/4:16 b/4:q" width="640"></tac-stave>
+    <tac-griglia sistemi="1" tipo="ritmico" time="2/4" width="640"></tac-griglia>
+
+    <div class="consegna">
+      <p><strong>4.2</strong> — Scrivi le sette figure di valore in ordine dalla più lunga alla più breve, con sotto il nome di ciascuna e il numero di ottavi che vale.</p>
+    </div>
+    <tac-griglia sistemi="1" tipo="ritmico" width="640"></tac-griglia>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="lez">
+    <div class="testa">
+      <h2>Dopo la lezione 5 — Tre battiti</h2>
+      <span class="tag">Ritmo · Lettura</span>
+    </div>
+
+    <div class="consegna">
+      <p><strong>5.1</strong> — Per ciascun rigo scrivi l'indicazione di metro corretta, deducendola dal contenuto delle battute.</p>
+    </div>
+    <tac-stave clef="percussion" caption="Che metro è?" notes="b/4:q b/4:q b/4:q b/4:q b/4:8 b/4:8 b/4:q" width="640"></tac-stave>
+    <tac-stave clef="percussion" caption="E questo?" notes="b/4:q. b/4:q. b/4:8 b/4:8 b/4:8 b/4:q." width="640"></tac-stave>
+
+    <div class="consegna">
+      <p><strong>5.2 — Sul doppio pentagramma</strong> — Ricopia la melodia data nel rigo superiore, poi scrivi nel rigo inferiore la sola <strong>pulsazione</strong>, in quarti, come farebbe un accompagnamento minimo.</p>
+    </div>
+    <tac-stave clef="treble" bass="" time="3/4" keysig="C" caption="Melodia data sopra, scrivi la pulsazione sotto" notes="g/4:q a/4:q b/4:q c/5:h d/5:q" width="640"></tac-stave>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="lez">
+    <div class="testa">
+      <h2>Dopo la lezione 6 — Dettato e ripasso</h2>
+      <span class="tag">Ear training</span>
+    </div>
+
+    <div class="consegna">
+      <p><strong>6.1</strong> — Spazio per il dettato ritmico svolto in classe. Ricopia qui la versione corretta, non quella sbagliata: si impara riscrivendo giusto, non conservando l'errore.</p>
+    </div>
+    <tac-griglia sistemi="3" tipo="ritmico" numera width="640"></tac-griglia>
+
+    <div class="consegna">
+      <p><strong>6.2</strong> — Componi <strong>otto battute</strong> di ritmo scegliendo tu il metro. Devono contenere almeno una pausa, almeno un valore puntato, e almeno un gruppo di quattro sedicesimi. Sarà il tuo pezzo per la lettura in classe.</p>
+    </div>
+    <tac-griglia sistemi="4" tipo="ritmico" numera width="640"></tac-griglia>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="lez">
+    <div class="testa">
+      <h2>Pagine libere</h2>
+      <span class="tag">Scrittura</span>
+    </div>
+    <p>Righi in più per riscrivere, provare, correggere.</p>
+    <tac-griglia sistemi="6" tipo="ritmico" numera width="640"></tac-griglia>
+    <p style="margin-top:1.5rem">Doppio pentagramma, per quando cominceremo a scrivere le altezze.</p>
+    <tac-griglia sistemi="2" tipo="doppio" width="640"></tac-griglia>
+  </div>
+
+</div>
+
+</body>
+</html>

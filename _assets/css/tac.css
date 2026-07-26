@@ -1,0 +1,481 @@
+/* ============================================================
+   TAC — Tema grafico per le lezioni di Teoria, Analisi e Composizione
+   Liceo Musicale
+   ============================================================ */
+
+:root {
+  --indaco:   #4338ca;
+  --viola:    #7c3aed;
+  --ambra:    #f59e0b;
+  --rosa:     #ec4899;
+  --verde:    #10b981;
+  --rosso:    #ef4444;
+  --azzurro:  #0ea5e9;
+
+  --inchiostro:  #1e1b3a;
+  --inchiostro2: #4b4670;
+  --carta:       #fdfbff;
+  --carta2:      #f3f0fb;
+  --bordo:       #e0daf5;
+
+  --ombra:    0 4px 20px rgba(30,27,58,.10);
+  --ombra-lg: 0 12px 40px rgba(30,27,58,.16);
+  --raggio:   16px;
+
+  --sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  --serif: "Iowan Old Style", Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  font-family: var(--sans);
+  color: var(--inchiostro);
+  background: var(--carta2);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   1. IMPIANTO SLIDE
+   ============================================================ */
+
+#tac-deck { position: relative; }
+
+.slide {
+  display: none;
+  min-height: 100vh;
+  padding: 5rem 4vw 7rem;
+  background: var(--carta);
+  animation: entra .35s ease;
+}
+.slide.attiva { display: block; }
+
+@keyframes entra {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.slide-interna { max-width: 1100px; margin: 0 auto; }
+
+/* --- Copertina --- */
+.slide.copertina {
+  background: linear-gradient(135deg, var(--indaco) 0%, var(--viola) 55%, var(--rosa) 100%);
+  color: #fff;
+  display: none;
+}
+.slide.copertina.attiva { display: flex; align-items: center; }
+.slide.copertina .slide-interna { width: 100%; }
+.slide.copertina h1 { color: #fff; font-size: clamp(2.4rem, 5.5vw, 4.2rem); border: 0; margin: 0 0 1rem; }
+.slide.copertina .occhiello {
+  font-size: 1rem; letter-spacing: .18em; text-transform: uppercase;
+  opacity: .85; font-weight: 700; margin-bottom: 1.2rem;
+}
+.slide.copertina .sottotitolo { font-size: clamp(1.1rem, 2vw, 1.5rem); opacity: .92; max-width: 60ch; }
+
+.meta-copertina { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2.5rem; }
+.meta-copertina span {
+  background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35);
+  padding: .5rem 1.1rem; border-radius: 999px; font-size: .95rem; font-weight: 600;
+  backdrop-filter: blur(4px);
+}
+
+/* --- Tipografia --- */
+h1 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); line-height: 1.12; margin: 0 0 1.8rem; }
+h2 {
+  font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.15; margin: 0 0 1.5rem;
+  padding-bottom: .6rem; border-bottom: 4px solid var(--ambra); display: inline-block;
+}
+h3 { font-size: 1.35rem; margin: 2rem 0 .8rem; color: var(--indaco); }
+
+p, li { font-size: 1.12rem; line-height: 1.65; }
+.slide p { max-width: 68ch; }
+
+strong { color: var(--indaco); }
+em.termine { font-style: normal; font-weight: 700; color: var(--viola); }
+
+.grande { font-size: 1.5rem; line-height: 1.5; }
+
+/* ============================================================
+   2. BLOCCHI DI CONTENUTO
+   ============================================================ */
+
+.riquadro {
+  background: var(--carta2); border: 1px solid var(--bordo);
+  border-radius: var(--raggio); padding: 1.6rem 1.8rem; margin: 1.6rem 0;
+  box-shadow: var(--ombra);
+}
+.riquadro > :first-child { margin-top: 0; }
+.riquadro > :last-child  { margin-bottom: 0; }
+
+.definizione { border-left: 6px solid var(--viola); background: #f7f4ff; }
+.attenzione  { border-left: 6px solid var(--ambra); background: #fffaf0; }
+.curiosita   { border-left: 6px solid var(--azzurro); background: #f0faff; }
+.compito     { border-left: 6px solid var(--verde); background: #f0fdf7; }
+
+.riquadro .etichetta {
+  display: inline-block; font-size: .78rem; font-weight: 800;
+  letter-spacing: .12em; text-transform: uppercase;
+  margin-bottom: .7rem; opacity: .8;
+}
+.definizione .etichetta { color: var(--viola); }
+.attenzione  .etichetta { color: #b45309; }
+.curiosita   .etichetta { color: #0369a1; }
+.compito     .etichetta { color: #047857; }
+
+/* --- Griglie --- */
+.colonne  { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; align-items: start; }
+.colonne3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; align-items: start; }
+@media (max-width: 800px) { .colonne, .colonne3 { grid-template-columns: 1fr; } }
+
+/* --- Schede --- */
+.scheda {
+  background: #fff; border: 1px solid var(--bordo); border-radius: var(--raggio);
+  padding: 1.4rem; box-shadow: var(--ombra); transition: transform .18s, box-shadow .18s;
+}
+.scheda:hover { transform: translateY(-3px); box-shadow: var(--ombra-lg); }
+.scheda h3 { margin-top: 0; }
+.scheda .icona { font-size: 2rem; line-height: 1; margin-bottom: .6rem; }
+
+/* --- Tabelle --- */
+table { width: 100%; border-collapse: collapse; margin: 1.4rem 0; background: #fff;
+        border-radius: var(--raggio); overflow: hidden; box-shadow: var(--ombra); }
+th { background: var(--indaco); color: #fff; text-align: left; padding: .85rem 1rem; font-size: 1rem; }
+td { padding: .8rem 1rem; border-top: 1px solid var(--bordo); font-size: 1.05rem; }
+tbody tr:nth-child(even) { background: var(--carta2); }
+
+/* --- Elenchi --- */
+ul.spaziato li, ol.spaziato li { margin-bottom: .8rem; }
+
+ul.passi { list-style: none; padding-left: 0; counter-reset: p; }
+ul.passi li {
+  counter-increment: p; position: relative; padding-left: 3.2rem; margin-bottom: 1.2rem;
+}
+ul.passi li::before {
+  content: counter(p); position: absolute; left: 0; top: -.15rem;
+  width: 2.2rem; height: 2.2rem; border-radius: 50%;
+  background: var(--viola); color: #fff; font-weight: 800;
+  display: grid; place-items: center; font-size: 1.05rem;
+}
+
+/* ============================================================
+   3. COMPONENTI INTERATTIVI
+   ============================================================ */
+
+/* --- Pentagramma --- */
+tac-stave {
+  display: block; background: #fff; border: 1px solid var(--bordo);
+  border-radius: var(--raggio); padding: .8rem 1rem 1rem; margin: 1.4rem 0;
+  box-shadow: var(--ombra); overflow-x: auto;
+}
+tac-stave .tac-didascalia {
+  font-size: .9rem; color: var(--inchiostro2); margin-bottom: .3rem; font-weight: 600;
+}
+tac-stave svg { display: block; max-width: 100%; height: auto; }
+tac-stave .tac-barra { display: flex; gap: .5rem; align-items: center; margin-top: .5rem; flex-wrap: wrap; }
+
+/* --- Griglia di sistemi vuoti per la scrittura a mano --- */
+tac-griglia { display: block; margin: 1.2rem 0; }
+.tac-griglia-riga { display: flex; align-items: flex-start; gap: .5rem;
+                    page-break-inside: avoid; margin-bottom: .2rem; }
+.tac-griglia-num { font-size: .8rem; font-weight: 800; color: var(--inchiostro2);
+                   padding-top: 1.2rem; min-width: 1.2rem; text-align: right; }
+tac-griglia svg { max-width: 100%; height: auto; }
+
+/* --- Pulsanti --- */
+.btn {
+  font-family: inherit; font-size: .98rem; font-weight: 700;
+  padding: .6rem 1.3rem; border-radius: 999px; border: 0; cursor: pointer;
+  background: var(--indaco); color: #fff; transition: transform .12s, filter .12s;
+  display: inline-flex; align-items: center; gap: .45rem;
+}
+.btn:hover { filter: brightness(1.12); transform: translateY(-1px); }
+.btn:active { transform: none; }
+.btn.secondario { background: #fff; color: var(--indaco); border: 2px solid var(--bordo); }
+.btn.ambra { background: var(--ambra); color: #422006; }
+.btn.verde { background: var(--verde); }
+.btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+
+/* --- Tastiera --- */
+tac-piano { display: block; margin: 1.5rem 0; }
+.tac-tastiera { position: relative; display: flex; height: 150px; user-select: none;
+                filter: drop-shadow(0 6px 16px rgba(30,27,58,.18)); }
+.tac-tasto-b {
+  flex: 1 0 auto; width: 46px; background: linear-gradient(#fff, #f2f0f7);
+  border: 1px solid #cfc9e3; border-radius: 0 0 7px 7px; position: relative;
+  cursor: pointer; display: flex; align-items: flex-end; justify-content: center;
+  padding-bottom: .5rem; font-size: .78rem; color: #8d87ab; font-weight: 700;
+}
+.tac-tasto-b:hover { background: #f0ecff; }
+.tac-tasto-b.suona { background: linear-gradient(var(--ambra), #d97706); color: #fff; }
+.tac-tasto-b.evid  { background: linear-gradient(var(--verde), #059669); color: #fff; }
+.tac-tasto-n {
+  position: absolute; width: 30px; height: 92px; background: linear-gradient(#3b3560, #1e1b3a);
+  border-radius: 0 0 5px 5px; cursor: pointer; z-index: 2;
+  display: flex; align-items: flex-end; justify-content: center;
+  padding-bottom: .35rem; font-size: .65rem; color: #b9b3d6; font-weight: 700;
+}
+.tac-tasto-n:hover { background: linear-gradient(#4c4578, #2a2549); }
+.tac-tasto-n.suona { background: linear-gradient(var(--ambra), #b45309); color: #fff; }
+.tac-tasto-n.evid  { background: linear-gradient(var(--verde), #047857); color: #fff; }
+
+/* --- Quiz --- */
+tac-quiz { display: block; margin: 1.6rem 0; }
+.tac-quiz-box {
+  background: #fff; border: 2px solid var(--bordo); border-radius: var(--raggio);
+  padding: 1.6rem 1.8rem; box-shadow: var(--ombra);
+}
+.tac-quiz-testa { display: flex; justify-content: space-between; align-items: center;
+                  margin-bottom: 1rem; gap: 1rem; flex-wrap: wrap; }
+.tac-quiz-conta { font-size: .85rem; font-weight: 800; letter-spacing: .1em;
+                  text-transform: uppercase; color: var(--viola); }
+.tac-quiz-dom { font-size: 1.25rem; font-weight: 700; margin: 0 0 1.2rem; line-height: 1.4; }
+.tac-quiz-opz { display: grid; gap: .7rem; }
+.tac-opz {
+  text-align: left; font-family: inherit; font-size: 1.05rem; padding: .9rem 1.2rem;
+  background: var(--carta2); border: 2px solid var(--bordo); border-radius: 12px;
+  cursor: pointer; transition: all .15s; display: flex; align-items: center; gap: .8rem;
+}
+.tac-opz:hover:not(:disabled) { border-color: var(--viola); background: #f7f4ff; }
+.tac-opz .lettera {
+  width: 1.9rem; height: 1.9rem; flex: 0 0 auto; border-radius: 50%;
+  background: var(--viola); color: #fff; display: grid; place-items: center;
+  font-weight: 800; font-size: .9rem;
+}
+.tac-opz.giusta { border-color: var(--verde); background: #ecfdf5; }
+.tac-opz.giusta .lettera { background: var(--verde); }
+.tac-opz.sbagliata { border-color: var(--rosso); background: #fef2f2; }
+.tac-opz.sbagliata .lettera { background: var(--rosso); }
+.tac-opz:disabled { cursor: default; }
+.tac-feedback { margin-top: 1.1rem; padding: .9rem 1.1rem; border-radius: 10px;
+                font-size: 1rem; line-height: 1.5; display: none; }
+.tac-feedback.mostra { display: block; }
+.tac-feedback.ok { background: #ecfdf5; border-left: 5px solid var(--verde); }
+.tac-feedback.no { background: #fef2f2; border-left: 5px solid var(--rosso); }
+.tac-punteggio {
+  margin-top: 1.2rem; padding: 1.2rem; border-radius: 12px; text-align: center;
+  background: linear-gradient(135deg, var(--indaco), var(--viola)); color: #fff; display: none;
+}
+.tac-punteggio.mostra { display: block; }
+.tac-punteggio .valore { font-size: 2.6rem; font-weight: 800; line-height: 1; }
+
+/* --- Trascina --- */
+tac-drag { display: block; margin: 1.6rem 0; }
+.tac-drag-pool { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1.2rem;
+                 padding: 1rem; background: var(--carta2); border-radius: 12px;
+                 border: 2px dashed var(--bordo); min-height: 4rem; }
+.tac-gettone {
+  padding: .5rem 1.1rem; background: var(--viola); color: #fff; border-radius: 999px;
+  font-weight: 700; cursor: grab; font-size: 1rem; user-select: none;
+}
+.tac-gettone:active { cursor: grabbing; }
+.tac-buca {
+  display: inline-flex; min-width: 8rem; min-height: 2.6rem; align-items: center;
+  justify-content: center; border: 2px dashed var(--viola); border-radius: 999px;
+  background: #fff; padding: .3rem .8rem; margin: 0 .3rem;
+}
+.tac-buca.sopra { background: #f0ecff; border-style: solid; }
+.tac-buca.giusta { border-color: var(--verde); background: #ecfdf5; }
+.tac-buca.sbagliata { border-color: var(--rosso); background: #fef2f2; }
+
+/* --- Ear training --- */
+tac-ear { display: block; margin: 1.6rem 0; }
+
+/* --- Ritmo --- */
+tac-rhythm { display: block; margin: 1.6rem 0; }
+.tac-metro { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+             margin-top: .8rem; font-size: .95rem; }
+.tac-metro input[type=range] { width: 180px; accent-color: var(--viola); }
+.tac-pulsazioni { display: flex; gap: .4rem; }
+.tac-puls { width: 14px; height: 14px; border-radius: 50%; background: var(--bordo); }
+.tac-puls.on { background: var(--ambra); transform: scale(1.4); }
+
+/* ============================================================
+   4. NAVIGAZIONE
+   ============================================================ */
+
+#tac-nav {
+  position: fixed; bottom: 0; left: 0; right: 0; height: 58px; z-index: 100;
+  background: rgba(255,255,255,.92); backdrop-filter: blur(10px);
+  border-top: 1px solid var(--bordo);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 1.2rem; gap: 1rem;
+}
+#tac-nav .gruppo { display: flex; align-items: center; gap: .5rem; }
+#tac-nav button {
+  background: var(--carta2); border: 1px solid var(--bordo); border-radius: 10px;
+  width: 38px; height: 38px; cursor: pointer; font-size: 1.05rem; color: var(--inchiostro);
+  display: grid; place-items: center; transition: background .15s;
+}
+#tac-nav button:hover { background: var(--bordo); }
+#tac-nav button.testo { width: auto; padding: 0 .9rem; font-size: .88rem; font-weight: 700; }
+#tac-nav button.acceso { background: var(--viola); color: #fff; border-color: var(--viola); }
+#tac-conta { font-size: .9rem; font-weight: 700; color: var(--inchiostro2); min-width: 4.5rem;
+             text-align: center; }
+#tac-titolo-corrente { font-size: .88rem; color: var(--inchiostro2); overflow: hidden;
+                       text-overflow: ellipsis; white-space: nowrap; max-width: 34vw; }
+
+#tac-progresso { position: fixed; top: 0; left: 0; height: 4px; z-index: 101;
+                 background: linear-gradient(90deg, var(--viola), var(--ambra));
+                 transition: width .3s; }
+
+/* --- Indice --- */
+#tac-indice {
+  position: fixed; inset: 0; z-index: 200; background: rgba(30,27,58,.96);
+  display: none; padding: 4rem 2rem; overflow-y: auto;
+}
+#tac-indice.aperto { display: block; }
+#tac-indice h2 { color: #fff; border-color: var(--ambra); }
+#tac-indice ol { max-width: 800px; margin: 0 auto; padding: 0; list-style: none; counter-reset: s; }
+#tac-indice li { counter-increment: s; }
+#tac-indice a {
+  display: flex; gap: 1rem; padding: .8rem 1rem; color: #e5e1f5; text-decoration: none;
+  border-radius: 10px; font-size: 1.08rem;
+}
+#tac-indice a:hover { background: rgba(255,255,255,.12); color: #fff; }
+#tac-indice a::before { content: counter(s); color: var(--ambra); font-weight: 800; min-width: 1.8rem; }
+#tac-indice .chiudi { position: absolute; top: 1.5rem; right: 1.5rem; background: none;
+                      border: 0; color: #fff; font-size: 2rem; cursor: pointer; }
+
+/* ============================================================
+   5. DOPPIA VERSIONE — proiezione / studio
+   ============================================================ */
+
+/* Versioni solo per la stampa */
+.tac-quiz-stampa, .tac-drag-stampa { display: none; }
+.puntini { display: inline-block; border-bottom: 1.5px dotted #b8b2d4; min-width: 9rem; }
+.tac-quiz-chiavi { font-size: .9rem; color: var(--inchiostro2); margin-top: 1rem;
+                   border-top: 1px solid var(--bordo); padding-top: .6rem; }
+
+/* Il testo esteso compare solo in modalità studio */
+.studio { display: none; }
+body.modalita-studio .studio { display: block; }
+body.modalita-studio .solo-proiezione { display: none; }
+
+.studio.riquadro { display: none; }
+body.modalita-studio .studio.riquadro { display: block; }
+
+/* In modalità studio le slide scorrono tutte di seguito */
+body.modalita-studio .slide { display: block; min-height: 0; padding: 3rem 4vw;
+                              border-bottom: 2px solid var(--bordo); }
+body.modalita-studio .slide.copertina { display: flex; min-height: 60vh; }
+body.modalita-studio #tac-conta,
+body.modalita-studio #tac-nav .frecce { display: none; }
+
+/* ============================================================
+   6. STAMPA
+   ============================================================ */
+
+@media print {
+  #tac-nav, #tac-indice, #tac-progresso, .tac-barra, .no-stampa { display: none !important; }
+
+  /* I pentagrammi devono rientrare nella larghezza del foglio */
+  tac-stave { overflow: visible !important; page-break-inside: avoid; margin: .9rem 0; }
+  tac-stave svg { max-width: 100% !important; height: auto !important; }
+  img { max-width: 100% !important; height: auto !important; }
+  .esercizio, .blocco > .testa, table { page-break-inside: avoid; }
+  .blocco { page-break-inside: auto; }
+  .quadretto { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body { background: #fff; }
+  .slide { display: block !important; min-height: 0; padding: 1.2rem 0;
+           page-break-inside: avoid; box-shadow: none; }
+  .slide.copertina { background: #fff !important; color: #000; }
+  .slide.copertina h1, .slide.copertina .occhiello { color: #000; }
+  .meta-copertina span { border: 1px solid #999; background: #fff; }
+  .scheda, .riquadro, table, tac-stave { box-shadow: none; }
+  .studio { display: block !important; }
+  a { color: #000; text-decoration: none; }
+  .salto-pagina { page-break-before: always; }
+
+  /* ---------- DISPENSA: la lezione come documento da studiare ---------- */
+  @page { margin: 1.8cm 1.6cm; }
+
+  body.modalita-dispensa { font-size: 11pt; }
+
+  body.modalita-dispensa .slide {
+    padding: 0 0 1.4rem; margin-bottom: 1.4rem;
+    border-bottom: 1px solid #d8d3ea;
+    page-break-inside: auto; page-break-after: auto;
+  }
+  body.modalita-dispensa .slide:last-child { border-bottom: 0; }
+
+  body.modalita-dispensa .slide.copertina {
+    background: #fff !important; color: #000;
+    min-height: 0; padding: 0 0 2rem; margin-bottom: 2rem;
+    border-bottom: 3px solid #4338ca; page-break-after: avoid;
+  }
+  body.modalita-dispensa .slide.copertina h1 { font-size: 24pt; color: #1e1b3a; }
+  body.modalita-dispensa .slide.copertina .occhiello { color: #4338ca; }
+  body.modalita-dispensa .slide.copertina .sottotitolo { font-size: 12pt; color: #4b4670; }
+  body.modalita-dispensa .meta-copertina span {
+    background: #f3f0fb; color: #4b4670; border: 1px solid #e0daf5;
+  }
+
+  body.modalita-dispensa h2 { font-size: 15pt; margin-bottom: .8rem; }
+  body.modalita-dispensa h3 { font-size: 12pt; }
+  body.modalita-dispensa p, body.modalita-dispensa li { font-size: 11pt; line-height: 1.45; }
+  body.modalita-dispensa .grande { font-size: 11.5pt; }
+  body.modalita-dispensa .slide p { max-width: none; }
+  body.modalita-dispensa .riquadro { padding: .9rem 1.1rem; margin: .9rem 0; }
+  body.modalita-dispensa .scheda { padding: .9rem; }
+  body.modalita-dispensa .scheda .icona { display: none; }
+
+  /* Comandi interattivi: fuori dalla dispensa */
+  body.modalita-dispensa tac-piano,
+  body.modalita-dispensa tac-rhythm,
+  body.modalita-dispensa tac-ear,
+  body.modalita-dispensa tac-metro,
+  body.modalita-dispensa .tac-quiz-box,
+  body.modalita-dispensa .tac-drag-pool,
+  body.modalita-dispensa .tac-buca,
+  body.modalita-dispensa .btn { display: none !important; }
+
+  /* Le versioni statiche prendono il loro posto */
+  body.modalita-dispensa .tac-quiz-stampa,
+  body.modalita-dispensa .tac-drag-stampa { display: block; }
+  body.modalita-dispensa tac-drag > div:not(.tac-drag-stampa) { display: none; }
+}
+
+/* ============================================================
+   7. SCHEDE ESERCIZI E VERIFICHE (documenti, non slide)
+   ============================================================ */
+
+body.documento { background: #eceaf5; }
+body.documento .foglio {
+  max-width: 900px; margin: 2rem auto; background: #fff; padding: 3.5rem 4rem;
+  box-shadow: var(--ombra-lg); border-radius: 6px;
+}
+@media print {
+  body.documento { background: #fff; }
+  body.documento .foglio { box-shadow: none; margin: 0; padding: 0; max-width: none; }
+}
+
+.intestazione-scheda {
+  border-bottom: 3px solid var(--indaco); padding-bottom: 1rem; margin-bottom: 2rem;
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem;
+  flex-wrap: wrap;
+}
+.intestazione-scheda h1 { margin: 0; font-size: 1.8rem; }
+.intestazione-scheda .dati { font-size: .9rem; color: var(--inchiostro2); text-align: right; }
+
+.riga-nome { display: flex; gap: 2rem; margin: 1.5rem 0 2.5rem; font-size: 1rem; }
+.riga-nome span { flex: 1; border-bottom: 1.5px solid var(--inchiostro2); padding-bottom: .2rem; }
+
+.esercizio { margin: 2rem 0; page-break-inside: avoid; }
+.esercizio > .titolo-es {
+  font-weight: 800; font-size: 1.1rem; color: var(--indaco);
+  display: flex; align-items: baseline; gap: .7rem; margin-bottom: .7rem;
+}
+.esercizio > .titolo-es .punti {
+  margin-left: auto; font-size: .82rem; font-weight: 700; color: var(--inchiostro2);
+  background: var(--carta2); padding: .2rem .7rem; border-radius: 999px;
+}
+.spazio-risposta { border-bottom: 1.5px dotted #b8b2d4; height: 2.2rem; margin: .5rem 0; }
+
+.soluzioni { background: #f0fdf7; border: 2px solid var(--verde); border-radius: var(--raggio);
+             padding: 1.5rem 1.8rem; margin-top: 3rem; }
+.soluzioni h2 { border-color: var(--verde); font-size: 1.3rem; }
+
+.griglia-valutazione { font-size: .95rem; }
+.griglia-valutazione th { background: var(--inchiostro2); }

@@ -24,8 +24,51 @@
 
   const Audio = TAC.audio = {
     pronto: false,
-    synth: null,
+    synth: null,      /* voce generica, al centro */
+    voci: [],         /* una per parte, con timbro e posizione distinti */
     click: null,
+    tick: null,
+    sampler: null,
+    campionato: false,
+
+    /* I browser aprono il contesto audio in stato sospeso e lo lasciano
+       partire solo dentro un gesto dell'utente. Una catena di await, per
+       quanto breve, esce dal gesto e il permesso decade. Perciò si sblocca
+       al primo tocco sulla pagina, prima e a prescindere da quale pulsante
+       sia stato premuto. */
+    sblocca() {
+      if (this._sbloccato || typeof Tone === 'undefined') return;
+      const tenta = () => {
+        try {
+          let c = Tone.getContext();
+          let g = c && c.rawContext;
+          if (g && g.state !== 'running' && g.resume) g.resume();
+          if (Tone.start) Tone.start();
+
+          /* Se il contesto resta sospeso nonostante resume(), lo si sostituisce
+             con uno nuovo creato qui dentro, cioè dentro il gesto: è il caso in
+             cui il browser rifiuta di riattivare un contesto nato prima che
+             l'utente toccasse la pagina. */
+          if (g && g.state !== 'running' && Tone.setContext && Tone.Context) {
+            try {
+              Tone.setContext(new Tone.Context({ latencyHint: 'interactive' }));
+              c = Tone.getContext(); g = c && c.rawContext;
+              if (g && g.state !== 'running' && g.resume) g.resume();
+              this.pronto = false;   /* la catena va ricostruita sul contesto nuovo */
+              this._strum = {}; this._bus = null; this._tentato = false;
+            } catch (e) { /* si resta con quello di prima */ }
+          }
+          if (g && g.state === 'running') {
+            this._sbloccato = true;
+            ['pointerdown', 'keydown', 'touchstart'].forEach(
+              e => document.removeEventListener(e, tenta, true));
+          }
+        } catch (e) { /* si riprova al gesto successivo */ }
+      };
+      ['pointerdown', 'keydown', 'touchstart'].forEach(
+        e => document.addEventListener(e, tenta, true));
+      this._tenta = tenta;
+    },
 
     async avvia() {
       if (this.pronto) return;
@@ -33,38 +76,187 @@
         console.warn('TAC: Tone.js non caricato, audio disattivato.');
         return;
       }
+      if (this._tenta) this._tenta();
       await Tone.start();
+      const g = Tone.getContext() && Tone.getContext().rawContext;
+      if (g && g.state !== 'running' && g.resume) { try { await g.resume(); } catch (e) {} }
+
+      /* Il suono asciutto va dritto all'uscita. Il riverbero sta su una
+         mandata parallela e viene agganciato solo quando è pronto: in
+         Tone.js deve prima generare la propria risposta all'impulso, e
+         finché non l'ha fatta non lascia passare nulla. Messo sul percorso
+         principale, come avevo fatto, spegne l'audio. */
+      const riv = this._bus = new Tone.Gain(1).toDestination();
+      try {
+        const eco = new Tone.Reverb({ decay: 1.9, preDelay: 0.012, wet: 1 }).toDestination();
+        const mandata = new Tone.Gain(0.22).connect(eco);
+        const aggancia = () => { try { this._bus.connect(mandata); } catch (e) {} };
+        if (eco.ready && eco.ready.then) eco.ready.then(aggancia).catch(() => {});
+        else aggancia();
+      } catch (e) { /* senza riverbero si sente lo stesso */ }
+
+      /* Ripiego sintetico. Ogni parte ha la sua posizione nello spazio e un
+         filtro un po' più chiuso man mano che scende: è quello che permette
+         di distinguere le quattro voci di un quartetto invece di sentirle
+         impastate in un blocco solo. */
+      const POSTI = [-0.45, -0.16, 0.16, 0.45];
+      this.voci = POSTI.map((p, i) => {
+        const pan = new Tone.Panner(p).connect(riv);
+        const flt = new Tone.Filter({ frequency: 3800 - i * 420, type: 'lowpass',
+                                      rolloff: -12 }).connect(pan);
+        const v = new Tone.PolySynth(Tone.Synth, {
+          oscillator: { type: 'fatsawtooth', count: 2, spread: 16 },
+          envelope: { attack: 0.03, decay: 0.3, sustain: 0.45, release: 0.5 }
+        }).connect(flt);
+        v.volume.value = -18 - i * 1.4;
+        return v;
+      });
+
       this.synth = new Tone.PolySynth(Tone.Synth, {
-        oscillator: { type: 'triangle' },
-        envelope: { attack: 0.02, decay: 0.25, sustain: 0.35, release: 0.9 }
+        oscillator: { type: 'fatsawtooth', count: 2, spread: 14 },
+        envelope: { attack: 0.02, decay: 0.28, sustain: 0.4, release: 0.6 }
+      }).connect(riv);
+      this.synth.volume.value = -14;
+
+      /* Il metronomo esce asciutto, fuori dal riverbero: deve stare sopra la
+         musica e restare riconoscibile, non confondersi con essa. */
+      this.click = new Tone.NoiseSynth({
+        noise: { type: 'white' },
+        envelope: { attack: 0.001, decay: 0.02, sustain: 0 }
+      }).connect(new Tone.Filter(2800, 'highpass').toDestination());
+      this.click.volume.value = -13;
+
+      this.tick = new Tone.Synth({
+        oscillator: { type: 'square' },
+        envelope: { attack: 0.001, decay: 0.03, sustain: 0, release: 0.01 }
       }).toDestination();
-      this.synth.volume.value = -9;
-      this.click = new Tone.MembraneSynth({
-        pitchDecay: 0.008, octaves: 4,
-        envelope: { attack: 0.001, decay: 0.18, sustain: 0 }
-      }).toDestination();
-      this.click.volume.value = -6;
+      this.tick.volume.value = -19;
+
       this.pronto = true;
+    },
+
+    /* ---------------------------------------------------------------
+       STRUMENTI VERI, CAMPIONATI
+
+       I campioni vengono dalla raccolta FluidR3 (pubblico dominio) e dal
+       pianoforte Salamander. Si caricano dalla rete solo quando servono:
+       una parte di quartetto costa una ventina di file da 25 KB.
+
+       Se la rete manca resta il ripiego sintetico e la lezione funziona
+       lo stesso — solo con un timbro meno bello.
+       --------------------------------------------------------------- */
+
+    FLUID: 'https://gleitz.github.io/midi-js-soundfonts/FluidR3_GM/',
+
+    /* Attenzione ai nomi: questa raccolta usa i bemolli. Db4 esiste, Cs4 no. */
+    ORGANICI: {
+      tastiera: [{ f: 'salamander', v: -7 }],
+      archi:    [{ f: 'violin', v: -5 }, { f: 'violin', v: -7 },
+                 { f: 'viola',  v: -6 }, { f: 'cello',  v: -4 }],
+      voci:     [{ f: 'choir_aahs', v: -6 }],
+      fiati:    [{ f: 'flute', v: -6 }, { f: 'oboe', v: -7 },
+                 { f: 'clarinet', v: -6 }, { f: 'bassoon', v: -5 }]
+    },
+
+    AMBITI: {
+      violin:     ['G3','Bb3','Db4','E4','G4','Bb4','Db5','E5','G5','Bb5','Db6','E6','G6'],
+      viola:      ['C3','Eb3','Gb3','A3','C4','Eb4','Gb4','A4','C5','Eb5','Gb5','A5','C6'],
+      cello:      ['C2','Eb2','Gb2','A2','C3','Eb3','Gb3','A3','C4','Eb4','Gb4','A4'],
+      choir_aahs: ['C3','Eb3','Gb3','A3','C4','Eb4','Gb4','A4','C5','Eb5','A5'],
+      flute:      ['C4','Eb4','Gb4','A4','C5','Eb5','Gb5','A5','C6','Eb6'],
+      oboe:       ['Bb3','Db4','E4','G4','Bb4','Db5','E5','G5','Bb5'],
+      clarinet:   ['D3','F3','Ab3','B3','D4','F4','Ab4','B4','D5','F5','Ab5'],
+      bassoon:    ['Bb1','Db2','E2','G2','Bb2','Db3','E3','G3','Bb3','Db4']
+    },
+
+    _strum: {},   /* già caricati o in caricamento */
+
+    /* Carica uno strumento e lo restituisce quando è pronto. Il pianoforte
+       ha una raccolta sua, migliore di quella generale. */
+    strumento(nome) {
+      if (this._strum[nome]) return this._strum[nome];
+      if (typeof Tone === 'undefined' || !this._bus) return null;
+
+      let base, urls;
+      if (nome === 'salamander') {
+        base = 'https://tonejs.github.io/audio/salamander/';
+        urls = {};
+        ['A0','C1','D#1','F#1','A1','C2','D#2','F#2','A2','C3','D#3','F#3','A3',
+         'C4','D#4','F#4','A4','C5','D#5','F#5','A5','C6','D#6','F#6','A6','C7']
+          .forEach(n => urls[n] = n.replace('#', 's') + '.mp3');
+      } else {
+        base = this.FLUID + nome + '-mp3/';
+        urls = {};
+        (this.AMBITI[nome] || ['C3','C4','C5']).forEach(n => urls[n] = n + '.mp3');
+      }
+
+      const p = new Promise(risolvi => {
+        try {
+          const sp = new Tone.Sampler({
+            urls, baseUrl: base, release: nome === 'salamander' ? 1.2 : 0.5,
+            onload:  () => { this.campionato = true;
+                             document.dispatchEvent(new CustomEvent('tac-strumento'));
+                             risolvi(sp); },
+            onerror: () => risolvi(null)
+          }).connect(this._bus);
+          setTimeout(() => risolvi(sp.loaded ? sp : null), 6000);
+        } catch (e) { risolvi(null); }
+      });
+      this._strum[nome] = p;
+      return p;
+    },
+
+    /* Prepara tutte le parti di un organico. Restituisce l'elenco degli
+       strumenti pronti, o un elenco vuoto se la rete non ha risposto. */
+    async preparaOrganico(nome) {
+      const spec = this.ORGANICI[nome] || this.ORGANICI.tastiera;
+      const pronti = await Promise.all(spec.map(x => this.strumento(x.f)));
+      pronti.forEach((sp, k) => { if (sp) sp.volume.value = spec[k].v; });
+      return pronti.every(x => x) ? pronti : [];
+    },
+
+    /* Strumento per la parte i-esima */
+    voce(i, organico) {
+      if (organico && organico.length)
+        return organico[Math.min(i, organico.length - 1)];
+      return this.voci[Math.min(i, this.voci.length - 1)] || this.synth;
+    },
+
+    NOMI: { tastiera: 'pianoforte', archi: 'quartetto d\'archi',
+            voci: 'coro', fiati: 'quintetto di fiati' },
+
+    nomeStrumento(organico, pronto) {
+      return pronto ? (this.NOMI[organico] || 'strumenti campionati') : '';
     },
 
     async nota(n, dur = '4n', quando) {
       await this.avvia();
-      this.synth.triggerAttackRelease(n, dur, quando);
+      (this.campionato ? this.sampler : this.synth).triggerAttackRelease(n, dur, quando);
     },
 
     async accordo(note, dur = '2n', quando) {
       await this.avvia();
-      this.synth.triggerAttackRelease(note, dur, quando);
+      (this.campionato ? this.sampler : this.synth).triggerAttackRelease(note, dur, quando);
     },
 
     async metronomo(forte, quando) {
       await this.avvia();
-      this.click.triggerAttackRelease(forte ? 'C3' : 'C2', '16n', quando);
+      if (!this.click) return;
+      this.click.triggerAttackRelease('32n', quando, forte ? 1 : 0.4);
+      this.tick.triggerAttackRelease(forte ? 'A6' : 'D6', '64n', quando, forte ? 0.9 : 0.3);
+    },
+
+    zittisci() {
+      if (this.synth) this.synth.releaseAll();
+      (this.voci || []).forEach(v => v.releaseAll && v.releaseAll());
+      Object.values(this._strum || {}).forEach(p => {
+        if (p && p.then) p.then(sp => sp && sp.releaseAll && sp.releaseAll());
+      });
     },
 
     fermaTutto() {
       if (!this.pronto) return;
-      if (this.synth) this.synth.releaseAll();
+      this.zittisci();
       Tone.Transport.stop();
       Tone.Transport.cancel();
     }
@@ -1099,6 +1291,435 @@
   customElements.define('tac-griglia', TacGriglia);
 
   /* ==========================================================
+     9-quater. <tac-brano> — ASCOLTO DI UN BRANO DI REPERTORIO
+
+     <tac-brano src="audio/A01_mozart_k155.json"
+                titolo="Mozart, Quartetto K155"
+                metronomo></tac-brano>
+
+     Riproduce un estratto di repertorio in pubblico dominio,
+     con controllo di velocità, metronomo opzionale e conta-battute.
+     ========================================================== */
+
+  class TacBrano extends HTMLElement {
+    connectedCallback() {
+      if (this._fatto) return;
+      this._fatto = true;
+      this._src = this.getAttribute('src');
+      const nodoDati = this.querySelector('script[type="application/json"]');
+      this._grezzo = (nodoDati ? nodoDati.textContent : this.textContent).trim();
+      /* le partiture arrivano incorporate: così si possono illuminare battuta
+         per battuta, cosa impossibile con un'immagine esterna */
+      this._parti = [...this.querySelectorAll('figure.tac-part')];
+      this._parti.forEach(x => x.remove());
+      this.textContent = '';
+      this._dati = null;
+      this._suona = false;
+
+      const box = document.createElement('div');
+      box.className = 'tac-brano-box';
+      this.appendChild(box);
+      this._box = box;
+
+      const testa = document.createElement('div');
+      testa.className = 'tac-brano-testa';
+      testa.innerHTML = '<span class="tac-brano-titolo">' +
+        (this.getAttribute('titolo') || 'Ascolto') + '</span>' +
+        '<span class="tac-brano-metro"></span>' +
+        '<span class="tac-brano-str"></span>';
+      box.appendChild(testa);
+
+      const barra = document.createElement('div');
+      barra.className = 'tac-barra no-stampa';
+      this._play = document.createElement('button');
+      this._play.className = 'btn';
+      this._play.innerHTML = '&#9654; Ascolta';
+      this._play.onclick = () => this._suona ? this.ferma() : this.avvia();
+      barra.appendChild(this._play);
+
+      if (this.hasAttribute('metronomo')) {
+        this._metro = document.createElement('button');
+        this._metro.className = 'btn secondario';
+        this._metro.textContent = 'Metronomo: no';
+        this._metro.dataset.on = '0';
+        this._metro.onclick = () => {
+          const on = this._metro.dataset.on === '1' ? '0' : '1';
+          this._metro.dataset.on = on;
+          this._metro.textContent = 'Metronomo: ' + (on === '1' ? 'sì' : 'no');
+          this._metro.classList.toggle('ambra', on === '1');
+        };
+        barra.appendChild(this._metro);
+      }
+      /* Esecuzione reale. Con l'attributo youtube si punta a un video preciso e,
+         se servono, agli attributi da/a per isolare esattamente il passo che ci
+         interessa: il video parte e si ferma dove diciamo noi, senza cercarlo
+         davanti alla classe. Senza youtube si apre la ricerca sul titolo. */
+      const yt = this.getAttribute('youtube');
+      const cerca = this.getAttribute('cerca');
+
+      /* accetta i secondi, oppure mm:ss, oppure h:mm:ss */
+      const istante = v => {
+        if (!v) return null;
+        const p = String(v).trim().split(':').map(parseFloat);
+        if (p.some(isNaN)) return null;
+        return Math.round(p.reduce((t, x) => t * 60 + x, 0));
+      };
+      const da = istante(this.getAttribute('da'));
+      const a  = istante(this.getAttribute('a'));
+
+      if (yt) {
+        /* Il video si apre dentro la slide, perché solo il lettore incorporato
+           accetta un punto di fine: così si sente la sezione che interessa e
+           non il brano intero. Alcuni canali vietano l'incorporamento e
+           restituiscono l'errore 153: accanto c'è sempre il collegamento
+           diretto, che funziona comunque. */
+        const b = document.createElement('button');
+        b.className = 'btn secondario tac-vero';
+        b.innerHTML = '&#9673; Esecuzione reale';
+        b.title = (location.protocol === 'file:')
+          ? 'Da disco si apre in una scheda; dal sito pubblicato si apre qui dentro'
+          : (da !== null ? 'Parte e si ferma sul passo che ci serve'
+                         : 'Ascolta il brano suonato da strumenti veri');
+        b.onclick = () => {
+          if (this._tubo) {
+            const p = this._tubo.parentNode;
+            this._tubo.remove(); this._tubo = null;
+            if (p) p.classList.remove('con-video');
+            b.innerHTML = '&#9673; Esecuzione reale';
+            return;
+          }
+          this.ferma();
+          const q = ['rel=0', 'modestbranding=1', 'playsinline=1'];
+          if (da !== null) q.push('start=' + da);
+          if (a !== null) q.push('end=' + a);
+          const c = document.createElement('div');
+          c.className = 'tac-tubo no-stampa';
+          c.innerHTML =
+            '<iframe src="https://www.youtube-nocookie.com/embed/' +
+            encodeURIComponent(yt) + '?' + q.join('&') + '" allowfullscreen ' +
+            'referrerpolicy="strict-origin-when-cross-origin" title="Esecuzione reale"></iframe>' +
+            '<a class="tac-fuori" target="_blank" rel="noopener" href="' +
+            'https://www.youtube.com/watch?v=' + encodeURIComponent(yt) +
+            (da !== null ? '&t=' + da : '') + '">' +
+            '&#9654;&nbsp; Il video non parte? Aprilo su YouTube &#8599;</a>';
+          const dove = this._schermo
+            ? this._schermo.querySelector('.tac-schermo-corpo')
+            : this._box;
+          if (this._schermo) { dove.classList.add('con-video'); dove.appendChild(c); }
+          else dove.insertBefore(c, this._box.querySelector('.tac-metro') || null);
+          this._tubo = c;
+          b.innerHTML = '&#10005; Chiudi il video';
+        };
+        barra.appendChild(b);
+
+        /* Nessuna etichetta quando la sezione è già decisa: l'informazione
+           serve a me che monto, non a chi guarda. Resta solo il promemoria
+           ambra sui brani ancora da restringere. */
+        if (da === null) {
+          const e = document.createElement('span');
+          e.className = 'tac-passo aperto';
+          e.textContent = 'brano intero — da restringere';
+          barra.appendChild(e);
+        }
+      } else if (cerca) {
+        const b = document.createElement('a');
+        b.className = 'btn secondario tac-vero';
+        b.target = '_blank'; b.rel = 'noopener';
+        b.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(cerca);
+        b.innerHTML = '&#9673; Cerca un\'esecuzione';
+        b.title = 'Apre la ricerca: nessun video ancora fissato per questo brano';
+        barra.appendChild(b);
+      }
+
+      /* Registrazione vera e propria, se ne abbiamo una di libera */
+      const reg = this.getAttribute('registrazione');
+      if (reg) {
+        const a = document.createElement('audio');
+        a.controls = true; a.preload = 'none'; a.src = reg;
+        a.className = 'tac-brano-reg no-stampa';
+        this._reg = a;
+      }
+
+      box.appendChild(barra);
+      if (this._reg) box.appendChild(this._reg);
+
+      /* Sulla slide non va nessuna partitura: non ci sta e non si legge.
+         Resta un pulsante che apre la pagina intera, dove ci sono la
+         partitura completa e tutti i comandi d'ascolto. */
+      if (this._parti.length) {
+        const cont = document.createElement('div');
+        cont.className = 'tac-brano-part';
+        this._parti.forEach(x => { x.hidden = true; cont.appendChild(x); });
+        box.appendChild(cont);
+
+        const t = document.createElement('button');
+        t.className = 'btn tac-tutta';
+        t.innerHTML = '&#9838; Partitura ed esecuzione';
+        t.title = 'Apre la partitura completa con i comandi d\'ascolto';
+        t.onclick = () => this.schermoIntero(t);
+        barra.appendChild(t);
+      }
+
+      /* Compatibilità: partitura come immagine esterna */
+      const part = this._parti.length ? null : this.getAttribute('partitura');
+      if (part) {
+        const fig = document.createElement('figure');
+        fig.className = 'tac-brano-part';
+        const im = document.createElement('img');
+        im.src = part; im.alt = 'Partitura di ' + (this.getAttribute('titolo') || 'questo brano');
+        im.loading = 'lazy';
+        fig.appendChild(im);
+        box.appendChild(fig);
+      }
+
+      const ctrl = document.createElement('div');
+      ctrl.className = 'tac-metro no-stampa';
+      ctrl.innerHTML = '<label>Velocità <input type="range" min="40" max="100" value="100"> ' +
+                       '<strong class="perc">100</strong>%</label>';
+      box.appendChild(ctrl);
+      this._range = ctrl.querySelector('input');
+      this._range.oninput = () => ctrl.querySelector('.perc').textContent = this._range.value;
+
+      const puls = document.createElement('div');
+      puls.className = 'tac-pulsazioni';
+      /* subito sotto il titolo: è la prima cosa che l'occhio cerca quando
+         la musica parte, e in fondo al lettore non si vedeva */
+      box.insertBefore(puls, testa.nextSibling);
+      this._puls = puls;
+
+      const prepara = d => {
+        this._dati = d;
+        testa.querySelector('.tac-brano-metro').textContent = d.metro + ' · ' + d.battute + ' battute';
+        const n = parseInt(d.metro.split('/')[0], 10) || 4;
+        this._perBattuta = (d.metro === '6/8') ? 2 : ((d.metro === '9/8') ? 3 : n);
+        for (let i = 0; i < this._perBattuta; i++) {
+          const p = document.createElement('div');
+          p.className = 'tac-puls';
+          puls.appendChild(p);
+        }
+      };
+
+      /* I dati stanno dentro l'elemento: così la lezione funziona anche
+         aperta da disco, dove il browser blocca il caricamento dei file. */
+      if (this._grezzo) {
+        try { prepara(JSON.parse(this._grezzo)); }
+        catch (e) { testa.querySelector('.tac-brano-metro').textContent = 'dati non validi'; }
+      } else if (this._src && typeof fetch === 'function') {
+        fetch(this._src).then(r => r.json()).then(prepara)
+          .catch(() => testa.querySelector('.tac-brano-metro').textContent = 'audio non trovato');
+      } else {
+        testa.querySelector('.tac-brano-metro').textContent = 'nessun dato';
+      }
+    }
+
+    async avvia() {
+      if (!this._dati) return;
+      await Audio.avvia();
+      if (!Audio.pronto) {
+        const e = this._box.querySelector('.tac-brano-str');
+        if (e) { e.textContent = 'audio bloccato dal browser — riclicca'; e.classList.remove('vero'); }
+        return;
+      }
+      this.ferma();
+
+      /* L'organico giusto per questo brano: gli archi per un quartetto, il
+         coro per un corale. Si scarica alla prima esecuzione e poi resta. */
+      const org = this.getAttribute('organico') || 'tastiera';
+      const et = this._box.querySelector('.tac-brano-str');
+      const spec = Audio.ORGANICI[org] || [];
+      if (et && spec[0] && !Audio._strum[spec[0].f]) {
+        et.textContent = 'carico gli strumenti…'; et.classList.remove('vero');
+      }
+      this._play.disabled = true;
+      const strumenti = await Audio.preparaOrganico(org);
+      this._play.disabled = false;
+
+      /* L'etichetta dichiara l'organico solo quando i campioni sono arrivati.
+         Se la rete manca si suona in sintetico e non si dice niente: è un
+         ripiego, non un'informazione che serva a chi sta seguendo. */
+      if (et) {
+        const ok = strumenti.length > 0;
+        et.textContent = ok ? Audio.nomeStrumento(org, true) : '';
+        et.classList.toggle('vero', ok);
+      }
+
+      const d = this._dati;
+      const fatt = parseInt(this._range.value, 10) / 100;
+      const bpm = d.bpm * fatt;
+      const secQuarto = 60 / bpm;
+      /* Programmare le note direttamente sugli strumenti le rende
+         inarrestabili: una volta in coda partono comunque. Sul Transport
+         invece si cancellano tutte in un colpo, ed è quello che deve fare
+         il pulsante Ferma. */
+      Tone.Transport.stop();
+      Tone.Transport.cancel();
+      Tone.Transport.position = 0;
+      const t0 = 0.15;
+      this._suona = true;
+      this._play.innerHTML = '&#9632; Ferma';
+
+      /* le note del brano */
+      this._id = [];
+      d.voci.forEach((voce, iv) => {
+        const str = Audio.voce(iv, strumenti);
+        /* la parte superiore un poco più in luce delle interne */
+        const forza = iv === 0 ? 0.8 : (iv === d.voci.length - 1 ? 0.6 : 0.42);
+        voce.forEach(([off, dur, midi]) => {
+          const q = Tone.Frequency(midi, 'midi').toNote();
+          Tone.Transport.scheduleOnce(
+            t => str.triggerAttackRelease(q, dur * secQuarto * 0.94, t, forza),
+            t0 + off * secQuarto);
+        });
+      });
+
+      /* metronomo e conta-battute */
+      const quartiPerPuls = (d.metro === '6/8' || d.metro === '9/8') ? 1.5 : 1;
+      const durata = Math.max(...d.voci.flat().map(e => e[0] + e[1]));
+      const nPuls = Math.ceil(durata / quartiPerPuls);
+      const conMetro = this._metro && this._metro.dataset.on === '1';
+      for (let i = 0; i < nPuls; i++) {
+        const quando = t0 + i * quartiPerPuls * secQuarto;
+        const forte = (i % this._perBattuta) === 0;
+        const k = i % this._perBattuta;
+        Tone.Transport.scheduleOnce(t => {
+          if (conMetro) Audio.metronomo(forte, t);
+          Tone.Draw.schedule(() => {
+            [...this._puls.children].forEach((p, j) => p.classList.toggle('on', j === k));
+          }, t);
+        }, quando);
+      }
+      /* la battuta in corso si accende: è il ponte fra ascolto e lettura */
+      const quartiPerBattuta = this._perBattuta * quartiPerPuls;
+      const nBattute = Math.ceil(durata / quartiPerBattuta);
+      for (let k = 0; k < nBattute; k++) {
+        Tone.Transport.scheduleOnce(
+          t => Tone.Draw.schedule(() => this.illumina(k), t),
+          t0 + k * quartiPerBattuta * secQuarto);
+      }
+
+      Tone.Transport.scheduleOnce(
+        t => Tone.Draw.schedule(() => this.ferma(), t),
+        t0 + durata * secQuarto + 0.6);
+
+      Tone.Transport.start();
+    }
+
+    /* La partitura intera a tutta pagina: sulla slide non si leggerebbe.
+       Il brano si può avviare da dentro, così si segue mentre suona. */
+    schermoIntero(bottone) {
+      if (this._schermo) { this.chiudiSchermo(); return; }
+      const fig = this._parti[this._parti.length - 1];   /* la partitura intera */
+
+      const ov = document.createElement('div');
+      ov.className = 'tac-schermo no-stampa';
+
+      const testa = document.createElement('div');
+      testa.className = 'tac-schermo-testa';
+      const tit = document.createElement('strong');
+      tit.textContent = this.getAttribute('titolo') || 'Partitura';
+      testa.appendChild(tit);
+
+      /* I comandi non si duplicano: si spostano qui e poi tornano al loro
+         posto. Così il comportamento è identico e non c'è nulla da tenere
+         allineato fra due copie. */
+      const barra = this._box.querySelector('.tac-barra');
+      const tempo = this._box.querySelector('.tac-metro');
+      const puls  = this._box.querySelector('.tac-pulsazioni');
+      this._tornano = [];
+      [barra, tempo].forEach(el => {
+        if (el) { this._tornano.push([el, el.parentNode]); testa.appendChild(el); }
+      });
+
+      /* I pallini stanno in alto, sotto la testata: durante l'esecuzione
+         l'occhio è sulla partitura e il conta-battute deve restare nel
+         campo visivo, non ai piedi della pagina. */
+      const cima = document.createElement('div');
+      cima.className = 'tac-schermo-conta';
+      if (puls) { this._tornano.push([puls, puls.parentNode]); cima.appendChild(puls); }
+
+      const corpo = document.createElement('div');
+      corpo.className = 'tac-schermo-corpo';
+      fig.hidden = false;
+      corpo.appendChild(fig);
+      if (puls) { this._tornano.push([puls, puls.parentNode]); }
+
+      const piede = document.createElement('div');
+      piede.className = 'tac-schermo-piede';
+      const chiudi = document.createElement('button');
+      chiudi.className = 'btn secondario';
+      chiudi.innerHTML = '&#10005; Chiudi  (Esc)';
+      chiudi.onclick = () => this.chiudiSchermo();
+      piede.appendChild(chiudi);
+
+      ov.appendChild(testa); ov.appendChild(cima);
+      ov.appendChild(corpo); ov.appendChild(piede);
+      document.body.appendChild(ov);
+      document.body.classList.add('con-schermo');
+      this._schermo = ov;
+      this._tastoTutta = bottone;
+      this._esc = e => { if (e.key === 'Escape') { e.stopPropagation(); this.chiudiSchermo(); } };
+      document.addEventListener('keydown', this._esc, true);
+    }
+
+    chiudiSchermo() {
+      if (!this._schermo) return;
+      this.ferma();
+      if (this._tubo) {
+        const p = this._tubo.parentNode;
+        this._tubo.remove(); this._tubo = null;
+        if (p) p.classList.remove('con-video');
+      }
+      const fig = this._parti[this._parti.length - 1];
+      fig.hidden = true;
+      this._box.querySelector('.tac-brano-part').appendChild(fig);
+      (this._tornano || []).forEach(([el, casa]) => { if (casa) casa.appendChild(el); });
+      this._tornano = [];
+      this._schermo.remove(); this._schermo = null;
+      document.body.classList.remove('con-schermo');
+      document.removeEventListener('keydown', this._esc, true);
+    }
+
+    /* Le battute visibili nella partitura attualmente mostrata */
+    misure() {
+      const f = (this._parti || []).find(x => !x.hidden);
+      return f ? [...f.querySelectorAll('.measure')] : [];
+    }
+
+    illumina(k) {
+      const m = this.misure();
+      if (!m.length) return;
+      m.forEach(x => x.classList.remove('suona'));
+      if (m[k]) {
+        m[k].classList.add('suona');
+        if (m[k].scrollIntoView) {
+          const c = m[k].closest('.tac-brano-part');
+          if (c && c.scrollWidth > c.clientWidth) {
+            const r = m[k].getBoundingClientRect(), rc = c.getBoundingClientRect();
+            if (r.right > rc.right || r.left < rc.left)
+              c.scrollLeft += r.left - rc.left - rc.width / 3;
+          }
+        }
+      }
+    }
+
+    ferma() {
+      if (typeof Tone !== 'undefined' && Tone.Transport) {
+        Tone.Transport.stop();
+        Tone.Transport.cancel();      /* toglie dalla coda tutto il resto */
+        if (Tone.Draw && Tone.Draw.cancel) Tone.Draw.cancel();
+      }
+      this.misure().forEach(x => x.classList.remove('suona'));
+      (this._id || []).forEach(clearTimeout);
+      this._id = [];
+      Audio.zittisci();
+      [...this._puls.children].forEach(p => p.classList.remove('on'));
+      this._suona = false;
+      if (this._play) this._play.innerHTML = '&#9654; Ascolta';
+    }
+  }
+  customElements.define('tac-brano', TacBrano);
+
+  /* ==========================================================
      10. NAVIGAZIONE DELLE SLIDE
      ========================================================== */
 
@@ -1114,7 +1735,24 @@
       if (!this.slides.length) return;
       this._avviato = true;
 
+      if (TAC.audio && TAC.audio.sblocca) TAC.audio.sblocca();
+
+      this.etichettaAree();
       this.costruisciNav();
+
+      const av = document.createElement('div');
+      av.id = 'tac-densita'; av.className = 'no-stampa';
+      document.body.appendChild(av);
+
+      window.addEventListener('resize', () => this.adatta());
+      if (typeof ResizeObserver === 'function') {
+        this._ro = new ResizeObserver(() => this.adatta());
+        this.slides.forEach(sl => {
+          const d = sl.querySelector('.slide-interna');
+          if (d) this._ro.observe(d);
+        });
+      }
+      document.addEventListener('tac-strumento', () => this.aggiornaStrumento());
       this.costruisciIndice();
 
       const salvata = parseInt(location.hash.replace('#s', ''), 10);
@@ -1127,7 +1765,29 @@
         else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); this.indietro(); }
         else if (e.key === 'Home') this.vai(0);
         else if (e.key === 'End') this.vai(this.slides.length - 1);
+        else if (e.key === 'r' || e.key === 'R') document.body.classList.toggle('regia');
         else if (e.key === 'Escape') document.getElementById('tac-indice').classList.remove('aperto');
+      });
+    },
+
+    /* Quando arriva il pianoforte campionato, i lettori lo dichiarano */
+    aggiornaStrumento() { /* ogni lettore dichiara il proprio organico da sé */ },
+
+    /* Antepone a ogni slide l'etichetta dell'area di appartenenza */
+    etichettaAree() {
+      const NOMI = { perc: 'Esperienza percettiva',
+                     off:  'Officina compositiva',
+                     anal: 'Indagine analitica' };
+      this.slides.forEach(s => {
+        if (s.classList.contains('copertina')) return;
+        const chiave = ['perc', 'off', 'anal'].find(k => s.classList.contains(k));
+        if (!chiave) return;
+        const dentro = s.querySelector('.slide-interna') || s;
+        if (dentro.querySelector('.tac-area')) return;
+        const e = document.createElement('span');
+        e.className = 'tac-area';
+        e.textContent = NOMI[chiave];
+        dentro.insertBefore(e, dentro.firstChild);
       });
     },
 
@@ -1159,6 +1819,11 @@
       nav.querySelector('#tac-prec').onclick = () => this.indietro();
       nav.querySelector('#tac-succ').onclick = () => this.avanti();
       nav.querySelector('#tac-stampa').onclick = () => {
+        /* piè di pagina: titolo della lezione, al posto di quello del browser */
+        const cop = document.querySelector('.slide.copertina');
+        const tit = cop ? (cop.querySelector('h1') || {}).textContent : document.title;
+        const occ = cop ? (cop.querySelector('.occhiello') || {}).textContent : '';
+        document.body.dataset.piede = [occ, tit].filter(Boolean).join('  ·  ');
         document.body.classList.add('modalita-dispensa');
         const ripristina = () => {
           document.body.classList.remove('modalita-dispensa');
@@ -1204,6 +1869,55 @@
       document.body.appendChild(ind);
     },
 
+    /* Fa entrare la slide nella finestra: prima scala il palco sulle
+       proporzioni dello schermo, poi — solo se il contenuto eccede — lo
+       rimpicciolisce in blocco. Sotto una certa soglia non comprime più:
+       accende un avviso in regia, perché quella slide va sdoppiata. */
+    adatta() {
+      const s = this.slides[this.i];
+      if (!s || document.body.classList.contains('modalita-studio')
+             || document.body.classList.contains('modalita-dispensa')) return;
+
+      const prop0 = window.innerWidth / window.innerHeight;
+      document.documentElement.style.setProperty('--palco-l',
+        Math.max(1100, Math.min(2000, Math.round(720 * prop0))) + 'px');
+
+      const dentro = s.querySelector('.slide-interna');
+      let troppa = false;
+      if (dentro && !s.classList.contains('copertina')) {
+        dentro.style.setProperty('--adatta', 1);
+        void dentro.offsetHeight;
+        const cs = getComputedStyle(s);
+        const spazio = s.clientHeight - parseFloat(cs.paddingTop)
+                       - parseFloat(cs.paddingBottom) - 8;
+        const alto = dentro.scrollHeight;
+        if (alto > spazio + 1) {
+          const r = spazio / alto;
+          /* si comprime fin dove resta leggibile; sotto, meglio l'avviso */
+          dentro.style.setProperty('--adatta', Math.max(0.58, r));
+          troppa = r < 0.74;
+        }
+      }
+
+      /* Il palco prende le proporzioni della finestra invece di restare
+         inchiodato al 16:9: su uno schermo più largo o più alto niente
+         bande vuote ai lati, si usa tutta la superficie disponibile. */
+      const prop = window.innerWidth / window.innerHeight;
+      const larg = Math.max(1100, Math.min(2000, Math.round(720 * prop)));
+      document.documentElement.style.setProperty('--palco-l', larg + 'px');
+
+      const k = Math.min(window.innerWidth / s.offsetWidth,
+                         window.innerHeight / s.offsetHeight);
+      document.documentElement.style.setProperty('--k', k);
+
+      /* margine di sicurezza: meglio un filo di respiro che una cornice al limite */
+      const av = document.getElementById('tac-densita');
+      if (av) {
+        av.classList.toggle('acceso', troppa);
+        av.textContent = 'slide troppo carica — conviene sdoppiarla';
+      }
+    },
+
     vai(n) {
       if (document.body.classList.contains('modalita-studio')) return;
       this.i = Math.max(0, Math.min(n, this.slides.length - 1));
@@ -1213,6 +1927,10 @@
         cur.dataset.titolo || (cur.querySelector('h1,h2') || {}).textContent || '';
       document.getElementById('tac-progresso').style.width =
         ((this.i + 1) / this.slides.length * 100) + '%';
+      this.adatta();
+      /* i pentagrammi e le partiture arrivano dopo: si rimisura */
+      clearTimeout(this._t1); this._t1 = setTimeout(() => this.adatta(), 260);
+      clearTimeout(this._t2); this._t2 = setTimeout(() => this.adatta(), 900);
       try { history.replaceState(null, '', '#s' + this.i); } catch (e) { /* alcuni contesti file:// */ }
       window.scrollTo(0, 0);
     },

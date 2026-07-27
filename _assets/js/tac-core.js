@@ -1823,9 +1823,9 @@
       av.id = 'tac-densita'; av.className = 'no-stampa';
       document.body.appendChild(av);
 
-      window.addEventListener('resize', () => this.adatta());
+      window.addEventListener('resize', () => this.adatta(true));
       if (typeof ResizeObserver === 'function') {
-        this._ro = new ResizeObserver(() => this.adatta());
+        this._ro = new ResizeObserver(() => this.adatta(true));
         this.slides.forEach(sl => {
           const d = sl.querySelector('.slide-interna');
           if (d) this._ro.observe(d);
@@ -1952,7 +1952,39 @@
        proporzioni dello schermo, poi — solo se il contenuto eccede — lo
        rimpicciolisce in blocco. Sotto una certa soglia non comprime più:
        accende un avviso in regia, perché quella slide va sdoppiata. */
-    adatta() {
+    /* Quanto sta stretta ogni slide, misurata davvero.
+
+       Le slide inattive non sono disegnate, quindi non si possono misurare
+       così come sono: si accendono una alla volta, invisibili e fuori dal
+       flusso, il tempo di leggere l'altezza del contenuto. */
+    misuraTutte() {
+      const r = document.documentElement;
+      const prima = r.style.getPropertyValue('--adatta');
+      r.style.setProperty('--adatta', 1);
+      let minimo = 1;
+      this.carichi = [];
+      this.slides.forEach((s, k) => {
+        const dentro = s.querySelector('.slide-interna');
+        if (!dentro || s.classList.contains('copertina')) return;
+        const attiva = s.classList.contains('attiva');
+        if (!attiva) s.classList.add('misura');
+        void dentro.offsetHeight;
+        const cs = getComputedStyle(s);
+        const spazio = s.clientHeight - parseFloat(cs.paddingTop)
+                       - parseFloat(cs.paddingBottom) - 8;
+        const alto = dentro.scrollHeight;
+        if (!attiva) s.classList.remove('misura');
+        if (alto > spazio + 1) {
+          const q = spazio / alto;
+          minimo = Math.min(minimo, q);
+          this.carichi.push({ n: k, titolo: s.dataset.titolo, scala: +q.toFixed(3) });
+        }
+      });
+      if (prima) r.style.setProperty('--adatta', prima);
+      return Math.max(0.58, minimo);
+    },
+
+    adatta(rimisura) {
       const s = this.slides[this.i];
       if (!s || document.body.classList.contains('modalita-studio')
              || document.body.classList.contains('modalita-dispensa')) return;
@@ -1961,22 +1993,22 @@
       document.documentElement.style.setProperty('--palco-l',
         Math.max(1100, Math.min(2000, Math.round(720 * prop0))) + 'px');
 
-      const dentro = s.querySelector('.slide-interna');
-      let troppa = false;
-      if (dentro && !s.classList.contains('copertina')) {
-        dentro.style.setProperty('--adatta', 1);
-        void dentro.offsetHeight;
-        const cs = getComputedStyle(s);
-        const spazio = s.clientHeight - parseFloat(cs.paddingTop)
-                       - parseFloat(cs.paddingBottom) - 8;
-        const alto = dentro.scrollHeight;
-        if (alto > spazio + 1) {
-          const r = spazio / alto;
-          /* si comprime fin dove resta leggibile; sotto, meglio l'avviso */
-          dentro.style.setProperty('--adatta', Math.max(0.58, r));
-          troppa = r < 0.74;
-        }
-      }
+      /* La scala non si tocca: è sempre 1, uguale su tutte le slide.
+
+         Prima veniva calcolata slide per slide, e quelle piene venivano
+         rimpicciolite mentre le leggere restavano intere: nella lezione 1
+         si passava da 1 sulla giga a 0,66 sul C. P. E. Bach, e il corpo
+         del testo cambiava a ogni passaggio. Chi guarda non pensa «questa
+         slide è più carica», pensa che la presentazione sia fatta male.
+
+         La misura resta, ma non serve più a rimpicciolire: serve a dire
+         quali slide non ci stanno, perché quelle vanno sdoppiate. È una
+         diagnosi, non un rimedio — il rimedio è scrivere meno per pagina.
+         L'elenco è in TAC.deck.carichi. */
+      if (rimisura || this._scala == null) this.misuraTutte();
+      this._scala = 1;
+      document.documentElement.style.setProperty('--adatta', 1);
+      const troppa = (this.carichi || []).length > 0;
 
       /* Il palco prende le proporzioni della finestra invece di restare
          inchiodato al 16:9: su uno schermo più largo o più alto niente
@@ -1992,8 +2024,15 @@
       /* margine di sicurezza: meglio un filo di respiro che una cornice al limite */
       const av = document.getElementById('tac-densita');
       if (av) {
+        const c = this.carichi || [];
         av.classList.toggle('acceso', troppa);
-        av.textContent = 'slide troppo carica — conviene sdoppiarla';
+        av.textContent = c.length
+          ? (c.length === 1 ? 'slide ' : 'slide ') + c.map(x => x.n + 1).join(', ')
+            + (c.length === 1 ? ' non ci sta: va sdoppiata'
+                              : ' non ci stanno: vanno sdoppiate')
+          : '';
+        av.title = c.map(x => (x.n + 1) + '. ' + x.titolo +
+                              '  (serve il ' + Math.round(100 / x.scala) + '% dello spazio)').join('\n');
       }
     },
 
@@ -2009,7 +2048,7 @@
       this.adatta();
       /* i pentagrammi e le partiture arrivano dopo: si rimisura */
       clearTimeout(this._t1); this._t1 = setTimeout(() => this.adatta(), 260);
-      clearTimeout(this._t2); this._t2 = setTimeout(() => this.adatta(), 900);
+      clearTimeout(this._t2); this._t2 = setTimeout(() => this.adatta(true), 900);
       try { history.replaceState(null, '', '#s' + this.i); } catch (e) { /* alcuni contesti file:// */ }
       window.scrollTo(0, 0);
     },

@@ -74,6 +74,15 @@ html, body {
 }
 .slide.attiva { display: block; }
 
+/* Solo per misurare: la slide viene disegnata — è l'unico modo per sapere
+   quanto è alto il suo contenuto — ma resta invisibile e fuori dal flusso,
+   così non si vede nulla lampeggiare e non sposta niente. */
+.slide.misura {
+  display: block; visibility: hidden;
+  position: absolute; top: 0; left: 0;
+  animation: none; pointer-events: none;
+}
+
 @keyframes entra { from { opacity: 0 } to { opacity: 1 } }
 
 /* Se il contenuto eccede l'altezza del palco viene rimpicciolito in blocco

@@ -960,7 +960,22 @@ body.modalita-studio .tac-brano-part figure[data-quale="incipit"] svg,
   background-size: cover; background-position: center;
   opacity: .55; mix-blend-mode: screen;
 }
+/* Le due copertine si escludono: astratta e foto usano lo stesso ::before,
+   e chi arriva dopo nel foglio vince. Se per errore una slide porta
+   entrambe le classi, questa regola fa prevalere la fotografia e spegne le
+   linee melodiche, che sopra un'immagine schiariscono tutto e rendono il
+   testo illeggibile. */
+.slide.copertina.astratta.foto::before {
+  inset: 0;
+  background: linear-gradient(103deg,
+              rgba(8, 6, 24, .95) 0%,  rgba(8, 6, 24, .92) 30%,
+              rgba(8, 6, 24, .84) 46%, rgba(8, 6, 24, .52) 62%,
+              rgba(8, 6, 24, .26) 82%, rgba(8, 6, 24, .16) 100%);
+}
+.slide.copertina.astratta.foto::after { display: none; }
+
 .slide.copertina .slide-interna { position: relative; z-index: 1; }
+.slide.copertina.foto .slide-interna { z-index: 2; }
 
 .aforisma {
   margin: 1.6rem 0 1.4rem; padding: 0 0 0 1.2rem;

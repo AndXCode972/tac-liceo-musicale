@@ -1207,3 +1207,24 @@ body.modalita-dispensa figure.figura .fonte { display: block; }
 }
 .tac-schermo-corpo.con-video > figure.tac-part { min-width: 0; }
 .tac-schermo-corpo.con-video .tac-tubo { position: sticky; top: 0; margin: 0; }
+
+/* ------------------------------------------------------------
+   CORREZIONI AL VOLO
+   I due pulsanti compaiono solo in regia (tasto R): agli studenti
+   non servono e su un sito statico non cambierebbero niente per
+   loro, visto che le correzioni restano nel browser di chi le fa.
+   ------------------------------------------------------------ */
+#tac-nav .solo-regia { display: none; }
+body.regia #tac-nav .solo-regia { display: inline-block; }
+
+body.in-correzione [contenteditable="true"] {
+  outline: 1px dashed rgba(124, 58, 237, .45);
+  outline-offset: 3px; border-radius: 4px; cursor: text;
+}
+body.in-correzione [contenteditable="true"]:focus {
+  outline: 2px solid var(--viola); background: #faf7ff;
+}
+/* Un segno discreto accanto a quello che hai riscritto, così sai
+   sempre che cosa si scosta dalla lezione pubblicata. */
+body.regia .corretto { box-shadow: -4px 0 0 -1px var(--viola); }
+@media print { .corretto { box-shadow: none; } }

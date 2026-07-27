@@ -1837,20 +1837,29 @@
        quanto si è consumato della battuta, da 0 a 1. */
     cursore(k, quota) {
       const m = this.misure();
-      let l = this._box.querySelector('.tac-cursore');
-      if (k === null || k < 0 || !m[k]) { if (l) l.style.display = 'none'; return; }
-      const box = m[k].closest('svg');
-      if (!box) return;
+      /* Il contenitore è quello che scorre, non l'SVG: dentro la partitura
+         Verovio annida più <svg> uno nell'altro, e appendere lì la linea
+         significa cercarla poi in un posto diverso da dove sta. Al primo
+         tentativo ne nasceva una nuova a ogni battuta e nessuna si
+         spostava. Si usano gli stessi due contenitori che l'illuminazione
+         usa già per scorrere. */
+      const dentro = (k !== null && k >= 0 && m[k])
+        ? m[k].closest('.tac-schermo-corpo, .tac-brano-part') : null;
+      if (!dentro) {
+        document.querySelectorAll('.tac-cursore').forEach(x => { x.style.display = 'none'; });
+        return;
+      }
+      let l = dentro.querySelector(':scope > .tac-cursore');
       if (!l) {
         l = document.createElement('div');
         l.className = 'tac-cursore no-stampa';
-        (box.parentNode || this._box).appendChild(l);
+        dentro.appendChild(l);
       }
-      const cont = l.parentNode.getBoundingClientRect();
+      const cont = dentro.getBoundingClientRect();
       const r = m[k].getBoundingClientRect();
       l.style.display = 'block';
-      l.style.left = (r.left - cont.left + r.width * (quota || 0)) + 'px';
-      l.style.top = (r.top - cont.top) + 'px';
+      l.style.left = (r.left - cont.left + dentro.scrollLeft + r.width * (quota || 0)) + 'px';
+      l.style.top = (r.top - cont.top + dentro.scrollTop) + 'px';
       l.style.height = r.height + 'px';
     }
 

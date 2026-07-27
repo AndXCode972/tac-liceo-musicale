@@ -1596,6 +1596,9 @@
         const ok = strumenti.length > 0;
         et.textContent = ok ? Audio.nomeStrumento(org, true) : '';
         et.classList.toggle('vero', ok);
+        /* L'icona dell'organico accanto al nome. Chi guarda da lontano vede
+           un violino o un pianoforte prima di leggere la scritta. */
+        if (ok) et.dataset.org = org; else delete et.dataset.org;
       }
 
       const d = this._dati;

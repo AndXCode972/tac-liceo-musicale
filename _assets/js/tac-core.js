@@ -1802,6 +1802,112 @@
   customElements.define('tac-brano', TacBrano);
 
   /* ==========================================================
+     9-bis. CORREZIONI AL VOLO
+     ----------------------------------------------------------
+     Il sito è statico: non c'è nessun server a cui mandare un testo
+     riscritto. Le correzioni restano quindi nel browser di chi le fa,
+     e servono a quello per cui nascono davvero: accorgersi di una frase
+     storta cinque minuti prima di entrare in classe e sistemarla senza
+     dover ricostruire e ripubblicare la lezione. Gli studenti continuano
+     a vedere il testo pubblicato.
+
+     Il punto delicato è agganciare una correzione al pezzo giusto di
+     pagina. La posizione da sola non basta: se un giorno la lezione viene
+     rifatta e una frase si sposta, la correzione finirebbe addosso a
+     un'altra. Perciò accanto al testo nuovo si conserva anche quello
+     vecchio, e al caricamento la correzione si applica solo se il testo
+     di partenza è ancora quello. Se non lo è, la si lascia perdere: meglio
+     perdere una correzione che sporcare una frase estranea.
+     ========================================================== */
+
+  const Correzioni = TAC.correzioni = {
+    CHIAVE: 'tac-correzioni:' + location.pathname,
+    /* Si correggono i testi scritti a mano. Fuori restano quelli generati
+       dai componenti, che a ogni ridisegno tornerebbero come prima. */
+    SCELTA: 'h1, h2, h3, p, li, figcaption, cite, .etichetta',
+    dati: {},
+    acceso: false,
+
+    leggi() {
+      try { this.dati = JSON.parse(localStorage.getItem(this.CHIAVE) || '{}'); }
+      catch (e) { this.dati = {}; }
+      return this.dati;
+    },
+    scrivi() {
+      try { localStorage.setItem(this.CHIAVE, JSON.stringify(this.dati)); }
+      catch (e) { /* spazio esaurito o navigazione privata: pazienza */ }
+    },
+
+    /* Tutti i testi correggibili, nell'ordine in cui stanno nella pagina.
+       L'indice in questo elenco è la chiave della correzione. */
+    elementi() {
+      const COMP = 'tac-stave, tac-brano, tac-quiz, tac-drag, tac-ear, ' +
+                   'tac-rhythm, tac-metro, tac-griglia, tac-piano';
+      const dentroUnComponente = e => !!e.closest(COMP + ', .tac-barra, #tac-nav, #tac-indice');
+      const contieneUnComponente = e => !!e.querySelector(COMP);
+      const sel = '.slide ' + this.SCELTA.split(', ').join(', .slide ');
+      return Array.prototype.filter.call(document.querySelectorAll(sel),
+        e => !dentroUnComponente(e) && !contieneUnComponente(e));
+    },
+
+    applica() {
+      const d = this.leggi();
+      if (!Object.keys(d).length) return;
+      const el = this.elementi();
+      let messe = 0, saltate = 0;
+      Object.keys(d).forEach(k => {
+        const e = el[+k], c = d[k];
+        if (!e) { saltate++; return; }
+        if (e.innerHTML.trim() !== c.prima) { saltate++; return; }
+        e.innerHTML = c.dopo;
+        e.classList.add('corretto');
+        messe++;
+      });
+      if (saltate) console.info('TAC: %d correzioni applicate, %d scartate ' +
+        'perché il testo di partenza è cambiato.', messe, saltate);
+    },
+
+    commuta() {
+      this.acceso = !this.acceso;
+      document.body.classList.toggle('in-correzione', this.acceso);
+      const el = this.elementi();
+      el.forEach((e, k) => {
+        if (!this.acceso) { e.removeAttribute('contenteditable'); return; }
+        e.setAttribute('contenteditable', 'true');
+        e.spellcheck = true;
+        if (e.dataset.corrIniz === undefined) e.dataset.corrIniz = e.innerHTML.trim();
+        e.dataset.corrK = k;
+        e.addEventListener('blur', this._chiudi);
+      });
+      return this.acceso;
+    },
+
+    _chiudi(ev) {
+      const e = ev.currentTarget, k = e.dataset.corrK;
+      const ora = e.innerHTML.trim(), prima = e.dataset.corrIniz;
+      const d = Correzioni.leggi();
+      if (ora === prima) { delete d[k]; e.classList.remove('corretto'); }
+      else {
+        /* «prima» è il testo pubblicato, non l'ultimo corretto: serve a
+           riconoscere la frase la prossima volta che si apre la pagina. */
+        d[k] = { prima: (d[k] && d[k].prima) || prima, dopo: ora };
+        e.classList.add('corretto');
+      }
+      Correzioni.dati = d; Correzioni.scrivi();
+    },
+
+    scorda() {
+      const n = Object.keys(this.leggi()).length;
+      if (!n) { alert('Non ci sono correzioni su questo computer.'); return; }
+      if (!confirm('Butto via ' + n + (n === 1 ? ' correzione' : ' correzioni') +
+                   ' e rimetto i testi come stanno nella lezione pubblicata?')) return;
+      localStorage.removeItem(this.CHIAVE);
+      this.dati = {};
+      location.reload();
+    }
+  };
+
+  /* ==========================================================
      10. NAVIGAZIONE DELLE SLIDE
      ========================================================== */
 
@@ -1821,6 +1927,7 @@
 
       this.etichettaAree();
       this.costruisciNav();
+      Correzioni.applica();
 
       const av = document.createElement('div');
       av.id = 'tac-densita'; av.className = 'no-stampa';
@@ -1898,6 +2005,10 @@
           '<button id="tac-succ" title="Successiva">&#8250;</button>' +
         '</div>' +
         '<div class="gruppo">' +
+          '<button class="testo solo-regia" id="tac-correggi" ' +
+            'title="Correggi i testi. Le correzioni restano su questo computer">Correggi</button>' +
+          '<button class="testo solo-regia" id="tac-scorda" ' +
+            'title="Rimette i testi come stanno nella lezione pubblicata">Scorda</button>' +
           '<button class="testo" id="tac-modo" title="Passa alla versione per lo studio">Studio</button>' +
           '<button class="testo" id="tac-stampa" title="Genera la dispensa stampabile in PDF">Dispensa</button>' +
           '<button id="tac-full" title="Schermo intero">&#9974;</button>' +
@@ -1933,6 +2044,9 @@
         if (!studio) this.vai(this.i);
         else window.scrollTo(0, 0);
       };
+      nav.querySelector('#tac-correggi').onclick = e =>
+        e.target.classList.toggle('acceso', Correzioni.commuta());
+      nav.querySelector('#tac-scorda').onclick = () => Correzioni.scorda();
     },
 
     costruisciIndice() {

@@ -1375,6 +1375,13 @@
       this._play.onclick = () => this._suona ? this.ferma() : this.avvia();
       barra.appendChild(this._play);
 
+      /* La registrazione incisa con MuseScore. Sta accanto alla lezione e
+         non dipende da nessun sito esterno: se la rete della scuola è lenta
+         questo parte lo stesso, mentre l'esecuzione dal vivo deve prima
+         scaricare i campioni degli strumenti. Diventa quindi il pulsante
+         principale, e l'esecuzione dal vivo resta per rallentare. */
+      if (this.getAttribute('inciso')) this.preparaInciso(barra);
+
       if (this.hasAttribute('metronomo')) {
         this._metro = document.createElement('button');
         this._metro.className = 'btn secondario';
@@ -1754,6 +1761,99 @@
       document.removeEventListener('keydown', this._esc, true);
     }
 
+    /* ----------------------------------------------------------
+       LA REGISTRAZIONE INCISA
+       Un mp3 uscito da MuseScore più la mappa delle battute, che dice
+       a quale millisecondo comincia ciascuna. Il cursore non si limita a
+       saltare da una battuta all'altra: fra un attacco e il successivo
+       avanza per interpolazione, così scorre invece di scattare.
+       Con un ritornello la stessa battuta compare due volte nella mappa,
+       ed è giusto: l'indice è la posizione nella partitura, non
+       nell'esecuzione.
+       ---------------------------------------------------------- */
+    preparaInciso(barra) {
+      const url = this.getAttribute('inciso');
+      let mappa = null;
+      try { mappa = JSON.parse(this.getAttribute('mappa') || 'null'); } catch (e) {}
+
+      const au = document.createElement('audio');
+      au.preload = 'none'; au.src = url;
+      this._audio = au;
+
+      const b = document.createElement('button');
+      b.className = 'btn tac-play';
+      b.innerHTML = '&#9654; Ascolta';
+      b.title = 'Registrazione incisa, non serve la rete';
+      /* L'esecuzione dal vivo passa in secondo piano ma resta: è l'unica
+         che si può rallentare davvero senza sgranare. */
+      this._play.className = 'btn secondario';
+      this._play.innerHTML = '&#9836; Dal vivo';
+      this._play.title = 'Esecuzione generata al momento, si può rallentare';
+      barra.appendChild(b);
+
+      const riga = document.createElement('div');
+      riga.className = 'tac-riga-tempo no-stampa';
+      riga.innerHTML = '<input type="range" class="tac-scorri" min="0" max="1000" value="0" ' +
+                       'aria-label="Punto del brano"><span class="tac-orologio">0:00</span>';
+      this._scorri = riga.querySelector('.tac-scorri');
+      this._orologio = riga.querySelector('.tac-orologio');
+
+      const mmss = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+      const fermaAltro = () => { if (this._suona) this.ferma(); };
+
+      b.onclick = () => {
+        if (!au.paused) { au.pause(); return; }
+        fermaAltro();
+        au.play().catch(() => {});
+      };
+      au.onplay  = () => { b.innerHTML = '&#9632; Ferma'; this._box.classList.add('in-ascolto'); };
+      au.onpause = () => { b.innerHTML = '&#9654; Ascolta'; };
+      au.onended = () => {
+        b.innerHTML = '&#9654; Ascolta';
+        this._box.classList.remove('in-ascolto');
+        this.illumina(-1); this.cursore(null);
+      };
+      au.ontimeupdate = () => {
+        const ms = au.currentTime * 1000;
+        if (au.duration) this._scorri.value = Math.round(ms / (au.duration * 10));
+        this._orologio.textContent = mmss(au.currentTime);
+        if (!mappa || !mappa.eventi.length) return;
+        const e = mappa.eventi;
+        let i = 0;
+        while (i + 1 < e.length && e[i + 1][1] <= ms) i++;
+        if (i !== this._ultimaBattuta) { this.illumina(e[i][0]); this._ultimaBattuta = i; }
+        const ini = e[i][1];
+        const fin = (i + 1 < e.length) ? e[i + 1][1] : (mappa.durata || ms + 1);
+        this.cursore(e[i][0], fin > ini ? (ms - ini) / (fin - ini) : 0);
+      };
+      this._scorri.oninput = () => {
+        if (au.duration) au.currentTime = au.duration * this._scorri.value / 1000;
+      };
+
+      this._box.appendChild(riga);
+    }
+
+    /* La linea verticale che attraversa la battuta mentre suona. Quota è
+       quanto si è consumato della battuta, da 0 a 1. */
+    cursore(k, quota) {
+      const m = this.misure();
+      let l = this._box.querySelector('.tac-cursore');
+      if (k === null || k < 0 || !m[k]) { if (l) l.style.display = 'none'; return; }
+      const box = m[k].closest('svg');
+      if (!box) return;
+      if (!l) {
+        l = document.createElement('div');
+        l.className = 'tac-cursore no-stampa';
+        (box.parentNode || this._box).appendChild(l);
+      }
+      const cont = l.parentNode.getBoundingClientRect();
+      const r = m[k].getBoundingClientRect();
+      l.style.display = 'block';
+      l.style.left = (r.left - cont.left + r.width * (quota || 0)) + 'px';
+      l.style.top = (r.top - cont.top) + 'px';
+      l.style.height = r.height + 'px';
+    }
+
     /* Le battute visibili nella partitura attualmente mostrata */
     misure() {
       const f = (this._parti || []).find(x => !x.hidden);
@@ -1764,7 +1864,7 @@
       const m = this.misure();
       if (!m.length) return;
       m.forEach(x => x.classList.remove('suona'));
-      if (!m[k]) return;
+      if (k < 0 || !m[k]) return;
       m[k].classList.add('suona');
 
       /* Il riquadro che scorre è diverso a seconda di dove ci troviamo: sulla

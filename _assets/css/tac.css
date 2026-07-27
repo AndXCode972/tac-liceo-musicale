@@ -1049,6 +1049,34 @@ figure.figura figcaption {
 /* proiettato, un simbolo alla misura del testo è troppo piccolo */
 .slide .mus { font-size: 1.15em; }
 
+/* Fotografia a striscia: larga quanto la slide e bassa, per stare
+   sopra al testo senza rubargli spazio. Sulla slide si taglia
+   ancora di più, perché lì l'altezza è il bene scarso. */
+figure.figura.striscia { margin: 0 0 .9rem; }
+figure.figura.striscia img { width: 100%; height: 150px; object-fit: cover; object-position: center 45%; }
+.slide figure.figura.striscia img { height: 112px; }
+figure.figura.striscia figcaption { font-size: .84rem; padding: .45rem .8rem; }
+
+/* ------------------------------------------------------------
+   Il segno di sezione
+
+   Ogni sezione della lezione porta in basso a destra una figura
+   musicale disegnata a mano, appena visibile. Non spiega niente:
+   serve a far capire, girando le slide, quando si è cambiato
+   discorso. Va tenuta molto pallida, altrimenti compete col
+   contenuto invece di accompagnarlo.
+   ------------------------------------------------------------ */
+.slide[data-segno]::after {
+  content: ''; position: absolute; right: 2.2rem; bottom: 2rem;
+  width: 108px; height: 108px;
+  background-image: var(--segno);
+  background-size: contain; background-repeat: no-repeat;
+  background-position: bottom right;
+  opacity: .085; pointer-events: none;
+}
+.slide.copertina[data-segno]::after { display: none; }
+@media print { .slide[data-segno]::after { display: none; } }
+
 figure.figura figcaption strong { color: var(--inchiostro); }
 figure.figura .fonte { display: block; font-size: .72rem; opacity: .7; margin-top: .15rem; }
 

@@ -1,3 +1,9 @@
+/* Gli indirizzi delle immagini di fondo sono relativi a QUESTO file, non
+   alla pagina che li dichiara: un url() dentro una variabile CSS viene
+   risolto rispetto al foglio di stile che la usa. Sono quindi identici su
+   tutte le pagine, qualunque sia la loro profondita': ../immagini/x.jpg,
+   ../sfondi/x.svg. */
+
 /* ============================================================
    IL SITO ATTORNO ALLE LEZIONI
    ============================================================
@@ -135,7 +141,17 @@ main > h2:first-child { margin-top: 0; }
   background: var(--carta); border: 1px solid var(--bordo);
   border-radius: var(--raggio); padding: 1.4rem 1.5rem;
   box-shadow: var(--ombra); transition: transform .14s, box-shadow .14s, border-color .14s;
+  position: relative; overflow: hidden;
 }
+
+/* Una fascia dipinta in cima a ogni scheda, un colore per anno. Serve a
+   riconoscere la classe di colpo, prima ancora di leggere il numero.
+   Nelle schede in preparazione resta, ma smorzata. */
+.classe::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+  background: var(--banda) center / cover no-repeat;
+}
+.classe.futura::before { filter: grayscale(.55); opacity: .5; }
 a.classe:hover { transform: translateY(-3px); box-shadow: var(--ombra-lg); border-color: var(--viola); }
 .classe .anno {
   display: inline-block; font-size: .74rem; font-weight: 800; letter-spacing: .1em;

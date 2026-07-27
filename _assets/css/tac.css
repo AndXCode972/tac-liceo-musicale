@@ -111,22 +111,35 @@ body.regia #tac-densita.acceso { display: block; }
               var(--cop-b, var(--viola)) 55%,
               var(--cop-c, var(--rosa)) 100%);
   color: #fff;
+  position: relative;
 }
+/* Copertina con fotografia. Gli strati, dal basso: la fotografia, la
+   sfumatura che la smorza quel tanto che basta a far leggere il bianco,
+   le linee melodiche generate dal brano, il testo. Senza la sfumatura in
+   mezzo il titolo si perde dentro l'immagine. */
+.slide.copertina.foto { background-image: var(--foto); background-size: cover; background-position: center; }
+.slide.copertina.foto::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(105deg,
+              rgba(8, 6, 24, .93) 0%, rgba(8, 6, 24, .78) 38%,
+              rgba(8, 6, 24, .40) 68%, rgba(8, 6, 24, .22) 100%);
+}
+.slide.copertina.foto > * { position: relative; z-index: 2; }
 .slide.copertina.attiva { display: flex; align-items: center; }
 .slide.copertina .slide-interna { width: 100%; }
-.slide.copertina h1 { color: #fff; font-size: clamp(2.4rem, 5.5vw, 4.2rem); border: 0; margin: 0 0 1rem; }
+.slide.copertina h1 { color: #fff; font-size: clamp(2.1rem, 4.6vw, 3.5rem); border: 0; margin: 0 0 .7rem; line-height: 1.08; }
 .slide.copertina .occhiello {
-  font-size: 1rem; letter-spacing: .18em; text-transform: uppercase;
-  opacity: .85; font-weight: 700; margin-bottom: 1.2rem;
+  font-size: .9rem; letter-spacing: .18em; text-transform: uppercase;
+  opacity: .85; font-weight: 700; margin-bottom: .8rem;
 }
-.slide.copertina .sottotitolo { font-size: clamp(1.1rem, 2vw, 1.5rem); opacity: .92; max-width: 60ch; }
+.slide.copertina .sottotitolo { font-size: clamp(1rem, 1.6vw, 1.24rem); opacity: .93; max-width: 62ch; margin: .5rem 0; }
 /* Una riga di commento sotto l'aforisma: si legge, ma non compete col titolo. */
 .slide.copertina .sottotitolo.minuta {
-  font-size: clamp(.9rem, 1.35vw, 1.05rem); opacity: .78;
-  max-width: 62ch; margin-top: .5rem;
+  font-size: clamp(.82rem, 1.15vw, .95rem); opacity: .8;
+  max-width: 64ch; margin-top: .45rem;
 }
 
-.meta-copertina { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2.5rem; }
+.meta-copertina { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.4rem; }
 .meta-copertina span {
   background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35);
   padding: .5rem 1.1rem; border-radius: 999px; font-size: .95rem; font-weight: 600;
@@ -671,6 +684,22 @@ body.documento .foglio {
   padding: .12rem .55rem; border-radius: 999px; margin-left: .6rem;
 }
 .tac-brano-str.vero { color: #065f46; background: #d1fae5; border-color: #6ee7b7; }
+
+/* L'icona dello strumento accanto al nome dell'organico. Il disegno è nero
+   su fondo trasparente e viene usato come maschera, così prende da solo il
+   colore del testo e resta leggibile anche se un giorno cambio tavolozza.
+   Gli indirizzi sono relativi a questo foglio, non alla pagina. */
+.tac-brano-str[data-org]::before {
+  content: ''; display: inline-block; vertical-align: -.18em;
+  width: 1.25em; height: 1.25em; margin-right: .38em;
+  background: currentColor;
+  -webkit-mask: var(--ico) center / contain no-repeat;
+          mask: var(--ico) center / contain no-repeat;
+}
+.tac-brano-str[data-org="archi"]    { --ico: url('../icone/violino.png'); }
+.tac-brano-str[data-org="tastiera"] { --ico: url('../icone/pianoforte.png'); }
+.tac-brano-str[data-org="fiati"]    { --ico: url('../icone/flauto.png'); }
+.tac-brano-str[data-org="voci"]     { --ico: url('../icone/lira.png'); }
 
 .tac-brano-part {
   margin: .8rem 0 0; padding: .7rem .8rem 0;

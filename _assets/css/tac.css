@@ -120,6 +120,11 @@ body.regia #tac-densita.acceso { display: block; }
   opacity: .85; font-weight: 700; margin-bottom: 1.2rem;
 }
 .slide.copertina .sottotitolo { font-size: clamp(1.1rem, 2vw, 1.5rem); opacity: .92; max-width: 60ch; }
+/* Una riga di commento sotto l'aforisma: si legge, ma non compete col titolo. */
+.slide.copertina .sottotitolo.minuta {
+  font-size: clamp(.9rem, 1.35vw, 1.05rem); opacity: .78;
+  max-width: 62ch; margin-top: .5rem;
+}
 
 .meta-copertina { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2.5rem; }
 .meta-copertina span {
@@ -418,6 +423,15 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
   display: grid; place-items: center; transition: background .15s;
 }
 #tac-nav button:hover { background: var(--bordo); }
+/* le due vie d'uscita dalla lezione */
+#tac-nav .uscita {
+  display: inline-flex; align-items: center; height: 30px; padding: 0 .7rem;
+  border: 1px solid var(--bordo); border-radius: 8px;
+  font-size: .82rem; font-weight: 700; text-decoration: none;
+  color: var(--inchiostro2); background: var(--carta); white-space: nowrap;
+}
+#tac-nav .uscita:hover { background: #f3effe; border-color: var(--viola); color: var(--viola); }
+@media (max-width: 780px) { #tac-nav .uscita { display: none; } }
 #tac-nav button.testo { width: auto; padding: 0 .9rem; font-size: .88rem; font-weight: 700; }
 #tac-nav button.acceso { background: var(--viola); color: #fff; border-color: var(--viola); }
 #tac-conta { font-size: .9rem; font-weight: 700; color: var(--inchiostro2); min-width: 4.5rem;

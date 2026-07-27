@@ -1879,8 +1879,14 @@
       nav.id = 'tac-nav';
       nav.className = 'no-stampa';
       nav.innerHTML =
+        /* Da una lezione non si tornava indietro: chi la apriva restava
+           dentro finché non chiudeva la scheda. Due passi bastano, la
+           classe e il corso, e sono gli stessi che la barra in cima alle
+           pagine del sito mostra come briciole di pane. */
         '<div class="gruppo">' +
-          '<button id="tac-btn-indice" title="Indice (I)">&#9776;</button>' +
+          '<a class="uscita" href="../" title="Torna alle unità della classe">&#8592; Classe</a>' +
+          '<a class="uscita" href="../../" title="Torna all\'indice del corso">Corso</a>' +
+          '<button id="tac-btn-indice" title="Indice della lezione (I)">&#9776;</button>' +
           '<span id="tac-titolo-corrente"></span>' +
         '</div>' +
         '<div class="gruppo frecce">' +

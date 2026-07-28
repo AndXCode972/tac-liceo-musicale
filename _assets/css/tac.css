@@ -1268,3 +1268,41 @@ body.regia .corretto { box-shadow: -4px 0 0 -1px var(--viola); }
    nascosto resta in mezzo. È già successo con due pulsanti Ascolta uguali
    sulla stessa striscia. Questa regola fa sì che hidden significhi hidden. */
 [hidden] { display: none !important; }
+
+/* ------------------------------------------------------------
+   I TRE LIVELLI
+   Tre righe di pallini, una per livello. Il livello spento resta
+   visibile ma smorzato: sparire del tutto farebbe saltare le righe
+   e si perderebbe il confronto verticale, che è tutto il punto.
+   ------------------------------------------------------------ */
+.tac-livelli {
+  background: var(--carta2); border: 1px solid var(--bordo);
+  border-radius: var(--raggio); padding: .8rem 1rem 1rem; margin: 1rem 0;
+}
+.liv-segno { margin-left: auto; font-size: 1.5rem; line-height: 1; padding: 0 .3rem; }
+
+.tac-griglia-livelli { display: grid; gap: .45rem; margin-top: .7rem; }
+.liv-riga { display: grid; grid-template-columns: 9.5rem 1fr; align-items: center; gap: .8rem; }
+.liv-nome {
+  font-size: .78rem; font-weight: 800; letter-spacing: .09em;
+  text-transform: uppercase; text-align: right; color: var(--inchiostro2);
+}
+.liv-pallini { display: flex; gap: .35rem; align-items: center; }
+.liv-p {
+  flex: 1; height: 26px; border-radius: 6px;
+  background: #fff; border: 1px solid var(--bordo);
+  display: grid; place-items: center;
+  font-size: .78rem; font-weight: 700; color: var(--inchiostro2);
+  transition: background .06s, transform .06s;
+}
+.liv-riga.liv-metro .liv-p.on { background: var(--indaco); color: #fff; transform: scale(1.06); }
+.liv-riga.liv-puls  .liv-p.on { background: var(--viola); color: #fff; transform: scale(1.06); }
+.liv-riga.liv-sudd  .liv-p.on { background: var(--ambra); border-color: var(--ambra); }
+.liv-riga.liv-sudd .liv-p { height: 18px; }
+
+.tac-livelli.senza-metro .liv-riga.liv-metro,
+.tac-livelli.senza-puls  .liv-riga.liv-puls,
+.tac-livelli.senza-sudd  .liv-riga.liv-sudd { opacity: .3; }
+
+.tac-livelli .btn.acceso { background: var(--viola); color: #fff; border-color: var(--viola); }
+@media print { .tac-livelli .tac-barra, .tac-livelli .tac-metro { display: none; } }

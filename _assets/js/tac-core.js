@@ -1378,11 +1378,16 @@
       /* La registrazione incisa con MuseScore. Sta accanto alla lezione e
          non dipende da nessun sito esterno: se la rete della scuola è lenta
          questo parte lo stesso, mentre l'esecuzione dal vivo deve prima
-         scaricare i campioni degli strumenti. Diventa quindi il pulsante
-         principale, e l'esecuzione dal vivo resta per rallentare. */
-      if (this.getAttribute('inciso')) this.preparaInciso(barra);
+         scaricare i campioni degli strumenti.
 
-      if (this.hasAttribute('metronomo')) {
+         Dove c'è la registrazione, l'esecuzione dal vivo sparisce insieme
+         al metronomo e al cursore della velocità. Tre modi di far suonare
+         lo stesso brano sulla stessa striscia sono tre modi di distrarsi:
+         resta un pulsante solo, e la barra per spostarsi nel brano. */
+      const incisa = !!this.getAttribute('inciso');
+      if (incisa) this.preparaInciso(barra);
+
+      if (!incisa && this.hasAttribute('metronomo')) {
         this._metro = document.createElement('button');
         this._metro.className = 'btn secondario';
         this._metro.textContent = 'Metronomo: no';
@@ -1534,10 +1539,15 @@
         box.appendChild(fig);
       }
 
+      /* Il cursore della velocità serve solo all'esecuzione dal vivo. Dove
+         c'è la registrazione incisa non compare: resta nel documento, con
+         il suo valore al cento per cento, perché il resto del codice lo
+         legge, ma non si vede e non distrae. */
       const ctrl = document.createElement('div');
       ctrl.className = 'tac-metro no-stampa';
       ctrl.innerHTML = '<label>Velocità <input type="range" min="40" max="100" value="100"> ' +
                        '<strong class="perc">100</strong>%</label>';
+      if (this.getAttribute('inciso')) ctrl.hidden = true;
       box.appendChild(ctrl);
       this._range = ctrl.querySelector('input');
       this._range.oninput = () => ctrl.querySelector('.perc').textContent = this._range.value;
@@ -1784,11 +1794,8 @@
       b.className = 'btn tac-play';
       b.innerHTML = '&#9654; Ascolta';
       b.title = 'Registrazione incisa, non serve la rete';
-      /* L'esecuzione dal vivo passa in secondo piano ma resta: è l'unica
-         che si può rallentare davvero senza sgranare. */
-      this._play.className = 'btn secondario';
-      this._play.innerHTML = '&#9836; Dal vivo';
-      this._play.title = 'Esecuzione generata al momento, si può rallentare';
+      /* L'esecuzione dal vivo esce di scena dove c'è la registrazione. */
+      this._play.hidden = true;
       barra.appendChild(b);
 
       const riga = document.createElement('div');

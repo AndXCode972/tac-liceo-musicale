@@ -1228,3 +1228,43 @@ body.in-correzione [contenteditable="true"]:focus {
    sempre che cosa si scosta dalla lezione pubblicata. */
 body.regia .corretto { box-shadow: -4px 0 0 -1px var(--viola); }
 @media print { .corretto { box-shadow: none; } }
+
+/* ------------------------------------------------------------
+   LA REGISTRAZIONE INCISA
+   Barra di scorrimento e cursore che attraversa la battuta.
+   ------------------------------------------------------------ */
+.tac-riga-tempo {
+  display: flex; align-items: center; gap: .7rem;
+  padding: .35rem .9rem .6rem;
+}
+.tac-scorri {
+  flex: 1; height: 4px; -webkit-appearance: none; appearance: none;
+  background: var(--bordo); border-radius: 999px; cursor: pointer;
+}
+.tac-scorri::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 13px; height: 13px; border-radius: 50%;
+  background: var(--viola); border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.3);
+}
+.tac-scorri::-moz-range-thumb {
+  width: 13px; height: 13px; border-radius: 50%; border: 2px solid #fff;
+  background: var(--viola);
+}
+.tac-orologio {
+  font-variant-numeric: tabular-nums; font-size: .82rem;
+  color: var(--inchiostro2); min-width: 3ch;
+}
+
+/* Il cursore sta dentro il contenitore della partitura, che deve quindi
+   fare da riferimento per le coordinate. */
+.tac-brano-part, .tac-schermo-corpo { position: relative; }
+.tac-cursore {
+  position: absolute; width: 2px; z-index: 4; pointer-events: none;
+  background: var(--viola); opacity: .8; border-radius: 1px;
+  box-shadow: 0 0 6px rgba(124,58,237,.5);
+}
+@media print { .tac-riga-tempo, .tac-cursore { display: none !important; } }
+
+/* Un display esplicito batte l'attributo hidden, e un elemento che credevo
+   nascosto resta in mezzo. È già successo con due pulsanti Ascolta uguali
+   sulla stessa striscia. Questa regola fa sì che hidden significhi hidden. */
+[hidden] { display: none !important; }

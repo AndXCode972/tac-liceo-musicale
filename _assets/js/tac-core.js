@@ -1265,30 +1265,60 @@
     async avvia() {
       if (typeof Tone === 'undefined') return;
       await Audio.avvia();
-      if (!Audio.pronto) return;
+      if (!Audio.pronto || !Audio.tick) return;
       this.ferma();
+
+      /* Due trappole, entrambe costate un esempio muto.
+
+         La prima: a Tone un intervallo scritto «0.5*4n» non dice mezzo
+         movimento, dice mezzo secondo. La figura viene ignorata e il ciclo
+         smette di seguire il metronomo. I tempi si scrivono con le figure:
+         4n il movimento, 8n la sua metà, 8t il suo terzo.
+
+         La seconda: Audio.colpo è asincrona, e chiamata dentro il ciclo
+         suonerebbe dopo l'istante che le è stato passato. Nel ciclo si
+         parla direttamente allo strumento, che a questo punto c'è di
+         sicuro perché Audio.avvia è già stata attesa qui sopra. */
       Tone.Transport.bpm.value = this._bpm;
+      Tone.Transport.timeSignature = this._perBattuta;
 
-      let n = 0;                       /* colpi di suddivisione dall'inizio */
-      const passo = 1 / this._sudd;    /* in movimenti */
-      this._loop = new Tone.Loop(t => {
-        const s = this._sudd;
-        const iSudd = n % (this._perBattuta * s);
-        const suPuls = n % s === 0;
-        const iPuls = Math.floor(iSudd / s);
-        const suBattuta = suPuls && iPuls === 0;
+      const batti = (altezza, forza, quando) => {
+        try { Audio.tick.triggerAttackRelease(altezza, '64n', quando, forza); }
+        catch (e) { /* due colpi nello stesso istante: se ne perde uno */ }
+      };
+      const acc = (riga, i) => {
+        const a = this._celle[riga];
+        if (a) a.forEach((c, k) => c.classList.toggle('on', k === i));
+      };
 
-        if (this._on.sudd && !suPuls) Audio.colpo('D6', 0.22, t);
-        if (this._on.puls && suPuls) Audio.colpo('A5', 0.5, t);
-        if (this._on.metro && suBattuta) Audio.colpo('D4', 0.9, t);
+      this._eventi = [];
+      const s = this._sudd;
 
-        Tone.Draw.schedule(() => {
-          const acc = (arr, i) => arr && arr.forEach((c, k) => c.classList.toggle('on', k === i));
-          acc(this._celle.sudd, iSudd);
-          if (suPuls) { acc(this._celle.puls, iPuls); acc(this._celle.metro, iPuls); }
-        }, t);
-        n++;
-      }, passo + '*4n').start(0);
+      /* la suddivisione: metà movimento se semplice, un terzo se composto */
+      let iS = 0;
+      this._eventi.push(Tone.Transport.scheduleRepeat(tempo => {
+        const k = iS % (this._perBattuta * s);
+        if (this._on.sudd && k % s !== 0) batti('D6', 0.25, tempo);
+        Tone.Draw.schedule(() => acc('sudd', k), tempo);
+        iS++;
+      }, s === 2 ? '8n' : '8t', 0));
+
+      /* la pulsazione: un movimento */
+      let iP = 0;
+      this._eventi.push(Tone.Transport.scheduleRepeat(tempo => {
+        const k = iP % this._perBattuta;
+        if (this._on.puls) batti('A5', 0.55, tempo);
+        Tone.Draw.schedule(() => acc('puls', k), tempo);
+        iP++;
+      }, '4n', 0));
+
+      /* il metro: una battuta intera, presa dalla divisione dichiarata */
+      let iM = 0;
+      this._eventi.push(Tone.Transport.scheduleRepeat(tempo => {
+        if (this._on.metro) batti('D4', 0.95, tempo);
+        Tone.Draw.schedule(() => acc('metro', 0), tempo);
+        iM++;
+      }, '1m', 0));
 
       Tone.Transport.start();
       this._corre = true;
@@ -1296,8 +1326,11 @@
     }
 
     ferma() {
-      if (this._loop) { this._loop.stop(); this._loop.dispose(); this._loop = null; }
-      if (typeof Tone !== 'undefined' && Tone.Transport) Tone.Transport.stop();
+      if (typeof Tone !== 'undefined' && Tone.Transport) {
+        (this._eventi || []).forEach(id => Tone.Transport.clear(id));
+        Tone.Transport.stop();
+      }
+      this._eventi = [];
       Object.values(this._celle || {}).forEach(a => a.forEach(c => c.classList.remove('on')));
       this._corre = false;
       if (this._avvio) this._avvio.innerHTML = '&#9654; Avvia';

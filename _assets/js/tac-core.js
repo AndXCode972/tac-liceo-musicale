@@ -1547,8 +1547,8 @@
       ctrl.className = 'tac-metro no-stampa';
       ctrl.innerHTML = '<label>Velocità <input type="range" min="40" max="100" value="100"> ' +
                        '<strong class="perc">100</strong>%</label>';
-      if (this.getAttribute('inciso')) ctrl.hidden = true;
-      box.appendChild(ctrl);
+      /* Stesso motivo: non appeso affatto invece che nascosto. */
+      if (!this.getAttribute('inciso')) box.appendChild(ctrl);
       this._range = ctrl.querySelector('input');
       this._range.oninput = () => ctrl.querySelector('.perc').textContent = this._range.value;
 
@@ -1794,8 +1794,13 @@
       b.className = 'btn tac-play';
       b.innerHTML = '&#9654; Ascolta';
       b.title = 'Registrazione incisa, non serve la rete';
-      /* L'esecuzione dal vivo esce di scena dove c'è la registrazione. */
-      this._play.hidden = true;
+      /* L'esecuzione dal vivo esce di scena dove c'è la registrazione.
+         Va tolta dal documento, non nascosta con l'attributo hidden: i
+         pulsanti hanno un display esplicito nel foglio di stile, e un
+         display esplicito batte hidden. Restava lì, visibile, e in classe
+         si vedevano due pulsanti Ascolta uguali. L'oggetto continua a
+         esistere perché il resto del codice lo interroga. */
+      this._play.remove();
       barra.appendChild(b);
 
       const riga = document.createElement('div');
@@ -1811,7 +1816,11 @@
       b.onclick = () => {
         if (!au.paused) { au.pause(); return; }
         fermaAltro();
-        au.play().catch(() => {});
+        /* play() restituisce una promessa nei browser, ma non ovunque:
+           nell'ambiente di prova torna undefined e il .catch faceva
+           fallire dodici verifiche su sessantanove. */
+        const av = au.play();
+        if (av && av.catch) av.catch(() => {});
       };
       au.onplay  = () => { b.innerHTML = '&#9632; Ferma'; this._box.classList.add('in-ascolto'); };
       au.onpause = () => { b.innerHTML = '&#9654; Ascolta'; };

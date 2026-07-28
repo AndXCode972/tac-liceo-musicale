@@ -246,6 +246,15 @@
       this.tick.triggerAttackRelease(forte ? 'A6' : 'D6', '64n', quando, forte ? 0.9 : 0.3);
     },
 
+    /* Un colpo di altezza scelta. Serve ai tre livelli sovrapposti: se
+       metro, pulsazione e suddivisione suonassero uguali non si
+       distinguerebbero, e sovrapporli non insegnerebbe niente. */
+    async colpo(altezza, forza, quando) {
+      await this.avvia();
+      if (!this.tick) return;
+      this.tick.triggerAttackRelease(altezza, '64n', quando, forza);
+    },
+
     zittisci() {
       if (this.synth) this.synth.releaseAll();
       (this.voci || []).forEach(v => v.releaseAll && v.releaseAll());
@@ -1096,6 +1105,208 @@
     }
   }
   customElements.define('tac-rhythm', TacRhythm);
+
+  /* ==========================================================
+     9-ter. I TRE LIVELLI
+     ----------------------------------------------------------
+     Metro, pulsazione e suddivisione uno sopra l'altro, ciascuno
+     con il suo interruttore. È l'unico modo di far sentire che
+     non sono tre cose diverse ma lo stesso battito guardato da tre
+     distanze: si accende la pulsazione, poi ci si mette sopra la
+     suddivisione, e si sente che ci sta dentro esatta.
+
+     Il cursore muove la pulsazione. Gli altri due la seguono,
+     perché sono definiti come rapporti: il metro è una pulsazione
+     ogni due, tre o quattro; la suddivisione è due o tre colpi per
+     pulsazione. Cambiando velocità i rapporti restano.
+
+     Le tre altezze sono distinte apposta. Colpi uguali sovrapposti
+     si impastano e la dimostrazione non dimostra niente.
+     ========================================================== */
+  class TacLivelli extends HTMLElement {
+    connectedCallback() {
+      if (this._fatto) return;
+      this._fatto = true;
+      this._bpm = parseInt(this.getAttribute('bpm') || '80', 10);
+      this._perBattuta = parseInt(this.getAttribute('battuta') || '4', 10);
+      this._sudd = parseInt(this.getAttribute('suddivisione') || '2', 10);
+      this._on = { metro: false, puls: true, sudd: false };
+
+      const box = document.createElement('div');
+      box.className = 'tac-livelli';
+
+      const barra = document.createElement('div');
+      barra.className = 'tac-barra no-stampa';
+      this._avvio = document.createElement('button');
+      this._avvio.className = 'btn';
+      this._avvio.innerHTML = '&#9654; Avvia';
+      this._avvio.onclick = () => this._corre ? this.ferma() : this.avvia();
+      barra.appendChild(this._avvio);
+
+      const ETICHETTE = { metro: 'Metro', puls: 'Pulsazione', sudd: 'Suddivisione' };
+      this._tasti = {};
+      Object.keys(ETICHETTE).forEach(k => {
+        const b = document.createElement('button');
+        b.className = 'btn secondario liv-' + k;
+        b.textContent = ETICHETTE[k];
+        b.classList.toggle('acceso', this._on[k]);
+        b.setAttribute('aria-pressed', String(this._on[k]));
+        b.onclick = () => {
+          this._on[k] = !this._on[k];
+          b.classList.toggle('acceso', this._on[k]);
+          b.setAttribute('aria-pressed', String(this._on[k]));
+          box.classList.toggle('senza-' + k, !this._on[k]);
+        };
+        this._tasti[k] = b;
+        barra.appendChild(b);
+      });
+
+      /* Semplice o composto, e quante pulsazioni per battuta. Insieme
+         danno i sei metri che servono in prima: 2/4, 3/4, 4/4 da una
+         parte, 6/8, 9/8, 12/8 dall'altra. Senza questi due comandi
+         l'esempio mostrerebbe un caso solo, ed è la ragione per cui
+         non serviva a niente. */
+      const due = document.createElement('button');
+      due.className = 'btn secondario';
+      due.title = 'Passa da due a tre parti per pulsazione';
+      due.onclick = () => {
+        this._sudd = this._sudd === 2 ? 3 : 2;
+        this.aggiornaScritte(); this.disegna();
+        if (this._corre) { this.ferma(); this.avvia(); }
+      };
+      barra.appendChild(due);
+      this._tastoSudd = due;
+
+      const grup = document.createElement('button');
+      grup.className = 'btn secondario';
+      grup.title = 'Quante pulsazioni in ogni battuta';
+      grup.onclick = () => {
+        this._perBattuta = this._perBattuta >= 4 ? 2 : this._perBattuta + 1;
+        this.aggiornaScritte(); this.disegna();
+        if (this._corre) { this.ferma(); this.avvia(); }
+      };
+      barra.appendChild(grup);
+      this._tastoGrup = grup;
+
+      this._segno = document.createElement('span');
+      this._segno.className = 'liv-segno';
+      barra.appendChild(this._segno);
+      box.appendChild(barra);
+
+      const vel = document.createElement('div');
+      vel.className = 'tac-metro no-stampa';
+      vel.innerHTML = '<label>Velocità della pulsazione ' +
+        '<input type="range" min="40" max="160" value="' + this._bpm + '"> ' +
+        '<strong class="bpm">' + this._bpm + '</strong> bpm</label>';
+      const cur = vel.querySelector('input');
+      cur.oninput = () => {
+        this._bpm = parseInt(cur.value, 10);
+        vel.querySelector('.bpm').textContent = this._bpm;
+        if (typeof Tone !== 'undefined' && Tone.Transport) Tone.Transport.bpm.value = this._bpm;
+      };
+      box.appendChild(vel);
+
+      this._griglia = document.createElement('div');
+      this._griglia.className = 'tac-griglia-livelli';
+      box.appendChild(this._griglia);
+      this.appendChild(box);
+      this._box = box;
+      box.classList.add('senza-metro', 'senza-sudd');
+      this.aggiornaScritte();
+      this.disegna();
+    }
+
+    /* Il metro che risulta dalle due scelte. Serve a legare quello che si
+       sente al segno che si scrive: chi ascolta tre colpi per pulsazione
+       raggruppati a quattro sta ascoltando un 12/8, e vale la pena che lo
+       veda scritto mentre lo sente. */
+    aggiornaScritte() {
+      const semplice = this._sudd === 2;
+      this._tastoSudd.textContent = semplice ? 'Semplice: divide in due'
+                                             : 'Composto: divide in tre';
+      this._tastoSudd.classList.toggle('ambra', !semplice);
+      const NOMI = { 2: 'binario', 3: 'ternario', 4: 'quaternario' };
+      this._tastoGrup.textContent = NOMI[this._perBattuta] + ' · ' + this._perBattuta + ' pulsazioni';
+      const sopra = semplice ? this._perBattuta : this._perBattuta * 3;
+      const sotto = semplice ? 4 : 8;
+      this._segno.innerHTML = '<span class="mus">' + sopra + '/' + sotto + '</span>';
+      this._segno.title = NOMI[this._perBattuta] + ' ' + (semplice ? 'semplice' : 'composto');
+    }
+
+    /* Tre righe di pallini: uno per battuta, uno per pulsazione, e
+       quanti ne chiede la suddivisione. */
+    disegna() {
+      const N = this._perBattuta;
+      const righe = [
+        ['metro', 'Metro', N, k => k === 0 ? '1' : ''],
+        ['puls', 'Pulsazione', N, k => String(k + 1)],
+        ['sudd', 'Suddivisione', N * this._sudd, () => '']
+      ];
+      this._griglia.innerHTML = '';
+      this._celle = {};
+      righe.forEach(([k, nome, quanti, testo]) => {
+        const r = document.createElement('div');
+        r.className = 'liv-riga liv-' + k;
+        r.innerHTML = '<span class="liv-nome">' + nome + '</span>';
+        const p = document.createElement('div');
+        p.className = 'liv-pallini';
+        for (let i = 0; i < quanti; i++) {
+          const c = document.createElement('span');
+          c.className = 'liv-p';
+          c.textContent = testo(i);
+          p.appendChild(c);
+        }
+        r.appendChild(p);
+        this._griglia.appendChild(r);
+        this._celle[k] = [...p.children];
+      });
+    }
+
+    async avvia() {
+      if (typeof Tone === 'undefined') return;
+      await Audio.avvia();
+      if (!Audio.pronto) return;
+      this.ferma();
+      Tone.Transport.bpm.value = this._bpm;
+
+      let n = 0;                       /* colpi di suddivisione dall'inizio */
+      const passo = 1 / this._sudd;    /* in movimenti */
+      this._loop = new Tone.Loop(t => {
+        const s = this._sudd;
+        const iSudd = n % (this._perBattuta * s);
+        const suPuls = n % s === 0;
+        const iPuls = Math.floor(iSudd / s);
+        const suBattuta = suPuls && iPuls === 0;
+
+        if (this._on.sudd && !suPuls) Audio.colpo('D6', 0.22, t);
+        if (this._on.puls && suPuls) Audio.colpo('A5', 0.5, t);
+        if (this._on.metro && suBattuta) Audio.colpo('D4', 0.9, t);
+
+        Tone.Draw.schedule(() => {
+          const acc = (arr, i) => arr && arr.forEach((c, k) => c.classList.toggle('on', k === i));
+          acc(this._celle.sudd, iSudd);
+          if (suPuls) { acc(this._celle.puls, iPuls); acc(this._celle.metro, iPuls); }
+        }, t);
+        n++;
+      }, passo + '*4n').start(0);
+
+      Tone.Transport.start();
+      this._corre = true;
+      this._avvio.innerHTML = '&#9632; Ferma';
+    }
+
+    ferma() {
+      if (this._loop) { this._loop.stop(); this._loop.dispose(); this._loop = null; }
+      if (typeof Tone !== 'undefined' && Tone.Transport) Tone.Transport.stop();
+      Object.values(this._celle || {}).forEach(a => a.forEach(c => c.classList.remove('on')));
+      this._corre = false;
+      if (this._avvio) this._avvio.innerHTML = '&#9654; Avvia';
+    }
+
+    disconnectedCallback() { this.ferma(); }
+  }
+  customElements.define('tac-livelli', TacLivelli);
+
 
   /* ==========================================================
      9-bis. <tac-metro> — RICONOSCI IL METRO ALL'ASCOLTO

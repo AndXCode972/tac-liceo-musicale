@@ -1306,3 +1306,19 @@ body.regia .corretto { box-shadow: -4px 0 0 -1px var(--viola); }
 
 .tac-livelli .btn.acceso { background: var(--viola); color: #fff; border-color: var(--viola); }
 @media print { .tac-livelli .tac-barra, .tac-livelli .tac-metro { display: none; } }
+
+/* Un aforisma dentro una slide di contenuto, non in copertina: fondo
+   chiaro invece che testo bianco, e più contenuto perché non deve
+   competere con il ragionamento che lo circonda. */
+.aforisma.dentro {
+  margin: 1.1rem 0 .4rem; padding: .2rem 0 .2rem 1.1rem;
+  border-left: 3px solid var(--viola); max-width: 76ch;
+}
+.aforisma.dentro p {
+  font-size: 1.08rem; font-style: italic; line-height: 1.45;
+  color: var(--inchiostro); opacity: 1; margin: 0;
+}
+.aforisma.dentro cite {
+  display: block; margin-top: .3rem; font-size: .85rem;
+  font-style: normal; color: var(--inchiostro2); opacity: .9;
+}

@@ -132,6 +132,26 @@
       }).toDestination();
       this.tick.volume.value = -19;
 
+      /* Tre legni, per riconoscere il metro senza altezze.
+
+         Finché l'esempio suonava con do, sol e do acuto, chi ascoltava
+         poteva contare gli accenti guardando l'altezza invece che il peso:
+         il salto di ottava dice dove cade l'uno, e il metro si indovina
+         senza averlo sentito. Su rumore filtrato quella scorciatoia non
+         c'è. Restano tre timbri distinti — uno secco e brillante per
+         l'accento, uno medio per la pulsazione, uno sordo per la
+         suddivisione — e nessuno dei tre ha un'altezza. */
+      this.legni = [3400, 1900, 1100].map((f, i) => {
+        const filtro = new Tone.Filter({ type: 'bandpass', frequency: f, Q: 2.4 })
+                         .toDestination();
+        const s = new Tone.NoiseSynth({
+          noise: { type: i === 2 ? 'brown' : 'white' },
+          envelope: { attack: 0.001, decay: i === 0 ? 0.045 : 0.03, sustain: 0 }
+        }).connect(filtro);
+        s.volume.value = [-8, -13, -20][i];
+        return s;
+      });
+
       this.pronto = true;
     },
 
@@ -663,6 +683,34 @@
 
   const LETTERE = 'ABCDEFGH';
 
+  /* Il tasto che azzera il conteggio, uguale per tutti i componenti.
+
+     Un punteggio che non si può azzerare non serve a niente in classe: la
+     prima ora lo si usa per provare, si sbaglia apposta, e da quel momento
+     il conteggio resta sporco per tutta la lezione e nessuno se ne fida
+     più. Sta nella testata, piccolo e a destra, e chiede conferma solo
+     quando c'è davvero qualcosa da perdere.
+
+     Ogni componente passa la propria funzione di azzeramento: la testata è
+     uguale per tutti, quello che va rimesso a zero no. */
+  function tastoAzzera(testata, azzera, quante) {
+    if (!testata) return null;
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'tac-azzera';
+    b.title = 'Ricomincia da capo, punteggio a zero';
+    b.setAttribute('aria-label', 'Azzera il punteggio');
+    b.innerHTML = '&#8635; azzera';
+    b.onclick = () => {
+      const n = typeof quante === 'function' ? quante() : 0;
+      if (n > 0 && !confirm('Azzero il punteggio e ricomincio da capo?')) return;
+      azzera();
+    };
+    testata.appendChild(b);
+    return b;
+  }
+  TAC.tastoAzzera = tastoAzzera;
+
   class TacQuiz extends HTMLElement {
     connectedCallback() {
       if (this._fatto) return;
@@ -723,6 +771,8 @@
       testa.innerHTML =
         '<span class="tac-quiz-conta">Domanda ' + (this._i + 1) + ' di ' + this._dom.length + '</span>' +
         '<span class="tac-quiz-conta">Punteggio ' + this._punti + '</span>';
+      tastoAzzera(testa, () => { this._i = 0; this._punti = 0; this.mostra(); },
+                  () => this._i + this._punti);
       this._box.appendChild(testa);
 
       const d = document.createElement('p');
@@ -874,16 +924,47 @@
       stampa.appendChild(olS);
       this.appendChild(stampa);
 
+      const barra = document.createElement('div');
+      barra.className = 'tac-barra no-stampa';
+      const esito = document.createElement('span');
+      esito.className = 'tac-quiz-conta';
+
       const bt = document.createElement('button');
-      bt.className = 'btn no-stampa';
+      bt.className = 'btn';
       bt.textContent = 'Controlla';
       bt.onclick = () => {
+        let giuste = 0, messe = 0;
         lista.querySelectorAll('.tac-buca').forEach(b => {
           b.classList.remove('giusta', 'sbagliata');
-          b.classList.add(b.textContent.trim() === b.dataset.giusta ? 'giusta' : 'sbagliata');
+          if (!b.textContent.trim()) return;
+          messe++;
+          const ok = b.textContent.trim() === b.dataset.giusta;
+          if (ok) giuste++;
+          b.classList.add(ok ? 'giusta' : 'sbagliata');
         });
+        esito.textContent = messe
+          ? giuste + ' su ' + cfg.frasi.length
+          : 'nessuna parola trascinata';
       };
-      this.appendChild(bt);
+
+      /* Svuotare le buche non basta: i gettoni già usati devono tornare
+         disponibili, altrimenti al secondo giro la classe ha davanti un
+         esercizio dimezzato e non se ne accorge. */
+      const rifai = () => {
+        lista.querySelectorAll('.tac-buca').forEach(b => {
+          b.textContent = '';
+          b.classList.remove('giusta', 'sbagliata', 'sopra');
+        });
+        [...pool.children].forEach(g => g.classList.remove('usato'));
+        esito.textContent = '';
+      };
+      barra.appendChild(bt);
+      tastoAzzera(barra, rifai,
+                  () => lista.querySelectorAll('.tac-buca').length &&
+                        [...lista.querySelectorAll('.tac-buca')]
+                          .filter(b => b.textContent.trim()).length);
+      barra.appendChild(esito);
+      this.appendChild(barra);
     }
   }
   customElements.define('tac-drag', TacDrag);
@@ -922,6 +1003,11 @@
         '</div>';
       this.appendChild(box);
       this._box = box;
+      tastoAzzera(box.querySelector('.tac-quiz-testa'), () => {
+        this._giuste = 0; this._tot = 0;
+        box.querySelector('.punteggio').textContent = '0 / 0';
+        this.nuovo(false);
+      }, () => this._tot);
 
       const barra = document.createElement('div');
       barra.className = 'tac-barra';
@@ -1355,7 +1441,14 @@
     '4/4':  { puls: 4, sudd: 2, nome: 'quaternario semplice' },
     '6/8':  { puls: 2, sudd: 3, nome: 'binario composto' },
     '9/8':  { puls: 3, sudd: 3, nome: 'ternario composto' },
-    '12/8': { puls: 4, sudd: 3, nome: 'quaternario composto' }
+    '12/8': { puls: 4, sudd: 3, nome: 'quaternario composto' },
+
+    /* I metri irregolari non servono in prima, ma il componente è lo
+       stesso e tanto vale che li sappia già suonare. Qui la pulsazione
+       non è uniforme: «gruppi» dice quante suddivisioni entrano in
+       ciascun movimento, ed è la sola cosa che li distingue all'ascolto. */
+    '5/4':  { gruppi: [2, 3], sudd: 2, nome: 'quinario, 2+3' },
+    '7/8':  { gruppi: [2, 2, 3], sudd: 1, nome: 'settenario, 2+2+3' }
   };
 
   class TacMetro extends HTMLElement {
@@ -1375,6 +1468,11 @@
         '</div>';
       this.appendChild(box);
       this._box = box;
+      tastoAzzera(box.querySelector('.tac-quiz-testa'), () => {
+        this._giuste = 0; this._tot = 0;
+        box.querySelector('.punteggio').textContent = '0 / 0';
+        this.nuovo(false);
+      }, () => this._tot);
 
       const barra = document.createElement('div');
       barra.className = 'tac-barra';
@@ -1417,27 +1515,30 @@
       if (suona) this.riproduci();
     }
 
-    /* Due battute: accento forte sul primo movimento, suddivisioni piu deboli */
+    /* Quattro battute di legni: accento sul primo movimento, poi la
+       pulsazione, poi la suddivisione, tutti senza altezza.
+
+       Due battute erano poche: chi entra un attimo dopo l'inizio sente
+       mezzo esempio e deve rilanciare. Quattro danno il tempo di perdere
+       il conto e ritrovarlo, che è esattamente la cosa da imparare. */
     async riproduci() {
       await Audio.avvia();
-      if (!Audio.pronto) return;
+      if (!Audio.pronto || !Audio.legni) return;
       const m = METRI[this._corrente];
       if (!m) return;
+      const gruppi = m.gruppi || new Array(m.puls).fill(m.sudd);
       const durPuls = 60 / this._tempo;
-      const durSudd = durPuls / m.sudd;
+      const durSudd = durPuls / Math.max(...gruppi);
       let t = Tone.now() + 0.15;
-      for (let bat = 0; bat < 2; bat++) {
-        for (let p = 0; p < m.puls; p++) {
-          for (let s = 0; s < m.sudd; s++) {
-            const forte = (p === 0 && s === 0);
-            const capo  = (s === 0);
-            Audio.synth.triggerAttackRelease(
-              forte ? 'C5' : (capo ? 'G4' : 'C4'),
-              durSudd * 0.8, t, forte ? 0.9 : (capo ? 0.6 : 0.35)
-            );
+      for (let bat = 0; bat < 4; bat++) {
+        gruppi.forEach((quante, p) => {
+          for (let s = 0; s < quante; s++) {
+            const livello = (p === 0 && s === 0) ? 0 : (s === 0 ? 1 : 2);
+            Audio.legni[livello].triggerAttackRelease('32n', t,
+              [1, 0.75, 0.5][livello]);
             t += durSudd;
           }
-        }
+        });
       }
     }
 
@@ -1455,8 +1556,10 @@
       this._fb.innerHTML = ok
         ? '<strong>Esatto.</strong> Era ' + this._corrente + ', metro ' + m.nome + '.'
         : '<strong>No.</strong> Era <strong>' + this._corrente + '</strong>, metro ' + m.nome +
-          '. Riascolta contando gli accenti forti: ne senti uno ogni ' + m.puls +
-          ' pulsazioni, e ciascuna si divide in ' + m.sudd + '.';
+          '. Riascolta contando gli accenti forti: ' + (m.gruppi
+            ? 'i movimenti non sono tutti uguali, si raggruppano ' + m.gruppi.join('+') + '.'
+            : 'ne senti uno ogni ' + m.puls + ' pulsazioni, e ciascuna si divide in ' +
+              m.sudd + '.');
       this._box.querySelector('.punteggio').textContent = this._giuste + ' / ' + this._tot;
     }
   }

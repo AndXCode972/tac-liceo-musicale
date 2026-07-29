@@ -192,6 +192,44 @@ a.classe:hover { transform: translateY(-3px); box-shadow: var(--ombra-lg); borde
 .uda > .corpo { padding: 1.2rem 1.6rem 1.5rem; }
 .uda > .corpo > p:first-child { margin-top: 0; }
 
+/* Unità richiudibili.
+
+   Undici unità aperte tutte insieme fanno una pagina lunghissima in cui
+   non si trova niente: per arrivare all'unità 7 si scorre oltre tutto il
+   contenuto delle prime sei. Chiuse, l'anno intero sta in una schermata e
+   si vede a colpo d'occhio dove si è arrivati.
+
+   È fatto con <details>, non con JavaScript: si apre anche a script
+   spento, funziona da tastiera, e la ricerca del browser (Ctrl+F) apre da
+   sé l'unità che contiene la parola cercata. Con un pannello fatto a mano
+   nessuna di queste tre cose sarebbe vera. */
+details.uda > summary.testa {
+  cursor: pointer; list-style: none; user-select: none;
+  transition: background .14s;
+}
+details.uda > summary.testa::-webkit-details-marker { display: none; }
+details.uda > summary.testa::after {
+  content: ''; flex: 0 0 auto; margin-left: .4rem;
+  width: .62rem; height: .62rem;
+  border-right: 2.4px solid var(--inchiostro2);
+  border-bottom: 2.4px solid var(--inchiostro2);
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform .18s;
+}
+details.uda[open] > summary.testa::after { transform: rotate(-135deg) translate(-2px, -2px); }
+details.uda:not([open]) > summary.testa { border-bottom: 0; }
+details.uda > summary.testa:hover { background: linear-gradient(90deg, #f3ecff, var(--carta2) 60%); }
+details.uda > summary.testa:focus-visible { outline: 2px solid var(--viola); outline-offset: -2px; }
+
+/* Chiusa, l'unità deve dire lo stesso quanto lavoro contiene: il numero di
+   risorse pronte resta visibile sulla testata. */
+summary.testa .quante {
+  font-size: .78rem; font-weight: 700; color: var(--inchiostro2);
+  background: var(--carta2); border: 1px solid var(--bordo);
+  padding: .22rem .7rem; border-radius: 999px;
+}
+details.uda[open] > summary.testa .quante { opacity: .45; }
+
 /* barra di avanzamento dell'unità */
 .avanzamento { display: flex; align-items: center; gap: .8rem; margin: 1rem 0 .2rem; }
 .avanzamento .barra {

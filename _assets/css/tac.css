@@ -339,6 +339,21 @@ tac-quiz { display: block; margin: 1.6rem 0; }
                   margin-bottom: 1rem; gap: 1rem; flex-wrap: wrap; }
 .tac-quiz-conta { font-size: .85rem; font-weight: 800; letter-spacing: .1em;
                   text-transform: uppercase; color: var(--viola); }
+/* Il tasto che azzera il punteggio. Deve esserci ma non deve invitare:
+   sta in fondo alla testata, scritto piccolo, e si scalda solo al
+   passaggio del mouse. */
+.tac-azzera {
+  margin-left: auto; font: inherit; font-size: .74rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--inchiostro2); background: none;
+  border: 1px solid var(--bordo); border-radius: 999px;
+  padding: .22rem .7rem; cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.tac-azzera:hover { background: var(--viola); border-color: var(--viola); color: #fff; }
+.tac-azzera:focus-visible { outline: 2px solid var(--viola); outline-offset: 2px; }
+@media print { .tac-azzera { display: none; } }
+
 .tac-quiz-dom { font-size: 1.25rem; font-weight: 700; margin: 0 0 1.2rem; line-height: 1.4; }
 .tac-quiz-opz { display: grid; gap: .7rem; }
 .tac-opz {
@@ -1150,8 +1165,28 @@ figure.figura figcaption .anni {
 .con-ritratto > figure.figura { margin-top: .2rem; }
 .slide .con-ritratto figure.figura img { max-height: 260px; object-fit: cover; }
 
+/* I compiti a casa, generati dall'archivio: ogni voce può portarsi dietro
+   il suo materiale — un ascolto, un rigo da copiare — quindi non è più una
+   riga di elenco ma un blocco con dentro dell'altro. */
+ol.compiti { margin: .4rem 0 0; padding-left: 0; list-style: none; }
+ol.compiti > li { margin: 0 0 1.1rem; padding-left: 0; }
+ol.compiti > li:last-child { margin-bottom: 0; }
+ol.compiti tac-brano,
+ol.compiti tac-stave { display: block; margin: .55rem 0 .2rem; }
+ol.compiti .rimando {
+  margin: .3rem 0 0; font-size: .86rem; color: var(--inchiostro2);
+  font-style: italic;
+}
+
 /* Ritratto tondo, per le figure storiche dentro i trafiletti */
 figure.figura.tondo img { aspect-ratio: 1; object-fit: cover; border-radius: 50%; }
+
+/* Le miniature medievali ritraggono la figura intera, e sono strette e
+   altissime: la miniatura di Guido d'Arezzo è 287×800. Ritagliata al centro,
+   come fa «cover» per impostazione predefinita, il tondo cadeva sul saio e la
+   faccia restava fuori. Con questa classe il ritaglio parte dall'alto, dove
+   sta la testa. Serve a ogni ritratto molto più alto che largo. */
+figure.figura.tondo img.figura-intera { object-position: center top; }
 figure.figura.tondo { border: 0; box-shadow: none; background: none; text-align: center; }
 figure.figura.tondo figcaption { background: none; border: 0; padding: .4rem 0 0; }
 

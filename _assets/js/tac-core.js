@@ -141,14 +141,37 @@
          c'è. Restano tre timbri distinti — uno secco e brillante per
          l'accento, uno medio per la pulsazione, uno sordo per la
          suddivisione — e nessuno dei tre ha un'altezza. */
-      this.legni = [3400, 1900, 1100].map((f, i) => {
-        const filtro = new Tone.Filter({ type: 'bandpass', frequency: f, Q: 2.4 })
+      /* I numeri di questa riga sono misurati, non scelti a orecchio, perché
+         a orecchio li avevo sbagliati di parecchio. La prima versione —
+         filtri strettissimi a Q 2,4, rumore bruno sulla suddivisione, e una
+         scala di volumi -8/-13/-20 — dava questo, misurato rendendo il suono
+         fuori linea e leggendo i picchi:
+
+             accento -19 dB · pulsazione -24 · suddivisione -41
+
+         Cioè tutto molto piano, e la suddivisione ventidue decibel sotto
+         l'accento: in aula spariva del tutto, ed è proprio la cosa che
+         l'esercizio chiede di contare. Il colpevole principale era il filtro:
+         a Q 2,4 lascia passare una fetta di rumore così sottile che butta via
+         quasi tutta l'energia, e il rumore bruno intorno a 1600 Hz non ne ha
+         quasi.
+
+         Con Q 0,7, rumore bianco su tutti e tre e code un po' più lunghe:
+
+             accento -5,1 dB · pulsazione -8,9 · suddivisione -12,4
+
+         La suddivisione guadagna ventotto decibel e lo stacco scende da 22 a
+         7: si sente distintamente, e l'accento resta comunque sopra. Sette
+         decibel è la differenza che serve — abbastanza per capire chi
+         comanda, non tanto da far sparire gli altri. */
+      this.legni = [3800, 2400, 1600].map((f, i) => {
+        const filtro = new Tone.Filter({ type: 'bandpass', frequency: f, Q: 0.7 })
                          .toDestination();
         const s = new Tone.NoiseSynth({
-          noise: { type: i === 2 ? 'brown' : 'white' },
-          envelope: { attack: 0.001, decay: i === 0 ? 0.045 : 0.03, sustain: 0 }
+          noise: { type: 'white' },
+          envelope: { attack: 0.001, decay: [0.055, 0.05, 0.045][i], sustain: 0 }
         }).connect(filtro);
-        s.volume.value = [-8, -13, -20][i];
+        s.volume.value = [-1, -2.5, -4][i];
         return s;
       });
 
@@ -1435,13 +1458,29 @@
      allo studente di riconoscerlo. Autocorrettivo.
      ========================================================== */
 
+  /* Due modi di dire lo stesso metro, e servono tutti e due.
+
+     `come` descrive quello che si sente: quante pulsazioni, in quanto si
+     dividono. `nome` è l'etichetta tecnica. Sui pulsanti va `come`, nella
+     risposta va `nome` — perché questo esercizio si fa prima di aver
+     spiegato i metri, ed è giusto così: la classe deve poter scegliere
+     contando quello che sente, non riconoscendo una parola che nessuno le
+     ha ancora detto. Il nome arriva subito dopo, attaccato all'esperienza
+     che lo ha appena reso necessario, che è l'ordine dichiarato del corso —
+     prima si fa, poi si nomina. */
   const METRI = {
-    '2/4':  { puls: 2, sudd: 2, nome: 'binario semplice' },
-    '3/4':  { puls: 3, sudd: 2, nome: 'ternario semplice' },
-    '4/4':  { puls: 4, sudd: 2, nome: 'quaternario semplice' },
-    '6/8':  { puls: 2, sudd: 3, nome: 'binario composto' },
-    '9/8':  { puls: 3, sudd: 3, nome: 'ternario composto' },
-    '12/8': { puls: 4, sudd: 3, nome: 'quaternario composto' },
+    '2/4':  { puls: 2, sudd: 2, nome: 'binario semplice',
+              come: 'due pulsazioni, divise in due' },
+    '3/4':  { puls: 3, sudd: 2, nome: 'ternario semplice',
+              come: 'tre pulsazioni, divise in due' },
+    '4/4':  { puls: 4, sudd: 2, nome: 'quaternario semplice',
+              come: 'quattro pulsazioni, divise in due' },
+    '6/8':  { puls: 2, sudd: 3, nome: 'binario composto',
+              come: 'due pulsazioni, divise in tre' },
+    '9/8':  { puls: 3, sudd: 3, nome: 'ternario composto',
+              come: 'tre pulsazioni, divise in tre' },
+    '12/8': { puls: 4, sudd: 3, nome: 'quaternario composto',
+              come: 'quattro pulsazioni, divise in tre' },
 
     /* I metri irregolari non servono in prima, ma il componente è lo
        stesso e tanto vale che li sappia già suonare. Qui la pulsazione
@@ -1508,7 +1547,7 @@
         b.className = 'tac-opz';
         const m = METRI[s];
         b.innerHTML = '<span class="lettera">' + LETTERE[k] + '</span><span><strong>' + s +
-                      '</strong> &mdash; ' + (m ? m.nome : '') + '</span>';
+                      '</strong> &mdash; ' + (m ? (m.come || m.nome) : '') + '</span>';
         b.onclick = () => this.rispondi(s);
         this._opz.appendChild(b);
       });
@@ -1535,7 +1574,7 @@
           for (let s = 0; s < quante; s++) {
             const livello = (p === 0 && s === 0) ? 0 : (s === 0 ? 1 : 2);
             Audio.legni[livello].triggerAttackRelease('32n', t,
-              [1, 0.75, 0.5][livello]);
+              [1, 0.9, 0.85][livello]);
             t += durSudd;
           }
         });
@@ -1554,7 +1593,8 @@
       const m = METRI[this._corrente];
       this._fb.className = 'tac-feedback mostra ' + (ok ? 'ok' : 'no');
       this._fb.innerHTML = ok
-        ? '<strong>Esatto.</strong> Era ' + this._corrente + ', metro ' + m.nome + '.'
+        ? '<strong>Esatto.</strong> Era ' + this._corrente + ': ' + (m.come || m.nome) +
+          '. Si chiama <strong>metro ' + m.nome + '</strong>.'
         : '<strong>No.</strong> Era <strong>' + this._corrente + '</strong>, metro ' + m.nome +
           '. Riascolta contando gli accenti forti: ' + (m.gruppi
             ? 'i movimenti non sono tutti uguali, si raggruppano ' + m.gruppi.join('+') + '.'

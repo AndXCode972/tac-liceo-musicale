@@ -355,32 +355,22 @@ tac-quiz { display: block; margin: 1.6rem 0; }
 @media print { .tac-azzera { display: none; } }
 
 .tac-quiz-dom { font-size: 1.25rem; font-weight: 700; margin: 0 0 1.2rem; line-height: 1.4; }
-/* Le risposte si affiancano quando c'è larghezza.
+/* Le risposte si affiancano, e quante per riga lo decide il numero di
+   risposte — non la larghezza disponibile.
 
-   Era l'errore di fondo di tutta l'impaginazione delle slide: il palco è
-   largo 1500 pixel e i blocchi stavano incolonnati, uno sotto l'altro, come
-   su un foglio A4. «Riconosci il metro» con cinque risposte chiedeva 518
-   pixel solo per il componente e sforava del 23%; su due colonne ne chiede
-   295 e ci sta senza toccare il corpo del testo.
+   La differenza non è teorica. Con `auto-fit` e un minimo espresso in rem il
+   risultato cambia con lo zoom del browser: sullo stesso file, alla stessa
+   ora, qui se ne vedevano quattro per riga e sul portatile di Andrea una
+   sola incolonnata. Un'impaginazione che dipende da quanto uno ha ingrandito
+   la pagina non è un'impaginazione. Il conteggio lo scrive il componente in
+   `--colonne`, leggendo quante risposte ha.
 
-   Vale la pena dirlo perché la strada sbagliata sembrava ovvia: rimpicciolire
-   il carattere. Misurato, portarlo dal 100% all'80% — cioè al limite della
-   leggibilità dal fondo dell'aula — lasciava la stessa slide al 116%. Su
-   quelle schermate lo spazio non lo prende il testo, lo prendono le scatole.
-
-   `auto-fit` con un minimo di 17rem fa il resto da sé: due colonne quando
-   c'è posto, una sola su schermo stretto o quando le risposte sono lunghe. */
-   Quante colonne lo decide il **numero di risposte**, non la larghezza
-   disponibile, e la differenza non è teorica: con `auto-fit` e un minimo in
-   rem il risultato cambia con lo zoom del browser. Sullo stesso file, alla
-   stessa ora, qui se ne vedevano quattro per riga e sul portatile di Andrea
-   una sola incolonnata. Un'impaginazione che dipende da quanto uno ha
-   ingrandito la pagina non è un'impaginazione.
-
-   Il conteggio lo scrive il componente in `--colonne`, leggendo quante
-   risposte ha: sei fanno due righe da tre, quattro fanno due da due, due
-   restano affiancate. Sotto gli 800 pixel di palco — che nel mazzo non
-   succede, ma le schede stampabili sì — tornano tutte in colonna. */
+   Vale la pena dire anche la strada sbagliata, perché sembrava ovvia:
+   rimpicciolire il carattere. Misurato, portarlo dal 100% all'80% — cioè al
+   limite della leggibilità dal fondo dell'aula — lasciava «Riconosci il
+   metro» al 116%, cioè fuori lo stesso. Su quelle schermate lo spazio non lo
+   prende il testo, lo prendono le scatole: su due colonne il componente
+   passa da 518 pixel a 295 senza toccare una lettera. */
 .tac-quiz-opz { display: grid; gap: .6rem;
                 grid-template-columns: repeat(var(--colonne, 1), minmax(0, 1fr)); }
 @media (max-width: 800px) { .tac-quiz-opz { grid-template-columns: 1fr; } }

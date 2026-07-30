@@ -370,8 +370,13 @@ tac-quiz { display: block; margin: 1.6rem 0; }
 
    `auto-fit` con un minimo di 17rem fa il resto da sé: due colonne quando
    c'è posto, una sola su schermo stretto o quando le risposte sono lunghe. */
+   Il minimo è 24rem e non 17: con 17 ne entravano cinque per riga sui
+   monitor larghi e le sei risposte venivano 5+1, che è brutto e si legge
+   male. Con 24 ne entrano tre, e sei fanno due righe piene. Le domande a
+   due risposte — vero o falso — restano affiancate lo stesso, perché
+   `auto-fit` toglie le colonne che avanzano invece di lasciarle vuote. */
 .tac-quiz-opz { display: grid; gap: .6rem;
-                grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
+                grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr)); }
 .tac-opz {
   text-align: left; font-family: inherit; font-size: 1.05rem; padding: .9rem 1.2rem;
   background: var(--carta2); border: 2px solid var(--bordo); border-radius: 12px;

@@ -86,6 +86,185 @@
   };
 
   /* ==========================================================
+     0-bis. IL CODICE D'ESITO
+
+     Una verifica finisce con un codice che lo studente copia e
+     consegna. Da quel codice il docente ricava il voto.
+
+     Che cosa ci sta dentro, e che cosa no. Dentro: il numero della
+     prova, il seme, e la risposta data a ogni domanda. Fuori: il
+     nome dello studente, le domande, le risposte giuste, il
+     punteggio. Il nome sta fuori per una ragione decisa una volta
+     per tutte — sul sito non finiscono dati di minori — e il resto
+     sta fuori perché **si ricalcola**: stesso seme, stesse domande,
+     stesse risposte giuste. Un codice che portasse il punteggio
+     sarebbe un codice da credere sulla parola; così invece il
+     punteggio lo rifà il docente.
+
+     Trentadue caratteri, quelli di Crockford: niente I, L, O, U.
+     La I e la L si confondono con l'uno, la O con lo zero, e la U
+     compare per sbaglio dentro parole che e meglio non far
+     comparire. Chi trascrive a mano sbaglia meno, e chi legge male
+     lo scopre subito perche c'e una cifra di controllo.
+
+     Che cosa la cifra di controllo protegge, detto chiaro: gli
+     **errori di trascrizione**, non l'imbroglio. Un codice
+     ricopiato male non viene accettato per buono. Un codice
+     inventato a tavolino da chi ha letto il JavaScript si potrebbe
+     costruire — ma per farsi dare un voto alto bisognerebbe
+     comunque metterci dentro le risposte giuste, che e esattamente
+     la cosa che la verifica chiede di sapere. La prova in classe si
+     sorveglia come sempre; questo meccanismo serve a riportare un
+     risultato, non a fare da guardiano.
+     ========================================================== */
+
+  TAC.esito = {
+    ALFABETO: '0123456789ABCDEFGHJKMNPQRSTVWXYZ',
+    VERSIONE: 1,
+
+    /* La risposta e un numero da 0 a 7: 0 vuol dire «non data», e
+       da 1 a 7 sono le scelte. Sette bastano: una domanda con piu
+       di sette opzioni non si risponde, si indovina. */
+    MAX_SCELTE: 7,
+    MAX_DOMANDE: 63,
+
+    _bit(n, quanti) {
+      let s = '';
+      for (let i = quanti - 1; i >= 0; i--) s += (n >>> i) & 1;
+      return s;
+    },
+
+    /* Cifra di controllo: dieci bit, presi con un CRC classico.
+       Va calcolata sui bit veri, non sulle lettere: cosi becca
+       anche lo scambio di due caratteri, che e l'errore di
+       trascrizione piu comune dopo la lettura sbagliata. */
+    _controllo(bit) {
+      let r = 0x3FF;
+      for (const c of bit) {
+        const alto = (r >>> 9) & 1;
+        r = ((r << 1) & 0x3FF) ^ (+c ^ alto ? 0x199 : 0);
+      }
+      return r & 0x3FF;
+    },
+
+    /**
+     * Il codice da consegnare.
+     * @param {{prova:number, seme:number, risposte:number[]}} dati
+     */
+    codifica(dati) {
+      const risposte = dati.risposte || [];
+      if (risposte.length > this.MAX_DOMANDE) {
+        throw new Error('troppe domande per un codice solo: ' + risposte.length);
+      }
+      for (const r of risposte) {
+        if (!(r >= 0 && r <= this.MAX_SCELTE)) {
+          throw new Error('risposta fuori scala: ' + r);
+        }
+      }
+      let bit = this._bit(this.VERSIONE, 3)
+              + this._bit(dati.prova, 10)
+              + this._bit(dati.seme >>> 0, 32)
+              + this._bit(risposte.length, 6);
+      for (const r of risposte) bit += this._bit(r, 3);
+      bit += this._bit(this._controllo(bit), 10);
+      while (bit.length % 5) bit += '0';
+
+      let fuori = '';
+      for (let i = 0; i < bit.length; i += 5) {
+        fuori += this.ALFABETO[parseInt(bit.slice(i, i + 5), 2)];
+      }
+      return fuori.replace(/(.{5})(?=.)/g, '$1-');
+    },
+
+    /**
+     * Riapre un codice. Torna null se non e un codice valido: e il
+     * caso della trascrizione sbagliata, e va detto a chi lo
+     * incolla invece di restituire numeri a caso.
+     */
+    leggi(codice) {
+      if (typeof codice !== 'string') return null;
+      /* Chi ricopia a mano scrive volentieri O per 0 e I per 1: si
+         accetta e si raddrizza, invece di rimandarlo indietro. */
+      const pulito = codice.toUpperCase().replace(/[^0-9A-Z]/g, '')
+                           .replace(/O/g, '0').replace(/[IL]/g, '1')
+                           .replace(/U/g, 'V');
+      let bit = '';
+      for (const c of pulito) {
+        const k = this.ALFABETO.indexOf(c);
+        if (k < 0) return null;
+        bit += this._bit(k, 5);
+      }
+      if (bit.length < 61) return null;
+
+      const versione = parseInt(bit.slice(0, 3), 2);
+      if (versione !== this.VERSIONE) return null;
+      const prova = parseInt(bit.slice(3, 13), 2);
+      const seme = parseInt(bit.slice(13, 45), 2) >>> 0;
+      const n = parseInt(bit.slice(45, 51), 2);
+      const fine = 51 + n * 3;
+      if (bit.length < fine + 10) return null;
+
+      const risposte = [];
+      for (let i = 0; i < n; i++) {
+        risposte.push(parseInt(bit.slice(51 + i * 3, 54 + i * 3), 2));
+      }
+      const atteso = parseInt(bit.slice(fine, fine + 10), 2);
+      if (this._controllo(bit.slice(0, fine)) !== atteso) return null;
+
+      /* In fondo restano da uno a quattro bit di riempimento, per
+         arrivare a un numero tondo di caratteri. Sono zeri, e vanno
+         controllati: senza, l'ultimo carattere si puo sbagliare a
+         ricopiare e il codice viene accettato lo stesso. Il voto
+         verrebbe giusto — quei bit non dicono niente — ma il codice
+         letto non sarebbe piu quello scritto, e un codice che non
+         combacia con quello consegnato e una discussione che non si
+         vuole avere in classe. */
+      if (/[^0]/.test(bit.slice(fine + 10))) return null;
+
+      return { versione, prova, seme, risposte };
+    },
+
+    /* ------------------------------------------------------
+       Dal numero di risposte giuste al voto.
+
+       La scala non si inventa qui: e quella di
+       `00_Programmazione/07_Griglie_Solfeggio_e_Dettato.md`, che
+       vale per tutte le prove del corso. Venti punti, voto = punti
+       diviso due, e sotto i sei punti il voto e 3 — perche una
+       prova quasi in bianco non merita distinzioni fini, e perche
+       il 2 non si mette.
+       ------------------------------------------------------ */
+
+    /* `ottenuto` e `massimo` non sono per forza il numero di
+       risposte giuste: una verifica puo pesare le domande in modo
+       diverso, e il peso lo dice la verifica, non il codice. Il
+       codice porta le risposte; quanto valgono lo sa la scheda di
+       correzione. */
+    punti(ottenuto, massimo) {
+      if (!massimo) return 0;
+      return Math.round(20 * ottenuto / massimo);
+    },
+
+    voto(punti) {
+      return punti < 6 ? 3 : punti / 2;
+    },
+
+    /** Il voto come si scrive sul registro: 7½, non 7.5. */
+    votoScritto(voto) {
+      const intero = Math.floor(voto);
+      return (voto - intero === 0.5) ? intero + '½' : String(intero);
+    },
+
+    /** Tutto insieme, che e come lo usa la pagina del docente. */
+    valuta(ottenuto, massimo) {
+      const p = this.punti(ottenuto, massimo);
+      const v = this.voto(p);
+      return { ottenuto, massimo, punti: p, voto: v,
+               scritto: this.votoScritto(v) };
+    }
+  };
+
+  /* ==========================================================
      1. AUDIO
      ========================================================== */
 

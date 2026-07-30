@@ -386,18 +386,24 @@ tac-quiz { display: block; margin: 1.6rem 0; }
 
 /* --- Trascina --- */
 tac-drag { display: block; margin: 1.6rem 0; }
-.tac-drag-pool { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1.2rem;
-                 padding: 1rem; background: var(--carta2); border-radius: 12px;
-                 border: 2px dashed var(--bordo); min-height: 4rem; }
+/* Il trascinamento era alto un centimetro per riga più del necessario, e
+   con quattro frasi la slide sbordava del 19%. Non era il testo: erano la
+   buca alta 2,6rem e il vassoio dei gettoni con un rem di imbottitura per
+   lato. Stretti così restano larghi abbastanza da prenderci dentro con il
+   dito su una lavagna interattiva, che è il vincolo vero. */
+.tac-drag-pool { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: .7rem;
+                 padding: .6rem .7rem; background: var(--carta2); border-radius: 12px;
+                 border: 2px dashed var(--bordo); }
 .tac-gettone {
-  padding: .5rem 1.1rem; background: var(--viola); color: #fff; border-radius: 999px;
-  font-weight: 700; cursor: grab; font-size: 1rem; user-select: none;
+  padding: .35rem .95rem; background: var(--viola); color: #fff; border-radius: 999px;
+  font-weight: 700; cursor: grab; font-size: .98rem; user-select: none;
 }
 .tac-gettone:active { cursor: grabbing; }
+.tac-frase { font-size: 1.05rem; line-height: 1.45; margin: .35rem 0; }
 .tac-buca {
-  display: inline-flex; min-width: 8rem; min-height: 2.6rem; align-items: center;
+  display: inline-flex; min-width: 7rem; min-height: 2rem; align-items: center;
   justify-content: center; border: 2px dashed var(--viola); border-radius: 999px;
-  background: #fff; padding: .3rem .8rem; margin: 0 .3rem;
+  background: #fff; padding: .12rem .7rem; margin: 0 .25rem;
 }
 .tac-buca.sopra { background: #f0ecff; border-style: solid; }
 .tac-buca.giusta { border-color: var(--verde); background: #ecfdf5; }

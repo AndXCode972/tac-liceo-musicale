@@ -370,13 +370,20 @@ tac-quiz { display: block; margin: 1.6rem 0; }
 
    `auto-fit` con un minimo di 17rem fa il resto da sé: due colonne quando
    c'è posto, una sola su schermo stretto o quando le risposte sono lunghe. */
-   Il minimo è 24rem e non 17: con 17 ne entravano cinque per riga sui
-   monitor larghi e le sei risposte venivano 5+1, che è brutto e si legge
-   male. Con 24 ne entrano tre, e sei fanno due righe piene. Le domande a
-   due risposte — vero o falso — restano affiancate lo stesso, perché
-   `auto-fit` toglie le colonne che avanzano invece di lasciarle vuote. */
+   Quante colonne lo decide il **numero di risposte**, non la larghezza
+   disponibile, e la differenza non è teorica: con `auto-fit` e un minimo in
+   rem il risultato cambia con lo zoom del browser. Sullo stesso file, alla
+   stessa ora, qui se ne vedevano quattro per riga e sul portatile di Andrea
+   una sola incolonnata. Un'impaginazione che dipende da quanto uno ha
+   ingrandito la pagina non è un'impaginazione.
+
+   Il conteggio lo scrive il componente in `--colonne`, leggendo quante
+   risposte ha: sei fanno due righe da tre, quattro fanno due da due, due
+   restano affiancate. Sotto gli 800 pixel di palco — che nel mazzo non
+   succede, ma le schede stampabili sì — tornano tutte in colonna. */
 .tac-quiz-opz { display: grid; gap: .6rem;
-                grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr)); }
+                grid-template-columns: repeat(var(--colonne, 1), minmax(0, 1fr)); }
+@media (max-width: 800px) { .tac-quiz-opz { grid-template-columns: 1fr; } }
 .tac-opz {
   text-align: left; font-family: inherit; font-size: 1.05rem; padding: .9rem 1.2rem;
   background: var(--carta2); border: 2px solid var(--bordo); border-radius: 12px;

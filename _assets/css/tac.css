@@ -355,7 +355,23 @@ tac-quiz { display: block; margin: 1.6rem 0; }
 @media print { .tac-azzera { display: none; } }
 
 .tac-quiz-dom { font-size: 1.25rem; font-weight: 700; margin: 0 0 1.2rem; line-height: 1.4; }
-.tac-quiz-opz { display: grid; gap: .7rem; }
+/* Le risposte si affiancano quando c'è larghezza.
+
+   Era l'errore di fondo di tutta l'impaginazione delle slide: il palco è
+   largo 1500 pixel e i blocchi stavano incolonnati, uno sotto l'altro, come
+   su un foglio A4. «Riconosci il metro» con cinque risposte chiedeva 518
+   pixel solo per il componente e sforava del 23%; su due colonne ne chiede
+   295 e ci sta senza toccare il corpo del testo.
+
+   Vale la pena dirlo perché la strada sbagliata sembrava ovvia: rimpicciolire
+   il carattere. Misurato, portarlo dal 100% all'80% — cioè al limite della
+   leggibilità dal fondo dell'aula — lasciava la stessa slide al 116%. Su
+   quelle schermate lo spazio non lo prende il testo, lo prendono le scatole.
+
+   `auto-fit` con un minimo di 17rem fa il resto da sé: due colonne quando
+   c'è posto, una sola su schermo stretto o quando le risposte sono lunghe. */
+.tac-quiz-opz { display: grid; gap: .6rem;
+                grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
 .tac-opz {
   text-align: left; font-family: inherit; font-size: 1.05rem; padding: .9rem 1.2rem;
   background: var(--carta2); border: 2px solid var(--bordo); border-radius: 12px;
@@ -1269,6 +1285,17 @@ ol.compiti > li { margin: 0 0 1.1rem; padding-left: 0; }
 ol.compiti > li:last-child { margin-bottom: 0; }
 ol.compiti tac-brano,
 ol.compiti tac-stave { display: block; margin: .55rem 0 .2rem; }
+
+/* Stesso principio dei quiz: tre brani da ascoltare a casa, incolonnati,
+   riempivano la slide da soli. Affiancati ci stanno, e si vedono tutti e
+   tre insieme, che è anche il modo in cui il compito va letto — sono tre
+   ascolti dello stesso esercizio, non tre esercizi. */
+.slide ol.compiti > li:has(tac-brano + tac-brano) {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: .5rem 1.1rem; align-items: start;
+}
+.slide ol.compiti > li:has(tac-brano + tac-brano) > strong,
+.slide ol.compiti > li:has(tac-brano + tac-brano) > .rimando { grid-column: 1 / -1; }
 ol.compiti .rimando {
   margin: .3rem 0 0; font-size: .86rem; color: var(--inchiostro2);
   font-style: italic;

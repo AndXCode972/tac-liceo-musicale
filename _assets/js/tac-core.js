@@ -1753,12 +1753,22 @@
     ferma() {
       clearTimeout(this._pulizia);
       this._suona = false;
-      /* Il tick è condiviso: non si può buttare. Si tolgono di mezzo gli
-         eventi ancora in coda azzerando la sua uscita per un istante. */
-      try { Audio.tick.triggerRelease(); } catch (e) {}
+      /* Il tick è condiviso: non si può buttare. E soprattutto i colpi sono
+         già stati consegnati tutti insieme all'orologio dell'audio, quindi
+         non basta zittire il sintetizzatore: gli attacchi futuri sono già
+         scritti sul suo inviluppo, ed è lì che vanno disdetti.
+
+         Qui prima si azzeravano i valori programmati del *volume*, dove
+         però non era mai stato programmato niente: la chiamata riusciva,
+         non toccava nulla, e l'esercizio continuava a battere fino in
+         fondo mentre il tasto era già tornato «Ascolta». Misurato sul
+         sito: dopo il Ferma l'uscita batteva ancora nove volte in due
+         secondi e mezzo. Con la disdetta sull'inviluppo resta solo il
+         colpo che stava già suonando, che dura trenta millesimi. */
       try {
-        const g = Audio.tick.volume, ora = Tone.now();
-        g.cancelScheduledValues(ora);
+        const ora = Tone.now();
+        Audio.tick.envelope.cancel(ora);
+        Audio.tick.triggerRelease(ora);
       } catch (e) {}
       this.aggiornaTasto(false);
     }

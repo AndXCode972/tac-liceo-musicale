@@ -221,6 +221,23 @@ em.termine { font-style: normal; font-weight: 700; color: var(--viola); }
 .compito     .etichetta { color: #047857; }
 
 /* --- Griglie --- */
+/* Due blocchi fianco a fianco, e basta.
+
+   È la stessa medicina che ha risolto quasi tutti gli sbordamenti della
+   lezione 1: il palco è largo millecinquecento pixel e i blocchi stavano
+   incolonnati come su un foglio A4. `.colonne` qui sotto serve quando si
+   vuole una struttura a due colonne dichiarata; `.affianca` serve invece a
+   prendere due riquadri che erano uno sotto l'altro e metterli di fianco,
+   senza toccare né il testo né l'ordine di lettura.
+
+   Le colonne sono due dichiarate e non `auto-fit` con un minimo in rem:
+   quello dava un numero diverso a seconda di quanto uno avesse ingrandito
+   la pagina, e ci è già costato una mattina. */
+.affianca { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem;
+            align-items: start; margin: 1rem 0; }
+.affianca > * { margin-top: 0; }
+@media (max-width: 800px) { .affianca { grid-template-columns: 1fr; } }
+
 .colonne  { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; align-items: start; }
 .colonne3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; align-items: start; }
 @media (max-width: 800px) { .colonne, .colonne3 { grid-template-columns: 1fr; } }

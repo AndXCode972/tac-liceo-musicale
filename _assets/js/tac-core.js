@@ -19,6 +19,73 @@
   const TAC = window.TAC = {};
 
   /* ==========================================================
+     0. IL CASO RIPRODUCIBILE
+
+     `Math.random()` non si può rifare due volte uguale, e questo
+     va benissimo finché un esercizio serve solo a chi lo sta
+     facendo. Smette di bastare appena si vuole che una scheda
+     assegnata sia **ricostruibile**: per rivedere la prova di uno
+     studente bisogna poter rifare esattamente gli esercizi che gli
+     erano capitati, e con il caso puro non si può, perché non
+     resta traccia di che cosa sia uscito.
+
+     Qui il caso parte da un numero, il seme. Stesso seme, stessa
+     sequenza, per sempre e su qualunque macchina. Da questo solo
+     fatto discende tutta la struttura delle schede: il codice che
+     lo studente riporta contiene il seme e le sue risposte, e
+     tanto basta a ricostruire la prova intera — le domande si
+     rigenerano, le risposte giuste si ricalcolano. Nel codice non
+     serve mettere né le une né le altre, e infatti non ci sono.
+
+     L'algoritmo è mulberry32: trenta righe, distribuzione più che
+     buona per quello che ci serve, e soprattutto **identico
+     ovunque**, che è l'unica proprietà che conta qui. Non è
+     crittografico e non deve esserlo: non protegge niente, serve
+     solo a ripetersi.
+
+     Senza seme si torna a `Math.random()`, così un esercizio usato
+     in classe resta imprevedibile come deve essere.
+     ========================================================== */
+
+  TAC.caso = {
+    seme: null,
+    _tira: null,
+
+    /** Fissa il seme. Da qui in poi la sequenza è determinata. */
+    semina(seme) {
+      this.seme = (typeof seme === 'string') ? this.daTesto(seme) : (seme | 0);
+      let a = this.seme;
+      this._tira = function () {
+        a |= 0; a = a + 0x6D2B79F5 | 0;
+        let t = Math.imul(a ^ a >>> 15, 1 | a);
+        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+      };
+      return this.seme;
+    },
+
+    /** Torna al caso vero: è così che si comporta in classe. */
+    libera() { this.seme = null; this._tira = null; },
+
+    numero() { return this._tira ? this._tira() : Math.random(); },
+    intero(n) { return Math.floor(this.numero() * n); },
+    scegli(a) { return a[this.intero(a.length)]; },
+
+    /** Un seme da una stringa qualsiasi, per semi leggibili. */
+    daTesto(s) {
+      let h = 2166136261;
+      for (let i = 0; i < s.length; i++) {
+        h ^= s.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+      }
+      return h >>> 0;
+    },
+
+    /** Un seme nuovo, quando la scheda comincia e non ne ha uno. */
+    nuovo() { return (Math.random() * 0xFFFFFFFF) >>> 0; }
+  };
+
+  /* ==========================================================
      1. AUDIO
      ========================================================== */
 
@@ -1108,7 +1175,7 @@
     }
 
     nuovo(suona = true) {
-      this._corrente = this._scelte[Math.floor(Math.random() * this._scelte.length)];
+      this._corrente = TAC.caso.scegli(this._scelte);
       this._fb.className = 'tac-feedback';
       this._opz.innerHTML = '';
       this._opz.style.setProperty('--colonne', colonne(this._scelte.length));
@@ -1591,7 +1658,7 @@
 
     nuovo(suona) {
       this.ferma();            // via quello di prima, altrimenti si accavallano
-      this._corrente = this._scelte[Math.floor(Math.random() * this._scelte.length)];
+      this._corrente = TAC.caso.scegli(this._scelte);
       this._fb.className = 'tac-feedback';
       this._opz.innerHTML = '';
       this._opz.style.setProperty('--colonne', colonne(this._scelte.length));
@@ -1669,12 +1736,12 @@
       const colpi = [];
       let quando = 0;
       for (let bat = 0; bat < 4; bat++) {
-        const intatta = bat === 0 ? -2 : Math.floor(Math.random() * gruppi.length);
+        const intatta = bat === 0 ? -2 : TAC.caso.intero(gruppi.length);
         gruppi.forEach((quante, p) => {
           for (let s = 0; s < quante; s++) {
             const struttura = (s === 0);
             const suona = struttura || bat === 0 || p === intatta ||
-                          Math.random() < 0.5;
+                          TAC.caso.numero() < 0.5;
             if (suona) {
               colpi.push({ t: quando,
                            liv: (p === 0 && s === 0) ? 0 : (struttura ? 1 : 2) });

@@ -734,6 +734,22 @@
   }
   TAC.tastoAzzera = tastoAzzera;
 
+  /* Quante colonne per le risposte, dato quante sono.
+
+     Non lo può decidere il CSS da solo: `auto-fit` con un minimo in rem dà
+     un numero diverso a seconda dello zoom del browser, e infatti lo stesso
+     esercizio si vedeva su quattro colonne su un monitor e tutto incolonnato
+     su un portatile. Qui il numero è fisso e dipende solo dal contenuto.
+
+     Due risposte stanno affiancate — vero e falso vanno visti insieme.
+     Tre stanno in fila. Quattro fanno due righe da due, che è meglio di
+     una fila di quattro strette. Da cinque in su, tre per riga. */
+  function colonne(n) {
+    if (n <= 3) return n;
+    if (n === 4) return 2;
+    return 3;
+  }
+
   class TacQuiz extends HTMLElement {
     connectedCallback() {
       if (this._fatto) return;
@@ -811,6 +827,7 @@
 
       const opz = document.createElement('div');
       opz.className = 'tac-quiz-opz';
+      opz.style.setProperty('--colonne', colonne(q.o.length));
       q.o.forEach((testo, k) => {
         const b = document.createElement('button');
         b.className = 'tac-opz';
@@ -1051,6 +1068,7 @@
 
       const opz = document.createElement('div');
       opz.className = 'tac-quiz-opz';
+      opz.style.setProperty('--colonne', colonne(this._scelte.length));
       box.appendChild(opz);
       this._opz = opz;
 
@@ -1068,6 +1086,7 @@
       this._corrente = this._scelte[Math.floor(Math.random() * this._scelte.length)];
       this._fb.className = 'tac-feedback';
       this._opz.innerHTML = '';
+      this._opz.style.setProperty('--colonne', colonne(this._scelte.length));
       this._scelte.forEach((s, k) => {
         const b = document.createElement('button');
         b.className = 'tac-opz';
@@ -1527,6 +1546,7 @@
 
       const opz = document.createElement('div');
       opz.className = 'tac-quiz-opz';
+      opz.style.setProperty('--colonne', colonne(this._scelte.length));
       box.appendChild(opz);
       this._opz = opz;
 
@@ -1542,6 +1562,7 @@
       this._corrente = this._scelte[Math.floor(Math.random() * this._scelte.length)];
       this._fb.className = 'tac-feedback';
       this._opz.innerHTML = '';
+      this._opz.style.setProperty('--colonne', colonne(this._scelte.length));
       this._scelte.forEach((s, k) => {
         const b = document.createElement('button');
         b.className = 'tac-opz';

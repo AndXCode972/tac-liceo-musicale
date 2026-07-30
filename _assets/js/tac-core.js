@@ -893,7 +893,7 @@
       const lista = document.createElement('div');
       cfg.frasi.forEach(([testo, giusta]) => {
         const r = document.createElement('p');
-        r.style.fontSize = '1.1rem';
+        r.className = 'tac-frase';
         r.innerHTML = testo + ' ';
         const buca = document.createElement('span');
         buca.className = 'tac-buca';

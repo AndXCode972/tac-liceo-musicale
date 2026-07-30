@@ -932,10 +932,8 @@
       const testa = document.createElement('div');
       testa.className = 'tac-quiz-testa';
       testa.innerHTML =
-        '<span class="tac-quiz-conta">Domanda ' + (this._i + 1) + ' di ' + this._dom.length +
-          (this._tutte.length > this._dom.length
-             ? ' <em style="font-weight:600;text-transform:none;letter-spacing:0">(pescate fra ' +
-               this._tutte.length + ')</em>' : '') + '</span>' +
+        '<span class="tac-quiz-conta">Domanda ' + (this._i + 1) + ' di ' +
+          this._dom.length + '</span>' +
         '<span class="tac-quiz-conta">Punteggio ' + this._punti + '</span>';
       tastoAzzera(testa, () => { this.pesca(); this.mostra(); },
                   () => this._i + this._punti);

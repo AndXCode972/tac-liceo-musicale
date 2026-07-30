@@ -132,51 +132,8 @@
       }).toDestination();
       this.tick.volume.value = -19;
 
-      /* Tre woodblock, uno per livello, con tre altezze diverse.
-
-         Erano nati senza altezza, e con un'idea che sembrava buona: se i
-         tre livelli hanno altezze diverse — pensavo — la classe indovina il
-         metro dal salto invece che contando. Sbagliato, e Andrea l'ha visto
-         subito: l'altezza dice *quale livello* stai sentendo, non quante
-         pulsazioni passano fra un accento e l'altro. Quello va contato
-         comunque. Toglierla non rendeva l'esercizio più onesto, rendeva
-         soltanto i tre livelli indistinguibili — tre sbuffi di rumore
-         filtrato che sui diffusori dell'aula sono la stessa cosa.
-
-         Ora sono tre legni veri, 1500, 1000 e 700 Hz, e la distinzione la
-         porta l'altezza. Il che permette anche di stringere la scala dei
-         volumi a quattro decibel in tutto: prima ne servivano ventidue per
-         far capire chi comandava, e a quel punto la suddivisione spariva. */
-      this.legni = [1500, 1000, 700].map((f, i) => {
-        const uscita = new Tone.Gain(1).toDestination();
-        uscita.gain.value = Math.pow(10, [-2, -3.7, -6][i] / 20);
-
-        /* Il corpo dà l'altezza: una sinusoide che parte un po' più su e
-           cala subito, che è quello che fa un legno percosso. */
-        const corpo = new Tone.MembraneSynth({
-          pitchDecay: 0.008, octaves: 0.6,
-          oscillator: { type: 'sine' },
-          envelope: { attack: 0.0008, decay: 0.09, sustain: 0, release: 0.01 }
-        }).connect(uscita);
-
-        /* Il colpo dà il legno: venti millisecondi di rumore risuonati
-           stretti sopra la fondamentale. Senza, resta un «bip»; con, si
-           sente il bastoncino sul blocco. */
-        const risuona = new Tone.Filter({ type: 'bandpass', frequency: f * 2.6, Q: 8 })
-                          .connect(uscita);
-        const colpo = new Tone.NoiseSynth({
-          noise: { type: 'white' },
-          envelope: { attack: 0.0005, decay: 0.02, sustain: 0 }
-        }).connect(risuona);
-        colpo.volume.value = -6;
-
-        return {
-          suona(quando, forza) {
-            corpo.triggerAttackRelease(f, 0.09, quando, forza);
-            colpo.triggerAttackRelease(0.02, quando, forza * 0.9);
-          }
-        };
-      });
+      /* I woodblock non stanno qui: li fabbrica `legniNuovi()`, una
+         terna per ogni esecuzione. Il perché sta scritto lì. */
 
       this.pronto = true;
     },
@@ -299,6 +256,71 @@
       await this.avvia();
       if (!this.tick) return;
       this.tick.triggerAttackRelease(altezza, '64n', quando, forza);
+    },
+
+
+    /* Tre woodblock, uno per livello, con tre altezze diverse — e una terna
+       nuova per ogni esecuzione.
+
+       Sull'altezza mi ero sbagliato in partenza. Li avevo fatti senza,
+       temendo che con tre altezze diverse la classe indovinasse il metro dal
+       salto invece che contando; ma l'altezza dice *quale livello* stai
+       sentendo, non quante pulsazioni passano fra un accento e l'altro.
+       Senza, i tre livelli erano tre sbuffi di rumore indistinguibili.
+
+       Il motivo per cui la terna è usa e getta è un altro, e viene da un
+       difetto misurato. Prima i colpi venivano consegnati un po' alla volta
+       da un timer, per poterli fermare a metà; ma il timer di JavaScript si
+       ferma quando la pagina è occupata, e questa pagina ogni tanto rimisura
+       trentaquattro slide. Registrando un esempio: due colpi su trenta
+       finivano programmati **nel passato**, uno con 379 millisecondi di
+       ritardo, e nel passato non si suona — erano i colpi che sparivano.
+
+       Ora si consegna tutto in una volta all'orologio dell'audio, che gira
+       per conto suo e non lo ferma nessuno: nessun colpo può arrivare tardi.
+       E fermare non vuol dire più cancellare eventi già consegnati, cosa che
+       non si può fare: vuol dire buttare via gli strumenti su cui erano
+       stati consegnati. Quello che era in coda muore con loro, e il cambio
+       resta immediato. */
+    legniNuovi() {
+      if (!this.pronto || typeof Tone === 'undefined') return null;
+      const bus = new Tone.Gain(1).toDestination();
+      const voci = [1500, 1000, 700].map((f, i) => {
+        const g = new Tone.Gain(Math.pow(10, [-2, -3.7, -6][i] / 20)).connect(bus);
+
+        /* Il corpo dà l'altezza: una sinusoide che parte un po' più su e
+           cala subito, che è quello che fa un legno percosso. */
+        const corpo = new Tone.MembraneSynth({
+          pitchDecay: 0.008, octaves: 0.6,
+          oscillator: { type: 'sine' },
+          envelope: { attack: 0.0008, decay: 0.09, sustain: 0, release: 0.01 }
+        }).connect(g);
+
+        /* Il colpo dà il legno: venti millisecondi di rumore risuonati
+           stretti sopra la fondamentale. Senza, resta un «bip». */
+        const risuona = new Tone.Filter({ type: 'bandpass', frequency: f * 2.6, Q: 8 })
+                          .connect(g);
+        const colpo = new Tone.NoiseSynth({
+          noise: { type: 'white' },
+          envelope: { attack: 0.0005, decay: 0.02, sustain: 0 }
+        }).connect(risuona);
+        colpo.volume.value = -6;
+
+        return {
+          suona(quando, forza) {
+            corpo.triggerAttackRelease(f, 0.09, quando, forza);
+            colpo.triggerAttackRelease(0.02, quando, forza * 0.9);
+          },
+          butta() { [corpo, colpo, risuona, g].forEach(x => { try { x.dispose(); } catch (e) {} }); }
+        };
+      });
+      return {
+        voci,
+        butta() {
+          voci.forEach(v => v.butta());
+          try { bus.dispose(); } catch (e) {}
+        }
+      };
     },
 
     zittisci() {
@@ -1602,14 +1624,13 @@
        consegnare. Il cambio è immediato. */
     async riproduci() {
       await Audio.avvia();
-      if (!Audio.pronto || !Audio.legni) return;
+      if (!Audio.pronto) return;
       const m = METRI[this._corrente];
       if (!m) return;
       this.ferma();
 
       const gruppi = m.gruppi || new Array(m.puls).fill(m.sudd);
       const durSudd = (60 / this._tempo) / Math.max(...gruppi);
-
       /* Il ritmo cambia a ogni esempio, ma il metro deve restare
          riconoscibile: sono due esigenze che tirano in direzioni opposte e
          il confine passa fra i livelli.
@@ -1651,20 +1672,25 @@
         });
       }
 
+      /* Tutto consegnato in una volta all'orologio dell'audio, che non si
+         ferma mai: nessun colpo può arrivare in ritardo. Gli strumenti sono
+         di questa esecuzione soltanto, e fermarsi vuol dire buttarli. */
+      const legni = Audio.legniNuovi();
+      if (!legni) return;
+      this._legni = legni;
       const inizio = Tone.now() + 0.12;
-      let i = 0;
-      this._orologio = setInterval(() => {
-        const limite = Tone.now() + 0.15;
-        while (i < colpi.length && inizio + colpi[i].t < limite) {
-          const c = colpi[i++];
-          Audio.legni[c.liv].suona(inizio + c.t, [1, 0.9, 0.85][c.liv]);
-        }
-        if (i >= colpi.length) this.ferma();
-      }, 25);
+      colpi.forEach(c => legni.voci[c.liv].suona(inizio + c.t, [1, 0.9, 0.85][c.liv]));
+
+      // e quando l'esempio è finito si buttano da soli
+      clearTimeout(this._pulizia);
+      this._pulizia = setTimeout(() => {
+        if (this._legni === legni) { legni.butta(); this._legni = null; }
+      }, (quando + 0.5) * 1000);
     }
 
     ferma() {
-      if (this._orologio) { clearInterval(this._orologio); this._orologio = null; }
+      clearTimeout(this._pulizia);
+      if (this._legni) { this._legni.butta(); this._legni = null; }
     }
 
     disconnectedCallback() { this.ferma(); }

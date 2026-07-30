@@ -854,9 +854,9 @@
         this.innerHTML = '<p style="color:#ef4444">Quiz: JSON non valido.</p>';
         return;
       }
-      this._dom = dom;
-      this._i = 0;
-      this._punti = 0;
+      this._tutte = dom;
+      this._quante = parseInt(this.getAttribute('quante') || '0', 10);
+      this.pesca();
       this.textContent = '';
 
       this._box = document.createElement('div');
@@ -866,13 +866,45 @@
       this.mostra();
     }
 
+    /* Pesca dal serbatoio le domande di questa volta.
+
+       Con l'attributo `quante` il componente non mostra più tutte le
+       domande che ha, ma ne estrae quel numero da un serbatoio più grande.
+       Cambia la natura dell'esercizio: con sei domande fisse, alla terza
+       volta la classe ricorda le risposte invece di ricostruirle, e quello
+       che si misura non è più il ragionamento ma la memoria di ieri. Con
+       sedici in serbatoio e sei estratte, ogni giro è una prova diversa.
+
+       L'estrazione passa da `TAC.caso`, quindi senza seme è imprevedibile —
+       com'è giusto in classe — e con un seme è ricostruibile, che è quello
+       che serve alle schede assegnate: stesso seme, stesse sei domande.
+
+       Le domande escono anche in ordine sparso: se uscissero sempre nella
+       sequenza in cui sono scritte, l'ordine stesso diventerebbe un
+       indizio. */
+    pesca() {
+      const tutte = this._tutte.slice();
+      if (this._quante > 0 && this._quante < tutte.length) {
+        for (let i = tutte.length - 1; i > 0; i--) {
+          const j = TAC.caso.intero(i + 1);
+          [tutte[i], tutte[j]] = [tutte[j], tutte[i]];
+        }
+        this._dom = tutte.slice(0, this._quante);
+      } else {
+        this._dom = tutte;
+      }
+      this._i = 0;
+      this._punti = 0;
+    }
+
     /* Elenco statico di tutte le domande, visibile solo in stampa */
     versioneStampa() {
       const d = document.createElement('div');
       d.className = 'tac-quiz-stampa';
       const ol = document.createElement('ol');
       ol.className = 'spaziato';
-      this._dom.forEach(q => {
+      // sulla carta esce il serbatoio intero: un foglio non ripesca
+      (this._tutte || this._dom).forEach(q => {
         const li = document.createElement('li');
         li.innerHTML = '<strong>' + q.d + '</strong>';
         const ul = document.createElement('ul');
@@ -888,7 +920,7 @@
       const sol = document.createElement('p');
       sol.className = 'tac-quiz-chiavi';
       sol.innerHTML = '<strong>Risposte:</strong> ' +
-        this._dom.map((q, i) => (i + 1) + LETTERE[q.c].toLowerCase()).join(' · ');
+        (this._tutte || this._dom).map((q, i) => (i + 1) + LETTERE[q.c].toLowerCase()).join(' · ');
       d.appendChild(sol);
       return d;
     }
@@ -900,9 +932,12 @@
       const testa = document.createElement('div');
       testa.className = 'tac-quiz-testa';
       testa.innerHTML =
-        '<span class="tac-quiz-conta">Domanda ' + (this._i + 1) + ' di ' + this._dom.length + '</span>' +
+        '<span class="tac-quiz-conta">Domanda ' + (this._i + 1) + ' di ' + this._dom.length +
+          (this._tutte.length > this._dom.length
+             ? ' <em style="font-weight:600;text-transform:none;letter-spacing:0">(pescate fra ' +
+               this._tutte.length + ')</em>' : '') + '</span>' +
         '<span class="tac-quiz-conta">Punteggio ' + this._punti + '</span>';
-      tastoAzzera(testa, () => { this._i = 0; this._punti = 0; this.mostra(); },
+      tastoAzzera(testa, () => { this.pesca(); this.mostra(); },
                   () => this._i + this._punti);
       this._box.appendChild(testa);
 

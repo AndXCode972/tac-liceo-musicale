@@ -656,9 +656,99 @@ body.documento .foglio {
   max-width: 900px; margin: 2rem auto; background: #fff; padding: 3.5rem 4rem;
   box-shadow: var(--ombra-lg); border-radius: 6px;
 }
+/* Il blocco di una lezione dentro un fascicolo, e la sua consegna. Stavano
+   scritti dentro ciascuna pagina; ora che le pagine si generano stanno qui
+   una volta sola, altrimenti le regole di stampa andrebbero ricopiate in
+   ognuna e prima o poi divergerebbero. */
+.lez { border-top: 4px solid var(--verde); padding-top: .9rem; margin: 2.2rem 0;
+       break-inside: avoid; }
+.lez > .testa { display: flex; align-items: baseline; gap: 1rem;
+                margin-bottom: .9rem; flex-wrap: wrap; }
+.lez > .testa h2 { border: 0; margin: 0; font-size: 1.4rem; }
+.lez > .testa .tag { margin-left: auto; background: var(--verde); color: #fff;
+                     padding: .22rem .85rem; border-radius: 999px;
+                     font-size: .8rem; font-weight: 800; }
+.consegna { background: var(--carta2); border-left: 5px solid var(--verde);
+            padding: .8rem 1.1rem; margin: .8rem 0 1rem; border-radius: 0 8px 8px 0; }
+.consegna p:first-child { margin-top: 0; }
+.consegna p:last-child { margin-bottom: 0; }
+.quando { font-size: .72rem; font-weight: 800; letter-spacing: .06em;
+          text-transform: uppercase; color: var(--inchiostro2);
+          border: 1px solid var(--bordo); border-radius: 999px;
+          padding: .1rem .55rem; margin-left: .35rem; vertical-align: 2px; }
+
+/* ------------------------------------------------------------------
+   I fascicoli, stampati
+
+   Sullo schermo il corpo del testo è quello delle slide, 1.12rem, cioè
+   circa 13 punti e mezzo: giusto per essere letto a tre metri da un
+   proiettore, assurdo su un foglio che si tiene in mano. Il Workbook
+   dell'unità 1 veniva **11,7 pagine A4**, per diciotto esercizi.
+
+   Qui il testo scende a 9 punti e mezzo, che è la misura di un libro di
+   esercizi vero. Non scendono invece i righi su cui lo studente scrive:
+   quelli restano larghi, perché la carta si risparmia sul testo, non sullo
+   spazio per lavorare. Scrivere stretto fra due righe vicine è un errore
+   indotto dall'impaginazione, e si finirebbe per correggerlo come se fosse
+   dello studente.
+
+   E le lezioni non cominciano più ognuna su una pagina nuova: restano
+   intere — `break-inside: avoid` — ma se due ci stanno insieme, ci stanno.
+   Era la regola che da sola costava più carta di tutte le altre.
+   ------------------------------------------------------------------ */
 @media print {
+  @page { size: A4; margin: 1.3cm 1.4cm 1.5cm; }
+
   body.documento { background: #fff; }
   body.documento .foglio { box-shadow: none; margin: 0; padding: 0; max-width: none; }
+
+  body.documento p,
+  body.documento li,
+  body.documento td,
+  body.documento th        { font-size: 9.5pt; line-height: 1.34; }
+  body.documento h1        { font-size: 15pt; margin: 0 0 .3rem; }
+  body.documento h2        { font-size: 11.5pt; margin: 0; }
+  body.documento h3        { font-size: 10.5pt; margin: .7rem 0 .25rem; }
+  body.documento .grande   { font-size: 10.5pt; line-height: 1.4; }
+
+  body.documento .intestazione-scheda { padding-bottom: .45rem; margin-bottom: .8rem;
+                                        border-bottom-width: 2px; }
+  body.documento .intestazione-scheda .dati { font-size: 8pt; }
+  body.documento .riga-nome { margin: .5rem 0 .9rem; font-size: 8.5pt; }
+
+  body.documento .lez      { margin: .9rem 0 0; padding-top: .5rem; border-top-width: 2px; }
+  body.documento .lez > .testa { margin-bottom: .35rem; }
+  body.documento .lez > .testa .tag { font-size: 7.5pt; padding: .05rem .55rem; }
+  body.documento .consegna { padding: .35rem .6rem; margin: .45rem 0 .35rem;
+                             border-left-width: 3px; }
+  body.documento .quando   { font-size: 7pt; padding: 0 .4rem; }
+
+  body.documento .riquadro { padding: .5rem .8rem; margin: .5rem 0; }
+  body.documento .riquadro .etichetta { font-size: 7.5pt; }
+
+  /* Quiz e trascinamenti hanno una versione di carta — le domande in
+     elenco, le frasi con i puntini — e finora si accendeva solo nelle
+     dispense. Sui fascicoli restava quella interattiva: si stampavano i
+     gettoni colorati, le caselle vuote arrotondate e perfino i pulsanti
+     «Controlla» e «azzera», che su un foglio non fanno niente. Oltre a
+     essere assurdo costava mille pixel di altezza, cioè una pagina. */
+  body.documento .tac-quiz-stampa,
+  body.documento .tac-drag-stampa { display: block; }
+  body.documento .tac-quiz-box,
+  body.documento .tac-drag-pool,
+  body.documento .tac-barra,
+  body.documento tac-drag > div:not(.tac-drag-stampa) { display: none !important; }
+  body.documento .tac-quiz-stampa li,
+  body.documento .tac-drag-stampa li { margin-bottom: .2rem; }
+  body.documento .tac-quiz-chiavi { display: none; }   /* le risposte no */
+
+  /* i righi restano generosi: è lì che si scrive */
+  body.documento tac-griglia { margin: .25rem 0 .5rem; }
+  body.documento tac-stave   { margin: .25rem 0 .5rem; }
+  body.documento .tac-didascalia,
+  body.documento figcaption  { font-size: 8pt; }
+
+  body.documento .puntini { min-height: 1.1em; }
 }
 
 .intestazione-scheda {

@@ -1609,12 +1609,43 @@
 
       const gruppi = m.gruppi || new Array(m.puls).fill(m.sudd);
       const durSudd = (60 / this._tempo) / Math.max(...gruppi);
+
+      /* Il ritmo cambia a ogni esempio, ma il metro deve restare
+         riconoscibile: sono due esigenze che tirano in direzioni opposte e
+         il confine passa fra i livelli.
+
+         Accento e pulsazioni non si toccano mai. Sono loro a dire quante
+         pulsazioni ci sono in una battuta, cioè la metà della risposta:
+         togliendone una a caso l'esercizio diventerebbe indecidibile, e
+         chi risponde male avrebbe ragione.
+
+         Variano le suddivisioni, che dicono l'altra metà — due o tre. Ne
+         suona circa due terzi, scelte ogni volta diverse, e questo basta a
+         cambiare la superficie ritmica: senza, un 6/8 suona sempre uguale e
+         dopo tre esempi la classe riconosce la sequenza invece del metro,
+         che è esattamente quello che l'esercizio non deve permettere.
+
+         Due garanzie servono, ed è quello che le distingue da un capriccio.
+         La prima battuta suona intera, tutte le suddivisioni al loro posto:
+         è lì che si stabilisce se si divide in due o in tre, e va detto
+         chiaro prima di cominciare a variare — come in musica vera, dove il
+         pattern si enuncia e poi si altera. Dalla seconda in poi, in ogni
+         battuta almeno una pulsazione tiene comunque le sue suddivisioni:
+         senza, il caso può cancellarne abbastanza da rendere impossibile
+         contare, e l'esempio diventa una domanda senza risposta. */
       const colpi = [];
       let quando = 0;
       for (let bat = 0; bat < 4; bat++) {
+        const intatta = bat === 0 ? -2 : Math.floor(Math.random() * gruppi.length);
         gruppi.forEach((quante, p) => {
           for (let s = 0; s < quante; s++) {
-            colpi.push({ t: quando, liv: (p === 0 && s === 0) ? 0 : (s === 0 ? 1 : 2) });
+            const struttura = (s === 0);
+            const suona = struttura || bat === 0 || p === intatta ||
+                          Math.random() < 0.5;
+            if (suona) {
+              colpi.push({ t: quando,
+                           liv: (p === 0 && s === 0) ? 0 : (struttura ? 1 : 2) });
+            }
             quando += durSudd;
           }
         });

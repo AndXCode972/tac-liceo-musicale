@@ -1560,9 +1560,15 @@
       const barra = document.createElement('div');
       barra.className = 'tac-barra';
       barra.style.marginBottom = '1.1rem';
+      /* Un pulsante solo che fa e disfa. Due — «Ascolta» e «Ferma» — sono
+         uno di troppo su una slide: chi conduce guarda la classe, non la
+         barra, e il pulsante che serve dev'essere sempre quello sotto il
+         dito. Qui l'etichetta dice sempre che cosa succede se lo premi. */
       const asc = document.createElement('button');
-      asc.className = 'btn'; asc.innerHTML = '&#9654; Ascolta';
-      asc.onclick = () => this.riproduci();
+      asc.className = 'btn';
+      this._asc = asc;
+      this.aggiornaTasto(false);
+      asc.onclick = () => this._legni ? this.ferma() : this.riproduci();
       const nuo = document.createElement('button');
       nuo.className = 'btn secondario'; nuo.textContent = 'Nuovo esempio';
       nuo.onclick = () => this.nuovo(true);
@@ -1622,6 +1628,12 @@
        istante esatto, ma in ogni momento c'è meno di un sesto di secondo di
        impegnato — e fermarsi vuol dire semplicemente smettere di
        consegnare. Il cambio è immediato. */
+    aggiornaTasto(suona) {
+      if (!this._asc) return;
+      this._asc.innerHTML = suona ? '&#9632; Ferma' : '&#9654; Ascolta';
+      this._asc.classList.toggle('ambra', !!suona);
+    }
+
     async riproduci() {
       await Audio.avvia();
       if (!Audio.pronto) return;
@@ -1678,6 +1690,7 @@
       const legni = Audio.legniNuovi();
       if (!legni) return;
       this._legni = legni;
+      this.aggiornaTasto(true);
       const inizio = Tone.now() + 0.12;
       colpi.forEach(c => legni.voci[c.liv].suona(inizio + c.t, [1, 0.9, 0.85][c.liv]));
 
@@ -1685,12 +1698,14 @@
       clearTimeout(this._pulizia);
       this._pulizia = setTimeout(() => {
         if (this._legni === legni) { legni.butta(); this._legni = null; }
+        this.aggiornaTasto(false);
       }, (quando + 0.5) * 1000);
     }
 
     ferma() {
       clearTimeout(this._pulizia);
       if (this._legni) { this._legni.butta(); this._legni = null; }
+      this.aggiornaTasto(false);
     }
 
     disconnectedCallback() { this.ferma(); }

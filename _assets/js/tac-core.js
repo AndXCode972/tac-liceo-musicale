@@ -199,9 +199,6 @@
       }).toDestination();
       this.tick.volume.value = -19;
 
-      /* I woodblock non stanno qui: li fabbrica `legniNuovi()`, una
-         terna per ogni esecuzione. Il perché sta scritto lì. */
-
       this.pronto = true;
     },
 
@@ -325,70 +322,6 @@
       this.tick.triggerAttackRelease(altezza, '64n', quando, forza);
     },
 
-
-    /* Tre woodblock, uno per livello, con tre altezze diverse — e una terna
-       nuova per ogni esecuzione.
-
-       Sull'altezza mi ero sbagliato in partenza. Li avevo fatti senza,
-       temendo che con tre altezze diverse la classe indovinasse il metro dal
-       salto invece che contando; ma l'altezza dice *quale livello* stai
-       sentendo, non quante pulsazioni passano fra un accento e l'altro.
-       Senza, i tre livelli erano tre sbuffi di rumore indistinguibili.
-
-       Il motivo per cui la terna è usa e getta è un altro, e viene da un
-       difetto misurato. Prima i colpi venivano consegnati un po' alla volta
-       da un timer, per poterli fermare a metà; ma il timer di JavaScript si
-       ferma quando la pagina è occupata, e questa pagina ogni tanto rimisura
-       trentaquattro slide. Registrando un esempio: due colpi su trenta
-       finivano programmati **nel passato**, uno con 379 millisecondi di
-       ritardo, e nel passato non si suona — erano i colpi che sparivano.
-
-       Ora si consegna tutto in una volta all'orologio dell'audio, che gira
-       per conto suo e non lo ferma nessuno: nessun colpo può arrivare tardi.
-       E fermare non vuol dire più cancellare eventi già consegnati, cosa che
-       non si può fare: vuol dire buttare via gli strumenti su cui erano
-       stati consegnati. Quello che era in coda muore con loro, e il cambio
-       resta immediato. */
-    legniNuovi() {
-      if (!this.pronto || typeof Tone === 'undefined') return null;
-      const bus = new Tone.Gain(1).toDestination();
-      const voci = [1500, 1000, 700].map((f, i) => {
-        const g = new Tone.Gain(Math.pow(10, [-2, -3.7, -6][i] / 20)).connect(bus);
-
-        /* Il corpo dà l'altezza: una sinusoide che parte un po' più su e
-           cala subito, che è quello che fa un legno percosso. */
-        const corpo = new Tone.MembraneSynth({
-          pitchDecay: 0.008, octaves: 0.6,
-          oscillator: { type: 'sine' },
-          envelope: { attack: 0.0008, decay: 0.09, sustain: 0, release: 0.01 }
-        }).connect(g);
-
-        /* Il colpo dà il legno: venti millisecondi di rumore risuonati
-           stretti sopra la fondamentale. Senza, resta un «bip». */
-        const risuona = new Tone.Filter({ type: 'bandpass', frequency: f * 2.6, Q: 8 })
-                          .connect(g);
-        const colpo = new Tone.NoiseSynth({
-          noise: { type: 'white' },
-          envelope: { attack: 0.0005, decay: 0.02, sustain: 0 }
-        }).connect(risuona);
-        colpo.volume.value = -6;
-
-        return {
-          suona(quando, forza) {
-            corpo.triggerAttackRelease(f, 0.09, quando, forza);
-            colpo.triggerAttackRelease(0.02, quando, forza * 0.9);
-          },
-          butta() { [corpo, colpo, risuona, g].forEach(x => { try { x.dispose(); } catch (e) {} }); }
-        };
-      });
-      return {
-        voci,
-        butta() {
-          voci.forEach(v => v.butta());
-          try { bus.dispose(); } catch (e) {}
-        }
-      };
-    },
 
     zittisci() {
       if (this.synth) this.synth.releaseAll();
@@ -1668,7 +1601,7 @@
       asc.className = 'btn';
       this._asc = asc;
       this.aggiornaTasto(false);
-      asc.onclick = () => this._legni ? this.ferma() : this.riproduci();
+      asc.onclick = () => this._suona ? this.ferma() : this.riproduci();
       const nuo = document.createElement('button');
       nuo.className = 'btn secondario'; nuo.textContent = 'Nuovo esempio';
       nuo.onclick = () => this.nuovo(true);
@@ -1707,104 +1640,78 @@
       if (suona) this.riproduci();
     }
 
-    /* Quattro battute di legni: accento sul primo movimento, poi la
-       pulsazione, poi la suddivisione.
+    /* Quattro battute con lo stesso colpo degli altri esercizi.
 
-       Due battute erano poche: chi entra un attimo dopo l'inizio sente
-       mezzo esempio e deve rilanciare. Quattro danno il tempo di perdere
-       il conto e ritrovarlo, che è esattamente la cosa da imparare.
+       Due correzioni, tutte e due nate da quello che si sentiva in aula.
 
-       I colpi però non si programmano tutti insieme, ed è il punto di
-       questa funzione. Prima si faceva così — un ciclo che piazzava i
-       quarantotto colpi delle quattro battute sulla linea del tempo in un
-       colpo solo — e «Nuovo esempio» ne accodava altri quarantotto sopra i
-       primi: si continuava a sentire quello vecchio, i due si accavallavano
-       e bisognava premere di nuovo. Una volta consegnato all'audio, un
-       evento programmato non si richiama più indietro.
+       La prima: il suono. Avevo costruito tre woodblock apposta per questo
+       componente, ed era sbagliato di principio prima che di risultato —
+       lo stesso livello, la pulsazione, suonava in un modo qui e in un
+       altro nei tre livelli sovrapposti, e uno studente non ha modo di
+       sapere che sono la stessa cosa. Ora si usa `Audio.tick` con le stesse
+       tre altezze di `tac-livelli`: re4 per il metro, la5 per la
+       pulsazione, re6 per la suddivisione.
 
-       Quindi si guarda avanti di poco: un orologio ogni 25 millisecondi
-       consegna solo i colpi dei 150 millisecondi successivi. La precisione
-       resta quella dell'audio, perché ogni colpo porta comunque il suo
-       istante esatto, ma in ogni momento c'è meno di un sesto di secondo di
-       impegnato — e fermarsi vuol dire semplicemente smettere di
-       consegnare. Il cambio è immediato. */
-    aggiornaTasto(suona) {
-      if (!this._asc) return;
-      this._asc.innerHTML = suona ? '&#9632; Ferma' : '&#9654; Ascolta';
-      this._asc.classList.toggle('ambra', !!suona);
-    }
-
+       La seconda: il ritmo torna regolare. Avevo introdotto delle
+       suddivisioni mancanti a caso, per evitare che la classe imparasse la
+       sequenza a memoria invece di contarla. L'effetto in aula però era un
+       altro: un buco dentro una griglia regolare non si sente come
+       variazione, si sente come un colpo perso — e infatti è stato
+       segnalato come difetto dell'audio due volte. Su un esercizio che
+       chiede di riconoscere il metro la griglia dev'essere impeccabile: è
+       il metro stesso l'oggetto della domanda. La varietà resta dove non fa
+       danno, cioè nel metro estratto, che cambia a ogni esempio. */
     async riproduci() {
       await Audio.avvia();
-      if (!Audio.pronto) return;
+      if (!Audio.pronto || !Audio.tick) return;
       const m = METRI[this._corrente];
       if (!m) return;
       this.ferma();
 
       const gruppi = m.gruppi || new Array(m.puls).fill(m.sudd);
       const durSudd = (60 / this._tempo) / Math.max(...gruppi);
-      /* Il ritmo cambia a ogni esempio, ma il metro deve restare
-         riconoscibile: sono due esigenze che tirano in direzioni opposte e
-         il confine passa fra i livelli.
-
-         Accento e pulsazioni non si toccano mai. Sono loro a dire quante
-         pulsazioni ci sono in una battuta, cioè la metà della risposta:
-         togliendone una a caso l'esercizio diventerebbe indecidibile, e
-         chi risponde male avrebbe ragione.
-
-         Variano le suddivisioni, che dicono l'altra metà — due o tre. Ne
-         suona circa due terzi, scelte ogni volta diverse, e questo basta a
-         cambiare la superficie ritmica: senza, un 6/8 suona sempre uguale e
-         dopo tre esempi la classe riconosce la sequenza invece del metro,
-         che è esattamente quello che l'esercizio non deve permettere.
-
-         Due garanzie servono, ed è quello che le distingue da un capriccio.
-         La prima battuta suona intera, tutte le suddivisioni al loro posto:
-         è lì che si stabilisce se si divide in due o in tre, e va detto
-         chiaro prima di cominciare a variare — come in musica vera, dove il
-         pattern si enuncia e poi si altera. Dalla seconda in poi, in ogni
-         battuta almeno una pulsazione tiene comunque le sue suddivisioni:
-         senza, il caso può cancellarne abbastanza da rendere impossibile
-         contare, e l'esempio diventa una domanda senza risposta. */
       const colpi = [];
       let quando = 0;
       for (let bat = 0; bat < 4; bat++) {
-        const intatta = bat === 0 ? -2 : TAC.caso.intero(gruppi.length);
         gruppi.forEach((quante, p) => {
           for (let s = 0; s < quante; s++) {
-            const struttura = (s === 0);
-            const suona = struttura || bat === 0 || p === intatta ||
-                          TAC.caso.numero() < 0.5;
-            if (suona) {
-              colpi.push({ t: quando,
-                           liv: (p === 0 && s === 0) ? 0 : (struttura ? 1 : 2) });
-            }
+            colpi.push({ t: quando, liv: (p === 0 && s === 0) ? 0 : (s === 0 ? 1 : 2) });
             quando += durSudd;
           }
         });
       }
 
       /* Tutto consegnato in una volta all'orologio dell'audio, che non si
-         ferma mai: nessun colpo può arrivare in ritardo. Gli strumenti sono
-         di questa esecuzione soltanto, e fermarsi vuol dire buttarli. */
-      const legni = Audio.legniNuovi();
-      if (!legni) return;
-      this._legni = legni;
-      this.aggiornaTasto(true);
+         ferma mai: nessun colpo può arrivare in ritardo. Prima si
+         consegnava un po' per volta con un timer di JavaScript, e quando
+         la pagina si ingolfava — rimisura trentaquattro slide — i colpi
+         finivano programmati in un istante già passato, cioè sparivano. */
       const inizio = Tone.now() + 0.12;
-      colpi.forEach(c => legni.voci[c.liv].suona(inizio + c.t, [1, 0.9, 0.85][c.liv]));
+      const ALTEZZA = ['D4', 'A5', 'D6'], FORZA = [0.95, 0.55, 0.25];
+      this._suona = true;
+      this.aggiornaTasto(true);
+      colpi.forEach(c => {
+        try {
+          Audio.tick.triggerAttackRelease(ALTEZZA[c.liv], '64n',
+                                          inizio + c.t, FORZA[c.liv]);
+        } catch (e) { /* due colpi nello stesso istante: se ne perde uno */ }
+      });
 
-      // e quando l'esempio è finito si buttano da soli
       clearTimeout(this._pulizia);
-      this._pulizia = setTimeout(() => {
-        if (this._legni === legni) { legni.butta(); this._legni = null; }
-        this.aggiornaTasto(false);
-      }, (quando + 0.5) * 1000);
+      this._pulizia = setTimeout(() => { this._suona = false; this.aggiornaTasto(false); },
+                                 (quando + 0.4) * 1000);
     }
 
     ferma() {
       clearTimeout(this._pulizia);
-      if (this._legni) { this._legni.butta(); this._legni = null; }
+      this._suona = false;
+      /* Il tick è condiviso: non si può buttare. Si tolgono di mezzo gli
+         eventi ancora in coda azzerando la sua uscita per un istante. */
+      try { Audio.tick.triggerRelease(); } catch (e) {}
+      try {
+        const g = Audio.tick.volume, ora = Tone.now();
+        g.cancelScheduledValues(ora);
+      } catch (e) {}
       this.aggiornaTasto(false);
     }
 
@@ -2913,7 +2820,7 @@
 
          Le slide non escono dal documento, si nascondono: un componente
          che sta suonando continua a suonare da dietro, e chi tiene la
-         lezione si ritrova legni o metronomo che vanno avanti su
+         lezione si ritrova il metronomo o un ascolto che vanno avanti su
          un'altra schermata senza vedere da dove arrivano. */
       document.querySelectorAll('tac-metro, tac-livelli, tac-rhythm, tac-brano')
         .forEach(c => { if (typeof c.ferma === 'function') { try { c.ferma(); } catch (e) {} } });

@@ -975,9 +975,49 @@
       catch (e) { this.innerHTML = '<p style="color:#ef4444">Trascina: JSON non valido.</p>'; return; }
       this.textContent = '';
 
+      /* Anche qui si pesca da un serbatoio.
+
+         Stessa ragione del quiz: con quattro frasi fisse, al terzo giro la
+         classe ricorda dove va ogni parola invece di ricostruirlo. Con
+         `quante` si estraggono N frasi da un elenco più lungo, in ordine
+         sparso — l'ordine stesso, se fosse sempre quello, sarebbe un
+         indizio.
+
+         I gettoni non sono più una lista fissa: si costruiscono dalle frasi
+         estratte, più un paio di parole prese fra quelle rimaste fuori. Se
+         fossero solo le parole giuste, l'ultima frase si risolverebbe per
+         esclusione senza leggerla; se fossero tutte le parole del serbatoio,
+         la maggior parte non servirebbe a niente e sarebbe solo rumore. */
+      const quante = parseInt(this.getAttribute('quante') || '0', 10);
+      let frasi = cfg.frasi.slice();
+      let gettoni;
+      if (quante > 0 && quante < frasi.length) {
+        for (let i = frasi.length - 1; i > 0; i--) {
+          const j = TAC.caso.intero(i + 1);
+          [frasi[i], frasi[j]] = [frasi[j], frasi[i]];
+        }
+        const scelte = frasi.slice(0, quante);
+        const giuste = scelte.map(f => f[1]);
+        const altre = frasi.slice(quante).map(f => f[1])
+                           .filter(x => giuste.indexOf(x) < 0);
+        const distrattori = [];
+        while (distrattori.length < 2 && altre.length) {
+          distrattori.push(altre.splice(TAC.caso.intero(altre.length), 1)[0]);
+        }
+        gettoni = giuste.concat(distrattori);
+        frasi = scelte;
+      } else {
+        gettoni = cfg.gettoni.slice();
+      }
+      this._frasi = frasi;
+
       const pool = document.createElement('div');
       pool.className = 'tac-drag-pool';
-      const mescolati = cfg.gettoni.slice().sort(() => Math.random() - 0.5);
+      const mescolati = gettoni.slice();
+      for (let i = mescolati.length - 1; i > 0; i--) {
+        const j = TAC.caso.intero(i + 1);
+        [mescolati[i], mescolati[j]] = [mescolati[j], mescolati[i]];
+      }
       mescolati.forEach(t => {
         const g = document.createElement('div');
         g.className = 'tac-gettone';
@@ -989,7 +1029,7 @@
       this.appendChild(pool);
 
       const lista = document.createElement('div');
-      cfg.frasi.forEach(([testo, giusta]) => {
+      frasi.forEach(([testo, giusta]) => {
         const r = document.createElement('p');
         r.className = 'tac-frase';
         r.innerHTML = testo + ' ';
@@ -1041,7 +1081,7 @@
           b.classList.add(ok ? 'giusta' : 'sbagliata');
         });
         esito.textContent = messe
-          ? giuste + ' su ' + cfg.frasi.length
+          ? giuste + ' su ' + frasi.length
           : 'nessuna parola trascinata';
       };
 
@@ -1638,6 +1678,14 @@
         this._opz.appendChild(b);
       });
       if (suona) this.riproduci();
+    }
+
+    /* L'etichetta del tasto dice sempre che cosa succede se lo premi:
+       «Ascolta» da fermo, «Ferma» mentre suona. */
+    aggiornaTasto(suona) {
+      if (!this._asc) return;
+      this._asc.innerHTML = suona ? '&#9632; Ferma' : '&#9654; Ascolta';
+      this._asc.classList.toggle('ambra', !!suona);
     }
 
     /* Quattro battute con lo stesso colpo degli altri esercizi.

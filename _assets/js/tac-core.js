@@ -132,47 +132,50 @@
       }).toDestination();
       this.tick.volume.value = -19;
 
-      /* Tre legni, per riconoscere il metro senza altezze.
+      /* Tre woodblock, uno per livello, con tre altezze diverse.
 
-         Finché l'esempio suonava con do, sol e do acuto, chi ascoltava
-         poteva contare gli accenti guardando l'altezza invece che il peso:
-         il salto di ottava dice dove cade l'uno, e il metro si indovina
-         senza averlo sentito. Su rumore filtrato quella scorciatoia non
-         c'è. Restano tre timbri distinti — uno secco e brillante per
-         l'accento, uno medio per la pulsazione, uno sordo per la
-         suddivisione — e nessuno dei tre ha un'altezza. */
-      /* I numeri di questa riga sono misurati, non scelti a orecchio, perché
-         a orecchio li avevo sbagliati di parecchio. La prima versione —
-         filtri strettissimi a Q 2,4, rumore bruno sulla suddivisione, e una
-         scala di volumi -8/-13/-20 — dava questo, misurato rendendo il suono
-         fuori linea e leggendo i picchi:
+         Erano nati senza altezza, e con un'idea che sembrava buona: se i
+         tre livelli hanno altezze diverse — pensavo — la classe indovina il
+         metro dal salto invece che contando. Sbagliato, e Andrea l'ha visto
+         subito: l'altezza dice *quale livello* stai sentendo, non quante
+         pulsazioni passano fra un accento e l'altro. Quello va contato
+         comunque. Toglierla non rendeva l'esercizio più onesto, rendeva
+         soltanto i tre livelli indistinguibili — tre sbuffi di rumore
+         filtrato che sui diffusori dell'aula sono la stessa cosa.
 
-             accento -19 dB · pulsazione -24 · suddivisione -41
+         Ora sono tre legni veri, 1500, 1000 e 700 Hz, e la distinzione la
+         porta l'altezza. Il che permette anche di stringere la scala dei
+         volumi a quattro decibel in tutto: prima ne servivano ventidue per
+         far capire chi comandava, e a quel punto la suddivisione spariva. */
+      this.legni = [1500, 1000, 700].map((f, i) => {
+        const uscita = new Tone.Gain(1).toDestination();
+        uscita.gain.value = Math.pow(10, [-2, -3.7, -6][i] / 20);
 
-         Cioè tutto molto piano, e la suddivisione ventidue decibel sotto
-         l'accento: in aula spariva del tutto, ed è proprio la cosa che
-         l'esercizio chiede di contare. Il colpevole principale era il filtro:
-         a Q 2,4 lascia passare una fetta di rumore così sottile che butta via
-         quasi tutta l'energia, e il rumore bruno intorno a 1600 Hz non ne ha
-         quasi.
+        /* Il corpo dà l'altezza: una sinusoide che parte un po' più su e
+           cala subito, che è quello che fa un legno percosso. */
+        const corpo = new Tone.MembraneSynth({
+          pitchDecay: 0.008, octaves: 0.6,
+          oscillator: { type: 'sine' },
+          envelope: { attack: 0.0008, decay: 0.09, sustain: 0, release: 0.01 }
+        }).connect(uscita);
 
-         Con Q 0,7, rumore bianco su tutti e tre e code un po' più lunghe:
-
-             accento -5,1 dB · pulsazione -8,9 · suddivisione -12,4
-
-         La suddivisione guadagna ventotto decibel e lo stacco scende da 22 a
-         7: si sente distintamente, e l'accento resta comunque sopra. Sette
-         decibel è la differenza che serve — abbastanza per capire chi
-         comanda, non tanto da far sparire gli altri. */
-      this.legni = [3800, 2400, 1600].map((f, i) => {
-        const filtro = new Tone.Filter({ type: 'bandpass', frequency: f, Q: 0.7 })
-                         .toDestination();
-        const s = new Tone.NoiseSynth({
+        /* Il colpo dà il legno: venti millisecondi di rumore risuonati
+           stretti sopra la fondamentale. Senza, resta un «bip»; con, si
+           sente il bastoncino sul blocco. */
+        const risuona = new Tone.Filter({ type: 'bandpass', frequency: f * 2.6, Q: 8 })
+                          .connect(uscita);
+        const colpo = new Tone.NoiseSynth({
           noise: { type: 'white' },
-          envelope: { attack: 0.001, decay: [0.055, 0.05, 0.045][i], sustain: 0 }
-        }).connect(filtro);
-        s.volume.value = [-1, -2.5, -4][i];
-        return s;
+          envelope: { attack: 0.0005, decay: 0.02, sustain: 0 }
+        }).connect(risuona);
+        colpo.volume.value = -6;
+
+        return {
+          suona(quando, forza) {
+            corpo.triggerAttackRelease(f, 0.09, quando, forza);
+            colpo.triggerAttackRelease(0.02, quando, forza * 0.9);
+          }
+        };
       });
 
       this.pronto = true;
@@ -1594,8 +1597,7 @@
         gruppi.forEach((quante, p) => {
           for (let s = 0; s < quante; s++) {
             const livello = (p === 0 && s === 0) ? 0 : (s === 0 ? 1 : 2);
-            Audio.legni[livello].triggerAttackRelease('32n', t,
-              [1, 0.9, 0.85][livello]);
+            Audio.legni[livello].suona(t, [1, 0.9, 0.85][livello]);
             t += durSudd;
           }
         });

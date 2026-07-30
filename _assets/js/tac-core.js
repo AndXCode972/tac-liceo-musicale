@@ -1562,6 +1562,7 @@
     }
 
     nuovo(suona) {
+      this.ferma();            // via quello di prima, altrimenti si accavallano
       this._corrente = this._scelte[Math.floor(Math.random() * this._scelte.length)];
       this._fb.className = 'tac-feedback';
       this._opz.innerHTML = '';
@@ -1579,30 +1580,63 @@
     }
 
     /* Quattro battute di legni: accento sul primo movimento, poi la
-       pulsazione, poi la suddivisione, tutti senza altezza.
+       pulsazione, poi la suddivisione.
 
        Due battute erano poche: chi entra un attimo dopo l'inizio sente
        mezzo esempio e deve rilanciare. Quattro danno il tempo di perdere
-       il conto e ritrovarlo, che è esattamente la cosa da imparare. */
+       il conto e ritrovarlo, che è esattamente la cosa da imparare.
+
+       I colpi però non si programmano tutti insieme, ed è il punto di
+       questa funzione. Prima si faceva così — un ciclo che piazzava i
+       quarantotto colpi delle quattro battute sulla linea del tempo in un
+       colpo solo — e «Nuovo esempio» ne accodava altri quarantotto sopra i
+       primi: si continuava a sentire quello vecchio, i due si accavallavano
+       e bisognava premere di nuovo. Una volta consegnato all'audio, un
+       evento programmato non si richiama più indietro.
+
+       Quindi si guarda avanti di poco: un orologio ogni 25 millisecondi
+       consegna solo i colpi dei 150 millisecondi successivi. La precisione
+       resta quella dell'audio, perché ogni colpo porta comunque il suo
+       istante esatto, ma in ogni momento c'è meno di un sesto di secondo di
+       impegnato — e fermarsi vuol dire semplicemente smettere di
+       consegnare. Il cambio è immediato. */
     async riproduci() {
       await Audio.avvia();
       if (!Audio.pronto || !Audio.legni) return;
       const m = METRI[this._corrente];
       if (!m) return;
+      this.ferma();
+
       const gruppi = m.gruppi || new Array(m.puls).fill(m.sudd);
-      const durPuls = 60 / this._tempo;
-      const durSudd = durPuls / Math.max(...gruppi);
-      let t = Tone.now() + 0.15;
+      const durSudd = (60 / this._tempo) / Math.max(...gruppi);
+      const colpi = [];
+      let quando = 0;
       for (let bat = 0; bat < 4; bat++) {
         gruppi.forEach((quante, p) => {
           for (let s = 0; s < quante; s++) {
-            const livello = (p === 0 && s === 0) ? 0 : (s === 0 ? 1 : 2);
-            Audio.legni[livello].suona(t, [1, 0.9, 0.85][livello]);
-            t += durSudd;
+            colpi.push({ t: quando, liv: (p === 0 && s === 0) ? 0 : (s === 0 ? 1 : 2) });
+            quando += durSudd;
           }
         });
       }
+
+      const inizio = Tone.now() + 0.12;
+      let i = 0;
+      this._orologio = setInterval(() => {
+        const limite = Tone.now() + 0.15;
+        while (i < colpi.length && inizio + colpi[i].t < limite) {
+          const c = colpi[i++];
+          Audio.legni[c.liv].suona(inizio + c.t, [1, 0.9, 0.85][c.liv]);
+        }
+        if (i >= colpi.length) this.ferma();
+      }, 25);
     }
+
+    ferma() {
+      if (this._orologio) { clearInterval(this._orologio); this._orologio = null; }
+    }
+
+    disconnectedCallback() { this.ferma(); }
 
     rispondi(s) {
       this._tot++;
@@ -2703,6 +2737,15 @@
         cur.dataset.titolo || (cur.querySelector('h1,h2') || {}).textContent || '';
       document.getElementById('tac-progresso').style.width =
         ((this.i + 1) / this.slides.length * 100) + '%';
+      /* Cambiando slide si zittisce quello che stava suonando.
+
+         Le slide non escono dal documento, si nascondono: un componente
+         che sta suonando continua a suonare da dietro, e chi tiene la
+         lezione si ritrova legni o metronomo che vanno avanti su
+         un'altra schermata senza vedere da dove arrivano. */
+      document.querySelectorAll('tac-metro, tac-livelli, tac-rhythm, tac-brano')
+        .forEach(c => { if (typeof c.ferma === 'function') { try { c.ferma(); } catch (e) {} } });
+
       this.adatta();
       /* i pentagrammi e le partiture arrivano dopo: si rimisura */
       clearTimeout(this._t1); this._t1 = setTimeout(() => this.adatta(), 260);

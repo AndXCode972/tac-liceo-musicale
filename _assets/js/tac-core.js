@@ -2582,14 +2582,24 @@
         const av = au.play();
         if (av && av.catch) av.catch(() => {});
       };
-      au.onplay  = () => { b.innerHTML = '&#9632; Ferma'; this._box.classList.add('in-ascolto'); };
-      au.onpause = () => { b.innerHTML = '&#9654; Ascolta'; this.spegniPulsazioni(); };
-      au.onended = () => {
-        b.innerHTML = '&#9654; Ascolta';
-        this._box.classList.remove('in-ascolto');
-        this.illumina(-1); this.cursore(null); this.spegniPulsazioni();
-      };
-      au.ontimeupdate = () => {
+      /* Seguire la registrazione: dove siamo, quale battuta, che pulsazione.
+
+         Perché non basta `ontimeupdate`, che sarebbe la scelta ovvia. Il
+         browser lo chiama quando vuole, in pratica quattro volte al
+         secondo. Per l'orologio e il cursore della barra va benissimo; per
+         il metronomo no. Misurato sul sito, i pallini scattavano a 0,20 ·
+         0,48 · 0,74 · 1,27 — passi da 0,26 a 0,53 secondi su una
+         pulsazione che ne dura 0,45: il pallino poteva arrivare mezzo
+         battito tardi, e a occhio si legge come un metronomo che va per
+         conto suo. In una lezione sul battito è il difetto peggiore
+         possibile, perché insegna la cosa sbagliata.
+
+         Il tempo lo dà sempre `currentTime` — è l'unico orologio che non
+         va alla deriva rispetto al suono. A cambiare è solo quante volte
+         lo si guarda: `requestAnimationFrame` lo interroga a ogni
+         fotogramma, cioè ogni 16 millesimi, e il fotogramma è anche il
+         momento giusto per disegnare. */
+      const segui = () => {
         const ms = au.currentTime * 1000;
         if (au.duration) this._scorri.value = Math.round(ms / (au.duration * 10));
         this._orologio.textContent = mmss(au.currentTime);
@@ -2604,6 +2614,36 @@
         this.cursore(e[i][0], quota);
         this.battePulsazione(e[i][0], quota);
       };
+      const passo = () => {
+        if (au.paused || au.ended) { this._fotogramma = null; return; }
+        segui();
+        this._fotogramma = requestAnimationFrame(passo);
+      };
+      const fermaFotogrammi = () => {
+        if (this._fotogramma) cancelAnimationFrame(this._fotogramma);
+        this._fotogramma = null;
+      };
+
+      au.onplay  = () => {
+        b.innerHTML = '&#9632; Ferma';
+        this._box.classList.add('in-ascolto');
+        fermaFotogrammi();
+        this._fotogramma = requestAnimationFrame(passo);
+      };
+      au.onpause = () => {
+        b.innerHTML = '&#9654; Ascolta';
+        fermaFotogrammi();
+        this.spegniPulsazioni();
+      };
+      au.onended = () => {
+        b.innerHTML = '&#9654; Ascolta';
+        this._box.classList.remove('in-ascolto');
+        fermaFotogrammi();
+        this.illumina(-1); this.cursore(null); this.spegniPulsazioni();
+      };
+      /* Resta appeso anche a `timeupdate`: serve da fermi, quando si
+         trascina la barra e i fotogrammi non girano. */
+      au.ontimeupdate = () => { if (au.paused) segui(); };
       this._scorri.oninput = () => {
         if (au.duration) au.currentTime = au.duration * this._scorri.value / 1000;
       };

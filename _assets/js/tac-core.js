@@ -2583,11 +2583,11 @@
         if (av && av.catch) av.catch(() => {});
       };
       au.onplay  = () => { b.innerHTML = '&#9632; Ferma'; this._box.classList.add('in-ascolto'); };
-      au.onpause = () => { b.innerHTML = '&#9654; Ascolta'; };
+      au.onpause = () => { b.innerHTML = '&#9654; Ascolta'; this.spegniPulsazioni(); };
       au.onended = () => {
         b.innerHTML = '&#9654; Ascolta';
         this._box.classList.remove('in-ascolto');
-        this.illumina(-1); this.cursore(null);
+        this.illumina(-1); this.cursore(null); this.spegniPulsazioni();
       };
       au.ontimeupdate = () => {
         const ms = au.currentTime * 1000;
@@ -2600,13 +2600,64 @@
         if (i !== this._ultimaBattuta) { this.illumina(e[i][0]); this._ultimaBattuta = i; }
         const ini = e[i][1];
         const fin = (i + 1 < e.length) ? e[i + 1][1] : (mappa.durata || ms + 1);
-        this.cursore(e[i][0], fin > ini ? (ms - ini) / (fin - ini) : 0);
+        const quota = fin > ini ? (ms - ini) / (fin - ini) : 0;
+        this.cursore(e[i][0], quota);
+        this.battePulsazione(e[i][0], quota);
       };
       this._scorri.oninput = () => {
         if (au.duration) au.currentTime = au.duration * this._scorri.value / 1000;
       };
 
       this._box.appendChild(riga);
+    }
+
+    /* I pallini della pulsazione sotto il titolo, mossi dalla registrazione
+       incisa.
+
+       Perché serve una funzione a parte. L'esecuzione sintetizzata accende
+       i pallini da sé, perché conosce ogni battito: li programma tutti
+       sull'orologio dell'audio. La registrazione no — di lei sappiamo solo
+       dove cominciano le battute, dalla mappa di MuseScore — e quando ogni
+       brano della lezione ha ricevuto la sua incisione i pallini sono
+       rimasti accesi da nessuno. Restavano lì spenti mentre la musica
+       andava, cioè esattamente il contrario di quello che devono fare:
+       sono la prima cosa che l'occhio cerca quando il brano parte.
+
+       Dentro la battuta si interpola: la mappa dà l'inizio, `quota` dice
+       quanto se n'è consumato, e le pulsazioni sono equidistanti. Non è il
+       battito misurato sull'esecuzione, è il battito scritto sulla
+       partitura — che è quello che la slide vuole mostrare.
+
+       Il levare è il caso da non sbagliare. La prima battuta di un brano
+       in anacrusi non è piena: dura solo la coda. Spalmarci sopra tutte le
+       pulsazioni della battuta accenderebbe il primo pallino — l'accento
+       forte — proprio sulla nota che forte non è, ed è l'errore peggiore
+       possibile in una lezione sul metro. Le pulsazioni del levare si
+       contano quindi a ritroso dalla stanghetta. */
+    battePulsazione(k, quota) {
+      if (!this._puls || !this._puls.children.length) return;
+      const d = this._dati || {};
+      const n = this._puls.children.length;
+      const quartiPerPuls = (d.metro === '6/8' || d.metro === '9/8') ? 1.5 : 1;
+      const anac = parseFloat(d.anacrusi || 0) || 0;
+
+      let j;
+      if (k === 0 && anac > 0) {
+        /* quante pulsazioni stanno nel levare, e da quale si comincia */
+        const q = Math.min(n, Math.max(1, Math.ceil(anac / quartiPerPuls - 1e-9)));
+        j = n - q + Math.floor((quota || 0) * q);
+      } else {
+        j = Math.floor((quota || 0) * n);
+      }
+      j = Math.min(n - 1, Math.max(0, j));
+      if (j === this._ultimaPuls) return;      /* solo quando cambia davvero */
+      this._ultimaPuls = j;
+      [...this._puls.children].forEach((p, i) => p.classList.toggle('on', i === j));
+    }
+
+    spegniPulsazioni() {
+      this._ultimaPuls = null;
+      if (this._puls) [...this._puls.children].forEach(p => p.classList.remove('on'));
     }
 
     /* La linea verticale che attraversa la battuta mentre suona. Quota è
@@ -2679,7 +2730,7 @@
       (this._id || []).forEach(clearTimeout);
       this._id = [];
       Audio.zittisci();
-      [...this._puls.children].forEach(p => p.classList.remove('on'));
+      this.spegniPulsazioni();
       this._suona = false;
       if (this._play) this._play.innerHTML = '&#9654; Ascolta';
     }

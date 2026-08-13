@@ -2989,6 +2989,98 @@
       });
     },
 
+    /* La tendina per andare a un'altra lezione o a un'altra unità.
+
+       Da una lezione si poteva solo uscire — «Classe», «Corso» — e poi
+       rientrare da un'altra parte. Per passare dalla lezione 1 alla 2
+       servivano tre clic e due caricamenti di pagina, e in aula, con la
+       classe che aspetta, sono venti secondi di silenzio.
+
+       Una tendina sola con dentro tutto, non due in fila. Con due — prima
+       l'unità, poi la lezione — servono due gesti e la seconda dipende
+       dalla prima; con una sola si vede in un colpo dove si è e dove si
+       può andare. Undici unità e sei lezioni stanno in un elenco che si
+       scorre.
+
+       L'elenco viene da `_indice.json`, incorporato da monta.py in fondo
+       alla pagina: vedi lì il perché di un file unico invece che una copia
+       per lezione.
+
+       Le lezioni non ancora scritte **restano nell'elenco**, in grigio e
+       non cliccabili. Toglierle farebbe credere che il corso sia più corto
+       di quello che è, e in prima lezione la classe ha diritto di vedere
+       dove si sta andando. */
+    costruisciTendina(nav) {
+      const cont = nav.querySelector('#tac-vai');
+      const menu = cont && cont.querySelector('.tac-tendina-menu');
+      const dati = document.getElementById('tac-indice-corso');
+      if (!cont || !menu || !dati) { if (cont) cont.remove(); return; }
+
+      let ind;
+      try { ind = JSON.parse(dati.textContent); }
+      catch (e) { cont.remove(); return; }
+
+      const qui = ind.qui || {};
+      let html = '';
+      (ind.classi || []).forEach(cl => {
+        (cl.unita || []).forEach(u => {
+          const suUnita = u.n === qui.unita;
+          const lez = u.lezioni || [];
+          html += '<div class="tac-tendina-testa' + (suUnita ? ' qui' : '') + '">' +
+                  'Unità ' + u.n + ' · ' + u.titolo +
+                  (u.quando ? '<span class="quando">' + u.quando + '</span>' : '') +
+                  '</div>';
+          if (!lez.length) {
+            html += '<div class="tac-voce vuota">' +
+                    (u.stato || 'da preparare') + '</div>';
+            return;
+          }
+          lez.forEach(l => {
+            const corrente = suUnita && l.n === qui.lezione;
+            const pronta = l.stato === 'pronta';
+            /* la via è relativa alla lezione aperta: dalla cartella di
+               un'unità si sale di uno e si scende nell'altra */
+            const via = (u.n === qui.unita) ? l.file : '../' + u.via + '/' + l.file;
+            if (corrente)
+              html += '<div class="tac-voce corrente" aria-current="page">' +
+                      '<b>' + l.n + '.</b> ' + l.titolo + '<span class="segno">sei qui</span></div>';
+            else if (pronta)
+              html += '<a class="tac-voce" href="' + via + '">' +
+                      '<b>' + l.n + '.</b> ' + l.titolo + '</a>';
+            else
+              html += '<div class="tac-voce vuota"><b>' + l.n + '.</b> ' + l.titolo +
+                      '<span class="segno">in preparazione</span></div>';
+          });
+          (u.materiali || []).forEach(m => {
+            if (m.stato !== 'pronta') return;
+            html += '<a class="tac-voce materiale" href="' + m.file + '">' +
+                    m.titolo + '</a>';
+          });
+        });
+      });
+      menu.innerHTML = html;
+
+      const bottone = nav.querySelector('#tac-btn-vai');
+      const chiudi = () => cont.classList.remove('aperto');
+      bottone.onclick = e => {
+        e.stopPropagation();
+        cont.classList.toggle('aperto');
+        /* aperta, si porta subito sotto gli occhi la voce corrente:
+           con undici unità l'elenco è lungo e quella è il punto di
+           partenza di chiunque */
+        if (cont.classList.contains('aperto')) {
+          const q = menu.querySelector('.corrente');
+          if (q) menu.scrollTop = Math.max(0, q.offsetTop - menu.clientHeight / 2);
+        }
+      };
+      document.addEventListener('click', ev => {
+        if (!cont.contains(ev.target)) chiudi();
+      });
+      document.addEventListener('keydown', ev => {
+        if (ev.key === 'Escape') chiudi();
+      });
+    },
+
     /* Quando arriva il pianoforte campionato, i lettori lo dichiarano */
     aggiornaStrumento() { /* ogni lettore dichiara il proprio organico da sé */ },
 
@@ -3026,6 +3118,11 @@
         '<div class="gruppo">' +
           '<a class="uscita" href="../" title="Torna alle unità della classe">&#8592; Classe</a>' +
           '<a class="uscita" href="../../" title="Torna all\'indice del corso">Corso</a>' +
+          '<div id="tac-vai" class="tac-tendina">' +
+            '<button id="tac-btn-vai" title="Vai a un\'altra lezione o unità">' +
+              '<span class="etichetta-vai">Vai a</span> &#9662;</button>' +
+            '<div class="tac-tendina-menu" role="menu"></div>' +
+          '</div>' +
           '<button id="tac-btn-indice" title="Indice della lezione (I)">&#9776;</button>' +
           '<span id="tac-titolo-corrente"></span>' +
         '</div>' +
@@ -3061,6 +3158,8 @@
         window.addEventListener('afterprint', ripristina);
         setTimeout(() => window.print(), 120);
       };
+      this.costruisciTendina(nav);
+
       nav.querySelector('#tac-btn-indice').onclick = () =>
         document.getElementById('tac-indice').classList.toggle('aperto');
       nav.querySelector('#tac-full').onclick = () => {

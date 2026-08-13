@@ -372,11 +372,25 @@
       }).connect(new Tone.Filter(2800, 'highpass').toDestination());
       this.click.volume.value = -13;
 
+      /* Il colpo dei battiti.
+
+         Stava a −19 dB, e sopra ci andava una seconda attenuazione: la
+         forza con cui viene percosso, 0,25 per la suddivisione. Livello
+         effettivo circa −31 dB, cioè **quindici decibel sotto la
+         musica**. In aula, con un proiettore che ronza e ventiquattro
+         ragazzi, la suddivisione semplicemente non arrivava. Segnalato
+         da Andrea: «il volume dei battiti in genere è molto basso».
+
+         Alzato di otto decibel. Anche il decadimento è un po' più lungo:
+         quaranta millesimi di onda quadra si percepiscono più deboli di
+         quanto misurino, perché l'orecchio ha bisogno di qualche decina
+         di millesimi per valutare l'intensità di un suono breve. Resta
+         comunque un colpo secco, non una nota. */
       this.tick = new Tone.Synth({
         oscillator: { type: 'square' },
-        envelope: { attack: 0.001, decay: 0.03, sustain: 0, release: 0.01 }
+        envelope: { attack: 0.001, decay: 0.05, sustain: 0, release: 0.01 }
       }).toDestination();
-      this.tick.volume.value = -19;
+      this.tick.volume.value = -11;
 
       this.pronto = true;
     },
@@ -1699,11 +1713,25 @@
       this._eventi = [];
       const s = this._sudd;
 
+      /* Le tre forze: 0,45 · 0,70 · 1,00, e prima erano 0,25 · 0,55 · 0,95.
+
+         Non è solo «più forte»: è più stretta la scala. Fra suddivisione e
+         battere c'era un rapporto di quasi quattro a uno in ampiezza, che
+         per un metronomo è troppo — l'accento non si sentiva come accento,
+         si sentiva come l'unico colpo udibile, e i tre livelli sovrapposti
+         diventavano due. Due a uno basta e avanza per far capire dove
+         cade il battere.
+
+         Il rapporto va tenuto quando si aggiungono livelli: chi lo allarga
+         per «far risaltare il battere» ottiene il contrario, perché sotto
+         una certa soglia il livello più debole sparisce del tutto e
+         l'esercizio perde proprio la cosa che vuole insegnare. */
+
       /* la suddivisione: metà movimento se semplice, un terzo se composto */
       let iS = 0;
       this._eventi.push(Tone.Transport.scheduleRepeat(tempo => {
         const k = iS % (this._perBattuta * s);
-        if (this._on.sudd && k % s !== 0) batti('D6', 0.25, tempo);
+        if (this._on.sudd && k % s !== 0) batti('D6', 0.45, tempo);
         Tone.Draw.schedule(() => acc('sudd', k), tempo);
         iS++;
       }, s === 2 ? '8n' : '8t', 0));
@@ -1712,7 +1740,7 @@
       let iP = 0;
       this._eventi.push(Tone.Transport.scheduleRepeat(tempo => {
         const k = iP % this._perBattuta;
-        if (this._on.puls) batti('A5', 0.55, tempo);
+        if (this._on.puls) batti('A5', 0.70, tempo);
         Tone.Draw.schedule(() => acc('puls', k), tempo);
         iP++;
       }, '4n', 0));
@@ -1720,7 +1748,7 @@
       /* il metro: una battuta intera, presa dalla divisione dichiarata */
       let iM = 0;
       this._eventi.push(Tone.Transport.scheduleRepeat(tempo => {
-        if (this._on.metro) batti('D4', 0.95, tempo);
+        if (this._on.metro) batti('D4', 1.00, tempo);
         Tone.Draw.schedule(() => acc('metro', 0), tempo);
         iM++;
       }, '1m', 0));
@@ -1843,7 +1871,28 @@
 
     nuovo(suona) {
       this.ferma();            // via quello di prima, altrimenti si accavallano
-      this._corrente = TAC.caso.scegli(this._scelte);
+
+      /* Mai lo stesso metro due volte di fila.
+
+         Con quattro scelte, il caso puro ripete una volta su quattro: in
+         un giro da sei esempi capita quasi sempre, e in classe si legge
+         male. Chi ha appena risposto «6/8» e risente lo stesso ritmo non
+         pensa «è ancora 6/8»: pensa che il pulsante non abbia funzionato,
+         o che l'esercizio sia rotto. È il caso che sembra un guasto, lo
+         stesso disegno di errore già visto altrove.
+
+         Si risorteggia finché non cambia, non si toglie il metro
+         precedente dall'elenco: le probabilità degli altri devono restare
+         uguali fra loro. E il ciclo ha un'uscita, perché con una sola
+         scelta un metro diverso non esiste e il sorteggio non ha nulla da
+         fare. */
+      const prima = this._corrente;
+      let m = TAC.caso.scegli(this._scelte);
+      if (this._scelte.length > 1) {
+        for (let i = 0; i < 24 && m === prima; i++) m = TAC.caso.scegli(this._scelte);
+      }
+      this._corrente = m;
+
       this._fb.className = 'tac-feedback';
       this._opz.innerHTML = '';
       this._opz.style.setProperty('--colonne', colonne(this._scelte.length));
@@ -1914,7 +1963,12 @@
          la pagina si ingolfava — rimisura trentaquattro slide — i colpi
          finivano programmati in un istante già passato, cioè sparivano. */
       const inizio = Tone.now() + 0.12;
-      const ALTEZZA = ['D4', 'A5', 'D6'], FORZA = [0.95, 0.55, 0.25];
+      /* Le stesse tre forze dell'esercizio a tre livelli, e devono restare
+         le stesse: sono due esercizi che si fanno di fila nella stessa ora,
+         e se il colpo cambia volume passando dall'uno all'altro la classe
+         sente un difetto dove non c'è. La scala è 0,45 · 0,70 · 1,00 —
+         vedi il commento più sopra, dove si spiega perché non va allargata. */
+      const ALTEZZA = ['D4', 'A5', 'D6'], FORZA = [1.00, 0.70, 0.45];
       this._suona = true;
       this.aggiornaTasto(true);
       colpi.forEach(c => {
@@ -3071,7 +3125,34 @@
         const cs = getComputedStyle(s);
         const spazio = s.clientHeight - parseFloat(cs.paddingTop)
                        - parseFloat(cs.paddingBottom) - 8;
-        const alto = dentro.scrollHeight;
+
+        /* Quanto è alto davvero il contenuto.
+
+           `scrollHeight` sembra la risposta ovvia e non lo è. Su un
+           elemento con `overflow: visible` — e `.slide-interna` ce l'ha —
+           il browser non ha niente da far scorrere, quindi riporta
+           `scrollHeight` **uguale a `clientHeight`** anche quando il
+           contenuto esce dal riquadro. Il contenuto che sborda è
+           invisibile proprio allo strumento che deve cercarlo.
+
+           È così che è passata la slide «Perché il ritmo è stato l'ultimo
+           a essere scritto»: la didascalia della foto usciva di 69 pixel
+           sotto il bordo e veniva tagliata, e la lezione dichiarava zero
+           slide che sbordano. Segnalato da Andrea, non dal controllo.
+
+           Si misura allora il fondo vero dei figli, che non dipende da
+           nessun overflow, e si tiene il più basso. `scrollHeight` resta
+           come secondo parere per i casi in cui il contenitore scorre
+           davvero. */
+        const base = dentro.getBoundingClientRect().top
+                     + parseFloat(getComputedStyle(dentro).paddingTop);
+        let fondo = 0;
+        dentro.querySelectorAll('*').forEach(e => {
+          const b = e.getBoundingClientRect();
+          if (b.height) fondo = Math.max(fondo, b.bottom - base);
+        });
+        const alto = Math.max(dentro.scrollHeight, Math.round(fondo));
+
         if (!attiva) s.classList.remove('misura');
         if (alto > spazio + 1) {
           const q = spazio / alto;

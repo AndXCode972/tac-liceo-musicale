@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lezione 1. Dove sta il battito | Il battito della musica</title>
-<link rel="stylesheet" href="../../_assets/css/tac.css?v=0990e8d4">
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=dbcfe343">
 <script>
 /* Alcuni contenitori (Electron, visualizzatori integrati nelle app desktop)
    definiscono module ed exports anche nella pagina. Le librerie UMD in quel
@@ -106,7 +106,7 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
           <span class="etichetta">La parola</span>
           <p>Questo corso si chiama <strong>Teoria, analisi e composizione</strong>, e la parola «teoria» spaventa quasi sempre. Fa pensare a qualcosa di astratto, staccato dal suonare, il contrario di quello che vi ha portati qui.</p>
           <p>In realtà viene dal greco <em>theorein</em>, che vuol dire <strong>guardare, osservare</strong>. È la stessa radice di «teatro», il luogo dove si va a guardare. Un teorico della musica, in origine, era qualcuno che ascoltava con più attenzione degli altri e poi provava a dire che cosa stava succedendo.</p>
-          <p>Detta così è già meno spaventosa. Fare teoria vuol dire guardare la musica da vicino, e per farlo bisogna prima averla ascoltata.</p>
+          <p>Detta così è meno spaventosa: fare teoria vuol dire guardare la musica da vicino, e per farlo bisogna prima averla ascoltata.</p>
         </div>
       </div>
       <div>
@@ -114,7 +114,20 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
           <span class="etichetta">Le tre parole del titolo</span>
           <p><strong>Teoria</strong> è capire come è fatta la musica. <strong>Analisi</strong> è smontare un brano vero per vedere come funziona dentro. <strong>Composizione</strong> è rimontarlo, o costruirne uno tuo con gli stessi pezzi.</p>
           <p>Sono tre modi di fare la stessa cosa, in ordine di difficoltà crescente, e si tengono l'uno con l'altro. Non si analizza bene senza teoria, e non si compone niente di sensato senza aver analizzato.</p>
-          <p>Quest'anno e nella prima metà della seconda lavoreremo soprattutto sulle prime due. La composizione entra <strong>intorno a metà della seconda</strong>, appena gli strumenti minimi ci sono, e da lì in poi non ci lascia più.</p>
+          <!-- Tolto il 14 agosto: «Quest'anno e nella prima metà della
+               seconda lavoreremo soprattutto sulle prime due. La composizione
+               entra intorno a metà della seconda, appena gli strumenti minimi
+               ci sono, e da lì in poi non ci lascia più.»
+
+               È un'informazione di calendario dentro una definizione, e sta
+               già in 00_Programmazione. Qui interrompeva la spiegazione di
+               che cosa siano teoria, analisi e composizione con una scadenza.
+
+               Perché proprio questo e non un altro: su una slide a due
+               colonne l'altezza la decide la colonna più alta, quindi
+               tagliare da una parte sola non risparmia **niente** — misurato,
+               zero pixel. Bisogna togliere da tutte e due, e allora conviene
+               togliere da ciascuna la cosa che regge meno. -->
         </div>
       </div>
     </div>
@@ -132,22 +145,32 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
   <div class="slide-interna">
     <h2>Come lavoreremo</h2>
 
-    <div class="colonne">
-      <div>
-        <div class="riquadro">
-          <span class="etichetta">Come lavoreremo</span>
-          <p>Non impareremo regole calate dall'alto. Guarderemo da vicino della <strong>musica vera</strong>, di Mozart o di Bach o di un canto popolare, e cercheremo di capire come è fatta. Le regole verranno dopo, e saranno soltanto il riassunto di quello che avremo osservato.</p>
-          <p>È l'ordine in cui sono nate storicamente. Nessuno ha inventato le regole dell'armonia a tavolino e poi ha scritto musica per applicarle: è successo l'opposto, prima secoli di musica e poi qualcuno che ha provato a dire come funzionava. Quel qualcuno, spesso, era un compositore che insegnava.</p>
-        </div>
-      </div>
-      <div>
-        <div class="riquadro attenzione">
-          <span class="etichetta">Una cosa che vale per te, da subito</span>
-          <p><strong>Tu hai già un orecchio che funziona.</strong> Ascolti musica da quando sei nato, e sai riconoscere moltissime cose senza saperle nominare: se un brano è allegro o cupo, se sta per finire, se qualcuno ha stonato.</p>
-          <p>Il lavoro di quest'anno non è sostituire quel sapere con un altro. È <strong>renderlo consapevole</strong>, e dargli le parole per essere detto. Quello che già senti non lo butti via: gli dai un nome, e da quel momento lo puoi usare apposta invece che per caso.</p>
-          <p>La differenza si vede quando suoni. Un passaggio che «non veniva» smette di essere un mistero nel momento in cui sai dire che cosa ci succede dentro.</p>
-        </div>
-      </div>
+    <!-- Sdoppiata il 14 agosto. Stava su una slide sola, a due colonne, e
+         sforava di 115 pixel. Ma il motivo per separarle non è lo spazio:
+         le due colonne parlavano a **due destinatari diversi** — la prima
+         dice come è fatto il corso, la seconda si rivolge allo studente — e
+         la citazione di Schönberg regge la seconda, non la prima. Su una
+         slide sola la citazione sembrava commentare il metodo; qui commenta
+         quello che commenta davvero. -->
+
+    <div class="riquadro">
+      <span class="etichetta">Le regole vengono dopo</span>
+      <p>Non impareremo regole calate dall'alto. Guarderemo da vicino della <strong>musica vera</strong>, di Mozart o di Bach o di un canto popolare, e cercheremo di capire come è fatta. Le regole verranno dopo, e saranno soltanto il riassunto di quello che avremo osservato.</p>
+      <p>È l'ordine in cui sono nate storicamente. Nessuno ha inventato le regole dell'armonia a tavolino e poi ha scritto musica per applicarle: è successo l'opposto, prima secoli di musica e poi qualcuno che ha provato a dire come funzionava. Quel qualcuno, spesso, era un compositore che insegnava.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide perc" data-titolo="Hai già un orecchio che funziona" data-segno
+         style="--segno: url('../../_assets/segni/segno-03.png')">
+  <div class="slide-interna">
+    <h2>Una cosa che vale per te, da subito</h2>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Quello che sai già</span>
+      <p><strong>Tu hai già un orecchio che funziona.</strong> Ascolti musica da quando sei nato, e sai riconoscere moltissime cose senza saperle nominare: se un brano è allegro o cupo, se sta per finire, se qualcuno ha stonato.</p>
+      <p>Il lavoro di quest'anno non è sostituire quel sapere con un altro. È <strong>renderlo consapevole</strong>, e dargli le parole per essere detto. Quello che già senti non lo butti via: gli dai un nome, e da quel momento lo puoi usare apposta invece che per caso.</p>
+      <p>La differenza si vede quando suoni. Un passaggio che «non veniva» smette di essere un mistero nel momento in cui sai dire che cosa ci succede dentro.</p>
     </div>
 
     <blockquote class="aforisma dentro">
@@ -4789,9 +4812,14 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
 
     <div class="trafiletto curiosita">
       <span class="etichetta">Curiosità</span>
-      <p>La <strong>giga</strong> nasce come danza e per secoli è rimasta tale, ma verso la fine del Seicento entra nella musica colta e diventa il movimento che <strong>chiude la suite</strong>: dopo l'allemanda, la corrente e la sarabanda, arriva sempre la giga a mettere allegria.</p>
+      <p>La <strong>giga</strong> nasce come danza e per secoli è rimasta tale, ma verso la fine del Seicento entra nella musica colta e diventa il movimento che <strong>chiude la suite</strong>: quello che arriva per ultimo, a mettere allegria.</p>
       <p>Bach, Händel e Corelli ne hanno scritte a decine. Il legame con il ballo però non si è mai spezzato: nei pub irlandesi si suona ancora oggi, allo stesso metro composto e più o meno alla stessa velocità.</p>
-      <p>Quando la senti, stai ascoltando due cose insieme: una tradizione popolare viva e la radice di una forma che ha attraversato tutta la musica europea.</p>
+      <!-- Tolta il 14 agosto: «Quando la senti, stai ascoltando due cose
+           insieme: una tradizione popolare viva e la radice di una forma che
+           ha attraversato tutta la musica europea.» Diceva a parole quello
+           che le due frasi qui sopra mostrano coi fatti — la giga entra nella
+           suite *e* si suona ancora nei pub — e valeva 73 dei 89 pixel che
+           la slide aveva fuori dal bordo. -->
     </div>
 
     <div class="riquadro definizione">
@@ -9286,11 +9314,13 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
       </figure>
     </div>
 
-    <div class="riquadro attenzione">
-      <span class="etichetta">L'errore più comune</span>
-      <p>Quando in una battuta passano molte note brevi una dopo l'altra, la mano tende ad accelerare per starle dietro. È esattamente quello che <strong>non</strong> deve succedere: la pulsazione è il metro, e un metro che si allunga quando la stanza si allunga non misura più niente.</p>
-      <p class="studio">Se il tuo compagno accelera, non dirgli «vai più piano»: digli <em>dove</em> ha accelerato. È lì che c'era la difficoltà, e riconoscerla è già mezzo rimedio.</p>
-    </div>
+    <!-- Il riquadro «L'errore più comune» stava qui, e da qui è andato via il
+         14 agosto. Parlava di mani che accelerano e di come dirlo al compagno,
+         cioè di esecuzione, su una slide che racconta chi fosse il compositore:
+         due argomenti su una slide sola, e 128 pixel fuori dal bordo. Ora è un
+         campo dell'esercizio «Due mani, due livelli» nell'archivio, e arriva
+         quando la mano batte davvero. Se serve rimetterlo, la ragione per cui
+         è stato spostato vale ancora. -->
   </div>
 </section>
 
@@ -9300,7 +9330,7 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
     <h2>Riconosci il metro</h2>
     <div class="riquadro compito">
       <span class="etichetta">Proviamo · 6 minuti</span>
-      <p>Ascoltiamo quattro battute di soli legni. Ogni quante pulsazioni torna l'accento forte? E dentro ogni pulsazione entrano due colpi o tre? Si scopre la risposta solo dopo che la classe ha deciso.</p>
+      <p>Ascoltiamo quattro battute di soli legni. Ogni quante pulsazioni torna l'accento forte? E dentro ogni pulsazione entrano due colpi o tre?</p>
     </div>
     <tac-metro scelte="2/4,3/4,4/4,6/8,9/8,12/8" tempo="88" titolo="Ascolta e conta: quante pulsazioni per accento?"></tac-metro>
   </div>
@@ -9339,12 +9369,15 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
     <div class="riquadro definizione">
       <span class="etichetta">Definizione</span>
       <p>La musica è fatta di suoni di diversa <strong>durata</strong>, che si muovono nel tempo e possono essere più o meno lunghi o brevi. Per misurarli usiamo come riferimento un battito regolare che chiamiamo <em class="termine">pulsazione</em>.</p>
-      <p>È il battito che ti viene spontaneo quando batti il piede ascoltando musica. Non è scritto da nessuna parte: sta sotto, e lo senti.</p>
+      <p>È il battito che ti viene spontaneo battendo il piede: non è scritto da nessuna parte, sta sotto e lo senti.</p>
           <p class="minuta">Stessa definizione del libro, A1 pp. 2–5.</p>
     </div>
 
     <tac-livelli bpm="80" battuta="4" suddivisione="2"></tac-livelli>
-    <p class="didascalia">Avvia con la sola pulsazione e batti insieme. Poi accendi la suddivisione, e infine il metro. Il cursore cambia la velocità: i tre livelli si muovono insieme.</p>
+    <!-- La terza frase — «Il cursore cambia la velocità: i tre livelli si
+         muovono insieme» — è andata via il 14 agosto: il cursore ha già la
+         sua etichetta «Velocità della pulsazione» lì accanto. -->
+    <p class="didascalia">Avvia con la sola pulsazione e batti insieme, poi accendi la suddivisione e infine il metro.</p>
   </div>
 </section>
 
@@ -9419,6 +9452,11 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
     <div class="riquadro compito">
       <span class="etichetta">Proviamo · 3 minuti</span>
       <p>Seduti. La mano destra batte la pulsazione, la sinistra batte una volta sola ogni due battiti della destra: la destra tiene il passo, la sinistra conta le misure. Poi si scambia, sinistra la pulsazione e destra la misura. La seconda volta è molto più difficile della prima, ed è quello il punto.</p>
+    </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">L'errore più comune</span>
+      <p>Quando le note passano fitte, la mano tende ad <strong>accelerare</strong> per starle dietro. È esattamente quello che non deve succedere: la pulsazione è il metro, e un metro che si allunga quando la stanza si allunga non misura più niente.</p>
+      <p>Vale anche quando ci si controlla a vicenda: a chi accelera non si dice «vai più piano», gli si dice <strong>dove</strong> ha accelerato. È lì che c'era la difficoltà, e riconoscerla è già mezzo rimedio.</p>
     </div>
   </div>
 </section>

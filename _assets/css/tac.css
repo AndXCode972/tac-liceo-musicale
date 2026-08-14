@@ -959,10 +959,27 @@ a.btn.tac-vero { text-decoration: none; }
 }
 .riquadro.libro .etichetta { color: var(--indaco); }
 .riquadro.libro p { margin: .25rem 0 0; font-size: .95rem; }
+/* La sigla della lezione dentro il riquadro del libro — «A1», «C1».
+
+   Il `margin: 0` e il `border-top: 0` non sono ridondanti, sono la
+   correzione di un difetto che costava ottantacinque pixel per riga.
+   `.lez` è usata per **due cose diverse**: qui è una pastiglia in linea nel
+   testo, e nel Workbook è il separatore fra una lezione e l'altra, con
+   `border-top: 4px` e `margin: 2.2rem 0`. Quella regola generale sta più
+   in alto nel foglio, e questa ridefiniva colore, sfondo e padding ma non
+   azzerava scatola e bordo: la sigla si portava dietro trentacinque pixel
+   di margine sopra e altrettanti sotto, più il bordo verde da quattro.
+   Una riga alta 113 pixel invece di 28.
+
+   Non si vedeva perché il margine è trasparente e il bordo cadeva fuori
+   dal riquadro colorato: da fuori sembrava solo che il riquadro del libro
+   fosse generoso. L'ha fatto emergere la misura delle slide troppo piene —
+   il riquadro era più alto dei tre livelli messi insieme. */
 .riquadro.libro .lez {
   display: inline-block; background: var(--indaco); color: #fff;
   font-weight: 800; font-size: .78rem; letter-spacing: .04em;
-  padding: .1rem .5rem; border-radius: 5px; margin-right: .45rem;
+  padding: .1rem .5rem; border-radius: 5px;
+  margin: 0 .45rem 0 0; border-top: 0;
 }
 .didascalia { text-align: center; color: var(--inchiostro2); font-size: .93rem; margin-top: .4rem; }
 

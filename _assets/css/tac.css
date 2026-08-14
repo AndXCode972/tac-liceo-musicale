@@ -588,7 +588,7 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
 }
 .slide.stacco-compiti .stacco-occhiello {
   font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase;
-  color: #c9b6ff; margin: 0 0 .6rem;
+  color: #c9b6ff; margin: 0 auto .6rem;   /* auto: vedi .didascalia, 44 px fuori asse */
 }
 .slide.stacco-compiti h2 {
   color: #fff; border: 0; font-size: clamp(2rem, 4.6vw, 3.1rem); margin: 0 0 1rem;
@@ -602,6 +602,32 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
   background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22);
   font-size: .95rem; font-weight: 700; color: #fff;
 }
+/* ── le slide di esercizio: una fascia che le fa riconoscere ────────
+   «Il layout grafico degli esercizi non è molto diverso da quello della
+   lezione.» Non lo era per niente: portavano la stessa classe delle slide
+   di ascolto, e l'unica differenza era l'etichetta «Proviamo · N minuti»
+   in cima. Da in fondo all'aula, proiettate, non si distinguevano.
+
+   Una fascia sul bordo sinistro invece di un fondo pieno: in un'ora le
+   slide di esercizio sono nove, e nove schermate colorate diventano un
+   colore di sfondo, cioè di nuovo nessun segnale. La fascia si vede da
+   lontano e non cambia il carattere della lezione.
+
+   Il verde è quello che il corso usa già per le consegne: non introduce un
+   codice nuovo, rende visibile da lontano uno che c'era già da vicino. */
+.slide.esercizio { border-left: 10px solid var(--verde); }
+.slide.esercizio .slide-interna { padding-left: .4rem; }
+.slide.esercizio h2 { color: #14663f; }
+.slide.esercizio h2::after { background: var(--verde); }
+/* L'etichetta del tempo diventa una pastiglia piena: è la prima cosa che
+   la classe cerca quando capisce che tocca a lei. */
+.slide.esercizio .riquadro.compito > .etichetta {
+  display: inline-block; background: var(--verde); color: #fff;
+  padding: .18rem .8rem; border-radius: 999px;
+  font-size: .78rem; letter-spacing: .06em;
+}
+@media print { .slide.esercizio { border-left: 3px solid var(--verde); } }
+
 .slide.compiti-slide .compiti-occhiello {
   display: inline-block; margin: 0 0 .35rem; padding: .2rem .7rem; border-radius: 999px;
   background: #fff4e0; border: 1px solid #f0c987; color: #8a5a12;
@@ -997,7 +1023,21 @@ a.btn.tac-vero { text-decoration: none; }
   padding: .1rem .5rem; border-radius: 5px;
   margin: 0 .45rem 0 0; border-top: 0;
 }
-.didascalia { text-align: center; color: var(--inchiostro2); font-size: .93rem; margin-top: .4rem; }
+/* `margin-inline: auto` non è un vezzo: senza, questa didascalia non è
+   centrata affatto, ed era fuori asse di **188 pixel**.
+
+   Un paragrafo delle slide ha un massimo di larghezza, che serve alla
+   leggibilità. Ma un blocco più stretto del suo contenitore non si centra
+   da solo: resta a sinistra, e `text-align: center` centra il testo
+   *dentro quel blocco*, non nella slide. Da fuori sembra centrato — le
+   righe sono simmetriche fra loro — e invece l'intero paragrafo è spostato.
+
+   Il titolo delle slide non ha il problema perché è `inline-block`, quindi
+   si stringe sul testo. Ogni volta che si centra un blocco, servono tutte
+   e due le cose: `text-align` per le righe, margine automatico per la
+   scatola. */
+.didascalia { text-align: center; color: var(--inchiostro2); font-size: .93rem;
+              margin: .4rem auto 0; }
 
 /* --- Esecuzione reale incorporata --- */
 .tac-tubo {

@@ -565,11 +565,27 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
    Lo stacco è scuro come la copertina — chiude come si era aperto — e le
    slide dei compiti restano chiare ma portano un occhiello ambra che
    nelle altre non c'è. */
+/* Lo stacco NON dichiara `display` qui.
+
+   Ci avevo scritto `display: grid` per centrare il contenuto, e la slide
+   è rimasta visibile su tutte le altre: `.slide` è `display: none` e solo
+   `.slide.attiva` la riaccende, quindi imporre un display a una classe
+   diversa la mostra sempre. In pagina lo stacco compariva in fondo a ogni
+   schermata. Segnalato da Andrea — «in ogni slide c'è questa aggiunta in
+   basso».
+
+   È la stessa forma dell'errore già in elenco a §13: una regola specifica
+   che ridefinisce una proprietà di scatola senza sapere che quella
+   proprietà serviva a un altro meccanismo. Il centramento si fa dentro,
+   sul contenuto, non sulla slide. */
 .slide.stacco-compiti {
   background: linear-gradient(135deg, #1b1533 0%, #2a1f4d 60%, #3b2566 100%);
-  color: #fff; display: grid; place-items: center; text-align: center;
+  color: #fff; text-align: center;
 }
-.slide.stacco-compiti .slide-interna { transform: none; max-width: 44rem; }
+.slide.stacco-compiti.attiva { display: grid; place-items: center; }
+.slide.stacco-compiti .slide-interna {
+  transform: none; max-width: 44rem; width: 100%;
+}
 .slide.stacco-compiti .stacco-occhiello {
   font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase;
   color: #c9b6ff; margin: 0 0 .6rem;

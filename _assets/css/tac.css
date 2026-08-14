@@ -873,6 +873,75 @@ body.documento .foglio {
           padding: .1rem .55rem; margin-left: .35rem; vertical-align: 2px; }
 
 /* ------------------------------------------------------------------
+   Le tre tipologie di compito, sul foglio di lavoro
+
+   I compiti a casa sono di tre specie e ognuna si consegna in modo suo:
+   la verifica online restituisce un codice, l'ascolto non si valuta, lo
+   scritto si fotografa e va su Classroom. Prima erano impaginati tutti
+   uguali, in fila, e lo studente non aveva modo di sapere che cosa gli
+   veniva chiesto se non leggendo ogni consegna fino in fondo.
+
+   Il colore del bordo non è decorazione: è l'unica cosa che si vede da
+   lontano, e deve dire di che specie è la sezione prima che si legga.
+   ------------------------------------------------------------------ */
+.parte { margin: 1.1rem 0 0; }
+.parte > h3 { display: flex; align-items: baseline; gap: .5rem;
+              margin: 0 0 .15rem; font-size: 1.02rem; border: 0; }
+.parte > h3::before { content: ''; width: .62rem; height: .62rem; flex: none;
+                      border-radius: 2px; background: currentColor; }
+.parte .spiega { margin: 0 0 .5rem; font-size: .86rem; line-height: 1.35;
+                 color: var(--inchiostro2); }
+/* Le ripetizioni della spiegazione restano nel documento ma non si vedono:
+   tornano solo sul foglio di chi stampa una lezione sola, dove sono la
+   prima volta che quello studente le incontra. */
+.parte .spiega.ripetuta { display: none; }
+body.stampa-una .da-stampare .parte .spiega.ripetuta { display: block; }
+.parte.online  > h3 { color: #0f766e; }
+.parte.ascolto > h3 { color: #6d28d9; }
+.parte.scritto > h3 { color: #b45309; }
+.parte.online  .consegna { border-left-color: #0f766e; }
+.parte.ascolto .consegna { border-left-color: #6d28d9; }
+.parte.scritto .consegna { border-left-color: #b45309; }
+
+.consegna .titolo-consegna { display: flex; align-items: baseline; gap: .5rem;
+                             font-weight: 700; margin: 0 0 .25rem; }
+.consegna .num { flex: none; min-width: 1.35rem; height: 1.35rem; display: grid;
+                 place-items: center; border-radius: 50%; font-size: .78rem;
+                 background: var(--inchiostro); color: var(--carta); }
+.consegna .testo { font-size: .95rem; }
+.consegna .vai { margin: .4rem 0 0; font-size: .88rem; }
+.consegna .materiale { margin-top: .5rem; }
+/* Dentro il foglio di lavoro il riquadro del pentagramma non deve fare
+   scena: quello che conta e' la musica, non la cornice. Fuori di qui il
+   riquadro resta com'e', perche' sulle slide serve a staccare l'esempio
+   dal testo. */
+.consegna .materiale tac-stave { margin: 0 0 .45rem; padding: .45rem .6rem .5rem;
+                                 box-shadow: none; }
+.consegna .materiale tac-stave:last-child { margin-bottom: 0; }
+.consegna .materiale .tac-didascalia { font-size: .82rem; margin-bottom: .1rem; }
+
+/* La casella del codice è la sola traccia che l'insegnante riceve di un
+   esercizio svolto allo schermo: senza, l'online e la carta restano due
+   mondi che non si parlano. Va larga abbastanza da scriverci a penna. */
+.consegna .esito { display: flex; align-items: center; gap: .55rem;
+                   margin-top: .55rem; }
+.consegna .etichetta-esito { font-size: .74rem; font-weight: 800;
+                             letter-spacing: .05em; text-transform: uppercase;
+                             color: var(--inchiostro2); }
+.consegna .casella-codice { flex: 0 0 11rem; height: 1.5rem;
+                            border: 1.5px solid var(--inchiostro2);
+                            border-radius: 4px; background: #fff; }
+.consegna .spunta { flex: none; width: 1.05rem; height: 1.05rem;
+                    border: 1.5px solid var(--inchiostro2); border-radius: 3px;
+                    background: #fff; }
+
+.lez > .testa .occhiello { display: block; font-size: .74rem; font-weight: 800;
+                           letter-spacing: .07em; text-transform: uppercase;
+                           color: var(--inchiostro2); margin-bottom: .1rem; }
+.lez > .testa .btn.minuto { margin-left: auto; font-size: .8rem;
+                            padding: .3rem .8rem; }
+
+/* ------------------------------------------------------------------
    I fascicoli, stampati
 
    Sullo schermo il corpo del testo è quello delle slide, 1.12rem, cioè
@@ -917,6 +986,73 @@ body.documento .foglio {
   body.documento .consegna { padding: .35rem .6rem; margin: .45rem 0 .35rem;
                              border-left-width: 3px; }
   body.documento .quando   { font-size: 7pt; padding: 0 .4rem; }
+
+  /* Tenere ogni lezione intera su una pagina sembrava una gentilezza ed era
+     lo spreco piu' grosso del fascicolo: quando il blocco seguente non
+     entrava nello spazio rimasto, saltava alla pagina dopo e sotto restava
+     bianco. La prima pagina era piena per meno di meta'. Sei lezioni, sei
+     pagine, e la colpa non era del testo.
+
+     La misura giusta non e' la lezione, e' l'esercizio: una consegna
+     spezzata a meta' fra due fogli e' illeggibile, una lezione a cavallo di
+     due fogli non da' nessun fastidio. E il titolo di una sezione non resta
+     mai da solo in fondo. */
+  body.documento .lez        { break-inside: auto; }
+  body.documento .consegna   { break-inside: avoid; }
+  body.documento .parte > h3,
+  body.documento .parte .spiega,
+  body.documento .lez > .testa { break-after: avoid; }
+
+  /* I righi sono disegnati a 640 pixel. A schermo il contenitore e' stretto
+     e li rimpicciolisce da se'; sul foglio A4 e' largo diciotto centimetri e
+     li lascia a grandezza piena, cioe' enormi. Undici centimetri portano il
+     pentagramma a sette millimetri d'altezza, che e' la misura di un libro
+     di musica stampato. */
+  /* L'`!important` serve davvero: piu' su, fra le regole di stampa comuni a
+     tutte le pagine, c'e' `tac-stave svg { max-width: 100% !important }`, e
+     senza pari forza quella vince e il rigo resta largo diciotto
+     centimetri. E' la stessa regola che era stata scritta per impedire ai
+     pentagrammi di uscire dal foglio: qui non la si annulla, la si stringe. */
+  body.documento tac-stave svg,
+  body.documento tac-griglia svg { max-width: 11cm !important; }
+  body.documento .consegna .materiale tac-stave { padding: .2rem .4rem .25rem;
+                                                  margin: .15rem 0 .3rem; }
+  body.documento .consegna .materiale .tac-didascalia { font-size: 7.5pt;
+                                                        margin-bottom: 0; }
+
+  /* Stampare una lezione sola. Il compito della settimana è una pagina: se
+     per averla si deve mandare in stampa il fascicolo intero e poi scegliere
+     a mano l'intervallo di pagine, nessuno lo fa, e si stampano undici fogli
+     per usarne uno. */
+  body.stampa-una .lez:not(.da-stampare) { display: none; }
+
+  /* Stampando una lezione sola, la testata del fascicolo costava una pagina
+     intera: prendeva la parte alta del foglio, e il blocco della lezione —
+     che non si spezza — non ci stava più nello spazio rimasto e saltava
+     alla pagina dopo, lasciando la prima quasi bianca. Due fogli per un
+     compito che ne vale uno.
+
+     Via il riquadro «Come si usa»: la sua sostanza è già ripetuta sotto
+     ogni titolo di sezione, in una riga, dove serve davvero. Il titolone
+     «Workbook» diventa una riga sola, e il blocco può spezzarsi: meglio una
+     lezione a cavallo di due pagine che una pagina bianca. */
+  body.stampa-una .riquadro.attenzione { display: none; }
+  body.stampa-una .intestazione-scheda { padding-bottom: .25rem; margin-bottom: .4rem;
+                                         border-bottom-width: 1px; }
+  body.stampa-una .intestazione-scheda h1 { font-size: 11pt; }
+  body.stampa-una .intestazione-scheda h1 + p { font-size: 8pt; margin-top: .1rem; }
+  body.stampa-una .intestazione-scheda .dati { font-size: 7pt; }
+  body.stampa-una .riga-nome { margin: .35rem 0 .5rem; font-size: 8pt; }
+  body.stampa-una .lez { break-inside: auto; margin-top: .4rem; }
+
+  body.documento .parte           { margin-top: .55rem; }
+  body.documento .parte > h3      { font-size: 9.5pt; margin: 0 0 .1rem; }
+  body.documento .parte .spiega   { font-size: 8pt; margin: 0 0 .25rem; }
+  body.documento .consegna .titolo-consegna { margin: 0 0 .12rem; }
+  body.documento .consegna .num   { min-width: 1.05rem; height: 1.05rem;
+                                    font-size: 7pt; }
+  body.documento .consegna .esito { margin-top: .3rem; }
+  body.documento .consegna .casella-codice { flex-basis: 9rem; height: 1.15rem; }
 
   body.documento .riquadro { padding: .5rem .8rem; margin: .5rem 0; }
   body.documento .riquadro .etichetta { font-size: 7.5pt; }

@@ -773,6 +773,45 @@
         this._note = note;
       }
 
+      /* L'SVG nasce alto 150 pixel — 260 col doppio rigo — qualunque cosa
+         contenga: e' l'altezza del caso peggiore, note molto acute o molto
+         gravi con i tagli addizionali. Un rigo di ritmo su una riga sola ne
+         usa meno della meta', e gli ottanta pixel che restano sono bianco,
+         anche stampato. Su un foglio con sei righi fanno quasi mezza pagina,
+         ed e' la ragione per cui il Workbook «sembra pieno di spazi vuoti e
+         cose molto grandi».
+
+         Si misura quello che e' stato disegnato davvero e si ritaglia
+         l'altezza su quello. `getBBox` su un elemento non visibile risponde
+         zero: in quel caso non si tocca niente e resta l'altezza di prima,
+         che e' il caso dei pentagrammi dentro le slide non attive. */
+      const disegno = tela.querySelector('svg');
+      if (disegno) {
+        /* Non si puo' chiedere la misura all'SVG intero: dentro c'e' un
+           elemento grande quanto la tela, e la risposta e' sempre l'altezza
+           di partenza. Misurato cosi' il ritaglio non ritagliava niente, e
+           il difetto restava intatto pur essendo «corretto». Si guardano
+           invece i pezzi disegnati uno per uno, scartando quelli alti quanto
+           la tela, e si prende l'inviluppo. */
+        const tesa = doppio ? 260 : 150;
+        let su = Infinity, giu = -Infinity;
+        disegno.querySelectorAll('path, rect, text, line, polygon, ellipse, circle')
+          .forEach(function (el) {
+            let b = null;
+            try { b = el.getBBox(); } catch (e) { return; }
+            if (!b || !b.height || b.height >= tesa - 2) return;
+            if (b.y < su) su = b.y;
+            if (b.y + b.height > giu) giu = b.y + b.height;
+          });
+        if (giu > su && giu - su > 10) {
+          const cima = Math.max(0, Math.floor(su - 6));
+          const alta = Math.min(tesa, Math.ceil(giu + 8)) - cima;
+          disegno.setAttribute('viewBox', '0 ' + cima + ' ' + larghezza + ' ' + alta);
+          disegno.setAttribute('height', alta);
+          disegno.style.height = 'auto';
+        }
+      }
+
       if (this.hasAttribute('play') && dati.some(d => !d.pausa && !d.stanghetta)) {
         const barra = document.createElement('div');
         barra.className = 'tac-barra no-stampa';

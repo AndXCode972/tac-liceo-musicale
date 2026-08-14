@@ -3256,7 +3256,8 @@
         if (alto > spazio + 1) {
           const q = spazio / alto;
           minimo = Math.min(minimo, q);
-          this.carichi.push({ n: k, titolo: s.dataset.titolo, scala: +q.toFixed(3) });
+          this.carichi.push({ n: k, titolo: s.dataset.titolo, scala: +q.toFixed(3),
+                              alto: Math.round(alto), spazio: Math.round(spazio) });
         }
       });
       if (prima) r.style.setProperty('--adatta', prima);
@@ -3301,17 +3302,42 @@
       document.documentElement.style.setProperty('--k', k);
 
       /* margine di sicurezza: meglio un filo di respiro che una cornice al limite */
+      /* L'avviso in regia: quali slide non ci stanno, e di quanto.
+
+         Due tarature, tutte e due nate dall'uso. Prima l'avviso diceva
+         «vanno sdoppiate» per qualunque sforo, anche di dieci pixel, e
+         chiedere di sdoppiare una slide che sborda di mezza riga è un
+         consiglio che nessuno segue — quindi l'avviso si impara a
+         ignorare, e allora non serve più a niente. E non diceva **di
+         quanto**: fra dieci pixel e centoventotto c'è la differenza fra
+         una parola e una riscrittura, e il numero è l'unica cosa che
+         permette di decidere.
+
+         Sotto i quaranta pixel — meno di una riga e mezza — l'avviso tace.
+         Non perché quello sforo non esista, ma perché il rimedio costa più
+         del difetto, e un controllo che segnala cose che non conviene
+         correggere addestra a non guardarlo. */
       const av = document.getElementById('tac-densita');
       if (av) {
-        const c = this.carichi || [];
-        av.classList.toggle('acceso', troppa);
-        av.textContent = c.length
-          ? (c.length === 1 ? 'slide ' : 'slide ') + c.map(x => x.n + 1).join(', ')
-            + (c.length === 1 ? ' non ci sta: va sdoppiata'
-                              : ' non ci stanno: vanno sdoppiate')
+        const SOGLIA = 40;   // pixel: sotto, non vale la pena intervenire
+        const c = (this.carichi || []).map(x => {
+          const sforo = Math.round(x.alto - x.spazio);
+          return Object.assign({ sforo: isNaN(sforo) ? null : sforo }, x);
+        });
+        const gravi = c.filter(x => x.sforo == null || x.sforo >= SOGLIA);
+        av.classList.toggle('acceso', gravi.length > 0);
+        av.textContent = gravi.length
+          ? 'slide ' + gravi.map(x => x.n + 1).join(', ')
+            + (gravi.length === 1 ? ' non ci sta' : ' non ci stanno')
+            + ' — ' + (gravi[0].sforo != null
+                ? 'fino a ' + Math.max(...gravi.map(x => x.sforo)) + ' px fuori'
+                : 'da alleggerire')
           : '';
         av.title = c.map(x => (x.n + 1) + '. ' + x.titolo +
-                              '  (serve il ' + Math.round(100 / x.scala) + '% dello spazio)').join('\n');
+                              (x.sforo != null ? '  (' + x.sforo + ' px fuori)' : '')).join('\n')
+                   + (c.length > gravi.length
+                      ? '\n\nSotto i ' + SOGLIA + ' px l\'avviso non si accende.'
+                      : '');
       }
     },
 

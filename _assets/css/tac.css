@@ -628,6 +628,31 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
 }
 @media print { .slide.esercizio { border-left: 3px solid var(--verde); } }
 
+/* ── le slide dei compiti: fascia ambra ─────────────────────────────
+   Stessa ragione della fascia verde sugli esercizi, colore diverso.
+   Sono tre modalità nella stessa ora e devono distinguersi a colpo
+   d'occhio: si spiega (nessuna fascia), si prova insieme (verde), si
+   lavora da soli a casa (ambra). Il verde è il colore che il corso usa
+   per le consegne in classe, l'ambra quello dei compiti. */
+.slide.compiti-slide { border-left: 10px solid #e0a336; }
+.slide.compiti-slide .slide-interna { padding-left: .4rem; }
+.slide.compiti-slide h2 { color: #8a5a12; }
+.slide.compiti-slide h2::after { background: #e0a336; }
+
+/* Nel Workbook: da stampare oppure da fare online. */
+.consegna .dove {
+  display: inline-block; margin-left: .3rem; padding: .05rem .5rem;
+  border-radius: 999px; font-size: .7rem; font-weight: 800;
+  letter-spacing: .04em; text-transform: uppercase; white-space: nowrap;
+}
+.consegna .dove.stampa { background: #eef2ff; color: #3730a3; border: 1px solid #c7d2fe; }
+.consegna .dove.online { background: #ecfdf5; color: #14663f; border: 1px solid #a7f3d0; }
+@media print {
+  /* Sulla carta «si fa online» va detto lo stesso: è la scheda che lo
+     studente ha davanti quando decide se stampare o aprire il portatile. */
+  .consegna .dove { border-width: 1pt; font-size: 7pt; }
+}
+
 .slide.compiti-slide .compiti-occhiello {
   display: inline-block; margin: 0 0 .35rem; padding: .2rem .7rem; border-radius: 999px;
   background: #fff4e0; border: 1px solid #f0c987; color: #8a5a12;

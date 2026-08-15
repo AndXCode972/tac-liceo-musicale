@@ -633,6 +633,7 @@
 
      notes="c/4:q  e/4:8  f/4:8  g/4:h."
      accordi: c/4+e/4+g/4:h        pausa: r:q
+     legatura di valore: c/4:q~ c/4:q     (la tilde lega alla nota dopo)
      ========================================================== */
 
   const DURATE_BATTITI = { w: 4, h: 2, q: 1, '8': 0.5, '16': 0.25, '32': 0.125 };
@@ -647,6 +648,21 @@
         return { keys: [], dur: 'q', puntata: false, pausa: false,
                  battiti: 0, stanghetta: gettone };
       }
+      /* LA LEGATURA DI VALORE si scrive con una tilde in coda alla figura
+         che comincia il suono: « c/4:q~ c/4:q ». Lega alla nota successiva,
+         che è l'unica cosa che una legatura di valore possa fare.
+
+         Serve dalla lezione 4, dove la legatura è metà dell'argomento, e
+         serve *disegnata su un rigo* e non solo descritta a parole: il
+         punto della lezione è che la legatura ricuce una durata tagliata
+         dalla stanghetta, e la stanghetta sta sul rigo.
+
+         La tilde si toglie prima di leggere la durata, altrimenti « q~ »
+         non sarebbe una figura conosciuta e diventerebbe un quarto per
+         via del ripiego — un errore muto, che si vedrebbe solo contando
+         i battiti di una battuta. */
+      const legata = gettone.endsWith('~');
+      if (legata) gettone = gettone.slice(0, -1);
       const [parteNote, parteDur = 'q'] = gettone.split(':');
       const puntata = parteDur.includes('.');
       const dur = parteDur.replace(/\./g, '') || 'q';
@@ -654,7 +670,7 @@
       const keys = pausa ? ['b/4'] : parteNote.split('+').map(s => s.trim().toLowerCase());
       let battiti = DURATE_BATTITI[dur] || 1;
       if (puntata) battiti *= 1.5;
-      return { keys, dur, puntata, pausa, battiti };
+      return { keys, dur, puntata, pausa, battiti, legata };
     });
   }
 
@@ -674,6 +690,39 @@
       return b;
     } catch (e) {
       return new VF.GhostNote({ duration: 'q' });
+    }
+  }
+
+  /* A quale nota si lega quella marcata con la tilde.
+
+     Si scavalcano le stanghette, e non per completezza: è *il* caso che
+     la lezione 4 deve mostrare. Una legatura che unisce due note dentro
+     la stessa battuta si potrebbe quasi sempre scrivere col punto; quella
+     che attraversa la stanghetta no, ed è la ragione per cui la legatura
+     esiste. Se la tilde sta sull'ultima figura non c'è niente a cui
+     legare e si restituisce -1, che chi chiama tratta come «nessuna». */
+  function legataA(dati, i) {
+    let j = i + 1;
+    while (j < dati.length && dati[j].stanghetta) j++;
+    return j < dati.length ? j : -1;
+  }
+
+  /* Disegna le legature di valore. Va chiamata **dopo** che la voce è
+     stata formattata e disegnata: StaveTie chiede alle note dove sono
+     finite sul rigo, e prima della formattazione non lo sanno ancora. */
+  function disegnaLegature(VF, ctx, dati, note) {
+    for (let i = 0; i < dati.length; i++) {
+      if (!dati[i].legata || dati[i].stanghetta || dati[i].pausa) continue;
+      const j = legataA(dati, i);
+      if (j < 0 || dati[j].pausa) continue;
+      const quante = Math.min(dati[i].keys.length, dati[j].keys.length);
+      const indici = Array.from({ length: quante }, (_, k) => k);
+      try {
+        new VF.StaveTie({
+          firstNote: note[i], lastNote: note[j],
+          firstIndexes: indici, lastIndexes: indici
+        }).setContext(ctx).draw();
+      } catch (e) { /* meglio una legatura mancante che un rigo vuoto */ }
     }
   }
 
@@ -830,6 +879,7 @@
         new VF.Formatter().joinVoices([voce]).format([voce], larghezza - 90);
         voce.draw(ctx, stave);
         travature.forEach(b => b.setContext(ctx).draw());
+        disegnaLegature(VF, ctx, dati, note);
 
         this._note = note;
       }
@@ -936,23 +986,51 @@
       const durBattito = (60 / (this._tempo * fattore));
       let t = Tone.now() + 0.15;
 
+      /* LA LEGATURA DI VALORE NON È DUE SUONI: È UN SUONO SOLO, PIÙ LUNGO.
+
+         Se la seconda nota riattaccasse, l'esempio farebbe sentire
+         esattamente il contrario di quello che la slide afferma — e la
+         slide che lo afferma è quella su cui la lezione 4 si regge. È lo
+         stesso guasto della travatura a due sotto la didascalia «tre»:
+         nessun controllo automatico lo vede, perché il codice gira e il
+         rigo è disegnato bene.
+
+         Quindi: la durata delle note legate si somma sulla prima, e le
+         altre tacciono. Si percorre l'elenco **all'indietro** perché una
+         catena di tre — « q~ q~ q » — sia già sommata quando si arriva al
+         primo anello; in avanti la somma si fermerebbe al secondo. La
+         linea del tempo invece avanza sempre con la durata scritta della
+         figura, non con quella suonata, altrimenti le note dopo la
+         legatura arriverebbero in ritardo di tutto il valore legato. */
+      const durate = this._dati.map(d => d.battiti);
+      const muta = this._dati.map(() => false);
+      for (let i = this._dati.length - 1; i >= 0; i--) {
+        const d = this._dati[i];
+        if (!d.legata || d.stanghetta || d.pausa) continue;
+        const j = legataA(this._dati, i);
+        if (j < 0 || this._dati[j].pausa) continue;
+        durate[i] += durate[j];
+        muta[j] = true;
+      }
+
       this._dati.forEach((d, i) => {
         if (d.stanghetta) return;          /* non dura e non suona */
         const secondi = d.battiti * durBattito;
-        if (!d.pausa) {
+        const suonati = durate[i] * durBattito;
+        if (!d.pausa && !muta[i]) {
           if (soloRitmo) {
             Audio.tick.triggerAttackRelease(Audio.LIVELLI.ritmo.altezza, '64n', t,
                                             Audio.LIVELLI.ritmo.forza);
           } else {
             voce.triggerAttackRelease(
-              d.keys.map(k => N.aTone(k)), secondi * 0.92, t
+              d.keys.map(k => N.aTone(k)), suonati * 0.92, t
             );
           }
           const el = this._note && this._note[i] && this._note[i].getSVGElement();
           if (el) {
             const ms = (t - Tone.now()) * 1000;
             setTimeout(() => { el.style.fill = '#f59e0b'; el.style.stroke = '#f59e0b'; }, ms);
-            setTimeout(() => { el.style.fill = ''; el.style.stroke = ''; }, ms + secondi * 1000);
+            setTimeout(() => { el.style.fill = ''; el.style.stroke = ''; }, ms + suonati * 1000);
           }
         }
         t += secondi;

@@ -499,11 +499,45 @@
       (this.campionato ? this.sampler : this.synth).triggerAttackRelease(note, dur, quando);
     },
 
-    async metronomo(forte, quando) {
+    /* LA CONVENZIONE DEI TRE LIVELLI, scritta qui e in nessun altro posto.
+
+       Il battere è il colpo **grave**, la pulsazione sta in mezzo, la
+       suddivisione è il colpo **acuto e più debole**. Non è una scelta di
+       gusto: è quello che lo studente deve imparare a riconoscere a
+       orecchio, e per impararlo deve essere sempre lo stesso.
+
+       Era scritta in tre posti diversi, e in uno era rovesciata: il
+       metronomo dei brani accentava con un LA acutissimo, mentre l'esempio
+       dei tre livelli accentava col RE grave. Chi faceva le due lezioni di
+       fila imparava due segnali opposti per la stessa cosa, e il difetto
+       non produceva nessun errore visibile — semplicemente l'orecchio non
+       costruiva l'abitudine, perché l'abitudine veniva contraddetta.
+       Trovato da Andrea: «siamo sicuri che il suono utilizzato sia lo
+       stesso della lezione 1?».
+
+       Chi aggiunge un esempio con dei battiti prende le altezze da qui.
+       Se un giorno la convenzione va cambiata, si cambia in questa riga e
+       cambia dappertutto. */
+    LIVELLI: {
+      metro: { altezza: 'D4', forza: 1.00 },
+      puls:  { altezza: 'A5', forza: 0.70 },
+      sudd:  { altezza: 'D6', forza: 0.45 }
+    },
+
+    /* `sopraMusica` aggiunge un colpo di rumore bianco sopra il tono.
+
+       Serve solo quando il metronomo suona sopra una registrazione vera:
+       lì il tono da solo si confonde con la musica e si perde. Sugli
+       esempi nudi non va messo, perché è un suono in più che la lezione 1
+       non fa sentire, e la differenza si nota. */
+    async metronomo(forte, quando, sopraMusica) {
       await this.avvia();
-      if (!this.click) return;
-      this.click.triggerAttackRelease('32n', quando, forte ? 1 : 0.4);
-      this.tick.triggerAttackRelease(forte ? 'A6' : 'D6', '64n', quando, forte ? 0.9 : 0.3);
+      if (!this.tick) return;
+      const L = forte ? this.LIVELLI.metro : this.LIVELLI.puls;
+      if (sopraMusica && this.click) {
+        this.click.triggerAttackRelease('32n', quando, forte ? 1 : 0.4);
+      }
+      this.tick.triggerAttackRelease(L.altezza, '64n', quando, L.forza);
     },
 
     /* Un colpo di altezza scelta. Serve ai tre livelli sovrapposti: se
@@ -840,6 +874,29 @@
 
       await Audio.avvia();
       if (!Audio.pronto) { this._inCorso = false; if (bottone) bottone.disabled = false; return; }
+
+      /* Il pianoforte, non il sintetizzatore.
+
+         Gli esempi suonavano con `Audio.synth`, un dente di sega con
+         riverbero: un timbro che nessuno strumento fa, aspro sulle note
+         ribattute e insopportabile su una sequenza di sei quarti uguali,
+         che è esattamente la forma di ogni esempio ritmico. Segnalato da
+         Andrea sulla slide «Diamo un nome al raggruppamento»: «il suono
+         dell'esempio è terribile».
+
+         Il pianoforte campionato c'era già ed era usato altrove: qui non
+         era mai stato collegato. Si aspetta il caricamento, e se la rete
+         manca o è lenta si torna al sintetizzatore, perché un esempio
+         brutto è sempre meglio di un esempio muto in mezzo a una lezione.
+
+         Vale per ogni <tac-stave> con `play`: gli esempi del corso devono
+         suonare tutti allo stesso modo, come i battiti. */
+      let voce = Audio.synth;
+      try {
+        const piano = await Audio.strumento('salamander');
+        if (piano) voce = piano;
+      } catch (e) { /* resta il ripiego sintetico */ }
+
       const durBattito = (60 / (this._tempo * fattore));
       let t = Tone.now() + 0.15;
 
@@ -847,7 +904,7 @@
         if (d.stanghetta) return;          /* non dura e non suona */
         const secondi = d.battiti * durBattito;
         if (!d.pausa) {
-          Audio.synth.triggerAttackRelease(
+          voce.triggerAttackRelease(
             d.keys.map(k => N.aTone(k)), secondi * 0.92, t
           );
           const el = this._note && this._note[i] && this._note[i].getSVGElement();
@@ -1788,10 +1845,15 @@
       const a = N.aTone(N.trasporta(this._base, semi));
       await Audio.avvia();
       if (!Audio.pronto) return;
+      /* Al pianoforte come tutti gli altri esempi: riconoscere un
+         intervallo su un dente di sega è più difficile che su un timbro
+         vero, e la difficoltà in più non insegna niente. */
+      let voce = Audio.synth;
+      try { voce = (await Audio.strumento('salamander')) || voce; } catch (e) { }
       const t = Tone.now() + 0.1;
-      Audio.synth.triggerAttackRelease(b, '4n', t);
-      Audio.synth.triggerAttackRelease(a, '4n', t + 0.65);
-      Audio.synth.triggerAttackRelease([b, a], '2n', t + 1.5);
+      voce.triggerAttackRelease(b, '4n', t);
+      voce.triggerAttackRelease(a, '4n', t + 0.65);
+      voce.triggerAttackRelease([b, a], '2n', t + 1.5);
     }
 
     rispondi(s) {
@@ -1875,6 +1937,14 @@
       Tone.Transport.bpm.value = this._tempo;
       Tone.Transport.timeSignature = this._batt;
 
+      /* Lo strumento si carica **prima** di programmare il trasporto: i
+         richiami del trasporto sono sincroni e non possono aspettare un
+         caricamento, e chiedere il pianoforte dentro il ciclo lo farebbe
+         suonare dopo l'istante che gli è stato passato — cioè
+         reintrodurrebbe uno sfasamento, proprio qui. */
+      let voce = Audio.synth;
+      try { voce = (await Audio.strumento('salamander')) || voce; } catch (e) { }
+
       /* Metronomo: un click per movimento, accento sul primo */
       let b = 0;
       this._loop = new Tone.Loop(tempo => {
@@ -1915,7 +1985,7 @@
         if (!d.pausa) {
           this._eventi.push(
             Tone.Transport.scheduleRepeat(t => {
-              Audio.synth.triggerAttackRelease('C5', '32n', t);
+              voce.triggerAttackRelease('C5', '8n', t);
             }, '1m', unMovimento * off)
           );
         }
@@ -2145,7 +2215,8 @@
       let iS = 0;
       this._eventi.push(Tone.Transport.scheduleRepeat(tempo => {
         const k = iS % (this._perBattuta * s);
-        if (this._on.sudd && k % s !== 0) batti('D6', 0.45, tempo);
+        if (this._on.sudd && k % s !== 0)
+          batti(Audio.LIVELLI.sudd.altezza, Audio.LIVELLI.sudd.forza, tempo);
         Tone.Draw.schedule(() => acc('sudd', k), tempo);
         iS++;
       }, s === 2 ? '8n' : '8t', 0));
@@ -2154,7 +2225,8 @@
       let iP = 0;
       this._eventi.push(Tone.Transport.scheduleRepeat(tempo => {
         const k = iP % this._perBattuta;
-        if (this._on.puls) batti('A5', 0.70, tempo);
+        if (this._on.puls)
+          batti(Audio.LIVELLI.puls.altezza, Audio.LIVELLI.puls.forza, tempo);
         Tone.Draw.schedule(() => acc('puls', k), tempo);
         iP++;
       }, '4n', 0));
@@ -2162,7 +2234,8 @@
       /* il metro: una battuta intera, presa dalla divisione dichiarata */
       let iM = 0;
       this._eventi.push(Tone.Transport.scheduleRepeat(tempo => {
-        if (this._on.metro) batti('D4', 1.00, tempo);
+        if (this._on.metro)
+          batti(Audio.LIVELLI.metro.altezza, Audio.LIVELLI.metro.forza, tempo);
         Tone.Draw.schedule(() => acc('metro', 0), tempo);
         iM++;
       }, '1m', 0));
@@ -2382,7 +2455,9 @@
          e se il colpo cambia volume passando dall'uno all'altro la classe
          sente un difetto dove non c'è. La scala è 0,45 · 0,70 · 1,00 —
          vedi il commento più sopra, dove si spiega perché non va allargata. */
-      const ALTEZZA = ['D4', 'A5', 'D6'], FORZA = [1.00, 0.70, 0.45];
+      const L = Audio.LIVELLI;
+      const ALTEZZA = [L.metro.altezza, L.puls.altezza, L.sudd.altezza],
+            FORZA   = [L.metro.forza,   L.puls.forza,   L.sudd.forza];
       this._suona = true;
       this.aggiornaTasto(true);
       colpi.forEach(c => {
@@ -2897,7 +2972,8 @@
              all'avvio: così il metronomo entra ed esce mentre la musica va,
              che è il modo in cui serve in classe — lo si accende quando la
              classe perde il passo e lo si toglie appena l'ha ritrovato. */
-          if (this._metro && this._metro.dataset.on === '1') Audio.metronomo(k === 0, t);
+          if (this._metro && this._metro.dataset.on === '1')
+            Audio.metronomo(k === 0, t, true);   // sopra la registrazione
           Tone.Draw.schedule(() => {
             [...this._puls.children].forEach((p, i) => p.classList.toggle('on', i === k));
           }, t);

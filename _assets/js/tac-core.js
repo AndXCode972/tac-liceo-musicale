@@ -765,8 +765,10 @@
           const vB = new VF.Voice({ numBeats: Math.max(1, Math.ceil(totB)), beatValue: 4 });
           vB.setMode(VF.VoiceMode.SOFT);
           vB.addTickables(noteB);
+          const perGruppoB = parseInt(this.getAttribute('travatura') || '', 10);
           const travB = VF.Beam.generateBeams(
-            noteB.filter((n, i) => !this._datiB[i].pausa && !this._datiB[i].stanghetta));
+            noteB.filter((n, i) => !this._datiB[i].pausa && !this._datiB[i].stanghetta),
+            perGruppoB > 0 ? { groups: [new VF.Fraction(perGruppoB, 8)] } : undefined);
           new VF.Formatter().joinVoices([vB]).format([vB], larghezza - 110);
           vB.draw(ctx, staveB);
           travB.forEach(b => b.setContext(ctx).draw());
@@ -798,13 +800,33 @@
 
         /* le travature non attraversano una stanghetta, e i gruppi si
            formano dentro ciascuna battuta separatamente */
+        /* COME SI RAGGRUPPANO LE CROME.
+
+           `generateBeams` senza opzioni raggruppa **sempre a due**: è
+           l'impostazione di VexFlow e va benissimo per la suddivisione
+           binaria, che è il caso più frequente. Ma un esempio di
+           suddivisione ternaria disegnato così mostra gruppi di due sotto
+           una didascalia che dice «tre», cioè insegna il contrario di quello
+           che afferma — ed è successo davvero, nella lezione 3, alla slide
+           che serviva proprio a far vedere la differenza. Se n'è accorto
+           Andrea guardando, non un controllo: nessuno dei controlli
+           automatici legge le didascalie.
+
+           Con `travatura="3"` i gruppi si formano a tre. Il numero è quanti
+           ottavi stanno sotto una travatura sola. */
+        const perGruppo = parseInt(this.getAttribute('travatura') || '', 10);
+        const modoTravatura = perGruppo > 0
+          ? { groups: [new VF.Fraction(perGruppo, 8)] } : undefined;
         const travature = [];
         let gruppo = [];
         dati.forEach((d, i) => {
-          if (d.stanghetta) { travature.push(...VF.Beam.generateBeams(gruppo)); gruppo = []; return; }
+          if (d.stanghetta) {
+            travature.push(...VF.Beam.generateBeams(gruppo, modoTravatura));
+            gruppo = []; return;
+          }
           if (!d.pausa) gruppo.push(note[i]);
         });
-        travature.push(...VF.Beam.generateBeams(gruppo));
+        travature.push(...VF.Beam.generateBeams(gruppo, modoTravatura));
         new VF.Formatter().joinVoices([voce]).format([voce], larghezza - 90);
         voce.draw(ctx, stave);
         travature.forEach(b => b.setContext(ctx).draw());

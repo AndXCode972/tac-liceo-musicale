@@ -3077,6 +3077,34 @@
       document.addEventListener('keydown', this._esc, true);
     }
 
+    /* Che cosa fa Esc mentre si ascolta.
+
+       Prima Esc funzionava **solo** con la partitura a schermo intero
+       aperta: era l'unico posto in cui l'ascoltatore del tasto veniva
+       registrato. Chi stava semplicemente ascoltando un brano — col video
+       aperto dentro la slide, o con la sola registrazione — premeva Esc e
+       non succedeva niente, e in classe quel tasto lo si preme per fermare
+       tutto quando serve parlare.
+
+       L'ordine conta: prima si chiude quello che copre lo schermo, poi si
+       ferma quello che suona. Chi preme Esc col video aperto vuole quasi
+       sempre chiudere il video, non fermare l'audio che non sta suonando. */
+    esci() {
+      if (this._schermo) { this.chiudiSchermo(); return true; }
+      let fatto = false;
+      if (this._tubo) {
+        const p = this._tubo.parentNode;
+        this._tubo.remove(); this._tubo = null;
+        if (p) p.classList.remove('con-video');
+        const b = this.querySelector('.tac-vero');
+        if (b) b.innerHTML = '&#9673; Esecuzione reale';
+        fatto = true;
+      }
+      if (this._audio && !this._audio.paused) { this._audio.pause(); fatto = true; }
+      if (this._suona) { this.ferma(); fatto = true; }
+      return fatto;
+    }
+
     chiudiSchermo() {
       if (!this._schermo) return;
       this.ferma();
@@ -3340,6 +3368,19 @@
     }
   }
   customElements.define('tac-brano', TacBrano);
+
+  /* Un ascoltatore solo per tutti i brani della pagina, non uno per
+     elemento: con sette ascolti per lezione sarebbero sette ascoltatori che
+     fanno la stessa cosa. Non è in cattura, quindi la partitura a schermo
+     intero — che il suo Esc lo intercetta prima — continua a vincere. */
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    let fatto = false;
+    document.querySelectorAll('tac-brano').forEach(b => {
+      if (b.esci && b.esci()) fatto = true;
+    });
+    if (fatto) e.stopPropagation();
+  });
 
   /* ==========================================================
      9-bis. CORREZIONI AL VOLO

@@ -1685,8 +1685,17 @@ ol.compiti tac-stave { display: block; margin: .55rem 0 .2rem; }
   display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: .5rem 1.1rem; align-items: start;
 }
-.slide ol.compiti > li:has(tac-brano + tac-brano) > strong,
+.slide ol.compiti > li:has(tac-brano + tac-brano) > .testo-compito,
 .slide ol.compiti > li:has(tac-brano + tac-brano) > .rimando { grid-column: 1 / -1; }
+
+/* La consegna è un blocco, non testo nudo dentro il <li>.
+   In una griglia ogni figlio è una cella: finché la consegna era testo con
+   dentro dei <strong>, ogni <strong> e ogni pezzo di testo fra l'uno e
+   l'altro diventava una cella per conto suo, e la frase si spezzava in nove
+   righe con il punto fermo isolato. Il <p> la tiene insieme.
+   Regola generale: un contenitore che diventa `display: grid` non deve avere
+   figli di testo nudo. */
+ol.compiti .testo-compito { margin: 0 0 .35rem; }
 ol.compiti .rimando {
   margin: .3rem 0 0; font-size: .86rem; color: var(--inchiostro2);
   font-style: italic;

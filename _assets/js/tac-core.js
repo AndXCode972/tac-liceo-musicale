@@ -3794,12 +3794,24 @@
            nessun overflow, e si tiene il più basso. `scrollHeight` resta
            come secondo parere per i casi in cui il contenitore scorre
            davvero. */
+
+        /* LA SCALA DEL PALCO. `getBoundingClientRect` risponde in pixel
+           **dello schermo**, cioè già moltiplicati per il `transform: scale`
+           del palco; `clientHeight` risponde in pixel CSS, che il transform
+           non tocca. Confrontare il fondo dei figli con lo spazio voleva dire
+           confrontare centimetri con pollici: su uno schermo grande, dove la
+           scala è 1,77, ogni slide risultava sfondare di quattro-cinquecento
+           pixel che non esistevano. Ventiquattro slide su trenta dichiarate
+           troppo piene, e la slide «Cinque linee e quattro spazi» — che sullo
+           schermo ha ancora spazio sotto — accusata di sforare di 467.
+           Diviso per la scala, i due numeri parlano di nuovo la stessa lingua. */
+        const kappa = s.getBoundingClientRect().width / (s.offsetWidth || 1) || 1;
         const base = dentro.getBoundingClientRect().top
-                     + parseFloat(getComputedStyle(dentro).paddingTop);
+                     + parseFloat(getComputedStyle(dentro).paddingTop) * kappa;
         let fondo = 0;
         dentro.querySelectorAll('*').forEach(e => {
           const b = e.getBoundingClientRect();
-          if (b.height) fondo = Math.max(fondo, b.bottom - base);
+          if (b.height) fondo = Math.max(fondo, (b.bottom - base) / kappa);
         });
         const alto = Math.max(dentro.scrollHeight, Math.round(fondo));
 

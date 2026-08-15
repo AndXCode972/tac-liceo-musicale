@@ -1725,6 +1725,16 @@ figure.figura.tondo figcaption { background: none; border: 0; padding: .4rem 0 0
 .con-ritratto > figure.figura.tondo { padding-top: .4rem; }
 .con-ritratto .trafiletto, .con-ritratto .riquadro { margin-top: 0; }
 
+/* Le tre tavole dell'evoluzione delle chiavi: sono strisce lunghe e
+   bassissime — 568×90 la più grande — quindi vanno impilate e larghe, non
+   affiancate. Su fondo bianco perché sono scansioni di carta: un fondo
+   colorato dietro una scansione fa vedere il bordo del ritaglio. */
+figure.figura.evoluzione-chiavi { background: #fff; padding: .7rem .9rem .2rem; }
+figure.figura.evoluzione-chiavi img { display: block; width: 100%;
+                                      max-width: 42rem; margin: 0 auto .35rem;
+                                      height: auto; }
+figure.figura.evoluzione-chiavi figcaption { text-align: left; }
+
 /* --- Immagini più grandi, fonti discrete --- */
 .slide .con-figura-grande figure.figura img { max-height: 460px !important; }
 .slide .con-ritratto figure.figura img { max-height: 340px !important; }

@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lezione 2. Forte e debole: il metro binario | Il battito della musica</title>
-<link rel="stylesheet" href="../../_assets/css/tac.css?v=0c300588">
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=ee83a99e">
 <script>
 /* Alcuni contenitori (Electron, visualizzatori integrati nelle app desktop)
    definiscono module ed exports anche nella pagina. Le librerie UMD in quel
@@ -42,7 +42,11 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
 })();
 </script>
 
-<script src="../../_assets/js/tac-core.js?v=cc36115b" defer></script>
+<!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
+     usa, e con `defer` i due file girano nell'ordine in cui stanno
+     scritti qui. -->
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=0073f47f" defer></script>
 </head>
 <body>
 <div id="tac-deck">
@@ -24762,14 +24766,30 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
     </div>
 
     <div class="affianca">
-      <div class="riquadro compito">
-        <span class="etichetta">Per la prossima volta</span>
-        <ol class="spaziato">
-          <li><strong>Ascolto.</strong> Riprendi i tre brani di ieri e per ciascuno stabilisci se è binario o ternario. Scrivilo, e scrivi anche <em>come</em> hai fatto a deciderlo.</li>
-          <li><strong>Scrittura.</strong> Eserciziario, sezione <em>Lettura e solfeggio</em>, esercizi 3–6: dividere in battute una serie di pulsazioni date, in <span class="mus" role="img" aria-label="due quarti">2/4</span> e in 3/4.</li>
-          <li><strong>Armonia.</strong> Eserciziario, sezione <em>Teoria dell'armonia</em>, esercizio 1: riascolta il Corelli a casa e segna su carta, con una crocetta per ogni battuta, dove hai sentito i cambi.</li>
-        </ol>
-      </div>
+      <!-- Tolto il 14 agosto: il riquadro «Per la prossima volta».
+
+     Assegnava tre compiti scritti a mano qui dentro, mentre la sezione dei
+     compiti in fondo alla lezione ne assegna altri due, presi dall'archivio:
+     due elenchi diversi nella stessa lezione, a tre slide di distanza, e la
+     classe non poteva sapere quale valesse. È il difetto che l'archivio
+     esiste per impedire, ed è sfuggito proprio perché questo riquadro
+     dall'archivio non passava. Valeva anche 442 pixel su una slide che ne
+     aveva 153 fuori dal bordo.
+
+     I tre testi si conservano qui perché la decisione su che farne è di
+     Andrea. Vincolo da rispettare: i compiti della lezione 2 sono già a
+     venti minuti esatti, che è il limite fissato, quindi aggiungerne uno
+     vuol dire toglierne un altro.
+
+     1. Ascolto. Riprendi i tre brani di ieri e per ciascuno stabilisci se è binario o ternario. Scrivilo, e scrivi anche come hai fatto a deciderlo.
+
+     2. Scrittura. Eserciziario, sezione Lettura e solfeggio, esercizi 3–6: dividere in battute una serie di pulsazioni date, in 2/4 e in 3/4.
+
+     3. Armonia. Eserciziario, sezione Teoria dell'armonia, esercizio 1: riascolta il Corelli a casa e segna su carta, con una crocetta per ogni battuta, dove hai sentito i cambi.
+
+     Proposta, da confermare: l'ascolto binario/ternario sostituisce
+     «Quattro battute in 3/4», perché è più vicino all'argomento dell'ora;
+     l'armonia va nella batteria di fine unità, che ha spazio. -->
 
       <div class="riquadro libro">
         <span class="etichetta">Sul tuo libro</span>

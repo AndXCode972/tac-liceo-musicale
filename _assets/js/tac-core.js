@@ -1007,6 +1007,289 @@
     return 3;
   }
 
+  /* ==========================================================
+     IL BLOCCO DEL CODICE D'ESITO
+
+     Un esercizio che si corregge da sé sa il punteggio, ma il sito è
+     statico e non c'è nessun server a cui mandarlo: il codice è il
+     punteggio reso trasportabile a mano. Lo studente lo copia e lo incolla
+     su Classroom; l'insegnante lo incolla nella pagina di decodifica.
+
+     Sta qui e non dentro i singoli esercizi perché lo useranno tutti, e la
+     regola del tentativo — quella che fa scendere il valore — deve essere
+     una sola. Scritta due volte, prima o poi le due copie conterebbero
+     diversamente, e nessuno se ne accorgerebbe finché un voto non risulta
+     sbagliato.
+     ========================================================== */
+
+  const CHIAVE_NOME = 'tac-nome';
+
+  /* Il nome si chiede una volta e resta. Chiederlo a ogni esercizio
+     sarebbe sei volte per lezione, e alla terza si scrive «asd». */
+  function nomeSalvato() {
+    try { return localStorage.getItem(CHIAVE_NOME) || ''; } catch (e) { return ''; }
+  }
+  function salvaNome(n) {
+    try { localStorage.setItem(CHIAVE_NOME, n); } catch (e) { /* niente */ }
+  }
+
+  /* Un tentativo per scheda, contato qui. Cancellare i dati del browser lo
+     azzera: è un limite vero e non c'è modo di chiuderlo senza un server.
+     Serve a misurare l'onestà normale, non a resistere a chi vuole barare. */
+  function contaTentativo(scheda) {
+    var n = 1;
+    try {
+      n = (parseInt(localStorage.getItem('tac-tent-' + scheda), 10) || 0) + 1;
+      localStorage.setItem('tac-tent-' + scheda, n);
+    } catch (e) { /* niente */ }
+    return n;
+  }
+
+  /* Dove finisce il risultato di un esercizio.
+
+     Fuori da una verifica, un esercizio e' una cosa a se' e il suo
+     risultato diventa subito un codice. Dentro una verifica no: il codice
+     e' uno solo, alla fine, per tutta la prova. Il singolo esercizio non
+     deve sapere in quale dei due mondi si trova -- lo chiede qui, e questo
+     e' l'unico punto in cui la differenza esiste. */
+  function segnalaEsito(ospite, dati) {
+    var prova = ospite.closest && ospite.closest('tac-verifica');
+    if (prova && prova.registra) {
+      prova.registra(ospite, dati.punti, dati.massimo);
+      return null;
+    }
+    return bloccoCodice(ospite, dati);
+  }
+
+  function bloccoCodice(ospite, dati) {
+    if (!dati.scheda || !window.TACCodice) return null;
+
+    var box = document.createElement('div');
+    box.className = 'tac-codice no-stampa';
+    ospite.appendChild(box);
+
+    function mostraCodice(nome) {
+      var tent = ospite._tentativo ||
+                 (ospite._tentativo = contaTentativo(dati.scheda));
+      var codice = window.TACCodice.genera({
+        scheda: dati.scheda, nome: nome,
+        punti: dati.punti, massimo: dati.massimo, tentativo: tent
+      });
+      box.innerHTML =
+        '<p class="tac-codice-invito">Copia questo codice e incollalo su ' +
+        'Classroom insieme al compito.</p>' +
+        '<div class="tac-codice-riga">' +
+          '<code class="tac-codice-valore">' + codice + '</code>' +
+          '<button type="button" class="btn secondario tac-codice-copia">Copia</button>' +
+        '</div>' +
+        '<p class="tac-codice-nota">' + nome +
+          (tent > 1 ? ' &middot; tentativo ' + tent : '') +
+          ' &middot; <a href="#" class="tac-codice-cambia">non sei tu?</a></p>';
+
+      box.querySelector('.tac-codice-copia').onclick = function () {
+        var b = this;
+        navigator.clipboard.writeText(codice).then(function () {
+          b.textContent = 'Copiato';
+          setTimeout(function () { b.textContent = 'Copia'; }, 1800);
+        }).catch(function () {
+          /* Se la copia automatica non è permessa — succede su alcune
+             configurazioni — si seleziona il testo, così resta il gesto
+             manuale invece di un pulsante che non fa niente e non lo dice. */
+          var r = document.createRange();
+          r.selectNodeContents(box.querySelector('.tac-codice-valore'));
+          var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+          b.textContent = 'Copia a mano';
+        });
+      };
+      box.querySelector('.tac-codice-cambia').onclick = function (ev) {
+        ev.preventDefault(); chiediNome();
+      };
+    }
+
+    function chiediNome() {
+      box.innerHTML =
+        '<p class="tac-codice-invito">Scrivi <strong>nome e cognome</strong>: ' +
+        'servono per il codice da consegnare.</p>' +
+        '<div class="tac-codice-riga">' +
+          '<input type="text" class="tac-codice-nome" placeholder="Nome e cognome" ' +
+          'autocomplete="name">' +
+          '<button type="button" class="btn tac-codice-ok">Genera il codice</button>' +
+        '</div>';
+      var campo = box.querySelector('.tac-codice-nome');
+      campo.value = nomeSalvato();
+      function conferma() {
+        var n = campo.value.trim();
+        /* Due parole almeno: un solo nome non basta a distinguere due
+           studenti, ed è proprio quello che il codice deve fare. */
+        if (n.split(/\s+/).filter(Boolean).length < 2) {
+          campo.classList.add('sbagliata'); campo.focus(); return;
+        }
+        salvaNome(n); mostraCodice(n);
+      }
+      box.querySelector('.tac-codice-ok').onclick = conferma;
+      campo.onkeydown = function (e) { if (e.key === 'Enter') conferma(); };
+      campo.oninput = function () { campo.classList.remove('sbagliata'); };
+    }
+
+    if (nomeSalvato()) mostraCodice(nomeSalvato());
+    else chiediNome();
+    return box;
+  }
+
+  /* ==========================================================
+     <tac-verifica> — LA PROVA VALUTATA
+
+     <tac-verifica sigla="C1U1V" titolo="Verifica di fine unità 1">
+       <tac-drag peso="2"> … </tac-drag>
+       <tac-quiz peso="3"> … </tac-quiz>
+     </tac-verifica>
+
+     PERCHÉ ESISTE. Un esercizio solo non fa una valutazione. Un
+     trascinamento da nove buche misura una cosa sola, e chi sbaglia due
+     parole prende sette: come voto non dice niente di utile, perché la
+     differenza fra sette e nove sta tutta dentro l'errore di misura di una
+     prova cosí corta. Andrea, 14 agosto: «non basta un solo esercizio di
+     completamento per fare una verifica vera a casa valutabile».
+
+     Quattro o cinque esercizi diversi — riconoscere, completare, scrivere —
+     danno un punteggio che regge il peso di un voto, e toccano aspetti che
+     un esercizio solo non tocca.
+
+     UNO PER VOLTA, SENZA TORNARE INDIETRO. Dentro una verifica i pulsanti
+     «Ricomincia» e «azzera» dei singoli esercizi spariscono. Se restassero,
+     si rifarebbe ogni esercizio finché non viene giusto e il punteggio
+     misurerebbe soltanto la pazienza. Il tentativo si conta sulla prova
+     intera, non sui pezzi.
+
+     IL PESO. Ogni esercizio porta il proprio: quanto è rappresentativo
+     dell'obiettivo. Uno da 3 conta il triplo di uno da 1. Senza attributo
+     vale 1, cosí una verifica scritta di fretta funziona lo stesso.
+     ========================================================== */
+
+  class TacVerifica extends HTMLElement {
+    connectedCallback() {
+      if (this._fatto) return;
+      this._fatto = true;
+
+      this._prove = [...this.children].filter(
+        e => /^TAC-/.test(e.tagName) && e.tagName !== 'TAC-STAVE');
+      if (!this._prove.length) return;
+
+      this._esiti = [];
+      this._i = 0;
+
+      this._testa = document.createElement('div');
+      this._testa.className = 'tac-verifica-testa no-stampa';
+      this.insertBefore(this._testa, this.firstChild);
+
+      this._piede = document.createElement('div');
+      this._piede.className = 'tac-verifica-piede no-stampa';
+      this.appendChild(this._piede);
+
+      this._prove.forEach((p, k) => {
+        p.classList.add('tac-prova-passo');
+        if (k) p.hidden = true;
+      });
+      this.aggiornaTesta();
+    }
+
+    aggiornaTesta() {
+      const t = this.getAttribute('titolo') || 'Verifica';
+      this._testa.innerHTML =
+        '<span class="tac-verifica-nome">' + t + '</span>' +
+        '<span class="tac-verifica-conta">Esercizio ' + (this._i + 1) +
+        ' di ' + this._prove.length + '</span>';
+    }
+
+    /* Chiamata dal singolo esercizio quando ha finito. Il peso si legge
+       qui e non nell'esercizio: l'esercizio non deve sapere quanto vale,
+       altrimenti lo stesso esercizio riusato in due verifiche diverse
+       porterebbe con sé il peso della prima. */
+    registra(chi, punti, massimo) {
+      if (chi._registrato) return;
+      chi._registrato = true;
+      this._esiti.push({
+        peso: parseFloat(chi.getAttribute('peso')) || 1,
+        punti: punti, massimo: massimo
+      });
+
+      const avanti = document.createElement('button');
+      avanti.className = 'btn';
+      avanti.textContent = (this._i < this._prove.length - 1)
+        ? 'Esercizio successivo' : 'Consegna la verifica';
+      avanti.onclick = () => {
+        this._piede.innerHTML = '';
+        if (this._i < this._prove.length - 1) {
+          this._prove[this._i].hidden = true;
+          this._i++;
+          this._prove[this._i].hidden = false;
+          this.aggiornaTesta();
+          this._testa.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        } else {
+          this.chiudi();
+        }
+      };
+      this._piede.innerHTML = '';
+      this._piede.appendChild(avanti);
+    }
+
+    chiudi() {
+      /* Il punteggio della prova e' la media pesata delle rese, riportata
+         su cento. Non si sommano i punti grezzi: un esercizio da venti item
+         schiaccerebbe uno da cinque anche avendo peso minore, e il peso non
+         servirebbe piu' a niente. */
+      let resa = 0, pesi = 0;
+      this._esiti.forEach(e => {
+        if (!e.massimo) return;
+        resa += e.peso * (e.punti / e.massimo);
+        pesi += e.peso;
+      });
+      const cento = pesi ? Math.round(resa / pesi * 100) : 0;
+
+      this._prove.forEach(p => { p.hidden = true; });
+      this._testa.innerHTML = '<span class="tac-verifica-nome">' +
+        (this.getAttribute('titolo') || 'Verifica') + '</span>' +
+        '<span class="tac-verifica-conta">conclusa</span>';
+
+      const esito = document.createElement('div');
+      esito.className = 'tac-punteggio mostra';
+      esito.innerHTML = '<div class="valore">' + cento + ' / 100</div>' +
+        '<p style="margin:.6rem 0 0">' + this.dettaglio() + '</p>';
+      this._piede.appendChild(esito);
+
+      bloccoCodice(this._piede, {
+        scheda: this.getAttribute('sigla'),
+        punti: cento, massimo: 100
+      });
+
+      const ri = document.createElement('button');
+      ri.className = 'btn secondario';
+      ri.style.marginTop = '1rem';
+      ri.textContent = 'Rifai la verifica';
+      /* Rifare e' permesso, ma il codice lo dira': il tentativo si conta
+         sulla prova intera e ogni ripetizione vale meno. Vietarlo sarebbe
+         una promessa che non posso mantenere -- basta svuotare i dati del
+         browser -- e renderla visibile e' piu' onesto che fingere. */
+      ri.onclick = () => {
+        this._piede.innerHTML = '';
+        this._esiti = []; this._i = 0;
+        this._prove.forEach((p, k) => {
+          p._registrato = false; p._fatto = false; p.hidden = !!k;
+          p.innerHTML = ''; p.connectedCallback && p.connectedCallback();
+        });
+        this.aggiornaTesta();
+      };
+      this._piede.appendChild(ri);
+    }
+
+    dettaglio() {
+      return this._esiti.map((e, k) =>
+        'es. ' + (k + 1) + ': ' + e.punti + '/' + e.massimo +
+        (e.peso !== 1 ? ' (peso ' + e.peso + ')' : '')).join(' &middot; ');
+    }
+  }
+  customElements.define('tac-verifica', TacVerifica);
+
   class TacQuiz extends HTMLElement {
     connectedCallback() {
       if (this._fatto) return;
@@ -1115,6 +1398,46 @@
         this._box.appendChild(s);
       }
 
+      /* Una domanda può portarsi dietro un ascolto: «questo brano è binario
+         o ternario?». Si usa l'incisione nuda, non il <tac-brano> delle
+         lezioni, e non è una scorciatoia — è la cosa giusta. Il lettore
+         delle lezioni mostra le pulsazioni che battono e le stanghette
+         della partitura: su una domanda di percezione regalerebbe la
+         risposta prima ancora che il brano cominci.
+
+         L'ascolto si può ripetere quante volte si vuole. Contare le volte
+         misurerebbe la memoria, non l'orecchio, e chi ha una cuffia
+         scadente verrebbe punito per il suo apparecchio. */
+      if (q.audio) {
+        const zona = document.createElement('div');
+        zona.className = 'tac-quiz-ascolto no-stampa';
+        const suono = new Audio(q.audio.file);
+        const da = +(q.audio.da || 0), a = +(q.audio.a || 0);
+        const bt = document.createElement('button');
+        bt.className = 'btn';
+        bt.innerHTML = '&#9654; Ascolta';
+        let ferma = null;
+        bt.onclick = () => {
+          clearTimeout(ferma);
+          suono.currentTime = da;
+          suono.play();
+          if (a > da) ferma = setTimeout(() => suono.pause(), (a - da) * 1000);
+        };
+        zona.appendChild(bt);
+        if (q.audio.nota) {
+          const n = document.createElement('span');
+          n.className = 'tac-quiz-conta';
+          n.textContent = q.audio.nota;
+          zona.appendChild(n);
+        }
+        this._box.appendChild(zona);
+        /* Il suono non deve sopravvivere alla domanda: passando alla
+           successiva si fermerebbe a metà sopra la prossima. */
+        this._fermaSuono = () => { clearTimeout(ferma); suono.pause(); };
+      } else {
+        this._fermaSuono = null;
+      }
+
       const opz = document.createElement('div');
       opz.className = 'tac-quiz-opz';
       opz.style.setProperty('--colonne', colonne(q.o.length));
@@ -1154,6 +1477,7 @@
       avanti.style.marginTop = '1.1rem';
       avanti.textContent = (this._i < this._dom.length - 1) ? 'Domanda successiva' : 'Vedi il risultato';
       avanti.onclick = () => {
+        if (this._fermaSuono) this._fermaSuono();
         if (this._i < this._dom.length - 1) { this._i++; this.mostra(); }
         else this.risultato();
       };
@@ -1174,11 +1498,27 @@
           '<p style="margin:.6rem 0 0">' + commento + '</p>' +
         '</div>';
 
+      segnalaEsito(this._box, {
+        scheda: this.getAttribute('scheda'),
+        punti: this._punti, massimo: this._dom.length
+      });
+
+      /* Dentro una verifica non si ricomincia il singolo esercizio: si
+         ricomincia la prova intera, e il tentativo si conta li'. Un tasto
+         «Ricomincia» qui dentro renderebbe il punteggio una misura della
+         pazienza invece che della preparazione. */
+      if (this.closest('tac-verifica')) return;
+
       const ri = document.createElement('button');
       ri.className = 'btn secondario';
       ri.style.marginTop = '1rem';
       ri.textContent = 'Ricomincia';
-      ri.onclick = () => { this._i = 0; this._punti = 0; this.mostra(); };
+      /* Ricominciare azzera anche il tentativo registrato per questo giro,
+         cosi' il prossimo risultato ne conta uno nuovo: rifare l'esercizio
+         e' un tentativo in piu', ed e' esattamente quello che il codice
+         deve dire. */
+      ri.onclick = () => { this._i = 0; this._punti = 0; this._tentativo = 0;
+                           this.mostra(); };
       this._box.appendChild(ri);
 
       this.dispatchEvent(new CustomEvent('tac:quiz-finito', {
@@ -1315,6 +1655,20 @@
         esito.textContent = messe
           ? giuste + ' su ' + frasi.length
           : 'nessuna parola trascinata';
+
+        /* Il codice esce solo a esercizio completo. Premere «Controlla»
+           con meta' buche vuote e' provare, non consegnare: contarlo come
+           tentativo punirebbe chi verifica mentre lavora, che e' la cosa
+           giusta da fare. Ogni verifica completa invece e' un tentativo, e
+           il primo vale piu' del secondo. */
+        if (messe === frasi.length) {
+          this._tentativo = 0;
+          if (this._codice) this._codice.remove();
+          this._codice = segnalaEsito(this, {
+            scheda: this.getAttribute('scheda'),
+            punti: giuste, massimo: frasi.length
+          });
+        }
       };
 
       /* Svuotare le buche non basta: i gettoni già usati devono tornare
@@ -1532,16 +1886,37 @@
         b++;
       }, '4n').start(0);
 
-      /* Cellula ritmica: si ripete ogni battuta, note ai rispettivi movimenti */
-      const durataBattuta = this._batt; // in movimenti
+      /* Cellula ritmica: si ripete ogni battuta, note ai rispettivi movimenti.
+
+         QUI C'ERA LO SFASAMENTO. Prima l'intervallo era scritto
+         `durataBattuta + '*4n'`, cioè «2*4n», e l'inizio `quando + '*4n'`.
+         È la trappola già annotata dentro <tac-livelli>: a Tone una
+         scrittura del genere non dice due movimenti, dice **due secondi**.
+         La figura viene ignorata del tutto.
+
+         Il risultato è che il metronomo andava a tempo — a 80 una battuta
+         di due movimenti dura un secondo e mezzo — mentre il ritmo tornava
+         ogni due secondi netti, qualunque fosse il tempo. Mezzo secondo di
+         scarto a ogni battuta: dopo tre battute il ritmo è indietro di un
+         movimento intero, e l'esempio che dovrebbe mostrare dove cade
+         l'accento mostra il contrario.
+
+         Adesso l'intervallo è `1m`, una battuta vera, che segue la
+         divisione dichiarata poco sopra; e l'inizio è calcolato in secondi
+         a partire dalla durata reale del movimento, così regge anche le
+         posizioni non intere — un ritmo che comincia su un ottavo.
+
+         Il difetto era stato trovato e scritto in un altro componente e
+         non applicato qui. Vale la pena ricordarlo: una trappola annotata
+         in un posto solo continua a mordere in tutti gli altri. */
+      const unMovimento = Tone.Time('4n').toSeconds();
       let off = 0;
       this._dati.forEach(d => {
         if (!d.pausa) {
-          const quando = off; // in movimenti dall'inizio della battuta
           this._eventi.push(
             Tone.Transport.scheduleRepeat(t => {
               Audio.synth.triggerAttackRelease('C5', '32n', t);
-            }, durataBattuta + '*4n', quando + '*4n')
+            }, '1m', unMovimento * off)
           );
         }
         off += d.battiti;

@@ -296,6 +296,57 @@ tac-griglia { display: block; margin: 1.2rem 0; }
                    padding-top: 1.2rem; min-width: 1.2rem; text-align: right; }
 tac-griglia svg { max-width: 100%; height: auto; }
 
+/* --- La verifica ---
+
+   Il contenitore deve dire tre cose senza che nessuno le legga: che si e'
+   dentro una prova valutata, a che punto si e', e che non si torna
+   indietro. La cornice e la barra col conteggio bastano; il resto lo fanno
+   i pulsanti che non ci sono. */
+tac-verifica { display: block; border: 2px solid var(--verde);
+               border-radius: 12px; padding: 0 0 1rem; margin: 1.2rem 0;
+               background: var(--carta); }
+.tac-verifica-testa { display: flex; align-items: baseline; gap: 1rem;
+                      flex-wrap: wrap; padding: .7rem 1.1rem;
+                      background: var(--verde); color: #fff;
+                      border-radius: 10px 10px 0 0; margin-bottom: 1rem; }
+.tac-verifica-nome { font-weight: 800; }
+.tac-verifica-conta { margin-left: auto; font-size: .84rem; font-weight: 700;
+                      opacity: .92; }
+tac-verifica > .tac-prova-passo { display: block; padding: 0 1.1rem; }
+tac-verifica > [hidden] { display: none !important; }
+.tac-verifica-piede { padding: 0 1.1rem; }
+/* Dentro una prova non si azzera un esercizio solo. */
+tac-verifica .tac-azzera { display: none !important; }
+@media print { tac-verifica { border: 1px solid var(--bordo); } }
+
+.tac-quiz-ascolto { display: flex; gap: .7rem; align-items: center;
+                    flex-wrap: wrap; margin: .8rem 0 1rem; }
+
+.tac-allenamento { margin: .5rem 0 0; font-size: .84rem; font-style: italic;
+                   color: var(--inchiostro2); }
+
+/* --- Il codice d'esito ---
+
+   Sta in fondo all'esercizio, dopo il punteggio, ed e' l'unica cosa che
+   passa dallo schermo alla consegna: se non si vede o non si capisce che va
+   copiata, tutto il resto del meccanismo non serve a niente. Per questo ha
+   un fondo suo e non e' una riga di testo come le altre. */
+.tac-codice { margin-top: 1.1rem; padding: .9rem 1.1rem; border-radius: 10px;
+              background: #ecfdf5; border: 1px solid #a7f3d0; }
+.tac-codice-invito { margin: 0 0 .6rem; font-size: .92rem; color: #065f46; }
+.tac-codice-riga { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
+.tac-codice-valore { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+                     font-size: 1.02rem; font-weight: 700; letter-spacing: .04em;
+                     background: #fff; border: 1px solid #a7f3d0; border-radius: 6px;
+                     padding: .45rem .7rem; color: #064e3b; user-select: all; }
+.tac-codice-nome { flex: 1 1 14rem; font: inherit; font-size: .95rem;
+                   padding: .45rem .7rem; border-radius: 6px;
+                   border: 1.5px solid var(--bordo); background: #fff; }
+.tac-codice-nome.sbagliata { border-color: #ef4444; background: #fef2f2; }
+.tac-codice-nota { margin: .55rem 0 0; font-size: .82rem; color: var(--inchiostro2); }
+.tac-codice-nota a { color: inherit; }
+@media print { .tac-codice { display: none; } }
+
 /* --- Pulsanti --- */
 .btn {
   font-family: inherit; font-size: .98rem; font-weight: 700;

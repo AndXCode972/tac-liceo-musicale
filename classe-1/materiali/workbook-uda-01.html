@@ -7,11 +7,15 @@
 <title>Workbook — UdA 1 · Il battito della musica | TAC Classe 1&ordf;</title>
 <!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
      Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
-<link rel="stylesheet" href="../../_assets/css/tac.css?v=ac62e066">
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=ee83a99e">
 <link rel="stylesheet" href="../../_assets/css/sito.css?v=d95f60fb">
 <script src="../../_assets/lib/vexflow.js"></script>
 <script src="../../_assets/lib/tone.js"></script>
-<script src="../../_assets/js/tac-core.js?v=48f02cee" defer></script>
+<!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
+     usa, e con `defer` i due file girano nell'ordine in cui stanno
+     scritti qui. -->
+<script src="../../_assets/js/codice.js" defer></script>
+<script src="../../_assets/js/tac-core.js?v=0073f47f" defer></script>
 <style>
   .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
                 border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
@@ -81,8 +85,39 @@
     <div class="consegna" id="C1-U1-L1-03b">
       <p class="titolo-consegna"><span class="num">1</span> Ogni parola al suo posto · dentro il battito</p>
       <div class="testo">Completa ogni frase con la parola giusta. Prima di scegliere dilla a voce: se la frase ti suona storta, la parola non è quella — e il punto in cui inciampi dice esattamente che cosa non è ancora chiaro. Sullo schermo si trascina, sul foglio si scrive. Le risposte le confrontiamo all'inizio della prossima lezione, e i casi dubbi sono i più interessanti.</div>
-      <p class="vai no-stampa"><a href="../uda-01/lezione-1.html">Apri l&rsquo;esercizio &rarr;</a></p>
-      <div class="esito"><span class="etichetta-esito">Codice ottenuto</span><span class="casella-codice"></span></div>
+      <div class="online-vivo no-stampa">
+    <tac-drag>
+{
+ "gettoni": [
+  "suddivisione",
+  "agogica",
+  "pausa",
+  "metronomo",
+  "pulsazione",
+  "accento"
+ ],
+ "frasi": [
+  [
+   "Se dentro una sola pulsazione riesco a contare due o tre note uguali, sto sentendo la",
+   "suddivisione"
+  ],
+  [
+   "Un brano che rallenta verso la fine sta cambiando la sua",
+   "agogica"
+  ],
+  [
+   "Anche dove non suona niente il battito continua: lì sul rigo c'è una",
+   "pausa"
+  ],
+  [
+   "Lo strumento brevettato da Maelzel nel 1815 per fissare la velocità è il",
+   "metronomo"
+  ]
+ ]
+}
+    </tac-drag>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
     </div>
     </section>
     <section class="parte ascolto">
@@ -92,7 +127,6 @@
       <p class="titolo-consegna"><span class="num">2</span> Tre ascolti, tre pulsazioni</p>
       <div class="testo">Questi tre brani non li abbiamo sentiti in classe. Per ciascuno trova la pulsazione e battila per almeno trenta secondi senza perderla, poi scrivi sul quaderno se ti è sembrata facile o difficile da trovare, e perché.</div>
       <p class="vai no-stampa"><a href="../uda-01/lezione-1.html">Apri l&rsquo;ascolto &rarr;</a></p>
-      <div class="esito"><span class="spunta"></span><span class="etichetta-esito">fatto</span></div>
     </div>
     </section>
   </div>
@@ -221,7 +255,6 @@
       <p class="titolo-consegna"><span class="num">1</span> Il dettato ritmico, ricopiato giusto</p>
       <div class="testo">Spazio per il dettato ritmico. L'audio si fa partire dalla slide di fine lezione: qui c'è il foglio. Alla correzione ricopia la versione <strong>giusta</strong>, non quella sbagliata — si impara riscrivendo bene, non conservando l'errore.</div>
       <p class="vai no-stampa"><a href="../uda-01/lezione-6.html">Apri l&rsquo;ascolto &rarr;</a></p>
-      <div class="esito"><span class="spunta"></span><span class="etichetta-esito">fatto</span></div>
     </div>
     </section>
     <section class="parte scritto">
@@ -246,14 +279,187 @@
     <section class="parte online">
       <h3>Da fare online</h3>
       <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé. Alla fine compare un <strong>codice</strong>: scrivilo nella casella, è quello che consegni.</p>
-    <div class="consegna" id="C1-U1-L1-03">
-      <p class="titolo-consegna"><span class="num">1</span> Ogni parola al suo posto · il battito</p>
-      <div class="testo">Completa ogni frase con la parola giusta. Prima di scegliere dilla a voce: se la classe non è d'accordo ci si ferma e si discute, perché il disaccordo dice esattamente dove la parola non è ancora chiara. Sullo schermo si trascina, sul foglio si scrive.</div>
-      <div class="esito"><span class="etichetta-esito">Codice ottenuto</span><span class="casella-codice"></span></div>
-    </div>
-    <div class="consegna" id="C1-U1-L1-04">
-      <p class="titolo-consegna"><span class="num">2</span> Vero o falso · il battito</p>
-      <div class="testo">Per ogni affermazione decidi se è vera o falsa, e scrivi in una riga il motivo. Vale il motivo, non la crocetta: una risposta giusta senza spiegazione conta come sbagliata, una sbagliata con un ragionamento sensato si corregge in due minuti.</div>
+    <div class="consegna verifica" id="C1U1V">
+      <p class="titolo-consegna"><span class="num">1</span> Verifica di fine unit&agrave; 1</p>
+      <div class="testo">2 esercizi, uno per volta. Non si torna indietro: prima di rispondere pensaci. Alla fine esce un <strong>codice</strong> che consegni su Classroom.</div>
+      <div class="online-vivo no-stampa">
+        <tac-verifica sigla="C1U1V" dove="casa" titolo="Verifica di fine unità 1">
+    <tac-drag scheda="C1U1L103" peso="3">
+{
+ "gettoni": [
+  "pulsazione",
+  "accento",
+  "metro",
+  "battuta",
+  "suddivisione",
+  "agogica"
+ ],
+ "frasi": [
+  [
+   "Il battito regolare che segno col dito mentre ascolto si chiama",
+   "pulsazione"
+  ],
+  [
+   "Sento che una pulsazione su tre è più forte delle altre: quella più forte porta un",
+   "accento"
+  ],
+  [
+   "Il fatto che le pulsazioni si raggruppino a due, a tre o a quattro si chiama",
+   "metro"
+  ],
+  [
+   "Lo spazio fra due stanghette, che contiene un gruppo completo di pulsazioni, si chiama",
+   "battuta"
+  ]
+ ]
+}
+    </tac-drag>
+    <tac-quiz quante="5" scheda="C1U1L104" peso="3">
+[
+ {
+  "d": "Mentre ascolto, ogni pulsazione che batto cade sempre insieme all'attacco di una nota.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso. Spesso la pulsazione cade dove non attacca nessuna nota — su una pausa, o mentre una nota lunga sta ancora suonando. La griglia la teniamo noi, e continua anche nel silenzio.",
+  "da": "La pulsazione non è nel suono"
+ },
+ {
+  "d": "Se in un punto del brano non suona niente, in quel punto la pulsazione si ferma.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed è la stessa cosa vista dall'altro lato: durante una pausa continui a battere senza sforzo. Se la pulsazione dipendesse dal suono, ti fermeresti.",
+  "da": "La pulsazione non è nel suono"
+ },
+ {
+  "d": "Due compagni che battono a velocità diverse sullo stesso brano non possono avere ragione tutti e due.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso. Possono aver scelto due livelli diversi della stessa griglia: uno il metro, l'altro la pulsazione, uno il doppio dell'altro. Sono tutti e due dentro la musica.",
+  "da": "Come si batte"
+ },
+ {
+  "d": "Il metro è il livello che raggruppa le pulsazioni a due o a tre.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. Il metro sta sopra la pulsazione: la raccoglie in gruppi, ed è quello che ti fa sentire dove cade l'uno.",
+  "da": "Chi ha scritto il terzo brano"
+ },
+ {
+  "d": "La pulsazione si può misurare con uno strumento, analizzando l'onda sonora.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso. Nell'onda ci sono solo pressioni dell'aria che salgono e scendono: nessun segnale dice «qui c'è un battito». Il battito lo mette chi ascolta.",
+  "da": "La pulsazione non è nel suono"
+ },
+ {
+  "d": "La suddivisione è quello che si sente <em>dentro</em> una singola pulsazione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. È il livello sotto: la pulsazione si divide in due parti uguali o in tre, e quelle parti sono la suddivisione.",
+  "da": "La giga, dal ballo alla suite"
+ },
+ {
+  "d": "Un brano lento ha per forza una suddivisione semplice, cioè in due.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso. Velocità e suddivisione sono cose indipendenti: una giga velocissima si divide in tre, un adagio lentissimo si può dividere in due. Il C. P. E. Bach che abbiamo sentito è lento e binario, la giga è veloce e ternaria.",
+  "da": "La giga, dal ballo alla suite"
+ },
+ {
+  "d": "Il primo battito di ogni gruppo si sente più forte degli altri.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è proprio quello a farti capire dove comincia il gruppo. Attenzione però: «più forte» non vuol dire suonato più a volume — spesso è solo la posizione a darti quella sensazione.",
+  "da": "Chi ha scritto il terzo brano"
+ },
+ {
+  "d": "Per trovare la pulsazione di un brano bisogna prima sapere in che metro è scritto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed è il contrario: prima trovi il battito, poi ti accorgi di come si raggruppa. Nei tre ascolti di oggi abbiamo battuto senza sapere niente di nessuno dei tre.",
+  "da": "Chi ha scritto il terzo brano"
+ },
+ {
+  "d": "La parola «teoria» viene dal greco e vuol dire, in origine, «guardare».",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: <em>theorein</em>, la stessa radice di «teatro», il luogo dove si va a guardare. Fare teoria vuol dire osservare la musica da vicino — e per osservarla bisogna prima averla ascoltata.",
+  "da": "Che cosa vuol dire teoria"
+ },
+ {
+  "d": "Si può battere la pulsazione di un brano anche senza saper leggere la musica.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e lo abbiamo fatto oggi prima di scrivere qualunque cosa. La pulsazione si sente; la notazione serve a scriverla, non a trovarla.",
+  "da": "Come si batte"
+ },
+ {
+  "d": "La giga irlandese e il quartetto di Mozart hanno la stessa suddivisione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso. Nel Mozart lo spazio fra due battiti si divide naturalmente <strong>in due</strong>, nella giga <strong>in tre</strong>: suddivisione semplice contro suddivisione composta.",
+  "da": "La giga, dal ballo alla suite"
+ },
+ {
+  "d": "Se batto una volta ogni due pulsazioni, sto battendo un livello più alto della pulsazione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: quello è il metro, che raggruppa le pulsazioni. È esattamente il caso dei due compagni che battono a velocità diverse e hanno ragione tutti e due.",
+  "da": "Chi ha scritto il terzo brano"
+ },
+ {
+  "d": "Una pausa scritta sul rigo vuol dire che in quel punto il tempo si ferma.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: la pausa dice che lì non si suona, non che il tempo si interrompe. La pulsazione attraversa la pausa, ed è la ragione per cui una pausa ha una durata scritta.",
+  "da": "La pulsazione non è nel suono"
+ }
+]
+    </tac-quiz>
+        </tac-verifica>
+      </div>
       <div class="esito"><span class="etichetta-esito">Codice ottenuto</span><span class="casella-codice"></span></div>
     </div>
     </section>
@@ -261,24 +467,23 @@
       <h3>Da ascoltare</h3>
       <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
     <div class="consegna" id="C1-U1-L1-08">
-      <p class="titolo-consegna"><span class="num">3</span> Due o tre?</p>
+      <p class="titolo-consegna"><span class="num">2</span> Due o tre?</p>
       <div class="testo">Sugli stessi tre brani dell'esercizio precedente: prova a raggruppare le pulsazioni contando «uno-due» e poi «uno-due-tre». Per ciascuno annota quale dei due raggruppamenti ti sembra funzionare meglio. Se non riesci a decidere, annota anche quello: è un'osservazione utile e la discuteremo.</div>
-      <div class="esito"><span class="spunta"></span><span class="etichetta-esito">fatto</span></div>
     </div>
     </section>
     <section class="parte scritto">
       <h3>Da scrivere sul quaderno</h3>
       <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom.</p>
     <div class="consegna" id="C1-U1-L1-09">
-      <p class="titolo-consegna"><span class="num">4</span> Righi e chiavi, ancora</p>
+      <p class="titolo-consegna"><span class="num">3</span> Righi e chiavi, ancora</p>
       <div class="testo">Riempi una pagina intera del quaderno di righi: cinque linee ciascuno, tutti della stessa altezza, distanziati fra loro. Su metà di essi scrivi la chiave di violino, sull'altra metà la chiave di basso, quella con i due punti attorno alla quarta linea. Non è un esercizio di bella copia: serve a far prendere alla mano una misura che dovrà diventare automatica.</div>
     </div>
     <div class="consegna" id="C1-U1-L1-10">
-      <p class="titolo-consegna"><span class="num">5</span> Quattro battute in 2/4</p>
+      <p class="titolo-consegna"><span class="num">4</span> Quattro battute in 2/4</p>
       <div class="testo">Sui righi qui sotto scrivi <strong>quattro battute in 2/4</strong> usando soltanto quarti e ottavi. Prima di scrivere, batti mentalmente la pulsazione e conta.</div>
     </div>
     <div class="consegna" id="C1-U1-L1-11">
-      <p class="titolo-consegna"><span class="num">6</span> Le stanghette e il conto delle pulsazioni</p>
+      <p class="titolo-consegna"><span class="num">5</span> Le stanghette e il conto delle pulsazioni</p>
       <div class="testo">Sul primo dei righi dell'esercizio precedente, tira <strong>quattro stanghette</strong> che lo dividano in quattro battute della stessa larghezza. Poi, sotto ciascuna, scrivi quante pulsazioni ci starebbero in 2/4 e quante in 3/4.</div>
     </div>
     </section>

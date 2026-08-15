@@ -521,7 +521,12 @@
     LIVELLI: {
       metro: { altezza: 'D4', forza: 1.00 },
       puls:  { altezza: 'A5', forza: 0.70 },
-      sudd:  { altezza: 'D6', forza: 0.45 }
+      sudd:  { altezza: 'D6', forza: 0.45 },
+      /* Il ritmo scritto: sta nella famiglia della pulsazione, un colpo
+         secco allo stesso livello, appena più forte perché è la voce che
+         si segue. Non è un quarto livello metrico — è la riga che si
+         legge, sopra i battiti che la misurano. */
+      ritmo: { altezza: 'A5', forza: 0.95 }
     },
 
     /* `sopraMusica` aggiunge un colpo di rumore bianco sopra il tono.
@@ -891,11 +896,20 @@
 
          Vale per ogni <tac-stave> con `play`: gli esempi del corso devono
          suonare tutti allo stesso modo, come i battiti. */
+      /* La regola: **dove ci sono le altezze suona il pianoforte, dove
+         c'è solo la durata suonano i colpi.** Un rigo in chiave di
+         percussione non ha altezze — le note stanno tutte sulla stessa
+         riga perché la riga non vuol dire niente — e farlo suonare con uno
+         strumento intonato aggiunge un'informazione che l'esempio non
+         contiene, e che lo studente potrebbe prendere per buona. */
+      const soloRitmo = (this.getAttribute('clef') || 'treble') === 'percussion';
       let voce = Audio.synth;
-      try {
-        const piano = await Audio.strumento('salamander');
-        if (piano) voce = piano;
-      } catch (e) { /* resta il ripiego sintetico */ }
+      if (!soloRitmo) {
+        try {
+          const piano = await Audio.strumento('salamander');
+          if (piano) voce = piano;
+        } catch (e) { /* resta il ripiego sintetico */ }
+      }
 
       const durBattito = (60 / (this._tempo * fattore));
       let t = Tone.now() + 0.15;
@@ -904,9 +918,14 @@
         if (d.stanghetta) return;          /* non dura e non suona */
         const secondi = d.battiti * durBattito;
         if (!d.pausa) {
-          voce.triggerAttackRelease(
-            d.keys.map(k => N.aTone(k)), secondi * 0.92, t
-          );
+          if (soloRitmo) {
+            Audio.tick.triggerAttackRelease(Audio.LIVELLI.ritmo.altezza, '64n', t,
+                                            Audio.LIVELLI.ritmo.forza);
+          } else {
+            voce.triggerAttackRelease(
+              d.keys.map(k => N.aTone(k)), secondi * 0.92, t
+            );
+          }
           const el = this._note && this._note[i] && this._note[i].getSVGElement();
           if (el) {
             const ms = (t - Tone.now()) * 1000;
@@ -1937,13 +1956,12 @@
       Tone.Transport.bpm.value = this._tempo;
       Tone.Transport.timeSignature = this._batt;
 
-      /* Lo strumento si carica **prima** di programmare il trasporto: i
-         richiami del trasporto sono sincroni e non possono aspettare un
-         caricamento, e chiedere il pianoforte dentro il ciclo lo farebbe
-         suonare dopo l'istante che gli è stato passato — cioè
-         reintrodurrebbe uno sfasamento, proprio qui. */
-      let voce = Audio.synth;
-      try { voce = (await Audio.strumento('salamander')) || voce; } catch (e) { }
+      /* Niente pianoforte qui: questo è un esempio **ritmico**, e un
+         esempio ritmico si sente come si sente nella lezione 1, con i
+         colpi. Il pianoforte era stato collegato a tutti gli esempi
+         insieme, ed era troppo: serve dove ci sono le altezze, non dove
+         c'è solo la durata. Segnalato da Andrea: «è un esempio ritmico,
+         soltanto ritmica come nella lezione 1». */
 
       /* Metronomo: un click per movimento, accento sul primo */
       let b = 0;
@@ -1985,7 +2003,9 @@
         if (!d.pausa) {
           this._eventi.push(
             Tone.Transport.scheduleRepeat(t => {
-              voce.triggerAttackRelease('C5', '8n', t);
+              Audio.tick.triggerAttackRelease(Audio.LIVELLI.ritmo.altezza,
+                                             '64n', t,
+                                             Audio.LIVELLI.ritmo.forza);
             }, '1m', unMovimento * off)
           );
         }

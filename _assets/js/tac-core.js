@@ -1004,6 +1004,7 @@
          legatura arriverebbero in ritardo di tutto il valore legato. */
       const durate = this._dati.map(d => d.battiti);
       const muta = this._dati.map(() => false);
+      const catena = this._dati.map((_, i) => [i]);
       for (let i = this._dati.length - 1; i >= 0; i--) {
         const d = this._dati[i];
         if (!d.legata || d.stanghetta || d.pausa) continue;
@@ -1011,7 +1012,14 @@
         if (j < 0 || this._dati[j].pausa) continue;
         durate[i] += durate[j];
         muta[j] = true;
+        catena[i] = [i].concat(catena[j]);
       }
+      /* LA NOTA LEGATA SI ILLUMINA LO STESSO.
+         Non riattacca — è un suono solo — ma se restasse spenta sembrerebbe
+         che la legatura non ci sia, e la slide che la insegna direbbe il
+         contrario di sé. Quindi il suono è uno e la luce è su tutte le teste
+         della catena, per tutta la durata sommata: si vede esattamente
+         quello che si sente, cioè un suono che attraversa due figure. */
 
       this._dati.forEach((d, i) => {
         if (d.stanghetta) return;          /* non dura e non suona */
@@ -1026,11 +1034,17 @@
               d.keys.map(k => N.aTone(k)), suonati * 0.92, t
             );
           }
-          const el = this._note && this._note[i] && this._note[i].getSVGElement();
-          if (el) {
+          const teste = catena[i]
+            .map(k => this._note && this._note[k] && this._note[k].getSVGElement())
+            .filter(Boolean);
+          if (teste.length) {
             const ms = (t - Tone.now()) * 1000;
-            setTimeout(() => { el.style.fill = '#f59e0b'; el.style.stroke = '#f59e0b'; }, ms);
-            setTimeout(() => { el.style.fill = ''; el.style.stroke = ''; }, ms + suonati * 1000);
+            setTimeout(() => teste.forEach(el => {
+              el.style.fill = '#f59e0b'; el.style.stroke = '#f59e0b';
+            }), ms);
+            setTimeout(() => teste.forEach(el => {
+              el.style.fill = ''; el.style.stroke = '';
+            }), ms + suonati * 1000);
           }
         }
         t += secondi;
@@ -1693,8 +1707,12 @@
          cosi' il prossimo risultato ne conta uno nuovo: rifare l'esercizio
          e' un tentativo in piu', ed e' esattamente quello che il codice
          deve dire. */
+      /* Anche qui: ricominciare ripesca. Il tasto «azzera» in testata lo
+         faceva già, questo no — due strade per la stessa cosa, e una sola
+         delle due dava domande nuove. Chi rifaceva l'esercizio da qui
+         ritrovava le stesse cinque. */
       ri.onclick = () => { this._i = 0; this._punti = 0; this._tentativo = 0;
-                           this.mostra(); };
+                           this.pesca(); this.mostra(); };
       this._box.appendChild(ri);
 
       this.dispatchEvent(new CustomEvent('tac:quiz-finito', {
@@ -1715,6 +1733,22 @@
      ========================================================== */
 
   class TacDrag extends HTMLElement {
+    /* RIFARE L'ESERCIZIO DEVE RIPESCARE.
+
+       Il serbatoio c'era e funzionava, ma l'estrazione avveniva una volta
+       sola, qui dentro, e non c'era modo di rifarla senza ricaricare la
+       pagina: chi rifaceva l'esercizio in classe ritrovava le stesse
+       quattro frasi, e la varietà — che sulla carta c'era, sedici frasi per
+       quattro — non arrivava mai in aula. Andrea, 15 agosto: «l'esercizio è
+       sempre uguale».
+
+       È il difetto più insidioso di tutti quelli visti finora sugli
+       esercizi, perché ogni controllo dice che va bene: il serbatoio è
+       grande, il rapporto è tre a uno, `quante` arriva nella pagina. Quello
+       che mancava non era un dato ma un **gesto**: ripescare.
+
+       Adesso il disegno sta in `disegna()`, la configurazione resta
+       nell'elemento, e il tasto «azzera» rifà l'estrazione da capo. */
     connectedCallback() {
       if (this._fatto) return;
       this._fatto = true;
@@ -1722,6 +1756,12 @@
       try { cfg = JSON.parse(this.textContent.trim()); }
       catch (e) { this.innerHTML = '<p style="color:#ef4444">Trascina: JSON non valido.</p>'; return; }
       this.textContent = '';
+      this._cfg = cfg;
+      this.disegna(cfg);
+    }
+
+    disegna(cfg) {
+      this.innerHTML = '';
 
       /* Anche qui si pesca da un serbatoio.
 
@@ -1850,14 +1890,11 @@
       /* Svuotare le buche non basta: i gettoni già usati devono tornare
          disponibili, altrimenti al secondo giro la classe ha davanti un
          esercizio dimezzato e non se ne accorge. */
-      const rifai = () => {
-        lista.querySelectorAll('.tac-buca').forEach(b => {
-          b.textContent = '';
-          b.classList.remove('giusta', 'sbagliata', 'sopra');
-        });
-        [...pool.children].forEach(g => g.classList.remove('usato'));
-        esito.textContent = '';
-      };
+      /* Rifare vuol dire ripescare, non ripulire.
+         Prima questo svuotava le buche e rimetteva i gettoni: le frasi
+         restavano le stesse, e al secondo giro si trascinava a memoria.
+         Adesso ridisegna dall'inizio, e l'estrazione riparte dal serbatoio. */
+      const rifai = () => this.disegna(this._cfg);
       barra.appendChild(bt);
       tastoAzzera(barra, rifai,
                   () => lista.querySelectorAll('.tac-buca').length &&

@@ -2822,20 +2822,46 @@
            destra la discesa arrivava obliqua e il cerchietto dell'uno non
            si chiudeva più — restava una U aperta. */
         { via: [138, 44] }],
-    /* Anche qui il battere ha il suo cerchietto, e il verso lo decide DOVE
-       VA il movimento dopo. In tre si esce a destra, quindi il cerchio è
-       orario: giù a sinistra, su, e via a destra. In quattro si esce a
-       sinistra, e allora gira dall'altra parte — giù a destra, su, e via a
-       sinistra. Il secondo passaggio scavalca sempre la discesa: è
-       l'attraversamento che chiude il cerchio invece di lasciare una U. */
-    3: [{ i: 'basso',  n: 'battere' }, { via: [92, 158] }, { via: [108, 120] },
-        { i: 'destra', n: 'destra' },  { via: null },
-        { i: 'alto',   n: 'levare' },  { via: null }],
-    4: [{ i: 'basso',    n: 'battere' },  { via: [142, 158] }, { via: [136, 120] },
-        { i: 'sinistra', n: 'sinistra' }, { via: null },
-        { i: 'destra',   n: 'destra' },   { via: null },
-        { i: 'alto',     n: 'levare' },   { via: null }]
+    /* Tre e quattro non hanno passaggi scritti: li genera `espandi`, che
+       dopo OGNI ictus prolunga il movimento e poi raccorda. Scritti a mano
+       erano sei e otto punti da azzeccare uno per uno, e il prolungamento
+       era finito solo sul battere — gli altri movimenti si fermavano di
+       colpo sul numero, che è l'errore che il gesto deve smentire. */
+    3: [{ i: 'basso',  n: 'battere' },
+        { i: 'destra', n: 'destra' },
+        { i: 'alto',   n: 'levare' }],
+    4: [{ i: 'basso',    n: 'battere' },
+        { i: 'sinistra', n: 'sinistra' },
+        { i: 'destra',   n: 'destra' },
+        { i: 'alto',     n: 'levare' }]
   };
+
+  /* DOPO OGNI ICTUS LA MANO PROSEGUE. Andrea, 16 agosto: «anche nel tre
+     movimento la freccia deve andare oltre il due e poi salire, lo stesso
+     sul tre; anche sul quattro, stesso concetto».
+
+     È il principio del cerchietto esteso a tutti i movimenti: la mano non
+     si ferma sul numero, tira dritto ancora un poco nella direzione con cui
+     è arrivata, e solo dopo curva verso il battito seguente. Scritto a mano
+     significava indovinare due punti per ogni ictus in ogni schema — otto
+     nel quattro — e infatti il prolungamento era finito solo sul battere.
+     Qui si ricava: il primo punto continua la direzione d'arrivo, il
+     secondo raccorda piegando verso il centro. */
+  function espandi(ciclo) {
+    if (ciclo.some(v => v.via !== undefined)) return ciclo;   // scritto a mano
+    const SCIA = 20;
+    const C = centroDi(ciclo);
+    const p = ciclo.map(v => v.p || GESTO_PUNTI[v.i]);
+    const fuori = [];
+    ciclo.forEach((v, k) => {
+      const I = p[k], P = p[(k - 1 + p.length) % p.length], S = p[(k + 1) % p.length];
+      let dx = I[0] - P[0], dy = I[1] - P[1];
+      const L = Math.hypot(dx, dy) || 1;
+      const oltre = [I[0] + dx / L * SCIA, I[1] + dy / L * SCIA];
+      fuori.push(v, { via: oltre }, { via: controlloVerso(oltre, S, C, 9) });
+    });
+    return fuori;
+  }
 
   /* Il centro di uno schema è la media dei suoi ictus, non il centro del
      riquadro: in due gli ictus stanno tutti a destra e in basso, e piegare
@@ -2876,7 +2902,7 @@
 
       const metro = this.getAttribute('metro') || '4/4';
       const g = gestoDi(metro);
-      const ciclo = GESTO_CICLI[g.movimenti] || GESTO_CICLI[4];
+      const ciclo = espandi(GESTO_CICLI[g.movimenti] || GESTO_CICLI[4]);
       const sudd = parseInt(this.getAttribute('suddivisione') || '', 10) || g.sudd;
       this._tempo = parseFloat(this.getAttribute('tempo') || '60');
 

@@ -2679,6 +2679,250 @@
   customElements.define('tac-metro', TacMetro);
 
   /* ==========================================================
+     <tac-gesto> — LO SCHEMA DELLA MANO
+
+     <tac-gesto metro="4/4" suddivisione="2" tempo="60"
+                caption="Il gesto in quattro" play></tac-gesto>
+
+     PERCHÉ ESISTE. Il gesto era descritto a parole — «giù sul battito, su
+     nello spazio fra un battito e l'altro» — e a parole non si impara.
+     Andrea, 16 agosto: «dobbiamo essere molto più chiari su come funziona
+     il gesto, come dividere e suddividere i vari tempi diversi. Troviamo
+     degli schemi visivi o facciamoli noi attraverso frecce e disegni della
+     mano». Non ne esistevano di riusabili in casa, e li disegniamo qui.
+
+     LO SCHEMA È QUELLO CANONICO dei manuali di solfeggio:
+
+        in due     giù · fuori
+        in tre     giù · fuori · su
+        in quattro giù · dentro · fuori · su
+
+     I punti numerati sono gli **ictus**, cioè dove la mano arriva e il
+     battito cade — non dove passa. È la distinzione che rende il gesto
+     leggibile da fuori: chi guarda deve capire dove cade il battito senza
+     sentire il suono, e lo capisce perché la mano si ferma lì.
+
+     LA SUDDIVISIONE si disegna come pallini lungo il tratto: due per una
+     suddivisione binaria, tre per una ternaria. Servono a far vedere che
+     la suddivisione **sta dentro il movimento**, non accanto — che è il
+     nodo della lezione 4, dove metro e suddivisione si confondono.
+
+     Il 6/8 si dirige in due, non in sei: `metro="6/8"` disegna quindi due
+     movimenti con tre pallini ciascuno. È la cosa che alla lezione 6 va
+     vista prima di essere spiegata.
+     ========================================================== */
+
+  /* I quattro punti dello schema, in un riquadro 240×170. Stanno qui e non
+     dentro la classe perché li usa anche la prova. */
+  const GESTO_PUNTI = {
+    alto:     [120, 26],
+    basso:    [120, 130],
+    sinistra: [42, 88],
+    destra:   [198, 88]
+  };
+
+  /* Ogni movimento è un ARCO, non un segmento, e la ragione è pratica: in
+     due, andata e ritorno stanno fra gli stessi due punti, e disegnati
+     dritti si sovrappongono in una riga sola — lo schema non direbbe
+     niente. Curvando la salita verso destra il gesto si legge come il giro
+     che è davvero.
+
+     Ogni voce è [da, a, controllo]: il punto di controllo della quadratica. */
+  const GESTO_SCHEMI = {
+    2: [['alto', 'basso', [104, 80], 'giù'],
+        ['basso', 'alto', [178, 80], 'su']],
+    3: [['alto', 'basso', [104, 80], 'giù'],
+        ['basso', 'destra', [156, 128], 'fuori'],
+        ['destra', 'alto', [186, 44], 'su']],
+    4: [['alto', 'basso', [104, 80], 'giù'],
+        ['basso', 'sinistra', [70, 126], 'dentro'],
+        ['sinistra', 'destra', [120, 108], 'fuori'],
+        ['destra', 'alto', [186, 44], 'su']]
+  };
+
+  function gestoDi(metro) {
+    /* Quanti movimenti si dirigono, che non è il numero di sopra: il 6/8
+       si dirige in due, il 9/8 in tre, il 12/8 in quattro. Il numero di
+       sopra dice quante unità ci sono nella battuta, non quante ne batte
+       la mano, e confondere le due cose è esattamente l'errore che la
+       lezione 4 passa un'ora a smontare. */
+    const m = String(metro || '4/4').trim();
+    const [su, giu] = m.split('/').map(x => parseInt(x, 10));
+    if (giu === 8 && su % 3 === 0 && su > 3) return { movimenti: su / 3, sudd: 3 };
+    return { movimenti: (su >= 2 && su <= 4) ? su : 4, sudd: 2 };
+  }
+
+  class TacGesto extends HTMLElement {
+    connectedCallback() {
+      if (this._fatto) return;
+      this._fatto = true;
+      this.disegna();
+    }
+
+    disegna() {
+      this.innerHTML = '';
+      const NS = 'http://www.w3.org/2000/svg';
+      const el = (nome, attr) => {
+        const x = document.createElementNS(NS, nome);
+        for (const k in attr) x.setAttribute(k, attr[k]);
+        return x;
+      };
+
+      const metro = this.getAttribute('metro') || '4/4';
+      const g = gestoDi(metro);
+      const schema = GESTO_SCHEMI[g.movimenti] || GESTO_SCHEMI[4];
+      const sudd = parseInt(this.getAttribute('suddivisione') || '', 10) || g.sudd;
+      this._tempo = parseFloat(this.getAttribute('tempo') || '60');
+
+      const cap = this.getAttribute('caption');
+      if (cap) {
+        const d = document.createElement('div');
+        d.className = 'tac-didascalia';
+        d.textContent = cap;
+        this.appendChild(d);
+      }
+
+      /* Il riquadro è più largo del disegno, e di proposito: le etichette
+         «dentro» e «fuori» stanno FUORI dai punti laterali, e «su» sopra
+         quello alto. Con un viewBox stretto sul disegno venivano tagliate
+         a metà — «fuor», «ntro» — e nessun controllo se ne sarebbe accorto,
+         perché l'SVG era valido e il testo c'era tutto. Si è visto
+         guardando l'immagine. */
+      const svg = el('svg', { viewBox: '-38 -10 316 196', class: 'tac-gesto-svg',
+        role: 'img', 'aria-label': 'Schema del gesto in ' + g.movimenti +
+        ' movimenti' + (sudd > 1 ? ', suddivisione in ' + sudd : '') });
+      svg.style.maxWidth = '280px';
+      svg.style.width = '100%';
+
+      /* Punto e tangente su una quadratica, che servono per i pallini della
+         suddivisione e per orientare la punta della freccia. */
+      const su = (p0, c, p1, t) => {
+        const u = 1 - t;
+        return [u * u * p0[0] + 2 * u * t * c[0] + t * t * p1[0],
+                u * u * p0[1] + 2 * u * t * c[1] + t * t * p1[1]];
+      };
+      const tang = (p0, c, p1, t) => {
+        const u = 1 - t;
+        return Math.atan2(2 * u * (c[1] - p0[1]) + 2 * t * (p1[1] - c[1]),
+                          2 * u * (c[0] - p0[0]) + 2 * t * (p1[0] - c[0]));
+      };
+
+      this._archi = [];
+      schema.forEach((mov, i) => {
+        const p0 = GESTO_PUNTI[mov[0]], p1 = GESTO_PUNTI[mov[1]], c = mov[2];
+        this._archi.push([p0, c, p1]);
+
+        svg.appendChild(el('path', {
+          d: 'M' + p0[0] + ',' + p0[1] + ' Q' + c[0] + ',' + c[1] + ' ' + p1[0] + ',' + p1[1],
+          fill: 'none', stroke: 'currentColor', 'stroke-width': 2.5,
+          'stroke-linecap': 'round', opacity: .5 }));
+
+        /* LA PUNTA SI DISEGNA A MANO. Con `marker-end` non compariva: la
+           punta è minuscola rispetto al tratto e alcuni motori non la
+           rendono affatto. Senza frecce lo schema perde l'unica cosa che
+           deve dire, cioè da che parte si va. */
+        const q = su(p0, c, p1, 0.55), a = tang(p0, c, p1, 0.55);
+        const L = 9, W = 5.5;
+        const pta = (dx, dy) => (q[0] + dx * Math.cos(a) - dy * Math.sin(a)) + ',' +
+                                (q[1] + dx * Math.sin(a) + dy * Math.cos(a));
+        svg.appendChild(el('polygon', {
+          points: [pta(L, 0), pta(-L * .55, W), pta(-L * .55, -W)].join(' '),
+          fill: 'currentColor', opacity: .75 }));
+
+        /* i pallini della suddivisione, dentro il movimento */
+        for (let k = 1; k < sudd; k++) {
+          const d = su(p0, c, p1, k / sudd);
+          /* Proiettati, i pallini al 30% sparivano: su uno schermo grande
+             il grigio chiaro non arriva in fondo all'aula. */
+          svg.appendChild(el('circle', { cx: d[0], cy: d[1], r: 3.6,
+            fill: 'currentColor', opacity: .5 }));
+        }
+      });
+
+      /* gli ictus: dove la mano arriva. Il numero del movimento sta nel
+         cerchio, il nome del gesto fuori — sopra se il punto è in alto,
+         sotto se è in basso, di lato se è di lato. */
+      schema.forEach((mov, i) => {
+        const [x, y] = GESTO_PUNTI[mov[1]];
+        svg.appendChild(el('circle', { cx: x, cy: y, r: 15,
+          fill: 'var(--carta, #fff)', stroke: 'currentColor', 'stroke-width': 2.5 }));
+        const t = el('text', { x, y: y + 5.5, 'text-anchor': 'middle',
+          'font-size': 15, 'font-weight': 700, fill: 'currentColor' });
+        t.textContent = String(i + 1);
+        svg.appendChild(t);
+
+        let nx = x, ny = y + 31, anc = 'middle';
+        if (mov[1] === 'alto') ny = y - 21;
+        if (mov[1] === 'sinistra') { nx = x - 19; ny = y + 5; anc = 'end'; }
+        if (mov[1] === 'destra') { nx = x + 19; ny = y + 5; anc = 'start'; }
+        const n = el('text', { x: nx, y: ny, 'text-anchor': anc,
+          'font-size': 11, fill: 'currentColor', opacity: .7 });
+        n.textContent = mov[3];
+        svg.appendChild(n);
+      });
+
+      const mano = el('circle', { cx: GESTO_PUNTI.alto[0], cy: GESTO_PUNTI.alto[1],
+        r: 7, fill: 'var(--ambra, #f59e0b)', opacity: 0, class: 'tac-gesto-mano' });
+      svg.appendChild(mano);
+      this._mano = mano;
+      this._su = su;
+
+      this.appendChild(svg);
+
+      if (this.hasAttribute('play')) {
+        const barra = document.createElement('div');
+        barra.className = 'tac-barra no-stampa';
+        const bt = document.createElement('button');
+        bt.className = 'btn';
+        bt.innerHTML = '&#9654; Guarda il gesto';
+        bt.onclick = () => this.suona(bt);
+        barra.appendChild(bt);
+        this.appendChild(barra);
+      }
+    }
+
+    /* La mano percorre un arco per movimento e arriva sull'ictus insieme al
+       colpo. L'accento è il primo: le altezze vengono da Audio.LIVELLI e
+       non si scrivono qui. */
+    async suona(bt) {
+      if (this._inCorso) return;
+      this._inCorso = true;
+      if (bt) bt.disabled = true;
+      await Audio.avvia();
+      const archi = this._archi, su = this._su;
+      const durata = 60 / (this._tempo || 60);
+      this._mano.setAttribute('opacity', 1);
+      const t0 = performance.now();
+
+      const passo = () => {
+        const t = (performance.now() - t0) / 1000;
+        const i = Math.floor(t / durata);
+        if (i >= archi.length) {
+          this._mano.setAttribute('opacity', 0);
+          this._inCorso = false;
+          if (bt) bt.disabled = false;
+          return;
+        }
+        const [p0, c, p1] = archi[i];
+        const p = su(p0, c, p1, (t - i * durata) / durata);
+        this._mano.setAttribute('cx', p[0]);
+        this._mano.setAttribute('cy', p[1]);
+        requestAnimationFrame(passo);
+      };
+      requestAnimationFrame(passo);
+
+      if (Audio.pronto) {
+        for (let i = 0; i < archi.length; i++) {
+          const liv = i === 0 ? Audio.LIVELLI.metro : Audio.LIVELLI.puls;
+          Audio.tick.triggerAttackRelease(liv.altezza, '64n',
+            Tone.now() + 0.05 + (i + 1) * durata, liv.forza);
+        }
+      }
+    }
+  }
+  customElements.define('tac-gesto', TacGesto);
+
+  /* ==========================================================
      9-ter. <tac-griglia> — SISTEMI VUOTI PER LA SCRITTURA A MANO
 
      <tac-griglia sistemi="4" tipo="doppio" time="4/4" keysig="C"></tac-griglia>

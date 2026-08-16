@@ -46,7 +46,7 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
      usa, e con `defer` i due file girano nell'ordine in cui stanno
      scritti qui. -->
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=211ba445" defer></script>
+<script src="../../_assets/js/tac-core.js?v=4aea84b8" defer></script>
 </head>
 <body>
 <div id="tac-deck">
@@ -121,21 +121,59 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
 
 <section class="slide perc" data-titolo="Il gesto: battere e levare">
   <div class="slide-interna">
-    <h2>La mano va giù e su, non solo giù</h2>
+    <h2>La mano va giù e su, e il su fa parte del gesto</h2>
 
-    <p>Nella lezione 2 abbiamo incontrato il <em class="termine">tactus</em>: prima che esistesse il direttore d&rsquo;orchestra, l&rsquo;insieme si teneva con un movimento della mano — giù e su. La discesa si chiamava <em class="termine">positio</em>, la risalita <em class="termine">elevatio</em>.</p>
+    <p>Nella lezione 2 abbiamo incontrato il <em class="termine">tactus</em>: prima del direttore d&rsquo;orchestra, l&rsquo;insieme si teneva con un movimento della mano. La discesa si chiamava <em class="termine">positio</em>, la risalita <em class="termine">elevatio</em>.</p>
+
+    <div class="affianca">
+      <tac-gesto metro="2/4" suddivisione="1" tempo="60"
+                 caption="In due: giù, su" play></tac-gesto>
+
+      <div class="riquadro definizione">
+        <span class="etichetta">I numeri sono i punti d&rsquo;arrivo</span>
+        <p>Il cerchio numerato è l&rsquo;<em class="termine">ictus</em>: il punto in cui la mano <strong>arriva</strong> e il battito cade. Non dove passa &mdash; dove si ferma.</p>
+        <p>È la differenza fra un gesto che si legge da fuori e uno che non si legge: chi guarda deve capire dove cade il battito <strong>senza sentire il suono</strong>.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">La freccia tratteggiata è il ritorno: non è un movimento, è il modo in cui la mano si rimette in posizione.</p>
+  </div>
+</section>
+
+<section class="slide perc" data-titolo="Gli schemi: in due, in tre, in quattro">
+  <div class="slide-interna">
+    <h2>Tre schemi, e non se ne inventano altri</h2>
+
+    <p>Cambia il metro, cambia il disegno della mano. Sono sempre questi tre, e si riconoscono a colpo d&rsquo;occhio.</p>
+
+    <div class="colonne3">
+      <tac-gesto metro="2/4" suddivisione="1" tempo="60" caption="Due movimenti"></tac-gesto>
+      <tac-gesto metro="3/4" suddivisione="1" tempo="60" caption="Tre movimenti"></tac-gesto>
+      <tac-gesto metro="4/4" suddivisione="1" tempo="60" caption="Quattro movimenti"></tac-gesto>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">La regola che li tiene insieme</span>
+      <p>Il <strong>primo</strong> movimento va sempre <strong>giù</strong> e l&rsquo;<strong>ultimo</strong> sempre <strong>su</strong>. Quelli in mezzo si spostano di lato: in tre si esce a destra, in quattro si entra a sinistra e poi si esce a destra.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide perc" data-titolo="Provare i tre schemi">
+  <div class="slide-interna">
+    <h2>Adesso con la mano</h2>
 
     <div class="riquadro compito">
-      <span class="etichetta">Tutti insieme, 6 minuti</span>
+      <span class="etichetta">Tutti insieme, 8 minuti</span>
       <ol class="spaziato">
-        <li>Mano aperta all&rsquo;altezza del petto. <strong>Giù</strong> sul battito, <strong>su</strong> nello spazio fra un battito e l&rsquo;altro. Il su non è una pausa: è la metà del gesto.</li>
-        <li>Adesso in due gruppi: metà classe fa solo il giù, metà solo il su. Si deve sentire un gesto solo.</li>
-        <li>Chi guarda da fuori deve capire dove cade il battito <strong>senza sentire il suono</strong>. Se non si capisce, il gesto è molle.</li>
+        <li>In due, otto battute. Poi in tre, poi in quattro, <strong>senza cambiare la velocità del battito</strong>: cambia il disegno, non la fretta.</li>
+        <li>In due gruppi: metà classe fa solo il giù, metà solo il su. Si deve sentire un gesto solo.</li>
+        <li>Io dico un numero — due, tre, quattro — e voi cambiate schema alla battuta dopo, senza fermarvi.</li>
       </ol>
     </div>
 
     <tac-rhythm pattern="q q q q" battuti="4" tempo="66"></tac-rhythm>
-    <p class="didascalia">Il colpo grave è il primo del gruppo, come sempre. Tenete il gesto anche quando il suono si ferma: è lì che si vede chi ha il battito e chi lo stava seguendo.</p>
+    <p class="didascalia">Il colpo grave è il primo del gruppo, come sempre. Se il gesto è molle, da fuori non si capisce dove cade il battito &mdash; ed è l&rsquo;unica cosa che deve capirsi.</p>
   </div>
 </section>
 
@@ -290,14 +328,11 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
 
     <p>Otto battute, con i silenzi dentro. Non è difficile: è <strong>lungo</strong>, ed è un'altra cosa. Si sbaglia per stanchezza, non per ignoranza.</p>
 
-    <tac-stave clef="percussion" time="4/4" caption="Otto battute in quattro quarti. Il silenzio si conta come il suono"
+    <tac-stave clef="percussion" time="4/4" caption="Otto battute. Il silenzio si conta come il suono"
                notes="b/4:q b/4:q b/4:q b/4:q | b/4:q r:q b/4:q b/4:q | b/4:q b/4:q r:q b/4:q | b/4:q b/4:q b/4:q r:q"
                width="740" tempo="63" play slow></tac-stave>
-    <tac-stave clef="percussion" time="4/4" caption="…e il seguito, di filato"
-               notes="r:q b/4:q b/4:q b/4:q | b/4:q b/4:q r:q r:q | b/4:q r:q b/4:q r:q | b/4:q b/4:q b/4:q b/4:q"
-               width="740" tempo="63" play slow></tac-stave>
 
-    <p class="didascalia">Chi arriva in fondo senza perdere il battito ha fatto la cosa più difficile di quest&rsquo;ora. Chi si perde segni <em>dove</em>: quasi sempre è subito dopo due silenzi vicini.</p>
+    <p class="didascalia">Chi si perde segni <em>dove</em>: quasi sempre è subito dopo due silenzi vicini.</p>
   </div>
 </section>
 

@@ -2791,7 +2791,7 @@
       const svg = el('svg', { viewBox: '-38 -10 316 196', class: 'tac-gesto-svg',
         role: 'img', 'aria-label': 'Schema del gesto in ' + g.movimenti +
         ' movimenti' + (sudd > 1 ? ', suddivisione in ' + sudd : '') });
-      svg.style.maxWidth = '280px';
+      svg.style.maxWidth = '380px';
       svg.style.width = '100%';
 
       /* Punto e tangente su una quadratica, che servono per i pallini della
@@ -2883,42 +2883,62 @@
 
     /* La mano percorre un arco per movimento e arriva sull'ictus insieme al
        colpo. L'accento è il primo: le altezze vengono da Audio.LIVELLI e
-       non si scrivono qui. */
+       non si scrivono qui.
+
+       GIRA FINCHÉ NON SI FERMA. Andrea, 16 agosto: «lo farei proseguire in
+       loop fino a quando non si ferma, così i ragazzi si possono allenare
+       mentre lo vedono». Un solo giro bastava per capire lo schema, non per
+       farci pratica: la classe ha bisogno di ripeterlo, e riavviarlo a mano
+       ogni due secondi avrebbe rotto proprio la pulsazione che il gesto deve
+       insegnare a tenere. Il bottone diventa un interruttore: si preme per
+       partire, si preme di nuovo per fermare. */
     async suona(bt) {
-      if (this._inCorso) return;
+      if (this._inCorso) { this.ferma(); return; }
       this._inCorso = true;
-      if (bt) bt.disabled = true;
+      if (bt) bt.innerHTML = '&#9632; Ferma';
       await Audio.avvia();
       const archi = this._archi, su = this._su;
       const durata = 60 / (this._tempo || 60);
       this._mano.setAttribute('opacity', 1);
       const t0 = performance.now();
+      let ultimo = -1;
 
       const passo = () => {
+        if (!this._inCorso) return;
         const t = (performance.now() - t0) / 1000;
-        const i = Math.floor(t / durata);
-        if (i >= archi.length) {
-          this._mano.setAttribute('opacity', 0);
-          this._inCorso = false;
-          if (bt) bt.disabled = false;
-          return;
+        const assoluto = Math.floor(t / durata);
+        const i = assoluto % archi.length;
+        /* Il suono parte una volta sola per movimento, non a ogni fotogramma:
+           si confronta l'indice assoluto (che cresce sempre) con l'ultimo
+           suonato, non l'indice nel ciclo (che torna a 0 ogni giro). */
+        if (assoluto !== ultimo) {
+          ultimo = assoluto;
+          if (Audio.pronto) {
+            const liv = i === 0 ? Audio.LIVELLI.metro : Audio.LIVELLI.puls;
+            Audio.tick.triggerAttackRelease(liv.altezza, '64n', Tone.now() + 0.02, liv.forza);
+          }
         }
         const [p0, c, p1] = archi[i];
-        const p = su(p0, c, p1, (t - i * durata) / durata);
+        const p = su(p0, c, p1, (t - assoluto * durata) / durata);
         this._mano.setAttribute('cx', p[0]);
         this._mano.setAttribute('cy', p[1]);
-        requestAnimationFrame(passo);
+        this._raf = requestAnimationFrame(passo);
       };
-      requestAnimationFrame(passo);
-
-      if (Audio.pronto) {
-        for (let i = 0; i < archi.length; i++) {
-          const liv = i === 0 ? Audio.LIVELLI.metro : Audio.LIVELLI.puls;
-          Audio.tick.triggerAttackRelease(liv.altezza, '64n',
-            Tone.now() + 0.05 + (i + 1) * durata, liv.forza);
-        }
-      }
+      this._raf = requestAnimationFrame(passo);
     }
+
+    /* Ferma il gesto: la chiama il bottone quando si preme di nuovo, e la
+       chiama il palco quando si cambia slide (vedi Deck.vai, che spegne
+       tutto quello che sta suonando dietro le quinte). */
+    ferma() {
+      this._inCorso = false;
+      if (this._raf) cancelAnimationFrame(this._raf);
+      if (this._mano) this._mano.setAttribute('opacity', 0);
+      const bt = this.querySelector('.tac-barra button');
+      if (bt) bt.innerHTML = '&#9654; Guarda il gesto';
+    }
+
+    disconnectedCallback() { this.ferma(); }
   }
   customElements.define('tac-gesto', TacGesto);
 
@@ -4300,7 +4320,7 @@
          che sta suonando continua a suonare da dietro, e chi tiene la
          lezione si ritrova il metronomo o un ascolto che vanno avanti su
          un'altra schermata senza vedere da dove arrivano. */
-      document.querySelectorAll('tac-metro, tac-livelli, tac-rhythm, tac-brano')
+      document.querySelectorAll('tac-metro, tac-livelli, tac-rhythm, tac-brano, tac-gesto')
         .forEach(c => { if (typeof c.ferma === 'function') { try { c.ferma(); } catch (e) {} } });
 
       this.adatta();

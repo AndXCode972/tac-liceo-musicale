@@ -2691,11 +2691,15 @@
      degli schemi visivi o facciamoli noi attraverso frecce e disegni della
      mano». Non ne esistevano di riusabili in casa, e li disegniamo qui.
 
-     LO SCHEMA È QUELLO CANONICO dei manuali di solfeggio:
+     GLI SCHEMI, come Andrea li dirige:
 
-        in due     giù · fuori
-        in tre     giù · fuori · su
-        in quattro giù · dentro · fuori · su
+        in due     battere · destra                    (+ ritorno)
+        in tre     battere · destra · levare
+        in quattro battere · sinistra · destra · levare
+
+     In due la mano NON risale come movimento contato: scende, va a destra,
+     e il ritorno in alto serve solo a riprendere il battere — per questo è
+     tratteggiato e non ha numero.
 
      I punti numerati sono gli **ictus**, cioè dove la mano arriva e il
      battito cade — non dove passa. È la distinzione che rende il gesto
@@ -2705,7 +2709,9 @@
      LA SUDDIVISIONE si disegna come pallini lungo il tratto: due per una
      suddivisione binaria, tre per una ternaria. Servono a far vedere che
      la suddivisione **sta dentro il movimento**, non accanto — che è il
-     nodo della lezione 4, dove metro e suddivisione si confondono.
+     nodo della lezione 4, dove metro e suddivisione si confondono. Con la
+     suddivisione binaria il pallino porta anche il nome che la classe dice
+     a voce: giù-**su**, destra-**centro**.
 
      Il 6/8 si dirige in due, non in sei: `metro="6/8"` disegna quindi due
      movimenti con tre pallini ciascuno. È la cosa che alla lezione 6 va
@@ -2714,31 +2720,79 @@
 
   /* I quattro punti dello schema, in un riquadro 240×170. Stanno qui e non
      dentro la classe perché li usa anche la prova. */
+  /* I punti laterali stanno PIÙ IN BASSO della metà, e non è una scelta di
+     gusto. Tenendoli a mezza altezza, nello schema in quattro il battere —
+     che scende dritto — incrociava il movimento sinistra-destra esattamente
+     nel suo punto di mezzo: i due pallini della suddivisione finivano uno
+     sull'altro e le parole «su» e «centro» si sovrapponevano. Abbassandoli
+     l'incrocio resta (c'è anche nel gesto vero) ma cade lontano dai due
+     pallini. È anche più fedele al gesto: il terzo movimento passa raso al
+     battere, non a mezz'aria. */
   const GESTO_PUNTI = {
     alto:     [120, 26],
-    basso:    [120, 130],
-    sinistra: [42, 88],
-    destra:   [198, 88]
+    basso:    [120, 140],
+    sinistra: [46, 112],
+    destra:   [194, 112]
   };
 
   /* Ogni movimento è un ARCO, non un segmento, e la ragione è pratica: in
      due, andata e ritorno stanno fra gli stessi due punti, e disegnati
      dritti si sovrappongono in una riga sola — lo schema non direbbe
-     niente. Curvando la salita verso destra il gesto si legge come il giro
-     che è davvero.
+     niente.
 
-     Ogni voce è [da, a, controllo]: il punto di controllo della quadratica. */
+     Ogni voce è [da, a, etichetta]. Il punto di controllo NON si scrive
+     qui: lo calcola `controlloVerso`, perché la curvatura non è una scelta
+     estetica per ogni arco ma una regola sola, uguale per tutti. */
   const GESTO_SCHEMI = {
-    2: [['alto', 'basso', [104, 80], 'giù'],
-        ['basso', 'alto', [178, 80], 'su']],
-    3: [['alto', 'basso', [104, 80], 'giù'],
-        ['basso', 'destra', [156, 128], 'fuori'],
-        ['destra', 'alto', [186, 44], 'su']],
-    4: [['alto', 'basso', [104, 80], 'giù'],
-        ['basso', 'sinistra', [70, 126], 'dentro'],
-        ['sinistra', 'destra', [120, 108], 'fuori'],
-        ['destra', 'alto', [186, 44], 'su']]
+    2: [['alto', 'basso', 'battere'],
+        ['basso', 'destra', 'destra']],
+    3: [['alto', 'basso', 'battere'],
+        ['basso', 'destra', 'destra'],
+        ['destra', 'alto', 'levare']],
+    4: [['alto', 'basso', 'battere'],
+        ['basso', 'sinistra', 'sinistra'],
+        ['sinistra', 'destra', 'destra'],
+        ['destra', 'alto', 'levare']]
   };
+
+  /* LE FRECCE CURVANO SEMPRE VERSO L'INTERNO. Andrea, 16 agosto: «le frecce
+     di movimento vanno sempre verso l'interno, non verso l'esterno». È il
+     modo in cui il gesto si tiene raccolto davanti al corpo: una mano che
+     curva in fuori si allarga a ogni giro e da fuori non si legge più dove
+     cade il battito.
+
+     Scritto a mano, un punto di controllo per arco, la regola si rompe alla
+     prima aggiunta: basta sbagliare un segno e quell'arco solo va per conto
+     suo — ed è già successo. Qui il punto si calcola: si prende il centro
+     dello schema, si tira la perpendicolare alla corda e la si piega da
+     quella parte. Lo sbaglio non è più possibile, e vale anche per gli
+     schemi che non abbiamo ancora disegnato.
+
+     Se il centro cade SULLA corda l'arco resta dritto, e non è un caso
+     limite da tollerare: è il battere degli schemi in due e in quattro, che
+     scende dritto per terra ed è giusto così. */
+  function controlloVerso(p0, p1, centro, max) {
+    const M  = [(p0[0] + p1[0]) / 2, (p0[1] + p1[1]) / 2];
+    const d  = [p1[0] - p0[0], p1[1] - p0[1]];
+    const L  = Math.hypot(d[0], d[1]) || 1;
+    const n  = [-d[1] / L, d[0] / L];              // perpendicolare alla corda
+    const s  = (centro[0] - M[0]) * n[0] + (centro[1] - M[1]) * n[1];
+    if (Math.abs(s) < 4) return M;                 // centro sulla corda: dritto
+    const off = Math.max(8, Math.min(max || 16, Math.abs(s) * 0.5));
+    const v   = s < 0 ? -off : off;
+    return [M[0] + n[0] * v, M[1] + n[1] * v];
+  }
+
+  /* Il centro di uno schema è la media dei suoi ictus, non il centro del
+     riquadro: in due gli ictus stanno tutti a destra e in basso, e piegare
+     verso il centro del disegno vorrebbe dire piegare in fuori. */
+  function centroDi(schema) {
+    const visti = [];
+    schema.forEach(m => { [m[0], m[1]].forEach(k => { if (visti.indexOf(k) < 0) visti.push(k); }); });
+    const p = visti.map(k => GESTO_PUNTI[k]);
+    return [p.reduce((a, q) => a + q[0], 0) / p.length,
+            p.reduce((a, q) => a + q[1], 0) / p.length];
+  }
 
   function gestoDi(metro) {
     /* Quanti movimenti si dirigono, che non è il numero di sopra: il 6/8
@@ -2807,9 +2861,12 @@
                           2 * u * (c[0] - p0[0]) + 2 * t * (p1[0] - c[0]));
       };
 
+      const centro = centroDi(schema);
+
       this._archi = [];
       schema.forEach((mov, i) => {
-        const p0 = GESTO_PUNTI[mov[0]], p1 = GESTO_PUNTI[mov[1]], c = mov[2];
+        const p0 = GESTO_PUNTI[mov[0]], p1 = GESTO_PUNTI[mov[1]];
+        const c = controlloVerso(p0, p1, centro);
         this._archi.push([p0, c, p1]);
 
         svg.appendChild(el('path', {
@@ -2836,8 +2893,44 @@
              il grigio chiaro non arriva in fondo all'aula. */
           svg.appendChild(el('circle', { cx: d[0], cy: d[1], r: 3.6,
             fill: 'currentColor', opacity: .5 }));
+
+          /* IL PALLINO HA UN NOME, e il nome è quello che la classe dice a
+             voce mentre la mano ci passa. Andrea, 16 agosto, dettando i tre
+             schemi: «in due giù-su, destra-centro. In tre giù-su,
+             destra-centro, destra-su. In quattro giù-su, sinistra-centro,
+             sinistra-centro, destra-su».
+
+             Dietro i tre elenchi c'è una regola sola: la mano rimbalza
+             SEMPRE verso il punto di riposo. Se il movimento è finito in
+             alto o in basso il rimbalzo è «su»; se è finito di lato, il
+             rimbalzo rientra al «centro». Scritta così vale anche per il
+             6/8 e per quello che verrà, e non è un elenco da ricopiare
+             ogni volta che si aggiunge uno schema. */
+          if (sudd === 2) {
+            const verticale = mov[1] === 'alto' || mov[1] === 'basso';
+            const et = el('text', { x: d[0], y: d[1] + 15, 'text-anchor': 'middle',
+              'font-size': 10, fill: 'currentColor', opacity: .65, 'font-style': 'italic' });
+            et.textContent = verticale ? 'su' : 'centro';
+            svg.appendChild(et);
+          }
         }
       });
+
+      /* IL RITORNO NON È UN MOVIMENTO. Quando l'ultimo punto contato non è
+         «alto», la mano deve comunque tornare lì per ripartire: si disegna
+         come una linea tratteggiata, senza numero e senza freccia piena,
+         perché non è un battito e non deve essere letta come tale — è solo
+         il modo in cui la mano si rimette in posizione. Vale per lo schema
+         in due, che ora finisce a destra e non più in alto. */
+      const ultimo = schema[schema.length - 1];
+      if (ultimo && ultimo[1] !== 'alto') {
+        const p0 = GESTO_PUNTI[ultimo[1]], p1 = GESTO_PUNTI.alto;
+        const c = controlloVerso(p0, p1, centro);
+        svg.appendChild(el('path', {
+          d: 'M' + p0[0] + ',' + p0[1] + ' Q' + c[0] + ',' + c[1] + ' ' + p1[0] + ',' + p1[1],
+          fill: 'none', stroke: 'currentColor', 'stroke-width': 1.6,
+          'stroke-linecap': 'round', 'stroke-dasharray': '3 4', opacity: .35 }));
+      }
 
       /* gli ictus: dove la mano arriva. Il numero del movimento sta nel
          cerchio, il nome del gesto fuori — sopra se il punto è in alto,
@@ -2857,7 +2950,7 @@
         if (mov[1] === 'destra') { nx = x + 19; ny = y + 5; anc = 'start'; }
         const n = el('text', { x: nx, y: ny, 'text-anchor': anc,
           'font-size': 11, fill: 'currentColor', opacity: .7 });
-        n.textContent = mov[3];
+        n.textContent = mov[2];
         svg.appendChild(n);
       });
 

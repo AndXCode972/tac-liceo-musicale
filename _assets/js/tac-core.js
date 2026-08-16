@@ -2697,14 +2697,12 @@
         in tre     battere · destra · levare
         in quattro battere · sinistra · destra · levare
 
-     In due la mano NON risale come movimento contato: scende, va a destra,
-     e il ritorno in alto serve solo a riprendere il battere — per questo è
-     tratteggiato e non ha numero.
+     In due la mano NON risale come movimento contato: scende, esce a
+     destra, e la salita che segue serve solo a riprendere il battere.
 
-     I punti numerati sono gli **ictus**, cioè dove la mano arriva e il
-     battito cade — non dove passa. È la distinzione che rende il gesto
-     leggibile da fuori: chi guarda deve capire dove cade il battito senza
-     sentire il suono, e lo capisce perché la mano si ferma lì.
+     È UN GIRO CHIUSO, percorso senza fermarsi. I punti numerati sono gli
+     **ictus**: dove il battito cade. Non sono estremi di tratti separati —
+     la mano ci passa sopra e prosegue, che è come la musica va.
 
      LA SUDDIVISIONE si disegna come pallini lungo il tratto: due per una
      suddivisione binaria, tre per una ternaria. Servono a far vedere che
@@ -2740,20 +2738,7 @@
      dritti si sovrappongono in una riga sola — lo schema non direbbe
      niente.
 
-     Ogni voce è [da, a, etichetta]. Il punto di controllo NON si scrive
-     qui: lo calcola `controlloVerso`, perché la curvatura non è una scelta
-     estetica per ogni arco ma una regola sola, uguale per tutti. */
-  const GESTO_SCHEMI = {
-    2: [['alto', 'basso', 'battere'],
-        ['basso', 'destra', 'destra']],
-    3: [['alto', 'basso', 'battere'],
-        ['basso', 'destra', 'destra'],
-        ['destra', 'alto', 'levare']],
-    4: [['alto', 'basso', 'battere'],
-        ['basso', 'sinistra', 'sinistra'],
-        ['sinistra', 'destra', 'destra'],
-        ['destra', 'alto', 'levare']]
-  };
+     Gli schemi veri e propri stanno in `GESTO_CICLI`, più sotto. */
 
   /* LE FRECCE CURVANO SEMPRE VERSO L'INTERNO. Andrea, 16 agosto: «le frecce
      di movimento vanno sempre verso l'interno, non verso l'esterno». È il
@@ -2783,13 +2768,53 @@
     return [M[0] + n[0] * v, M[1] + n[1] * v];
   }
 
+  /* IL GESTO È UN GIRO, NON UNA CATENA DI TRATTI.
+
+     Andrea, 16 agosto: «i punti di arrivo sono statici, invece la musica è
+     fluida, le frecce dovrebbero indicare con movimenti fluidi che non ci si
+     ferma, ma si prosegue. Ad esempio il due, si batte uno, poi la mano
+     prosegue, fa un movimento interno verso sinistra e va verso destra,
+     batte il due a destra, fa il movimento di rientro verso il centro e
+     ritorna verso il basso per riprendere l'uno».
+
+     Disegnato a tratti separati, il gesto diceva la cosa sbagliata: che sul
+     battito la mano si ferma e poi riparte. Qui il percorso è UNO SOLO e
+     chiuso, e gli ictus sono punti che stanno **sulla** curva — la mano ci
+     passa sopra senza smettere di andare.
+
+     Ogni voce del ciclo è un ictus (`i`, col suo nome) oppure un passaggio
+     (`via`). I passaggi sono i punti dove la mano transita fra un battito e
+     l'altro: `via: null` li fa calcolare piegando verso il centro, come le
+     frecce; scritti a mano solo dove il gesto vero fa un'ansa che il calcolo
+     non indovina — l'uscita a sinistra dopo il battere, in due. */
+  const GESTO_CICLI = {
+    /* IL DUE HA PUNTI SUOI, e non è un capriccio. Non avendo un ictus in
+       alto, ha spazio sopra che gli altri non hanno: usando i punti comuni
+       il giro si schiacciava in basso a destra e l'ansa, il numero e il nome
+       si contendevano lo stesso angolo. Alzato e allargato, ci sta tutto.
+
+       L'ansa sta a sinistra e SOTTO il battere, non sopra: sopra, la mano
+       doveva invertire la marcia, e un'inversione disegnata liscia è per
+       forza un occhiello — se ne chiudeva uno dietro il numero 1. Passando
+       sotto, la mano prosegue senza mai tornare indietro. */
+    2: [{ i: 'basso',  n: 'battere', p: [112, 112] },
+        { via: [74, 148] },                          // l'ansa verso l'interno
+        { i: 'destra', n: 'destra',  p: [196, 100] },
+        { via: [150, 34] }],                         // il rientro, in alto
+    3: [{ i: 'basso',  n: 'battere' }, { via: null },
+        { i: 'destra', n: 'destra' },  { via: null },
+        { i: 'alto',   n: 'levare' },  { via: null }],
+    4: [{ i: 'basso',    n: 'battere' },  { via: null },
+        { i: 'sinistra', n: 'sinistra' }, { via: null },
+        { i: 'destra',   n: 'destra' },   { via: null },
+        { i: 'alto',     n: 'levare' },   { via: null }]
+  };
+
   /* Il centro di uno schema è la media dei suoi ictus, non il centro del
      riquadro: in due gli ictus stanno tutti a destra e in basso, e piegare
      verso il centro del disegno vorrebbe dire piegare in fuori. */
-  function centroDi(schema) {
-    const visti = [];
-    schema.forEach(m => { [m[0], m[1]].forEach(k => { if (visti.indexOf(k) < 0) visti.push(k); }); });
-    const p = visti.map(k => GESTO_PUNTI[k]);
+  function centroDi(ciclo) {
+    const p = ciclo.filter(v => v.i).map(v => v.p || GESTO_PUNTI[v.i]);
     return [p.reduce((a, q) => a + q[0], 0) / p.length,
             p.reduce((a, q) => a + q[1], 0) / p.length];
   }
@@ -2824,7 +2849,7 @@
 
       const metro = this.getAttribute('metro') || '4/4';
       const g = gestoDi(metro);
-      const schema = GESTO_SCHEMI[g.movimenti] || GESTO_SCHEMI[4];
+      const ciclo = GESTO_CICLI[g.movimenti] || GESTO_CICLI[4];
       const sudd = parseInt(this.getAttribute('suddivisione') || '', 10) || g.sudd;
       this._tempo = parseFloat(this.getAttribute('tempo') || '60');
 
@@ -2848,37 +2873,134 @@
       svg.style.maxWidth = '380px';
       svg.style.width = '100%';
 
-      /* Punto e tangente su una quadratica, che servono per i pallini della
-         suddivisione e per orientare la punta della freccia. */
-      const su = (p0, c, p1, t) => {
+      const centro = centroDi(ciclo);
+
+      /* ---- IL GIRO, punto per punto ------------------------------------
+         Si alternano ictus e passaggi. Dove il passaggio è `null` lo si
+         ricava piegando verso il centro, con la stessa regola delle frecce;
+         dove è scritto a mano è perché il gesto vero fa un'ansa che il
+         calcolo non indovina — l'uscita a sinistra dopo il battere in due. */
+      const punti = [], ictus = [];
+      ciclo.forEach(v => {
+        if (v.i) { const p = v.p || GESTO_PUNTI[v.i];
+                   ictus.push({ giro: punti.length, dove: v.i, nome: v.n, p: p });
+                   punti.push(p); }
+        else     { punti.push(v.via || null); }
+      });
+      punti.forEach((p, k) => {
+        if (p) return;
+        const a = punti[(k - 1 + punti.length) % punti.length];
+        const b = punti[(k + 1) % punti.length];
+        /* L'offset è la METÀ di quello che si userebbe per un punto di
+           controllo, e la differenza non è un dettaglio: un punto di
+           controllo tira la curva senza starci sopra, quindi la curva
+           rientra circa la metà; un punto di passaggio ci sta sopra e
+           rientra tutto. Riusando lo stesso numero, tre e quattro sono
+           diventati stelle concave. */
+        punti[k] = controlloVerso(a, b, centro, 7);
+      });
+
+      /* ---- LA SPLINE CHIUSA --------------------------------------------
+         Catmull-Rom convertita in cubiche di Bézier: la curva passa per
+         tutti i punti e in ognuno entra ed esce con la stessa pendenza. È
+         questo che toglie gli spigoli — e con gli spigoli l'idea che sulla
+         nota ci si fermi. */
+      const M = punti.length;
+      const seg = [];
+      /* LA TENSIONE, e serve a non fare nodi. Con il valore pieno la curva
+         sbanda oltre i punti prima di rientrare: nello schema in due, dove
+         il rientro sta molto più in alto dell'ansa, la mano sfondava sotto
+         il battere e risaliva chiudendo un occhiello dietro il numero 1.
+         Tirandola, la curva resta liscia ma aderisce ai punti. */
+      const T = 0.6;
+      for (let k = 0; k < M; k++) {
+        const p0 = punti[(k - 1 + M) % M], p1 = punti[k],
+              p2 = punti[(k + 1) % M],     p3 = punti[(k + 2) % M];
+        seg.push({
+          b: [p1,
+              [p1[0] + T * (p2[0] - p0[0]) / 6, p1[1] + T * (p2[1] - p0[1]) / 6],
+              [p2[0] - T * (p3[0] - p1[0]) / 6, p2[1] - T * (p3[1] - p1[1]) / 6],
+              p2]
+        });
+      }
+      const cub = (b, t) => {
         const u = 1 - t;
-        return [u * u * p0[0] + 2 * u * t * c[0] + t * t * p1[0],
-                u * u * p0[1] + 2 * u * t * c[1] + t * t * p1[1]];
+        return [u*u*u*b[0][0] + 3*u*u*t*b[1][0] + 3*u*t*t*b[2][0] + t*t*t*b[3][0],
+                u*u*u*b[0][1] + 3*u*u*t*b[1][1] + 3*u*t*t*b[2][1] + t*t*t*b[3][1]];
       };
-      const tang = (p0, c, p1, t) => {
+      const cubTang = (b, t) => {
         const u = 1 - t;
-        return Math.atan2(2 * u * (c[1] - p0[1]) + 2 * t * (p1[1] - c[1]),
-                          2 * u * (c[0] - p0[0]) + 2 * t * (p1[0] - c[0]));
+        return Math.atan2(
+          3*u*u*(b[1][1]-b[0][1]) + 6*u*t*(b[2][1]-b[1][1]) + 3*t*t*(b[3][1]-b[2][1]),
+          3*u*u*(b[1][0]-b[0][0]) + 6*u*t*(b[2][0]-b[1][0]) + 3*t*t*(b[3][0]-b[2][0]));
       };
+      /* la lunghezza serve a spartire il tempo: dentro una battuta i due
+         pezzi non sono uguali, e dividerla a metà farebbe correre la mano
+         sul pezzo corto e strisciare sul lungo */
+      seg.forEach(s => {
+        let L = 0, pr = cub(s.b, 0);
+        for (let q = 1; q <= 24; q++) {
+          const p = cub(s.b, q / 24);
+          L += Math.hypot(p[0] - pr[0], p[1] - pr[1]); pr = p;
+        }
+        s.L = L;
+      });
 
-      const centro = centroDi(schema);
+      /* ---- LE BATTUTE ---------------------------------------------------
+         Una battuta va da un ictus al successivo, e per costruzione sono
+         sempre due segmenti di spline. La prima è quella che ARRIVA sul
+         battere, e non è un dettaglio: così il primo colpo che si sente è
+         l'accento, e prima di quello la mano ha già un movimento di
+         preparazione — il levare, che nel gesto vero c'è sempre. */
+      this._battute = ictus.map((ic, b) => {
+        const g0 = (ic.giro - 2 + M) % M;
+        const pezzi = [seg[g0], seg[(g0 + 1) % M]];
+        const tot = pezzi[0].L + pezzi[1].L || 1;
+        return { pezzi, frazione: pezzi[0].L / tot, accento: b === 0 };
+      });
+      /* posizione dentro la battuta `b`, con f da 0 (partenza) a 1 (ictus) */
+      const suBattuta = (b, f) => {
+        const B = this._battute[b];
+        return f < B.frazione
+          ? cub(B.pezzi[0].b, f / B.frazione)
+          : cub(B.pezzi[1].b, (f - B.frazione) / (1 - B.frazione));
+      };
+      const tangBattuta = (b, f) => {
+        const B = this._battute[b];
+        return f < B.frazione
+          ? cubTang(B.pezzi[0].b, f / B.frazione)
+          : cubTang(B.pezzi[1].b, (f - B.frazione) / (1 - B.frazione));
+      };
+      this._suBattuta = suBattuta;
 
-      this._archi = [];
-      schema.forEach((mov, i) => {
-        const p0 = GESTO_PUNTI[mov[0]], p1 = GESTO_PUNTI[mov[1]];
-        const c = controlloVerso(p0, p1, centro);
-        this._archi.push([p0, c, p1]);
+      /* ---- IL TRATTO ----------------------------------------------------
+         Un path solo, chiuso: è il giro che la mano fa e rifà. Disegnarlo
+         spezzato in un tratto per movimento raccontava una bugia — che
+         all'ictus il gesto finisca e ne cominci un altro. */
 
-        svg.appendChild(el('path', {
-          d: 'M' + p0[0] + ',' + p0[1] + ' Q' + c[0] + ',' + c[1] + ' ' + p1[0] + ',' + p1[1],
-          fill: 'none', stroke: 'currentColor', 'stroke-width': 2.5,
-          'stroke-linecap': 'round', opacity: .5 }));
+      /* I DISCHI BIANCHI VANNO SOTTO IL TRATTO. Disegnati sopra, coprivano
+         la curva dove le passa vicino e il giro sembrava interrotto: nel due
+         la mano rientra rasente al battere e spariva per un pezzo. Cercare
+         una strada che schivasse i cerchi non è servito — non esiste, se la
+         mano deve andare a sinistra e poi tornare. Ed è giusto che passi
+         sopra: dice che sull'ictus non ci si ferma, ci si passa. */
+      ictus.forEach(ic => {
+        svg.appendChild(el('circle', { cx: ic.p[0], cy: ic.p[1], r: 15,
+          fill: 'var(--carta, #fff)' }));
+      });
 
-        /* LA PUNTA SI DISEGNA A MANO. Con `marker-end` non compariva: la
-           punta è minuscola rispetto al tratto e alcuni motori non la
-           rendono affatto. Senza frecce lo schema perde l'unica cosa che
-           deve dire, cioè da che parte si va. */
-        const q = su(p0, c, p1, 0.55), a = tang(p0, c, p1, 0.55);
+      let d = 'M' + punti[0][0] + ',' + punti[0][1];
+      seg.forEach(s => { d += ' C' + s.b[1][0] + ',' + s.b[1][1] +
+                              ' ' + s.b[2][0] + ',' + s.b[2][1] +
+                              ' ' + s.b[3][0] + ',' + s.b[3][1]; });
+      svg.appendChild(el('path', { d: d + ' Z', fill: 'none', stroke: 'currentColor',
+        'stroke-width': 2.5, 'stroke-linecap': 'round', opacity: .45 }));
+
+      /* ---- LE FRECCE ----------------------------------------------------
+         Una per battuta, sulla curva, girata come la tangente: dice da che
+         parte si va e che lì la mano sta ancora andando. */
+      this._battute.forEach((B, b) => {
+        const q = suBattuta(b, .5), a = tangBattuta(b, .5);
         const L = 9, W = 5.5;
         const pta = (dx, dy) => (q[0] + dx * Math.cos(a) - dy * Math.sin(a)) + ',' +
                                 (q[1] + dx * Math.sin(a) + dy * Math.cos(a));
@@ -2886,12 +3008,10 @@
           points: [pta(L, 0), pta(-L * .55, W), pta(-L * .55, -W)].join(' '),
           fill: 'currentColor', opacity: .75 }));
 
-        /* i pallini della suddivisione, dentro il movimento */
+        /* ---- LA SUDDIVISIONE, dentro la battuta ---------------------- */
         for (let k = 1; k < sudd; k++) {
-          const d = su(p0, c, p1, k / sudd);
-          /* Proiettati, i pallini al 30% sparivano: su uno schermo grande
-             il grigio chiaro non arriva in fondo all'aula. */
-          svg.appendChild(el('circle', { cx: d[0], cy: d[1], r: 3.6,
+          const p = suBattuta(b, k / sudd);
+          svg.appendChild(el('circle', { cx: p[0], cy: p[1], r: 3.6,
             fill: 'currentColor', opacity: .5 }));
 
           /* IL PALLINO HA UN NOME, e il nome è quello che la classe dice a
@@ -2901,64 +3021,61 @@
              sinistra-centro, destra-su».
 
              Dietro i tre elenchi c'è una regola sola: la mano rimbalza
-             SEMPRE verso il punto di riposo. Se il movimento è finito in
-             alto o in basso il rimbalzo è «su»; se è finito di lato, il
-             rimbalzo rientra al «centro». Scritta così vale anche per il
-             6/8 e per quello che verrà, e non è un elenco da ricopiare
-             ogni volta che si aggiunge uno schema. */
+             SEMPRE verso il punto di riposo. Se la battuta finisce in alto o
+             in basso il rimbalzo è «su»; se finisce di lato, rientra al
+             «centro». Scritta così vale anche per il 6/8 e per quello che
+             verrà, e non è un elenco da ricopiare a ogni schema nuovo. */
           if (sudd === 2) {
-            const verticale = mov[1] === 'alto' || mov[1] === 'basso';
-            const et = el('text', { x: d[0], y: d[1] + 15, 'text-anchor': 'middle',
+            const dove = ictus[b].dove;
+            /* L'etichetta va spinta FUORI dal giro, non sempre sotto.
+               Sempre sotto, in basso finiva addosso al nome dell'ictus
+               («centro» sopra «battere») e nel quattro le due parole del
+               centro si accavallavano fra loro. Fuori dal giro lo spazio
+               c'è sempre, perché è dove non passa la mano. */
+            let vx = p[0] - centro[0], vy = p[1] - centro[1];
+            const L2 = Math.hypot(vx, vy) || 1;
+            vx /= L2; vy /= L2;
+            const et = el('text', {
+              x: p[0] + vx * 15, y: p[1] + vy * 15 + 3.5,
+              'text-anchor': vx < -.35 ? 'end' : (vx > .35 ? 'start' : 'middle'),
               'font-size': 10, fill: 'currentColor', opacity: .65, 'font-style': 'italic' });
-            et.textContent = verticale ? 'su' : 'centro';
+            et.textContent = (dove === 'alto' || dove === 'basso') ? 'su' : 'centro';
             svg.appendChild(et);
           }
         }
       });
 
-      /* IL RITORNO NON È UN MOVIMENTO. Quando l'ultimo punto contato non è
-         «alto», la mano deve comunque tornare lì per ripartire: si disegna
-         come una linea tratteggiata, senza numero e senza freccia piena,
-         perché non è un battito e non deve essere letta come tale — è solo
-         il modo in cui la mano si rimette in posizione. Vale per lo schema
-         in due, che ora finisce a destra e non più in alto. */
-      const ultimo = schema[schema.length - 1];
-      if (ultimo && ultimo[1] !== 'alto') {
-        const p0 = GESTO_PUNTI[ultimo[1]], p1 = GESTO_PUNTI.alto;
-        const c = controlloVerso(p0, p1, centro);
-        svg.appendChild(el('path', {
-          d: 'M' + p0[0] + ',' + p0[1] + ' Q' + c[0] + ',' + c[1] + ' ' + p1[0] + ',' + p1[1],
-          fill: 'none', stroke: 'currentColor', 'stroke-width': 1.6,
-          'stroke-linecap': 'round', 'stroke-dasharray': '3 4', opacity: .35 }));
-      }
-
-      /* gli ictus: dove la mano arriva. Il numero del movimento sta nel
-         cerchio, il nome del gesto fuori — sopra se il punto è in alto,
-         sotto se è in basso, di lato se è di lato. */
-      schema.forEach((mov, i) => {
-        const [x, y] = GESTO_PUNTI[mov[1]];
+      /* gli ictus: dove il battito cade. Il cerchio sta SOPRA il tratto e
+         non lo interrompe — la mano ci passa, non ci si ferma. */
+      ictus.forEach((ic, i) => {
+        const [x, y] = ic.p;
+        /* solo il bordo: il disco bianco è già stato messo sotto il tratto */
         svg.appendChild(el('circle', { cx: x, cy: y, r: 15,
-          fill: 'var(--carta, #fff)', stroke: 'currentColor', 'stroke-width': 2.5 }));
+          fill: 'none', stroke: 'currentColor', 'stroke-width': 2.5 }));
         const t = el('text', { x, y: y + 5.5, 'text-anchor': 'middle',
           'font-size': 15, 'font-weight': 700, fill: 'currentColor' });
         t.textContent = String(i + 1);
         svg.appendChild(t);
 
-        let nx = x, ny = y + 31, anc = 'middle';
-        if (mov[1] === 'alto') ny = y - 21;
-        if (mov[1] === 'sinistra') { nx = x - 19; ny = y + 5; anc = 'end'; }
-        if (mov[1] === 'destra') { nx = x + 19; ny = y + 5; anc = 'start'; }
-        const n = el('text', { x: nx, y: ny, 'text-anchor': anc,
+        /* Il nome va dalla parte OPPOSTA al giro, come le etichette della
+           suddivisione. Prima era agganciato al nome del punto — «sotto se è
+           in basso, di lato se è di lato» — e bastava spostare un punto per
+           ritrovarselo addosso alla curva. Così si sistema da sé. */
+        let vx = x - centro[0], vy = y - centro[1];
+        const L2 = Math.hypot(vx, vy) || 1;
+        vx /= L2; vy /= L2;
+        const n = el('text', { x: x + vx * 29, y: y + vy * 29 + 4,
+          'text-anchor': vx < -.35 ? 'end' : (vx > .35 ? 'start' : 'middle'),
           'font-size': 11, fill: 'currentColor', opacity: .7 });
-        n.textContent = mov[2];
+        n.textContent = ic.nome;
         svg.appendChild(n);
       });
 
-      const mano = el('circle', { cx: GESTO_PUNTI.alto[0], cy: GESTO_PUNTI.alto[1],
+      const avvio = suBattuta(0, 0);
+      const mano = el('circle', { cx: avvio[0], cy: avvio[1],
         r: 7, fill: 'var(--ambra, #f59e0b)', opacity: 0, class: 'tac-gesto-mano' });
       svg.appendChild(mano);
       this._mano = mano;
-      this._su = su;
 
       this.appendChild(svg);
 
@@ -2990,29 +3107,38 @@
       this._inCorso = true;
       if (bt) bt.innerHTML = '&#9632; Ferma';
       await Audio.avvia();
-      const archi = this._archi, su = this._su;
+      const battute = this._battute, suBattuta = this._suBattuta;
       const durata = 60 / (this._tempo || 60);
       this._mano.setAttribute('opacity', 1);
       const t0 = performance.now();
-      let ultimo = -1;
+      let ultima = -1;
 
       const passo = () => {
         if (!this._inCorso) return;
         const t = (performance.now() - t0) / 1000;
-        const assoluto = Math.floor(t / durata);
-        const i = assoluto % archi.length;
-        /* Il suono parte una volta sola per movimento, non a ogni fotogramma:
-           si confronta l'indice assoluto (che cresce sempre) con l'ultimo
-           suonato, non l'indice nel ciclo (che torna a 0 ogni giro). */
-        if (assoluto !== ultimo) {
-          ultimo = assoluto;
-          if (Audio.pronto) {
-            const liv = i === 0 ? Audio.LIVELLI.metro : Audio.LIVELLI.puls;
+        const n = Math.floor(t / durata);        // battuta assoluta, cresce sempre
+        const i = n % battute.length;            // quale battuta dello schema
+        const f = (t - n * durata) / durata;     // a che punto siamo dentro
+
+        /* IL COLPO CADE QUANDO LA MANO ARRIVA, NON QUANDO PARTE. È l'ictus:
+           il battito sta dove la mano si ferma. Facendolo suonare all'inizio
+           dell'arco il colpo cadeva in cima, sulla partenza della discesa, e
+           il gesto insegnava il contrario di quello che deve insegnare.
+
+           L'arrivo di una battuta è lo stesso istante della partenza della
+           successiva: quando l'orologio passa a `n`, l'ictus appena toccato
+           è quello della battuta `n-1`. Al primissimo istante non suona
+           niente — la mano sta ancora preparando, ed è giusto così. */
+        if (n !== ultima) {
+          if (ultima >= 0 && Audio.pronto) {
+            const k = ultima % battute.length;
+            const liv = battute[k].accento ? Audio.LIVELLI.metro : Audio.LIVELLI.puls;
             Audio.tick.triggerAttackRelease(liv.altezza, '64n', Tone.now() + 0.02, liv.forza);
           }
+          ultima = n;
         }
-        const [p0, c, p1] = archi[i];
-        const p = su(p0, c, p1, (t - assoluto * durata) / durata);
+
+        const p = suBattuta(i, Math.max(0, Math.min(1, f)));
         this._mano.setAttribute('cx', p[0]);
         this._mano.setAttribute('cy', p[1]);
         this._raf = requestAnimationFrame(passo);

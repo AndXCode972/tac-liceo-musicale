@@ -2693,23 +2693,24 @@
 
      GLI SCHEMI, come Andrea li dirige:
 
-        in due     battere · destra                    (+ ritorno)
-        in tre     battere · destra · levare
+        in due     battere · levare
         in quattro battere · sinistra · destra · levare
+        in tre     battere · destra · levare
 
-     In due la mano NON risale come movimento contato: scende, esce a
-     destra, e la salita che segue serve solo a riprendere il battere.
+     Le parole sono due, **battere** e **levare**, e sono le sole del
+     vocabolario: il primo movimento e l'ultimo. Quelli in mezzo si dicono
+     con la direzione, che è una descrizione e non un termine da imparare.
 
      È UN GIRO CHIUSO, percorso senza fermarsi. I punti numerati sono gli
      **ictus**: dove il battito cade. Non sono estremi di tratti separati —
      la mano ci passa sopra e prosegue, che è come la musica va.
 
-     LA SUDDIVISIONE si disegna come pallini lungo il tratto: due per una
-     suddivisione binaria, tre per una ternaria. Servono a far vedere che
-     la suddivisione **sta dentro il movimento**, non accanto — che è il
-     nodo della lezione 4, dove metro e suddivisione si confondono. Con la
-     suddivisione binaria il pallino porta anche il nome che la classe dice
-     a voce: giù-**su**, destra-**centro**.
+     LA SUDDIVISIONE si disegna come pallini lungo il tratto: uno per la
+     suddivisione binaria, due per la ternaria. Fanno vedere che la
+     suddivisione **sta dentro il movimento**, non accanto — il nodo della
+     lezione 4, dove metro e suddivisione si confondono. I pallini restano
+     senza nome: il disegno dice già tutto, e il vocabolario resta di due
+     parole.
 
      Il 6/8 si dirige in due, non in sei: `metro="6/8"` disegna quindi due
      movimenti con tre pallini ciascuno. È la cosa che alla lezione 6 va
@@ -2797,14 +2798,40 @@
        doveva invertire la marcia, e un'inversione disegnata liscia è per
        forza un occhiello — se ne chiudeva uno dietro il numero 1. Passando
        sotto, la mano prosegue senza mai tornare indietro. */
-    2: [{ i: 'basso',  n: 'battere', p: [112, 112] },
-        { via: [74, 148] },                          // l'ansa verso l'interno
-        { i: 'destra', n: 'destra',  p: [196, 100] },
-        { via: [150, 34] }],                         // il rientro, in alto
-    3: [{ i: 'basso',  n: 'battere' }, { via: null },
+    /* L'OCCHIELLO È IL GESTO, non un difetto del disegno. Andrea, 16
+       agosto: «le linee si possono attraversare, si tende sempre a fare
+       degli occhielli fra un movimento e l'altro. Ad esempio dopo l'uno si
+       fa un cerchio orario e si ritorna verso destra».
+
+       Ci ho perso mezz'ora a combatterlo: avevo scritto una prova che lo
+       bocciava e un cercatore che setacciava le posizioni per evitarlo, e
+       ogni volta che spariva il gesto diventava più povero — alla fine una
+       lente piatta. Era la cosa giusta, presa per un errore.
+
+       Dopo il battere servono DUE passaggi, non uno: la mano scende a
+       sinistra, risale, e riparte verso destra chiudendo il cerchietto. Con
+       un passaggio solo la curva mediava i due movimenti in una diagonale e
+       l'occhiello non si formava. Lo stesso dopo il levare, dove la mano
+       prosegue ancora un poco a destra prima di risalire. */
+    2: [{ i: 'basso',  n: 'battere', p: [120, 148] },
+        { via: [98, 164] },                          // giù e a sinistra
+        { via: [108, 118] },                         // risale OLTRE la discesa
+        { i: 'destra', n: 'levare',  p: [196, 100] },
+        { via: [220, 76] },                          // prosegue a destra
+        /* Rientra sopra il battere, non di lato: scendendo da troppo a
+           destra la discesa arrivava obliqua e il cerchietto dell'uno non
+           si chiudeva più — restava una U aperta. */
+        { via: [138, 44] }],
+    /* Anche qui il battere ha il suo cerchietto, e il verso lo decide DOVE
+       VA il movimento dopo. In tre si esce a destra, quindi il cerchio è
+       orario: giù a sinistra, su, e via a destra. In quattro si esce a
+       sinistra, e allora gira dall'altra parte — giù a destra, su, e via a
+       sinistra. Il secondo passaggio scavalca sempre la discesa: è
+       l'attraversamento che chiude il cerchio invece di lasciare una U. */
+    3: [{ i: 'basso',  n: 'battere' }, { via: [92, 158] }, { via: [108, 120] },
         { i: 'destra', n: 'destra' },  { via: null },
         { i: 'alto',   n: 'levare' },  { via: null }],
-    4: [{ i: 'basso',    n: 'battere' },  { via: null },
+    4: [{ i: 'basso',    n: 'battere' },  { via: [142, 158] }, { via: [136, 120] },
         { i: 'sinistra', n: 'sinistra' }, { via: null },
         { i: 'destra',   n: 'destra' },   { via: null },
         { i: 'alto',     n: 'levare' },   { via: null }]
@@ -2952,25 +2979,30 @@
          battere, e non è un dettaglio: così il primo colpo che si sente è
          l'accento, e prima di quello la mano ha già un movimento di
          preparazione — il levare, che nel gesto vero c'è sempre. */
+      /* Quanti pezzi ci sono in una battuta lo dice il ciclo, non una
+         regola fissa. Bloccato a due, il due restava schiacciato: fra il
+         levare e il battere serve un passaggio per proseguire a destra e un
+         altro per risalire, e con uno solo la curva li mediava in una
+         diagonale, appiattendo il giro in una lente. */
       this._battute = ictus.map((ic, b) => {
-        const g0 = (ic.giro - 2 + M) % M;
-        const pezzi = [seg[g0], seg[(g0 + 1) % M]];
-        const tot = pezzi[0].L + pezzi[1].L || 1;
-        return { pezzi, frazione: pezzi[0].L / tot, accento: b === 0 };
+        const prec = ictus[(b - 1 + ictus.length) % ictus.length];
+        const pezzi = [];
+        for (let k = prec.giro; k !== ic.giro; k = (k + 1) % M) pezzi.push(seg[k]);
+        const tot = pezzi.reduce((a, s) => a + s.L, 0) || 1;
+        return { pezzi, pesi: pezzi.map(s => s.L / tot), accento: b === 0 };
       });
       /* posizione dentro la battuta `b`, con f da 0 (partenza) a 1 (ictus) */
-      const suBattuta = (b, f) => {
+      const dentroBattuta = (b, f) => {
         const B = this._battute[b];
-        return f < B.frazione
-          ? cub(B.pezzi[0].b, f / B.frazione)
-          : cub(B.pezzi[1].b, (f - B.frazione) / (1 - B.frazione));
+        let acc = 0;
+        for (let k = 0; k < B.pezzi.length; k++) {
+          if (f < acc + B.pesi[k] || k === B.pezzi.length - 1)
+            return [B.pezzi[k].b, Math.max(0, Math.min(1, (f - acc) / B.pesi[k]))];
+          acc += B.pesi[k];
+        }
       };
-      const tangBattuta = (b, f) => {
-        const B = this._battute[b];
-        return f < B.frazione
-          ? cubTang(B.pezzi[0].b, f / B.frazione)
-          : cubTang(B.pezzi[1].b, (f - B.frazione) / (1 - B.frazione));
-      };
+      const suBattuta   = (b, f) => { const [bz, t] = dentroBattuta(b, f); return cub(bz, t); };
+      const tangBattuta = (b, f) => { const [bz, t] = dentroBattuta(b, f); return cubTang(bz, t); };
       this._suBattuta = suBattuta;
 
       /* ---- IL TRATTO ----------------------------------------------------
@@ -3014,34 +3046,13 @@
           svg.appendChild(el('circle', { cx: p[0], cy: p[1], r: 3.6,
             fill: 'currentColor', opacity: .5 }));
 
-          /* IL PALLINO HA UN NOME, e il nome è quello che la classe dice a
-             voce mentre la mano ci passa. Andrea, 16 agosto, dettando i tre
-             schemi: «in due giù-su, destra-centro. In tre giù-su,
-             destra-centro, destra-su. In quattro giù-su, sinistra-centro,
-             sinistra-centro, destra-su».
-
-             Dietro i tre elenchi c'è una regola sola: la mano rimbalza
-             SEMPRE verso il punto di riposo. Se la battuta finisce in alto o
-             in basso il rimbalzo è «su»; se finisce di lato, rientra al
-             «centro». Scritta così vale anche per il 6/8 e per quello che
-             verrà, e non è un elenco da ricopiare a ogni schema nuovo. */
-          if (sudd === 2) {
-            const dove = ictus[b].dove;
-            /* L'etichetta va spinta FUORI dal giro, non sempre sotto.
-               Sempre sotto, in basso finiva addosso al nome dell'ictus
-               («centro» sopra «battere») e nel quattro le due parole del
-               centro si accavallavano fra loro. Fuori dal giro lo spazio
-               c'è sempre, perché è dove non passa la mano. */
-            let vx = p[0] - centro[0], vy = p[1] - centro[1];
-            const L2 = Math.hypot(vx, vy) || 1;
-            vx /= L2; vy /= L2;
-            const et = el('text', {
-              x: p[0] + vx * 15, y: p[1] + vy * 15 + 3.5,
-              'text-anchor': vx < -.35 ? 'end' : (vx > .35 ? 'start' : 'middle'),
-              'font-size': 10, fill: 'currentColor', opacity: .65, 'font-style': 'italic' });
-            et.textContent = (dove === 'alto' || dove === 'basso') ? 'su' : 'centro';
-            svg.appendChild(et);
-          }
+          /* I PALLINI NON HANNO NOME, e non è una dimenticanza. Andrea, 16
+             agosto: «non utilizziamo nessuna parola dentro, sono le
+             suddivisioni. Le parole che usiamo sono battere e levare».
+             Le avevo etichettate «su» e «centro»: due termini in più da
+             imparare per dire una cosa che il disegno dice da sé — che la
+             suddivisione sta dentro il movimento. Il vocabolario resta di
+             due parole, e sono quelle degli ictus. */
         }
       });
 

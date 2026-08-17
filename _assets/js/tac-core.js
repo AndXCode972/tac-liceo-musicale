@@ -2871,20 +2871,29 @@
      secondo raccorda piegando verso il centro. */
   function espandi(ciclo) {
     if (ciclo.some(v => v.via !== undefined)) return ciclo;   // scritto a mano
-    /* ANSA, NON OCCHIELLO, e va detto perché non è un ripiego.
-       Andrea, 17 agosto: «non è un occhiello perché non chiude, è soltanto
-       un'ansa verso l'alto» — e poi, quando gliel'ho detto: «il due non può
-       chiudere l'occhiello».
 
-       È geometria, non taratura: un cerchietto che sta dallo stesso lato
-       dove il movimento andrà dopo non può attraversare la propria strada.
-       Per chiudersi dovrebbe scendere sotto la traiettoria d'arrivo, cioè
-       ripartire verso il basso — l'esatto contrario di quello che il gesto
-       fa. L'ho fatto verificare a `cerca-occhiello.js` su tutte le
-       combinazioni di raggio e ampiezza del giro: nessuna chiude.
+    /* DOVE SI CHIUDE E DOVE NO, e questa volta detta giusta.
 
-       Preso atto, l'ansa si fa AMPIA: stretta non si capiva niente, e se
-       non può chiudersi almeno deve leggersi da lontano. */
+       Andrea, 17 agosto: «sul due avevamo stabilito che non cercava di
+       chiudere l'occhiello, ma che invece doveva ammorbidire il transito
+       verso l'alto con un'ansa». Parla del **secondo movimento**, quello
+       laterale, e la distinzione è precisa:
+
+         · sui movimenti LATERALI — il due del tre, il due e il tre del
+           quattro — la mano non gira: fa un'**ansa**, cioè una curva sola
+           che addolcisce il cambio di direzione verso l'alto. Un cerchietto
+           lì dice che la mano torna indietro, e la mano non torna indietro.
+         · sul LEVARE, che rientra verso il battere, la curva può tagliare
+           la strada da cui è venuta, e allora l'occhiello **si chiude**
+           davvero. È il giro che riporta all'uno.
+
+       Il difetto di prima era mettere lo stesso ricciolo dappertutto: tre
+       punti per ogni ictus, calcolati con la stessa formula. Sui laterali
+       veniva un mezzo giro interrotto — «cerca l'occhiello e non lo
+       chiude», che è appunto quello che si vedeva.
+
+       E l'ansa è AMPIA: stretta non si legge da lontano, ed è il primo
+       difetto che avevamo corretto. */
     const R = 18;
     const C = centroDi(ciclo);
     const p = ciclo.map(v => v.p || GESTO_PUNTI[v.i]);
@@ -2897,35 +2906,38 @@
       const L = Math.hypot(dx, dy) || 1;
       dx /= L; dy /= L;
 
-      /* SI GIRA DAL LATO OPPOSTO A DOVE SI ANDRÀ, e da questa regola sola
-         discende tutto il resto — compreso quali anse si chiudono e quali no.
-
-         Andrea, 17 agosto, descrivendo il quattro: «l'uno cambia il verso di
-         giro, non va verso sinistra ma verso destra; due e tre non chiudono
-         l'occhiello, e il quattro invece sì per tornare sull'uno». Sono tre
-         osservazioni diverse e hanno una causa sola.
-
-         Dopo l'uno si va a sinistra, quindi il giro va a destra. Il levare
-         torna giù al battere, quindi il suo giro sta in alto: e lì la curva
-         può tagliare la strada da cui è venuta, cioè l'ansa **si chiude**.
-         Ai movimenti laterali il giro resta dalla parte dove la mano poi
-         non passa, e resta aperto. Non è un'incoerenza del disegno: è la
-         stessa regola che dà esiti diversi a seconda di dove si va dopo. */
+      /* si gira dal lato opposto a dove si andrà */
       let px = -dy, py = dx;
       if (px * (S[0] - I[0]) + py * (S[1] - I[1]) > 0) { px = -px; py = -py; }
 
-      /* La mano non prosegue più oltre l'ictus prima di girare: proseguire
-         voleva dire scendere ancora, ed è esattamente quello che non deve
-         fare. Esce di lato e sale. */
-      const B = [I[0] + px * R * .6 - dx * R * 1.2,
-                 I[1] + py * R * .6 - dy * R * 1.2];
-      fuori.push(v,
-        { via: [I[0] + px * R, I[1] + py * R] },
-        { via: B },
-        { via: controlloVerso(B, S, C, 9) });
+      /* Il levare è l'unico che chiude: da lì la mano rientra sul battere,
+         e il giro attraversa la traiettoria d'arrivo. Si riconosce dal
+         fatto che il movimento seguente è il primo del ciclo. */
+      const chiude = ((k + 1) % p.length) === 0;
+
+      if (chiude) {
+        const B = [I[0] + px * R * .6 - dx * R * 1.2,
+                   I[1] + py * R * .6 - dy * R * 1.2];
+        fuori.push(v,
+          { via: [I[0] + px * R, I[1] + py * R] },
+          { via: B },
+          { via: controlloVerso(B, S, C, 9) });
+      } else {
+        /* L'ANSA: un punto solo, appena oltre l'ictus e spostato di lato.
+           Un punto perché due fanno un giro; appena oltre perché la mano
+           non si ferma sul numero; di lato perché è lo spostamento
+           laterale che rende morbido il cambio di direzione invece di
+           farne uno spigolo. */
+        fuori.push(v,
+          { via: [I[0] + dx * R * .5 + px * R * .85,
+                  I[1] + dy * R * .5 + py * R * .85] },
+          { via: controlloVerso([I[0] + px * R * .5, I[1] + py * R * .5],
+                                S, C, 11) });
+      }
     });
     return fuori;
   }
+
 
   /* Il centro di uno schema è la media dei suoi ictus, non il centro del
      riquadro: in due gli ictus stanno tutti a destra e in basso, e piegare
@@ -2996,11 +3008,17 @@
         if (p) { px.push(p[0]); py.push(p[1]); }
         if (v.via) { px.push(v.via[0]); py.push(v.via[1]); }
       }
-      /* Il margine orizzontale è largo: le etichette laterali — «sinistra»,
-         «destra» — stanno fuori dai punti e sono parole lunghe. Con 52 si
-         leggeva «sinistr» e nessun controllo se ne accorgeva, perché l'SVG
-         resta valido e il testo c'è: si vede solo guardando l'immagine. */
-      const MX = 88, MY = 46;
+      /* Il margine orizzontale è largo perché le etichette laterali —
+         «sinistra», «destra» — stanno fuori dai punti e sono parole
+         lunghe: con 52 si leggeva «sinistr», e nessun controllo se ne
+         accorgeva perché l'SVG resta valido e il testo c'è.
+
+         Quello verticale invece è stretto, ed è una correzione: a 46 la
+         slide del gesto in tre sforava. Il riquadro più alto significa
+         SVG più alto a parità di larghezza, e l'altezza è la cosa che
+         nelle slide scarseggia. Sopra e sotto ci vanno solo un numero e
+         un nome, non una parola lunga. */
+      const MX = 88, MY = 26;
       const x0 = Math.min.apply(null, px) - MX;
       const y0 = Math.min.apply(null, py) - MY;
       const larg = Math.max.apply(null, px) + MX - x0;

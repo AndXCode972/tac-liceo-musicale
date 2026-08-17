@@ -2813,37 +2813,18 @@
        un passaggio solo la curva mediava i due movimenti in una diagonale e
        l'occhiello non si formava. Lo stesso dopo il levare, dove la mano
        prosegue ancora un poco a destra prima di risalire. */
+    /* IL DUE NON HA PIÙ PASSAGGI SCRITTI A MANO. Ne aveva quattro,
+       aggiunti uno alla volta per correggere spigoli e anse che non
+       chiudevano — ed erano proprio loro a fare gli spigoli: punti
+       ravvicinati costringono la curva a girare stretto. Con le tangenti
+       imposte il due torna a essere quello che è, un ovale: la mano
+       scende, rimbalza verso destra, sale al levare e rientra.
+
+       I suoi punti restano suoi: non avendo un ictus in alto ha spazio
+       sopra che gli altri non hanno, e schiacciarlo sui punti comuni gli
+       faceva contendere l'angolo a numero e nome. */
     2: [{ i: 'basso',  n: 'battere', p: [120, 148] },
-        /* IL CERCHIETTO GIRA VERSO L'ALTO. Andrea, 17 agosto: «vedo il due
-           con l'occhiello che parte verso il basso, dovrebbe invece girare
-           verso l'alto». Prima la mano scendeva sotto il battere prima di
-           risalire, per inerzia, e il cerchio si sviluppava tutto sotto: nel
-           gesto vero il rimbalzo va in su, e sotto l'ictus non c'è niente. */
-        /* L'OCCHIELLO CHIUDE, e adesso chiude davvero. Andrea, 17
-           agosto: prima «sul due cerca ancora l'occhiello da chiudere»,
-           poi «può attraversare la linea in discesa — anzi, lo fa e va
-           bene».
-
-           Era lì l'errore mio, e non era di taratura. Mi ero convinto che
-           un cerchietto rivolto in alto non potesse chiudersi, e
-           `cerca-occhiello.js` me lo confermava — ma cercava solo cerchietti
-           che restassero da una parte sola della discesa. La strada c'era e
-           l'avevo esclusa per ipotesi: **passare a sinistra della discesa e
-           poi tagliarla**, rientrando verso destra. Il giro si chiude, e si
-           chiude senza mai scendere sotto il battere, che era il vincolo
-           vero.
-
-           I due passaggi fanno esattamente questo: [98,132] sta a sinistra
-           della discesa, [136,100] a destra. Fra l'uno e l'altro la curva
-           attraversa. */
-        { via: [98, 132] },                          // a sinistra della discesa
-        { via: [136, 100] },                         // e la taglia, rientrando
-        { i: 'destra', n: 'levare',  p: [196, 100] },
-        { via: [220, 76] },                          // prosegue a destra
-        /* Rientra sopra il battere, non di lato: scendendo da troppo a
-           destra la discesa arrivava obliqua e il cerchietto dell'uno non
-           si chiudeva più — restava una U aperta. */
-        { via: [138, 44] }],
+        { i: 'destra', n: 'levare',  p: [196, 100] }],
     /* Tre e quattro non hanno passaggi scritti: li genera `espandi`, che
        dopo OGNI ictus prolunga il movimento e poi raccorda. Scritti a mano
        erano sei e otto punti da azzeccare uno per uno, e il prolungamento
@@ -3002,29 +2983,7 @@
          vuoto da quella parte: il gesto appariva piccolo e spinto in un
          angolo. Qui si prendono i punti effettivi del ciclo e si aggiunge
          il margine che le etichette vogliono. */
-      const px = [], py = [];
-      for (const v of ciclo) {
-        const p = v.p || (v.i ? GESTO_PUNTI[v.i] : v.via);
-        if (p) { px.push(p[0]); py.push(p[1]); }
-        if (v.via) { px.push(v.via[0]); py.push(v.via[1]); }
-      }
-      /* Il margine orizzontale è largo perché le etichette laterali —
-         «sinistra», «destra» — stanno fuori dai punti e sono parole
-         lunghe: con 52 si leggeva «sinistr», e nessun controllo se ne
-         accorgeva perché l'SVG resta valido e il testo c'è.
-
-         Quello verticale invece è stretto, ed è una correzione: a 46 la
-         slide del gesto in tre sforava. Il riquadro più alto significa
-         SVG più alto a parità di larghezza, e l'altezza è la cosa che
-         nelle slide scarseggia. Sopra e sotto ci vanno solo un numero e
-         un nome, non una parola lunga. */
-      const MX = 88, MY = 26;
-      const x0 = Math.min.apply(null, px) - MX;
-      const y0 = Math.min.apply(null, py) - MY;
-      const larg = Math.max.apply(null, px) + MX - x0;
-      const alt = Math.max.apply(null, py) + MY - y0;
-      const svg = el('svg', {
-        viewBox: [x0, y0, larg, alt].join(' '), class: 'tac-gesto-svg',
+      const svg = el('svg', { class: 'tac-gesto-svg',
         role: 'img', 'aria-label': 'Schema del gesto in ' + g.movimenti +
         ' movimenti' + (sudd > 1 ? ', suddivisione in ' + sudd : '') });
       svg.style.maxWidth = '380px';
@@ -3032,56 +2991,131 @@
 
       const centro = centroDi(ciclo);
 
-      /* ---- IL GIRO, punto per punto ------------------------------------
-         Si alternano ictus e passaggi. Dove il passaggio è `null` lo si
-         ricava piegando verso il centro, con la stessa regola delle frecce;
-         dove è scritto a mano è perché il gesto vero fa un'ansa che il
-         calcolo non indovina — l'uscita a sinistra dopo il battere in due. */
-      const punti = [], ictus = [];
+      /* ---- IL GIRO: TANGENTI IMPOSTE, NON PUNTI DI PASSAGGIO --------
+
+         Andrea, 17 agosto: «la freccia per il gesto non è morbida, non si
+         riesce ad avere un movimento e delle curve morbide». Aveva ragione
+         e il difetto era nel metodo, non nei numeri.
+
+         COME ERA. Si mettevano dei punti di passaggio fra un ictus e
+         l'altro — due, tre, calcolati o scritti a mano — e ci si passava
+         una spline sperando che li smussasse. Ma una spline è morbida solo
+         se i punti sono ben distanziati: infilandone due a diciotto pixel
+         l'uno dall'altro, la curva deve girare stretto per starci sopra, e
+         quello che si vede è uno spigolo. Ogni ritocco spostava il
+         problema di un centimetro. Da qui i tre giri di correzioni.
+
+         COME È ADESSO. Niente punti di passaggio: solo gli **ictus**, e per
+         ciascuno una **tangente**, cioè la direzione in cui la mano si sta
+         muovendo nell'istante in cui ci passa. Ogni tratto è una cubica di
+         Bézier che parte da un ictus con la sua tangente e arriva al
+         successivo con la sua. La continuità è garantita per costruzione —
+         entra ed esce con la stessa pendenza — e **uno spigolo non può
+         formarsi**, qualunque numero si scelga.
+
+         LE TANGENTI, e sono la descrizione del gesto vero:
+
+           · sul BATTERE la mano rimbalza: arriva scendendo e riparte di
+             lato, quindi nel punto più basso il moto è **orizzontale**,
+             verso il movimento seguente. È la U del rimbalzo.
+           · sui LATERALI la mano sta già risalendo verso il movimento
+             dopo, quindi il moto è **verticale, verso l'alto**. È qui che
+             nasce l'ansa che ammorbidisce il transito, e nasce da sé: la
+             curva esce in su e poi piega, senza che nessuno disegni un
+             ricciolo.
+           · sul LEVARE la mano è in cima e sta per rientrare, quindi il
+             moto è **orizzontale, verso il battere**. Uscendo dalla parte
+             opposta a dove deve andare, la curva torna indietro su sé
+             stessa: è il cappio che chiude il giro, e anche questo viene
+             dalla tangente, non da punti aggiunti.
+
+         LE MANIGLIE sono lunghe (0,55 della corda): è quello che rende le
+         curve ampie e tonde invece che tese. Accorciarle raddrizza il giro,
+         allungarle lo gonfia. È l'unico numero da toccare se il disegno non
+         piace, ed è un numero solo per tutti gli schemi. */
+      const ictus = [];
       ciclo.forEach(v => {
-        if (v.i) { const p = v.p || GESTO_PUNTI[v.i];
-                   ictus.push({ giro: punti.length, dove: v.i, nome: v.n, p: p });
-                   punti.push(p); }
-        else     { punti.push(v.via || null); }
+        if (v.i) ictus.push({ dove: v.i, nome: v.n, p: v.p || GESTO_PUNTI[v.i] });
       });
-      punti.forEach((p, k) => {
-        if (p) return;
-        const a = punti[(k - 1 + punti.length) % punti.length];
-        const b = punti[(k + 1) % punti.length];
-        /* L'offset è la METÀ di quello che si userebbe per un punto di
-           controllo, e la differenza non è un dettaglio: un punto di
-           controllo tira la curva senza starci sopra, quindi la curva
-           rientra circa la metà; un punto di passaggio ci sta sopra e
-           rientra tutto. Riusando lo stesso numero, tre e quattro sono
-           diventati stelle concave. */
-        punti[k] = controlloVerso(a, b, centro, 7);
+      const N = ictus.length;
+
+      /* LA TANGENTE DI OGNI ICTUS.
+
+         Scelta confrontando cinque regole disegnate una accanto all'altra
+         (`03_Materiali/_repertorio/cerca-tangenti.js`), non a tentativi:
+         provate una per volta ricaricando la pagina sono venti minuti a
+         tentativo e non si confrontano fra loro.
+
+         Quella che teneva il giro più largo — tangenti perpendicolari al
+         raggio, la mano che gira sempre attorno al centro — è stata
+         **scartata** anche se era la più elegante: nel quattro il due e il
+         tre smettevano di collegarsi come devono, e il gesto diventava un
+         ovale qualunque. Il gesto di direzione **si incrocia**, e Andrea
+         l'aveva già detto: «le linee si possono attraversare». Una regola
+         che lo impedisce risolve il disegno e rompe il significato.
+
+         Vince quindi la regola che rispetta le direzioni:
+
+           · BATTERE — orizzontale, verso dove si andrà. È il rimbalzo: la
+             mano arriva scendendo e nel punto più basso va già di lato.
+           · LEVARE — orizzontale, verso il battere. Uscendo dalla parte
+             opposta rientra su sé stessa, ed è il cappio che chiude il giro.
+           · LATERALI — verso il prossimo ictus, ma **piegata in su**: sei
+             parti di direzione e quattro di verticale. È da qui che nasce
+             l'ansa che ammorbidisce il transito verso l'alto, e nasce da
+             sé: nessun ricciolo disegnato a mano. */
+      ictus.forEach((ic, k) => {
+        const S = ictus[(k + 1) % N].p;
+        if (ic.dove === 'basso' || ic.dove === 'alto') {
+          const s = Math.sign(S[0] - ic.p[0]) || (ic.dove === 'alto' ? -1 : 1);
+          ic.t = [s, 0];
+        } else {
+          const dx = S[0] - ic.p[0], dy = S[1] - ic.p[1];
+          const L = Math.hypot(dx, dy) || 1;
+          const vx = dx / L * .6, vy = dy / L * .6 - .4;
+          const M2 = Math.hypot(vx, vy) || 1;
+          ic.t = [vx / M2, vy / M2];
+        }
       });
 
-      /* ---- LA SPLINE CHIUSA --------------------------------------------
-         Catmull-Rom convertita in cubiche di Bézier: la curva passa per
-         tutti i punti e in ognuno entra ed esce con la stessa pendenza. È
-         questo che toglie gli spigoli — e con gli spigoli l'idea che sulla
-         nota ci si fermi. */
-      const M = punti.length;
       const seg = [];
-      /* LA TENSIONE decide quanto la curva è tonda. L'avevo tirata a 0,6
-         per impedire alla mano di sbandare oltre i punti — cioè per non far
-         nascere occhielli, quando ancora li credevo un difetto. Sono invece
-         il gesto: «le linee devono essere più smooth, più circolari e meno
-         spigolose, andando a disegnare dei cerchi che si incrociano per
-         ritornare sui movimenti» (Andrea, 16 agosto). Al valore pieno la
-         curva gira larga e i cerchi si formano da sé. */
-      const T = 1;
-      for (let k = 0; k < M; k++) {
-        const p0 = punti[(k - 1 + M) % M], p1 = punti[k],
-              p2 = punti[(k + 1) % M],     p3 = punti[(k + 2) % M];
-        seg.push({
-          b: [p1,
-              [p1[0] + T * (p2[0] - p0[0]) / 6, p1[1] + T * (p2[1] - p0[1]) / 6],
-              [p2[0] - T * (p3[0] - p1[0]) / 6, p2[1] - T * (p3[1] - p1[1]) / 6],
-              p2]
-        });
+      for (let k = 0; k < N; k++) {
+        const A = ictus[k], B = ictus[(k + 1) % N];
+        const L = Math.hypot(B.p[0] - A.p[0], B.p[1] - A.p[1]) * 0.55;
+        seg.push({ b: [A.p,
+                       [A.p[0] + A.t[0] * L, A.p[1] + A.t[1] * L],
+                       [B.p[0] - B.t[0] * L, B.p[1] - B.t[1] * L],
+                       B.p] });
       }
+      ictus.forEach((ic, k) => { ic.giro = k; });
+
+      /* IL RIQUADRO SI PRENDE DALLA CURVA, non dagli ictus, e va calcolato
+         qui perché prima la curva non esiste. Guardando i soli punti
+         numerati il giro veniva tagliato in basso e di lato: con le
+         maniglie lunghe la curva sbanda ben oltre gli ictus, ed è proprio
+         quello che la rende ampia.
+
+         Il margine orizzontale resta generoso per le etichette laterali —
+         «sinistra», «destra» sono parole lunghe e stanno fuori dai punti —
+         mentre quello verticale è stretto: sopra e sotto ci vanno un
+         numero e un nome, e l'altezza è la cosa che nelle slide scarseggia.
+         A margine verticale largo la slide del gesto in tre sforava. */
+      const px = [], py = [];
+      seg.forEach(s => {
+        const b = s.b;
+        for (let q = 0; q <= 16; q++) {
+          const u = 1 - q / 16, w = q / 16;
+          px.push(u*u*u*b[0][0] + 3*u*u*w*b[1][0] + 3*u*w*w*b[2][0] + w*w*w*b[3][0]);
+          py.push(u*u*u*b[0][1] + 3*u*u*w*b[1][1] + 3*u*w*w*b[2][1] + w*w*w*b[3][1]);
+        }
+      });
+      const MX = 88, MY = 34;   // 26 tagliava «levare» e «battere»
+      const x0 = Math.min.apply(null, px) - MX;
+      const y0 = Math.min.apply(null, py) - MY;
+      svg.setAttribute('viewBox', [x0, y0,
+        Math.max.apply(null, px) + MX - x0,
+        Math.max.apply(null, py) + MY - y0].join(' '));
+
       const cub = (b, t) => {
         const u = 1 - t;
         return [u*u*u*b[0][0] + 3*u*u*t*b[1][0] + 3*u*t*t*b[2][0] + t*t*t*b[3][0],
@@ -3116,12 +3150,13 @@
          levare e il battere serve un passaggio per proseguire a destra e un
          altro per risalire, e con uno solo la curva li mediava in una
          diagonale, appiattendo il giro in una lente. */
+      /* Una battuta è ora UN segmento solo: quello che ARRIVA sull'ictus.
+         Prima erano due o tre, perché fra un ictus e l'altro c'erano dei
+         punti di passaggio; tolti quelli, la corrispondenza è esatta e la
+         mano non può più correre su un pezzo e strisciare sull'altro. */
       this._battute = ictus.map((ic, b) => {
-        const prec = ictus[(b - 1 + ictus.length) % ictus.length];
-        const pezzi = [];
-        for (let k = prec.giro; k !== ic.giro; k = (k + 1) % M) pezzi.push(seg[k]);
-        const tot = pezzi.reduce((a, s) => a + s.L, 0) || 1;
-        return { pezzi, pesi: pezzi.map(s => s.L / tot), accento: b === 0 };
+        const pezzi = [seg[(b - 1 + N) % N]];
+        return { pezzi, pesi: [1], accento: b === 0 };
       });
       /* posizione dentro la battuta `b`, con f da 0 (partenza) a 1 (ictus) */
       const dentroBattuta = (b, f) => {
@@ -3153,7 +3188,7 @@
           fill: 'var(--carta, #fff)' }));
       });
 
-      let d = 'M' + punti[0][0] + ',' + punti[0][1];
+      let d = 'M' + ictus[0].p[0] + ',' + ictus[0].p[1];
       seg.forEach(s => { d += ' C' + s.b[1][0] + ',' + s.b[1][1] +
                               ' ' + s.b[2][0] + ',' + s.b[2][1] +
                               ' ' + s.b[3][0] + ',' + s.b[3][1]; });

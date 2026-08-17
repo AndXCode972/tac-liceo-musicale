@@ -596,7 +596,15 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
 .tac-tendina-testa .quando { font-weight: 600; text-transform: none; letter-spacing: 0; opacity: .7; }
 .tac-tendina-testa.qui { color: var(--viola); }
 .tac-tendina-menu .tac-voce {
-  display: flex; align-items: baseline; gap: .45rem; justify-content: space-between;
+  /* Il titolo sta attaccato al suo numero. Con `space-between` — com'era
+     — una voce che entra su una riga sola veniva spinta all'estremo
+     destro, e restava un vuoto in mezzo: si leggeva «1.» a sinistra e
+     «Dove sta il battito» a dieci centimetri di distanza, mentre le voci
+     lunghe, andando a capo, restavano attaccate. Due allineamenti diversi
+     nello stesso elenco, decisi dalla lunghezza del titolo.
+     Il `space-between` serviva a mandare a destra l'etichetta «sei qui»:
+     quella se la porta da sé, col margine automatico qui sotto. */
+  display: flex; align-items: baseline; gap: .45rem; justify-content: flex-start;
   padding: .42rem .6rem; border-radius: 8px; font-size: .88rem;
   color: var(--inchiostro); text-decoration: none;
 }
@@ -609,6 +617,7 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
 }
 .tac-tendina-menu .tac-voce.vuota { color: var(--inchiostro2); opacity: .55; }
 .tac-tendina-menu .tac-voce .segno {
+  margin-left: auto;   /* si spinge a destra da sé: vedi la voce qui sopra */
   font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em;
   white-space: nowrap; opacity: .8;
 }

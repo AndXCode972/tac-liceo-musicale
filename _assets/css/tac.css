@@ -120,14 +120,23 @@ body.regia #tac-densita.acceso { display: block; }
 .slide.copertina.foto { background-image: var(--foto); background-size: cover; background-position: center; }
 .slide.copertina.foto::before {
   content: ''; position: absolute; inset: 0; z-index: 0;
-  /* La velatura deve restare quasi piena fin dove arriva il testo, altrimenti
-     una citazione in corsivo grigio finisce sopra un giallo acceso e non si
-     legge piu'. Il testo occupa la meta' sinistra: li' si tiene alto, e si
-     apre solo dopo. */
+  /* LA VELATURA È SCRITTA IN DUE POSTI, e per un giorno intero ne abbiamo
+     regolato uno solo.
+     `da_foto.py` cuoce già un'ombra dentro il JPEG, a sinistra, dove va
+     il testo. Questa qui sopra è la seconda, e si somma alla prima. Con
+     i valori di prima — .95 a sinistra e ancora .16 sul bordo destro —
+     una copertina che come file misurava 73 di luminosita' arrivava
+     all'occhio a 35: meta'. Andrea l'ha detto due volte, «le copertine
+     sono ancora scure», e tutte e due le volte era stata schiarita
+     l'immagine invece di questa.
+     Adesso: alta fin dove arriva il testo — la meta' sinistra — e
+     **finita a zero** al 75%, invece di lasciare un velo su tutta la
+     figura. Il titolo bianco regge lo stesso perche' sotto di lui il
+     nero e' all'88%; i due terzi destri tornano quelli dell'immagine. */
   background: linear-gradient(103deg,
-              rgba(8, 6, 24, .95) 0%,  rgba(8, 6, 24, .92) 30%,
-              rgba(8, 6, 24, .84) 46%, rgba(8, 6, 24, .52) 62%,
-              rgba(8, 6, 24, .26) 82%, rgba(8, 6, 24, .16) 100%);
+              rgba(8, 6, 24, .88) 0%,  rgba(8, 6, 24, .80) 28%,
+              rgba(8, 6, 24, .42) 44%, rgba(8, 6, 24, .12) 60%,
+              rgba(8, 6, 24, 0)   75%, rgba(8, 6, 24, 0)   100%);
 }
 .slide.copertina.foto > * { position: relative; z-index: 2; }
 .slide.copertina.attiva { display: flex; align-items: center; }
@@ -610,26 +619,46 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
    classe in cui si sta nasce aperta, le altre si aprono cliccandole. La
    barra è un <button> e non un <div> apposta — si raggiunge col tasto
    di tabulazione e si apre con Invio, che su un elenco di navigazione è
-   la differenza fra usabile e no. */
-.tac-tendina-menu .tac-classe {
-  display: flex; align-items: baseline; gap: .45rem; width: 100%;
-  margin: .3rem 0 .1rem; padding: .5rem .6rem; border: 0; border-radius: 8px;
+   la differenza fra usabile e no.
+
+   IL SELETTORE COMINCIA CON #tac-nav, E NON È PIGNOLERIA. Più su, alla
+   riga 543, c'è `#tac-nav button { width: 38px; height: 38px; display:
+   grid }`: è la regola che fa le frecce quadrate della barra, ed è
+   giusta per quelle. Ma porta un id nel selettore, quindi batte
+   qualunque regola scritta con le sole classi — e la prima versione di
+   questo blocco, scritta `.tac-tendina-menu .tac-classe`, non si
+   applicava affatto. Le cinque barre uscivano come quadratini da 38
+   pixel con dentro tutto il titolo della classe: il testo traboccava e
+   si accavallava con quello sotto.
+
+   È l'errore 9: quando una regola nuova non ha effetto, la prima cosa
+   da cercare non è un refuso nella regola nuova ma una regola vecchia
+   più forte. E le due misure che avevo — «il CSS servito contiene le
+   regole» e «i gruppi si aprono e si chiudono» — erano vere tutte e
+   due, e nessuna diceva niente su come la barra fosse disegnata.
+   L'ho visto guardando la pagina. */
+#tac-nav .tac-tendina-menu .tac-classe {
+  display: flex; align-items: center; gap: .45rem;
+  width: 100%; height: auto;                 /* annulla i 38×38 di sopra */
+  margin: .3rem 0 .1rem; padding: .5rem .6rem;
+  border: 0; border-radius: 8px;
   background: #f6f4fb; color: var(--inchiostro); cursor: pointer;
-  font: inherit; font-size: .8rem; font-weight: 800; text-align: left;
-  letter-spacing: .01em;
+  font-family: var(--sans); font-size: .8rem; font-weight: 800;
+  line-height: 1.25; text-align: left; letter-spacing: .01em;
+  place-items: initial;                      /* annulla il place-items del grid */
 }
-.tac-tendina-menu .tac-classe:hover { background: #efeafb; }
-.tac-tendina-menu .tac-classe.qui { color: var(--viola); background: #f0eaff; }
-.tac-tendina-menu .tac-classe .freccia {
-  display: inline-block; opacity: .55; transition: transform .12s ease;
+#tac-nav .tac-tendina-menu .tac-classe:hover { background: #efeafb; }
+#tac-nav .tac-tendina-menu .tac-classe.qui { color: var(--viola); background: #f0eaff; }
+#tac-nav .tac-tendina-menu .tac-classe .freccia {
+  flex: 0 0 auto; opacity: .55; transition: transform .12s ease;
 }
-.tac-tendina-menu .tac-classe.aperta .freccia { transform: rotate(90deg); }
-.tac-tendina-menu .tac-classe .conto {
+#tac-nav .tac-tendina-menu .tac-classe.aperta .freccia { transform: rotate(90deg); }
+#tac-nav .tac-tendina-menu .tac-classe .conto {
   margin-left: auto; font-weight: 600; font-size: .72rem; opacity: .65;
   text-transform: uppercase; letter-spacing: .03em; white-space: nowrap;
 }
-.tac-tendina-menu .tac-gruppo { display: none; padding-left: .35rem; }
-.tac-tendina-menu .tac-gruppo.aperta { display: block; }
+#tac-nav .tac-tendina-menu .tac-gruppo { display: none; padding-left: .35rem; }
+#tac-nav .tac-tendina-menu .tac-gruppo.aperta { display: block; }
 
 @media (max-width: 780px) { .tac-tendina-menu { width: 17rem; } }
 @media print { #tac-nav .tac-tendina { display: none; } }

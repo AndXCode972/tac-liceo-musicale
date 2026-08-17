@@ -2763,7 +2763,18 @@
     const L  = Math.hypot(d[0], d[1]) || 1;
     const n  = [-d[1] / L, d[0] / L];              // perpendicolare alla corda
     const s  = (centro[0] - M[0]) * n[0] + (centro[1] - M[1]) * n[1];
-    if (Math.abs(s) < 4) return M;                 // centro sulla corda: dritto
+    /* CENTRO SULLA CORDA: si curva lo stesso, e da una parte fissa.
+       Prima l'arco restava dritto, e nello schema in due — dove i due
+       ictus e il centro stanno per forza in fila — andata e ritorno
+       cadevano l'una sopra l'altra: si vedeva una linea sola con due
+       punte, invece di due movimenti. Piegando sempre dallo stesso lato
+       **rispetto al verso di marcia**, l'andata curva di qua e il ritorno
+       di là, e si aprono in una lente: due movimenti, che è quello che
+       sono. */
+    if (Math.abs(s) < 4) {
+      const off0 = Math.min(max || 16, L * 0.22);
+      return [M[0] - n[0] * off0, M[1] - n[1] * off0];
+    }
     const off = Math.max(8, Math.min(max || 16, Math.abs(s) * 0.5));
     const v   = s < 0 ? -off : off;
     return [M[0] + n[0] * v, M[1] + n[1] * v];
@@ -3039,54 +3050,51 @@
       });
       const N = ictus.length;
 
-      /* LA TANGENTE DI OGNI ICTUS.
+      /* ---- UN TRATTO PER MOVIMENTO, NON UN GIRO SOLO ----------------
 
-         Scelta confrontando cinque regole disegnate una accanto all'altra
-         (`03_Materiali/_repertorio/cerca-tangenti.js`), non a tentativi:
-         provate una per volta ricaricando la pagina sono venti minuti a
-         tentativo e non si confrontano fra loro.
+         Andrea, 17 agosto: «il gesto e le frecce sono ancora un problema,
+         adesso è un unico movimento lineare. Come possiamo fare» — e alla
+         scelta fra tre strade ha preso questa: **tratti distinti, curvi ma
+         staccati**.
 
-         Quella che teneva il giro più largo — tangenti perpendicolari al
-         raggio, la mano che gira sempre attorno al centro — è stata
-         **scartata** anche se era la più elegante: nel quattro il due e il
-         tre smettevano di collegarsi come devono, e il gesto diventava un
-         ovale qualunque. Il gesto di direzione **si incrocia**, e Andrea
-         l'aveva già detto: «le linee si possono attraversare». Una regola
-         che lo impedisce risolve il disegno e rompe il significato.
+         DUE ERRORI OPPOSTI, prima di arrivarci. Il primo: punti di
+         passaggio infilati fra gli ictus, che a diciotto pixel l'uno
+         dall'altro obbligano la curva a girare stretto — spigoli. Il
+         secondo, correggendo: tangenti raccordate con continuità
+         garantita, che tolgono gli spigoli e con essi anche i movimenti —
+         un giro unico e indistinto, dove non si conta più quanti sono.
 
-         Vince quindi la regola che rispetta le direzioni:
+         La radice era la stessa: cercavo **una linea sola** che dicesse
+         tutto il gesto. Ma il gesto non è una linea, sono tre movimenti
+         (o due, o quattro), e in classe la prima cosa che si guarda è
+         quanti sono e dove vanno. Separati, si contano a colpo d'occhio.
 
-           · BATTERE — orizzontale, verso dove si andrà. È il rimbalzo: la
-             mano arriva scendendo e nel punto più basso va già di lato.
-           · LEVARE — orizzontale, verso il battere. Uscendo dalla parte
-             opposta rientra su sé stessa, ed è il cappio che chiude il giro.
-           · LATERALI — verso il prossimo ictus, ma **piegata in su**: sei
-             parti di direzione e quattro di verticale. È da qui che nasce
-             l'ansa che ammorbidisce il transito verso l'alto, e nasce da
-             sé: nessun ricciolo disegnato a mano. */
-      ictus.forEach((ic, k) => {
-        const S = ictus[(k + 1) % N].p;
-        if (ic.dove === 'basso' || ic.dove === 'alto') {
-          const s = Math.sign(S[0] - ic.p[0]) || (ic.dove === 'alto' ? -1 : 1);
-          ic.t = [s, 0];
-        } else {
-          const dx = S[0] - ic.p[0], dy = S[1] - ic.p[1];
-          const L = Math.hypot(dx, dy) || 1;
-          const vx = dx / L * .6, vy = dy / L * .6 - .4;
-          const M2 = Math.hypot(vx, vy) || 1;
-          ic.t = [vx / M2, vy / M2];
-        }
-      });
+         COME SONO FATTI. Ogni movimento è un arco che va da un ictus al
+         successivo, **curvo verso il centro** — la regola delle frecce di
+         Andrea, 16 agosto: «le frecce di movimento vanno sempre verso
+         l'interno, non verso l'esterno» — e **accorciato alle due punte**,
+         così fra un movimento e l'altro resta uno stacco visibile e la
+         freccia ha spazio per stare senza toccare il numero.
 
+         Che il giro sia continuo lo dice l'animazione, che sul percorso
+         intero non ha stacchi: la linea serve a contare i movimenti, il
+         pallino a mostrare che non ci si ferma. */
+      const centroG = centroDi(ciclo);
       const seg = [];
       for (let k = 0; k < N; k++) {
-        const A = ictus[k], B = ictus[(k + 1) % N];
-        const L = Math.hypot(B.p[0] - A.p[0], B.p[1] - A.p[1]) * 0.55;
-        seg.push({ b: [A.p,
-                       [A.p[0] + A.t[0] * L, A.p[1] + A.t[1] * L],
-                       [B.p[0] - B.t[0] * L, B.p[1] - B.t[1] * L],
-                       B.p] });
+        const A = ictus[k].p, B = ictus[(k + 1) % N].p;
+        /* quadratica: un solo punto di controllo, piegato verso il centro.
+           La quadratica basta e avanza per un arco singolo, e ha il
+           vantaggio di non poter fare flessi. */
+        const Q = controlloVerso(A, B, centroG, 26);
+        /* la si scrive come cubica, così il resto del codice — animazione,
+           frecce, lunghezze — non deve sapere che tipo di curva è */
+        seg.push({ b: [A,
+                       [A[0] + 2 / 3 * (Q[0] - A[0]), A[1] + 2 / 3 * (Q[1] - A[1])],
+                       [B[0] + 2 / 3 * (Q[0] - B[0]), B[1] + 2 / 3 * (Q[1] - B[1])],
+                       B] });
       }
+
       ictus.forEach((ic, k) => { ic.giro = k; });
 
       /* IL RIQUADRO SI PRENDE DALLA CURVA, non dagli ictus, e va calcolato
@@ -3188,22 +3196,46 @@
           fill: 'var(--carta, #fff)' }));
       });
 
-      let d = 'M' + ictus[0].p[0] + ',' + ictus[0].p[1];
-      seg.forEach(s => { d += ' C' + s.b[1][0] + ',' + s.b[1][1] +
-                              ' ' + s.b[2][0] + ',' + s.b[2][1] +
-                              ' ' + s.b[3][0] + ',' + s.b[3][1]; });
-      svg.appendChild(el('path', { d: d + ' Z', fill: 'none', stroke: 'currentColor',
-        'stroke-width': 2.5, 'stroke-linecap': 'round', opacity: .45 }));
+      /* OGNI MOVIMENTO È UN TRATTO SUO, e fra uno e l'altro c'è aria.
+         Il tratto si disegna dal 12% all'82% dell'arco: davanti lascia
+         libero il numero da cui parte, dietro lascia il posto alla freccia
+         e lo stacco prima del numero d'arrivo. Le due percentuali sono
+         l'unica cosa da toccare se lo stacco sembra troppo o troppo poco. */
+      const DA = 0.12, A_ = 0.82;
+      const taglia = (b, t0, t1) => {
+        /* de Casteljau due volte: la sottocurva di una cubica è una cubica,
+           quindi il tratto accorciato resta esattamente la stessa curva —
+           non un'approssimazione che si vedrebbe come una piega. */
+        const spez = (p, t) => {
+          const l = (a, b) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+          const p01 = l(p[0], p[1]), p12 = l(p[1], p[2]), p23 = l(p[2], p[3]);
+          const p012 = l(p01, p12), p123 = l(p12, p23), q = l(p012, p123);
+          return { sx: [p[0], p01, p012, q], dx: [q, p123, p23, p[3]] };
+        };
+        const primo = spez(b, t1).sx;
+        return spez(primo, t0 / t1).dx;
+      };
+      seg.forEach(s => {
+        const c = taglia(s.b, DA, A_);
+        svg.appendChild(el('path', {
+          d: 'M' + c[0][0] + ',' + c[0][1] +
+             ' C' + c[1][0] + ',' + c[1][1] + ' ' + c[2][0] + ',' + c[2][1] +
+             ' ' + c[3][0] + ',' + c[3][1],
+          fill: 'none', stroke: 'currentColor', 'stroke-width': 2.5,
+          'stroke-linecap': 'round', opacity: .45 }));
+      });
 
       /* ---- LE FRECCE ----------------------------------------------------
          Una per battuta, sulla curva, girata come la tangente: dice da che
          parte si va e che lì la mano sta ancora andando. */
       this._battute.forEach((B, b) => {
-        /* La freccia sta a tre quarti di battuta, non a metà: a metà la mano
-           è ancora dentro il prolungamento del battito precedente e sta
-           girando, così la punta indicava di traverso o addirittura
-           all'indietro. A tre quarti punta già dove sta andando. */
-        const q = suBattuta(b, .75), a = tangBattuta(b, .75);
+        /* LA FRECCIA STA IN PUNTA AL TRATTO, dove il tratto finisce e
+           comincia lo stacco: è il posto in cui dice davvero «si va di
+           qui», subito prima del numero d'arrivo. Stava a tre quarti
+           quando il percorso era un giro unico e la punta cadeva in mezzo
+           al nulla; adesso che i movimenti sono separati, la punta è la
+           fine del movimento. */
+        const q = suBattuta(b, A_), a = tangBattuta(b, A_);
         const L = 9, W = 5.5;
         const pta = (dx, dy) => (q[0] + dx * Math.cos(a) - dy * Math.sin(a)) + ',' +
                                 (q[1] + dx * Math.sin(a) + dy * Math.cos(a));

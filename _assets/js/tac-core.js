@@ -2960,12 +2960,14 @@
          nota ci si fermi. */
       const M = punti.length;
       const seg = [];
-      /* LA TENSIONE, e serve a non fare nodi. Con il valore pieno la curva
-         sbanda oltre i punti prima di rientrare: nello schema in due, dove
-         il rientro sta molto più in alto dell'ansa, la mano sfondava sotto
-         il battere e risaliva chiudendo un occhiello dietro il numero 1.
-         Tirandola, la curva resta liscia ma aderisce ai punti. */
-      const T = 0.6;
+      /* LA TENSIONE decide quanto la curva è tonda. L'avevo tirata a 0,6
+         per impedire alla mano di sbandare oltre i punti — cioè per non far
+         nascere occhielli, quando ancora li credevo un difetto. Sono invece
+         il gesto: «le linee devono essere più smooth, più circolari e meno
+         spigolose, andando a disegnare dei cerchi che si incrociano per
+         ritornare sui movimenti» (Andrea, 16 agosto). Al valore pieno la
+         curva gira larga e i cerchi si formano da sé. */
+      const T = 1;
       for (let k = 0; k < M; k++) {
         const p0 = punti[(k - 1 + M) % M], p1 = punti[k],
               p2 = punti[(k + 1) % M],     p3 = punti[(k + 2) % M];
@@ -3058,7 +3060,11 @@
          Una per battuta, sulla curva, girata come la tangente: dice da che
          parte si va e che lì la mano sta ancora andando. */
       this._battute.forEach((B, b) => {
-        const q = suBattuta(b, .5), a = tangBattuta(b, .5);
+        /* La freccia sta a tre quarti di battuta, non a metà: a metà la mano
+           è ancora dentro il prolungamento del battito precedente e sta
+           girando, così la punta indicava di traverso o addirittura
+           all'indietro. A tre quarti punta già dove sta andando. */
+        const q = suBattuta(b, .75), a = tangBattuta(b, .75);
         const L = 9, W = 5.5;
         const pta = (dx, dy) => (q[0] + dx * Math.cos(a) - dy * Math.sin(a)) + ',' +
                                 (q[1] + dx * Math.sin(a) + dy * Math.cos(a));
@@ -3147,34 +3153,45 @@
       const battute = this._battute, suBattuta = this._suBattuta;
       const durata = 60 / (this._tempo || 60);
       this._mano.setAttribute('opacity', 1);
-      const t0 = performance.now();
-      let ultima = -1;
+
+      /* UN OROLOGIO SOLO PER LA MANO E PER IL COLPO. Andrea, 16 agosto: «il
+         battito acustico deve corrispondere con il numero».
+
+         Prima ce n'erano due. La mano andava sull'orologio di sistema, il
+         suono su quello della scheda audio, e i due scivolano: basta un
+         fotogramma perso perché il colpo arrivi quando la mano ha già
+         passato il numero. Peggio, il colpo era chiesto per «adesso più due
+         centesimi» nel momento in cui il codice si accorgeva del passaggio —
+         cioè sempre un po' in ritardo, di quanto era lungo il fotogramma.
+
+         Adesso il tempo lo dà l'audio anche alla mano, e i colpi si
+         prenotano in anticipo all'istante esatto in cui cadono, invece di
+         essere sparati quando ce ne si accorge. Il numero e il suono cadono
+         insieme perché sono la stessa cosa contata una volta sola. */
+      const oraAudio = () => (Audio.pronto && window.Tone)
+        ? Tone.now() : performance.now() / 1000;
+      const t0 = oraAudio();
+      let prenotato = 1;      // il colpo `k` cade a t0 + k*durata
 
       const passo = () => {
         if (!this._inCorso) return;
-        const t = (performance.now() - t0) / 1000;
-        const n = Math.floor(t / durata);        // battuta assoluta, cresce sempre
-        const i = n % battute.length;            // quale battuta dello schema
-        const f = (t - n * durata) / durata;     // a che punto siamo dentro
+        const t = oraAudio() - t0;
 
-        /* IL COLPO CADE QUANDO LA MANO ARRIVA, NON QUANDO PARTE. È l'ictus:
-           il battito sta dove la mano si ferma. Facendolo suonare all'inizio
-           dell'arco il colpo cadeva in cima, sulla partenza della discesa, e
-           il gesto insegnava il contrario di quello che deve insegnare.
-
-           L'arrivo di una battuta è lo stesso istante della partenza della
-           successiva: quando l'orologio passa a `n`, l'ictus appena toccato
-           è quello della battuta `n-1`. Al primissimo istante non suona
-           niente — la mano sta ancora preparando, ed è giusto così. */
-        if (n !== ultima) {
-          if (ultima >= 0 && Audio.pronto) {
-            const k = ultima % battute.length;
+        /* si prenotano i colpi che cadono entro un quarto di secondo: in
+           anticipo, e all'istante giusto al centesimo */
+        if (Audio.pronto) {
+          while (prenotato * durata - t < 0.25) {
+            const k = (prenotato - 1) % battute.length;
             const liv = battute[k].accento ? Audio.LIVELLI.metro : Audio.LIVELLI.puls;
-            Audio.tick.triggerAttackRelease(liv.altezza, '64n', Tone.now() + 0.02, liv.forza);
+            Audio.tick.triggerAttackRelease(liv.altezza, '64n',
+                                            t0 + prenotato * durata, liv.forza);
+            prenotato++;
           }
-          ultima = n;
         }
 
+        const n = Math.floor(t / durata);        // battuta assoluta, cresce sempre
+        const i = ((n % battute.length) + battute.length) % battute.length;
+        const f = (t - n * durata) / durata;     // a che punto siamo dentro
         const p = suBattuta(i, Math.max(0, Math.min(1, f)));
         this._mano.setAttribute('cx', p[0]);
         this._mano.setAttribute('cy', p[1]);

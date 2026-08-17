@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solfeggio &mdash; il fascicolo dell'anno | TAC Classe 1&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=14733f0d">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=d95f60fb">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script src="../../_assets/js/tac-core.js?v=c8948728" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+
+  .parte.solfeggio { margin: 2.2rem 0 0; }
+  .parte.solfeggio > h2 { border-bottom: 2px solid var(--bordo); padding-bottom: .35rem; }
+  .parte.solfeggio .conta { float: right; font-size: .8rem; font-weight: 400;
+                            color: var(--inchiostro2); }
+  .parte.solfeggio .spiega { color: var(--inchiostro2); margin: .4rem 0 1.2rem; }
+  .parte.vuota .attesa { font-style: italic; color: var(--inchiostro2);
+                         border-left: 3px solid var(--bordo); padding-left: .8rem; }
+
+  /* UN SOLFEGGIO NON SI SPEZZA FRA DUE PAGINE. Un rigo tagliato a metà dalla
+     piegatura non si legge: si perde proprio la battuta a cavallo, che è
+     quella dove si sbaglia. */
+  .solf { break-inside: avoid; page-break-inside: avoid;
+          margin: 0 0 1.6rem; padding-bottom: 1.2rem;
+          border-bottom: 1px solid var(--bordo); }
+  .solf:last-child { border-bottom: 0; }
+  .solf .testa { display: flex; gap: .9rem; align-items: baseline; }
+  .solf h3 { margin: 0; font-size: 1.05rem; }
+  .solf .quando { font-size: .78rem; color: var(--inchiostro2); }
+  /* Il numero è grande perché è l'indirizzo del pezzo: è la parola con cui
+     si dice alla classe quale si fa. */
+  .solf .numero { font-size: 1.5rem; font-weight: 800; color: var(--viola, #5b4bc4);
+                  min-width: 1.6rem; text-align: right; }
+  .solf .consegna { margin: .5rem 0 .7rem; }
+
+  @media print {
+    .barra-alto, .barra-sito { display: none; }
+    .parte.solfeggio { break-before: page; page-break-before: always; }
+    .parte.solfeggio:first-of-type { break-before: auto; page-break-before: auto; }
+    .parte.vuota { display: none; }   /* stampare «comincia più avanti» è carta buttata */
+  }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 1&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a class="attiva" href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a>
+      <a href="workbook-uda-01.html">Workbook · unità 1</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Solfeggio</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">Il fascicolo dell&rsquo;anno &mdash; 5 pezzi, in ordine di programma</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale &mdash; Classe 1&ordf;
+    </div>
+  </div>
+
+  <p class="didascalia" style="text-align:left; margin:1.2rem 0 0">
+    Si stampa una volta e resta sul leggio. I pezzi sono numerati di seguito
+    dentro ciascuna specie: il numero è il modo di dire quale si fa.
+  </p>
+
+  <section class="parte solfeggio">
+    <h2>Solfeggio ritmico <span class="conta">5 pezzi</span></h2>
+    <p class="spiega">Si batte la pulsazione e si dice il ritmo su una sillaba sola. Nessuna altezza: qui si misura solo se il tempo sta fermo.</p>
+    <article class="solf">
+      <div class="testa">
+        <span class="numero">1</span>
+        <div>
+          <h3>Tre gruppi, tre livelli</h3>
+          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;1</span>
+        </div>
+      </div>
+      <p class="consegna">La classe si divide in tre. Il primo batte il metro, il secondo la pulsazione, il terzo la suddivisione. Poi si cambia velocità e si ricomincia: chi cambia il proprio battito e chi no?</p>
+    </article>
+    <article class="solf">
+      <div class="testa">
+        <span class="numero">2</span>
+        <div>
+          <h3>Mani e piedi, quattro e quattro</h3>
+          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;1</span>
+        </div>
+      </div>
+      <p class="consegna">In piedi, tutti insieme. Si scandisce la pulsazione battendo quattro volte le mani, poi quattro volte i piedi, poi ancora le mani, senza che il battito cambi velocità nel passaggio. Chi accelera lo sente da solo: il gruppo va avanti e lui resta indietro.</p>
+    </article>
+    <article class="solf">
+      <div class="testa">
+        <span class="numero">3</span>
+        <div>
+          <h3>Due mani, due livelli</h3>
+          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;1</span>
+        </div>
+      </div>
+      <p class="consegna">Seduti. La mano destra batte la pulsazione, la sinistra batte una volta sola ogni due battiti della destra: la destra tiene il passo, la sinistra conta le misure. Poi si scambia, sinistra la pulsazione e destra la misura. La seconda volta è molto più difficile della prima, ed è quello il punto.</p>
+    </article>
+    <article class="solf">
+      <div class="testa">
+        <span class="numero">4</span>
+        <div>
+          <h3>Quattro battute, a due gruppi</h3>
+          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;3</span>
+        </div>
+      </div>
+      <p class="consegna">A coppie. Uno tiene la pulsazione con la mano e <strong>non fa altro</strong>; l'altro legge a voce il ritmo sulla slide, su una sillaba sola. Poi ci si scambia. Chi tiene la pulsazione dice alla fine <strong>una cosa sola</strong>: se il compagno è rimasto attaccato al battito o se ha accelerato, e dove.</p>
+    </article>
+    <article class="solf">
+      <div class="testa">
+        <span class="numero">5</span>
+        <div>
+          <h3>Cinque minuti al giorno, e scrivilo</h3>
+          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;3</span>
+        </div>
+      </div>
+      <p class="consegna">Per cinque giorni, cinque minuti al giorno: batti la pulsazione con la mano e conta ad alta voce, <strong>due giorni in due e tre giorni in tre</strong>. Sul quaderno tieni una riga per giorno: che giorno era, in due o in tre, e <strong>quante battute</strong> sei riuscito a fare prima di perderti.</p>
+    </article>
+  </section>
+
+  <section class="parte solfeggio vuota">
+    <h2>Solfeggio parlato</h2>
+    <p class="spiega">Si dicono i <strong>nomi</strong> delle note a tempo, senza intonarle. Leggere e intonare sono due difficoltà diverse, e questa le separa.</p>
+    <p class="attesa">Comincia più avanti nell&rsquo;anno.</p>
+  </section>
+
+  <section class="parte solfeggio vuota">
+    <h2>Solfeggio cantato</h2>
+    <p class="spiega">Si intona. È l&rsquo;ultimo perché chiede le due cose insieme: la nota giusta al momento giusto.</p>
+    <p class="attesa">Comincia più avanti nell&rsquo;anno.</p>
+  </section>
+
+
+</div>
+</body>
+</html>

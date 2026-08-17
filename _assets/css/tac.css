@@ -604,6 +604,33 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
   white-space: nowrap; opacity: .8;
 }
 .tac-tendina-menu .tac-voce.materiale { font-style: italic; }
+
+/* LE CINQUE CLASSI, ciascuna una barra che si apre.
+   Con cinquantacinque unità di fila l'elenco non si leggeva più: la
+   classe in cui si sta nasce aperta, le altre si aprono cliccandole. La
+   barra è un <button> e non un <div> apposta — si raggiunge col tasto
+   di tabulazione e si apre con Invio, che su un elenco di navigazione è
+   la differenza fra usabile e no. */
+.tac-tendina-menu .tac-classe {
+  display: flex; align-items: baseline; gap: .45rem; width: 100%;
+  margin: .3rem 0 .1rem; padding: .5rem .6rem; border: 0; border-radius: 8px;
+  background: #f6f4fb; color: var(--inchiostro); cursor: pointer;
+  font: inherit; font-size: .8rem; font-weight: 800; text-align: left;
+  letter-spacing: .01em;
+}
+.tac-tendina-menu .tac-classe:hover { background: #efeafb; }
+.tac-tendina-menu .tac-classe.qui { color: var(--viola); background: #f0eaff; }
+.tac-tendina-menu .tac-classe .freccia {
+  display: inline-block; opacity: .55; transition: transform .12s ease;
+}
+.tac-tendina-menu .tac-classe.aperta .freccia { transform: rotate(90deg); }
+.tac-tendina-menu .tac-classe .conto {
+  margin-left: auto; font-weight: 600; font-size: .72rem; opacity: .65;
+  text-transform: uppercase; letter-spacing: .03em; white-space: nowrap;
+}
+.tac-tendina-menu .tac-gruppo { display: none; padding-left: .35rem; }
+.tac-tendina-menu .tac-gruppo.aperta { display: block; }
+
 @media (max-width: 780px) { .tac-tendina-menu { width: 17rem; } }
 @media print { #tac-nav .tac-tendina { display: none; } }
 

@@ -4461,7 +4461,33 @@
        Le lezioni non ancora scritte **restano nell'elenco**, in grigio e
        non cliccabili. Toglierle farebbe credere che il corso sia più corto
        di quello che è, e in prima lezione la classe ha diritto di vedere
-       dove si sta andando. */
+       dove si sta andando.
+
+       ── LE CINQUE CLASSI, 17 agosto ────────────────────────────────
+       Questo codice era stato scritto quando l'indice conteneva una
+       classe sola, e quando gliene sono arrivate cinque ha continuato a
+       girare senza protestare, producendo due difetti insieme.
+
+       Il primo si vedeva: cinquantacinque intestazioni «Unità N · titolo»
+       di fila, senza mai dire di quale classe fossero. Undici «Unità 1»
+       diverse, e nessun modo di capire quale.
+
+       Il secondo no, ed era peggio. La via si calcolava così:
+
+           (u.n === qui.unita) ? l.file : '../' + u.via + '/' + l.file
+
+       cioè confrontando **solo il numero d'unità**, come se la classe non
+       esistesse. Dalla lezione 3 della seconda, la voce «Unità 1 · Il
+       battito della musica, lezione 1» — che è della *prima* — dava
+       `lezione-1.html`, cioè la lezione 1 della **seconda**. Il
+       collegamento funzionava, la pagina si apriva, e portava altrove.
+       Un link rotto lo trova `_collegamenti.py`; un link che funziona e
+       va nel posto sbagliato non lo trova niente, perché il file di
+       destinazione esiste davvero.
+
+       Adesso ogni classe è una barra che si apre e si chiude: quella in
+       cui si è nasce aperta, le altre chiuse. Andrea, 17 agosto: «per
+       andare alle lezioni della quinta devo scorrere fino in fondo». */
     costruisciTendina(nav) {
       const cont = nav.querySelector('#tac-vai');
       const menu = cont && cont.querySelector('.tac-tendina-menu');
@@ -4473,10 +4499,46 @@
       catch (e) { cont.remove(); return; }
 
       const qui = ind.qui || {};
+
+      /* Il percorso da QUI a una pagina di un'altra unità o classe.
+
+         La pagina aperta sta in `classe-X/<unità corrente>/lezione-N.html`,
+         quindi due cartelle sotto la radice del sito, e da lì:
+
+           stessa classe, stessa unità  →  nome
+           stessa classe, altra unità   →  ../<via unità>/nome
+           altra classe                 →  ../../<via classe>/<via unità>/nome
+
+         Prima questa scelta guardava solo il numero d'unità. Il numero
+         d'unità da solo non identifica niente: di «unità 1» ce ne sono
+         cinque, una per classe. */
+      const via = (cl, sotto, nome) => {
+        const stessaClasse = cl.n === qui.classe;
+        if (stessaClasse && sotto === null) return nome;   // stessa cartella
+        if (stessaClasse) return '../' + sotto + '/' + nome;
+        return '../../' + (cl.via || ('classe-' + cl.n)) + '/' + sotto + '/' + nome;
+      };
+
       let html = '';
       (ind.classi || []).forEach(cl => {
+        const suClasse = cl.n === qui.classe;
+        const pronte = (cl.unita || []).reduce(
+          (n, u) => n + (u.lezioni || []).filter(l => l.stato === 'pronta').length, 0);
+
+        html += '<button type="button" class="tac-classe' +
+                (suClasse ? ' qui aperta' : '') + '" data-classe="' + cl.n + '">' +
+                '<span class="freccia">&#9656;</span>' +
+                'Classe ' + cl.n + '&ordf; &middot; ' + cl.titolo +
+                '<span class="conto">' +
+                (pronte ? pronte + (pronte === 1 ? ' lezione' : ' lezioni') : 'in preparazione') +
+                '</span></button>';
+
+        html += '<div class="tac-gruppo' + (suClasse ? ' aperta' : '') +
+                '" data-gruppo="' + cl.n + '">';
+
         (cl.unita || []).forEach(u => {
-          const suUnita = u.n === qui.unita;
+          const viaU = u.via || ('uda-' + String(u.n).padStart(2, '0'));
+          const suUnita = suClasse && u.n === qui.unita;
           const lez = u.lezioni || [];
           html += '<div class="tac-tendina-testa' + (suUnita ? ' qui' : '') + '">' +
                   'Unità ' + u.n + ' · ' + u.titolo +
@@ -4490,14 +4552,12 @@
           lez.forEach(l => {
             const corrente = suUnita && l.n === qui.lezione;
             const pronta = l.stato === 'pronta';
-            /* la via è relativa alla lezione aperta: dalla cartella di
-               un'unità si sale di uno e si scende nell'altra */
-            const via = (u.n === qui.unita) ? l.file : '../' + u.via + '/' + l.file;
+            const dove = via(cl, suUnita ? null : viaU, l.file);
             if (corrente)
               html += '<div class="tac-voce corrente" aria-current="page">' +
                       '<b>' + l.n + '.</b> ' + l.titolo + '<span class="segno">sei qui</span></div>';
             else if (pronta)
-              html += '<a class="tac-voce" href="' + via + '">' +
+              html += '<a class="tac-voce" href="' + dove + '">' +
                       '<b>' + l.n + '.</b> ' + l.titolo + '</a>';
             else
               html += '<div class="tac-voce vuota"><b>' + l.n + '.</b> ' + l.titolo +
@@ -4505,12 +4565,31 @@
           });
           (u.materiali || []).forEach(m => {
             if (m.stato !== 'pronta') return;
-            html += '<a class="tac-voce materiale" href="' + m.file + '">' +
-                    m.titolo + '</a>';
+            /* i materiali sono dichiarati come `../materiali/nome.html`,
+               relativi alla cartella di un'unità: si prende il nome nudo
+               e si ricostruisce, o da un'altra classe punterebbero alla
+               cartella `materiali` sbagliata */
+            const nome = String(m.file).split('/').pop();
+            html += '<a class="tac-voce materiale" href="' +
+                    via(cl, 'materiali', nome) + '">' + m.titolo + '</a>';
           });
         });
+        html += '</div>';
       });
       menu.innerHTML = html;
+
+      /* le barre delle classi si aprono e si chiudono, e non chiudono la
+         tendina: cliccarle è navigare dentro l'elenco, non uscirne */
+      menu.querySelectorAll('.tac-classe').forEach(b => {
+        b.addEventListener('click', ev => {
+          ev.stopPropagation();
+          const g = menu.querySelector('.tac-gruppo[data-gruppo="' +
+                                       b.dataset.classe + '"]');
+          const apri = !b.classList.contains('aperta');
+          b.classList.toggle('aperta', apri);
+          if (g) g.classList.toggle('aperta', apri);
+        });
+      });
 
       const bottone = nav.querySelector('#tac-btn-vai');
       const chiudi = () => cont.classList.remove('aperto');

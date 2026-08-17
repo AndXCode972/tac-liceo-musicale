@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 1. Che cos&rsquo;è una voce, e perché se ne sentono due | Due voci</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=42821cef">
+<script>
+/* Alcuni contenitori (Electron, visualizzatori integrati nelle app desktop)
+   definiscono module ed exports anche nella pagina. Le librerie UMD in quel
+   caso si registrano lì invece che su window, e restano invisibili: Tone
+   risulterebbe "non caricato" pur essendo presente e integro. Li si nasconde
+   per la durata del caricamento e li si rimette subito dopo. */
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=7ea68a9a" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 1 · Che cos'è una voce, e perché se ne sentono due
+     Unità 1, ora 1 di 6 · classe 2ª · PRIMA ORA DELL'ANNO
+
+     PAROLE CHIAVE PER LA BIBLIOTECA — si rifà la ricerca a ogni infornata:
+        moto contrario · indipendenza delle parti · condotta delle parti
+        bicinium · contrappunto a due voci
+     Ultima interrogazione: 17 agosto 2026, su 274 testi.
+
+     LA CITAZIONE. Il passo giusto sta nell'«Armonia» di Piston, p. 587:
+     due note vicine «vengono avvertite come una sola parte e non come due
+     voci indipendenti» — dice esattamente il tema dell'ora. Ma il testo
+     che ne abbiamo in biblioteca viene da riconoscimento ottico su 564
+     pagine, e la regola del progetto è che una citazione non riletta
+     sull'originale non entra in una lezione. Qui è **parafrasato nel
+     corpo della lezione** (slide «Il timbro non basta») e attribuito, e in
+     copertina sta invece una frase di Fux, che è quella che dice perché si
+     comincia da due voci.
+
+     PERCHÉ SI COMINCIA COSÌ, e non dalla prima specie. Il piano dà a
+     quest'unità sei ore prima che si scriva una sola nota di
+     contrappunto, e la ragione è nel piano stesso: «il contrappunto è
+     fondamentale partire dalla seconda per comprendere le relazioni fra
+     le voci» (Andrea, 15 agosto). Prima di scrivere due voci bisogna
+     **sentirle come due**, altrimenti le regole della prima specie
+     arrivano come divieti da imparare a memoria invece che come la
+     descrizione di una cosa che si è ascoltata.
+
+     LE TRE PROVE SONO IL CUORE DELL'ORA. La domanda «perché se ne sentono
+     due?» non riceve una risposta parlata: riceve tre esperimenti sulle
+     STESSE due note, in cui cambia solo come si muovono. È il metodo
+     dell'anno scorso — si sente prima, si nomina dopo — applicato alla
+     materia nuova.
+
+     COSA NON C'È, E DI PROPOSITO. Non si nominano quinte e ottave
+     parallele. Si fanno *sentire* alla prova 1, dove le due voci
+     collassano in una, ma il divieto ha un nome solo quando si comincia a
+     scrivere, all'unità 2. Nominarlo oggi vorrebbe dire dare una regola
+     prima del fatto che la giustifica.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c2-lezione-1.jpg');
+                --cop-a:#3f2b56; --cop-b:#7c3aed; --cop-c:#c084fc">
+  <div class="slide-interna">
+    <div class="occhiello">Due voci &middot; UdA 1 &middot; Lezione 1 di 6</div>
+    <h1>Che cos&rsquo;è una voce</h1>
+    <p class="sottotitolo">La prima ora dell&rsquo;anno. Da qui in avanti la musica non si guarda soltanto: si scrive &mdash; e si scrive per <strong>due</strong> voci che devono restare due.</p>
+    <blockquote class="aforisma">
+      <p>Chi desidera imparare quest&rsquo;arte cominci da due voci: sono il fondamento di tutto il resto.</p>
+      <cite>Johann Joseph Fux, <em>Gradus ad Parnassum</em>, 1725</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Si riprende dalla classe 1&ordf;</span>
+      <span>Voce &middot; Moto &middot; Indipendenza</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Da dove ripartiamo">
+  <div class="slide-interna">
+    <h2>Da dove ripartiamo</h2>
+
+    <p>Non si ricomincia da capo. Quello che avete costruito l&rsquo;anno scorso serve <strong>da oggi</strong>, e serve tutto.</p>
+
+    <div class="colonne3">
+      <div class="riquadro"><p><strong>Le durate</strong><br>figure, pause, punto, legatura, metri semplici e composti</p></div>
+      <div class="riquadro"><p><strong>Il rigo</strong><br>chiavi di violino e basso, tagli addizionali, armature</p></div>
+      <div class="riquadro"><p><strong>Gli intervalli</strong><br>quantità e qualità, consonanti e dissonanti</p></div>
+    </div>
+
+    <p class="didascalia">Se qualcosa di questo è sfumato, si recupera nelle ore di percezione: la terza ora di quest&rsquo;unità è un ripasso di valori, chiavi e sincope.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa cambia quest'anno">
+  <div class="slide-interna">
+    <h2>Che cosa cambia quest&rsquo;anno</h2>
+
+    <div class="affianca">
+      <div class="riquadro definizione">
+        <span class="etichetta">In una riga</span>
+        <p>In prima la musica si è <strong>letta e riconosciuta</strong>. Da quest&rsquo;anno si <strong>scrive</strong>.</p>
+        <p>E la prima cosa che si scrive non è un accordo: sono <strong>due linee</strong> che devono stare insieme senza confondersi.</p>
+      </div>
+
+      <div class="riquadro studio">
+        <span class="etichetta">Perché due e non quattro</span>
+        <p>Le quattro parti arrivano, ma in fondo all&rsquo;anno. Con due voci si vede tutto quello che serve &mdash; e si vede <em>bene</em>, perché non c&rsquo;è niente in mezzo a nascondere gli errori.</p>
+        <p>Chi ha scritto per mesi due linee che devono restare distinte, quando ne arriva una terza sa già che cosa controllare.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">Le sei ore di quest&rsquo;unità servono a una cosa sola: <strong>sentire due voci come due</strong>. Poi si comincerà a scriverle.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cos'è una voce">
+  <div class="slide-interna">
+    <h2>Una voce è una linea che si potrebbe cantare</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Definizione, e va presa alla lettera</span>
+      <p>Una <strong>voce</strong> (o <em>parte</em>) è una successione di suoni che si segue come un filo unico: ha un inizio, un percorso e una fine, e <strong>si potrebbe cantare da sola</strong>.</p>
+    </div>
+
+    <div class="colonne">
+      <div class="riquadro attenzione">
+        <span class="etichetta">Non è</span>
+        <p>Non è uno <strong>strumento</strong>: un pianoforte da solo ne fa quattro.</p>
+        <p>Non è un <strong>timbro</strong>: due flauti che suonano insieme sono due voci.</p>
+        <p>Non è un <strong>rigo</strong>: su un rigo solo ce ne possono stare due.</p>
+      </div>
+      <div class="riquadro">
+        <span class="etichetta">La prova del nove</span>
+        <p>Se riesci a cantarla dall&rsquo;inizio alla fine senza saltare da un suono all&rsquo;altro, è una voce.</p>
+        <p>Se per seguirla devi saltare fra registri diversi, non lo è: stai seguendo due cose.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide perc" data-titolo="Primo ascolto">
+  <div class="slide-interna">
+    <h2>Primo ascolto: quante ne senti?</h2>
+
+    <p>Si ascolta senza guardare niente. Una sola domanda: <strong>quante linee stanno andando avanti insieme?</strong></p>
+
+    <!-- Si ascolta e basta: il rigo arriva alla slide dopo. `tac-brano`
+         serve per le registrazioni di repertorio e vuole un file audio;
+         qui il suono lo genera lo stesso componente che poi mostrerà la
+         partitura, e per questa slide gli si nasconde il disegno. -->
+    <tac-stave clef="treble" time="4/4" nascondi
+               notes="c/5:h d/5:h | e/5:h d/5:h | c/5:h b/4:h | c/5:w"
+               bass="c/4:h b/3:h | a/3:h b/3:h | c/4:h d/4:h | e/4:w"
+               width="720" tempo="72" play slow></tac-stave>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Tutti insieme, 3 minuti</span>
+      <p>Ascoltate due volte. Alla seconda, <strong>seguite con il dito solo quella acuta</strong>, poi solo quella grave. Se ci riuscite, sono due.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Lo stesso, sul rigo">
+  <div class="slide-interna">
+    <h2>Adesso guardiamolo</h2>
+
+    <p>Le stesse otto battute che avete appena sentito. Ogni rigo porta una voce, e ciascuna si legge dall&rsquo;inizio alla fine come una melodia.</p>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="Due voci, due righi"
+               notes="c/5:h d/5:h | e/5:h d/5:h | c/5:h b/4:h | c/5:w"
+               bass="c/4:h b/3:h | a/3:h b/3:h | c/4:h d/4:h | e/4:w"
+               width="740" tempo="72" play slow></tac-stave>
+
+    <p class="didascalia">Copritene una con la mano e cantate l&rsquo;altra: funziona lo stesso. È questo che vuol dire <strong>indipendente</strong>.</p>
+  </div>
+</section>
+
+<section class="slide off" data-titolo="La domanda dell'ora">
+  <div class="slide-interna">
+    <h2>Ma perché ne sentiamo <em>due</em>?</h2>
+
+    <p>Suonano insieme, negli stessi istanti, dallo stesso strumento. Nulla, fisicamente, le separa: arriva un suono solo, con dentro tutte e due.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">La domanda</span>
+      <p>Che cosa fa sì che l&rsquo;orecchio dica <strong>«due cose che vanno avanti»</strong> invece di <strong>«un accordo che cambia»</strong>?</p>
+    </div>
+
+    <p class="didascalia">Non lo spieghiamo: lo proviamo. Tre esperimenti sulle <strong>stesse due note di partenza</strong>, cambiando ogni volta una cosa sola.</p>
+  </div>
+</section>
+
+<section class="slide perc" data-titolo="Prova 1 · stesso movimento">
+  <div class="slide-interna">
+    <h2>Prova 1 &mdash; si muovono uguali</h2>
+
+    <p>Due voci, stesso ritmo, <strong>stessa direzione</strong>, sempre alla stessa distanza. Ascolta e conta.</p>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="Moto retto, distanza fissa"
+               notes="c/5:q d/5:q e/5:q f/5:q | g/5:h e/5:h"
+               bass="c/4:q d/4:q e/4:q f/4:q | g/4:h e/4:h"
+               width="720" tempo="72" play slow></tac-stave>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Che cosa si sente</span>
+      <p>Se ne sente <strong>una</strong>, più spessa. La seconda voce non è sparita, ma l&rsquo;orecchio smette di seguirla: si è incollata all&rsquo;altra e la raddoppia.</p>
+      <p>È una perdita vera. Due esecutori, un&rsquo;informazione sola.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide perc" data-titolo="Prova 2 · direzioni opposte">
+  <div class="slide-interna">
+    <h2>Prova 2 &mdash; una sale, l&rsquo;altra scende</h2>
+
+    <p>Stesse note di partenza, stesso ritmo. Cambia <strong>una cosa sola</strong>: la voce grave va nella direzione opposta.</p>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="Moto contrario"
+               notes="c/5:q d/5:q e/5:q f/5:q | g/5:h e/5:h"
+               bass="c/4:q b/3:q a/3:q g/3:q | e/3:h g/3:h"
+               width="720" tempo="72" play slow></tac-stave>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Che cosa si sente</span>
+      <p>Adesso sono <strong>due</strong>, e senza sforzo. Non è cambiato lo strumento, né il ritmo, né il registro: è cambiata la <strong>direzione</strong>.</p>
+      <p>Le due linee si allontanano, e l&rsquo;orecchio non può più confonderle.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide perc" data-titolo="Prova 3 · una ferma">
+  <div class="slide-interna">
+    <h2>Prova 3 &mdash; una si muove, l&rsquo;altra sta ferma</h2>
+
+    <p>Il caso più semplice, e funziona benissimo: una voce tiene, l&rsquo;altra cammina.</p>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="Moto obliquo"
+               notes="c/5:q d/5:q e/5:q f/5:q | g/5:h e/5:h"
+               bass="c/4:w | c/4:w"
+               width="720" tempo="72" play slow></tac-stave>
+
+    <div class="riquadro">
+      <span class="etichetta">Che cosa si sente</span>
+      <p>Due, di nuovo. La voce ferma non è un accompagnamento: è una linea che ha scelto di non muoversi, e proprio per questo si sente distinta da quella che si muove.</p>
+    </div>
+
+    <p class="didascalia">Tre prove, stesse note di partenza, un solo ingrediente cambiato ogni volta. La differenza non stava nel <em>che cosa</em> suonano, ma nel <strong>come si muovono l&rsquo;una rispetto all&rsquo;altra</strong>.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Le tre cose che separano">
+  <div class="slide-interna">
+    <h2>Che cosa tiene due voci separate</h2>
+
+    <p>Non è una lista da imparare: è il riassunto di quello che avete appena sentito. Ed è il programma delle prossime cinque ore.</p>
+
+    <div class="colonne3">
+      <div class="riquadro">
+        <p><strong>1 &middot; La direzione</strong><br>se una sale e l&rsquo;altra scende, sono due. È il <em>moto contrario</em>, e ci torniamo alla quarta e alla quinta ora.</p>
+      </div>
+      <div class="riquadro">
+        <p><strong>2 &middot; Il ritmo</strong><br>se una si muove e l&rsquo;altra tiene, sono due. È quello che la seconda specie userà per far entrare la dissonanza.</p>
+      </div>
+      <div class="riquadro">
+        <p><strong>3 &middot; La distanza</strong><br>troppo vicine si impastano, troppo lontane si scollegano. Quali distanze suonano bene lo vediamo la prossima ora.</p>
+      </div>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Il caso peggiore</span>
+      <p>Quando <strong>tutte e tre</strong> mancano insieme &mdash; stessa direzione, stesso ritmo, distanza fissa &mdash; le due voci diventano una. È la prova 1, e da questo problema nasceranno più avanti alcuni fra i divieti più noti della scrittura.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il timbro non basta">
+  <div class="slide-interna">
+    <h2>Il timbro non decide niente</h2>
+
+    <p>Verrebbe da pensare che due voci si distinguano perché le suonano strumenti diversi. Non è così, e vale la pena vederlo in tutti e due i sensi.</p>
+
+    <div class="colonne">
+      <div class="riquadro">
+        <p><strong>Uno strumento, quattro voci.</strong> Un pianista da solo suona un corale a quattro parti, e si sentono quattro linee.</p>
+      </div>
+      <div class="riquadro">
+        <p><strong>Due strumenti, una voce.</strong> Due flauti che suonano le stesse note alla stessa distanza fanno una linea sola più spessa &mdash; la prova 1.</p>
+      </div>
+    </div>
+
+    <p>Piston, nella sua <em>Armonia</em>, lo dice trattando due suoni troppo legati fra loro: vengono avvertiti come una parte sola, e non come due voci indipendenti. La distinzione la fa il <strong>movimento</strong>, non il colore del suono.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Le parole di oggi</span>
+        <p><strong>Voce</strong> &mdash; una linea che si potrebbe cantare da sola.</p>
+        <p><strong>Indipendenti</strong> &mdash; due voci che l&rsquo;orecchio riesce a seguire separatamente.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">La cosa da ricordare</span>
+        <p>Due voci restano due per <strong>come si muovono</strong>: direzione, ritmo, distanza. Non per lo strumento che le suona.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">La prossima ora: quali <strong>distanze</strong> fra due voci suonano stabili e quali no &mdash; consonanza e dissonanza, e da dove viene quella lista.</p>
+  </div>
+</section>
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","via":"uda-01","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"materiali":[{"titolo":"Workbook · unità 1","file":"../materiali/workbook-uda-01.html","stato":"pronta"},{"titolo":"Scheda di lavoro autonomo","file":"../materiali/scheda-lavoro-autonomo-1.html","stato":"pronta"},{"titolo":"Partiture da stampare","file":"../materiali/partiture-uda-01.html","stato":"pronta"}]},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","stato":"da preparare","lezioni":[]},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[]},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[]},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"da preparare","lezioni":[]},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":2,"unita":1,"lezione":1}}</script>
+</body>
+</html>

@@ -767,6 +767,21 @@
       }
 
       const tela = document.createElement('div');
+      /* ASCOLTO ALLA CIECA. Con `nascondi` il rigo si disegna — serve, perché
+         è da lì che nasce il suono — ma non si vede: resta il solo pulsante
+         di ascolto.
+
+         È un modo di fare lezione che ricorre: si ascolta prima e si guarda
+         dopo, e fra le due cose ci sta la domanda. Mostrare subito la
+         partitura risponde alla domanda prima di averla fatta — chi legge
+         conta le voci con gli occhi invece che con l'orecchio. Nasce per la
+         prima ora della seconda, dove si chiede «quante ne senti?» e la
+         slide dopo fa vedere le stesse battute. */
+      if (this.hasAttribute('nascondi')) {
+        tela.style.position = 'absolute';
+        tela.style.left = '-99999px';
+        tela.setAttribute('aria-hidden', 'true');
+      }
       this.appendChild(tela);
 
       const dati = leggiNote(testo);

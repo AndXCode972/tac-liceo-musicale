@@ -2814,8 +2814,13 @@
        l'occhiello non si formava. Lo stesso dopo il levare, dove la mano
        prosegue ancora un poco a destra prima di risalire. */
     2: [{ i: 'basso',  n: 'battere', p: [120, 148] },
-        { via: [98, 164] },                          // giù e a sinistra
-        { via: [108, 118] },                         // risale OLTRE la discesa
+        /* IL CERCHIETTO GIRA VERSO L'ALTO. Andrea, 17 agosto: «vedo il due
+           con l'occhiello che parte verso il basso, dovrebbe invece girare
+           verso l'alto». Prima la mano scendeva sotto il battere prima di
+           risalire, per inerzia, e il cerchio si sviluppava tutto sotto: nel
+           gesto vero il rimbalzo va in su, e sotto l'ictus non c'è niente. */
+        { via: [104, 146] },                         // di lato, non sotto
+        { via: [112, 120] },                         // e subito su, oltre la discesa
         { i: 'destra', n: 'levare',  p: [196, 100] },
         { via: [220, 76] },                          // prosegue a destra
         /* Rientra sopra il battere, non di lato: scendendo da troppo a
@@ -2866,26 +2871,34 @@
       const L = Math.hypot(dx, dy) || 1;
       dx /= L; dy /= L;
 
-      /* la perpendicolare, girata dal lato OPPOSTO a dove si andrà. È
-         questo che chiude l'occhiello invece di lasciare una U: la mano
-         gira dalla parte sbagliata, e tornando indietro taglia la strada da
-         cui è venuta. Se poi si esce a destra il cerchio viene orario, se
-         si esce a sinistra antiorario — da sé, senza doverlo dire. */
-      let px = -dy, py = dx;
-      if (px * (S[0] - I[0]) + py * (S[1] - I[1]) > 0) { px = -px; py = -py; }
+      /* LA PERPENDICOLARE GIRA VERSO L'ALTO. Andrea, 17 agosto: «l'occhiello
+         parte verso il basso, dovrebbe invece girare verso l'alto — stessa
+         cosa per il tre nel movimento a quattro».
 
-      /* I due numeri non sono a occhio: sono quelli che si ricavano dai
-         punti dello schema in due, l'unico disegnato a mano e l'unico che
-         Andrea ha già approvato. Rifarli a mano per ogni schema voleva dire
-         indovinare, e infatti tre e quattro erano rimasti senza occhiello. */
+         Il rimbalzo del gesto va in su, sempre: sotto l'ictus non c'è
+         niente da fare. Prima la perpendicolare guardava soltanto da che
+         parte si sarebbe andati dopo, e quando la mano arrivava scendendo o
+         andando di lato il cerchio si apriva sotto il numero.
+
+         Quando la perpendicolare viene orizzontale — cioè quando la mano
+         arriva verticale, che è il caso del battere — l'alto non la decide,
+         e allora si torna alla regola di prima: si gira dal lato opposto a
+         dove si andrà, perché è quello che chiude il cerchio invece di
+         lasciare una U. */
+      let px = -dy, py = dx;
+      if (py > 0) { px = -px; py = -py; }
+      if (Math.abs(py) < 0.25 &&
+          px * (S[0] - I[0]) + py * (S[1] - I[1]) > 0) { px = -px; py = -py; }
+
+      /* La mano non prosegue più oltre l'ictus prima di girare: proseguire
+         voleva dire scendere ancora, ed è esattamente quello che non deve
+         fare. Esce di lato e sale. */
+      const B = [I[0] + px * R * .6 - dx * R * 1.2,
+                 I[1] + py * R * .6 - dy * R * 1.2];
       fuori.push(v,
-        { via: [I[0] + dx * R + px * R, I[1] + dy * R + py * R] },
-        { via: [I[0] - dx * R * 1.35 + px * R * .85,
-                I[1] - dy * R * 1.35 + py * R * .85] },
-        { via: null });   // il raccordo verso il prossimo, calcolato dopo
-      fuori[fuori.length - 1] = { via: controlloVerso(
-        [I[0] - dx * R * 1.35 + px * R * .85, I[1] - dy * R * 1.35 + py * R * .85],
-        S, C, 9) };
+        { via: [I[0] + px * R, I[1] + py * R] },
+        { via: B },
+        { via: controlloVerso(B, S, C, 9) });
     });
     return fuori;
   }

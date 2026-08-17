@@ -2819,8 +2819,25 @@
            verso l'alto». Prima la mano scendeva sotto il battere prima di
            risalire, per inerzia, e il cerchio si sviluppava tutto sotto: nel
            gesto vero il rimbalzo va in su, e sotto l'ictus non c'è niente. */
-        { via: [104, 146] },                         // di lato, non sotto
-        { via: [112, 120] },                         // e subito su, oltre la discesa
+        /* L'OCCHIELLO CHIUDE, e adesso chiude davvero. Andrea, 17
+           agosto: prima «sul due cerca ancora l'occhiello da chiudere»,
+           poi «può attraversare la linea in discesa — anzi, lo fa e va
+           bene».
+
+           Era lì l'errore mio, e non era di taratura. Mi ero convinto che
+           un cerchietto rivolto in alto non potesse chiudersi, e
+           `cerca-occhiello.js` me lo confermava — ma cercava solo cerchietti
+           che restassero da una parte sola della discesa. La strada c'era e
+           l'avevo esclusa per ipotesi: **passare a sinistra della discesa e
+           poi tagliarla**, rientrando verso destra. Il giro si chiude, e si
+           chiude senza mai scendere sotto il battere, che era il vincolo
+           vero.
+
+           I due passaggi fanno esattamente questo: [98,132] sta a sinistra
+           della discesa, [136,100] a destra. Fra l'uno e l'altro la curva
+           attraversa. */
+        { via: [98, 132] },                          // a sinistra della discesa
+        { via: [136, 100] },                         // e la taglia, rientrando
         { i: 'destra', n: 'levare',  p: [196, 100] },
         { via: [220, 76] },                          // prosegue a destra
         /* Rientra sopra il battere, non di lato: scendendo da troppo a
@@ -2854,12 +2871,21 @@
      secondo raccorda piegando verso il centro. */
   function espandi(ciclo) {
     if (ciclo.some(v => v.via !== undefined)) return ciclo;   // scritto a mano
-    /* Il raggio dell'occhiello è più stretto di quello dello schema in due,
-       e non per gusto: il due ha due soli ictus e spazio intorno, mentre in
-       quattro gli anelli sono quattro e con lo stesso raggio si davano
-       gomitate al centro, coprendo i numeri. Piccolo si legge; grande, in
-       quattro, era un gomitolo. */
-    const R = 12;
+    /* ANSA, NON OCCHIELLO, e va detto perché non è un ripiego.
+       Andrea, 17 agosto: «non è un occhiello perché non chiude, è soltanto
+       un'ansa verso l'alto» — e poi, quando gliel'ho detto: «il due non può
+       chiudere l'occhiello».
+
+       È geometria, non taratura: un cerchietto che sta dallo stesso lato
+       dove il movimento andrà dopo non può attraversare la propria strada.
+       Per chiudersi dovrebbe scendere sotto la traiettoria d'arrivo, cioè
+       ripartire verso il basso — l'esatto contrario di quello che il gesto
+       fa. L'ho fatto verificare a `cerca-occhiello.js` su tutte le
+       combinazioni di raggio e ampiezza del giro: nessuna chiude.
+
+       Preso atto, l'ansa si fa AMPIA: stretta non si capiva niente, e se
+       non può chiudersi almeno deve leggersi da lontano. */
+    const R = 18;
     const C = centroDi(ciclo);
     const p = ciclo.map(v => v.p || GESTO_PUNTI[v.i]);
     const fuori = [];
@@ -2871,24 +2897,22 @@
       const L = Math.hypot(dx, dy) || 1;
       dx /= L; dy /= L;
 
-      /* LA PERPENDICOLARE GIRA VERSO L'ALTO. Andrea, 17 agosto: «l'occhiello
-         parte verso il basso, dovrebbe invece girare verso l'alto — stessa
-         cosa per il tre nel movimento a quattro».
+      /* SI GIRA DAL LATO OPPOSTO A DOVE SI ANDRÀ, e da questa regola sola
+         discende tutto il resto — compreso quali anse si chiudono e quali no.
 
-         Il rimbalzo del gesto va in su, sempre: sotto l'ictus non c'è
-         niente da fare. Prima la perpendicolare guardava soltanto da che
-         parte si sarebbe andati dopo, e quando la mano arrivava scendendo o
-         andando di lato il cerchio si apriva sotto il numero.
+         Andrea, 17 agosto, descrivendo il quattro: «l'uno cambia il verso di
+         giro, non va verso sinistra ma verso destra; due e tre non chiudono
+         l'occhiello, e il quattro invece sì per tornare sull'uno». Sono tre
+         osservazioni diverse e hanno una causa sola.
 
-         Quando la perpendicolare viene orizzontale — cioè quando la mano
-         arriva verticale, che è il caso del battere — l'alto non la decide,
-         e allora si torna alla regola di prima: si gira dal lato opposto a
-         dove si andrà, perché è quello che chiude il cerchio invece di
-         lasciare una U. */
+         Dopo l'uno si va a sinistra, quindi il giro va a destra. Il levare
+         torna giù al battere, quindi il suo giro sta in alto: e lì la curva
+         può tagliare la strada da cui è venuta, cioè l'ansa **si chiude**.
+         Ai movimenti laterali il giro resta dalla parte dove la mano poi
+         non passa, e resta aperto. Non è un'incoerenza del disegno: è la
+         stessa regola che dà esiti diversi a seconda di dove si va dopo. */
       let px = -dy, py = dx;
-      if (py > 0) { px = -px; py = -py; }
-      if (Math.abs(py) < 0.25 &&
-          px * (S[0] - I[0]) + py * (S[1] - I[1]) > 0) { px = -px; py = -py; }
+      if (px * (S[0] - I[0]) + py * (S[1] - I[1]) > 0) { px = -px; py = -py; }
 
       /* La mano non prosegue più oltre l'ictus prima di girare: proseguire
          voleva dire scendere ancora, ed è esattamente quello che non deve
@@ -2960,7 +2984,29 @@
          a metà — «fuor», «ntro» — e nessun controllo se ne sarebbe accorto,
          perché l'SVG era valido e il testo c'era tutto. Si è visto
          guardando l'immagine. */
-      const svg = el('svg', { viewBox: '-38 -10 316 196', class: 'tac-gesto-svg',
+      /* IL RIQUADRO SI ADATTA ALLO SCHEMA. Era fisso, tarato sugli schemi
+         che hanno un ictus a sinistra (x=46). Il due non ce l'ha — il suo
+         punto più a sinistra è a 98 — e restava con un terzo di riquadro
+         vuoto da quella parte: il gesto appariva piccolo e spinto in un
+         angolo. Qui si prendono i punti effettivi del ciclo e si aggiunge
+         il margine che le etichette vogliono. */
+      const px = [], py = [];
+      for (const v of ciclo) {
+        const p = v.p || (v.i ? GESTO_PUNTI[v.i] : v.via);
+        if (p) { px.push(p[0]); py.push(p[1]); }
+        if (v.via) { px.push(v.via[0]); py.push(v.via[1]); }
+      }
+      /* Il margine orizzontale è largo: le etichette laterali — «sinistra»,
+         «destra» — stanno fuori dai punti e sono parole lunghe. Con 52 si
+         leggeva «sinistr» e nessun controllo se ne accorgeva, perché l'SVG
+         resta valido e il testo c'è: si vede solo guardando l'immagine. */
+      const MX = 88, MY = 46;
+      const x0 = Math.min.apply(null, px) - MX;
+      const y0 = Math.min.apply(null, py) - MY;
+      const larg = Math.max.apply(null, px) + MX - x0;
+      const alt = Math.max.apply(null, py) + MY - y0;
+      const svg = el('svg', {
+        viewBox: [x0, y0, larg, alt].join(' '), class: 'tac-gesto-svg',
         role: 'img', 'aria-label': 'Schema del gesto in ' + g.movimenti +
         ' movimenti' + (sudd > 1 ? ', suddivisione in ' + sudd : '') });
       svg.style.maxWidth = '380px';
@@ -4647,6 +4693,100 @@
     avanti()   { this.vai(this.i + 1); },
     indietro() { this.vai(this.i - 1); }
   };
+
+  /* ══════════════════════════════════════════════════════════════
+     <tac-chiuso> — quello che si vede solo col codice del docente
+
+     Andrea, 17 agosto: «per evitare che gli studenti lo vedano prima di
+     svolgerlo potremmo pensare a un codice che conosco soltanto io per far
+     apparire la soluzione».
+
+     NON C'È NIENTE DA SCOPRIRE NEL SORGENTE. La strada ovvia sarebbe un
+     campo e un confronto — `if (codice === '...')` — con la soluzione
+     nascosta da un `display:none`. Non protegge niente: il codice sta nel
+     sorgente e la soluzione pure, e «visualizza sorgente» è a due clic.
+     Sarebbe anche peggio che non fare nulla, perché darebbe l'impressione
+     di una protezione.
+
+     Qui dentro l'attributo `dati` ci sono **byte cifrati**: la soluzione
+     non è nella pagina in nessuna forma leggibile. La chiave si deriva dal
+     codice con PBKDF2 a 150.000 giri e i byte si aprono con AES-GCM, che
+     è autenticato — un codice sbagliato non produce spazzatura
+     plausibile, fallisce e basta.
+
+     A cifrare è `_chiudi.py`, che gira sul deposito dopo il montaggio. I
+     sorgenti restano in chiaro: si legge e si corregge la soluzione come
+     qualsiasi altra parte della lezione. */
+  class TacChiuso extends HTMLElement {
+    connectedCallback() {
+      if (this._fatto) return;
+      this._fatto = true;
+      const invito = this.getAttribute('invito') || 'Contenuto riservato';
+      if (!this.getAttribute('dati')) {
+        /* Non cifrato: siamo nei sorgenti, o `_chiudi.py` non è passato.
+           Si mostra com'è — nascondere qui non servirebbe a niente e
+           renderebbe impossibile controllare la lezione mentre la si
+           scrive. */
+        return;
+      }
+      const dentro = this.innerHTML;
+      this.innerHTML = '';
+      const box = document.createElement('div');
+      box.className = 'tac-chiuso';
+      box.innerHTML =
+        '<p class="tac-chiuso-invito">&#128274; ' + invito + '</p>' +
+        '<div class="tac-chiuso-riga">' +
+        '<input type="password" class="tac-chiuso-campo" ' +
+        'placeholder="codice" autocomplete="off" spellcheck="false">' +
+        '<button type="button" class="tac-chiuso-tasto">Mostra</button>' +
+        '</div><p class="tac-chiuso-esito" role="status"></p>';
+      this.appendChild(box);
+      this._dentro = dentro;
+
+      const campo = box.querySelector('.tac-chiuso-campo');
+      const tasto = box.querySelector('.tac-chiuso-tasto');
+      const esito = box.querySelector('.tac-chiuso-esito');
+      const apri = () => this.apri(campo.value, esito, box);
+      tasto.addEventListener('click', apri);
+      campo.addEventListener('keydown', e => {
+        if (e.key === 'Enter') { e.preventDefault(); apri(); }
+      });
+    }
+
+    async apri(cod, esito, box) {
+      const b = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+      if (!cod) { esito.textContent = 'Scrivi il codice.'; return; }
+      esito.textContent = 'Apro…';
+      try {
+        const sale = b(this.getAttribute('sale'));
+        const iv = b(this.getAttribute('iv'));
+        const dati = b(this.getAttribute('dati'));
+        const base = await crypto.subtle.importKey(
+          'raw', new TextEncoder().encode(cod), 'PBKDF2', false, ['deriveKey']);
+        const k = await crypto.subtle.deriveKey(
+          { name: 'PBKDF2', salt: sale, iterations: 150000, hash: 'SHA-256' },
+          base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+        const chiaro = await crypto.subtle.decrypt(
+          { name: 'AES-GCM', iv: iv }, k, dati);
+        const html = new TextDecoder().decode(chiaro);
+        box.remove();
+        this.innerHTML = html;
+        /* I componenti dentro la soluzione — un pentagramma, un ritmo —
+           nascono adesso, e vanno svegliati: sono stati creati dopo che
+           il documento era già a posto. */
+        this.querySelectorAll('*').forEach(n => {
+          if (n.tagName.toLowerCase().startsWith('tac-') && n.connectedCallback) {
+            try { n.connectedCallback(); } catch (e) { /* già a posto */ }
+          }
+        });
+      } catch (e) {
+        /* AES-GCM è autenticato: un codice sbagliato fallisce qui, e non
+           produce un testo sbagliato ma plausibile. */
+        esito.textContent = 'Codice non valido.';
+      }
+    }
+  }
+  customElements.define('tac-chiuso', TacChiuso);
 
   document.addEventListener('DOMContentLoaded', () => Deck.init());
 

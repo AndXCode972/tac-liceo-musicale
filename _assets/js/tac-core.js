@@ -2849,16 +2849,43 @@
      secondo raccorda piegando verso il centro. */
   function espandi(ciclo) {
     if (ciclo.some(v => v.via !== undefined)) return ciclo;   // scritto a mano
-    const SCIA = 20;
+    /* Il raggio dell'occhiello è più stretto di quello dello schema in due,
+       e non per gusto: il due ha due soli ictus e spazio intorno, mentre in
+       quattro gli anelli sono quattro e con lo stesso raggio si davano
+       gomitate al centro, coprendo i numeri. Piccolo si legge; grande, in
+       quattro, era un gomitolo. */
+    const R = 12;
     const C = centroDi(ciclo);
     const p = ciclo.map(v => v.p || GESTO_PUNTI[v.i]);
     const fuori = [];
     ciclo.forEach((v, k) => {
       const I = p[k], P = p[(k - 1 + p.length) % p.length], S = p[(k + 1) % p.length];
+
+      /* la direzione con cui la mano ARRIVA sull'ictus */
       let dx = I[0] - P[0], dy = I[1] - P[1];
       const L = Math.hypot(dx, dy) || 1;
-      const oltre = [I[0] + dx / L * SCIA, I[1] + dy / L * SCIA];
-      fuori.push(v, { via: oltre }, { via: controlloVerso(oltre, S, C, 9) });
+      dx /= L; dy /= L;
+
+      /* la perpendicolare, girata dal lato OPPOSTO a dove si andrà. È
+         questo che chiude l'occhiello invece di lasciare una U: la mano
+         gira dalla parte sbagliata, e tornando indietro taglia la strada da
+         cui è venuta. Se poi si esce a destra il cerchio viene orario, se
+         si esce a sinistra antiorario — da sé, senza doverlo dire. */
+      let px = -dy, py = dx;
+      if (px * (S[0] - I[0]) + py * (S[1] - I[1]) > 0) { px = -px; py = -py; }
+
+      /* I due numeri non sono a occhio: sono quelli che si ricavano dai
+         punti dello schema in due, l'unico disegnato a mano e l'unico che
+         Andrea ha già approvato. Rifarli a mano per ogni schema voleva dire
+         indovinare, e infatti tre e quattro erano rimasti senza occhiello. */
+      fuori.push(v,
+        { via: [I[0] + dx * R + px * R, I[1] + dy * R + py * R] },
+        { via: [I[0] - dx * R * 1.35 + px * R * .85,
+                I[1] - dy * R * 1.35 + py * R * .85] },
+        { via: null });   // il raccordo verso il prossimo, calcolato dopo
+      fuori[fuori.length - 1] = { via: controlloVerso(
+        [I[0] - dx * R * 1.35 + px * R * .85, I[1] - dy * R * 1.35 + py * R * .85],
+        S, C, 9) };
     });
     return fuori;
   }
@@ -3107,7 +3134,7 @@
         let vx = x - centro[0], vy = y - centro[1];
         const L2 = Math.hypot(vx, vy) || 1;
         vx /= L2; vy /= L2;
-        const n = el('text', { x: x + vx * 29, y: y + vy * 29 + 4,
+        const n = el('text', { x: x + vx * 23, y: y + vy * 26 + 4,
           'text-anchor': vx < -.35 ? 'end' : (vx > .35 ? 'start' : 'middle'),
           'font-size': 11, fill: 'currentColor', opacity: .7 });
         n.textContent = ic.nome;

@@ -11,16 +11,21 @@
 <link rel="stylesheet" href="../../_assets/css/sito.css?v=d95f60fb">
 <script src="../../_assets/lib/vexflow.js"></script>
 <script src="../../_assets/lib/tone.js"></script>
-<script src="../../_assets/js/tac-core.js?v=c8948728" defer></script>
+<script src="../../_assets/js/tac-core.js?v=19ff7443" defer></script>
 <style>
   .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
                 border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
                 display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
 
   .parte.solfeggio { margin: 2.2rem 0 0; }
-  .parte.solfeggio > h2 { border-bottom: 2px solid var(--bordo); padding-bottom: .35rem; }
-  .parte.solfeggio .conta { float: right; font-size: .8rem; font-weight: 400;
-                            color: var(--inchiostro2); }
+  /* Il conteggio va in fondo alla riga del titolo, e ci va con flex e non
+     con `float`: dentro un titolo grande il float lo mandava in apice, a
+     mezz'aria sopra l'ultima lettera. */
+  .parte.solfeggio > h2 { border-bottom: 2px solid var(--bordo); padding-bottom: .35rem;
+                          display: flex; justify-content: space-between;
+                          align-items: baseline; gap: 1rem; }
+  .parte.solfeggio .conta { font-size: .8rem; font-weight: 400;
+                            color: var(--inchiostro2); white-space: nowrap; }
   .parte.solfeggio .spiega { color: var(--inchiostro2); margin: .4rem 0 1.2rem; }
   .parte.vuota .attesa { font-style: italic; color: var(--inchiostro2);
                          border-left: 3px solid var(--bordo); padding-left: .8rem; }

@@ -809,7 +809,18 @@
         if (keysig) staveB.addKeySignature(keysig);
         if (time)   staveB.addTimeSignature(time);
         staveB.setContext(ctx).draw();
-        new VF.StaveConnector(stave, staveB).setType(VF.StaveConnector.type.BRACE).setContext(ctx).draw();
+        /* LA GRAFFA È DEL PIANOFORTE, NON DI DUE VOCI. Andrea, 17 agosto:
+           «non mettiamo la parentesi graffa su un rigo non per pianoforte».
+           La graffa dice «un solo esecutore, due mani»; due voci che
+           cantano vogliono la **parentesi quadra**, che dice «parti
+           diverse dello stesso sistema». Su una lezione che passa un'ora a
+           spiegare che le voci sono due, una graffa dice il contrario del
+           testo. Con `pianoforte` si torna alla graffa. */
+        new VF.StaveConnector(stave, staveB)
+          .setType(this.hasAttribute('pianoforte')
+                   ? VF.StaveConnector.type.BRACE
+                   : VF.StaveConnector.type.BRACKET)
+          .setContext(ctx).draw();
         new VF.StaveConnector(stave, staveB).setType(VF.StaveConnector.type.SINGLE_LEFT).setContext(ctx).draw();
         new VF.StaveConnector(stave, staveB).setType(VF.StaveConnector.type.SINGLE_RIGHT).setContext(ctx).draw();
         this._staveB = staveB;
@@ -833,9 +844,18 @@
           const travB = VF.Beam.generateBeams(
             noteB.filter((n, i) => !this._datiB[i].pausa && !this._datiB[i].stanghetta),
             perGruppoB > 0 ? { groups: [new VF.Fraction(perGruppoB, 8)] } : undefined);
-          new VF.Formatter().joinVoices([vB]).format([vB], larghezza - 110);
-          vB.draw(ctx, staveB);
-          travB.forEach(b => b.setContext(ctx).draw());
+          /* NON SI FORMATTA ANCORA: si mette da parte. Le due voci vanno
+             formattate **insieme**, altrimenti ogni rigo distribuisce le
+             sue note per conto suo e le simultanee non cadono incolonnate.
+             Andrea, 17 agosto: «le voci devono essere correttamente
+             ordinate anche in senso verticale».
+
+             Era il difetto: due `new VF.Formatter()` separati, uno per
+             rigo. Ognuno faceva un lavoro corretto, e il risultato era una
+             partitura in cui la terza battuta della voce acuta stava sopra
+             la seconda della grave. Su una lezione che chiede di seguire
+             due linee simultanee, è il disegno che smentisce il contenuto. */
+          this._vociGiu = { voce: vB, trav: travB };
         }
       }
 
@@ -891,12 +911,33 @@
           if (!d.pausa) gruppo.push(note[i]);
         });
         travature.push(...VF.Beam.generateBeams(gruppo, modoTravatura));
-        new VF.Formatter().joinVoices([voce]).format([voce], larghezza - 90);
+        /* UN SOLO FORMATTER PER TUTTE LE VOCI DEL SISTEMA. È quello che
+           incolonna le simultanee: il formattatore guarda tutte le voci
+           insieme, trova gli istanti in cui qualcosa accade e dà a
+           ciascuno la stessa ascissa su tutti i righi. Con un formattatore
+           per rigo ognuno faceva bene il suo lavoro e le colonne non
+           tornavano. */
+        const giu = this._vociGiu;
+        const F = new VF.Formatter().joinVoices([voce]);
+        if (giu) F.joinVoices([giu.voce]);
+        F.format(giu ? [voce, giu.voce] : [voce], larghezza - 90);
         voce.draw(ctx, stave);
         travature.forEach(b => b.setContext(ctx).draw());
         disegnaLegature(VF, ctx, dati, note);
+        if (giu) {
+          giu.voce.draw(ctx, staveB);
+          giu.trav.forEach(b => b.setContext(ctx).draw());
+        }
 
         this._note = note;
+      } else if (this._vociGiu) {
+        /* rigo acuto vuoto e grave pieno: caso raro ma possibile, e senza
+           questo il grave non verrebbe disegnato affatto — la formattazione
+           adesso vive nel ramo dell'acuto. */
+        const g = this._vociGiu;
+        new VF.Formatter().joinVoices([g.voce]).format([g.voce], larghezza - 90);
+        g.voce.draw(ctx, staveB);
+        g.trav.forEach(b => b.setContext(ctx).draw());
       }
 
       /* L'SVG nasce alto 150 pixel — 260 col doppio rigo — qualunque cosa

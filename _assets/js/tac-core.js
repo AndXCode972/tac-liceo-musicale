@@ -120,13 +120,38 @@
 
   TAC.esito = {
     ALFABETO: '0123456789ABCDEFGHJKMNPQRSTVWXYZ',
-    VERSIONE: 1,
+    VERSIONE: 2,
 
-    /* La risposta e un numero da 0 a 7: 0 vuol dire «non data», e
-       da 1 a 7 sono le scelte. Sette bastano: una domanda con piu
-       di sette opzioni non si risponde, si indovina. */
-    MAX_SCELTE: 7,
+    /* La risposta e un numero da 0 a 31: 0 vuol dire «non data», e
+       da 1 a 31 sono le scelte.
+
+       ERANO SETTE, E SETTE NON BASTAVANO. La ragione scritta qui
+       prima — «una domanda con piu di sette opzioni non si
+       risponde, si indovina» — vale per il quiz, dove le opzioni
+       sono due o tre. Non vale per il trascinamento, dove la
+       «scelta» e un gettone fra quelli disponibili.
+
+       Fuori da una verifica il trascinamento ne mette in gioco
+       sette: le cinque parole giuste delle frasi estratte piu due
+       prese fra le rimanenti. Ma quel calcolo parte dalle risposte
+       giuste, e in una verifica le risposte giuste nella pagina non
+       ci sono — e' tutto il punto. Restano quindi in gioco tutte le
+       risposte possibili dell'esercizio.
+
+       PERCHE' CINQUE BIT E NON QUATTRO. Contate, le risposte
+       possibili dei trascinamenti di verifica arrivano a quindici:
+       con quattro bit ci stavano esatte, tutte e sette le verifiche
+       al limite del campo. Ma «ci sta esatto» vuol dire che la
+       prossima frase aggiunta a un esercizio lo fa sbordare, e
+       sborderebbe in silenzio — il numero verrebbe troncato e il
+       docente leggerebbe una risposta diversa da quella data.
+       Il controllo in `controlla()` adesso se ne accorgerebbe, ma
+       un margine che dipende da un controllo e' piu' fragile di un
+       margine che c'e'. Cinque bit costano tre caratteri di codice
+       e tolgono il problema. */
+    MAX_SCELTE: 31,
     MAX_DOMANDE: 63,
+    BIT_RISPOSTA: 5,
 
     _bit(n, quanti) {
       let s = '';
@@ -165,7 +190,7 @@
               + this._bit(dati.prova, 10)
               + this._bit(dati.seme >>> 0, 32)
               + this._bit(risposte.length, 6);
-      for (const r of risposte) bit += this._bit(r, 3);
+      for (const r of risposte) bit += this._bit(r, this.BIT_RISPOSTA);
       bit += this._bit(this._controllo(bit), 10);
       while (bit.length % 5) bit += '0';
 
@@ -201,12 +226,13 @@
       const prova = parseInt(bit.slice(3, 13), 2);
       const seme = parseInt(bit.slice(13, 45), 2) >>> 0;
       const n = parseInt(bit.slice(45, 51), 2);
-      const fine = 51 + n * 3;
+      const passo = this.BIT_RISPOSTA;
+      const fine = 51 + n * passo;
       if (bit.length < fine + 10) return null;
 
       const risposte = [];
       for (let i = 0; i < n; i++) {
-        risposte.push(parseInt(bit.slice(51 + i * 3, 54 + i * 3), 2));
+        risposte.push(parseInt(bit.slice(51 + i * passo, 51 + (i + 1) * passo), 2));
       }
       const atteso = parseInt(bit.slice(fine, fine + 10), 2);
       if (this._controllo(bit.slice(0, fine)) !== atteso) return null;
@@ -261,6 +287,95 @@
       const v = this.voto(p);
       return { ottenuto, massimo, punti: p, voto: v,
                scritto: this.votoScritto(v) };
+    }
+  };
+
+  /* ==========================================================
+     0-ter. LA CORREZIONE
+
+     Vive solo sul computer del docente. Sta qui e non nella pagina di
+     correzione perche' deve rimontare la verifica **con lo stesso
+     codice** che la monta per lo studente: se la ricostruzione fosse
+     scritta a parte, sarebbe una seconda implementazione della pesca,
+     e due implementazioni della stessa pesca prima o poi divergono —
+     in silenzio, perche' il codice si aprirebbe lo stesso e i numeri
+     ci sarebbero tutti.
+
+     Vuole un `<tac-verifica>` gia' nel documento, coi dati interi
+     (quelli con le risposte). La pagina del docente lo tiene nascosto.
+     ========================================================== */
+
+  TAC.correzione = {
+    /**
+     * @param {Element} verifica  un <tac-verifica> coi dati interi
+     * @param {number}  seme      il seme letto dal codice
+     * @param {number[]} date     le risposte lette dal codice
+     */
+    correggi(verifica, seme, date) {
+      verifica.rifaiConSeme(seme);
+
+      /* Le risposte attese, nello stesso ordine in cui la verifica le
+         raccoglie: esercizio per esercizio, domanda per domanda. */
+      const esercizi = [];
+      let k = 0;
+      verifica._prove.forEach(p => {
+        const peso = parseFloat(p.getAttribute('peso')) || 1;
+        const attese = [];
+        if (p.tagName === 'TAC-QUIZ') {
+          (p._dom || []).forEach(d => attese.push({
+            domanda: d.d, giusta: d.c + 1,
+            testoGiusta: (d.o || [])[d.c]
+          }));
+        } else if (p.tagName === 'TAC-DRAG') {
+          (p._frasi || []).forEach(f => attese.push({
+            domanda: f.testo,
+            giusta: (p._mescolati || []).indexOf(f.giusta) + 1,
+            testoGiusta: f.giusta
+          }));
+        }
+        const righe = attese.map(a => {
+          const data = date[k++];
+          return {
+            domanda: a.domanda,
+            giusta: a.testoGiusta,
+            data: data,
+            vuota: data === 0 || data === undefined,
+            ok: data === a.giusta
+          };
+        });
+        esercizi.push({
+          titolo: p.tagName === 'TAC-QUIZ' ? 'domande' : 'trascinamento',
+          peso: peso,
+          righe: righe,
+          giuste: righe.filter(r => r.ok).length,
+          totale: righe.length
+        });
+      });
+
+      /* IL CONTO E' LA MEDIA PESATA DELLE RESE, NON LA SOMMA DEI PUNTI.
+         Un esercizio da venti domande schiaccerebbe uno da cinque anche
+         avendo peso minore, e il peso non servirebbe piu' a niente. */
+      let resa = 0, pesi = 0;
+      esercizi.forEach(e => {
+        if (!e.totale) return;
+        resa += e.peso * (e.giuste / e.totale);
+        pesi += e.peso;
+      });
+      const cento = pesi ? Math.round(resa / pesi * 100) : 0;
+
+      /* Se il codice porta piu' o meno risposte di quante ne servono, il
+         confronto e' andato fuori sincrono e il voto non vale niente. Va
+         detto, non aggiustato: e' il segno che il codice appartiene a
+         un'altra prova, o a una versione precedente della stessa. */
+      const attese = esercizi.reduce((n, e) => n + e.totale, 0);
+      return {
+        esercizi: esercizi,
+        cento: cento,
+        attese: attese,
+        ricevute: date.length,
+        coerente: attese === date.length,
+        valutazione: TAC.esito.valuta(cento, 100)
+      };
     }
   };
 
@@ -1432,10 +1547,60 @@
   function segnalaEsito(ospite, dati) {
     var prova = ospite.closest && ospite.closest('tac-verifica');
     if (prova && prova.registra) {
-      prova.registra(ospite, dati.punti, dati.massimo);
+      prova.registra(ospite, dati.risposte);
       return null;
     }
     return bloccoCodice(ospite, dati);
+  }
+
+  /* Un esercizio sta dentro una verifica? Allora non corregge.
+     Lo chiedono in tre punti — il quiz, il trascinamento e la
+     testata — e chiederlo con una funzione sola evita che uno dei
+     tre un giorno lo chieda in modo leggermente diverso. */
+  function dentroVerifica(el) {
+    return !!(el.closest && el.closest('tac-verifica'));
+  }
+
+  /* Il codice gia' fatto, messo davanti allo studente perche' lo copi.
+
+     Diverso da `bloccoCodice` in una cosa sola, ed e' quella che conta: non
+     chiede il nome. Nel codice della verifica il nome non c'e' — sul sito
+     non finiscono dati di minori, e l'identita' su Classroom la da' gia'
+     la consegna. Chiederlo per poi non usarlo sarebbe raccogliere un dato
+     per abitudine.
+
+     Il tentativo non si conta piu' qui. Contarlo serviva a far valere meno
+     la ripetizione, ma il conto stava in `localStorage` e si azzerava
+     svuotando i dati del browser: misurava l'onesta' di chi era gia'
+     onesto. Adesso ogni giro ha un seme diverso e il docente vede due
+     codici distinti: e' la stessa informazione, presa da un fatto invece
+     che da una promessa. */
+  function bloccoCodiceEsito(ospite, codice, sigla) {
+    var box = document.createElement('div');
+    box.className = 'tac-codice no-stampa';
+    box.innerHTML =
+      '<p class="tac-codice-invito">Copia questo codice e incollalo su ' +
+      'Classroom insieme al compito.</p>' +
+      '<div class="tac-codice-riga">' +
+        '<code class="tac-codice-valore">' + codice + '</code>' +
+        '<button type="button" class="btn secondario tac-codice-copia">Copia</button>' +
+      '</div>' +
+      '<p class="tac-codice-nota">' + (sigla || '') + '</p>';
+    ospite.appendChild(box);
+
+    box.querySelector('.tac-codice-copia').onclick = function () {
+      var b = this;
+      navigator.clipboard.writeText(codice).then(function () {
+        b.textContent = 'Copiato';
+        setTimeout(function () { b.textContent = 'Copia'; }, 1800);
+      }).catch(function () {
+        var r = document.createRange();
+        r.selectNodeContents(box.querySelector('.tac-codice-valore'));
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+        b.textContent = 'Copia a mano';
+      });
+    };
+    return box;
   }
 
   function bloccoCodice(ospite, dati) {
@@ -1541,6 +1706,40 @@
      IL PESO. Ogni esercizio porta il proprio: quanto è rappresentativo
      dell'obiettivo. Uno da 3 conta il triplo di uno da 1. Senza attributo
      vale 1, cosí una verifica scritta di fretta funziona lo stesso.
+
+     ── LA VERIFICA RACCOGLIE, NON CORREGGE ──────────────────────
+
+     Andrea, 18 agosto: «gli esercizi non possono avere la risposta sul
+     workbook, diventano inutili».
+
+     Aveva ragione, e il problema era piu' profondo di come sembrava. Il
+     sito e' statico: non c'e' nessun server che corregga. Un esercizio che
+     si autocorregge nel browser **deve** avere la risposta giusta nella
+     pagina, e nasconderla — codificarla, girarla, spezzarla — non e'
+     protezione, e' un minuto in piu' per chi guarda il sorgente. Quindi o
+     l'esercizio si autocorregge, o la risposta non e' pubblicata: le due
+     cose insieme non stanno.
+
+     Per gli esercizi di allenamento la scelta e' facile: si autocorreggono,
+     perche' e' tutto il loro scopo e non fanno voto. Per la verifica no.
+
+     Allora la verifica **non corregge**. Raccoglie le risposte e le mette
+     dentro il codice; il punteggio lo calcola la pagina di decodifica, che
+     sta sul computer del docente insieme ai pesi e alla soglia. Nella
+     pagina pubblicata le risposte giuste non ci sono affatto — non
+     nascoste: assenti.
+
+     Torna anche didatticamente, ed e' il segno che la strada e' giusta: la
+     consegna diceva gia' «non si torna indietro: prima di rispondere
+     pensaci». Una verifica che dopo ogni domanda ti dice se hai indovinato
+     contraddiceva quella riga da sempre.
+
+     IL SEME. Gli esercizi pescano da un serbatoio — cinque domande su
+     diciotto — e il docente deve sapere **quali cinque** sono uscite,
+     altrimenti le risposte raccolte non si sanno a che cosa riferire. La
+     pesca passa da `TAC.caso`, che con un seme e' ricostruibile: il seme
+     nasce qui, vale per tutta la prova, e viaggia dentro il codice. Stesso
+     seme, stesse domande, stesso ordine.
      ========================================================== */
 
   class TacVerifica extends HTMLElement {
@@ -1548,11 +1747,13 @@
       if (this._fatto) return;
       this._fatto = true;
 
+      this._seme = TAC.caso.nuovo();
+
       this._prove = [...this.children].filter(
         e => /^TAC-/.test(e.tagName) && e.tagName !== 'TAC-STAVE');
       if (!this._prove.length) return;
 
-      this._esiti = [];
+      this._risposte = [];
       this._i = 0;
 
       this._testa = document.createElement('div');
@@ -1568,6 +1769,34 @@
         if (k) p.hidden = true;
       });
       this.aggiornaTesta();
+
+      /* LA PESCA SI RIFA' QUI, E NON SI LASCIA FARE AI FIGLI.
+
+         Ogni esercizio pesca da solo appena viene aggiornato, e finche' si
+         tratta di allenamento va benissimo. Dentro una verifica no, perche'
+         la pesca dev'essere **ricostruibile**: il docente rimette lo stesso
+         seme e deve ritrovare le stesse domande, sennò le risposte lette
+         nel codice sono numeri riferiti a domande che non si sanno.
+
+         E l'ordine in cui i figli pescano da soli non e' quello che sembra.
+         Il browser aggiorna gli elementi personalizzati **nell'ordine in
+         cui le classi vengono definite**, non nell'ordine del documento:
+         `tac-quiz` e' definito prima di `tac-drag`, quindi pescano prima
+         tutti i quiz e poi tutti i trascinamenti, anche se nella pagina
+         sono alternati. Chi ricostruisce percorrendo i figli in ordine di
+         documento — che e' l'ordine ovvio, e quello che avevo scritto —
+         ottiene una sequenza diversa e domande diverse.
+
+         Su sei verifiche su sette non si vedeva: hanno due esercizi, un
+         quiz e un trascinamento, e i due ordini coincidono. Si vedeva solo
+         sulla verifica dell'unita' 1 della prima, che ne ha sette
+         alternati, e la prova in bianco l'ha presa li'.
+
+         Quindi si rimanda di un giro — a quel punto tutte le classi sono
+         definite e tutti i figli aggiornati — e si ridisegna in ordine di
+         documento, che e' l'ordine che il docente puo' ripercorrere
+         guardando la pagina. */
+      Promise.resolve().then(() => this.rifaiConSeme(this._seme));
     }
 
     aggiornaTesta() {
@@ -1578,17 +1807,24 @@
         ' di ' + this._prove.length + '</span>';
     }
 
-    /* Chiamata dal singolo esercizio quando ha finito. Il peso si legge
-       qui e non nell'esercizio: l'esercizio non deve sapere quanto vale,
-       altrimenti lo stesso esercizio riusato in due verifiche diverse
-       porterebbe con sé il peso della prima. */
-    registra(chi, punti, massimo) {
+    /* Chiamata dal singolo esercizio quando ha finito.
+
+       Arrivano le **risposte date**, non un punteggio: l'esercizio non sa
+       quali siano quelle giuste e non deve saperlo. Le risposte si mettono
+       in fila nell'ordine in cui gli esercizi compaiono, ed e' quest'ordine
+       che la scheda di correzione ripercorre — per questo il peso resta
+       qui, sull'esercizio dentro la verifica, e non nell'archivio: lo
+       stesso esercizio riusato in due prove porterebbe il peso della prima.
+
+       Il peso non entra nel codice. Il codice porta i fatti — chi ha
+       risposto che cosa — e i pesi sono una scelta di valutazione che puo'
+       cambiare anche dopo che la prova e' stata consegnata. Tenerli fuori
+       vuol dire poter correggere un peso sbagliato senza chiedere alla
+       classe di rifare la verifica. */
+    registra(chi, risposte) {
       if (chi._registrato) return;
       chi._registrato = true;
-      this._esiti.push({
-        peso: parseFloat(chi.getAttribute('peso')) || 1,
-        punti: punti, massimo: massimo
-      });
+      (risposte || []).forEach(r => this._risposte.push(r));
 
       const avanti = document.createElement('button');
       avanti.className = 'btn';
@@ -1610,59 +1846,120 @@
       this._piede.appendChild(avanti);
     }
 
-    chiudi() {
-      /* Il punteggio della prova e' la media pesata delle rese, riportata
-         su cento. Non si sommano i punti grezzi: un esercizio da venti item
-         schiaccerebbe uno da cinque anche avendo peso minore, e il peso non
-         servirebbe piu' a niente. */
-      let resa = 0, pesi = 0;
-      this._esiti.forEach(e => {
-        if (!e.massimo) return;
-        resa += e.peso * (e.punti / e.massimo);
-        pesi += e.peso;
-      });
-      const cento = pesi ? Math.round(resa / pesi * 100) : 0;
+    /* Il numero della prova, per il codice: dieci bit, cioe' fino a 1023.
+       `C3U11` diventa 311 — classe per cento piu' unita. Regge fino alla
+       classe 10 e all'unita 99, che e' abbastanza per un liceo. Se la
+       sigla non ha questa forma il codice non si puo' fare, e conviene
+       dirlo forte adesso invece di produrre codici che la decodifica
+       attribuira' alla prova sbagliata. */
+    numeroProva() {
+      const s = this.getAttribute('sigla') || '';
+      const m = /^C(\d+)U(\d+)/.exec(s);
+      if (!m) return null;
+      return +m[1] * 100 + +m[2];
+    }
 
+    chiudi() {
       this._prove.forEach(p => { p.hidden = true; });
       this._testa.innerHTML = '<span class="tac-verifica-nome">' +
         (this.getAttribute('titolo') || 'Verifica') + '</span>' +
-        '<span class="tac-verifica-conta">conclusa</span>';
+        '<span class="tac-verifica-conta">consegnata</span>';
+
+      const prova = this.numeroProva();
+      let codice = null;
+      if (prova !== null && TAC.esito) {
+        try {
+          codice = TAC.esito.codifica({
+            prova: prova, seme: this._seme, risposte: this._risposte
+          });
+        } catch (e) {
+          codice = null;
+          if (window.console) console.error('codice non generato:', e.message);
+        }
+      }
 
       const esito = document.createElement('div');
-      esito.className = 'tac-punteggio mostra';
-      esito.innerHTML = '<div class="valore">' + cento + ' / 100</div>' +
-        '<p style="margin:.6rem 0 0">' + this.dettaglio() + '</p>';
+      esito.className = 'tac-verifica-esito';
+      if (codice) {
+        /* NIENTE PUNTEGGIO, E VA DETTO ALLO STUDENTE PERCHE'.
+           Senza una riga che lo spieghi, una prova che finisce senza voto
+           sembra rotta: si preme «consegna», non succede niente di
+           riconoscibile, e la reazione naturale e' rifarla. */
+        esito.innerHTML =
+          '<p class="tac-verifica-fatta"><strong>Verifica consegnata.</strong> ' +
+          'Le tue risposte sono dentro questo codice. La correzione la fa ' +
+          'l&rsquo;insegnante: qui il punteggio non compare.</p>';
+      } else {
+        esito.innerHTML =
+          '<p class="tac-verifica-fatta">Le risposte sono state raccolte, ' +
+          'ma il codice non si &egrave; potuto generare. Avvisa ' +
+          'l&rsquo;insegnante invece di rifare la prova.</p>';
+      }
       this._piede.appendChild(esito);
-
-      bloccoCodice(this._piede, {
-        scheda: this.getAttribute('sigla'),
-        punti: cento, massimo: 100
-      });
+      if (codice) bloccoCodiceEsito(this._piede, codice, this.getAttribute('sigla'));
 
       const ri = document.createElement('button');
       ri.className = 'btn secondario';
       ri.style.marginTop = '1rem';
       ri.textContent = 'Rifai la verifica';
-      /* Rifare e' permesso, ma il codice lo dira': il tentativo si conta
-         sulla prova intera e ogni ripetizione vale meno. Vietarlo sarebbe
-         una promessa che non posso mantenere -- basta svuotare i dati del
-         browser -- e renderla visibile e' piu' onesto che fingere. */
-      ri.onclick = () => {
-        this._piede.innerHTML = '';
-        this._esiti = []; this._i = 0;
-        this._prove.forEach((p, k) => {
-          p._registrato = false; p._fatto = false; p.hidden = !!k;
-          p.innerHTML = ''; p.connectedCallback && p.connectedCallback();
-        });
-        this.aggiornaTesta();
-      };
+      /* Rifare resta permesso, e adesso costa piu' di prima: il seme
+         cambia, quindi cambiano le domande. Non si rifa' la stessa prova
+         sapendo dove si era incerti -- se ne fa un'altra. Il docente vede
+         due codici con due semi diversi e sa che ci sono stati due giri.
+         Vietarlo sarebbe una promessa che non si puo' mantenere: basta
+         ricaricare la pagina. */
+      ri.onclick = () => this.ricomincia();
       this._piede.appendChild(ri);
     }
 
-    dettaglio() {
-      return this._esiti.map((e, k) =>
-        'es. ' + (k + 1) + ': ' + e.punti + '/' + e.massimo +
-        (e.peso !== 1 ? ' (peso ' + e.peso + ')' : '')).join(' &middot; ');
+    /* Rimette la prova da capo, con un seme nuovo.
+
+       RIMONTARE I FIGLI NON SI PUO' FARE COSI'. Qui c'era scritto
+       `p.innerHTML = ''; p._fatto = false; p.connectedCallback()`, ed era
+       sbagliato in un modo che non si vedeva provando il pezzo giusto: un
+       esercizio legge i propri dati da `this.textContent`, e li **consuma**
+       — la prima cosa che fa dopo averli letti e' svuotare l'elemento, per
+       non lasciare il JSON in mezzo alla pagina. Svuotare e richiamare
+       `connectedCallback` vuol dire quindi rileggere una stringa vuota:
+       `JSON.parse('')` solleva, il quiz mostra «JSON non valido», e la
+       verifica e' finita li'.
+
+       Il tasto «Rifai la verifica» non ha mai funzionato. Nessuno se n'era
+       accorto perche' bisogna arrivare in fondo a una prova per vederlo, e
+       le prove in fondo ci si arriva una volta sola.
+
+       La configurazione ce l'hanno gia' in casa — `_tutte` nel quiz,
+       `_cfg` nel trascinamento — e ridisegnare da li' e' anche piu' onesto:
+       si rifa' il disegno, non si rinasce. */
+    ricomincia() {
+      this._piede.innerHTML = '';
+      this._risposte = [];
+      this._i = 0;
+      this._seme = TAC.caso.nuovo();
+      TAC.caso.semina(this._seme);
+      this._prove.forEach((p, k) => {
+        p._registrato = false;
+        p.hidden = !!k;
+        if (p.rifai) p.rifai();
+      });
+      this.aggiornaTesta();
+    }
+
+    /* Rimonta la prova su un seme dato, senza toccare niente d'altro.
+       La usa la scheda di correzione del docente: stesso seme, stesse
+       domande, e da li' si sa a che cosa si riferiscono le risposte
+       lette nel codice. */
+    rifaiConSeme(seme) {
+      this._seme = seme >>> 0;
+      TAC.caso.semina(this._seme);
+      this._risposte = [];
+      this._i = 0;
+      this._prove.forEach((p, k) => {
+        p._registrato = false;
+        p.hidden = !!k;
+        if (p.rifai) p.rifai();
+      });
+      this.aggiornaTesta();
     }
   }
   customElements.define('tac-verifica', TacVerifica);
@@ -1681,6 +1978,10 @@
       }
       this._tutte = dom;
       this._quante = parseInt(this.getAttribute('quante') || '0', 10);
+      /* Si chiede una volta sola, alla nascita. Chiederlo a ogni domanda
+         funzionerebbe uguale, ma vorrebbe dire che il quiz puo' cambiare
+         natura a meta' prova, e non deve poterlo fare. */
+      this.raccoglie = dentroVerifica(this);
       this.pesca();
       this.textContent = '';
 
@@ -1720,6 +2021,16 @@
       }
       this._i = 0;
       this._punti = 0;
+      this._date = [];
+    }
+
+    /* Ridisegna da capo: ripesca dal serbatoio che ha gia' in casa e
+       riparte dalla prima domanda. Non rilegge `textContent`, che a
+       questo punto e' vuoto. */
+    rifai() {
+      this._tentativo = 0;
+      this.pesca();
+      this.mostra();
     }
 
     /* Elenco statico di tutte le domande, visibile solo in stampa */
@@ -1742,11 +2053,26 @@
         ol.appendChild(li);
       });
       d.appendChild(ol);
-      const sol = document.createElement('p');
-      sol.className = 'tac-quiz-chiavi';
-      sol.innerHTML = '<strong>Risposte:</strong> ' +
-        (this._tutte || this._dom).map((q, i) => (i + 1) + LETTERE[q.c].toLowerCase()).join(' · ');
-      d.appendChild(sol);
+      /* LA CHIAVE DELLE RISPOSTE, SULLA CARTA, SOLO SE C'E' DA STAMPARLA.
+
+         Questa riga stampava «Risposte: 1b · 2a · 3b…» in fondo a ogni
+         quiz. Sul foglio dell'allenamento ci sta — si fa l'esercizio e poi
+         si controlla. In fondo alla verifica no, ed era li' anche li':
+         chiunque stampasse il Workbook si portava a casa le soluzioni
+         della prova che fa voto.
+
+         Adesso, dentro una verifica, i dati non hanno nemmeno il campo
+         `c`: la riga non si puo' scrivere perche' non c'e' niente da
+         scrivere. Il controllo su `raccoglie` la toglie comunque, cosi' se
+         un giorno arrivasse in pagina una verifica coi dati completi non
+         se la ritroverebbe stampata sotto. */
+      if (!this.raccoglie && (this._tutte || this._dom).every(q => q.c != null)) {
+        const sol = document.createElement('p');
+        sol.className = 'tac-quiz-chiavi';
+        sol.innerHTML = '<strong>Risposte:</strong> ' +
+          (this._tutte || this._dom).map((q, i) => (i + 1) + LETTERE[q.c].toLowerCase()).join(' · ');
+        d.appendChild(sol);
+      }
       return d;
     }
 
@@ -1759,9 +2085,17 @@
       testa.innerHTML =
         '<span class="tac-quiz-conta">Domanda ' + (this._i + 1) + ' di ' +
           this._dom.length + '</span>' +
-        '<span class="tac-quiz-conta">Punteggio ' + this._punti + '</span>';
-      tastoAzzera(testa, () => { this.pesca(); this.mostra(); },
-                  () => this._i + this._punti);
+        (this.raccoglie ? ''
+          : '<span class="tac-quiz-conta">Punteggio ' + this._punti + '</span>');
+      /* Niente «azzera» dentro una verifica. Ripescare a meta' prova vuol
+         dire cambiare le domande difficili con altre, e il tasto era li'
+         per l'allenamento, dove rifare da capo e' esattamente la cosa
+         giusta. Il punteggio, per lo stesso motivo, non compare: non
+         esiste finche' non corregge il docente. */
+      if (!this.raccoglie) {
+        tastoAzzera(testa, () => { this.pesca(); this.mostra(); },
+                    () => this._i + this._punti);
+      }
       this._box.appendChild(testa);
 
       const d = document.createElement('p');
@@ -1835,24 +2169,46 @@
 
     rispondi(scelta, contenitore) {
       const q = this._dom[this._i];
-      const giusto = scelta === q.c;
-      if (giusto) this._punti++;
+      /* La risposta si annota sempre, giusta o sbagliata che sia: dentro
+         una verifica e' l'unica cosa che serve, e fuori non fa male a
+         nessuno. Si somma uno perche' nel codice lo zero e' riservato a
+         «non data». */
+      this._date.push(scelta + 1);
 
-      [...contenitore.children].forEach((b, k) => {
-        b.disabled = true;
-        if (k === q.c) b.classList.add('giusta');
-        else if (k === scelta) b.classList.add('sbagliata');
-      });
+      if (this.raccoglie) {
+        /* Nessun colore, nessuna spiegazione, nessun punteggio: qui la
+           risposta giusta non e' nella pagina e non c'e' niente da dire.
+           I pulsanti si disattivano lo stesso — la scelta e' fatta e non
+           si torna indietro, com'e' scritto nella consegna — e quello
+           scelto resta segnato, altrimenti non si vede piu' che cosa si e'
+           risposto. */
+        [...contenitore.children].forEach((b, k) => {
+          b.disabled = true;
+          if (k === scelta) b.classList.add('scelta');
+        });
+        this._fb.className = 'tac-feedback mostra';
+        this._fb.innerHTML = 'Risposta registrata.';
+      } else {
+        const giusto = scelta === q.c;
+        if (giusto) this._punti++;
 
-      this._fb.className = 'tac-feedback mostra ' + (giusto ? 'ok' : 'no');
-      this._fb.innerHTML =
-        '<strong>' + (giusto ? 'Esatto. ' : 'Non ci siamo. ') + '</strong>' +
-        (q.spiega || ('La risposta corretta è ' + LETTERE[q.c] + '.'));
+        [...contenitore.children].forEach((b, k) => {
+          b.disabled = true;
+          if (k === q.c) b.classList.add('giusta');
+          else if (k === scelta) b.classList.add('sbagliata');
+        });
+
+        this._fb.className = 'tac-feedback mostra ' + (giusto ? 'ok' : 'no');
+        this._fb.innerHTML =
+          '<strong>' + (giusto ? 'Esatto. ' : 'Non ci siamo. ') + '</strong>' +
+          (q.spiega || ('La risposta corretta è ' + LETTERE[q.c] + '.'));
+      }
 
       const avanti = document.createElement('button');
       avanti.className = 'btn';
       avanti.style.marginTop = '1.1rem';
-      avanti.textContent = (this._i < this._dom.length - 1) ? 'Domanda successiva' : 'Vedi il risultato';
+      avanti.textContent = (this._i < this._dom.length - 1) ? 'Domanda successiva'
+                         : (this.raccoglie ? 'Ho finito' : 'Vedi il risultato');
       avanti.onclick = () => {
         if (this._fermaSuono) this._fermaSuono();
         if (this._i < this._dom.length - 1) { this._i++; this.mostra(); }
@@ -1862,6 +2218,17 @@
     }
 
     risultato() {
+      if (this.raccoglie) {
+        this._box.innerHTML =
+          '<div class="tac-punteggio mostra">' +
+            '<div class="valore">' + this._date.length + ' risposte</div>' +
+            '<p style="margin:.6rem 0 0">Registrate. Il punteggio lo fa ' +
+            'l&rsquo;insegnante.</p>' +
+          '</div>';
+        segnalaEsito(this._box, { risposte: this._date });
+        return;
+      }
+
       const perc = Math.round(this._punti / this._dom.length * 100);
       const commento =
         perc === 100 ? 'Perfetto. Puoi andare avanti.' :
@@ -1947,6 +2314,44 @@
       this.disegna(cfg);
     }
 
+    /* LE FRASI ARRIVANO IN DUE FORME, E VANNO ACCETTATE TUTTE E DUE.
+
+       Le prime schede scrivevano una frase come coppia — `["testo",
+       "parola giusta"]` — e questo componente la apriva destrutturando.
+       Le schede scritte dopo (C1U2, C1U3, C3U1, C4U1, C5U1) usano invece
+       la forma del quiz, `{"d": "testo", "c": "parola giusta"}`, che si
+       legge meglio nell'archivio e dice come si chiamano i campi.
+
+       Nessuno aveva convertito il componente, e destrutturare un oggetto
+       come se fosse una lista non restituisce valori vuoti: **solleva
+       un'eccezione**. Otto esercizi di trascinamento su diciassette non
+       disegnavano nulla, e cinque erano dentro verifiche che fanno voto.
+
+       Perche' non se n'era accorto nessuno: il componente moriva dentro
+       `connectedCallback`, cioe' dentro il costruttore di un elemento
+       personalizzato, e li' un'eccezione non ferma la pagina e non
+       compare da nessuna parte se non nella console. Sullo schermo
+       restava la consegna, il titolo, la casella del codice: una scheda
+       completa, con un buco al centro. Tutti i controlli passavano —
+       nessuno di essi disegnava.
+
+       Si accettano entrambe le forme invece di riscrivere l'archivio:
+       convertire i dati lascerebbe il componente pronto a rompersi di
+       nuovo alla prossima scheda scritta nell'altro modo. */
+    static frase(f) {
+      if (Array.isArray(f)) return { testo: f[0], giusta: f[1] };
+      if (f && typeof f === 'object') return { testo: f.d, giusta: f.c };
+      return { testo: String(f), giusta: '' };
+    }
+
+    /* Ridisegna dalla configurazione tenuta da parte, non da
+       `textContent`, che dopo il primo giro e' vuoto. */
+    rifai() {
+      this._tentativo = 0;
+      this._codice = null;
+      this.disegna(this._cfg);
+    }
+
     disegna(cfg) {
       this.innerHTML = '';
 
@@ -1964,16 +2369,45 @@
          esclusione senza leggerla; se fossero tutte le parole del serbatoio,
          la maggior parte non servirebbe a niente e sarebbe solo rumore. */
       const quante = parseInt(this.getAttribute('quante') || '0', 10);
-      let frasi = cfg.frasi.slice();
+      // Normalizzate una volta sola, qui: da questo punto in giu' il
+      // componente conosce una forma sola e non deve piu' chiederselo.
+      let frasi = cfg.frasi.map(TacDrag.frase);
       let gettoni;
-      if (quante > 0 && quante < frasi.length) {
+      this.raccoglie = dentroVerifica(this);
+
+      if (this.raccoglie) {
+        /* DENTRO UNA VERIFICA I GETTONI SONO TUTTI.
+
+           Fuori, in gioco ce ne sono sette: le cinque parole giuste delle
+           frasi estratte, piu' due prese fra quelle rimaste fuori. E' una
+           buona misura per l'allenamento — abbastanza distrattori da non
+           risolvere per esclusione, abbastanza pochi da non fare confusione.
+
+           Ma quel calcolo **parte dalle risposte giuste**, e in una verifica
+           le risposte giuste nella pagina non ci sono. Non e' un dettaglio
+           da aggirare: e' la stessa impossibilita' di sempre, che qui si
+           presenta sotto un'altra forma. Un pool costruito nel browser
+           dice quali sono le parole giuste anche se non dice a quale frase
+           vanno — bastano cinque buche e cinque parole per capirlo.
+
+           Quindi restano in gioco tutti i gettoni del serbatoio. La prova
+           diventa un po' piu' dura, e nella direzione giusta: non si
+           risolve piu' niente per esclusione, e l'ultima buca vale quanto
+           la prima. */
+        for (let i = frasi.length - 1; i > 0; i--) {
+          const j = TAC.caso.intero(i + 1);
+          [frasi[i], frasi[j]] = [frasi[j], frasi[i]];
+        }
+        if (quante > 0 && quante < frasi.length) frasi = frasi.slice(0, quante);
+        gettoni = cfg.gettoni.slice();
+      } else if (quante > 0 && quante < frasi.length) {
         for (let i = frasi.length - 1; i > 0; i--) {
           const j = TAC.caso.intero(i + 1);
           [frasi[i], frasi[j]] = [frasi[j], frasi[i]];
         }
         const scelte = frasi.slice(0, quante);
-        const giuste = scelte.map(f => f[1]);
-        const altre = frasi.slice(quante).map(f => f[1])
+        const giuste = scelte.map(f => f.giusta);
+        const altre = frasi.slice(quante).map(f => f.giusta)
                            .filter(x => giuste.indexOf(x) < 0);
         const distrattori = [];
         while (distrattori.length < 2 && altre.length) {
@@ -1993,6 +2427,12 @@
         const j = TAC.caso.intero(i + 1);
         [mescolati[i], mescolati[j]] = [mescolati[j], mescolati[i]];
       }
+      /* L'ordine mescolato si tiene da parte: dentro una verifica la
+         risposta che finisce nel codice e' **la posizione** del gettone in
+         questa fila, non la parola. Una posizione e' un numero da 1 a 15 e
+         ci sta in quattro bit; la parola no. Con lo stesso seme la fila si
+         ricostruisce identica dalla parte del docente. */
+      this._mescolati = mescolati;
       mescolati.forEach(t => {
         const g = document.createElement('div');
         g.className = 'tac-gettone';
@@ -2004,13 +2444,18 @@
       this.appendChild(pool);
 
       const lista = document.createElement('div');
-      frasi.forEach(([testo, giusta]) => {
+      frasi.forEach(({ testo, giusta }) => {
         const r = document.createElement('p');
         r.className = 'tac-frase';
         r.innerHTML = testo + ' ';
         const buca = document.createElement('span');
         buca.className = 'tac-buca';
-        buca.dataset.giusta = giusta;
+        /* In una verifica la parola giusta non si scrive nel DOM. Non
+           perche' `undefined` darebbe fastidio — non lo darebbe — ma
+           perche' il giorno in cui questi dati tornassero completi
+           l'attributo si riempirebbe da solo, e la risposta sarebbe lì
+           nell'ispettore senza che nessuno abbia deciso di metterla. */
+        if (!this.raccoglie) buca.dataset.giusta = giusta;
         buca.ondragover = e => { e.preventDefault(); buca.classList.add('sopra'); };
         buca.ondragleave = () => buca.classList.remove('sopra');
         buca.ondrop = e => {
@@ -2027,9 +2472,9 @@
       stampa.className = 'tac-drag-stampa';
       const olS = document.createElement('ol');
       olS.className = 'spaziato';
-      cfg.frasi.forEach(([testo]) => {
+      cfg.frasi.forEach(f => {
         const li = document.createElement('li');
-        li.innerHTML = testo + ' <span class="puntini"></span>';
+        li.innerHTML = TacDrag.frase(f).testo + ' <span class="puntini"></span>';
         olS.appendChild(li);
       });
       stampa.innerHTML = '<p><strong>Etichette disponibili:</strong> ' +
@@ -2044,10 +2489,32 @@
 
       const bt = document.createElement('button');
       bt.className = 'btn';
-      bt.textContent = 'Controlla';
+      bt.textContent = this.raccoglie ? 'Conferma' : 'Controlla';
       bt.onclick = () => {
+        const buche = [...lista.querySelectorAll('.tac-buca')];
+
+        if (this.raccoglie) {
+          /* Si consegna solo a buche piene. Con una buca vuota il codice
+             porterebbe uno zero, che il docente leggerebbe come «non ha
+             risposto» — e potrebbe invece essere una parola dimenticata
+             per fretta. Meglio fermarsi qui e dirlo. */
+          const vuote = buche.filter(b => !b.textContent.trim()).length;
+          if (vuote) {
+            esito.textContent = vuote === 1 ? 'manca una parola'
+                                            : 'mancano ' + vuote + ' parole';
+            return;
+          }
+          const date = buche.map(b =>
+            this._mescolati.indexOf(b.textContent.trim()) + 1);
+          buche.forEach(b => { b.classList.add('scelta'); });
+          bt.disabled = true;
+          esito.textContent = 'consegnato';
+          segnalaEsito(this, { risposte: date });
+          return;
+        }
+
         let giuste = 0, messe = 0;
-        lista.querySelectorAll('.tac-buca').forEach(b => {
+        buche.forEach(b => {
           b.classList.remove('giusta', 'sbagliata');
           if (!b.textContent.trim()) return;
           messe++;
@@ -2083,10 +2550,15 @@
          Adesso ridisegna dall'inizio, e l'estrazione riparte dal serbatoio. */
       const rifai = () => this.disegna(this._cfg);
       barra.appendChild(bt);
-      tastoAzzera(barra, rifai,
-                  () => lista.querySelectorAll('.tac-buca').length &&
-                        [...lista.querySelectorAll('.tac-buca')]
-                          .filter(b => b.textContent.trim()).length);
+      /* Niente «azzera» dentro una verifica: ridisegnare ripesca, e
+         ripescare a meta' prova vuol dire scambiare le frasi difficili con
+         altre. Fuori resta, perche' li' rifare da capo e' lo scopo. */
+      if (!this.raccoglie) {
+        tastoAzzera(barra, rifai,
+                    () => lista.querySelectorAll('.tac-buca').length &&
+                          [...lista.querySelectorAll('.tac-buca')]
+                            .filter(b => b.textContent.trim()).length);
+      }
       barra.appendChild(esito);
       this.appendChild(barra);
     }
@@ -4798,15 +5270,41 @@
             'title="Correggi i testi. Le correzioni restano su questo computer">Correggi</button>' +
           '<button class="testo solo-regia" id="tac-scorda" ' +
             'title="Rimette i testi come stanno nella lezione pubblicata">Scorda</button>' +
-          '<button class="testo" id="tac-modo" title="Passa alla versione per lo studio">Studio</button>' +
-          '<button class="testo" id="tac-stampa" title="Genera la dispensa stampabile in PDF">Dispensa</button>' +
+          /* «Studio» e «Dispensa» sono usciti dalla barra il 18 agosto.
+             Andrea: «i pulsanti Studio e Dispensa non servono più, quando
+             lo faremo possiamo metterci Libro».
+
+             Servivano a leggere la lezione come un documento e a
+             stamparla come dispensa. Tutti e due nascono da quando la
+             lezione era anche il materiale di studio; adesso quel
+             mestiere lo fanno il Workbook, il fascicolo di solfeggio e —
+             quando ci sarà — il libro. Due pulsanti che offrono una
+             seconda strada verso una cosa che ha già la sua non
+             aiutano: fanno chiedere quale delle due sia quella giusta.
+
+             IL CODICE CHE LI SERVIVA RESTA, e non è dimenticanza. Le
+             classi `modalita-studio` e `modalita-dispensa` sono ancora
+             nel foglio di stile e i loro gestori sono ancora qui sotto,
+             agganciati solo se il pulsante esiste. Il giorno che al loro
+             posto arriva «Libro», la stampa della dispensa potrebbe
+             servire di nuovo, e riscriverla da capo costerebbe più che
+             lasciarla dormire. Toglierla adesso sarebbe buttare via una
+             cosa che funziona per far sembrare più pulito un file che
+             nessuno guarda. */
           '<button id="tac-full" title="Schermo intero">&#9974;</button>' +
         '</div>';
       document.body.appendChild(nav);
 
       nav.querySelector('#tac-prec').onclick = () => this.indietro();
       nav.querySelector('#tac-succ').onclick = () => this.avanti();
-      nav.querySelector('#tac-stampa').onclick = () => {
+      /* I gestori dei due pulsanti tolti si agganciano solo se il
+         pulsante esiste. Senza questa guardia `querySelector` torna null
+         e la barra intera smette di costruirsi: sparirebbero anche le
+         frecce e l'indice, cioe' tutto quello che serve per fare lezione,
+         e sparirebbero in silenzio dentro un errore di JavaScript. */
+      const seC = (sel, fai) => { const b = nav.querySelector(sel); if (b) fai(b); };
+
+      seC('#tac-stampa', b => b.onclick = () => {
         /* piè di pagina: titolo della lezione, al posto di quello del browser */
         const cop = document.querySelector('.slide.copertina');
         const tit = cop ? (cop.querySelector('h1') || {}).textContent : document.title;
@@ -4819,7 +5317,7 @@
         };
         window.addEventListener('afterprint', ripristina);
         setTimeout(() => window.print(), 120);
-      };
+      });
       this.costruisciTendina(nav);
 
       nav.querySelector('#tac-btn-indice').onclick = () =>
@@ -4828,16 +5326,16 @@
         if (document.fullscreenElement) document.exitFullscreen();
         else document.documentElement.requestFullscreen();
       };
-      nav.querySelector('#tac-modo').onclick = e => {
+      seC('#tac-modo', b => b.onclick = e => {
         const studio = document.body.classList.toggle('modalita-studio');
         e.target.classList.toggle('acceso', studio);
         e.target.textContent = studio ? 'Proiezione' : 'Studio';
         if (!studio) this.vai(this.i);
         else window.scrollTo(0, 0);
-      };
-      nav.querySelector('#tac-correggi').onclick = e =>
-        e.target.classList.toggle('acceso', Correzioni.commuta());
-      nav.querySelector('#tac-scorda').onclick = () => Correzioni.scorda();
+      });
+      seC('#tac-correggi', b => b.onclick = e =>
+        e.target.classList.toggle('acceso', Correzioni.commuta()));
+      seC('#tac-scorda', b => b.onclick = () => Correzioni.scorda());
     },
 
     costruisciIndice() {

@@ -157,6 +157,15 @@ body.regia #tac-densita.acceso { display: block; }
   padding: .5rem 1.1rem; border-radius: 999px; font-size: .95rem; font-weight: 600;
   backdrop-filter: blur(4px);
 }
+/* La coda di orali non e' una voce come le altre: le altre dicono che cosa
+   contiene l'ora, questa dice che mezz'ora su cinquanta minuti non e' tua.
+   Piena invece che velata, perche' se si confonde con «1 ora» e «Teoria»
+   tanto vale non scriverla -- la si guarda una volta sola, aprendo la
+   lezione, e deve arrivare in quel colpo d'occhio. */
+.meta-copertina .coda-orali {
+  background: var(--ambra, #f59e0b); border-color: var(--ambra, #f59e0b);
+  color: #422006; font-weight: 700;
+}
 
 /* --- Tipografia --- */
 h1 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); line-height: 1.12; margin: 0 0 1.8rem; }
@@ -861,6 +870,12 @@ body.modalita-studio #tac-nav .frecce { display: none; }
   .slide.copertina { background: #fff !important; color: #000; }
   .slide.copertina h1, .slide.copertina .occhiello { color: #000; }
   .meta-copertina span { border: 1px solid #999; background: #fff; }
+  /* Su carta l'ambra non c'e' -- si stampa in grigio o non si stampa
+     affatto. Il grassetto e il bordo doppio la tengono distinta dalle
+     altre voci anche in bianco e nero. */
+  .meta-copertina .coda-orali {
+    border: 2px solid #000; font-weight: 700; background: #fff;
+  }
   .scheda, .riquadro, table, tac-stave { box-shadow: none; }
   .studio { display: block !important; }
   a { color: #000; text-decoration: none; }

@@ -739,6 +739,41 @@
         play                   mostra il pulsante Ascolta
         width="640">
      </tac-stave>
+
+     ── LA SCRITTURA A QUATTRO PARTI, 18 agosto ────────────────────
+     Andrea: «nella scrittura a quattro voci le stanghette delle note
+     vanno nelle direzioni opposte». È la convenzione, e non è un vezzo
+     tipografico: il gambo è **il modo in cui si legge quale nota
+     appartiene a quale voce**. Sul rigo acuto stanno soprano e
+     contralto; se le due note sono scritte come un accordo hanno un
+     gambo solo, e le due linee smettono di essere leggibili come linee.
+     Su una lezione che passa un'ora a dire «le voci sono quattro
+     persone», il disegno diceva il contrario del testo — lo stesso
+     guasto della graffa e della travatura a due sotto la didascalia
+     «tre».
+
+     Quindi quattro attributi, uno per voce:
+
+        soprano="g/4:h a/4:h"     rigo acuto, gambo in su
+        contralto="e/4:h e/4:h"   rigo acuto, gambo in giù
+        tenore="c/4:h c/4:h"      rigo grave, gambo in su
+        basso="c/3:h a/2:h"       rigo grave, gambo in giù
+
+     Basta `soprano` per entrare in questa modalità. `notes` e `bass`
+     restano quello che erano — una linea per rigo, gambo automatico —
+     e servono a tutto il resto: melodie, ritmi, esempi a una voce.
+     Non si è cambiato il loro comportamento perché li usano oltre cento
+     righi già scritti, e un cambiamento silenzioso su quelli sarebbe
+     l'errore 10 rifatto una terza volta.
+
+     ── E IL RIGO GRAVE ADESSO SUONA ───────────────────────────────
+     Guardando `suona` per aggiungere le voci nuove è venuto fuori che
+     il rigo grave **non è mai stato suonato**: la riproduzione
+     percorreva soltanto `this._dati`, cioè la voce acuta. Ogni esempio
+     di armonia a due righi faceva sentire mezza armonia — il basso, che
+     è quello che regge tutto, era muto. Nessuno se n'era accorto perché
+     l'esempio suonava, e un esempio che suona sembra un esempio che
+     funziona.
      ========================================================== */
 
   class TacStave extends HTMLElement {
@@ -754,7 +789,12 @@
       const time    = this.getAttribute('time')   || '';
       const keysig  = this.getAttribute('keysig') || '';
       const caption = this.getAttribute('caption') || '';
-      const testo   = this.getAttribute('notes')  || '';
+      /* LE QUATTRO PARTI. Basta `soprano` per entrare in questa modalità:
+         il rigo acuto prende soprano e contralto, il grave tenore e basso,
+         e ciascuna voce ha il suo gambo. Senza, tutto resta come prima. */
+      const quattro = this.hasAttribute('soprano');
+      const testo   = quattro ? (this.getAttribute('soprano') || '')
+                              : (this.getAttribute('notes') || '');
       this._tempo   = parseFloat(this.getAttribute('tempo') || '84');
       const larghezza = parseInt(this.getAttribute('width') || '0', 10) ||
                         Math.min(880, Math.max(340, (this.clientWidth || 700) - 40));
@@ -792,7 +832,8 @@
       renderer.resize(larghezza, altezza);
       const ctx = renderer.getContext();
 
-      const testoBasso = this.getAttribute('bass');
+      const testoBasso = quattro ? this.getAttribute('basso')
+                                 : this.getAttribute('bass');
       const doppio = testoBasso !== null;
       if (doppio) renderer.resize(larghezza, 260);
 
@@ -826,9 +867,14 @@
         this._staveB = staveB;
         this._datiB = leggiNote(testoBasso);
         if (this._datiB.length) {
+          /* Nelle quattro parti il basso ha il gambo **in giù**, perché
+             sopra di lui, sullo stesso rigo, c'è il tenore. Da solo il
+             gambo lo sceglie VexFlow guardando l'altezza, ed è giusto
+             così. */
           const noteB = this._datiB.map(d => {
             if (d.stanghetta) return stanghettaVF(VF, d.stanghetta);
             const sn = new VF.StaveNote({ keys: d.keys, duration: d.dur + (d.pausa ? 'r' : ''), clef: 'bass' });
+            if (quattro) sn.setStemDirection(VF.Stem.DOWN);
             if (!d.pausa) d.keys.forEach((k, i) => {
               const p = N.scomponi(k);
               if (p.alt) sn.addModifier(new VF.Accidental(p.alt), i);
@@ -859,6 +905,44 @@
         }
       }
 
+      /* LE DUE VOCI INTERNE, contralto e tenore.
+
+         Stanno sul rigo di qualcun altro: il contralto sotto il soprano,
+         il tenore sopra il basso. Il gambo è l'unica cosa che dice a chi
+         appartiene una nota, e per questo va **imposto**, non lasciato
+         decidere all'altezza: un contralto che sale sopra il soprano
+         avrebbe altrimenti il gambo in su e le due linee si
+         scambierebbero sotto gli occhi di chi legge. */
+      const vociInterne = [];
+      if (quattro) {
+        [['contralto', clef, VF.Stem.DOWN, stave],
+         ['tenore',    'bass', VF.Stem.UP,  staveB]].forEach(([nome, ch, verso, rigo]) => {
+          const testoV = this.getAttribute(nome);
+          if (testoV === null || !rigo) return;
+          const dV = leggiNote(testoV);
+          if (!dV.length) return;
+          const noteV = dV.map(d => {
+            if (d.stanghetta) return stanghettaVF(VF, d.stanghetta);
+            const sn = new VF.StaveNote({ keys: d.keys,
+                                          duration: d.dur + (d.pausa ? 'r' : ''),
+                                          clef: ch });
+            sn.setStemDirection(verso);
+            if (!d.pausa) d.keys.forEach((k, i) => {
+              const p = N.scomponi(k);
+              if (p.alt) sn.addModifier(new VF.Accidental(p.alt), i);
+            });
+            if (d.puntata) VF.Dot.buildAndAttach([sn], { all: true });
+            return sn;
+          });
+          const tot = dV.reduce((a, d) => a + d.battiti, 0);
+          const vv = new VF.Voice({ numBeats: Math.max(1, Math.ceil(tot)), beatValue: 4 });
+          vv.setMode(VF.VoiceMode.SOFT);
+          vv.addTickables(noteV);
+          vociInterne.push({ nome: nome, dati: dV, note: noteV, voce: vv, rigo: rigo });
+        });
+      }
+      this._vociInterne = vociInterne;
+
       if (dati.length) {
         const note = dati.map(d => {
           if (d.stanghetta) return stanghettaVF(VF, d.stanghetta);
@@ -867,6 +951,8 @@
             duration: d.dur + (d.pausa ? 'r' : ''),
             clef: clef
           });
+          /* il soprano ha il gambo in su: sotto di lui c'è il contralto */
+          if (quattro) sn.setStemDirection(VF.Stem.UP);
           if (!d.pausa) {
             d.keys.forEach((k, i) => {
               const p = N.scomponi(k);
@@ -918,9 +1004,16 @@
            per rigo ognuno faceva bene il suo lavoro e le colonne non
            tornavano. */
         const giu = this._vociGiu;
-        const F = new VF.Formatter().joinVoices([voce]);
-        if (giu) F.joinVoices([giu.voce]);
-        F.format(giu ? [voce, giu.voce] : [voce], larghezza - 90);
+        /* Le voci che condividono un rigo si uniscono **fra loro** — è
+           `joinVoices` che le fa cadere sulla stessa colonna — e poi tutto
+           il sistema si formatta in una volta sola. */
+        const suRigo = (r) => vociInterne.filter(v => v.rigo === r).map(v => v.voce);
+        const F = new VF.Formatter();
+        F.joinVoices([voce].concat(suRigo(stave)));
+        if (giu) F.joinVoices([giu.voce].concat(suRigo(staveB)));
+        const tutte = [voce].concat(giu ? [giu.voce] : [])
+                            .concat(vociInterne.map(v => v.voce));
+        F.format(tutte, larghezza - 90);
         voce.draw(ctx, stave);
         travature.forEach(b => b.setContext(ctx).draw());
         disegnaLegature(VF, ctx, dati, note);
@@ -928,6 +1021,10 @@
           giu.voce.draw(ctx, staveB);
           giu.trav.forEach(b => b.setContext(ctx).draw());
         }
+        vociInterne.forEach(v => {
+          v.voce.draw(ctx, v.rigo);
+          disegnaLegature(VF, ctx, v.dati, v.note);
+        });
 
         this._note = note;
       } else if (this._vociGiu) {
@@ -1076,6 +1173,40 @@
          contrario di sé. Quindi il suono è uno e la luce è su tutte le teste
          della catena, per tutta la durata sommata: si vede esattamente
          quello che si sente, cioè un suono che attraversa due figure. */
+
+      /* LE ALTRE VOCI SUONANO ANCHE LORO, e ciascuna sulla propria linea
+         del tempo: una voce può avere figure di durata diversa dalle
+         altre, quindi non basta accodare le note a quelle dell'acuta —
+         va percorsa ognuna dal suo inizio.
+
+         Prima qui c'era solo `this._dati`. Ogni esempio a due righi
+         faceva sentire il rigo acuto e basta: il basso, che è quello che
+         regge l'armonia, era muto. L'esempio suonava, quindi sembrava
+         funzionare. */
+      const altre = []
+        .concat(this._datiB ? [this._datiB] : [])
+        .concat((this._vociInterne || []).map(v => v.dati));
+      if (!soloRitmo) altre.forEach(serie => {
+        let ta = Tone.now() + 0.15;
+        /* le legature valgono voce per voce, con lo stesso conto di sopra */
+        const dur2 = serie.map(d => d.battiti);
+        const muta2 = serie.map(() => false);
+        for (let i = serie.length - 1; i >= 0; i--) {
+          const d = serie[i];
+          if (!d.legata || d.stanghetta || d.pausa) continue;
+          const j = legataA(serie, i);
+          if (j < 0 || serie[j].pausa) continue;
+          dur2[i] += dur2[j]; muta2[j] = true;
+        }
+        serie.forEach((d, i) => {
+          if (d.stanghetta) return;
+          if (!d.pausa && !muta2[i]) {
+            voce.triggerAttackRelease(d.keys.map(k => N.aTone(k)),
+                                      dur2[i] * durBattito * 0.92, ta);
+          }
+          ta += d.battiti * durBattito;
+        });
+      });
 
       this._dati.forEach((d, i) => {
         if (d.stanghetta) return;          /* non dura e non suona */

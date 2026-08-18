@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 1. Diesis, bemolle, bequadro: che cosa alterano | Alterazioni e suddivisione</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=c4d583e7">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=b1177d7b" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 1 · Diesis, bemolle, bequadro: che cosa alterano
+     Unità 3, ora 1 di 90 · classe 1ª · teoria
+
+     PAROLE CHIAVE: alterazione · diesis · bemolle · bequadro · semitono
+     · alterazione transitoria · quanto dura un'alterazione.
+     Biblioteca interrogata il 18 agosto 2026: `_gia_fatto.py 1 --cerca`
+     dice che di diesis, bemolle e bequadro non si è mai parlato — la
+     sola menzione è la promessa in fondo all'unità 2.
+
+     ══ LA FONTE, E PERCHÉ QUESTA ══
+     Zanettovich, *Elementi fondamentali di teoria e di ortografia
+     musicale*, cap. 24. È il testo che dice le due cose che gli altri
+     danno per scontate, e che sono esattamente quelle su cui la classe
+     inciamperà:
+
+       · un'alterazione transitoria vale anche per le note successive
+         **dello stesso nome e della stessa altezza** nella medesima
+         battuta;
+       · e conserva efficacia oltre la stanghetta **solo** se la nota è
+         prolungata da una legatura di valore.
+
+     «Stessa altezza» è la parte che nessuno legge: il do diesis della
+     terza linea non altera il do dello spazio sotto. E la stanghetta che
+     azzera tutto è la ragione per cui questa lezione può stare qui e non
+     prima — la stanghetta è di ottobre, l'unità 1.
+
+     ══ IL TAGLIO DELL'ORA ══
+     Non «ecco tre segni», ma **una domanda sola**: per quanto vale?
+     I nomi si imparano in tre minuti; la durata di un'alterazione è
+     quello che si sbaglia per tre anni. Quindi metà ora sui nomi e sul
+     semitono, e metà sulla domanda.
+
+     IL SEMITONO NON È ANCORA STATO DEFINITO e non lo si definisce oggi
+     per intero: si dice «il passo più piccolo», si fa sentire, e si
+     rimanda alla scala. Definire l'intervallo qui vorrebbe dire aprire
+     un capitolo che il piano mette all'unità 7.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c1u3-lezione-1.jpg?v=70af314e');
+                --cop-a:#422006; --cop-b:#ea580c; --cop-c:#fdba74">
+  <div class="slide-interna">
+    <div class="occhiello">Alterazioni e suddivisione &middot; UdA 3 &middot; Lezione 1 di 6</div>
+    <h1>Tre segni, e una domanda sola</h1>
+    <p class="sottotitolo">I nomi si imparano in tre minuti. La domanda che conta &egrave; un&rsquo;altra: <strong>per quanto vale</strong> un&rsquo;alterazione?</p>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Teoria</span>
+      <span>Alterazioni</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Le sette e le altre">
+  <div class="slide-interna">
+    <h2>Sette nomi, ma i suoni sono di pi&ugrave;</h2>
+
+    <p>Sul rigo avete imparato a leggere <strong>sette note</strong> che si ripetono. Ma al pianoforte, fra un tasto bianco e l&rsquo;altro, ce ne sono dei neri.</p>
+
+    <div class="riquadro attenzione">
+      <p>Quei suoni esistono e servono: senza, met&agrave; della musica che ascoltate non si potrebbe scrivere. Ma <strong>non hanno un posto proprio sul rigo</strong> &mdash; le linee e gli spazi sono sette.</p>
+    </div>
+
+    <p class="didascalia">La soluzione &egrave; un segno che si mette <em>davanti</em> alla nota e ne cambia l&rsquo;altezza senza spostarla di riga: l&rsquo;<strong>alterazione</strong>.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="I tre segni">
+  <div class="slide-interna">
+    <h2>I tre segni che userete sempre</h2>
+
+    <div class="colonne3">
+      <div class="scheda"><h3>&#9839; &nbsp;Diesis</h3><p>alza la nota di <strong>un semitono</strong></p></div>
+      <div class="scheda"><h3>&#9837; &nbsp;Bemolle</h3><p>abbassa la nota di <strong>un semitono</strong></p></div>
+      <div class="scheda"><h3>&#9838; &nbsp;Bequadro</h3><p><strong>annulla</strong> il diesis o il bemolle: la nota torna naturale</p></div>
+    </div>
+
+    <p>Il <strong>semitono</strong> &egrave; il passo pi&ugrave; piccolo che questa musica usa: al pianoforte, da un tasto a quello immediatamente accanto, nero o bianco che sia.</p>
+
+    <div class="riquadro libro">
+      <span class="etichetta">Sul tuo libro</span>
+      <p><span class="lez">B4</span><strong>Le alterazioni</strong>, p. 96, sezione B</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Si sente">
+  <div class="slide-interna">
+    <h2>Adesso sentitelo</h2>
+
+    <p>La stessa nota, tre volte: naturale, alzata di un semitono, e di nuovo naturale.</p>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="fa &mdash; fa diesis &mdash; fa bequadro"
+               notes="f/4:q f#/4:q f/4:q r:q"
+               width="700" tempo="60" play></tac-stave>
+
+    <div class="riquadro attenzione">
+      <p>La differenza &egrave; piccola, ed &egrave; enorme: <strong>&egrave; la pi&ugrave; piccola che esista</strong>, e su di essa si regge tutta la distinzione fra maggiore e minore che avete sentito nell&rsquo;unit&agrave; scorsa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il segno sta prima">
+  <div class="slide-interna">
+    <h2>Il segno sta <em>prima</em>, e si legge <em>dopo</em></h2>
+
+    <p>L&rsquo;alterazione si scrive alla <strong>sinistra</strong> della nota, sulla stessa riga o nello stesso spazio. Si legge invece dicendo prima il nome: <em>fa diesis</em>, non &laquo;diesis fa&raquo;.</p>
+
+    <div class="colonne">
+      <div class="riquadro"><p><strong>Si scrive</strong><br>&#9839; davanti alla testa, alla stessa altezza</p></div>
+      <div class="riquadro"><p><strong>Si dice</strong><br>prima la nota, poi l&rsquo;alterazione</p></div>
+    </div>
+
+    <p class="didascalia">Sembra un dettaglio da copisti. &Egrave; il motivo per cui, leggendo a prima vista, l&rsquo;occhio trova il segno <strong>un istante prima</strong> della nota &mdash; giusto il tempo che serve alla mano.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Per quanto vale">
+  <div class="slide-interna">
+    <h2>E adesso la domanda dell&rsquo;ora</h2>
+
+    <p>Metto un diesis davanti a un fa. Vale solo per quella nota? Per tutto il pezzo? Fino a quando?</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">La regola, in una riga</span>
+      <p>Un&rsquo;alterazione vale per <strong>tutta la battuta</strong>, ma solo per le note dello <strong>stesso nome e della stessa altezza</strong>. Alla stanghetta scade.</p>
+    </div>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="il diesis vale per il secondo fa; dopo la stanghetta, no"
+               notes="f#/4:q g/4:q f/4:q a/4:q | f/4:q g/4:q a/4:q f/4:q"
+               width="740" tempo="64" play></tac-stave>
+
+    <p class="didascalia">Il terzo fa della prima battuta &egrave; <strong>ancora diesis</strong> anche se il segno non c&rsquo;&egrave;. Il primo della seconda battuta &egrave; naturale.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Stessa altezza">
+  <div class="slide-interna">
+    <h2>&laquo;Stessa altezza&raquo;: la parte che nessuno legge</h2>
+
+    <p>Un diesis sul fa acuto <strong>non</strong> altera il fa grave, anche se sono nella stessa battuta e si chiamano uguale.</p>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="il fa acuto &egrave; diesis, quello sotto no"
+               notes="f#/5:h f/4:h"
+               width="700" tempo="56" play></tac-stave>
+
+    <div class="riquadro attenzione">
+      <p>Sono due note diverse: stesso nome, ottava diversa. L&rsquo;alterazione riguarda <strong>quella riga o quello spazio</strong>, non il nome della nota.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="L&rsquo;eccezione">
+  <div class="slide-interna">
+    <h2>Un solo caso passa la stanghetta</h2>
+
+    <p>La legatura di valore &mdash; quella dell&rsquo;unit&agrave; 1 &mdash; tiene un suono attraverso la stanghetta. E se il suono &egrave; uno solo, anche l&rsquo;alterazione &egrave; una sola.</p>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="il fa diesis legato resta diesis anche dopo la stanghetta"
+               notes="f#/4:h. f#/4:q~ | f#/4:q f/4:h."
+               width="740" tempo="60" play></tac-stave>
+
+    <div class="riquadro studio">
+      <p>&Egrave; l&rsquo;unica eccezione, e ha una logica semplice: <strong>non &egrave; una nota nuova</strong>, &egrave; la stessa che continua. Finita la legatura, la battuta nuova riparte pulita &mdash; e infatti l&rsquo;ultimo fa &egrave; naturale.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; per quanto vale un&rsquo;alterazione" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; per quanto vale un&rsquo;alterazione</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 8 minuti</span>
+      <p>Cinque affermazioni sui tre segni. Si risponde insieme, e chi risponde dice anche perché.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "Il diesis alza la nota di un semitono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: è il passo più piccolo, da un tasto a quello accanto.",
+  "da": "I tre segni"
+ },
+ {
+  "d": "Il bequadro abbassa la nota di un semitono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: la <strong>riporta naturale</strong>. Annulla il diesis o il bemolle, non abbassa niente.",
+  "da": "I tre segni"
+ },
+ {
+  "d": "L’alterazione si scrive dopo la nota.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si scrive <strong>prima</strong>, alla sua sinistra — così l’occhio la trova un istante prima della nota.",
+  "da": "Il segno sta prima"
+ },
+ {
+  "d": "Si legge «diesis fa».",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si dice prima la nota — <em>fa diesis</em>.",
+  "da": "Il segno sta prima"
+ },
+ {
+  "d": "Un’alterazione vale per tutta la battuta in cui compare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ma solo per le note dello stesso nome <em>e della stessa altezza</em>.",
+  "da": "Per quanto vale"
+ },
+ {
+  "d": "Un diesis sul fa acuto altera anche il fa grave della stessa battuta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sono due note diverse. L’alterazione riguarda <strong>quella riga o quello spazio</strong>.",
+  "da": "Stessa altezza"
+ },
+ {
+  "d": "Dopo la stanghetta l’alterazione è finita.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e c’è una sola eccezione: la legatura di valore.",
+  "da": "Per quanto vale"
+ },
+ {
+  "d": "Una nota legata attraverso la stanghetta perde l’alterazione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: non è una nota nuova, è la stessa che continua. Quindi la tiene.",
+  "da": "L’eccezione"
+ },
+ {
+  "d": "Il semitono è il passo più piccolo che questa musica usa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: al pianoforte, da un tasto a quello immediatamente accanto.",
+  "da": "I tre segni"
+ },
+ {
+  "d": "Sul pentagramma ci sono sette linee e spazi per sette note, e i suoni sono solo sette.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: i suoni sono di più — i tasti neri esistono. Per questo servono le alterazioni.",
+  "da": "Le sette e le altre"
+ },
+ {
+  "d": "Il bemolle abbassa la nota di un semitono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: è l’alterazione semplice discendente.",
+  "da": "I tre segni"
+ },
+ {
+  "d": "Le alterazioni spostano la nota su un’altra riga del pentagramma.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: la nota resta dov’è. Cambia il <strong>suono</strong>, non il posto.",
+  "da": "Le sette e le altre"
+ },
+ {
+  "d": "In una battuta, dopo un fa diesis, un altro fa alla stessa altezza va suonato diesis anche senza segno.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: è la regola della battuta, ed è quella che si dimentica alla terza nota.",
+  "da": "Per quanto vale"
+ },
+ {
+  "d": "Il bequadro serve solo quando c’è l’armatura di chiave.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: serve ogni volta che si vuole annullare un’alterazione, anche dentro la battuta.",
+  "da": "I tre segni"
+ },
+ {
+  "d": "La differenza fra fa e fa diesis è la più piccola che esista fra due suoni di questa musica.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è piccolissima ed enorme insieme.",
+  "da": "Si sente"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">I tre segni</span>
+        <p><strong>Diesis</strong> alza di un semitono, <strong>bemolle</strong> abbassa di un semitono, <strong>bequadro</strong> riporta la nota naturale.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">La cosa da ricordare</span>
+        <p>Vale per <strong>tutta la battuta</strong>, ma solo per le note dello stesso nome <em>e della stessa altezza</em>. La stanghetta azzera, salvo legatura.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">La prossima ora: due segni che spostano tutta una frase di un&rsquo;ottava, per non riempire la pagina di tagli addizionali.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da ascoltare, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da ascoltare, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Alzata, abbassata, o uguale?</strong> Dodici coppie di note. Per ciascuna scrivi se la seconda è più alta, più bassa o uguale alla prima.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="2">
+      <li>
+        <p class="testo-compito"><strong>2. Dove arriva ciascun segno.</strong> Sul Workbook trovi otto battute con qualche alterazione. Cerchia <strong>ogni nota</strong> che il segno raggiunge, anche quelle senza segno davanti.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-03.html#C1-U3-L1-02"><strong>Workbook</strong></a>, scheda C1-U3-L1-02.</p>
+      </li>
+      <li>
+        <p class="testo-compito"><strong>3. Riscrivere senza le alterazioni sottintese.</strong> Le stesse otto battute, ricopiate sul quaderno mettendo <strong>il segno davanti a ogni nota alterata</strong>, anche dove la regola della battuta lo renderebbe inutile.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-03.html#C1-U3-L1-03"><strong>Workbook</strong></a>, scheda C1-U3-L1-03.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","via":"uda-01","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"materiali":[{"titolo":"Workbook · unità 1","file":"../materiali/workbook-uda-01.html","stato":"pronta"},{"titolo":"Scheda di lavoro autonomo","file":"../materiali/scheda-lavoro-autonomo-1.html","stato":"pronta"},{"titolo":"Partiture da stampare","file":"../materiali/partiture-uda-01.html","stato":"pronta"}]},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"da preparare","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all'ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"pronta","lezioni":[{"n":1,"titolo":"Diesis, bemolle, bequadro: che cosa alterano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Segni di ottava e loro lettura","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato con alterazioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La suddivisione e i tempi composti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Bicordi: terze e seste all’ascolto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":1,"unita":3,"lezione":1}}</script>
+</body>
+</html>

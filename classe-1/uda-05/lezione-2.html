@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 2. Le armature di chiave: come si leggono | Le tonalità</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=216f52da">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=4f0a53a2" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 2 · Le armature di chiave: come si leggono
+     Unità 5, ora 29 di 90 · classe 1ª · teoria
+
+     ══ MEZZ'ORA ══
+     Coda di orali, di solfeggio. Sette slide.
+
+     ══ LA PROMESSA PIÙ VECCHIA DEL CORSO ══
+     Unità 1, lezione 2, slide «Cinque linee e quattro spazi»: fra le cose
+     che stanno all'inizio del rigo si nominava «l'eventuale armatura, che
+     vedremo più avanti». Erano le settimane 1–2. Siamo alla 10.
+
+     Vale la pena dirlo alla classe: una cosa nominata due mesi fa e
+     ripresa oggi insegna, oltre all'armatura, che le promesse si pagano.
+
+     ══ IL TAGLIO ══
+     L'armatura non è un argomento nuovo: è una **abbreviazione** di cose
+     che la classe sa già fare. Sa che sol maggiore ha il fa diesis; oggi
+     scopre che quel diesis si scrive una volta sola, in cima.
+
+     Il taglio è quindi «perché conviene» prima di «come si fa». Con le
+     alterazioni davanti alle note, una pagina di si♭ maggiore ne avrebbe
+     decine: l'armatura toglie il rumore e lascia visibili le alterazioni
+     che contano davvero, quelle momentanee.
+
+     ══ L'ORDINE NON È UNA CONVENZIONE QUALUNQUE ══
+     I segni si scrivono in un ordine fisso e in posizioni fisse sul rigo.
+     Non per burocrazia: un'armatura scritta sempre uguale si riconosce a
+     colpo d'occhio, senza leggerla segno per segno. È ortografia
+     musicale, ed è il terreno di Zanettovich.
+
+     ══ CHE COSA NON ENTRA ══
+     · Ricavare la tonalità dall'armatura: è la lezione 4, ed è il punto
+       di arrivo dell'unità. Qui si legge l'armatura di una tonalità che
+       si conosce già, non si indovina la tonalità.
+     · Le relative: unità 6, e adesso è scritto nel piano.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c1u5-lezione-2.jpg?v=f9cd3358');
+                --cop-a:#0a2318; --cop-b:#059669; --cop-c:#6ee7b7">
+  <div class="slide-interna">
+    <div class="occhiello">Le tonalit&agrave; &middot; UdA 5 &middot; Lezione 2 di 6</div>
+    <h1>Scriverli una volta sola</h1>
+    <p class="sottotitolo">Ve l&rsquo;avevo promessa alla seconda lezione dell&rsquo;anno, due mesi fa: &laquo;l&rsquo;eventuale armatura, che vedremo pi&ugrave; avanti&raquo;. Eccola.</p>
+
+    <blockquote class="aforisma">
+      <p>Per evitare un soverchio numero di tagli addizionali, ci si pu&ograve; avvalere di alcune indicazioni convenzionali.</p>
+      <cite>Daniele Zanettovich, <em>Elementi fondamentali di teoria e di ortografia musicale</em>, cap.&nbsp;20</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Teoria</span>
+      <span>Armatura</span>
+      <span class="coda-orali">Interrogazioni &middot; solfeggio e percezione</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il problema">
+  <div class="slide-interna">
+    <h2>Provate a immaginare una pagina cos&igrave;</h2>
+
+    <p>Un brano in <em>si</em>&#9837; maggiore ha due bemolli: <em>si</em> e <em>mi</em>. Scritti davanti a ogni nota, in una pagina intera, sarebbero decine di segni.</p>
+
+    <tac-stave clef="treble" time="4/4" caption="Come sarebbe senza armatura" notes="bb/4:q c/5:q d/5:q eb/5:q | f/5:q eb/5:q d/5:q bb/4:q" width="640" tempo="60" play></tac-stave>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">E il guaio non &egrave; solo la fatica</span>
+      <p>Con tutti quei segni, un&rsquo;alterazione <strong>momentanea</strong> &mdash; una di quelle che dicono qualcosa &mdash; sparisce nel rumore. Non si vede pi&ugrave;.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="La soluzione">
+  <div class="slide-interna">
+    <h2>Si dichiarano all&rsquo;inizio, e valgono per tutto</h2>
+
+    <p>I segni si raccolgono <strong>subito dopo la chiave</strong> e valgono per l&rsquo;intero brano, su tutte le ottave.</p>
+
+    <tac-stave clef="treble" time="4/4" caption="Lo stesso passo, con l'armatura" notes="b/4:q c/5:q d/5:q e/5:q | f/5:q e/5:q d/5:q b/4:q" width="640" tempo="60" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Che cos&rsquo;&egrave;</span>
+      <p>L&rsquo;<em class="termine">armatura di chiave</em> &egrave; l&rsquo;insieme delle alterazioni dichiarate all&rsquo;inizio del rigo. Dice in che tonalit&agrave; si &egrave;, e vale fino a quando non cambia.</p>
+    </div>
+
+    <p class="didascalia">Il rigo qui sopra si legge <em>si</em>&#9837;, <em>do</em>, <em>re</em>, <em>mi</em>&#9837;&hellip; anche se davanti alle note non c&rsquo;&egrave; niente.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Su tutte le ottave">
+  <div class="slide-interna">
+    <h2>Una differenza che conta, rispetto all&rsquo;unit&agrave; 3</h2>
+
+    <div class="colonne">
+      <div class="riquadro attenzione">
+        <span class="etichetta">L&rsquo;alterazione momentanea</span>
+        <p>Vale per <strong>quella battuta</strong> e per <strong>quella altezza</strong>. La stanghetta azzera.</p>
+      </div>
+      <div class="riquadro definizione">
+        <span class="etichetta">L&rsquo;armatura</span>
+        <p>Vale per <strong>tutto il brano</strong> e per <strong>tutte le ottave</strong>. La stanghetta non la tocca.</p>
+      </div>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">La cosa da ricordare</span>
+      <p>Se in armatura c&rsquo;&egrave; il <em>si</em>&#9837;, sono bemolle <strong>tutti i si</strong>: quello grave, quello acuto, quelli di ogni battuta.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="L'ordine è fisso">
+  <div class="slide-interna">
+    <h2>Non si scrivono come capita</h2>
+
+    <p>L&rsquo;ordine &egrave; quello che avete ricavato voi, nelle due lezioni scorse:</p>
+
+    <div class="riquadro definizione">
+      <p><strong>Diesis</strong> &nbsp; fa &middot; do &middot; sol &middot; re &middot; la &middot; mi &middot; si<br>
+      <strong>Bemolli</strong> &nbsp; si &middot; mi &middot; la &middot; re &middot; sol &middot; do &middot; fa</p>
+    </div>
+
+    <p>E anche il <strong>posto sul rigo</strong> &egrave; fisso: ogni segno sta sempre sulla stessa riga o sullo stesso spazio.</p>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Perch&eacute; tanta rigidit&agrave;</span>
+      <p>Perch&eacute; un&rsquo;armatura scritta sempre uguale si riconosce <strong>a colpo d&rsquo;occhio</strong>, senza contare i segni uno per uno. &Egrave; ortografia: serve a chi legge, non a chi scrive.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo &middot; scrivere armature" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Sei armature, alla lavagna</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo &middot; 10 minuti</span>
+      <p>Uno per volta: scrivi l&rsquo;armatura di <em>sol</em>, <em>re</em>, <em>fa</em>, <em>si</em>&#9837;, <em>la</em>, <em>mi</em>&#9837; maggiore. Nell&rsquo;ordine giusto e al posto giusto.</p>
+    </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">Attenzione a questo</span>
+      <p>Prima si conta <strong>quanti</strong> segni servono &mdash; ricavandolo dalla catena, non a memoria &mdash; e solo dopo si scrive <strong>quali</strong>, nell&rsquo;ordine.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Che cos&rsquo;&egrave;</span>
+        <p>Le alterazioni dichiarate dopo la chiave. Valgono per <strong>tutto il brano e tutte le ottave</strong>.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">L&rsquo;ordine</span>
+        <p>Diesis <strong>fa do sol re la mi si</strong>, bemolli al contrario. E ogni segno ha il suo posto sul rigo.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">La prossima ora si scrive sotto dettatura, e per la prima volta in <strong>due tonalit&agrave; diverse</strong>: dovrete riconoscere quale.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Otto armature da scrivere.</strong> Scrivi l&rsquo;armatura di: <em>sol</em>, <em>re</em>, <em>la</em>, <em>mi</em>, <em>fa</em>, <em>si</em>&#9837;, <em>mi</em>&#9837;, <em>la</em>&#9837; maggiore.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-05.html#C1-U5-L2-01"><strong>Workbook</strong></a>, scheda C1-U5-L2-01.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","via":"uda-01","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"materiali":[{"titolo":"Workbook · unità 1","file":"../materiali/workbook-uda-01.html","stato":"pronta"},{"titolo":"Scheda di lavoro autonomo","file":"../materiali/scheda-lavoro-autonomo-1.html","stato":"pronta"},{"titolo":"Partiture da stampare","file":"../materiali/partiture-uda-01.html","stato":"pronta"}]},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"da preparare","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all'ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"pronta","lezioni":[{"n":1,"titolo":"Diesis, bemolle, bequadro: che cosa alterano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Segni di ottava e loro lettura","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato con alterazioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La suddivisione e i tempi composti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Bicordi: terze e seste all’ascolto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":1,"unita":5,"lezione":2}}</script>
+</body>
+</html>

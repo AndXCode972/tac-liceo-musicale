@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 4. Trovare la tonica dall'armatura | Le tonalità</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=216f52da">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=4f0a53a2" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 4 · Trovare la tonica dall'armatura
+     Unità 5, ora 31 di 90 · classe 1ª · teoria
+
+     ══ ORA INTERA ══
+     Niente coda. Nove slide, e metà sono di esercizio.
+
+     ══ QUESTA LEZIONE HA SOSTITUITO UN'ALTRA ══
+     Il piano diceva «Tonalità relative e omonime». Non poteva stare qui:
+     le relative presuppongono il minore, che entra all'unità 6. Sono
+     state spostate all'unità 6 lezione 1, che ora si chiama «Il modo
+     minore naturale, e le tonalità relative».
+
+     Al loro posto la cosa che manca davvero: fin qui la classe sa fare il
+     percorso in una direzione — data la tonalità, ricavo l'armatura — e
+     non nell'altra. Ma quando si apre uno spartito si parte **sempre**
+     dall'armatura.
+
+     ══ LE DUE REGOLE, E PERCHÉ NON SONO TRUCCHI ══
+     · Con i diesis: la tonica è **il grado sopra l'ultimo diesis**, cioè
+       il penultimo diesis più uno. Funziona perché l'ultimo diesis è la
+       **sensibile**, e la sensibile sta un semitono sotto la tonica: è la
+       lezione 5 dell'unità 4, non una filastrocca.
+     · Con i bemolli: la tonica è **il penultimo bemolle**. Funziona
+       perché l'ultimo bemolle è il quarto grado, e il penultimo è il
+       primo. Con un bemolle solo la regola non ha un penultimo: fa
+       maggiore si impara e basta, ed è l'unica eccezione.
+
+     Le regole si **ricavano** davanti alla classe. Date come formule si
+     dimenticano in due settimane; ricavate restano, e soprattutto si
+     possono ricostruire quando si dimenticano.
+
+     ══ CHE COSA NON ENTRA ══
+     Che la stessa armatura serva anche a una tonalità minore. È vero, è
+     importante, ed è l'unità 6: dirlo qui aprirebbe una porta che non si
+     può attraversare.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c1u5-lezione-4.jpg?v=20846481');
+                --cop-a:#2d1414; --cop-b:#dc2626; --cop-c:#fca5a5">
+  <div class="slide-interna">
+    <div class="occhiello">Le tonalit&agrave; &middot; UdA 5 &middot; Lezione 4 di 6</div>
+    <h1>Al contrario: dai segni alla tonalit&agrave;</h1>
+    <p class="sottotitolo">Sapete ricavare l&rsquo;armatura da una tonalit&agrave;. Ma quando aprite uno spartito avete davanti l&rsquo;armatura, e la tonalit&agrave; va trovata.</p>
+
+    <blockquote class="aforisma">
+      <p>Devi arrivare al punto di capire una musica sulla carta.</p>
+      <cite>Robert Schumann, <em>Regole di vita musicale</em>, 1850</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Teoria</span>
+      <span>Leggere l&rsquo;armatura</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il verso che manca">
+  <div class="slide-interna">
+    <h2>Sapete andare in un senso solo</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Questo lo sapete fare</span>
+        <p>Data la <strong>tonalit&agrave;</strong>, ricavo l&rsquo;armatura: scrivo la scala, applico la formula, conto i segni.</p>
+      </div>
+      <div class="riquadro attenzione">
+        <span class="etichetta">Questo no</span>
+        <p>Data l&rsquo;<strong>armatura</strong>, qual &egrave; la tonalit&agrave;? E &egrave; il verso che serve sempre: uno spartito comincia con l&rsquo;armatura, non col nome della tonalit&agrave;.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">Si potrebbe fare a tentativi &mdash; provo do, provo sol&hellip; &mdash; ma c&rsquo;&egrave; un modo diretto, e viene da quello che sapete gi&agrave;.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="I diesis, ricavato">
+  <div class="slide-interna">
+    <h2>Coi diesis: guardate l&rsquo;<strong>ultimo</strong></h2>
+
+    <p>In <em>sol</em> maggiore l&rsquo;unico diesis &egrave; <em>fa</em>&#9839;. In <em>re</em> maggiore l&rsquo;ultimo &egrave; <em>do</em>&#9839;. In <em>la</em> maggiore &egrave; <em>sol</em>&#9839;.</p>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Che cosa hanno in comune</span>
+      <p>fa&#9839; &rarr; sol &nbsp;&middot;&nbsp; do&#9839; &rarr; re &nbsp;&middot;&nbsp; sol&#9839; &rarr; la</p>
+      <p>La tonica sta sempre <strong>un semitono sopra l&rsquo;ultimo diesis</strong>.</p>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">E si sapeva gi&agrave; perch&eacute;</span>
+      <p>L&rsquo;ultimo diesis &egrave; la <strong>sensibile</strong>, e la sensibile sta un semitono sotto la tonica. Non &egrave; un trucco: &egrave; la lezione 5 dell&rsquo;unit&agrave; scorsa, letta al contrario.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="I bemolli, ricavato">
+  <div class="slide-interna">
+    <h2>Coi bemolli: guardate il <strong>penultimo</strong></h2>
+
+    <p>In <em>si</em>&#9837; maggiore i bemolli sono <em>si</em> e <em>mi</em>: il penultimo &egrave; <em>si</em>. In <em>mi</em>&#9837; sono si, mi, la: il penultimo &egrave; <em>mi</em>.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">La tonica &egrave; il penultimo bemolle</span>
+      <p>E anche qui c&rsquo;&egrave; un perch&eacute;: l&rsquo;ultimo bemolle &egrave; sempre il <strong>quarto grado</strong> &mdash; lo avete visto costruendo fa maggiore &mdash; e allora il penultimo &egrave; il primo.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">L&rsquo;unica eccezione</span>
+      <p>Con <strong>un bemolle solo</strong> non c&rsquo;&egrave; un penultimo: quella &egrave; <em>fa</em> maggiore, e si impara. &Egrave; l&rsquo;unico caso in tutto il sistema.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Le due regole">
+  <div class="slide-interna">
+    <h2>Le due regole, in tre righe</h2>
+
+    <div class="riquadro definizione">
+      <p class="grande"><strong>Diesis</strong> &rarr; un semitono sopra l&rsquo;ultimo<br>
+      <strong>Bemolli</strong> &rarr; il penultimo<br>
+      <strong>Nessun segno</strong> &rarr; do maggiore &nbsp;&middot;&nbsp; <strong>un bemolle</strong> &rarr; fa maggiore</p>
+    </div>
+
+    <p class="didascalia">Se ve le dimenticate, non &egrave; grave: si ricostruiscono in mezzo minuto scrivendo la scala. Le regole servono a fare in fretta una cosa che sapete fare comunque.</p>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo &middot; sei armature" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Adesso alla lavagna, in fretta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo &middot; 12 minuti</span>
+      <p>Scrivo un&rsquo;armatura, voi dite la tonalit&agrave;. Poi il contrario: dico una tonalit&agrave;, voi scrivete l&rsquo;armatura. Sei per parte, a giro.</p>
+    </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">Attenzione a questo</span>
+      <p>Prima si guarda <strong>di che segni si tratta</strong> &mdash; diesis o bemolli &mdash; e poi si applica la regola giusta. Chi parte contando i segni sbaglia regola una volta su tre.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Su uno spartito">
+  <div class="slide-interna">
+    <h2>E su una pagina vera, che cosa si guarda</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Nei primi tre secondi</span>
+      <p><strong>1</strong> &middot; la chiave &mdash; dove stanno le note.<br>
+      <strong>2</strong> &middot; l&rsquo;armatura &mdash; in che tonalit&agrave; siamo.<br>
+      <strong>3</strong> &middot; l&rsquo;indicazione di tempo &mdash; come si conta.</p>
+    </div>
+
+    <p>Sono le tre cose che stanno all&rsquo;inizio del rigo, e adesso le sapete leggere tutte e tre. Ve le avevo elencate alla <strong>seconda lezione dell&rsquo;anno</strong>: allora una delle tre era &laquo;la vedremo pi&ugrave; avanti&raquo;.</p>
+
+    <p class="didascalia">Da oggi, aprendo uno spartito, sapete dire in che tonalit&agrave; &egrave; prima di aver letto una nota.</p>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; leggere l&rsquo;armatura" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; leggere l&rsquo;armatura</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 8 minuti</span>
+      <p>Cinque affermazioni sulle due regole.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "Coi diesis, la tonica sta un semitono sopra l&rsquo;ultimo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, perch&eacute; l&rsquo;ultimo diesis &egrave; la sensibile.",
+  "da": "I diesis, ricavato"
+ },
+ {
+  "d": "Coi bemolli, la tonica &egrave; l&rsquo;ultimo bemolle.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; il <strong>penultimo</strong>. L&rsquo;ultimo &egrave; il quarto grado.",
+  "da": "I bemolli, ricavato"
+ },
+ {
+  "d": "Con un bemolle solo la regola del penultimo non si pu&ograve; applicare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: non c&rsquo;&egrave; un penultimo. Quella &egrave; fa maggiore, e si impara.",
+  "da": "I bemolli, ricavato"
+ },
+ {
+  "d": "Un&rsquo;armatura con due diesis &egrave; re maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: l&rsquo;ultimo &egrave; do&#9839;, e un semitono sopra c&rsquo;&egrave; re.",
+  "da": "I diesis, ricavato"
+ },
+ {
+  "d": "Un&rsquo;armatura con tre bemolli &egrave; la&#9837; maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; <strong>mi&#9837;</strong>. I bemolli sono si, mi, la: il penultimo &egrave; mi.",
+  "da": "I bemolli, ricavato"
+ },
+ {
+  "d": "Le regole servono a fare in fretta una cosa che si sa fare comunque.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: se non tornano in mente, si scrive la scala e si ricava.",
+  "da": "Le due regole"
+ },
+ {
+  "d": "Nessun segno in armatura vuol dire do maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero.",
+  "da": "Le due regole"
+ },
+ {
+  "d": "L&rsquo;ultimo diesis di un&rsquo;armatura &egrave; il quarto grado.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; la <strong>sensibile</strong>, cio&egrave; il settimo.",
+  "da": "I diesis, ricavato"
+ },
+ {
+  "d": "Aprendo uno spartito si guarda prima l&rsquo;armatura e poi la chiave.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: prima la <strong>chiave</strong>. Senza, non si sa nemmeno che note sono i segni.",
+  "da": "Su uno spartito"
+ },
+ {
+  "d": "Un&rsquo;armatura con un diesis &egrave; sol maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: fa&#9839;, e un semitono sopra c&rsquo;&egrave; sol.",
+  "da": "I diesis, ricavato"
+ },
+ {
+  "d": "Le regole funzionano perch&eacute; sono comode da ricordare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: funzionano perch&eacute; vengono da come &egrave; fatta la scala. La comodit&agrave; &egrave; una conseguenza.",
+  "da": "Le due regole"
+ },
+ {
+  "d": "Un&rsquo;armatura con quattro diesis &egrave; mi maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: l&rsquo;ultimo &egrave; re&#9839;, e sopra c&rsquo;&egrave; mi.",
+  "da": "I diesis, ricavato"
+ },
+ {
+  "d": "Le tre cose all&rsquo;inizio del rigo sono chiave, armatura e tempo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e adesso le sapete leggere tutte e tre.",
+  "da": "Su uno spartito"
+ },
+ {
+  "d": "Coi bemolli si guarda il penultimo, coi diesis l&rsquo;ultimo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e per due ragioni diverse: il quarto grado e la sensibile.",
+  "da": "Le due regole"
+ },
+ {
+  "d": "Un’armatura con due bemolli è si♭ maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: i bemolli sono si e mi, e il penultimo è si.",
+  "da": "I bemolli, ricavato"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Le due regole</span>
+        <p>Diesis: un semitono <strong>sopra l&rsquo;ultimo</strong>. Bemolli: il <strong>penultimo</strong>.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">Perch&eacute; funzionano</span>
+        <p>L&rsquo;ultimo diesis &egrave; la <strong>sensibile</strong>; l&rsquo;ultimo bemolle &egrave; il <strong>quarto grado</strong>. Le regole vengono da l&igrave;.</p>
+      </div>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Una cosa che qualcuno chieder&agrave;</span>
+      <p>&laquo;Ma se due tonalit&agrave; avessero la stessa armatura?&raquo; Succede, e non &egrave; un difetto del sistema. Se ne parla all&rsquo;<strong>unit&agrave; 6</strong>, quando ci sar&agrave; anche l&rsquo;altro modo.</p>
+    </div>
+
+    <p class="didascalia">La prossima ora si canta con l&rsquo;armatura in chiave: le alterazioni ci sono ma non si vedono davanti alle note.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Dieci armature, dieci tonalit&agrave;.</strong> Sul Workbook trovi dieci armature. Per ciascuna scrivi la tonalit&agrave; maggiore.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-05.html#C1-U5-L4-02"><strong>Workbook</strong></a>, scheda C1-U5-L4-02.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","via":"uda-01","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"materiali":[{"titolo":"Workbook · unità 1","file":"../materiali/workbook-uda-01.html","stato":"pronta"},{"titolo":"Scheda di lavoro autonomo","file":"../materiali/scheda-lavoro-autonomo-1.html","stato":"pronta"},{"titolo":"Partiture da stampare","file":"../materiali/partiture-uda-01.html","stato":"pronta"}]},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"da preparare","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all'ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"pronta","lezioni":[{"n":1,"titolo":"Diesis, bemolle, bequadro: che cosa alterano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Segni di ottava e loro lettura","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato con alterazioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La suddivisione e i tempi composti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Bicordi: terze e seste all’ascolto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":1,"unita":5,"lezione":4}}</script>
+</body>
+</html>

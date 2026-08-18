@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 1. Il pentagramma: linee, spazi, chiavi | Il rigo e le note</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=c4d583e7">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=10f26d5d" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 1 · Il pentagramma: linee, spazi, chiavi
+     Unità 2, ora 7 di 90 · classe 1ª · ora di teoria
+
+     PAROLE CHIAVE PER LA BIBLIOTECA:
+        pentagramma · linee e spazi · chiavi · settclavio · rigo musicale
+     Ultima interrogazione: 17 agosto 2026, su 274 testi.
+     L'esito sta in 09_Dai_testi_alle_lezioni.md, unità 2.
+
+     DOVE SIAMO. Sei ore fa la classe non sapeva dov'era il battito. Adesso
+     lo trova, lo conta, sa che si divide in due o in tre, conosce le
+     figure e le pause, e ha scritto il suo primo dettato ritmico. Tutto
+     quello che sa riguarda **quanto dura** un suono. Niente riguarda
+     **quale** suono sia.
+
+     IL PROBLEMA PRIMA DELLA SOLUZIONE. La tentazione è cominciare
+     dicendo «il pentagramma è formato da cinque linee e quattro spazi».
+     È vero e non insegna niente: dà la soluzione a un problema che la
+     classe non ha ancora sentito. Qui si fa il contrario — si chiede di
+     inventare un modo di scrivere un'altezza, si guarda che cosa viene
+     fuori, e solo dopo si mostra quello che l'Europa ha impiegato tre
+     secoli a fissare. Chi ha provato a risolverlo capisce perché le
+     linee sono cinque.
+
+     LA NUMERAZIONE DAL BASSO è la cosa che si sbaglia per prima, ed è
+     scritta in Cappellari, *Primo libro di lettura musicale*, p. 15:
+     «linee e spazi sono numerati dal basso verso l'alto». Va detta e va
+     fatta usare subito, o alla terza ora qualcuno conta dall'alto.
+
+     LA CHIAVE NON È UN NOME, È UN PUNTO DI VISTA. La formulazione buona
+     è di Avena, p. 33: le chiavi dicono «qual è la zona di frequenze che
+     stiamo osservando». Detta così si capisce perché ce n'è più di una;
+     detta come «il segno all'inizio del rigo» non si capisce niente.
+
+     IL DO CENTRALE NON ENTRA OGGI. Sta all'ora 8, col doppio
+     pentagramma, ed è giusto: è il perno che tiene insieme le due
+     chiavi, e spiegare il ponte prima delle due sponde non funziona.
+
+     LA CHIAVE DI DO SI NOMINA E NON SI CHIEDE. Esiste, si vede, non si
+     legge — in seconda servirà davvero (unità 3, la chiave di
+     contralto). Nominarla adesso evita che fra un anno sembri arrivata
+     dal nulla; chiederla adesso sarebbe chiedere una cosa non insegnata.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c1u2-lezione-1.jpg?v=ba368636');
+                --cop-a:#14532d; --cop-b:#0f766e; --cop-c:#5eead4">
+  <div class="slide-interna">
+    <div class="occhiello">Il rigo e le note &middot; UdA 2 &middot; Lezione 1 di 6</div>
+    <h1>Cinque linee e quattro spazi</h1>
+    <p class="sottotitolo">Fin qui abbiamo scritto <strong>quanto dura</strong> un suono. Da oggi scriviamo anche <strong>quale</strong> suono è.</p>
+    <blockquote class="aforisma">
+      <p>Le chiavi servono a dire qual è la zona di frequenze che stiamo osservando.</p>
+      <cite>Andrea Avena, <em>Teoria &amp; armonia</em>, prima parte, p. 33</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Teoria</span>
+      <span>Pentagramma &middot; Chiavi</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa sappiamo scrivere">
+  <div class="slide-interna">
+    <h2>Che cosa sappiamo gi&agrave; scrivere</h2>
+
+    <p>In sei ore abbiamo imparato a scrivere il <strong>tempo</strong> della musica. Guardate questa battuta: la sapete leggere tutti.</p>
+
+    <tac-stave clef="percussion" time="4/4"
+               caption="Sappiamo leggerla &mdash; ma non sappiamo che cosa suona"
+               notes="b/4:q b/4:8 b/4:8 b/4:q b/4:q | b/4:h b/4:h"
+               width="700" tempo="76" play></tac-stave>
+
+    <div class="riquadro attenzione">
+      <p>Sappiamo <strong>quando</strong> attaccare ogni suono e <strong>quanto</strong> tenerlo. Non sappiamo se &egrave; grave o acuto, e nemmeno se i suoni sono tutti uguali fra loro. Il rigo di oggi non lo dice: le note stanno tutte sulla stessa riga <em>perch&eacute; la riga non vuol dire niente</em>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il problema">
+  <div class="slide-interna">
+    <h2>Provate voi, prima che ve lo dica io</h2>
+
+    <p>Canto tre suoni: il primo, poi uno pi&ugrave; acuto, poi uno molto pi&ugrave; grave del primo.</p>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Sul quaderno, 4 minuti</span>
+      <p>Inventate un modo per <strong>scriverli</strong>, in modo che un compagno che non ha sentito niente possa capire quale &egrave; acuto e quale grave. Non c&rsquo;&egrave; una risposta giusta: qualsiasi cosa funzioni va bene.</p>
+      <p>Poi passate il foglio al vicino e provate a leggere il suo.</p>
+    </div>
+
+    <p class="didascalia">Quasi tutti scrivono i suoni <strong>pi&ugrave; in alto</strong> o <strong>pi&ugrave; in basso</strong> sul foglio. &Egrave; la stessa idea che ha avuto l&rsquo;Europa, e ci ha messo tre secoli a sistemarla.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Perché non basta l&rsquo;altezza sul foglio">
+  <div class="slide-interna">
+    <h2>Perch&eacute; scrivere pi&ugrave; in alto non basta</h2>
+
+    <p>Il vostro sistema funziona finch&eacute; i suoni sono tre. Con venti diventa impossibile: guardando due segni vicini nessuno sa dire se distano <em>un poco</em> o <em>molto</em>.</p>
+
+    <div class="colonne">
+      <div class="riquadro"><p><strong>Serve un metro</strong><br>qualcosa di fisso su cui misurare l&rsquo;altezza, come le tacche di un righello</p></div>
+      <div class="riquadro"><p><strong>Serve un riferimento</strong><br>perch&eacute; &laquo;pi&ugrave; in alto&raquo; non dice <em>quanto</em> in alto se non c&rsquo;&egrave; uno zero</p></div>
+    </div>
+
+    <p>Le righe sono il metro. Il segno all&rsquo;inizio &egrave; lo zero. Sono le due cose che vediamo adesso.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Cinque linee e quattro spazi">
+  <div class="slide-interna">
+    <h2>Il pentagramma</h2>
+
+    <p>Cinque linee parallele, e i quattro spazi fra loro. Una nota sta <strong>o su una linea o in uno spazio</strong>: sono nove posizioni, e ognuna &egrave; un suono diverso.</p>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="Le nove posizioni: quattro spazi e cinque linee"
+               notes="e/4:q f/4:q g/4:q a/4:q | b/4:q c/5:q d/5:q e/5:q | f/5:w"
+               width="740" tempo="66" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Come si contano</span>
+      <p>Linee e spazi si numerano <strong>dal basso verso l&rsquo;alto</strong>. La prima linea &egrave; quella pi&ugrave; in basso, la quinta quella pi&ugrave; in alto. &Egrave; una convenzione, e va imparata subito: contare dall&rsquo;alto significa sbagliare ogni volta.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Perché cinque">
+  <div class="slide-interna">
+    <h2>Perch&eacute; proprio cinque</h2>
+
+    <p>Non &egrave; un numero magico: &egrave; un compromesso, e si vede provando gli altri.</p>
+
+    <div class="colonne3">
+      <div class="riquadro"><p><strong>Con tre righe</strong><br>ci stanno cinque o sei suoni: si finisce fuori a ogni frase</p></div>
+      <div class="riquadro"><p><strong>Con cinque</strong><br>ci stanno nove posizioni, e con qualche aiuto si arriva a tredici: basta per una voce</p></div>
+      <div class="riquadro attenzione"><p><strong>Con undici</strong><br>ci starebbe tutto, ma l&rsquo;occhio non conta undici righe al volo &mdash; ci si perde</p></div>
+    </div>
+
+    <p class="didascalia">Cinque &egrave; il massimo che l&rsquo;occhio riconosce <strong>senza contare</strong>. Provate: guardate un pentagramma e dite qual &egrave; la terza linea. Ci riuscite subito. Con undici non ci riuscireste.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="La chiave">
+  <div class="slide-interna">
+    <h2>Le righe da sole non bastano</h2>
+
+    <p>Un pentagramma vuoto non dice ancora niente. Nove posizioni s&igrave;, ma <em>quali</em> nove suoni? Da dove si comincia a contare?</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">La chiave</span>
+      <p>Il segno all&rsquo;inizio del rigo. Fissa <strong>una</strong> nota su <strong>una</strong> riga precisa: da l&igrave; si ricavano tutte le altre, salendo e scendendo. Serve a dire, come scrive Avena, &laquo;qual &egrave; la zona di frequenze che stiamo osservando&raquo;.</p>
+    </div>
+
+    <p>Ecco perch&eacute; le chiavi sono pi&ugrave; di una: una voce di basso e un flauto non abitano la stessa zona, e costringerli sullo stesso rigo vorrebbe dire riempire la pagina di righe in pi&ugrave;.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Chiave di violino">
+  <div class="slide-interna">
+    <h2>La chiave di violino, e il sol che la nomina</h2>
+
+    <p>Si chiama anche <strong>chiave di sol</strong>, e il motivo &egrave; nel disegno: il ricciolo si avvolge intorno alla <strong>seconda linea</strong>, e quella linea &egrave; il <em>sol</em>.</p>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="Il sol sulla seconda linea, e le note che ne discendono"
+               notes="g/4:w | a/4:h f/4:h | b/4:h e/4:h | c/5:w"
+               width="740" tempo="60" play></tac-stave>
+
+    <p>Fissata quella, tutto il resto viene da s&eacute;: si sale per gradi &mdash; sol, la, si, do &mdash; e si scende allo stesso modo.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Chiave di basso">
+  <div class="slide-interna">
+    <h2>La chiave di basso, e il fa</h2>
+
+    <p>Stesso meccanismo, altra zona. I due puntini stanno sopra e sotto la <strong>quarta linea</strong>: quella linea &egrave; il <em>fa</em>.</p>
+
+    <tac-stave clef="bass" time="4/4"
+               caption="Il fa sulla quarta linea"
+               notes="f/3:w | g/3:h e/3:h | a/3:h d/3:h | c/3:w"
+               width="740" tempo="60" play></tac-stave>
+
+    <div class="riquadro attenzione">
+      <p>Attenzione a non leggerla come la chiave di violino: <strong>la stessa posizione sul rigo suona un&rsquo;altra nota</strong>. Non &egrave; una difficolt&agrave; in pi&ugrave;, &egrave; il punto: la chiave serve proprio a questo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Le tre chiavi">
+  <div class="slide-interna">
+    <h2>Quante chiavi ci sono</h2>
+
+    <p>Nella notazione di oggi se ne usano tre. Due le leggeremo; la terza per ora la riconosciamo e basta.</p>
+
+    <div class="colonne3">
+      <div class="riquadro"><p><strong>Di sol</strong> &mdash; violino<br>voci acute, flauto, violino, mano destra del pianoforte</p></div>
+      <div class="riquadro"><p><strong>Di fa</strong> &mdash; basso<br>voci gravi, violoncello, contrabbasso, mano sinistra</p></div>
+      <div class="riquadro"><p><strong>Di do</strong><br>viola, e le voci di mezzo. La incontrerete davvero l&rsquo;anno prossimo</p></div>
+    </div>
+
+    <p class="didascalia">Un tempo erano sette, una per ogni linea possibile: si chiamava <strong>settclavio</strong>. Servivano a tenere ogni voce dentro il rigo senza tagli, quando la carta costava e le righe in pi&ugrave; erano uno spreco.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Dalla linea al nome">
+  <div class="slide-interna">
+    <h2>Leggere: dalla linea al nome</h2>
+
+    <p>Non si impara a memoria posizione per posizione: si parte da una nota che si sa e si cammina.</p>
+
+    <div class="colonne">
+      <div>
+        <p><strong>In chiave di violino</strong> il punto fermo &egrave; il <em>sol</em> sulla seconda linea. Da l&igrave; si sale o si scende per gradi, contando le posizioni una per una &mdash; linea, spazio, linea, spazio.</p>
+      </div>
+      <div>
+        <p><strong>In chiave di basso</strong> il punto fermo &egrave; il <em>fa</em> sulla quarta linea. Stesso cammino.</p>
+      </div>
+    </div>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Tutti insieme, 5 minuti</span>
+      <p>Guardate il rigo alla lavagna. Vi indico una posizione, e voi contate ad alta voce dal punto fermo fino ad arrivarci. Lentamente: la velocit&agrave; viene dopo, e viene da sola.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Le parole di oggi</span>
+        <p><strong>Pentagramma</strong> &mdash; cinque linee e quattro spazi, numerati dal basso.</p>
+        <p><strong>Chiave</strong> &mdash; il segno che fissa una nota su una linea, e con quella tutte le altre.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">La cosa da ricordare</span>
+        <p>La stessa posizione sul rigo suona note diverse a seconda della chiave. Il rigo da solo non dice niente: <strong>dice qualcosa solo dopo la chiave</strong>.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">La prossima ora: due righi insieme, e il <strong>do</strong> che sta esattamente in mezzo &mdash; una nota sola, scritta in due modi.</p>
+  </div>
+</section>
+
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","via":"uda-01","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"materiali":[{"titolo":"Workbook · unità 1","file":"../materiali/workbook-uda-01.html","stato":"pronta"},{"titolo":"Scheda di lavoro autonomo","file":"../materiali/scheda-lavoro-autonomo-1.html","stato":"pronta"},{"titolo":"Partiture da stampare","file":"../materiali/partiture-uda-01.html","stato":"pronta"}]},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"da preparare","lezioni":[{"n":1,"titolo":"Il pentagramma: linee, spazi, chiavi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"in preparazione"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"Maggiore e minore all'ascolto: il primo colore","file":"lezione-4.html","stato":"in preparazione"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"in preparazione"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"in preparazione"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[]},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[]},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"da preparare","lezioni":[]},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":1,"unita":2,"lezione":1}}</script>
+</body>
+</html>

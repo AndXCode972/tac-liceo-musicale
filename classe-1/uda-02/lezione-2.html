@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 2. Il doppio pentagramma e i tagli addizionali | Il rigo e le note</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=c4d583e7">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=10f26d5d" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 2 · Il doppio pentagramma e i tagli addizionali
+     Unità 2, ora 8 di 90 · classe 1ª · ora di teoria
+
+     PAROLE CHIAVE PER LA BIBLIOTECA:
+        tagli addizionali · doppio pentagramma · do centrale · unisono ·
+        graffa
+     Ultima interrogazione: 17 agosto 2026, su 274 testi.
+     L'esito sta in 09_Dai_testi_alle_lezioni.md, unità 2.
+
+     IL PERNO DELL'ORA È IL DO CENTRALE, e non è un dettaglio di
+     nomenclatura: è la prova che le due chiavi non sono due sistemi
+     diversi ma **due finestre sulla stessa scala**. Finché non lo si
+     vede, la chiave di basso sembra un secondo alfabeto da imparare a
+     memoria. Dopo, è la stessa fila di note guardata più in basso.
+
+     LA FONTE. Avena, *Teoria & armonia* prima parte, p. 37: il do sul
+     primo taglio addizionale sopra la chiave di basso corrisponde in
+     altezza al do sotto la chiave di violino. E p. 39 per gli altri
+     unisoni. Da rileggere sull'originale prima di citare: è testo da
+     riconoscimento ottico.
+
+     L'ORDINE È VOLUTO: prima i tagli, poi il doppio rigo. I tagli
+     nascono da un problema che la classe ha già — le nove posizioni
+     finiscono subito — e la loro insufficienza è ciò che rende
+     necessario il secondo rigo. Invertendo, il doppio pentagramma
+     arriverebbe come una convenzione da accettare.
+
+     LA PROVA CHE SI SENTE. Le due scritture del do centrale si fanno
+     ascoltare una dopo l'altra: **è lo stesso suono**. Non lo si
+     dimostra a parole, lo si fa sentire — e l'audio qui non è un
+     ornamento, è l'argomento.
+
+     COSA NON ENTRA. Le ottave e i segni 8va: arrivano all'unità 3, con
+     le alterazioni. Qui basta sapere che oltre i tre tagli si cambia
+     strada, senza dire ancora quale.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c1u2-lezione-2.jpg?v=bf177dfc');
+                --cop-a:#0c2d48; --cop-b:#0369a1; --cop-c:#7dd3fc">
+  <div class="slide-interna">
+    <div class="occhiello">Il rigo e le note &middot; UdA 2 &middot; Lezione 2 di 6</div>
+    <h1>Una nota, due modi di scriverla</h1>
+    <p class="sottotitolo">Nove posizioni finiscono presto. Si aggiungono righe, e poi un rigo intero &mdash; e in mezzo c&rsquo;&egrave; una nota che sta in tutti e due.</p>
+    <blockquote class="aforisma">
+      <p>Il doppio pentagramma &egrave; formato da due pentagrammi uniti tra loro da una parentesi graffa e da una linea verticale che li congiunge.</p>
+      <cite>Andrea Cappellari, <em>Teoria, Analisi e Percezione Musicale</em>, vol. 1, p. 11</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Teoria</span>
+      <span>Tagli &middot; Do centrale</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Ripasso lampo">
+  <div class="slide-interna">
+    <h2>Dove eravamo rimasti</h2>
+
+    <div class="colonne3">
+      <div class="riquadro"><p><strong>Cinque linee, quattro spazi</strong><br>numerati dal basso verso l&rsquo;alto</p></div>
+      <div class="riquadro"><p><strong>Nove posizioni</strong><br>una nota sta o su una linea o in uno spazio</p></div>
+      <div class="riquadro"><p><strong>La chiave</strong><br>fissa una nota, e con quella tutte le altre</p></div>
+    </div>
+
+    <div class="riquadro attenzione">
+      <p>E adesso il problema: <strong>nove posizioni finiscono subito</strong>. Una voce ne usa il doppio, un pianoforte anche cinque volte tanto. Che si fa quando la musica esce dal rigo?</p>
+    </div>
+
+    <div class="riquadro libro">
+      <span class="etichetta">Sul tuo libro</span>
+      <p><span class="lez">C1</span><strong>Leggiamo sul doppio pentagramma</strong>, p. 218, sezione C</p>
+      <p>Oggi ne usiamo la seconda met&agrave;: quella con i due righi e il do in mezzo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="I tagli addizionali">
+  <div class="slide-interna">
+    <h2>Si aggiunge una riga, ma solo dove serve</h2>
+
+    <p>Un <strong>taglio addizionale</strong> &egrave; un pezzetto di linea, lungo quanto la nota, messo sopra o sotto il pentagramma. Non attraversa tutta la pagina: esiste solo per quella nota.</p>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="Sotto e sopra il rigo: la stessa scala continua"
+               notes="c/4:q d/4:q e/4:q f/4:q | g/5:q a/5:q b/5:q c/6:q"
+               width="740" tempo="66" play></tac-stave>
+
+    <p class="didascalia">La prima battuta scende <em>sotto</em> la prima linea, la seconda sale <em>sopra</em> la quinta. Le note non cambiano natura: la scala prosegue, e la riga si aggiunge per accompagnarla.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Fin dove si può andare">
+  <div class="slide-interna">
+    <h2>Perch&eacute; non bastano i tagli</h2>
+
+    <p>In teoria si potrebbe continuare all&rsquo;infinito. In pratica no, e il motivo &egrave; lo stesso delle cinque righe: <strong>l&rsquo;occhio non conta</strong>.</p>
+
+    <div class="colonne">
+      <div class="riquadro"><p><strong>Uno o due tagli</strong><br>si leggono a colpo d&rsquo;occhio, come le righe del rigo</p></div>
+      <div class="riquadro attenzione"><p><strong>Cinque o sei tagli</strong><br>bisogna contarli uno per uno, e mentre si conta la musica &egrave; gi&agrave; andata avanti</p></div>
+    </div>
+
+    <p>Per la musica che sta poco fuori, i tagli bastano. Per uno strumento che copre tutta l&rsquo;estensione &mdash; il pianoforte, l&rsquo;organo &mdash; serve altro.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il doppio pentagramma">
+  <div class="slide-interna">
+    <h2>Due righi, tenuti insieme</h2>
+
+    <p>Si prende un secondo pentagramma, gli si mette la <strong>chiave di basso</strong>, e lo si unisce al primo con una <strong>graffa</strong> e una linea verticale. I due righi si leggono <em>insieme</em>: sono un unico sistema, non due musiche.</p>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="Un sistema a due righi: sopra la mano destra, sotto la sinistra"
+               notes="e/4:h g/4:h | c/5:h b/4:h"
+               bass="c/3:h e/3:h | g/2:h g/3:h"
+               width="740" tempo="60" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Sistema</span>
+      <p>L&rsquo;insieme dei righi che si leggono nello stesso momento. Al pianoforte sono due; in un quartetto sono quattro; in un&rsquo;orchestra anche venti.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Come lo scriveva Bach">
+  <div class="slide-interna">
+    <h2>Come lo scriveva Bach, di suo pugno</h2>
+
+    <p>Questa &egrave; una pagina autografa del 1725. Guardate il margine sinistro: la <strong>graffa</strong> tiene insieme due righi, e all&rsquo;inizio di ciascuno c&rsquo;&egrave; la sua chiave &mdash; violino sopra, basso sotto.</p>
+
+    <figure class="figura">
+      <img src="../../_assets/immagini/bach-autografo-dettaglio.jpg" alt="Due sistemi a doppio pentagramma scritti a mano: a sinistra la graffa, in alto la chiave di violino, in basso la chiave di basso" loading="lazy">
+      <figcaption><strong>J. S. Bach, autografo del 1725.</strong> Due sistemi, ciascuno di due righi uniti dalla graffa: &egrave; lo stesso impianto che usiamo noi, tracciato a penna trecento anni fa.<span class="fonte">Allegro per clavicembalo dalla sonata BWV 1019a &middot; Bach-Archiv, Lipsia &middot; Wikimedia Commons &middot; pubblico dominio</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il do centrale">
+  <div class="slide-interna">
+    <h2>La nota che sta in mezzo</h2>
+
+    <p>Fra i due righi c&rsquo;&egrave; un buco: l&rsquo;ultima nota comoda in basso al rigo di violino e la prima comoda in alto al rigo di basso. In quel buco c&rsquo;&egrave; <strong>una nota sola</strong>, e si chiama <strong>do centrale</strong>.</p>
+
+    <div class="colonne">
+      <div>
+        <p><strong>In chiave di violino</strong> sta sul primo taglio <em>sotto</em> il rigo.</p>
+        <tac-stave clef="treble" time="4/4"
+                   caption="Do centrale, chiave di violino"
+                   notes="c/4:w" width="330" tempo="60" play></tac-stave>
+      </div>
+      <div>
+        <p><strong>In chiave di basso</strong> sta sul primo taglio <em>sopra</em> il rigo.</p>
+        <tac-stave clef="bass" time="4/4"
+                   caption="Do centrale, chiave di basso"
+                   notes="c/4:w" width="330" tempo="60" play></tac-stave>
+      </div>
+    </div>
+
+    <p class="didascalia">Ascoltateli tutti e due. <strong>&Egrave; lo stesso suono</strong>: due scritture, una nota.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Perché è il perno">
+  <div class="slide-interna">
+    <h2>Perch&eacute; questa nota cambia tutto</h2>
+
+    <p>Finch&eacute; non si vede il do centrale, la chiave di basso sembra un secondo alfabeto da imparare da capo. Dopo, &egrave; <strong>la stessa fila di note, guardata pi&ugrave; in basso</strong>.</p>
+
+    <tac-stave clef="bass" time="4/4"
+               caption="Dal do centrale si scende, e sono le note di sempre"
+               notes="c/4:q b/3:q a/3:q g/3:q | f/3:q e/3:q d/3:q c/3:q"
+               width="740" tempo="66" play></tac-stave>
+
+    <div class="riquadro attenzione">
+      <p>I due righi insieme coprono tre ottave abbondanti senza quasi un taglio. &Egrave; per questo che il pianoforte si scrive cos&igrave;: non per tradizione, ma perch&eacute; <strong>funziona</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Gli altri incontri">
+  <div class="slide-interna">
+    <h2>Il do non &egrave; l&rsquo;unico</h2>
+
+    <p>Con i tagli, i due righi si sovrappongono per qualche nota: le stesse altezze si possono scrivere sopra o sotto, e si sceglie quella che si legge meglio.</p>
+
+    <div class="colonne">
+      <div>
+        <p>Il <strong>la</strong> sotto il rigo di violino&hellip;</p>
+        <tac-stave clef="treble" time="4/4"
+                   caption="La, chiave di violino" notes="a/3:w"
+                   width="330" tempo="60" play></tac-stave>
+      </div>
+      <div>
+        <p>&hellip;&egrave; il <strong>la</strong> nel rigo di basso.</p>
+        <tac-stave clef="bass" time="4/4"
+                   caption="Lo stesso la, chiave di basso" notes="a/3:w"
+                   width="330" tempo="60" play></tac-stave>
+      </div>
+    </div>
+
+    <p class="didascalia">Chi scrive sceglie: la nota si mette dove costa meno tagli. Non &egrave; una regola, &egrave; buon senso tipografico.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Leggere un sistema">
+  <div class="slide-interna">
+    <h2>Un sistema si legge insieme, non uno dopo l&rsquo;altro</h2>
+
+    <p>&Egrave; la difficolt&agrave; vera, e non &egrave; la somma di due letture: chi legge bene il violino e bene il basso pu&ograve; perdersi lo stesso quando i due righi vanno insieme, perch&eacute; l&rsquo;occhio deve saltare.</p>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Tutti insieme, 6 minuti</span>
+      <p>Guardiamo il sistema alla lavagna. Prima leggiamo solo il rigo di sopra, poi solo quello di sotto. Poi la terza volta: <strong>una battuta alla volta, tutti e due i righi</strong>, dicendo prima la nota grave e poi l&rsquo;acuta.</p>
+      <p>Non si va veloci. Chi va veloce sta leggendo un rigo solo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; due righi, una nota" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; due righi, una nota</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 7 minuti</span>
+      <p>Cinque affermazioni sui tagli, sul sistema e sul do centrale.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "Un taglio addizionale attraversa tutta la larghezza della pagina.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è lungo quanto la nota, e <strong>esiste solo per quella</strong>.",
+  "da": "I tagli addizionali"
+ },
+ {
+  "d": "Il do centrale si può scrivere in due modi diversi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: primo taglio sotto in chiave di violino, primo taglio sopra in chiave di basso. Due scritture, un solo suono.",
+  "da": "Il do centrale"
+ },
+ {
+  "d": "I due righi di un sistema si leggono uno dopo l’altro.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si leggono <strong>insieme</strong>. È un unico sistema, non due musiche.",
+  "da": "Leggere un sistema"
+ },
+ {
+  "d": "La graffa serve a dire che i righi appartengono allo stesso sistema.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, insieme alla linea verticale che li congiunge.",
+  "da": "Il doppio pentagramma"
+ },
+ {
+  "d": "Con sei o sette tagli addizionali la lettura resta comoda.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed è la ragione per cui esiste il secondo rigo: oltre due o tre tagli l’occhio deve contarli, e mentre conta la musica va avanti.",
+  "da": "Fin dove si può andare"
+ },
+ {
+  "d": "Il do centrale è la stessa nota, scritta in due posti diversi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e si sente: le due scritture suonano identiche.",
+  "da": "Il do centrale"
+ },
+ {
+  "d": "La chiave di basso è un secondo alfabeto, da imparare da capo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è la stessa fila di note guardata più in basso. È esattamente quello che il do centrale dimostra.",
+  "da": "Perché è il perno"
+ },
+ {
+  "d": "Alcune note si possono scrivere sia sul rigo di violino sia su quello di basso.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: i due righi si sovrappongono per qualche nota, e si sceglie la scrittura che costa meno tagli.",
+  "da": "Gli altri incontri"
+ },
+ {
+  "d": "Aggiungendo un taglio la nota cambia natura.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: la scala prosegue e basta. La riga si aggiunge per accompagnarla.",
+  "da": "I tagli addizionali"
+ },
+ {
+  "d": "Bach scriveva la musica per tastiera su un rigo solo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: l’autografo del 1725 mostra due righi uniti dalla graffa, con chiave di violino sopra e di basso sotto — lo stesso impianto di oggi.",
+  "da": "Come lo scriveva Bach"
+ },
+ {
+  "d": "Un sistema può avere più di due righi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: al pianoforte sono due, in un quartetto quattro, in orchestra anche venti.",
+  "da": "Il doppio pentagramma"
+ },
+ {
+  "d": "Chi legge bene le due chiavi separatamente legge bene anche un sistema.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e non è la stessa abilità: leggere insieme obbliga l’occhio a saltare fra i due righi.",
+  "da": "Leggere un sistema"
+ },
+ {
+  "d": "I due righi insieme coprono più di tre ottave quasi senza tagli.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è per questo che il pianoforte si scrive così: perché funziona, non per tradizione.",
+  "da": "Perché è il perno"
+ },
+ {
+  "d": "Il do centrale sta sul primo taglio sopra il rigo, in chiave di violino.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: in chiave di violino sta <strong>sotto</strong>. Sopra ci sta in chiave di basso.",
+  "da": "Il do centrale"
+ },
+ {
+  "d": "Fra il rigo di violino e quello di basso c’è un buco, e in mezzo una nota sola.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: è il do centrale, e per questo si chiama così.",
+  "da": "Il do centrale"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Le parole di oggi</span>
+        <p><strong>Taglio addizionale</strong> &mdash; una riga corta, sopra o sotto il rigo, per una nota sola.</p>
+        <p><strong>Sistema</strong> &mdash; i righi che si leggono nello stesso momento, uniti dalla graffa.</p>
+        <p><strong>Do centrale</strong> &mdash; la nota fra i due righi: primo taglio sotto in chiave di violino, primo taglio sopra in chiave di basso.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">La cosa da ricordare</span>
+        <p>Le due chiavi non sono due alfabeti. Sono <strong>due finestre sulla stessa scala</strong>, e il do centrale &egrave; il punto in cui si toccano.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">La prossima ora si legge ad alta voce quello che oggi abbiamo imparato a guardare: <strong>solfeggio parlato sul rigo</strong>.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Lo stesso do, due volte.</strong> Sul quaderno, disegna un sistema di due righi con la graffa. Scrivi il <strong>do centrale</strong> nel rigo di violino, e subito dopo lo stesso do nel rigo di basso.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-02.html#C1-U2-L2-02"><strong>Workbook</strong></a>, scheda C1-U2-L2-02.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","via":"uda-01","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"materiali":[{"titolo":"Workbook · unità 1","file":"../materiali/workbook-uda-01.html","stato":"pronta"},{"titolo":"Scheda di lavoro autonomo","file":"../materiali/scheda-lavoro-autonomo-1.html","stato":"pronta"},{"titolo":"Partiture da stampare","file":"../materiali/partiture-uda-01.html","stato":"pronta"}]},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"da preparare","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all'ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[]},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[]},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"da preparare","lezioni":[]},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":1,"unita":2,"lezione":2}}</script>
+</body>
+</html>

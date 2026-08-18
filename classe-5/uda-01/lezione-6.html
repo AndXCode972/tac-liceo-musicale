@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 6. Analisi: le modulazioni di un brano intero | Ripresa: le modulazioni ai toni vicini</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=c4d583e7">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=10f26d5d" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 6 · Analisi: le modulazioni di un brano intero
+     Unità 1, ora 6 di 90 · classe 5ª · teoria/analisi
+     CHIUDE L'UNITÀ.
+
+     PAROLE CHIAVE: piano tonale · analisi armonica · brano intero ·
+     ambito armonico del corale.
+
+     ══ IL SALTO DELL'ORA: DAL FRAMMENTO AL BRANO ══
+     Nelle cinque ore precedenti si sono guardate quattro battute alla
+     volta. Qui si guarda un brano **intero**, e cambia la domanda: non
+     «che cosa succede qui» ma «**qual è il piano tonale**» — dove va,
+     quanto ci resta, come torna.
+
+     Cappellari–Danieli p.91: l'ambito armonico in cui si muove
+     generalmente un corale è quello del tono d'impianto e dei toni
+     vicini. È la ragione per cui il corale è il materiale giusto per
+     quest'ora: garantisce che tutto quello che si incontrerà rientra
+     nella mappa costruita nelle ore 2 e 4, e quindi la prima analisi
+     completa dell'anno non ha buche.
+
+     IL METODO CHE SI CONSEGNA, e che vale per tutto l'anno:
+       1. le cadenze prima di tutto — sono i punti fermi, e si trovano
+          senza analizzare niente;
+       2. per ogni cadenza, in che tonalità;
+       3. solo allora si guarda che cosa succede in mezzo.
+     È l'ordine inverso a quello che gli studenti seguono da soli, che è
+     accordo per accordo dall'inizio — e che porta a perdersi entro la
+     quarta battuta.
+
+     LA RESTITUZIONE dell'unità è qui: quello che ciascuno consegna alla
+     fine dell'ora dice che cosa è rimasto delle cinque precedenti.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c5u1-lezione-6.jpg?v=ced97e6a');
+                --cop-a:#4c0519; --cop-b:#be123c; --cop-c:#fda4af">
+  <div class="slide-interna">
+    <div class="occhiello">Ripresa: le modulazioni ai toni vicini &middot; UdA 1 &middot; Lezione 6 di 6</div>
+    <h1>Un brano intero, dall&rsquo;alto</h1>
+    <p class="sottotitolo">Non pi&ugrave; &laquo;che cosa succede qui&raquo;, ma <strong>qual &egrave; il piano tonale</strong>: dove va, quanto ci resta, come torna.</p>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Analisi</span>
+      <span>Piano tonale</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Cambia la domanda">
+  <div class="slide-interna">
+    <h2>Da oggi la domanda &egrave; un&rsquo;altra</h2>
+
+    <div class="colonne">
+      <div class="riquadro"><p><strong>Nelle cinque ore scorse</strong><br>quattro battute alla volta: qui c&rsquo;&egrave; una modulazione o una tonicizzazione?</p></div>
+      <div class="riquadro attenzione"><p><strong>Da oggi</strong><br>un brano intero: <strong>qual &egrave; il piano tonale</strong>, e che forma disegna</p></div>
+    </div>
+
+    <p>&Egrave; la domanda dell&rsquo;esame, ed &egrave; anche quella che rende l&rsquo;analisi qualcosa di diverso da un elenco.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="L&rsquo;ordine giusto">
+  <div class="slide-interna">
+    <h2>Il metodo: si comincia dalla fine delle frasi</h2>
+
+    <p>Quello che fate da soli &egrave; partire dalla prima battuta e andare avanti accordo per accordo. Ci si perde entro la quarta.</p>
+
+    <div class="colonne3">
+      <div class="scheda"><h3>1 &middot; Le cadenze</h3><p>Prima di tutto, e senza analizzare niente: <strong>dove finiscono le frasi</strong>. Si vedono a occhio.</p></div>
+      <div class="scheda"><h3>2 &middot; La tonalit&agrave;</h3><p>Per ciascuna cadenza, <strong>in che tonalit&agrave;</strong>. Adesso avete lo scheletro.</p></div>
+      <div class="scheda"><h3>3 &middot; Il mezzo</h3><p>Solo ora si guarda che cosa succede fra una cadenza e l&rsquo;altra.</p></div>
+    </div>
+
+    <p class="didascalia">&Egrave; l&rsquo;ordine inverso a quello istintivo, ed &egrave; l&rsquo;unico che regge su un brano lungo.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Perché un corale">
+  <div class="slide-interna">
+    <h2>Perch&eacute; cominciamo da un corale</h2>
+
+    <p>Perch&eacute; un corale si muove nel tono d&rsquo;impianto e nei suoi <strong>toni vicini</strong> &mdash; esattamente la mappa costruita nelle ore 2 e 4.</p>
+
+    <div class="riquadro studio">
+      <p>Vuol dire che nella prima analisi completa dell&rsquo;anno <strong>non troverete buche</strong>: tutto quello che incontrate lo avete gi&agrave; studiato. Le cose che non rientrano nella mappa arrivano dall&rsquo;unit&agrave; 4 in poi.</p>
+    </div>
+
+    <p class="didascalia">E c&rsquo;&egrave; un secondo motivo: le cadenze di un corale sono tante e ben marcate. &Egrave; il materiale su cui il metodo dei tre passi si vede funzionare.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Un esempio insieme">
+  <div class="slide-interna">
+    <h2>Le prime quattro battute, insieme</h2>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="Corale in sol maggiore: la prima frase cadenza in re"
+               notes="b/4+d/5:h b/4+d/5:h | c/5+e/5:h b/4+d/5:h | a/4+c#/5:h a/4+d/5:h | a/4+d/5:w"
+               bass="g/2+g/3:h g/2+b/3:h | a/2+a/3:h g/2+b/3:h | a/2+e/3:h d/3+f#/3:h | d/3+f#/3:w"
+               width="740" tempo="50" play></tac-stave>
+
+    <div class="riquadro">
+      <p><strong>Passo 1:</strong> la frase finisce alla battuta 4. <strong>Passo 2:</strong> cadenza in <em>re maggiore</em> &mdash; c&rsquo;&egrave; il do diesis, e la cadenza conferma. <strong>Passo 3:</strong> l&rsquo;accordo comune sta alla battuta 3, ed &egrave; la tonica di sol letta come sottodominante di re.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Come si scrive">
+  <div class="slide-interna">
+    <h2>Come si scrive quello che avete trovato</h2>
+
+    <p>Il piano tonale sta in <strong>quattro righe</strong>, non in due pagine. All&rsquo;esame conta la sintesi, non l&rsquo;elenco.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">La forma della risposta</span>
+      <p>&laquo;Sol maggiore. Prima frase (batt. 1&ndash;4): cadenza alla <strong>dominante</strong>, re maggiore. Seconda (5&ndash;8): ritorno a sol. Terza (9&ndash;12): tocca la <strong>sopradominante</strong>, mi minore, senza confermarla &mdash; tonicizzazione. Quarta (13&ndash;16): cadenza finale in sol.&raquo;</p>
+    </div>
+
+    <p class="didascalia">Nomi di regione, numeri di battuta, e la distinzione fra modulazione e tonicizzazione. Chi scrive cos&igrave; ha finito.</p>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; come si analizza un brano intero" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; come si analizza un brano intero</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 8 minuti</span>
+      <p>Cinque affermazioni sul metodo dei tre passi. Si risponde insieme, prima di mettersi al lavoro.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "Davanti a un brano intero la domanda è qual è il piano tonale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: dove va, quanto ci resta, come torna. È la domanda dell’esame.",
+  "da": "Cambia la domanda"
+ },
+ {
+  "d": "Conviene partire dalla prima battuta e procedere accordo per accordo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: ci si perde entro la quarta. Prima le <strong>cadenze</strong>.",
+  "da": "L’ordine giusto"
+ },
+ {
+  "d": "Il primo passo dell’analisi è trovare dove finiscono le frasi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e si vede a occhio, senza analizzare niente.",
+  "da": "L’ordine giusto"
+ },
+ {
+  "d": "Il secondo passo è dire in che tonalità cadenza ciascuna frase.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: a quel punto avete lo scheletro del brano.",
+  "da": "L’ordine giusto"
+ },
+ {
+  "d": "Che cosa succede fra una cadenza e l’altra si guarda per ultimo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: è l’ordine inverso a quello istintivo, ed è l’unico che regge su un brano lungo.",
+  "da": "L’ordine giusto"
+ },
+ {
+  "d": "Un corale si muove di solito nel tono d’impianto e nei suoi toni vicini.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è per questo che è il materiale giusto per la prima analisi dell’anno.",
+  "da": "Perché un corale"
+ },
+ {
+  "d": "Un’analisi che elenca cinquanta accordi è più completa di una che scrive quattro righe.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: non è più completa, è <strong>non finita</strong>.",
+  "da": "Come si scrive"
+ },
+ {
+  "d": "Nel piano tonale si scrivono i nomi delle regioni, non solo le tonalità.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: sono i nomi che servono all’esame.",
+  "da": "Come si scrive"
+ },
+ {
+  "d": "Nel piano tonale va distinto quello che è modulazione da quello che è tonicizzazione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: è il criterio dell’ora 1, applicato a un brano intero.",
+  "da": "Come si scrive"
+ },
+ {
+  "d": "Le cadenze di un corale sono poche e difficili da individuare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sono tante e ben marcate, ed è il secondo motivo per cui si comincia da lì.",
+  "da": "Perché un corale"
+ },
+ {
+  "d": "Nella prima analisi dell’anno si incontreranno cose non ancora studiate.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: tutto quello che c’è rientra nella mappa delle ore 2 e 4. Le altre cose arrivano dall’unità 4.",
+  "da": "Perché un corale"
+ },
+ {
+  "d": "Il piano tonale di un brano di sedici battute sta in quattro righe.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: all’esame conta la sintesi.",
+  "da": "Come si scrive"
+ },
+ {
+  "d": "Segnare il punto in cui si è esitato serve solo a chi corregge.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: serve prima di tutto a voi, perché è lì che si impara.",
+  "da": "L’ordine giusto"
+ },
+ {
+  "d": "La restituzione di quest’unità fa media.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: non fa media. Dice che cosa è rimasto delle sei ore.",
+  "da": "Cambia la domanda"
+ },
+ {
+  "d": "Nell’esempio fatto insieme la prima frase cadenza alla dominante.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: in re maggiore, con il do diesis, e la cadenza conferma.",
+  "da": "Un esempio insieme"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Adesso da soli">
+  <div class="slide-interna">
+    <h2>Adesso da soli, e me lo consegnate</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">In classe, 25 minuti</span>
+      <p>Sul Workbook trovate un corale di sedici battute. Fate i tre passi <strong>nell&rsquo;ordine</strong>, e consegnate le quattro righe del piano tonale.</p>
+      <p>Segnate anche <strong>un punto in cui avete esitato</strong> e perch&eacute;: quello mi serve pi&ugrave; della risposta giusta.</p>
+    </div>
+
+    <p class="didascalia">&Egrave; la restituzione dell&rsquo;unit&agrave;: non fa media, ma dice a me e a voi che cosa &egrave; rimasto delle sei ore.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa &mdash; e che cosa viene dopo</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Il metodo, in tre passi</span>
+        <p>Le <strong>cadenze</strong>, poi la <strong>tonalit&agrave;</strong> di ciascuna, poi che cosa succede in mezzo. In quest&rsquo;ordine.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">La cosa da ricordare</span>
+        <p>Il piano tonale sta in quattro righe. Un&rsquo;analisi che elenca cinquanta accordi non &egrave; pi&ugrave; completa: &egrave; solo non finita.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">Chiude l&rsquo;unit&agrave;. Da luned&igrave; il <strong>laboratorio sulla modulazione</strong>: tre settimane in cui si scrive, e la prima verifica dell&rsquo;anno alla fine.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da ascoltare, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da ascoltare, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Il piano tonale, detto a voce.</strong> Riprendi il piano tonale che hai scritto e <strong>dillo ad alta voce</strong>, senza leggere, in meno di un minuto. Registrati.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="2">
+      <li>
+        <p class="testo-compito"><strong>2. Un secondo corale, per intero.</strong> Sul Workbook trovi un secondo corale di sedici battute. Fai i tre passi <strong>nell’ordine</strong> e scrivi il piano tonale in quattro righe.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-01.html#C5-U1-L6-02"><strong>Workbook</strong></a>, scheda C5-U1-L6-02.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","via":"uda-01","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"materiali":[{"titolo":"Workbook · unità 1","file":"../materiali/workbook-uda-01.html","stato":"pronta"},{"titolo":"Scheda di lavoro autonomo","file":"../materiali/scheda-lavoro-autonomo-1.html","stato":"pronta"},{"titolo":"Partiture da stampare","file":"../materiali/partiture-uda-01.html","stato":"pronta"}]},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"da preparare","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all'ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":5,"unita":1,"lezione":6}}</script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 5. Melodia in minore con primarie e secondarie | Armonizzare con le secondarie</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=c4d583e7">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=10f26d5d" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 5 · Melodia in minore con primarie e secondarie
+     Unità 1, ora 5 di 90 · classe 4ª · teoria/armonia
+
+     PAROLE CHIAVE: modo minore · scala armonica · secondo grado
+     diminuito · sesto grado maggiore · dominante maggiore.
+
+     LA COSA CHE FA INCIAMPARE TUTTI: in minore le funzioni sono le
+     stesse, ma la **qualità** degli accordi cambia, perché la scala
+     armonica alza la settima. E il cambio non è uniforme — è questo che
+     va fatto vedere invece che elencare.
+
+     Rimskij lo dice per il II: «si adopera solamente nel modo
+     maggiore». In minore il II è **diminuito**, e una triade diminuita
+     allo stato fondamentale non regge una funzione: si usa in primo
+     rivolto o non si usa.
+
+     E c'è il rovescio: il VI in minore è **maggiore**, e la dominante
+     resta maggiore per via della sensibile alzata. Quindi il minore non
+     è «il maggiore più scuro»: è un sistema con altre qualità.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c4u1-lezione-5.jpg?v=2294b110');
+                --cop-a:#0c2d48; --cop-b:#0369a1; --cop-c:#7dd3fc">
+  <div class="slide-interna">
+    <div class="occhiello">Armonizzare con le secondarie &middot; UdA 1 &middot; Lezione 5 di 6</div>
+    <h1>In minore cambia qualcosa</h1>
+    <p class="sottotitolo">Le stesse funzioni, ma tre accordi cambiano qualit&agrave; &mdash; e uno diventa inservibile.</p>
+
+    <div class="meta-copertina"><span>1 ora</span><span>Armonia</span><span>Modo minore</span></div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Le stesse funzioni">
+  <div class="slide-interna">
+    <h2>Le funzioni sono le stesse</h2>
+
+   <p>In minore tonica, sottodominante e dominante fanno esattamente il mestiere di prima. Non cambia il <em>chi</em>: cambia il <strong>come suonano</strong>.</p>
+   <div class="riquadro attenzione"><p>E il cambio <strong>non &egrave; uniforme</strong>: alcuni accordi diventano minori, uno diventa diminuito, e un paio restano o diventano maggiori. &Egrave; questa disuniformit&agrave; che fa inciampare, non il modo in s&eacute;.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="La settima alzata">
+  <div class="slide-interna">
+    <h2>Tutto discende da una nota alzata</h2>
+
+   <p>Nella scala minore <strong>armonica</strong> la settima si alza, per avere una vera sensibile. Quella singola alterazione cambia la qualit&agrave; di tre accordi.</p>
+   <tac-stave clef="treble" time="4/4" caption="La minore armonica: il sol diventa sol diesis"
+              notes="a/4:q b/4:q c/5:q d/5:q | e/5:q f/5:q g#/5:q a/5:q"
+              width="740" tempo="60" play></tac-stave>
+   <p class="didascalia">Da qui: la <strong>dominante resta maggiore</strong>, il <strong>settimo</strong> diventa diminuito, e il <strong>terzo</strong> diventa eccedente &mdash; che &egrave; il motivo per cui in minore si usa ancora meno.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il secondo, in minore">
+  <div class="slide-interna">
+    <h2>Il secondo grado diventa diminuito</h2>
+
+   <p>In la minore: <strong>si, re, fa</strong>. Una triade <em>diminuita</em>.</p>
+   <tac-stave clef="treble" time="4/4" caption="II in minore: allo stato fondamentale non regge"
+              notes="d/4+f/4:w" bass="b/2+b/3:w"
+              width="700" tempo="50" play></tac-stave>
+   <div class="riquadro attenzione"><p>Rimskij lo dice netto: il II <strong>si adopera solamente nel modo maggiore</strong>. In minore, allo stato fondamentale, quella quinta diminuita al basso non tiene: si usa in <strong>primo rivolto</strong>, oppure si evita.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il sesto, in minore">
+  <div class="slide-interna">
+    <h2>E il sesto diventa maggiore</h2>
+
+   <p>In la minore il VI &egrave; <strong>fa, la, do</strong>: una triade <em>maggiore</em> dentro un modo minore.</p>
+   <tac-stave clef="treble" time="4/4" caption="V &mdash; VI in minore: l&rsquo;inganno, con un colore diverso"
+              notes="e/4+b/4:h f/4+a/4:h" bass="e/3+g#/3:h f/3+c/4:h"
+              width="700" tempo="50" play></tac-stave>
+   <p class="didascalia">La cadenza d&rsquo;inganno funziona anche qui, e suona <strong>pi&ugrave; sorprendente</strong>: dopo una dominante tesa arriva un accordo maggiore dove l&rsquo;orecchio aspettava il minore.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Armonizziamo in minore">
+  <div class="slide-interna">
+    <h2>Armonizzate, in minore</h2>
+
+   <tac-stave clef="treble" time="4/4" caption="Canto dato, otto battute in re minore"
+              notes="a/4:h f/4:h | g/4:h e/4:h | f/4:h d/4:h | e/4:h a/4:h"
+              width="740" tempo="54" play></tac-stave>
+   <div class="riquadro compito"><span class="etichetta">Sul quaderno, 15 minuti</span><p>Armonizzatela con primarie e secondarie. Attenzione a due cose: la <strong>sensibile alzata</strong> sulla dominante, e il secondo grado <strong>solo in primo rivolto</strong>.</p><p>Segnate con una crocetta i punti in cui avete dovuto scegliere fra due soluzioni: li guardiamo insieme.</p></div>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; che cosa cambia in minore" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; che cosa cambia in minore</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 8 minuti</span>
+      <p>Cinque affermazioni sul modo minore. Si risponde insieme.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "In minore le funzioni di tonica, sottodominante e dominante sono le stesse.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: non cambia il <em>chi</em>, cambia come suonano.",
+  "da": "Le stesse funzioni"
+ },
+ {
+  "d": "In minore tutti gli accordi cambiano qualità nello stesso modo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: il cambio <strong>non è uniforme</strong>, ed è questo che fa inciampare.",
+  "da": "Le stesse funzioni"
+ },
+ {
+  "d": "Nella scala minore armonica la settima si alza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, per avere una vera sensibile. Da quella nota discende tutto il resto.",
+  "da": "La settima alzata"
+ },
+ {
+  "d": "In minore la dominante resta maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: proprio perché la sensibile è alzata.",
+  "da": "La settima alzata"
+ },
+ {
+  "d": "Il II grado in minore è una triade minore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è <strong>diminuita</strong> — in la minore si, re, fa.",
+  "da": "Il secondo, in minore"
+ },
+ {
+  "d": "Rimskij dice che il II si adopera solamente nel modo maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. In minore, allo stato fondamentale, quella quinta diminuita al basso non tiene.",
+  "da": "Il secondo, in minore"
+ },
+ {
+  "d": "Il II in minore si può usare in primo rivolto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: è la via d’uscita. Allo stato fondamentale no.",
+  "da": "Il secondo, in minore"
+ },
+ {
+  "d": "Il VI grado in minore è maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: in la minore fa, la, do. Una triade maggiore dentro un modo minore.",
+  "da": "Il sesto, in minore"
+ },
+ {
+  "d": "La cadenza d’inganno in minore suona meno sorprendente che in maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: suona <strong>più</strong> sorprendente, perché dopo una dominante tesa arriva un accordo maggiore.",
+  "da": "Il sesto, in minore"
+ },
+ {
+  "d": "Il modo minore è semplicemente il maggiore con un colore più scuro.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è un sistema con <strong>altre qualità</strong>, e tutte discendono da una nota alzata.",
+  "da": "Le stesse funzioni"
+ },
+ {
+  "d": "Il III grado in minore armonico diventa eccedente.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è il motivo per cui in minore si usa ancora meno che in maggiore.",
+  "da": "La settima alzata"
+ },
+ {
+  "d": "In minore il settimo grado diventa diminuito.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: è un’altra conseguenza della settima alzata.",
+  "da": "La settima alzata"
+ },
+ {
+  "d": "Una triade diminuita allo stato fondamentale regge bene una funzione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: la quinta diminuita al basso non tiene. Va in primo rivolto.",
+  "da": "Il secondo, in minore"
+ },
+ {
+  "d": "Nel modo minore la sensibile va alzata quando si usa la dominante.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: senza quell’alterazione la dominante non tira più alla tonica.",
+  "da": "La settima alzata"
+ },
+ {
+  "d": "In minore le funzioni cambiano insieme alle qualità degli accordi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: le <strong>funzioni restano</strong>. Cambiano solo le qualità.",
+  "da": "Le stesse funzioni"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+   <div class="colonne">
+     <div class="riquadro definizione"><span class="etichetta">Che cosa cambia in minore</span><p>La <strong>dominante resta maggiore</strong>: la sensibile si alza.</p><p>Il <strong>II diventa diminuito</strong>: solo in primo rivolto.</p><p>Il <strong>VI diventa maggiore</strong>: l&rsquo;inganno suona pi&ugrave; forte.</p></div>
+     <div class="riquadro studio"><span class="etichetta">La cosa da ricordare</span><p>Il minore non &egrave; &laquo;il maggiore pi&ugrave; scuro&raquo;: &egrave; un sistema con <strong>altre qualit&agrave;</strong>, e tutte discendono da una nota alzata.</p></div>
+   </div>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Il canto dato in re minore.</strong> Armonizza a quattro parti il canto dato della lezione, con primarie e secondarie.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-01.html#C4-U1-L5-02"><strong>Workbook</strong></a>, scheda C4-U1-L5-02.</p>
+      </li>
+      <li>
+        <p class="testo-compito"><strong>2. Le sette triadi in la minore armonica.</strong> Scrivi le sette triadi che stanno sui gradi della scala di la minore armonica, con numero romano e qualità.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-01.html#C4-U1-L5-03"><strong>Workbook</strong></a>, scheda C4-U1-L5-03.</p>
+      </li>
+      <li>
+        <p class="testo-compito"><strong>3. Perch&eacute; qui il II &egrave; in primo rivolto.</strong> Sul Workbook trovi sei battute in sol minore, col cifrato completo. Il II grado compare due volte, sempre in primo rivolto.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-01.html#C4-U1-L5-04"><strong>Workbook</strong></a>, scheda C4-U1-L5-04.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","via":"uda-01","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"materiali":[{"titolo":"Workbook · unità 1","file":"../materiali/workbook-uda-01.html","stato":"pronta"},{"titolo":"Scheda di lavoro autonomo","file":"../materiali/scheda-lavoro-autonomo-1.html","stato":"pronta"},{"titolo":"Partiture da stampare","file":"../materiali/partiture-uda-01.html","stato":"pronta"}]},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"da preparare","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all'ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":4,"unita":1,"lezione":5}}</script>
+</body>
+</html>

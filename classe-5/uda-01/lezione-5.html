@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 5. Progressioni di quinta con tonicizzazioni | Ripresa: le modulazioni ai toni vicini</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=c4d583e7">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=10f26d5d" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 5 · Progressioni di quinta con tonicizzazioni
+     Unità 1, ora 5 di 90 · classe 5ª · teoria/armonia
+
+     PAROLE CHIAVE: progressione · circolo delle quinte · dominante
+     secondaria · tonicizzazione · modello e imitazione.
+
+     ══ PERCHÉ QUEST'ORA CHIUDE IL CERCHIO APERTO ALL'ORA 1 ══
+     All'ora 1 si è distinta la modulazione dalla tonicizzazione col
+     criterio della conferma cadenzale. La progressione di quinte con
+     dominanti secondarie è **il caso in cui quel criterio si vede a
+     occhio nudo**: si susseguono cinque, sei accordi con la sensibile
+     di un'altra tonalità, e non si modula mai, perché nessuna delle
+     mete viene confermata. Chi non ha capito la distinzione, davanti a
+     una progressione conta sei modulazioni in quattro battute.
+
+     Marenco § 6.4 e p.193: ogni grado-accordo della scala può fungere
+     da dominante del grado posto alla quinta inferiore; e a p.195 nota
+     che il collegamento con la triade diminuita del VII «non esprime
+     alcun processo di tonicizzazione» — utile perché segna il limite.
+
+     Farina, *Trattato di Armonia* vol. 2, p.69–71, dà la meccanica:
+     un **modello** e la sua ripetizione a distanza costante; la
+     progressione può essere tonale o modulante a seconda che il modello
+     resti dentro la scala o venga trasportato letteralmente.
+
+     LA COSA DA FAR SENTIRE PRIMA DI SPIEGARLA: una progressione di
+     quinte ha un effetto di *deriva*. L'orecchio non si aggrappa a
+     nessuna tonica perché nessuna viene confermata — ed è esattamente
+     il motivo per cui i compositori la usano per **collegare** due
+     sezioni stabili invece che per stabilirne una.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c5u1-lezione-5.jpg?v=29c03853');
+                --cop-a:#052e16; --cop-b:#15803d; --cop-c:#86efac">
+  <div class="slide-interna">
+    <div class="occhiello">Ripresa: le modulazioni ai toni vicini &middot; UdA 1 &middot; Lezione 5 di 6</div>
+    <h1>Tre sensibili, zero modulazioni</h1>
+    <p class="sottotitolo">La progressione di quinte &egrave; il posto dove il criterio dell&rsquo;ora 1 si vede a occhio nudo: nessuna meta viene confermata, e quindi non si modula.</p>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Armonia</span>
+      <span>Progressioni</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Prima si ascolta">
+  <div class="slide-interna">
+    <h2>Prima ascoltate, poi ne parliamo</h2>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="Otto accordi che scendono per quinte, e tre sensibili estranee"
+               notes="e/4+c/5:h e/4+c#/5:h | f/4+d/5:h f/4+d/5:h | g/4+e/5:h g#/4+e/5:h | a/4+e/5:h a/4+f#/5:h"
+               bass="c/3+g/3:h a/2+g/3:h | d/3+a/3:h g/2+b/3:h | c/3+c/4:h e/3+d/4:h | a/2+c/4:h d/3+c/4:h"
+               width="740" tempo="54" play></tac-stave>
+
+    <div class="riquadro attenzione">
+      <p>Quante modulazioni avete sentito? La risposta &egrave; <strong>nessuna</strong>, e le sensibili estranee sono tre. Ecco perch&eacute; il criterio dell&rsquo;ora 1 serve davvero.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cos&rsquo;è una progressione">
+  <div class="slide-interna">
+    <h2>Che cos&rsquo;&egrave; una progressione</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Progressione</span>
+      <p>Un <strong>modello</strong> di due o tre accordi, ripetuto a una distanza costante &mdash; qui una quinta pi&ugrave; in basso ogni volta. Quello che si ripete non &egrave; il suono: &egrave; il <em>rapporto</em>.</p>
+    </div>
+
+    <div class="colonne">
+      <div class="riquadro"><p><strong>Tonale</strong><br>il modello resta dentro la scala: gli accordi cambiano qualit&agrave; a seconda del grado</p></div>
+      <div class="riquadro"><p><strong>Modulante</strong><br>il modello viene trasportato di peso, con le sue alterazioni: e allora si esce davvero</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="La dominante secondaria">
+  <div class="slide-interna">
+    <h2>Il pezzo che rende tutto questo possibile</h2>
+
+    <p>Ogni grado della scala pu&ograve; fare <strong>da dominante</strong> del grado che sta una quinta sotto. Basta dargli la terza maggiore e la settima.</p>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="V del II: la settima su la, che risolve su re minore"
+               notes="e/4+c#/5:h f/4+d/5:h"
+               bass="a/2+g/3:h d/3+a/3:h"
+               width="700" tempo="50" play></tac-stave>
+
+    <p class="didascalia">Quel do diesis <strong>non</strong> vuol dire che siamo in re minore: vuol dire che il re &egrave; stato illuminato per un momento. &Egrave; una <strong>tonicizzazione</strong>, e nella progressione ne arriva subito un&rsquo;altra.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Perché non si modula mai">
+  <div class="slide-interna">
+    <h2>Perch&eacute; in una progressione non si modula mai</h2>
+
+    <p>Perch&eacute; <strong>nessuna meta viene confermata</strong>. Ogni tonica raggiunta diventa subito la dominante della successiva, e quindi non fa in tempo a essere una tonica.</p>
+
+    <div class="colonne3">
+      <div class="scheda"><h3>Arrivo</h3><p>l&rsquo;accordo di re sembra una nuova tonica</p></div>
+      <div class="scheda"><h3>Trasformo</h3><p>gli do la settima: &egrave; gi&agrave; la dominante di sol</p></div>
+      <div class="scheda"><h3>Riparto</h3><p>e cos&igrave; via, finch&eacute; decido di fermarmi</p></div>
+    </div>
+
+    <p class="didascalia">Ecco perch&eacute; una progressione <strong>collega</strong> due sezioni stabili invece di stabilirne una: la sua natura &egrave; il transito.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Dove si trova">
+  <div class="slide-interna">
+    <h2>Dove la trovate, e perch&eacute; conviene saperla riconoscere</h2>
+
+    <div class="colonne">
+      <div class="riquadro"><p><strong>In analisi</strong><br>nei ponti della forma sonata, nei divertimenti della fuga, in mezzo alle arie</p></div>
+      <div class="riquadro"><p><strong>Nella seconda prova</strong><br>una traccia di basso che scende per quinte va realizzata come progressione, non accordo per accordo</p></div>
+    </div>
+
+    <div class="riquadro studio">
+      <p>In analisi la risposta giusta non &egrave; elencare sei tonicizzazioni: &egrave; scrivere <strong>&laquo;progressione di quinte discendenti, batt. 12&ndash;16, do maggiore&raquo;</strong>. Una riga, e dice tutto.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; progressioni e tonicizzazioni" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; progressioni e tonicizzazioni</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 8 minuti</span>
+      <p>Cinque affermazioni sulle progressioni. Si risponde insieme.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "In una progressione di quinte con dominanti secondarie si modula a ogni accordo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: non si modula <strong>mai</strong>, perché nessuna meta viene confermata.",
+  "da": "Perché non si modula mai"
+ },
+ {
+  "d": "Una progressione ripete un modello a distanza costante.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: quello che si ripete non è il suono, è il rapporto.",
+  "da": "Che cos’è una progressione"
+ },
+ {
+  "d": "Ogni grado della scala può fungere da dominante del grado posto alla quinta inferiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: basta dargli la terza maggiore e la settima.",
+  "da": "La dominante secondaria"
+ },
+ {
+  "d": "In una progressione ogni tonica raggiunta diventa subito la dominante della successiva.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è per questo che non fa in tempo a essere una tonica.",
+  "da": "Perché non si modula mai"
+ },
+ {
+  "d": "Una progressione serve a stabilire una tonalità.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: serve a <strong>collegare</strong> due sezioni stabili. La sua natura è il transito.",
+  "da": "Perché non si modula mai"
+ },
+ {
+  "d": "In una progressione tonale il modello resta dentro la scala.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: gli accordi cambiano qualità a seconda del grado su cui cadono.",
+  "da": "Che cos’è una progressione"
+ },
+ {
+  "d": "In una progressione modulante il modello viene trasportato di peso.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, con le sue alterazioni — e allora si esce davvero.",
+  "da": "Che cos’è una progressione"
+ },
+ {
+  "d": "In analisi conviene elencare una per una le tonicizzazioni di una progressione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si scrive una riga — «progressione di quinte discendenti, batt. 12–16, do maggiore» — e dice tutto.",
+  "da": "Dove si trova"
+ },
+ {
+  "d": "Una traccia di basso che scende per quinte va realizzata accordo per accordo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: va letta <strong>come progressione</strong>, e realizzata di conseguenza.",
+  "da": "Dove si trova"
+ },
+ {
+  "d": "Le progressioni si trovano nei ponti della forma sonata e nei divertimenti della fuga.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: sono i punti in cui la musica deve andare da qualche parte senza fermarsi.",
+  "da": "Dove si trova"
+ },
+ {
+  "d": "Si modula nel momento in cui si decide di uscire dalla progressione con una cadenza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e sapere dove uscirne è l’abilità vera.",
+  "da": "Perché non si modula mai"
+ },
+ {
+  "d": "In una progressione le voci si muovono molto e ogni volta in modo diverso.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si muovono poco e <strong>sempre allo stesso modo</strong>. È quello che la rende una progressione.",
+  "da": "Che cos’è una progressione"
+ },
+ {
+  "d": "Una sensibile estranea alla tonalità è sempre segno di modulazione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e la progressione è la prova: quattro battute, tre sensibili estranee, nessuna modulazione.",
+  "da": "Prima si ascolta"
+ },
+ {
+  "d": "La dominante secondaria produce una tonicizzazione, non una modulazione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, salvo che la nuova tonica venga confermata da una cadenza.",
+  "da": "La dominante secondaria"
+ },
+ {
+  "d": "Il modello di una progressione può essere di due o tre accordi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: quello che conta è che si ripeta a distanza costante.",
+  "da": "Che cos’è una progressione"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Scrivetene una">
+  <div class="slide-interna">
+    <h2>Scrivetene una voi</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Sul quaderno, 15 minuti</span>
+      <p>In <strong>si bemolle maggiore</strong>, otto accordi che scendono per quinte, ciascuno con la settima. Quattro parti, condotta pulita: nella progressione le voci si muovono poco e sempre allo stesso modo.</p>
+      <p>Poi <strong>fermatela</strong>: aggiungete due accordi che confermino con una cadenza il punto in cui siete arrivati. Da quel momento avete modulato per davvero, e va scritto dove.</p>
+    </div>
+
+    <p class="didascalia">La seconda parte &egrave; quella che conta: sapere <strong>dove si esce</strong> da una progressione &egrave; l&rsquo;abilit&agrave; vera.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">In tre righe</span>
+        <p>Una <strong>progressione</strong> ripete un modello a distanza costante.</p>
+        <p>Ogni grado pu&ograve; fare da <strong>dominante secondaria</strong> di quello alla quinta inferiore.</p>
+        <p>Nessuna meta &egrave; confermata: sono <strong>tonicizzazioni</strong>, non modulazioni.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">La cosa da ricordare</span>
+        <p>Una progressione <strong>collega</strong>, non stabilisce. Si modula nel momento in cui si decide di <em>uscirne</em> con una cadenza.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">L&rsquo;ultima ora dell&rsquo;unit&agrave;: un brano intero, e tutte le sue modulazioni &mdash; con la matita in mano.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da ascoltare, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da ascoltare, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Riconoscere una progressione all&rsquo;ascolto.</strong> Sei passaggi: in tre c’è una progressione di quinte, negli altri tre una successione di modulazioni vere.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="2">
+      <li>
+        <p class="testo-compito"><strong>2. Otto accordi per quinte, e poi l&rsquo;uscita.</strong> In <strong>si bemolle maggiore</strong>, otto accordi che scendono per quinte, ciascuno con la settima, a quattro parti.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-01.html#C5-U1-L5-02"><strong>Workbook</strong></a>, scheda C5-U1-L5-02.</p>
+      </li>
+      <li>
+        <p class="testo-compito"><strong>3. Una riga sola per sedici accordi.</strong> Sul Workbook trovi un passaggio di sei battute con dodici accordi e cinque sensibili estranee.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-01.html#C5-U1-L5-03"><strong>Workbook</strong></a>, scheda C5-U1-L5-03.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","via":"uda-01","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"materiali":[{"titolo":"Workbook · unità 1","file":"../materiali/workbook-uda-01.html","stato":"pronta"},{"titolo":"Scheda di lavoro autonomo","file":"../materiali/scheda-lavoro-autonomo-1.html","stato":"pronta"},{"titolo":"Partiture da stampare","file":"../materiali/partiture-uda-01.html","stato":"pronta"}]},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"da preparare","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all'ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":5,"unita":1,"lezione":5}}</script>
+</body>
+</html>

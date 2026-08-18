@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 1. Che cosa sappiamo della modulazione, in mezz&rsquo;ora | Ripresa: le modulazioni ai toni vicini</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=c4d583e7">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=10f26d5d" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 1 · Che cosa sappiamo della modulazione, in mezz'ora
+     Unità 1, ora 1 di 90 · classe 5ª · teoria/armonia
+     PRIMA ORA DELL'ANNO DELL'ESAME.
+
+     PAROLE CHIAVE: modulazione · tonicizzazione · toni vicini · accordo
+     comune · suono caratteristico · conferma cadenzale.
+     Biblioteca interrogata il 18 agosto 2026 partendo da
+     `mappa_argomenti.py`, voce «2 · modulazione ai toni vicini»
+     (33 libri) e «3 · dominanti secondarie» (23 libri).
+
+     ══ LA DISTINZIONE CHE VALE L'ORA INTERA ══
+     Giannetta, *Elementi di Armonia e Analisi musicale*, § 10.1, la dà
+     in modo utilizzabile: si ha modulazione quando un suono che non è
+     la tonica ne prende il posto come punto di riferimento, **e la
+     nuova tonica viene confermata** da una o più formule di cadenza che
+     si concludono su quel grado. Se la conferma non arriva e si torna
+     subito alla situazione di prima, si parla di **tonicizzazione
+     momentanea**.
+
+     Questo è il criterio operativo che serve tutto l'anno in analisi, e
+     che a quinta è ancora incerto: gli studenti chiamano «modulazione»
+     ogni alterazione che vedono. La domanda giusta non è «c'è
+     un'alterazione estranea?» ma **«la nuova tonica è stata
+     confermata?»** — e la risposta si trova guardando avanti, non
+     indietro.
+
+     ══ LA MAPPA DEI CINQUE TONI VICINI ══
+     Marenco, *Manuale d'armonia*, § 6.3, li elenca con i nomi di
+     regione che il piano di quest'anno usa nei titoli delle ore 2 e 4:
+     sopradominante, sottodominante, sopratonica, dominante, mediante.
+     Da una tonalità maggiore: il relativo minore, il tono sul IV e il
+     suo relativo minore, il tono sul V e il suo relativo minore. Un'sola
+     alterazione di differenza in chiave.
+
+     PERCHÉ MEZZ'ORA E NON UN'ORA: la modulazione ai toni vicini è
+     materia di seconda e di quarta. Questa è una **ripresa**, e la
+     seconda metà dell'ora si spende a misurare che cosa è rimasto —
+     non a rispiegare. Il piano dice mezz'ora e va rispettato: l'anno
+     dell'esame non ha ore da regalare.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c5u1-lezione-1.jpg?v=d7e3dd36');
+                --cop-a:#1e1b4b; --cop-b:#4338ca; --cop-c:#a5b4fc">
+  <div class="slide-interna">
+    <div class="occhiello">Ripresa: le modulazioni ai toni vicini &middot; UdA 1 &middot; Lezione 1 di 6</div>
+    <h1>Modulare, o solo passare di l&agrave;</h1>
+    <p class="sottotitolo">Prima ora dell&rsquo;anno dell&rsquo;esame. La domanda non &egrave; se c&rsquo;&egrave; un&rsquo;alterazione estranea: &egrave; se la nuova tonica &egrave; stata <strong>confermata</strong>.</p>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Armonia e analisi</span>
+      <span>Ripresa</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Come si lavora quest&rsquo;anno">
+  <div class="slide-interna">
+    <h2>L&rsquo;anno dell&rsquo;esame comincia da un ripasso</h2>
+
+    <p>La modulazione ai toni vicini l&rsquo;avete fatta in seconda e ripresa in quarta. Questa unit&agrave; non insegna niente di nuovo: <strong>rimette a punto</strong> lo strumento che userete da settembre a giugno.</p>
+
+    <div class="colonne">
+      <div class="riquadro"><p><strong>Quest&rsquo;ora</strong><br>mezz&rsquo;ora di ripasso, mezz&rsquo;ora per misurare che cosa &egrave; rimasto</p></div>
+      <div class="riquadro attenzione"><p><strong>Quest&rsquo;anno</strong><br>ogni argomento serve due volte: per la <strong>seconda prova</strong> e per l&rsquo;analisi all&rsquo;orale</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="La domanda sbagliata">
+  <div class="slide-interna">
+    <h2>La domanda che vi fate, e che &egrave; quella sbagliata</h2>
+
+    <p>Davanti a una partitura, quando compare un&rsquo;alterazione estranea alla tonalit&agrave;, la reazione &egrave; sempre la stessa: <em>qui modula</em>.</p>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="Un fa diesis in do maggiore. Che cosa vuol dire?"
+               notes="e/4+c/5:h f#/4+c/5:h | g/4+b/4:h g/4+c/5:h"
+               bass="c/3+g/3:h d/3+a/3:h | g/2+d/3:h e/3+g/3:h"
+               width="740" tempo="52" play></tac-stave>
+
+    <div class="riquadro attenzione">
+      <p>Quel fa diesis non dice niente da solo. Dice qualcosa solo <strong>insieme a quello che viene dopo</strong>, e per saperlo bisogna guardare avanti &mdash; non indietro.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Modulazione o tonicizzazione">
+  <div class="slide-interna">
+    <h2>Due cose diverse, e un criterio per distinguerle</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Modulazione</span>
+        <p>Un suono che non &egrave; la tonica ne prende il posto come riferimento, <strong>e la nuova tonica viene confermata</strong> da una o pi&ugrave; cadenze che si concludono su di essa.</p>
+      </div>
+      <div class="riquadro definizione">
+        <span class="etichetta">Tonicizzazione</span>
+        <p>La stessa armonia, ma la nuova tonica <strong>non viene confermata</strong>: si torna subito da dove si era partiti. Un grado &egrave; stato illuminato per un momento.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">Il criterio &egrave; uno solo, e si applica sempre: <strong>guarda che cosa succede dopo</strong>. Se arriva una cadenza sul nuovo grado, hai modulato; se torni indietro, l&rsquo;hai solo toccato.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Lo stesso accordo, due esiti">
+  <div class="slide-interna">
+    <h2>Lo stesso accordo, due strade</h2>
+
+    <p>Nei due esempi la settima su <em>re</em> &egrave; identica. Cambia solo il seguito.</p>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="a) modulazione a sol maggiore: la cadenza conferma"
+               notes="e/4+c/5:h f#/4+c/5:h | g/4+b/4:h g/4+d/5:h"
+               bass="c/3+g/3:h d/3+a/3:h | g/2+d/3:h g/2+b/3:h"
+               width="740" tempo="52" play></tac-stave>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="b) tonicizzazione del V: si torna a do"
+               notes="e/4+c/5:h f#/4+c/5:h | f/4+b/4:h e/4+c/5:h"
+               bass="c/3+g/3:h d/3+a/3:h | g/2+d/3:h c/3+g/3:h"
+               width="740" tempo="52" play></tac-stave>
+
+    <p class="didascalia">In <strong>a</strong> il sol diventa tonica e resta. In <strong>b</strong> il sol &egrave; ancora la dominante di do: l&rsquo;abbiamo solo guardata da vicino.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="I cinque toni vicini">
+  <div class="slide-interna">
+    <h2>Quali sono i toni vicini, e come si chiamano</h2>
+
+    <p>Toni vicini: quelli che rispetto alla tonalit&agrave; di partenza hanno <strong>una sola alterazione di differenza</strong> in chiave. Da una tonalit&agrave; maggiore sono cinque.</p>
+
+    <div class="colonne3">
+      <div class="scheda"><h3>Sopradominante</h3><p>il relativo minore &mdash; da do, <strong>la minore</strong></p></div>
+      <div class="scheda"><h3>Sottodominante</h3><p>il tono sul IV &mdash; <strong>fa maggiore</strong></p></div>
+      <div class="scheda"><h3>Sopratonica</h3><p>il suo relativo minore &mdash; <strong>re minore</strong></p></div>
+    </div>
+    <div class="colonne">
+      <div class="scheda"><h3>Dominante</h3><p>il tono sul V &mdash; <strong>sol maggiore</strong></p></div>
+      <div class="scheda"><h3>Mediante</h3><p>il suo relativo minore &mdash; <strong>mi minore</strong></p></div>
+    </div>
+
+    <p class="didascalia">I nomi sono quelli di <em>regione</em> che useremo nelle ore 2 e 4: sono i titoli delle prossime lezioni.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="I due momenti">
+  <div class="slide-interna">
+    <h2>Come si modula per via diatonica: due momenti</h2>
+
+    <blockquote class="aforisma">
+      <p>La modulazione diatonica si esplica mediante due momenti strettamente connessi: l&rsquo;individuazione di un accordo comune, di per s&eacute; non sufficiente a delineare il nuovo tono; l&rsquo;introduzione di un accordo contenente il suono caratteristico.</p>
+      <cite>Carlo Marenco, <em>Manuale d&rsquo;armonia</em>, &sect; 6.3</cite>
+    </blockquote>
+
+    <div class="colonne">
+      <div class="riquadro"><p><strong>1 &middot; L&rsquo;accordo comune</strong><br>appartiene a tutte e due le tonalit&agrave;. Da solo non basta: nessuno si accorge di niente</p></div>
+      <div class="riquadro attenzione"><p><strong>2 &middot; Il suono caratteristico</strong><br>&egrave; la prova. Da l&igrave; in poi non si pu&ograve; pi&ugrave; leggere nella vecchia tonalit&agrave;</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; modulazione o tonicizzazione" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; modulazione o tonicizzazione</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 8 minuti</span>
+      <p>Cinque affermazioni sul criterio. Si risponde insieme, e chi risponde dice anche perché.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "Un’alterazione estranea alla tonalità basta a dire che c’è una modulazione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed è l’errore da cui parte l’unità: quell’alterazione da sola non dice niente.",
+  "da": "La domanda sbagliata"
+ },
+ {
+  "d": "Per parlare di modulazione la nuova tonica dev’essere confermata da una cadenza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: è il criterio di Giannetta, ed è quello che useremo tutto l’anno.",
+  "da": "Modulazione o tonicizzazione"
+ },
+ {
+  "d": "Se dopo l’accordo estraneo si torna subito alla situazione di prima, si parla di tonicizzazione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: un grado è stato illuminato per un momento, e basta.",
+  "da": "Modulazione o tonicizzazione"
+ },
+ {
+  "d": "Per riconoscere una modulazione si guarda l’accordo che modula.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si guarda <strong>quello che viene dopo</strong>. L’accordo da solo è ambiguo.",
+  "da": "Lo stesso accordo, due esiti"
+ },
+ {
+  "d": "Toni vicini sono quelli che hanno non più di un’alterazione di differenza in chiave.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: è la definizione, e da lì discende che sono cinque.",
+  "da": "I cinque toni vicini"
+ },
+ {
+  "d": "Da una tonalità maggiore i toni vicini sono cinque.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: due maggiori e tre minori.",
+  "da": "I cinque toni vicini"
+ },
+ {
+  "d": "L’accordo comune, da solo, basta a delineare il nuovo tono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e Marenco lo dice esplicitamente: serve anche l’accordo che contiene il <strong>suono caratteristico</strong>.",
+  "da": "I due momenti"
+ },
+ {
+  "d": "Il suono caratteristico è l’indice inequivocabile che il tono è cambiato.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: è il secondo dei due momenti della modulazione diatonica.",
+  "da": "I due momenti"
+ },
+ {
+  "d": "La regione della sopradominante, da do maggiore, è la minore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: il relativo minore.",
+  "da": "I cinque toni vicini"
+ },
+ {
+  "d": "La regione della mediante, da do maggiore, è mi minore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: il relativo minore della dominante.",
+  "da": "I cinque toni vicini"
+ },
+ {
+  "d": "Sol maggiore è un tono vicino di do maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: la regione della dominante, un diesis di differenza.",
+  "da": "I cinque toni vicini"
+ },
+ {
+  "d": "Mi bemolle maggiore è un tono vicino di do maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: tre bemolli di differenza. È un tono lontano, e si tratta nell’unità 2.",
+  "da": "I cinque toni vicini"
+ },
+ {
+  "d": "La modulazione ai toni vicini è materia nuova di quinta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si è fatta in seconda e ripresa in quarta. Questa è una <strong>ripresa</strong>.",
+  "da": "Come si lavora quest’anno"
+ },
+ {
+  "d": "Quest’anno ogni argomento serve sia per la seconda prova sia per l’analisi all’orale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è il motivo per cui si scrive sempre anche a parole.",
+  "da": "Come si lavora quest’anno"
+ },
+ {
+  "d": "Una tonicizzazione e una modulazione possono cominciare con lo stesso accordo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: nei due esempi della lezione la settima su re è identica. Cambia il seguito.",
+  "da": "Lo stesso accordo, due esiti"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Provate a dirlo voi">
+  <div class="slide-interna">
+    <h2>Adesso tocca a voi: mezz&rsquo;ora di prova</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Alla lavagna, 20 minuti</span>
+      <p>Proietto sei frammenti di quattro battute. Per ciascuno, uno di voi risponde a <strong>due domande in quest&rsquo;ordine</strong>: dove sta l&rsquo;accordo comune, e c&rsquo;&egrave; una cadenza che conferma il nuovo tono?</p>
+      <p>Se la seconda risposta &egrave; no, la parola giusta &egrave; <strong>tonicizzazione</strong>, e va detta.</p>
+    </div>
+
+    <p class="didascalia">Non &egrave; un&rsquo;interrogazione: &egrave; la misura da cui parto per decidere quanto correre nelle prossime cinque ore.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Il criterio</span>
+        <p>Non &laquo;c&rsquo;&egrave; un&rsquo;alterazione estranea?&raquo; ma <strong>&laquo;la nuova tonica &egrave; confermata da una cadenza?&raquo;</strong>. Se no: tonicizzazione.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">La cosa da ricordare</span>
+        <p>La modulazione si riconosce <strong>guardando avanti</strong>. L&rsquo;accordo che modula, da solo, non dice niente.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">La prossima ora: i primi due toni vicini &mdash; la <strong>sopradominante</strong> e la <strong>sopratonica</strong>, cio&egrave; i due relativi minori.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da ascoltare, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da ascoltare, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Otto frasi: dove si &egrave; andati a finire.</strong> Otto frasi brevi. Per ciascuna, di’ soltanto se alla fine sei nella tonalità di partenza o in un’altra.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="2">
+      <li>
+        <p class="testo-compito"><strong>2. Sei frammenti: modulazione o tonicizzazione.</strong> Sul Workbook trovi sei frammenti di quattro battute. Per ciascuno scrivi <strong>una parola sola</strong>: modulazione, o tonicizzazione.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-01.html#C5-U1-L1-02"><strong>Workbook</strong></a>, scheda C5-U1-L1-02.</p>
+      </li>
+      <li>
+        <p class="testo-compito"><strong>3. I cinque toni vicini di quattro tonalit&agrave;.</strong> Per <strong>mi bemolle maggiore, la maggiore, sol minore e do diesis minore</strong> scrivi i cinque toni vicini, con l’armatura di ciascuno.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-01.html#C5-U1-L1-03"><strong>Workbook</strong></a>, scheda C5-U1-L1-03.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","via":"uda-01","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"materiali":[{"titolo":"Workbook · unità 1","file":"../materiali/workbook-uda-01.html","stato":"pronta"},{"titolo":"Scheda di lavoro autonomo","file":"../materiali/scheda-lavoro-autonomo-1.html","stato":"pronta"},{"titolo":"Partiture da stampare","file":"../materiali/partiture-uda-01.html","stato":"pronta"}]},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"da preparare","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all'ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":5,"unita":1,"lezione":1}}</script>
+</body>
+</html>

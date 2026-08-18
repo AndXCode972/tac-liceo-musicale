@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 4. Melodie in maggiore con sesto e terzo grado | Armonizzare con le secondarie</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=c4d583e7">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=10f26d5d" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 4 · Melodie in maggiore con sesto e terzo grado
+     Unità 1, ora 4 di 90 · classe 4ª · teoria/armonia
+
+     PAROLE CHIAVE: sesto grado · terzo grado · cadenza d'inganno ·
+     parallelo della tonica · progressione.
+
+     LA COPPIA NON È SIMMETRICA, e questa è la cosa da far vedere: il VI
+     è frequentissimo, il III è raro. Presentarli insieme come «gli altri
+     due gradi» nasconde proprio l'informazione che serve.
+
+     IL VI è il parallelo della tonica (de la Motte): ha due note in
+     comune col I, e per questo può prenderne il posto. Da qui la
+     **cadenza d'inganno**, che è il suo impiego più vistoso: la
+     dominante promette la tonica e arriva il VI.
+
+     IL III è il più scomodo dei sette, e la ragione è precisa: contiene
+     la **sensibile** come sua quinta, e la sensibile in una voce interna
+     senza obbligo di risoluzione suona sospesa. Si usa quasi solo in
+     progressione, dove il movimento giustifica tutto.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c4u1-lezione-4.jpg?v=ef7fb5fe');
+                --cop-a:#4c1d95; --cop-b:#7c3aed; --cop-c:#c026d3">
+  <div class="slide-interna">
+    <div class="occhiello">Armonizzare con le secondarie &middot; UdA 1 &middot; Lezione 4 di 6</div>
+    <h1>Il sesto e il terzo</h1>
+    <p class="sottotitolo">Due accordi con due mestieri diversi: uno sostituisce la tonica, l&rsquo;altro quasi non si usa &mdash; e c&rsquo;&egrave; un motivo.</p>
+
+    <div class="meta-copertina"><span>1 ora</span><span>Armonia</span><span>VI &middot; III</span></div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Due accordi, due mestieri">
+  <div class="slide-interna">
+    <h2>Non sono una coppia</h2>
+
+   <p>Si presentano sempre insieme, e sono due cose diverse: il <strong>VI</strong> si usa di continuo, il <strong>III</strong> quasi mai.</p>
+   <div class="colonne">
+     <div class="riquadro"><p><strong>VI grado</strong><br>due note in comune con la tonica: pu&ograve; prenderne il posto</p></div>
+     <div class="riquadro attenzione"><p><strong>III grado</strong><br>contiene la <strong>sensibile</strong> come quinta, ed &egrave; per questo che &egrave; scomodo</p></div>
+   </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il sesto grado">
+  <div class="slide-interna">
+    <h2>Il sesto: il parallelo della tonica</h2>
+
+   <p>In do maggiore: <strong>la, do, mi</strong>. Due note su tre sono quelle della tonica &mdash; do e mi.</p>
+   <tac-stave clef="treble" time="4/4" caption="I &mdash; VI: due note restano ferme"
+              notes="g/4+e/5:h a/4+e/5:h" bass="c/3+c/4:h a/2+c/4:h"
+              width="700" tempo="52" play></tac-stave>
+   <p class="didascalia">Per questo pu&ograve; <strong>prendere il posto</strong> della tonica: dice quasi la stessa cosa, con un colore minore.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="La cadenza d&rsquo;inganno">
+  <div class="slide-interna">
+    <h2>Il suo impiego pi&ugrave; vistoso: l&rsquo;inganno</h2>
+
+   <p>La dominante promette la tonica. Arriva il sesto grado.</p>
+   <tac-stave clef="treble" time="4/4" caption="V &mdash; VI: la cadenza d&rsquo;inganno"
+              notes="g/4+d/5:h e/4+c/5:h" bass="g/2+b/3:h a/2+c/4:h"
+              width="700" tempo="50" play></tac-stave>
+   <div class="riquadro attenzione"><p>Si chiama cos&igrave; perch&eacute; l&rsquo;orecchio, arrivato l&igrave;, <strong>aspettava altro</strong>. E siccome il VI dice quasi quello che diceva il I, la frase non finisce: prosegue.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il terzo grado">
+  <div class="slide-interna">
+    <h2>Il terzo: perch&eacute; si usa poco</h2>
+
+   <p>In do maggiore: <strong>mi, sol, si</strong>. Quel <em>si</em> &egrave; la <strong>sensibile</strong>, e qui non &egrave; la nota che tira verso la tonica: &egrave; la quinta di un accordo qualunque.</p>
+   <tac-stave clef="treble" time="4/4" caption="Il III grado: la sensibile ci sta dentro, senza obbligo"
+              notes="g/4+e/5:w" bass="e/3+b/3:w"
+              width="700" tempo="50" play></tac-stave>
+   <p class="didascalia">Una sensibile senza obbligo di risoluzione lascia l&rsquo;accordo <strong>sospeso</strong>. Per questo il III si usa quasi solo dentro una <strong>progressione</strong>, dove il movimento continuo giustifica il passaggio.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Armonizziamo">
+  <div class="slide-interna">
+    <h2>Adesso armonizzate voi</h2>
+
+   <tac-stave clef="treble" time="4/4" caption="Canto dato, otto battute in fa maggiore"
+              notes="c/5:h a/4:h | b/4:h g/4:h | a/4:h f/4:h | g/4:h c/5:h"
+              width="740" tempo="54" play></tac-stave>
+   <div class="riquadro compito"><span class="etichetta">Sul quaderno, 15 minuti</span><p>Armonizzatela usando <strong>almeno una cadenza d&rsquo;inganno</strong> e almeno un secondo grado. Il terzo grado, se lo usate, dev&rsquo;essere dentro un movimento continuo &mdash; non da solo.</p></div>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; il sesto e il terzo" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; il sesto e il terzo</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 8 minuti</span>
+      <p>Cinque affermazioni sui due gradi dell’ora. Si risponde insieme.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "Il VI e il III si usano con la stessa frequenza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: il VI è frequentissimo, il III è raro. Presentarli come una coppia nasconde proprio questo.",
+  "da": "Due accordi, due mestieri"
+ },
+ {
+  "d": "Il VI grado ha due note in comune con la tonica.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: in do maggiore, do e mi. Per questo può prenderne il posto.",
+  "da": "Il sesto grado"
+ },
+ {
+  "d": "La cadenza d’inganno è la successione V — VI.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: la dominante promette la tonica e arriva il sesto grado.",
+  "da": "La cadenza d’inganno"
+ },
+ {
+  "d": "Dopo una cadenza d’inganno la frase è finita.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: <strong>prosegue</strong>. È questo il suo mestiere — non chiudere.",
+  "da": "La cadenza d’inganno"
+ },
+ {
+  "d": "Il III grado contiene la sensibile.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: in do maggiore mi, sol, si. Il si è la sensibile, e qui è la quinta di un accordo qualunque.",
+  "da": "Il terzo grado"
+ },
+ {
+  "d": "Il III si usa poco perché è difficile da scrivere.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si usa poco perché contiene una sensibile <strong>senza obbligo di risoluzione</strong>, e l’accordo resta sospeso.",
+  "da": "Il terzo grado"
+ },
+ {
+  "d": "Il III grado si trova soprattutto dentro una progressione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: lì il movimento continuo giustifica il passaggio.",
+  "da": "Il terzo grado"
+ },
+ {
+  "d": "«Parallelo della tonica» è il nome funzionale del VI grado.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: dice quasi quello che dice il I, con un colore minore.",
+  "da": "Il sesto grado"
+ },
+ {
+  "d": "Il VI grado nel modo maggiore è una triade maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è <strong>minore</strong>. Diventa maggiore nel modo minore, ed è un’altra storia.",
+  "da": "Il sesto grado"
+ },
+ {
+  "d": "La cadenza d’inganno si chiama così perché l’orecchio aspettava la tonica.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: la dominante l’aveva promessa.",
+  "da": "La cadenza d’inganno"
+ },
+ {
+  "d": "Sapere che il III è raro vale meno che saperlo elencare fra i sette gradi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed è il punto dell’ora: sapere <strong>perché</strong> vale più che elencare.",
+  "da": "Due accordi, due mestieri"
+ },
+ {
+  "d": "Il VI può prendere il posto della tonica perché ne condivide due note.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: dice quasi la stessa cosa, con un colore minore.",
+  "da": "Il sesto grado"
+ },
+ {
+  "d": "Nel VI grado in do maggiore le note sono la, do, mi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: do e mi sono le due note in comune con la tonica.",
+  "da": "Il sesto grado"
+ },
+ {
+  "d": "Il III grado si può usare da solo, senza contesto, come una primaria.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: resta sospeso. Ha bisogno di un movimento continuo che lo giustifichi.",
+  "da": "Il terzo grado"
+ },
+ {
+  "d": "VI e III sono una coppia simmetrica: si presentano insieme perché si comportano allo stesso modo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si presentano insieme per comodità, e si comportano in modo <strong>opposto</strong>.",
+  "da": "Due accordi, due mestieri"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+   <div class="colonne">
+     <div class="riquadro definizione"><span class="etichetta">In due righe</span><p><strong>VI</strong>: parallelo della tonica, due note in comune col I. Da qui la cadenza d&rsquo;inganno.</p><p><strong>III</strong>: contiene la sensibile come quinta. Si usa quasi solo in progressione.</p></div>
+     <div class="riquadro studio"><span class="etichetta">La cosa da ricordare</span><p>Non sono &laquo;gli altri due gradi&raquo;. Uno &egrave; frequentissimo, l&rsquo;altro raro, e sapere <strong>perch&eacute;</strong> vale pi&ugrave; di saperli elencare.</p></div>
+   </div>
+   <div class="riquadro libro"><span class="etichetta">Sul tuo libro</span><p><span class="lez">A7</span><strong>Accordi di sesto e di terzo grado</strong>, p. 68</p></div>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da ascoltare, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da ascoltare, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Riconoscere l&rsquo;inganno all&rsquo;ascolto.</strong> Otto frasi brevi: sei finiscono con una cadenza perfetta, due con una d’inganno. Segna quali.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="2">
+      <li>
+        <p class="testo-compito"><strong>2. Il canto dato in fa, con una cadenza d&rsquo;inganno.</strong> Armonizza a quattro parti il canto dato della lezione, usando <strong>almeno una cadenza d’inganno</strong> e almeno un secondo grado.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-01.html#C4-U1-L4-02"><strong>Workbook</strong></a>, scheda C4-U1-L4-02.</p>
+      </li>
+      <li>
+        <p class="testo-compito"><strong>3. Tre cadenze d&rsquo;inganno in tre tonalit&agrave;.</strong> Scrivi tre cadenze d’inganno a quattro parti in tre tonalità maggiori diverse.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-01.html#C4-U1-L4-03"><strong>Workbook</strong></a>, scheda C4-U1-L4-03.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","via":"uda-01","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"materiali":[{"titolo":"Workbook · unità 1","file":"../materiali/workbook-uda-01.html","stato":"pronta"},{"titolo":"Scheda di lavoro autonomo","file":"../materiali/scheda-lavoro-autonomo-1.html","stato":"pronta"},{"titolo":"Partiture da stampare","file":"../materiali/partiture-uda-01.html","stato":"pronta"}]},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"da preparare","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all'ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":4,"unita":1,"lezione":4}}</script>
+</body>
+</html>

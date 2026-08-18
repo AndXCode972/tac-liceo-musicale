@@ -22,15 +22,28 @@
      Una pagina intera, e da sola. Un fascicolo che si stampa una volta
      e resta sul leggio per un anno ha una copertina; un foglio di
      esercizi no, ed è la differenza fra le due cose. */
+  /* LA COPERTINA HA UN'IMMAGINE, ed è la stessa della pagina della
+     classe: il fascicolo e la classe devono sembrare la stessa cosa.
+     Sopra ci va un velo **neutro**, non colorato — la lezione del 18
+     agosto, «attenzione alle velature che modificano i colori delle
+     immagini»: forte in alto dove sta il titolo, e via verso il basso
+     dove l'opera si vede per quello che è. */
   .copertina-libro {
+    position: relative; overflow: hidden;
     min-height: 88vh; display: flex; flex-direction: column;
     justify-content: space-between;
     padding: 3.4rem 3rem; margin: 0 0 2rem;
     color: #fff; border-radius: 14px;
-    background: linear-gradient(150deg,
-      color-mix(in srgb, var(--classe) 78%, #0b1020),
-      color-mix(in srgb, var(--classe) 30%, #0b1020));
+    background-image: var(--copertina);
+    background-size: cover; background-position: center;
   }
+  .copertina-libro::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(168deg,
+      rgba(6, 8, 20, .88) 0%, rgba(6, 8, 20, .74) 34%,
+      rgba(6, 8, 20, .30) 62%, rgba(6, 8, 20, .06) 100%);
+  }
+  .copertina-libro > * { position: relative; z-index: 1; }
   .copertina-libro .occhiello { letter-spacing: .16em; text-transform: uppercase;
                                 font-size: .76rem; opacity: .85; }
   .copertina-libro h1 { font-size: 3.4rem; line-height: 1.05; margin: .5rem 0 0;
@@ -49,6 +62,9 @@
   .indice-libro h2 { border-bottom: 2px solid var(--bordo); padding-bottom: .3rem; }
   .indice-libro ol { list-style: none; margin: 1rem 0 0; padding: 0;
                      columns: 2; column-gap: 2.4rem; }
+  /* L'indice resta a due colonne: è un elenco di titoli brevi, e in una
+     sola sarebbe lungo tre pagine. Le colonne danno fastidio ai righi,
+     non alle righe di testo. */
   .indice-libro li { display: flex; gap: .55rem; align-items: baseline;
                      padding: .16rem 0; break-inside: avoid;
                      font-size: .92rem; }
@@ -64,7 +80,12 @@
   /* ── I PEZZI, IN FILA ────────────────────────────────────────────
      Due colonne: ci sta il doppio per pagina, e un rigo da 430 in una
      colonna da mezzo foglio è della misura giusta. */
-  .pezzi { columns: 2; column-gap: 2rem; }
+  /* UNA COLONNA SOLA. «Gli esercizi devono andare su un rigo soltanto,
+     non in due colonne»: un solfeggio si legge da sinistra a destra
+     tutto di fila, e spezzarlo in due colonne obbliga l'occhio a
+     tornare indietro a metà pagina. Il rigo prende tutta la larghezza,
+     e la notazione si rimpicciolisce scalando. */
+  .pezzi { columns: auto; }
   /* IL GRADINO NON APRE UNA COLONNA. Ci aveva `break-before: column`, e
      in un contenitore a due colonne un'interruzione forzata **aggiunge**
      colonne invece di spostarsi: tre gradini facevano tre colonne, e la
@@ -83,7 +104,7 @@
      dalla piegatura non si legge: si perde proprio la battuta a cavallo,
      che è quella dove si sbaglia. */
   .solf { break-inside: avoid; page-break-inside: avoid;
-          margin: 0 0 1.1rem; padding-bottom: .8rem;
+          margin: 0 0 .7rem; padding-bottom: .5rem;
           border-bottom: 1px solid var(--bordo); }
   .solf .testa { display: flex; gap: .7rem; align-items: baseline; }
   .solf h3 { margin: 0; font-size: .95rem; }
@@ -98,7 +119,10 @@
      stampa in A5. Qui l'SVG si adatta invece di sbordare: è un ripiego,
      non il modo giusto di ottenere la misura, e infatti la misura giusta
      si ottiene disegnandolo alla larghezza che serve. */
-  .pezzi .solf svg { max-width: 100%; height: auto; }
+  /* Disegnato a 1100 e mostrato a quanto è largo il foglio: la scala
+     fa il resto, e la notazione viene il trenta per cento più piccola.
+     L'SVG è vettoriale, quindi non si sgrana. */
+  .pezzi .solf svg { width: 100%; height: auto; }
 
   .piede-fascicolo { margin: 2rem 0 0; padding-top: .8rem;
                      border-top: 1px solid var(--bordo);
@@ -109,10 +133,10 @@
     .copertina-libro { min-height: 92vh; break-after: page; page-break-after: always;
                        border-radius: 0; margin: 0; }
     .indice-libro { break-after: page; page-break-after: always; }
-    .pezzi { columns: 2; }
+    .pezzi { columns: auto; }
   }
   @media (max-width: 700px) {
-    .indice-libro ol, .pezzi { columns: 1; }
+    .indice-libro ol { columns: 1; }
     .copertina-libro h1 { font-size: 2.4rem; }
   }
 </style>
@@ -140,7 +164,7 @@
 
 <div class="foglio">
 
-  <section class="copertina-libro">
+  <section class="copertina-libro" style="--copertina: url('../../_assets/immagini/testata-classe-1.jpg')">
     <div>
       <div class="occhiello">Teoria, Analisi e Composizione &middot; Classe 1&ordf;</div>
       <h1>Solfeggio</h1>
@@ -265,7 +289,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h" width="330" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h" width="1100" tempo="60"></tac-stave>
     </article>
     <article class="solf" id="n2">
       <div class="testa">
@@ -275,7 +299,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h" width="330" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h" width="1100" tempo="60"></tac-stave>
     </article>
     <article class="solf" id="n3">
       <div class="testa">
@@ -285,7 +309,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h | b/4:h" width="330" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h | b/4:h" width="1100" tempo="60"></tac-stave>
     </article>
     <article class="solf" id="n4">
       <div class="testa">
@@ -295,7 +319,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h" width="330" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h" width="1100" tempo="60"></tac-stave>
     </article>
     <article class="solf" id="n5">
       <div class="testa">
@@ -305,7 +329,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h" width="330" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h" width="1100" tempo="60"></tac-stave>
     </article>
     <article class="solf" id="n6">
       <div class="testa">
@@ -315,7 +339,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h" width="330" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h" width="1100" tempo="60"></tac-stave>
     </article>
     <article class="solf" id="n7">
       <div class="testa">
@@ -325,7 +349,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h" width="330" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h" width="1100" tempo="60"></tac-stave>
     </article>
     <article class="solf" id="n8">
       <div class="testa">
@@ -335,7 +359,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h" width="330" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h" width="1100" tempo="60"></tac-stave>
     </article>
     <article class="solf" id="n9">
       <div class="testa">
@@ -345,7 +369,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h" width="330" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h" width="1100" tempo="60"></tac-stave>
     </article>
     <article class="solf" id="n10">
       <div class="testa">
@@ -355,7 +379,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h" width="330" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h" width="1100" tempo="60"></tac-stave>
     </article>
     <article class="solf" id="n11">
       <div class="testa">
@@ -365,7 +389,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q b/4:q | b/4:q b/4:q | r:q b/4:q | b/4:h | b/4:q b/4:q | r:q b/4:q | b/4:q r:q | b/4:h" width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q b/4:q | b/4:q b/4:q | r:q b/4:q | b/4:h | b/4:q b/4:q | r:q b/4:q | b/4:q r:q | b/4:h" width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n12">
       <div class="testa">
@@ -375,7 +399,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:h | r:q r:q | b/4:q b/4:q | b/4:q r:q | b/4:q r:q | b/4:h | r:q b/4:q | b/4:h" width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:h | r:q r:q | b/4:q b/4:q | b/4:q r:q | b/4:q r:q | b/4:h | r:q b/4:q | b/4:h" width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n13">
       <div class="testa">
@@ -385,7 +409,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="r:q b/4:q | r:q r:q | b/4:q r:q | b/4:q r:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h" width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="r:q b/4:q | r:q r:q | b/4:q r:q | b/4:q r:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h" width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n14">
       <div class="testa">
@@ -395,7 +419,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:h | r:q b/4:q | r:q b/4:q | b/4:q r:q | b/4:q r:q | b/4:q b/4:q | b/4:q r:q | b/4:h" width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:h | r:q b/4:q | r:q b/4:q | b/4:q r:q | b/4:q r:q | b/4:q b/4:q | b/4:q r:q | b/4:h" width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n15">
       <div class="testa">
@@ -405,7 +429,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="r:q b/4:q | b/4:q r:q | b/4:h | b/4:h | r:q r:q | b/4:q b/4:q | b/4:h | b/4:h" width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="r:q b/4:q | b/4:q r:q | b/4:h | b/4:h | r:q r:q | b/4:q b/4:q | b/4:h | b/4:h" width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n16">
       <div class="testa">
@@ -415,7 +439,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q r:q | b/4:q r:q | b/4:q b/4:q | b/4:q r:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h" width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q r:q | b/4:q r:q | b/4:q b/4:q | b/4:q r:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h" width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n17">
       <div class="testa">
@@ -425,7 +449,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q r:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h | r:q r:q | r:q r:q | b/4:h" width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q r:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h | r:q r:q | r:q r:q | b/4:h" width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n18">
       <div class="testa">
@@ -435,7 +459,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q b/4:q | r:q r:q | r:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:q r:q | b/4:h" width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q b/4:q | r:q r:q | r:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:q r:q | b/4:h" width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n19">
       <div class="testa">
@@ -445,7 +469,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:h | r:q b/4:q | r:q r:q | b/4:q r:q | r:q b/4:q | b/4:q r:q | r:q r:q | b/4:h" width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:h | r:q b/4:q | r:q r:q | b/4:q r:q | r:q b/4:q | b/4:q r:q | r:q r:q | b/4:h" width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n20">
       <div class="testa">
@@ -455,7 +479,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q r:q | r:q b/4:q | r:q b/4:q | b/4:q b/4:q | r:q r:q | r:q b/4:q | b/4:h | b/4:h" width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q r:q | r:q b/4:q | r:q b/4:q | b/4:q b/4:q | r:q r:q | r:q b/4:q | b/4:h | b/4:h" width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n21">
       <div class="testa">
@@ -465,7 +489,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:h b/4:q | b/4:q b/4:q b/4:q | b/4:h. | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:q r:q b/4:q | b/4:q b/4:8 b/4:8 b/4:q | b/4:h." width="330" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:h b/4:q | b/4:q b/4:q b/4:q | b/4:h. | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:q r:q b/4:q | b/4:q b/4:8 b/4:8 b/4:q | b/4:h." width="1100" tempo="60"></tac-stave>
     </article>
     <div class="gradino"><span>Secondo gradino</span><span class="quanti">31 pezzi</span></div>
     <article class="solf" id="n22">
@@ -476,7 +500,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:8 b/4:8 r:q | b/4:8 b/4:8 b/4:8 b/4:8 | r:q b/4:8 b/4:8 | b/4:q r:q | r:q r:q | b/4:q b/4:8 b/4:8 | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:8 b/4:8 r:q | b/4:8 b/4:8 b/4:8 b/4:8 | r:q b/4:8 b/4:8 | b/4:q r:q | r:q r:q | b/4:q b/4:8 b/4:8 | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n23">
       <div class="testa">
@@ -486,7 +510,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="r:q r:q | r:q b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q | b/4:q b/4:q | b/4:8 b/4:8 r:q | b/4:h | b/4:8 b/4:8 b/4:q | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="r:q r:q | r:q b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q | b/4:q b/4:q | b/4:8 b/4:8 r:q | b/4:h | b/4:8 b/4:8 b/4:q | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n24">
       <div class="testa">
@@ -496,7 +520,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q b/4:q | b/4:q b/4:8 b/4:8 | r:q r:q | b/4:q r:q | b/4:q b/4:8 b/4:8 | b/4:q b/4:q | b/4:h | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q b/4:q | b/4:q b/4:8 b/4:8 | r:q r:q | b/4:q r:q | b/4:q b/4:8 b/4:8 | b/4:q b/4:q | b/4:h | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n25">
       <div class="testa">
@@ -506,7 +530,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:q | b/4:q b/4:q | b/4:8 b/4:8 b/4:q | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:q | b/4:q b/4:q | b/4:8 b/4:8 b/4:q | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n26">
       <div class="testa">
@@ -516,7 +540,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="r:q b/4:q | b/4:h | r:q b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 r:q | r:q b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="r:q b/4:q | b/4:h | r:q b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 r:q | r:q b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n27">
       <div class="testa">
@@ -526,7 +550,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q r:q | b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q | b/4:h | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q r:q | b/4:8 b/4:8 b/4:q | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q r:q | b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q | b/4:h | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q r:q | b/4:8 b/4:8 b/4:q | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n28">
       <div class="testa">
@@ -536,7 +560,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q r:q | r:q b/4:8 b/4:8 | b/4:h | b/4:8 b/4:8 r:q | b/4:q b/4:8 b/4:8 | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:h | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q r:q | r:q b/4:8 b/4:8 | b/4:h | b/4:8 b/4:8 r:q | b/4:q b/4:8 b/4:8 | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n29">
       <div class="testa">
@@ -546,7 +570,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="r:q r:q | b/4:h | b/4:q r:q | b/4:h | b/4:8 b/4:8 b/4:q | r:q b/4:8 b/4:8 | b/4:h | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="r:q r:q | b/4:h | b/4:q r:q | b/4:h | b/4:8 b/4:8 b/4:q | r:q b/4:8 b/4:8 | b/4:h | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n30">
       <div class="testa">
@@ -556,7 +580,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 b/4:8 b/4:8 | r:q b/4:8 b/4:8 | b/4:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:q | b/4:q b/4:q | b/4:8 b/4:8 r:q | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 b/4:8 b/4:8 | r:q b/4:8 b/4:8 | b/4:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:q | b/4:q b/4:q | b/4:8 b/4:8 r:q | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n31">
       <div class="testa">
@@ -566,7 +590,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q r:q | b/4:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | r:q b/4:8 b/4:8 | r:q b/4:8 b/4:8 | b/4:8 b/4:8 r:q | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q r:q | b/4:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | r:q b/4:8 b/4:8 | r:q b/4:8 b/4:8 | b/4:8 b/4:8 r:q | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n32">
       <div class="testa">
@@ -576,7 +600,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q r:q | b/4:q. b/4:8 | r:q r:q | b/4:q. b/4:8 | b/4:q. b/4:8 | b/4:8 b/4:8 r:q | b/4:h | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q r:q | b/4:q. b/4:8 | r:q r:q | b/4:q. b/4:8 | b/4:q. b/4:8 | b/4:8 b/4:8 r:q | b/4:h | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n33">
       <div class="testa">
@@ -586,7 +610,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 r:q | b/4:8 b/4:8 b/4:q | r:q b/4:8 b/4:8 | b/4:8 b/4:8 r:q | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 r:q | b/4:8 b/4:8 b/4:q | r:q b/4:8 b/4:8 | b/4:8 b/4:8 r:q | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n34">
       <div class="testa">
@@ -596,7 +620,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:q. b/4:8 | b/4:h | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:h | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:q. b/4:8 | b/4:h | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:h | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n35">
       <div class="testa">
@@ -606,7 +630,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="r:q b/4:q | b/4:h | b/4:q. b/4:8 | b/4:q b/4:q | b/4:q. b/4:8 | b/4:8 b/4:8 b/4:q | b/4:h | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="r:q b/4:q | b/4:h | b/4:q. b/4:8 | b/4:q b/4:q | b/4:q. b/4:8 | b/4:8 b/4:8 b/4:q | b/4:h | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n36">
       <div class="testa">
@@ -616,7 +640,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 r:q | b/4:q. b/4:8 | b/4:q b/4:8 b/4:8 | b/4:h | b/4:8 b/4:8 r:q | r:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 r:q | b/4:q. b/4:8 | b/4:q b/4:8 b/4:8 | b/4:h | b/4:8 b/4:8 r:q | r:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n37">
       <div class="testa">
@@ -626,7 +650,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q. b/4:8 | r:q b/4:q | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:q b/4:q | b/4:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q. b/4:8 | r:q b/4:q | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:q b/4:q | b/4:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n38">
       <div class="testa">
@@ -636,7 +660,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 b/4:q | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 b/4:q | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n39">
       <div class="testa">
@@ -646,7 +670,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 r:q | b/4:q b/4:8 b/4:8 | b/4:h | b/4:q. b/4:8 | b/4:h | b/4:q. b/4:8 | b/4:q b/4:8 b/4:8 | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 r:q | b/4:q b/4:8 b/4:8 | b/4:h | b/4:q. b/4:8 | b/4:h | b/4:q. b/4:8 | b/4:q b/4:8 b/4:8 | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n40">
       <div class="testa">
@@ -656,7 +680,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q r:q | b/4:q. b/4:8 | b/4:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:q r:q | b/4:q r:q | b/4:q. b/4:8 | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q r:q | b/4:q. b/4:8 | b/4:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:q r:q | b/4:q r:q | b/4:q. b/4:8 | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n41">
       <div class="testa">
@@ -666,7 +690,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q. b/4:8 | b/4:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:8 b/4:8 b/4:q | b/4:q b/4:q | b/4:q b/4:q | b/4:q. b/4:8 | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q. b/4:8 | b/4:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:8 b/4:8 b/4:q | b/4:q b/4:q | b/4:q b/4:q | b/4:q. b/4:8 | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n42">
       <div class="testa">
@@ -676,7 +700,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="r:q r:q | b/4:h | b/4:8 b/4:8 b/4:q | b/4:q b/4:q | r:q b/4:8 b/4:8 | b/4:q~ b/4:8 b/4:8 | b/4:q~ b/4:q~ | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="r:q r:q | b/4:h | b/4:8 b/4:8 b/4:q | b/4:q b/4:q | r:q b/4:8 b/4:8 | b/4:q~ b/4:8 b/4:8 | b/4:q~ b/4:q~ | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n43">
       <div class="testa">
@@ -686,7 +710,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q. b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:q~ | r:q b/4:q~ | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:q~ b/4:8 b/4:8 | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q. b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:q~ | r:q b/4:q~ | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:q~ b/4:8 b/4:8 | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n44">
       <div class="testa">
@@ -696,7 +720,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="r:q b/4:q | b/4:q~ r:q | r:q b/4:8 b/4:8 | b/4:q b/4:q~ | b/4:q. b/4:8 | r:q b/4:q~ | b/4:q. b/4:8 | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="r:q b/4:q | b/4:q~ r:q | r:q b/4:8 b/4:8 | b/4:q b/4:q~ | b/4:q. b/4:8 | r:q b/4:q~ | b/4:q. b/4:8 | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n45">
       <div class="testa">
@@ -706,7 +730,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q. b/4:8 | b/4:q~ b/4:8 b/4:8 | b/4:q~ b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:q~ b/4:q~ | r:q r:q | b/4:8 b/4:8 b/4:q~ | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q. b/4:8 | b/4:q~ b/4:8 b/4:8 | b/4:q~ b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:q~ b/4:q~ | r:q r:q | b/4:8 b/4:8 b/4:q~ | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n46">
       <div class="testa">
@@ -716,7 +740,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q. b/4:8 | b/4:8 b/4:8 b/4:q | b/4:h | b/4:q~ b/4:8 b/4:8 | b/4:h | b/4:q~ b/4:q | b/4:q~ b/4:8 b/4:8 | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q. b/4:8 | b/4:8 b/4:8 b/4:q | b/4:h | b/4:q~ b/4:8 b/4:8 | b/4:h | b/4:q~ b/4:q | b/4:q~ b/4:8 b/4:8 | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n47">
       <div class="testa">
@@ -726,7 +750,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q. b/4:8 | b/4:q. b/4:8 | b/4:q r:q | b/4:h | r:q b/4:q~ | b/4:h | b/4:q b/4:q~ | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q. b/4:8 | b/4:q. b/4:8 | b/4:q r:q | b/4:h | r:q b/4:q~ | b/4:h | b/4:q b/4:q~ | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n48">
       <div class="testa">
@@ -736,7 +760,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 b/4:q~ | b/4:h | b/4:q~ b/4:q~ | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h | b/4:q~ b/4:q~ | b/4:q b/4:8 b/4:8 | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 b/4:q~ | b/4:h | b/4:q~ b/4:q~ | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h | b/4:q~ b/4:q~ | b/4:q b/4:8 b/4:8 | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n49">
       <div class="testa">
@@ -746,7 +770,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q~ b/4:q | b/4:q b/4:q | b/4:8 b/4:8 r:q | r:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q~ | b/4:q~ r:q | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q~ b/4:q | b/4:q b/4:q | b/4:8 b/4:8 r:q | r:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q~ | b/4:q~ r:q | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n50">
       <div class="testa">
@@ -756,7 +780,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 b/4:q~ | b/4:q~ b/4:q~ | b/4:q~ b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:h | b/4:q~ b/4:q | b/4:8 b/4:8 b/4:q~ | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 b/4:q~ | b/4:q~ b/4:q~ | b/4:q~ b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:h | b/4:q~ b/4:q | b/4:8 b/4:8 b/4:q~ | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n51">
       <div class="testa">
@@ -766,7 +790,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="2/4" notes="b/4:q~ b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:h | r:q b/4:8 b/4:8 | b/4:q~ r:q | b/4:q. b/4:8 | b/4:h | b/4:h" width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:q~ b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:h | r:q b/4:8 b/4:8 | b/4:q~ r:q | b/4:q. b/4:8 | b/4:h | b/4:h" width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n52">
       <div class="testa">
@@ -776,7 +800,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:q b/4:q | b/4:h b/4:q | b/4:q b/4:8 b/4:8 b/4:q | b/4:h. | b/4:8 b/4:8 b/4:q b/4:q | b/4:q r:q b/4:q | b/4:q b/4:q b/4:q | b/4:h." width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:q b/4:q | b/4:h b/4:q | b/4:q b/4:8 b/4:8 b/4:q | b/4:h. | b/4:8 b/4:8 b/4:q b/4:q | b/4:q r:q b/4:q | b/4:q b/4:q b/4:q | b/4:h." width="1100" tempo="66"></tac-stave>
     </article>
     <div class="gradino"><span>Terzo gradino</span><span class="quanti">30 pezzi</span></div>
     <article class="solf" id="n53">
@@ -787,7 +811,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:h b/4:q | b/4:h. | b/4:h. | b/4:q b/4:q b/4:q | b/4:h. | b/4:h b/4:q | b/4:h b/4:q | b/4:h." width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:h b/4:q | b/4:h. | b/4:h. | b/4:q b/4:q b/4:q | b/4:h. | b/4:h b/4:q | b/4:h b/4:q | b/4:h." width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n54">
       <div class="testa">
@@ -797,7 +821,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:q b/4:q | b/4:q b/4:q b/4:q | b/4:q b/4:h | b/4:h. | b/4:h. | b/4:h b/4:q | b/4:h. | b/4:h." width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:q b/4:q | b/4:q b/4:q b/4:q | b/4:q b/4:h | b/4:h. | b/4:h. | b/4:h b/4:q | b/4:h. | b/4:h." width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n55">
       <div class="testa">
@@ -807,7 +831,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:h. | b/4:h b/4:q | b/4:h. | b/4:q b/4:q b/4:q | b/4:q b/4:q b/4:q | b/4:h b/4:q | b/4:q b/4:h | b/4:h." width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:h. | b/4:h b/4:q | b/4:h. | b/4:q b/4:q b/4:q | b/4:q b/4:q b/4:q | b/4:h b/4:q | b/4:q b/4:h | b/4:h." width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n56">
       <div class="testa">
@@ -817,7 +841,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:h b/4:q | b/4:h. | b/4:q b/4:q b/4:q | b/4:h b/4:q | b/4:h b/4:q | b/4:q b/4:q b/4:q | b/4:h b/4:q | b/4:h." width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:h b/4:q | b/4:h. | b/4:q b/4:q b/4:q | b/4:h b/4:q | b/4:h b/4:q | b/4:q b/4:q b/4:q | b/4:h b/4:q | b/4:h." width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n57">
       <div class="testa">
@@ -827,7 +851,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:h. | b/4:h b/4:q | b/4:h. | b/4:q b/4:q b/4:q | b/4:h. | b/4:h. | b/4:q b/4:h | b/4:h." width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:h. | b/4:h b/4:q | b/4:h. | b/4:q b/4:q b/4:q | b/4:h. | b/4:h. | b/4:q b/4:h | b/4:h." width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n58">
       <div class="testa">
@@ -837,7 +861,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:h | b/4:h. | b/4:h. | b/4:q b/4:q b/4:q | b/4:q b/4:h | b/4:q b/4:h | b/4:h. | b/4:h." width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:h | b/4:h. | b/4:h. | b/4:q b/4:q b/4:q | b/4:q b/4:h | b/4:q b/4:h | b/4:h. | b/4:h." width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n59">
       <div class="testa">
@@ -847,7 +871,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:h b/4:q | b/4:h b/4:q | b/4:q b/4:h | b/4:h. | b/4:h. | b/4:h b/4:q | b/4:h. | b/4:h." width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:h b/4:q | b/4:h b/4:q | b/4:q b/4:h | b/4:h. | b/4:h. | b/4:h b/4:q | b/4:h. | b/4:h." width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n60">
       <div class="testa">
@@ -857,7 +881,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:q b/4:q | b/4:q b/4:q b/4:q | b/4:h. | b/4:q b/4:h | b/4:q b/4:q b/4:q | b/4:h. | b/4:h b/4:q | b/4:h." width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:q b/4:q | b/4:q b/4:q b/4:q | b/4:h. | b/4:q b/4:h | b/4:q b/4:q b/4:q | b/4:h. | b/4:h b/4:q | b/4:h." width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n61">
       <div class="testa">
@@ -867,7 +891,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:h. | b/4:q b/4:h | b/4:h. | b/4:h. | b/4:h b/4:q | b/4:h. | b/4:h b/4:q | b/4:h." width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:h. | b/4:q b/4:h | b/4:h. | b/4:h. | b/4:h b/4:q | b/4:h. | b/4:h b/4:q | b/4:h." width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n62">
       <div class="testa">
@@ -877,7 +901,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:h. | b/4:q b/4:q b/4:q | b/4:q b/4:h | b/4:h. | b/4:q b/4:h | b/4:h b/4:q | b/4:h. | b/4:h." width="330" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:h. | b/4:q b/4:q b/4:q | b/4:q b/4:h | b/4:h. | b/4:q b/4:h | b/4:h b/4:q | b/4:h. | b/4:h." width="1100" tempo="63"></tac-stave>
     </article>
     <article class="solf" id="n63">
       <div class="testa">
@@ -887,7 +911,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:8 b/4:8 r:q | r:q r:q b/4:8 b/4:8 | r:q b/4:h | b/4:8 b/4:8 r:q r:q | b/4:8 b/4:8 b/4:h | b/4:8 b/4:8 b/4:q r:q | r:q r:q b/4:q | b/4:h." width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:8 b/4:8 r:q | r:q r:q b/4:8 b/4:8 | r:q b/4:h | b/4:8 b/4:8 r:q r:q | b/4:8 b/4:8 b/4:h | b/4:8 b/4:8 b/4:q r:q | r:q r:q b/4:q | b/4:h." width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n64">
       <div class="testa">
@@ -897,7 +921,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:h r:q | b/4:q b/4:8 b/4:8 r:q | b/4:h r:q | b/4:q b/4:8 b/4:8 r:q | b/4:h r:q | b/4:h r:q | r:q b/4:8 b/4:8 r:q | b/4:h." width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:h r:q | b/4:q b/4:8 b/4:8 r:q | b/4:h r:q | b/4:q b/4:8 b/4:8 r:q | b/4:h r:q | b/4:h r:q | r:q b/4:8 b/4:8 r:q | b/4:h." width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n65">
       <div class="testa">
@@ -907,7 +931,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h r:q | b/4:h. | r:q b/4:8 b/4:8 r:q | b/4:h b/4:8 b/4:8 | b/4:h. | b/4:h." width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h r:q | b/4:h. | r:q b/4:8 b/4:8 r:q | b/4:h b/4:8 b/4:8 | b/4:h. | b/4:h." width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n66">
       <div class="testa">
@@ -917,7 +941,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:h b/4:q | b/4:h r:q | b/4:h. | b/4:h. | b/4:h b/4:8 b/4:8 | b/4:h b/4:8 b/4:8 | b/4:h." width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:h b/4:q | b/4:h r:q | b/4:h. | b/4:h. | b/4:h b/4:8 b/4:8 | b/4:h b/4:8 b/4:8 | b/4:h." width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n67">
       <div class="testa">
@@ -927,7 +951,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:h. | b/4:h b/4:8 b/4:8 | b/4:h. | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:h r:q | b/4:h b/4:q | b/4:h." width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:h. | b/4:h b/4:8 b/4:8 | b/4:h. | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:h r:q | b/4:h b/4:q | b/4:h." width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n68">
       <div class="testa">
@@ -937,7 +961,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:8 b/4:8 b/4:8 b/4:8 r:q | r:q b/4:h | b/4:h b/4:q | b/4:q b/4:q b/4:8 b/4:8 | r:q r:q b/4:q | r:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h b/4:8 b/4:8 | b/4:h." width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:8 b/4:8 b/4:8 b/4:8 r:q | r:q b/4:h | b/4:h b/4:q | b/4:q b/4:q b/4:8 b/4:8 | r:q r:q b/4:q | r:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h b/4:8 b/4:8 | b/4:h." width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n69">
       <div class="testa">
@@ -947,7 +971,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 r:q b/4:q | b/4:h r:q | b/4:q b/4:q b/4:8 b/4:8 | r:q b/4:8 b/4:8 r:q | b/4:h b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:h." width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 r:q b/4:q | b/4:h r:q | b/4:q b/4:q b/4:8 b/4:8 | r:q b/4:8 b/4:8 r:q | b/4:h b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:h." width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n70">
       <div class="testa">
@@ -957,7 +981,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:q r:q b/4:q | b/4:h b/4:8 b/4:8 | b/4:h b/4:q | b/4:h b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 r:q | b/4:8 b/4:8 b/4:8 b/4:8 r:q | b/4:h." width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:q r:q b/4:q | b/4:h b/4:8 b/4:8 | b/4:h b/4:q | b/4:h b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 r:q | b/4:8 b/4:8 b/4:8 b/4:8 r:q | b/4:h." width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n71">
       <div class="testa">
@@ -967,7 +991,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:8 b/4:8 b/4:8 b/4:8 r:q | b/4:h b/4:8 b/4:8 | b/4:q r:q b/4:q | b/4:h. | b/4:q b/4:8 b/4:8 r:q | b/4:h. | b/4:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h." width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:8 b/4:8 b/4:8 b/4:8 r:q | b/4:h b/4:8 b/4:8 | b/4:q r:q b/4:q | b/4:h. | b/4:q b/4:8 b/4:8 r:q | b/4:h. | b/4:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h." width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n72">
       <div class="testa">
@@ -977,7 +1001,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h b/4:q | b/4:q r:q b/4:8 b/4:8 | b/4:h b/4:q | b/4:h. | b/4:8 b/4:8 b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 r:q b/4:q | b/4:h." width="330" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h b/4:q | b/4:q r:q b/4:8 b/4:8 | b/4:h b/4:q | b/4:h. | b/4:8 b/4:8 b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 r:q b/4:q | b/4:h." width="1100" tempo="66"></tac-stave>
     </article>
     <article class="solf" id="n73">
       <div class="testa">
@@ -987,7 +1011,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:q~ b/4:h | b/4:8 b/4:8 r:q b/4:8 b/4:8 | b/4:q b/4:q~ b/4:q | b/4:q~ b/4:h | b/4:8 b/4:8 b/4:h | r:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q~ b/4:h | b/4:h." width="330" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:q~ b/4:h | b/4:8 b/4:8 r:q b/4:8 b/4:8 | b/4:q b/4:q~ b/4:q | b/4:q~ b/4:h | b/4:8 b/4:8 b/4:h | r:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q~ b/4:h | b/4:h." width="1100" tempo="69"></tac-stave>
     </article>
     <article class="solf" id="n74">
       <div class="testa">
@@ -997,7 +1021,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:h. | b/4:h. | r:q b/4:q~ b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 r:q | b/4:q b/4:q. b/4:8 | b/4:q b/4:h | b/4:h. | b/4:h." width="330" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:h. | b/4:h. | r:q b/4:q~ b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 r:q | b/4:q b/4:q. b/4:8 | b/4:q b/4:h | b/4:h. | b/4:h." width="1100" tempo="69"></tac-stave>
     </article>
     <article class="solf" id="n75">
       <div class="testa">
@@ -1007,7 +1031,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:h. | b/4:h. | r:q b/4:q. b/4:8 | b/4:8 b/4:8 b/4:h | b/4:q. b/4:8 b/4:q | b/4:q b/4:q. b/4:8 | b/4:q. b/4:8 r:q | b/4:h." width="330" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:h. | b/4:h. | r:q b/4:q. b/4:8 | b/4:8 b/4:8 b/4:h | b/4:q. b/4:8 b/4:q | b/4:q b/4:q. b/4:8 | b/4:q. b/4:8 r:q | b/4:h." width="1100" tempo="69"></tac-stave>
     </article>
     <article class="solf" id="n76">
       <div class="testa">
@@ -1017,7 +1041,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="r:q r:q b/4:q~ | b/4:h r:q | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 r:q r:q | b/4:8 b/4:8 b/4:q. b/4:8 | b/4:h r:q | b/4:q. b/4:8 b/4:q~ | b/4:h." width="330" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="r:q r:q b/4:q~ | b/4:h r:q | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 r:q r:q | b/4:8 b/4:8 b/4:q. b/4:8 | b/4:h r:q | b/4:q. b/4:8 b/4:q~ | b/4:h." width="1100" tempo="69"></tac-stave>
     </article>
     <article class="solf" id="n77">
       <div class="testa">
@@ -1027,7 +1051,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:q. b/4:8 b/4:q | r:q b/4:q. b/4:8 | b/4:h. | b/4:q~ b/4:q~ b/4:8 b/4:8 | b/4:q. b/4:8 b/4:q | b/4:q. b/4:8 r:q | b/4:q b/4:q b/4:q | b/4:h." width="330" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:q. b/4:8 b/4:q | r:q b/4:q. b/4:8 | b/4:h. | b/4:q~ b/4:q~ b/4:8 b/4:8 | b/4:q. b/4:8 b/4:q | b/4:q. b/4:8 r:q | b/4:q b/4:q b/4:q | b/4:h." width="1100" tempo="69"></tac-stave>
     </article>
     <article class="solf" id="n78">
       <div class="testa">
@@ -1037,7 +1061,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:h b/4:q~ | b/4:q~ r:q b/4:q~ | b/4:8 b/4:8 b/4:q b/4:8 b/4:8 | b/4:q. b/4:8 b/4:8 b/4:8 | b/4:h b/4:q | b/4:q b/4:q. b/4:8 | r:q b/4:8 b/4:8 r:q | b/4:h." width="330" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:h b/4:q~ | b/4:q~ r:q b/4:q~ | b/4:8 b/4:8 b/4:q b/4:8 b/4:8 | b/4:q. b/4:8 b/4:8 b/4:8 | b/4:h b/4:q | b/4:q b/4:q. b/4:8 | r:q b/4:8 b/4:8 r:q | b/4:h." width="1100" tempo="69"></tac-stave>
     </article>
     <article class="solf" id="n79">
       <div class="testa">
@@ -1047,7 +1071,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:q. b/4:8 r:q | r:q r:q b/4:q~ | b/4:q b/4:q b/4:q | b/4:q~ b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q~ b/4:q~ b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 b/4:q~ | b/4:h." width="330" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:q. b/4:8 r:q | r:q r:q b/4:q~ | b/4:q b/4:q b/4:q | b/4:q~ b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q~ b/4:q~ b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 b/4:q~ | b/4:h." width="1100" tempo="69"></tac-stave>
     </article>
     <article class="solf" id="n80">
       <div class="testa">
@@ -1057,7 +1081,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:h r:q | b/4:h. | b/4:h r:q | b/4:q b/4:8 b/4:8 b/4:q | b/4:h b/4:q | r:q b/4:8 b/4:8 r:q | b/4:8 b/4:8 b/4:q. b/4:8 | b/4:h." width="330" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:h r:q | b/4:h. | b/4:h r:q | b/4:q b/4:8 b/4:8 b/4:q | b/4:h b/4:q | r:q b/4:8 b/4:8 r:q | b/4:8 b/4:8 b/4:q. b/4:8 | b/4:h." width="1100" tempo="69"></tac-stave>
     </article>
     <article class="solf" id="n81">
       <div class="testa">
@@ -1067,7 +1091,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:h b/4:q | b/4:h b/4:q~ | b/4:q. b/4:8 b/4:q~ | b/4:h b/4:8 b/4:8 | b/4:q~ b/4:8 b/4:8 b/4:q | b/4:q~ r:q b/4:8 b/4:8 | b/4:q. b/4:8 b/4:q~ | b/4:h." width="330" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:h b/4:q | b/4:h b/4:q~ | b/4:q. b/4:8 b/4:q~ | b/4:h b/4:8 b/4:8 | b/4:q~ b/4:8 b/4:8 b/4:q | b/4:q~ r:q b/4:8 b/4:8 | b/4:q. b/4:8 b/4:q~ | b/4:h." width="1100" tempo="69"></tac-stave>
     </article>
     <article class="solf" id="n82">
       <div class="testa">
@@ -1077,7 +1101,7 @@
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <tac-stave clef="percussion" time="3/4" notes="b/4:8 b/4:8 b/4:q r:q | r:q b/4:h | b/4:h b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q~ r:q | b/4:q. b/4:8 b/4:q~ | b/4:q. b/4:8 r:q | b/4:q b/4:q b/4:q | b/4:h." width="330" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:8 b/4:8 b/4:q r:q | r:q b/4:h | b/4:h b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q~ r:q | b/4:q. b/4:8 b/4:q~ | b/4:q. b/4:8 r:q | b/4:q b/4:q b/4:q | b/4:h." width="1100" tempo="69"></tac-stave>
     </article>
   </div>
 

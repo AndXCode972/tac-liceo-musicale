@@ -155,7 +155,17 @@ body {
       rgba(6, 8, 20, 0) 80%);
   }
 }
-.testata.foto::after { z-index: 1; opacity: .3; }
+/* SOPRA UNA FOTOGRAFIA LE LINEE NON CI VANNO.
+
+   Le linee melodiche sono la firma del sito e stanno bene su una fascia
+   di colore pieno, dove non c'è altro da guardare. Sopra un'opera, no:
+   ci si sovrappongono e basta. Andrea, 18 agosto: «le immagini hanno
+   ancora sotto le linee, non ci devono più essere. Le immagini devono
+   essere limpide».
+
+   Quindi restano dove servivano — le testate senza foto, e ce ne sono —
+   e spariscono dove c'è un'immagine. */
+.testata.foto::after { content: none; }
 .testata.foto > * { z-index: 2; }
 .testata > * { position: relative; z-index: 1; }
 

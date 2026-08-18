@@ -8,49 +8,101 @@
 <!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
      Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
 <link rel="stylesheet" href="../../_assets/css/tac.css?v=c4d583e7">
-<link rel="stylesheet" href="../../_assets/css/sito.css?v=a0317272">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=340a942b">
 <script src="../../_assets/lib/vexflow.js"></script>
 <script src="../../_assets/lib/tone.js"></script>
 <script src="../../_assets/js/tac-core.js?v=b1177d7b" defer></script>
 <style>
+  :root { --classe: #c2410c; }
   .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
                 border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
                 display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
 
-  .parte.solfeggio { margin: 2.2rem 0 0; }
-  /* Il conteggio va in fondo alla riga del titolo, e ci va con flex e non
-     con `float`: dentro un titolo grande il float lo mandava in apice, a
-     mezz'aria sopra l'ultima lettera. */
-  .parte.solfeggio > h2 { border-bottom: 2px solid var(--bordo); padding-bottom: .35rem;
-                          display: flex; justify-content: space-between;
-                          align-items: baseline; gap: 1rem; }
-  .parte.solfeggio .conta { font-size: .8rem; font-weight: 400;
-                            color: var(--inchiostro2); white-space: nowrap; }
-  .parte.solfeggio .spiega { color: var(--inchiostro2); margin: .4rem 0 1.2rem; }
-  .parte.vuota .attesa { font-style: italic; color: var(--inchiostro2);
-                         border-left: 3px solid var(--bordo); padding-left: .8rem; }
+  /* ── LA COPERTINA ────────────────────────────────────────────────
+     Una pagina intera, e da sola. Un fascicolo che si stampa una volta
+     e resta sul leggio per un anno ha una copertina; un foglio di
+     esercizi no, ed è la differenza fra le due cose. */
+  .copertina-libro {
+    min-height: 88vh; display: flex; flex-direction: column;
+    justify-content: space-between;
+    padding: 3.4rem 3rem; margin: 0 0 2rem;
+    color: #fff; border-radius: 14px;
+    background: linear-gradient(150deg,
+      color-mix(in srgb, var(--classe) 78%, #0b1020),
+      color-mix(in srgb, var(--classe) 30%, #0b1020));
+  }
+  .copertina-libro .occhiello { letter-spacing: .16em; text-transform: uppercase;
+                                font-size: .76rem; opacity: .85; }
+  .copertina-libro h1 { font-size: 3.4rem; line-height: 1.05; margin: .5rem 0 0;
+                        color: #fff; border: 0; }
+  .copertina-libro .sotto { font-size: 1.12rem; opacity: .92; margin: .9rem 0 0;
+                            max-width: 34ch; }
+  .copertina-libro .fondo { display: flex; justify-content: space-between;
+                            align-items: flex-end; gap: 1rem;
+                            font-size: .86rem; opacity: .9; }
+  .copertina-libro .quanti-grande { font-size: 2.6rem; font-weight: 800; line-height: 1; }
 
-  /* UN SOLFEGGIO NON SI SPEZZA FRA DUE PAGINE. Un rigo tagliato a metà dalla
-     piegatura non si legge: si perde proprio la battuta a cavallo, che è
-     quella dove si sbaglia. */
+  /* ── L'INDICE ────────────────────────────────────────────────────
+     Su ottantadue pezzi è l'unico modo di trovarne uno. Due colonne,
+     perché in una sola sarebbe lungo tre pagine. */
+  .indice-libro { margin: 0 0 2.4rem; }
+  .indice-libro h2 { border-bottom: 2px solid var(--bordo); padding-bottom: .3rem; }
+  .indice-libro ol { list-style: none; margin: 1rem 0 0; padding: 0;
+                     columns: 2; column-gap: 2.4rem; }
+  .indice-libro li { display: flex; gap: .55rem; align-items: baseline;
+                     padding: .16rem 0; break-inside: avoid;
+                     font-size: .92rem; }
+  .indice-libro li.salto { display: block; margin: .9rem 0 .35rem;
+                           font-weight: 700; color: var(--classe);
+                           font-size: .8rem; letter-spacing: .08em;
+                           text-transform: uppercase; break-after: avoid; }
+  .indice-libro .n { min-width: 1.9rem; text-align: right; font-weight: 700;
+                     color: var(--classe); }
+  .indice-libro .t { flex: 1; }
+  .indice-libro .s { color: var(--inchiostro2); font-size: .78rem; white-space: nowrap; }
+
+  /* ── I PEZZI, IN FILA ────────────────────────────────────────────
+     Due colonne: ci sta il doppio per pagina, e un rigo da 430 in una
+     colonna da mezzo foglio è della misura giusta. */
+  .pezzi { columns: 2; column-gap: 2rem; }
+  .gradino { break-inside: avoid; break-before: column;
+             display: flex; justify-content: space-between; align-items: baseline;
+             margin: .2rem 0 1rem; padding-bottom: .3rem;
+             border-bottom: 2px solid var(--classe);
+             font-size: .8rem; letter-spacing: .08em; text-transform: uppercase;
+             font-weight: 700; color: var(--classe); }
+  .gradino:first-child { break-before: auto; }
+  .gradino .quanti { font-weight: 400; letter-spacing: 0; text-transform: none;
+                     color: var(--inchiostro2); }
+
+  /* UN SOLFEGGIO NON SI SPEZZA FRA DUE PAGINE. Un rigo tagliato a metà
+     dalla piegatura non si legge: si perde proprio la battuta a cavallo,
+     che è quella dove si sbaglia. */
   .solf { break-inside: avoid; page-break-inside: avoid;
-          margin: 0 0 1.6rem; padding-bottom: 1.2rem;
+          margin: 0 0 1.1rem; padding-bottom: .8rem;
           border-bottom: 1px solid var(--bordo); }
-  .solf:last-child { border-bottom: 0; }
-  .solf .testa { display: flex; gap: .9rem; align-items: baseline; }
-  .solf h3 { margin: 0; font-size: 1.05rem; }
-  .solf .quando { font-size: .78rem; color: var(--inchiostro2); }
-  /* Il numero è grande perché è l'indirizzo del pezzo: è la parola con cui
-     si dice alla classe quale si fa. */
-  .solf .numero { font-size: 1.5rem; font-weight: 800; color: var(--viola, #5b4bc4);
-                  min-width: 1.6rem; text-align: right; }
-  .solf .consegna { margin: .5rem 0 .7rem; }
+  .solf .testa { display: flex; gap: .7rem; align-items: baseline; }
+  .solf h3 { margin: 0; font-size: .95rem; }
+  .solf .quando { font-size: .72rem; color: var(--inchiostro2); }
+  /* Il numero è l'indirizzo del pezzo: è la parola con cui si dice alla
+     classe quale si fa. Grande, ma non quanto prima: in due colonne
+     rubava la riga al titolo. */
+  .solf .numero { font-size: 1.2rem; font-weight: 800; color: var(--classe);
+                  min-width: 1.5rem; text-align: right; }
+  .piede-fascicolo { margin: 2rem 0 0; padding-top: .8rem;
+                     border-top: 1px solid var(--bordo);
+                     color: var(--inchiostro2); font-size: .9rem; }
 
   @media print {
     .barra-alto, .barra-sito { display: none; }
-    .parte.solfeggio { break-before: page; page-break-before: always; }
-    .parte.solfeggio:first-of-type { break-before: auto; page-break-before: auto; }
-    .parte.vuota { display: none; }   /* stampare «comincia più avanti» è carta buttata */
+    .copertina-libro { min-height: 92vh; break-after: page; page-break-after: always;
+                       border-radius: 0; margin: 0; }
+    .indice-libro { break-after: page; page-break-after: always; }
+    .pezzi { columns: 2; }
+  }
+  @media (max-width: 700px) {
+    .indice-libro ol, .pezzi { columns: 1; }
+    .copertina-libro h1 { font-size: 2.4rem; }
   }
 </style>
 </head>
@@ -77,941 +129,948 @@
 
 <div class="foglio">
 
-  <div class="intestazione-scheda">
+  <section class="copertina-libro">
     <div>
+      <div class="occhiello">Teoria, Analisi e Composizione &middot; Classe 1&ordf;</div>
       <h1>Solfeggio</h1>
-      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">Il fascicolo dell&rsquo;anno &mdash; 82 pezzi, in ordine di programma</p>
+      <p class="sotto">Gli esercizi dell&rsquo;anno, in fila, dal pi&ugrave; facile al pi&ugrave; difficile.</p>
     </div>
-    <div class="dati">
-      Teoria, Analisi e Composizione<br>
-      Liceo Musicale &mdash; Classe 1&ordf;
+    <div class="fondo">
+      <div>
+        <div class="quanti-grande">82</div>
+        pezzi
+      </div>
+      <div style="text-align:right">
+        Liceo Musicale &laquo;G.&nbsp;Carducci&raquo;<br>
+        Si stampa una volta e resta sul leggio
+      </div>
     </div>
-  </div>
+  </section>
 
-  <p class="didascalia" style="text-align:left; margin:1.2rem 0 0">
-    Si stampa una volta e resta sul leggio. I pezzi sono numerati di seguito
-    dentro ciascuna specie: il numero è il modo di dire quale si fa.
-  </p>
+  <section class="indice-libro">
+    <h2>Indice</h2>
+    <p class="didascalia" style="text-align:left; margin:.6rem 0 0">
+      Si legge a tempo e senza fermarsi, battendo la pulsazione. Vale per
+      tutti: &egrave; scritto qui una volta e non si ripete pezzo per pezzo.
+      Il <strong>numero</strong> &egrave; l&rsquo;indirizzo &mdash; &egrave;
+      con quello che si dice quale si fa.
+    </p>
+    <ol>
+      <li class="salto">Primo gradino</li>
+      <li><span class="n">1</span><span class="t">Semiminime e minime &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">2</span><span class="t">Semiminime e minime &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">3</span><span class="t">Semiminime e minime &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">4</span><span class="t">Semiminime e minime &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">5</span><span class="t">Semiminime e minime &middot; 5</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">6</span><span class="t">Semiminime e minime &middot; 6</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">7</span><span class="t">Semiminime e minime &middot; 7</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">8</span><span class="t">Semiminime e minime &middot; 8</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">9</span><span class="t">Semiminime e minime &middot; 9</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">10</span><span class="t">Semiminime e minime &middot; 10</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">11</span><span class="t">Con le pause &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">12</span><span class="t">Con le pause &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">13</span><span class="t">Con le pause &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">14</span><span class="t">Con le pause &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">15</span><span class="t">Con le pause &middot; 5</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">16</span><span class="t">Con le pause &middot; 6</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">17</span><span class="t">Con le pause &middot; 7</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">18</span><span class="t">Con le pause &middot; 8</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">19</span><span class="t">Con le pause &middot; 9</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">20</span><span class="t">Con le pause &middot; 10</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">21</span><span class="t">Cinque minuti al giorno, in tre</span><span class="s">Solfeggio ritmico</span></li>
+      <li class="salto">Secondo gradino</li>
+      <li><span class="n">22</span><span class="t">Due dentro un battito &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">23</span><span class="t">Due dentro un battito &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">24</span><span class="t">Due dentro un battito &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">25</span><span class="t">Due dentro un battito &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">26</span><span class="t">Due dentro un battito &middot; 5</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">27</span><span class="t">Due dentro un battito &middot; 6</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">28</span><span class="t">Due dentro un battito &middot; 7</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">29</span><span class="t">Due dentro un battito &middot; 8</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">30</span><span class="t">Due dentro un battito &middot; 9</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">31</span><span class="t">Due dentro un battito &middot; 10</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">32</span><span class="t">Il punto allunga di metà &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">33</span><span class="t">Il punto allunga di metà &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">34</span><span class="t">Il punto allunga di metà &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">35</span><span class="t">Il punto allunga di metà &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">36</span><span class="t">Il punto allunga di metà &middot; 5</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">37</span><span class="t">Il punto allunga di metà &middot; 6</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">38</span><span class="t">Il punto allunga di metà &middot; 7</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">39</span><span class="t">Il punto allunga di metà &middot; 8</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">40</span><span class="t">Il punto allunga di metà &middot; 9</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">41</span><span class="t">Il punto allunga di metà &middot; 10</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">42</span><span class="t">Con la legatura &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">43</span><span class="t">Con la legatura &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">44</span><span class="t">Con la legatura &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">45</span><span class="t">Con la legatura &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">46</span><span class="t">Con la legatura &middot; 5</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">47</span><span class="t">Con la legatura &middot; 6</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">48</span><span class="t">Con la legatura &middot; 7</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">49</span><span class="t">Con la legatura &middot; 8</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">50</span><span class="t">Con la legatura &middot; 9</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">51</span><span class="t">Con la legatura &middot; 10</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">52</span><span class="t">Otto battute in tre, a due gruppi</span><span class="s">Solfeggio ritmico</span></li>
+      <li class="salto">Terzo gradino</li>
+      <li><span class="n">53</span><span class="t">Tre quarti &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">54</span><span class="t">Tre quarti &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">55</span><span class="t">Tre quarti &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">56</span><span class="t">Tre quarti &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">57</span><span class="t">Tre quarti &middot; 5</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">58</span><span class="t">Tre quarti &middot; 6</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">59</span><span class="t">Tre quarti &middot; 7</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">60</span><span class="t">Tre quarti &middot; 8</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">61</span><span class="t">Tre quarti &middot; 9</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">62</span><span class="t">Tre quarti &middot; 10</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">63</span><span class="t">Tre quarti, con le crome &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">64</span><span class="t">Tre quarti, con le crome &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">65</span><span class="t">Tre quarti, con le crome &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">66</span><span class="t">Tre quarti, con le crome &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">67</span><span class="t">Tre quarti, con le crome &middot; 5</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">68</span><span class="t">Tre quarti, con le crome &middot; 6</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">69</span><span class="t">Tre quarti, con le crome &middot; 7</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">70</span><span class="t">Tre quarti, con le crome &middot; 8</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">71</span><span class="t">Tre quarti, con le crome &middot; 9</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">72</span><span class="t">Tre quarti, con le crome &middot; 10</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">73</span><span class="t">Tutto quello che sai &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">74</span><span class="t">Tutto quello che sai &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">75</span><span class="t">Tutto quello che sai &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">76</span><span class="t">Tutto quello che sai &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">77</span><span class="t">Tutto quello che sai &middot; 5</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">78</span><span class="t">Tutto quello che sai &middot; 6</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">79</span><span class="t">Tutto quello che sai &middot; 7</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">80</span><span class="t">Tutto quello che sai &middot; 8</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">81</span><span class="t">Tutto quello che sai &middot; 9</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">82</span><span class="t">Tutto quello che sai &middot; 10</span><span class="s">Solfeggio ritmico</span></li>
+    </ol>
+  </section>
 
-  <section class="parte solfeggio">
-    <h2>Solfeggio ritmico <span class="conta">82 pezzi</span></h2>
-    <p class="spiega">Si batte la pulsazione e si dice il ritmo su una sillaba sola. Nessuna altezza: qui si misura solo se il tempo sta fermo.</p>
-    <article class="solf">
+  <div class="pezzi">
+    <div class="gradino"><span>Primo gradino</span><span class="quanti">21 pezzi</span></div>
+    <article class="solf" id="n1">
       <div class="testa">
         <span class="numero">1</span>
         <div>
           <h3>Semiminime e minime &middot; 1</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due soli valori, per prendere il passo. Se questo non viene fermo, gli altri non verranno.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 1 &middot; Semiminime e minime" notes="b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h" width="700" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 1 &middot; Semiminime e minime" notes="b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h" width="430" tempo="60" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n2">
       <div class="testa">
         <span class="numero">2</span>
         <div>
           <h3>Semiminime e minime &middot; 2</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due soli valori, per prendere il passo. Se questo non viene fermo, gli altri non verranno.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 2 &middot; Semiminime e minime" notes="b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h" width="700" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 2 &middot; Semiminime e minime" notes="b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h" width="430" tempo="60" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n3">
       <div class="testa">
         <span class="numero">3</span>
         <div>
           <h3>Semiminime e minime &middot; 3</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due soli valori, per prendere il passo. Se questo non viene fermo, gli altri non verranno.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 3 &middot; Semiminime e minime" notes="b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h | b/4:h" width="700" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 3 &middot; Semiminime e minime" notes="b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h | b/4:h" width="430" tempo="60" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n4">
       <div class="testa">
         <span class="numero">4</span>
         <div>
           <h3>Semiminime e minime &middot; 4</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due soli valori, per prendere il passo. Se questo non viene fermo, gli altri non verranno.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 4 &middot; Semiminime e minime" notes="b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h" width="700" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 4 &middot; Semiminime e minime" notes="b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h" width="430" tempo="60" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n5">
       <div class="testa">
         <span class="numero">5</span>
         <div>
           <h3>Semiminime e minime &middot; 5</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due soli valori, per prendere il passo. Se questo non viene fermo, gli altri non verranno.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 5 &middot; Semiminime e minime" notes="b/4:h | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h" width="700" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 5 &middot; Semiminime e minime" notes="b/4:h | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h" width="430" tempo="60" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n6">
       <div class="testa">
         <span class="numero">6</span>
         <div>
           <h3>Semiminime e minime &middot; 6</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due soli valori, per prendere il passo. Se questo non viene fermo, gli altri non verranno.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 6 &middot; Semiminime e minime" notes="b/4:h | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h" width="700" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 6 &middot; Semiminime e minime" notes="b/4:h | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h" width="430" tempo="60" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n7">
       <div class="testa">
         <span class="numero">7</span>
         <div>
           <h3>Semiminime e minime &middot; 7</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due soli valori, per prendere il passo. Se questo non viene fermo, gli altri non verranno.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 7 &middot; Semiminime e minime" notes="b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h" width="700" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 7 &middot; Semiminime e minime" notes="b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h" width="430" tempo="60" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n8">
       <div class="testa">
         <span class="numero">8</span>
         <div>
           <h3>Semiminime e minime &middot; 8</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due soli valori, per prendere il passo. Se questo non viene fermo, gli altri non verranno.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 8 &middot; Semiminime e minime" notes="b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h" width="700" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 8 &middot; Semiminime e minime" notes="b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h" width="430" tempo="60" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n9">
       <div class="testa">
         <span class="numero">9</span>
         <div>
           <h3>Semiminime e minime &middot; 9</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due soli valori, per prendere il passo. Se questo non viene fermo, gli altri non verranno.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 9 &middot; Semiminime e minime" notes="b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h" width="700" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 9 &middot; Semiminime e minime" notes="b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:q b/4:q | b/4:h" width="430" tempo="60" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n10">
       <div class="testa">
         <span class="numero">10</span>
         <div>
           <h3>Semiminime e minime &middot; 10</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due soli valori, per prendere il passo. Se questo non viene fermo, gli altri non verranno.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 10 &middot; Semiminime e minime" notes="b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h" width="700" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 10 &middot; Semiminime e minime" notes="b/4:q b/4:q | b/4:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h | b/4:q b/4:q | b/4:h" width="430" tempo="60" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n11">
       <div class="testa">
         <span class="numero">11</span>
         <div>
           <h3>Con le pause &middot; 1</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La pausa non si sente: si sente che manca qualcosa. La mano non si ferma.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 11 &middot; Con le pause" notes="b/4:q b/4:q | b/4:q b/4:q | r:q b/4:q | b/4:h | b/4:q b/4:q | r:q b/4:q | b/4:q r:q | b/4:h" width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 11 &middot; Con le pause" notes="b/4:q b/4:q | b/4:q b/4:q | r:q b/4:q | b/4:h | b/4:q b/4:q | r:q b/4:q | b/4:q r:q | b/4:h" width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n12">
       <div class="testa">
         <span class="numero">12</span>
         <div>
           <h3>Con le pause &middot; 2</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La pausa non si sente: si sente che manca qualcosa. La mano non si ferma.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 12 &middot; Con le pause" notes="b/4:h | r:q r:q | b/4:q b/4:q | b/4:q r:q | b/4:q r:q | b/4:h | r:q b/4:q | b/4:h" width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 12 &middot; Con le pause" notes="b/4:h | r:q r:q | b/4:q b/4:q | b/4:q r:q | b/4:q r:q | b/4:h | r:q b/4:q | b/4:h" width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n13">
       <div class="testa">
         <span class="numero">13</span>
         <div>
           <h3>Con le pause &middot; 3</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La pausa non si sente: si sente che manca qualcosa. La mano non si ferma.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 13 &middot; Con le pause" notes="r:q b/4:q | r:q r:q | b/4:q r:q | b/4:q r:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h" width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 13 &middot; Con le pause" notes="r:q b/4:q | r:q r:q | b/4:q r:q | b/4:q r:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h" width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n14">
       <div class="testa">
         <span class="numero">14</span>
         <div>
           <h3>Con le pause &middot; 4</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La pausa non si sente: si sente che manca qualcosa. La mano non si ferma.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 14 &middot; Con le pause" notes="b/4:h | r:q b/4:q | r:q b/4:q | b/4:q r:q | b/4:q r:q | b/4:q b/4:q | b/4:q r:q | b/4:h" width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 14 &middot; Con le pause" notes="b/4:h | r:q b/4:q | r:q b/4:q | b/4:q r:q | b/4:q r:q | b/4:q b/4:q | b/4:q r:q | b/4:h" width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n15">
       <div class="testa">
         <span class="numero">15</span>
         <div>
           <h3>Con le pause &middot; 5</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La pausa non si sente: si sente che manca qualcosa. La mano non si ferma.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 15 &middot; Con le pause" notes="r:q b/4:q | b/4:q r:q | b/4:h | b/4:h | r:q r:q | b/4:q b/4:q | b/4:h | b/4:h" width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 15 &middot; Con le pause" notes="r:q b/4:q | b/4:q r:q | b/4:h | b/4:h | r:q r:q | b/4:q b/4:q | b/4:h | b/4:h" width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n16">
       <div class="testa">
         <span class="numero">16</span>
         <div>
           <h3>Con le pause &middot; 6</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La pausa non si sente: si sente che manca qualcosa. La mano non si ferma.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 16 &middot; Con le pause" notes="b/4:q r:q | b/4:q r:q | b/4:q b/4:q | b/4:q r:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h" width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 16 &middot; Con le pause" notes="b/4:q r:q | b/4:q r:q | b/4:q b/4:q | b/4:q r:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h" width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n17">
       <div class="testa">
         <span class="numero">17</span>
         <div>
           <h3>Con le pause &middot; 7</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La pausa non si sente: si sente che manca qualcosa. La mano non si ferma.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 17 &middot; Con le pause" notes="b/4:q r:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h | r:q r:q | r:q r:q | b/4:h" width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 17 &middot; Con le pause" notes="b/4:q r:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:h | r:q r:q | r:q r:q | b/4:h" width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n18">
       <div class="testa">
         <span class="numero">18</span>
         <div>
           <h3>Con le pause &middot; 8</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La pausa non si sente: si sente che manca qualcosa. La mano non si ferma.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 18 &middot; Con le pause" notes="b/4:q b/4:q | r:q r:q | r:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:q r:q | b/4:h" width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 18 &middot; Con le pause" notes="b/4:q b/4:q | r:q r:q | r:q b/4:q | b/4:h | b/4:h | b/4:q b/4:q | b/4:q r:q | b/4:h" width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n19">
       <div class="testa">
         <span class="numero">19</span>
         <div>
           <h3>Con le pause &middot; 9</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La pausa non si sente: si sente che manca qualcosa. La mano non si ferma.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 19 &middot; Con le pause" notes="b/4:h | r:q b/4:q | r:q r:q | b/4:q r:q | r:q b/4:q | b/4:q r:q | r:q r:q | b/4:h" width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 19 &middot; Con le pause" notes="b/4:h | r:q b/4:q | r:q r:q | b/4:q r:q | r:q b/4:q | b/4:q r:q | r:q r:q | b/4:h" width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n20">
       <div class="testa">
         <span class="numero">20</span>
         <div>
           <h3>Con le pause &middot; 10</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La pausa non si sente: si sente che manca qualcosa. La mano non si ferma.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 20 &middot; Con le pause" notes="b/4:q r:q | r:q b/4:q | r:q b/4:q | b/4:q b/4:q | r:q r:q | r:q b/4:q | b/4:h | b/4:h" width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 20 &middot; Con le pause" notes="b/4:q r:q | r:q b/4:q | r:q b/4:q | b/4:q b/4:q | r:q r:q | r:q b/4:q | b/4:h | b/4:h" width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n21">
       <div class="testa">
         <span class="numero">21</span>
         <div>
-          <h3>Due dentro un battito &middot; 1</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Cinque minuti al giorno, in tre</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le crome a due a due sotto un tratto d’unione: il tratto dice dove sta il battito.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 21 &middot; Due dentro un battito" notes="b/4:h | b/4:8 b/4:8 r:q | b/4:8 b/4:8 b/4:8 b/4:8 | r:q b/4:8 b/4:8 | b/4:q r:q | r:q r:q | b/4:q b/4:8 b/4:8 | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="Da leggere ogni giorno" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:h b/4:q | b/4:q b/4:q b/4:q | b/4:h. | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:q r:q b/4:q | b/4:q b/4:8 b/4:8 b/4:q | b/4:h." width="430" tempo="60" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <div class="gradino"><span>Secondo gradino</span><span class="quanti">31 pezzi</span></div>
+    <article class="solf" id="n22">
       <div class="testa">
         <span class="numero">22</span>
         <div>
-          <h3>Due dentro un battito &middot; 2</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Due dentro un battito &middot; 1</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le crome a due a due sotto un tratto d’unione: il tratto dice dove sta il battito.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 22 &middot; Due dentro un battito" notes="r:q r:q | r:q b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q | b/4:q b/4:q | b/4:8 b/4:8 r:q | b/4:h | b/4:8 b/4:8 b/4:q | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 21 &middot; Due dentro un battito" notes="b/4:h | b/4:8 b/4:8 r:q | b/4:8 b/4:8 b/4:8 b/4:8 | r:q b/4:8 b/4:8 | b/4:q r:q | r:q r:q | b/4:q b/4:8 b/4:8 | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n23">
       <div class="testa">
         <span class="numero">23</span>
         <div>
-          <h3>Due dentro un battito &middot; 3</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Due dentro un battito &middot; 2</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le crome a due a due sotto un tratto d’unione: il tratto dice dove sta il battito.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 23 &middot; Due dentro un battito" notes="b/4:q b/4:q | b/4:q b/4:8 b/4:8 | r:q r:q | b/4:q r:q | b/4:q b/4:8 b/4:8 | b/4:q b/4:q | b/4:h | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 22 &middot; Due dentro un battito" notes="r:q r:q | r:q b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q | b/4:q b/4:q | b/4:8 b/4:8 r:q | b/4:h | b/4:8 b/4:8 b/4:q | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n24">
       <div class="testa">
         <span class="numero">24</span>
         <div>
-          <h3>Due dentro un battito &middot; 4</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Due dentro un battito &middot; 3</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le crome a due a due sotto un tratto d’unione: il tratto dice dove sta il battito.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 24 &middot; Due dentro un battito" notes="b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:q | b/4:q b/4:q | b/4:8 b/4:8 b/4:q | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 23 &middot; Due dentro un battito" notes="b/4:q b/4:q | b/4:q b/4:8 b/4:8 | r:q r:q | b/4:q r:q | b/4:q b/4:8 b/4:8 | b/4:q b/4:q | b/4:h | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n25">
       <div class="testa">
         <span class="numero">25</span>
         <div>
-          <h3>Due dentro un battito &middot; 5</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Due dentro un battito &middot; 4</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le crome a due a due sotto un tratto d’unione: il tratto dice dove sta il battito.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 25 &middot; Due dentro un battito" notes="r:q b/4:q | b/4:h | r:q b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 r:q | r:q b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 24 &middot; Due dentro un battito" notes="b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:q | b/4:q b/4:q | b/4:8 b/4:8 b/4:q | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n26">
       <div class="testa">
         <span class="numero">26</span>
         <div>
-          <h3>Due dentro un battito &middot; 6</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Due dentro un battito &middot; 5</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le crome a due a due sotto un tratto d’unione: il tratto dice dove sta il battito.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 26 &middot; Due dentro un battito" notes="b/4:q r:q | b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q | b/4:h | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q r:q | b/4:8 b/4:8 b/4:q | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 25 &middot; Due dentro un battito" notes="r:q b/4:q | b/4:h | r:q b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 r:q | r:q b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n27">
       <div class="testa">
         <span class="numero">27</span>
         <div>
-          <h3>Due dentro un battito &middot; 7</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Due dentro un battito &middot; 6</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le crome a due a due sotto un tratto d’unione: il tratto dice dove sta il battito.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 27 &middot; Due dentro un battito" notes="b/4:h | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q r:q | r:q b/4:8 b/4:8 | b/4:h | b/4:8 b/4:8 r:q | b/4:q b/4:8 b/4:8 | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 26 &middot; Due dentro un battito" notes="b/4:q r:q | b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q | b/4:h | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q r:q | b/4:8 b/4:8 b/4:q | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n28">
       <div class="testa">
         <span class="numero">28</span>
         <div>
-          <h3>Due dentro un battito &middot; 8</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Due dentro un battito &middot; 7</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le crome a due a due sotto un tratto d’unione: il tratto dice dove sta il battito.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 28 &middot; Due dentro un battito" notes="r:q r:q | b/4:h | b/4:q r:q | b/4:h | b/4:8 b/4:8 b/4:q | r:q b/4:8 b/4:8 | b/4:h | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 27 &middot; Due dentro un battito" notes="b/4:h | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q r:q | r:q b/4:8 b/4:8 | b/4:h | b/4:8 b/4:8 r:q | b/4:q b/4:8 b/4:8 | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n29">
       <div class="testa">
         <span class="numero">29</span>
         <div>
-          <h3>Due dentro un battito &middot; 9</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Due dentro un battito &middot; 8</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le crome a due a due sotto un tratto d’unione: il tratto dice dove sta il battito.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 29 &middot; Due dentro un battito" notes="b/4:8 b/4:8 b/4:8 b/4:8 | r:q b/4:8 b/4:8 | b/4:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:q | b/4:q b/4:q | b/4:8 b/4:8 r:q | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 28 &middot; Due dentro un battito" notes="r:q r:q | b/4:h | b/4:q r:q | b/4:h | b/4:8 b/4:8 b/4:q | r:q b/4:8 b/4:8 | b/4:h | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n30">
       <div class="testa">
         <span class="numero">30</span>
         <div>
-          <h3>Due dentro un battito &middot; 10</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Due dentro un battito &middot; 9</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le crome a due a due sotto un tratto d’unione: il tratto dice dove sta il battito.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 30 &middot; Due dentro un battito" notes="b/4:q r:q | b/4:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | r:q b/4:8 b/4:8 | r:q b/4:8 b/4:8 | b/4:8 b/4:8 r:q | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 29 &middot; Due dentro un battito" notes="b/4:8 b/4:8 b/4:8 b/4:8 | r:q b/4:8 b/4:8 | b/4:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:q | b/4:q b/4:q | b/4:8 b/4:8 r:q | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n31">
       <div class="testa">
         <span class="numero">31</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 1</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Due dentro un battito &middot; 10</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La semiminima puntata dura un battito e mezzo: la croma dopo cade a metà del secondo.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 31 &middot; Il punto allunga di metà" notes="b/4:q r:q | b/4:q. b/4:8 | r:q r:q | b/4:q. b/4:8 | b/4:q. b/4:8 | b/4:8 b/4:8 r:q | b/4:h | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 30 &middot; Due dentro un battito" notes="b/4:q r:q | b/4:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | r:q b/4:8 b/4:8 | r:q b/4:8 b/4:8 | b/4:8 b/4:8 r:q | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n32">
       <div class="testa">
         <span class="numero">32</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 2</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Il punto allunga di metà &middot; 1</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La semiminima puntata dura un battito e mezzo: la croma dopo cade a metà del secondo.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 32 &middot; Il punto allunga di metà" notes="b/4:8 b/4:8 r:q | b/4:8 b/4:8 b/4:q | r:q b/4:8 b/4:8 | b/4:8 b/4:8 r:q | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 31 &middot; Il punto allunga di metà" notes="b/4:q r:q | b/4:q. b/4:8 | r:q r:q | b/4:q. b/4:8 | b/4:q. b/4:8 | b/4:8 b/4:8 r:q | b/4:h | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n33">
       <div class="testa">
         <span class="numero">33</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 3</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Il punto allunga di metà &middot; 2</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La semiminima puntata dura un battito e mezzo: la croma dopo cade a metà del secondo.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 33 &middot; Il punto allunga di metà" notes="b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:q. b/4:8 | b/4:h | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:h | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 32 &middot; Il punto allunga di metà" notes="b/4:8 b/4:8 r:q | b/4:8 b/4:8 b/4:q | r:q b/4:8 b/4:8 | b/4:8 b/4:8 r:q | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n34">
       <div class="testa">
         <span class="numero">34</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 4</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Il punto allunga di metà &middot; 3</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La semiminima puntata dura un battito e mezzo: la croma dopo cade a metà del secondo.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 34 &middot; Il punto allunga di metà" notes="r:q b/4:q | b/4:h | b/4:q. b/4:8 | b/4:q b/4:q | b/4:q. b/4:8 | b/4:8 b/4:8 b/4:q | b/4:h | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 33 &middot; Il punto allunga di metà" notes="b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:q. b/4:8 | b/4:h | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:h | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n35">
       <div class="testa">
         <span class="numero">35</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 5</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Il punto allunga di metà &middot; 4</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La semiminima puntata dura un battito e mezzo: la croma dopo cade a metà del secondo.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 35 &middot; Il punto allunga di metà" notes="b/4:8 b/4:8 r:q | b/4:q. b/4:8 | b/4:q b/4:8 b/4:8 | b/4:h | b/4:8 b/4:8 r:q | r:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 34 &middot; Il punto allunga di metà" notes="r:q b/4:q | b/4:h | b/4:q. b/4:8 | b/4:q b/4:q | b/4:q. b/4:8 | b/4:8 b/4:8 b/4:q | b/4:h | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n36">
       <div class="testa">
         <span class="numero">36</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 6</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Il punto allunga di metà &middot; 5</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La semiminima puntata dura un battito e mezzo: la croma dopo cade a metà del secondo.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 36 &middot; Il punto allunga di metà" notes="b/4:q. b/4:8 | r:q b/4:q | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:q b/4:q | b/4:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 35 &middot; Il punto allunga di metà" notes="b/4:8 b/4:8 r:q | b/4:q. b/4:8 | b/4:q b/4:8 b/4:8 | b/4:h | b/4:8 b/4:8 r:q | r:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n37">
       <div class="testa">
         <span class="numero">37</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 7</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Il punto allunga di metà &middot; 6</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La semiminima puntata dura un battito e mezzo: la croma dopo cade a metà del secondo.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 37 &middot; Il punto allunga di metà" notes="b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 b/4:q | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 36 &middot; Il punto allunga di metà" notes="b/4:q. b/4:8 | r:q b/4:q | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:q b/4:q | b/4:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n38">
       <div class="testa">
         <span class="numero">38</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 8</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Il punto allunga di metà &middot; 7</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La semiminima puntata dura un battito e mezzo: la croma dopo cade a metà del secondo.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 38 &middot; Il punto allunga di metà" notes="b/4:8 b/4:8 r:q | b/4:q b/4:8 b/4:8 | b/4:h | b/4:q. b/4:8 | b/4:h | b/4:q. b/4:8 | b/4:q b/4:8 b/4:8 | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 37 &middot; Il punto allunga di metà" notes="b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 b/4:q | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n39">
       <div class="testa">
         <span class="numero">39</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 9</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Il punto allunga di metà &middot; 8</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La semiminima puntata dura un battito e mezzo: la croma dopo cade a metà del secondo.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 39 &middot; Il punto allunga di metà" notes="b/4:q r:q | b/4:q. b/4:8 | b/4:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:q r:q | b/4:q r:q | b/4:q. b/4:8 | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 38 &middot; Il punto allunga di metà" notes="b/4:8 b/4:8 r:q | b/4:q b/4:8 b/4:8 | b/4:h | b/4:q. b/4:8 | b/4:h | b/4:q. b/4:8 | b/4:q b/4:8 b/4:8 | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n40">
       <div class="testa">
         <span class="numero">40</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 10</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Il punto allunga di metà &middot; 9</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">La semiminima puntata dura un battito e mezzo: la croma dopo cade a metà del secondo.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 40 &middot; Il punto allunga di metà" notes="b/4:q. b/4:8 | b/4:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:8 b/4:8 b/4:q | b/4:q b/4:q | b/4:q b/4:q | b/4:q. b/4:8 | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 39 &middot; Il punto allunga di metà" notes="b/4:q r:q | b/4:q. b/4:8 | b/4:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:q r:q | b/4:q r:q | b/4:q. b/4:8 | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n41">
       <div class="testa">
         <span class="numero">41</span>
         <div>
-          <h3>Con la legatura &middot; 1</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Il punto allunga di metà &middot; 10</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due teste, un suono solo. Il battito sotto continua a cadere anche mentre il suono dura.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 41 &middot; Con la legatura" notes="r:q r:q | b/4:h | b/4:8 b/4:8 b/4:q | b/4:q b/4:q | r:q b/4:8 b/4:8 | b/4:q~ b/4:8 b/4:8 | b/4:q~ b/4:q~ | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 40 &middot; Il punto allunga di metà" notes="b/4:q. b/4:8 | b/4:q b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:8 b/4:8 b/4:q | b/4:q b/4:q | b/4:q b/4:q | b/4:q. b/4:8 | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n42">
       <div class="testa">
         <span class="numero">42</span>
         <div>
-          <h3>Con la legatura &middot; 2</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Con la legatura &middot; 1</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due teste, un suono solo. Il battito sotto continua a cadere anche mentre il suono dura.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 42 &middot; Con la legatura" notes="b/4:q. b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:q~ | r:q b/4:q~ | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:q~ b/4:8 b/4:8 | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 41 &middot; Con la legatura" notes="r:q r:q | b/4:h | b/4:8 b/4:8 b/4:q | b/4:q b/4:q | r:q b/4:8 b/4:8 | b/4:q~ b/4:8 b/4:8 | b/4:q~ b/4:q~ | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n43">
       <div class="testa">
         <span class="numero">43</span>
         <div>
-          <h3>Con la legatura &middot; 3</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Con la legatura &middot; 2</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due teste, un suono solo. Il battito sotto continua a cadere anche mentre il suono dura.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 43 &middot; Con la legatura" notes="r:q b/4:q | b/4:q~ r:q | r:q b/4:8 b/4:8 | b/4:q b/4:q~ | b/4:q. b/4:8 | r:q b/4:q~ | b/4:q. b/4:8 | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 42 &middot; Con la legatura" notes="b/4:q. b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:q~ | r:q b/4:q~ | b/4:q. b/4:8 | r:q b/4:8 b/4:8 | b/4:q~ b/4:8 b/4:8 | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n44">
       <div class="testa">
         <span class="numero">44</span>
         <div>
-          <h3>Con la legatura &middot; 4</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Con la legatura &middot; 3</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due teste, un suono solo. Il battito sotto continua a cadere anche mentre il suono dura.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 44 &middot; Con la legatura" notes="b/4:q. b/4:8 | b/4:q~ b/4:8 b/4:8 | b/4:q~ b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:q~ b/4:q~ | r:q r:q | b/4:8 b/4:8 b/4:q~ | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 43 &middot; Con la legatura" notes="r:q b/4:q | b/4:q~ r:q | r:q b/4:8 b/4:8 | b/4:q b/4:q~ | b/4:q. b/4:8 | r:q b/4:q~ | b/4:q. b/4:8 | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n45">
       <div class="testa">
         <span class="numero">45</span>
         <div>
-          <h3>Con la legatura &middot; 5</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Con la legatura &middot; 4</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due teste, un suono solo. Il battito sotto continua a cadere anche mentre il suono dura.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 45 &middot; Con la legatura" notes="b/4:q. b/4:8 | b/4:8 b/4:8 b/4:q | b/4:h | b/4:q~ b/4:8 b/4:8 | b/4:h | b/4:q~ b/4:q | b/4:q~ b/4:8 b/4:8 | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 44 &middot; Con la legatura" notes="b/4:q. b/4:8 | b/4:q~ b/4:8 b/4:8 | b/4:q~ b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:q~ b/4:q~ | r:q r:q | b/4:8 b/4:8 b/4:q~ | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n46">
       <div class="testa">
         <span class="numero">46</span>
         <div>
-          <h3>Con la legatura &middot; 6</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Con la legatura &middot; 5</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due teste, un suono solo. Il battito sotto continua a cadere anche mentre il suono dura.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 46 &middot; Con la legatura" notes="b/4:q. b/4:8 | b/4:q. b/4:8 | b/4:q r:q | b/4:h | r:q b/4:q~ | b/4:h | b/4:q b/4:q~ | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 45 &middot; Con la legatura" notes="b/4:q. b/4:8 | b/4:8 b/4:8 b/4:q | b/4:h | b/4:q~ b/4:8 b/4:8 | b/4:h | b/4:q~ b/4:q | b/4:q~ b/4:8 b/4:8 | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n47">
       <div class="testa">
         <span class="numero">47</span>
         <div>
-          <h3>Con la legatura &middot; 7</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Con la legatura &middot; 6</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due teste, un suono solo. Il battito sotto continua a cadere anche mentre il suono dura.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 47 &middot; Con la legatura" notes="b/4:8 b/4:8 b/4:q~ | b/4:h | b/4:q~ b/4:q~ | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h | b/4:q~ b/4:q~ | b/4:q b/4:8 b/4:8 | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 46 &middot; Con la legatura" notes="b/4:q. b/4:8 | b/4:q. b/4:8 | b/4:q r:q | b/4:h | r:q b/4:q~ | b/4:h | b/4:q b/4:q~ | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n48">
       <div class="testa">
         <span class="numero">48</span>
         <div>
-          <h3>Con la legatura &middot; 8</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Con la legatura &middot; 7</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due teste, un suono solo. Il battito sotto continua a cadere anche mentre il suono dura.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 48 &middot; Con la legatura" notes="b/4:q~ b/4:q | b/4:q b/4:q | b/4:8 b/4:8 r:q | r:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q~ | b/4:q~ r:q | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 47 &middot; Con la legatura" notes="b/4:8 b/4:8 b/4:q~ | b/4:h | b/4:q~ b/4:q~ | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h | b/4:q~ b/4:q~ | b/4:q b/4:8 b/4:8 | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n49">
       <div class="testa">
         <span class="numero">49</span>
         <div>
-          <h3>Con la legatura &middot; 9</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Con la legatura &middot; 8</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due teste, un suono solo. Il battito sotto continua a cadere anche mentre il suono dura.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 49 &middot; Con la legatura" notes="b/4:8 b/4:8 b/4:q~ | b/4:q~ b/4:q~ | b/4:q~ b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:h | b/4:q~ b/4:q | b/4:8 b/4:8 b/4:q~ | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 48 &middot; Con la legatura" notes="b/4:q~ b/4:q | b/4:q b/4:q | b/4:8 b/4:8 r:q | r:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q~ | b/4:q~ r:q | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n50">
       <div class="testa">
         <span class="numero">50</span>
         <div>
-          <h3>Con la legatura &middot; 10</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;5</span>
+          <h3>Con la legatura &middot; 9</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Due teste, un suono solo. Il battito sotto continua a cadere anche mentre il suono dura.</p>
-      <tac-stave clef="percussion" time="2/4" caption="N. 50 &middot; Con la legatura" notes="b/4:q~ b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:h | r:q b/4:8 b/4:8 | b/4:q~ r:q | b/4:q. b/4:8 | b/4:h | b/4:h" width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 49 &middot; Con la legatura" notes="b/4:8 b/4:8 b/4:q~ | b/4:q~ b/4:q~ | b/4:q~ b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:h | b/4:q~ b/4:q | b/4:8 b/4:8 b/4:q~ | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n51">
       <div class="testa">
         <span class="numero">51</span>
         <div>
-          <h3>Otto battute in tre, a due gruppi</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <h3>Con la legatura &middot; 10</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Metà classe batte la pulsazione, metà legge il ritmo a voce su <em>ta</em>. Poi si scambia. Chi batte non si ferma nemmeno se chi legge sbaglia: è la pulsazione che tiene in piedi l'esercizio.</p>
-      <tac-stave clef="percussion" time="3/4" caption="Otto battute in tre quarti" notes="b/4:q b/4:q b/4:q | b/4:h b/4:q | b/4:q b/4:8 b/4:8 b/4:q | b/4:h. | b/4:8 b/4:8 b/4:q b/4:q | b/4:q r:q b/4:q | b/4:q b/4:q b/4:q | b/4:h." width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="2/4" caption="N. 50 &middot; Con la legatura" notes="b/4:q~ b/4:8 b/4:8 | b/4:q. b/4:8 | b/4:h | r:q b/4:8 b/4:8 | b/4:q~ r:q | b/4:q. b/4:8 | b/4:h | b/4:h" width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n52">
       <div class="testa">
         <span class="numero">52</span>
         <div>
-          <h3>Cinque minuti al giorno, in tre</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <h3>Otto battute in tre, a due gruppi</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Batti sempre con la stessa mano e tieni il gesto in tre della lezione 3. Se ti accorgi di accelerare, ricomincia più lento: la velocità viene da sé, la regolarità no.</p>
-      <tac-stave clef="percussion" time="3/4" caption="Da leggere ogni giorno" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:h b/4:q | b/4:q b/4:q b/4:q | b/4:h. | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:q r:q b/4:q | b/4:q b/4:8 b/4:8 b/4:q | b/4:h." width="700" tempo="60" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="Otto battute in tre quarti" notes="b/4:q b/4:q b/4:q | b/4:h b/4:q | b/4:q b/4:8 b/4:8 b/4:q | b/4:h. | b/4:8 b/4:8 b/4:q b/4:q | b/4:q r:q b/4:q | b/4:q b/4:q b/4:q | b/4:h." width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <div class="gradino"><span>Terzo gradino</span><span class="quanti">30 pezzi</span></div>
+    <article class="solf" id="n53">
       <div class="testa">
         <span class="numero">53</span>
         <div>
           <h3>Tre quarti &middot; 1</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Il tre non si regge da solo come il due: qui serve la mano, non l’orecchio.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 51 &middot; Tre quarti" notes="b/4:h b/4:q | b/4:h. | b/4:h. | b/4:q b/4:q b/4:q | b/4:h. | b/4:h b/4:q | b/4:h b/4:q | b/4:h." width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 51 &middot; Tre quarti" notes="b/4:h b/4:q | b/4:h. | b/4:h. | b/4:q b/4:q b/4:q | b/4:h. | b/4:h b/4:q | b/4:h b/4:q | b/4:h." width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n54">
       <div class="testa">
         <span class="numero">54</span>
         <div>
           <h3>Tre quarti &middot; 2</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Il tre non si regge da solo come il due: qui serve la mano, non l’orecchio.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 52 &middot; Tre quarti" notes="b/4:q b/4:q b/4:q | b/4:q b/4:q b/4:q | b/4:q b/4:h | b/4:h. | b/4:h. | b/4:h b/4:q | b/4:h. | b/4:h." width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 52 &middot; Tre quarti" notes="b/4:q b/4:q b/4:q | b/4:q b/4:q b/4:q | b/4:q b/4:h | b/4:h. | b/4:h. | b/4:h b/4:q | b/4:h. | b/4:h." width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n55">
       <div class="testa">
         <span class="numero">55</span>
         <div>
           <h3>Tre quarti &middot; 3</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Il tre non si regge da solo come il due: qui serve la mano, non l’orecchio.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 53 &middot; Tre quarti" notes="b/4:h. | b/4:h b/4:q | b/4:h. | b/4:q b/4:q b/4:q | b/4:q b/4:q b/4:q | b/4:h b/4:q | b/4:q b/4:h | b/4:h." width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 53 &middot; Tre quarti" notes="b/4:h. | b/4:h b/4:q | b/4:h. | b/4:q b/4:q b/4:q | b/4:q b/4:q b/4:q | b/4:h b/4:q | b/4:q b/4:h | b/4:h." width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n56">
       <div class="testa">
         <span class="numero">56</span>
         <div>
           <h3>Tre quarti &middot; 4</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Il tre non si regge da solo come il due: qui serve la mano, non l’orecchio.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 54 &middot; Tre quarti" notes="b/4:h b/4:q | b/4:h. | b/4:q b/4:q b/4:q | b/4:h b/4:q | b/4:h b/4:q | b/4:q b/4:q b/4:q | b/4:h b/4:q | b/4:h." width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 54 &middot; Tre quarti" notes="b/4:h b/4:q | b/4:h. | b/4:q b/4:q b/4:q | b/4:h b/4:q | b/4:h b/4:q | b/4:q b/4:q b/4:q | b/4:h b/4:q | b/4:h." width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n57">
       <div class="testa">
         <span class="numero">57</span>
         <div>
           <h3>Tre quarti &middot; 5</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Il tre non si regge da solo come il due: qui serve la mano, non l’orecchio.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 55 &middot; Tre quarti" notes="b/4:h. | b/4:h b/4:q | b/4:h. | b/4:q b/4:q b/4:q | b/4:h. | b/4:h. | b/4:q b/4:h | b/4:h." width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 55 &middot; Tre quarti" notes="b/4:h. | b/4:h b/4:q | b/4:h. | b/4:q b/4:q b/4:q | b/4:h. | b/4:h. | b/4:q b/4:h | b/4:h." width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n58">
       <div class="testa">
         <span class="numero">58</span>
         <div>
           <h3>Tre quarti &middot; 6</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Il tre non si regge da solo come il due: qui serve la mano, non l’orecchio.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 56 &middot; Tre quarti" notes="b/4:q b/4:h | b/4:h. | b/4:h. | b/4:q b/4:q b/4:q | b/4:q b/4:h | b/4:q b/4:h | b/4:h. | b/4:h." width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 56 &middot; Tre quarti" notes="b/4:q b/4:h | b/4:h. | b/4:h. | b/4:q b/4:q b/4:q | b/4:q b/4:h | b/4:q b/4:h | b/4:h. | b/4:h." width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n59">
       <div class="testa">
         <span class="numero">59</span>
         <div>
           <h3>Tre quarti &middot; 7</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Il tre non si regge da solo come il due: qui serve la mano, non l’orecchio.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 57 &middot; Tre quarti" notes="b/4:h b/4:q | b/4:h b/4:q | b/4:q b/4:h | b/4:h. | b/4:h. | b/4:h b/4:q | b/4:h. | b/4:h." width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 57 &middot; Tre quarti" notes="b/4:h b/4:q | b/4:h b/4:q | b/4:q b/4:h | b/4:h. | b/4:h. | b/4:h b/4:q | b/4:h. | b/4:h." width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n60">
       <div class="testa">
         <span class="numero">60</span>
         <div>
           <h3>Tre quarti &middot; 8</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Il tre non si regge da solo come il due: qui serve la mano, non l’orecchio.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 58 &middot; Tre quarti" notes="b/4:q b/4:q b/4:q | b/4:q b/4:q b/4:q | b/4:h. | b/4:q b/4:h | b/4:q b/4:q b/4:q | b/4:h. | b/4:h b/4:q | b/4:h." width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 58 &middot; Tre quarti" notes="b/4:q b/4:q b/4:q | b/4:q b/4:q b/4:q | b/4:h. | b/4:q b/4:h | b/4:q b/4:q b/4:q | b/4:h. | b/4:h b/4:q | b/4:h." width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n61">
       <div class="testa">
         <span class="numero">61</span>
         <div>
           <h3>Tre quarti &middot; 9</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Il tre non si regge da solo come il due: qui serve la mano, non l’orecchio.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 59 &middot; Tre quarti" notes="b/4:h. | b/4:q b/4:h | b/4:h. | b/4:h. | b/4:h b/4:q | b/4:h. | b/4:h b/4:q | b/4:h." width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 59 &middot; Tre quarti" notes="b/4:h. | b/4:q b/4:h | b/4:h. | b/4:h. | b/4:h b/4:q | b/4:h. | b/4:h b/4:q | b/4:h." width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n62">
       <div class="testa">
         <span class="numero">62</span>
         <div>
           <h3>Tre quarti &middot; 10</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Il tre non si regge da solo come il due: qui serve la mano, non l’orecchio.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 60 &middot; Tre quarti" notes="b/4:h. | b/4:q b/4:q b/4:q | b/4:q b/4:h | b/4:h. | b/4:q b/4:h | b/4:h b/4:q | b/4:h. | b/4:h." width="700" tempo="63" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 60 &middot; Tre quarti" notes="b/4:h. | b/4:q b/4:q b/4:q | b/4:q b/4:h | b/4:h. | b/4:q b/4:h | b/4:h b/4:q | b/4:h. | b/4:h." width="430" tempo="63" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n63">
       <div class="testa">
         <span class="numero">63</span>
         <div>
           <h3>Tre quarti, con le crome &middot; 1</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le stesse crome di prima, ma dentro un metro che scivola più facilmente.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 61 &middot; Tre quarti, con le crome" notes="b/4:q b/4:8 b/4:8 r:q | r:q r:q b/4:8 b/4:8 | r:q b/4:h | b/4:8 b/4:8 r:q r:q | b/4:8 b/4:8 b/4:h | b/4:8 b/4:8 b/4:q r:q | r:q r:q b/4:q | b/4:h." width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 61 &middot; Tre quarti, con le crome" notes="b/4:q b/4:8 b/4:8 r:q | r:q r:q b/4:8 b/4:8 | r:q b/4:h | b/4:8 b/4:8 r:q r:q | b/4:8 b/4:8 b/4:h | b/4:8 b/4:8 b/4:q r:q | r:q r:q b/4:q | b/4:h." width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n64">
       <div class="testa">
         <span class="numero">64</span>
         <div>
           <h3>Tre quarti, con le crome &middot; 2</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le stesse crome di prima, ma dentro un metro che scivola più facilmente.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 62 &middot; Tre quarti, con le crome" notes="b/4:h r:q | b/4:q b/4:8 b/4:8 r:q | b/4:h r:q | b/4:q b/4:8 b/4:8 r:q | b/4:h r:q | b/4:h r:q | r:q b/4:8 b/4:8 r:q | b/4:h." width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 62 &middot; Tre quarti, con le crome" notes="b/4:h r:q | b/4:q b/4:8 b/4:8 r:q | b/4:h r:q | b/4:q b/4:8 b/4:8 r:q | b/4:h r:q | b/4:h r:q | r:q b/4:8 b/4:8 r:q | b/4:h." width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n65">
       <div class="testa">
         <span class="numero">65</span>
         <div>
           <h3>Tre quarti, con le crome &middot; 3</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le stesse crome di prima, ma dentro un metro che scivola più facilmente.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 63 &middot; Tre quarti, con le crome" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h r:q | b/4:h. | r:q b/4:8 b/4:8 r:q | b/4:h b/4:8 b/4:8 | b/4:h. | b/4:h." width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 63 &middot; Tre quarti, con le crome" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h r:q | b/4:h. | r:q b/4:8 b/4:8 r:q | b/4:h b/4:8 b/4:8 | b/4:h. | b/4:h." width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n66">
       <div class="testa">
         <span class="numero">66</span>
         <div>
           <h3>Tre quarti, con le crome &middot; 4</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le stesse crome di prima, ma dentro un metro che scivola più facilmente.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 64 &middot; Tre quarti, con le crome" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:h b/4:q | b/4:h r:q | b/4:h. | b/4:h. | b/4:h b/4:8 b/4:8 | b/4:h b/4:8 b/4:8 | b/4:h." width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 64 &middot; Tre quarti, con le crome" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:h b/4:q | b/4:h r:q | b/4:h. | b/4:h. | b/4:h b/4:8 b/4:8 | b/4:h b/4:8 b/4:8 | b/4:h." width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n67">
       <div class="testa">
         <span class="numero">67</span>
         <div>
           <h3>Tre quarti, con le crome &middot; 5</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le stesse crome di prima, ma dentro un metro che scivola più facilmente.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 65 &middot; Tre quarti, con le crome" notes="b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:h. | b/4:h b/4:8 b/4:8 | b/4:h. | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:h r:q | b/4:h b/4:q | b/4:h." width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 65 &middot; Tre quarti, con le crome" notes="b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:h. | b/4:h b/4:8 b/4:8 | b/4:h. | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:h r:q | b/4:h b/4:q | b/4:h." width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n68">
       <div class="testa">
         <span class="numero">68</span>
         <div>
           <h3>Tre quarti, con le crome &middot; 6</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le stesse crome di prima, ma dentro un metro che scivola più facilmente.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 66 &middot; Tre quarti, con le crome" notes="b/4:8 b/4:8 b/4:8 b/4:8 r:q | r:q b/4:h | b/4:h b/4:q | b/4:q b/4:q b/4:8 b/4:8 | r:q r:q b/4:q | r:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h b/4:8 b/4:8 | b/4:h." width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 66 &middot; Tre quarti, con le crome" notes="b/4:8 b/4:8 b/4:8 b/4:8 r:q | r:q b/4:h | b/4:h b/4:q | b/4:q b/4:q b/4:8 b/4:8 | r:q r:q b/4:q | r:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h b/4:8 b/4:8 | b/4:h." width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n69">
       <div class="testa">
         <span class="numero">69</span>
         <div>
           <h3>Tre quarti, con le crome &middot; 7</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le stesse crome di prima, ma dentro un metro che scivola più facilmente.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 67 &middot; Tre quarti, con le crome" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 r:q b/4:q | b/4:h r:q | b/4:q b/4:q b/4:8 b/4:8 | r:q b/4:8 b/4:8 r:q | b/4:h b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:h." width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 67 &middot; Tre quarti, con le crome" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 r:q b/4:q | b/4:h r:q | b/4:q b/4:q b/4:8 b/4:8 | r:q b/4:8 b/4:8 r:q | b/4:h b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:h." width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n70">
       <div class="testa">
         <span class="numero">70</span>
         <div>
           <h3>Tre quarti, con le crome &middot; 8</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le stesse crome di prima, ma dentro un metro che scivola più facilmente.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 68 &middot; Tre quarti, con le crome" notes="b/4:q r:q b/4:q | b/4:h b/4:8 b/4:8 | b/4:h b/4:q | b/4:h b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 r:q | b/4:8 b/4:8 b/4:8 b/4:8 r:q | b/4:h." width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 68 &middot; Tre quarti, con le crome" notes="b/4:q r:q b/4:q | b/4:h b/4:8 b/4:8 | b/4:h b/4:q | b/4:h b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 r:q | b/4:8 b/4:8 b/4:8 b/4:8 r:q | b/4:h." width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n71">
       <div class="testa">
         <span class="numero">71</span>
         <div>
           <h3>Tre quarti, con le crome &middot; 9</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le stesse crome di prima, ma dentro un metro che scivola più facilmente.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 69 &middot; Tre quarti, con le crome" notes="b/4:8 b/4:8 b/4:8 b/4:8 r:q | b/4:h b/4:8 b/4:8 | b/4:q r:q b/4:q | b/4:h. | b/4:q b/4:8 b/4:8 r:q | b/4:h. | b/4:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h." width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 69 &middot; Tre quarti, con le crome" notes="b/4:8 b/4:8 b/4:8 b/4:8 r:q | b/4:h b/4:8 b/4:8 | b/4:q r:q b/4:q | b/4:h. | b/4:q b/4:8 b/4:8 r:q | b/4:h. | b/4:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h." width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n72">
       <div class="testa">
         <span class="numero">72</span>
         <div>
           <h3>Tre quarti, con le crome &middot; 10</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Le stesse crome di prima, ma dentro un metro che scivola più facilmente.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 70 &middot; Tre quarti, con le crome" notes="b/4:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h b/4:q | b/4:q r:q b/4:8 b/4:8 | b/4:h b/4:q | b/4:h. | b/4:8 b/4:8 b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 r:q b/4:q | b/4:h." width="700" tempo="66" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 70 &middot; Tre quarti, con le crome" notes="b/4:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h b/4:q | b/4:q r:q b/4:8 b/4:8 | b/4:h b/4:q | b/4:h. | b/4:8 b/4:8 b/4:q b/4:8 b/4:8 | b/4:8 b/4:8 r:q b/4:q | b/4:h." width="430" tempo="66" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n73">
       <div class="testa">
         <span class="numero">73</span>
         <div>
           <h3>Tutto quello che sai &middot; 1</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Figure, pause, punto e legatura insieme. Se viene questo, l’unità è a posto.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 71 &middot; Tutto quello che sai" notes="b/4:q~ b/4:h | b/4:8 b/4:8 r:q b/4:8 b/4:8 | b/4:q b/4:q~ b/4:q | b/4:q~ b/4:h | b/4:8 b/4:8 b/4:h | r:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q~ b/4:h | b/4:h." width="700" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 71 &middot; Tutto quello che sai" notes="b/4:q~ b/4:h | b/4:8 b/4:8 r:q b/4:8 b/4:8 | b/4:q b/4:q~ b/4:q | b/4:q~ b/4:h | b/4:8 b/4:8 b/4:h | r:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q~ b/4:h | b/4:h." width="430" tempo="69" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n74">
       <div class="testa">
         <span class="numero">74</span>
         <div>
           <h3>Tutto quello che sai &middot; 2</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Figure, pause, punto e legatura insieme. Se viene questo, l’unità è a posto.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 72 &middot; Tutto quello che sai" notes="b/4:h. | b/4:h. | r:q b/4:q~ b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 r:q | b/4:q b/4:q. b/4:8 | b/4:q b/4:h | b/4:h. | b/4:h." width="700" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 72 &middot; Tutto quello che sai" notes="b/4:h. | b/4:h. | r:q b/4:q~ b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 r:q | b/4:q b/4:q. b/4:8 | b/4:q b/4:h | b/4:h. | b/4:h." width="430" tempo="69" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n75">
       <div class="testa">
         <span class="numero">75</span>
         <div>
           <h3>Tutto quello che sai &middot; 3</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Figure, pause, punto e legatura insieme. Se viene questo, l’unità è a posto.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 73 &middot; Tutto quello che sai" notes="b/4:h. | b/4:h. | r:q b/4:q. b/4:8 | b/4:8 b/4:8 b/4:h | b/4:q. b/4:8 b/4:q | b/4:q b/4:q. b/4:8 | b/4:q. b/4:8 r:q | b/4:h." width="700" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 73 &middot; Tutto quello che sai" notes="b/4:h. | b/4:h. | r:q b/4:q. b/4:8 | b/4:8 b/4:8 b/4:h | b/4:q. b/4:8 b/4:q | b/4:q b/4:q. b/4:8 | b/4:q. b/4:8 r:q | b/4:h." width="430" tempo="69" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n76">
       <div class="testa">
         <span class="numero">76</span>
         <div>
           <h3>Tutto quello che sai &middot; 4</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Figure, pause, punto e legatura insieme. Se viene questo, l’unità è a posto.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 74 &middot; Tutto quello che sai" notes="r:q r:q b/4:q~ | b/4:h r:q | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 r:q r:q | b/4:8 b/4:8 b/4:q. b/4:8 | b/4:h r:q | b/4:q. b/4:8 b/4:q~ | b/4:h." width="700" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 74 &middot; Tutto quello che sai" notes="r:q r:q b/4:q~ | b/4:h r:q | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:8 b/4:8 r:q r:q | b/4:8 b/4:8 b/4:q. b/4:8 | b/4:h r:q | b/4:q. b/4:8 b/4:q~ | b/4:h." width="430" tempo="69" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n77">
       <div class="testa">
         <span class="numero">77</span>
         <div>
           <h3>Tutto quello che sai &middot; 5</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Figure, pause, punto e legatura insieme. Se viene questo, l’unità è a posto.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 75 &middot; Tutto quello che sai" notes="b/4:q. b/4:8 b/4:q | r:q b/4:q. b/4:8 | b/4:h. | b/4:q~ b/4:q~ b/4:8 b/4:8 | b/4:q. b/4:8 b/4:q | b/4:q. b/4:8 r:q | b/4:q b/4:q b/4:q | b/4:h." width="700" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 75 &middot; Tutto quello che sai" notes="b/4:q. b/4:8 b/4:q | r:q b/4:q. b/4:8 | b/4:h. | b/4:q~ b/4:q~ b/4:8 b/4:8 | b/4:q. b/4:8 b/4:q | b/4:q. b/4:8 r:q | b/4:q b/4:q b/4:q | b/4:h." width="430" tempo="69" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n78">
       <div class="testa">
         <span class="numero">78</span>
         <div>
           <h3>Tutto quello che sai &middot; 6</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Figure, pause, punto e legatura insieme. Se viene questo, l’unità è a posto.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 76 &middot; Tutto quello che sai" notes="b/4:h b/4:q~ | b/4:q~ r:q b/4:q~ | b/4:8 b/4:8 b/4:q b/4:8 b/4:8 | b/4:q. b/4:8 b/4:8 b/4:8 | b/4:h b/4:q | b/4:q b/4:q. b/4:8 | r:q b/4:8 b/4:8 r:q | b/4:h." width="700" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 76 &middot; Tutto quello che sai" notes="b/4:h b/4:q~ | b/4:q~ r:q b/4:q~ | b/4:8 b/4:8 b/4:q b/4:8 b/4:8 | b/4:q. b/4:8 b/4:8 b/4:8 | b/4:h b/4:q | b/4:q b/4:q. b/4:8 | r:q b/4:8 b/4:8 r:q | b/4:h." width="430" tempo="69" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n79">
       <div class="testa">
         <span class="numero">79</span>
         <div>
           <h3>Tutto quello che sai &middot; 7</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Figure, pause, punto e legatura insieme. Se viene questo, l’unità è a posto.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 77 &middot; Tutto quello che sai" notes="b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:q. b/4:8 r:q | r:q r:q b/4:q~ | b/4:q b/4:q b/4:q | b/4:q~ b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q~ b/4:q~ b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 b/4:q~ | b/4:h." width="700" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 77 &middot; Tutto quello che sai" notes="b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:q. b/4:8 r:q | r:q r:q b/4:q~ | b/4:q b/4:q b/4:q | b/4:q~ b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q~ b/4:q~ b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 b/4:q~ | b/4:h." width="430" tempo="69" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n80">
       <div class="testa">
         <span class="numero">80</span>
         <div>
           <h3>Tutto quello che sai &middot; 8</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Figure, pause, punto e legatura insieme. Se viene questo, l’unità è a posto.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 78 &middot; Tutto quello che sai" notes="b/4:h r:q | b/4:h. | b/4:h r:q | b/4:q b/4:8 b/4:8 b/4:q | b/4:h b/4:q | r:q b/4:8 b/4:8 r:q | b/4:8 b/4:8 b/4:q. b/4:8 | b/4:h." width="700" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 78 &middot; Tutto quello che sai" notes="b/4:h r:q | b/4:h. | b/4:h r:q | b/4:q b/4:8 b/4:8 b/4:q | b/4:h b/4:q | r:q b/4:8 b/4:8 r:q | b/4:8 b/4:8 b/4:q. b/4:8 | b/4:h." width="430" tempo="69" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n81">
       <div class="testa">
         <span class="numero">81</span>
         <div>
           <h3>Tutto quello che sai &middot; 9</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Figure, pause, punto e legatura insieme. Se viene questo, l’unità è a posto.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 79 &middot; Tutto quello che sai" notes="b/4:h b/4:q | b/4:h b/4:q~ | b/4:q. b/4:8 b/4:q~ | b/4:h b/4:8 b/4:8 | b/4:q~ b/4:8 b/4:8 b/4:q | b/4:q~ r:q b/4:8 b/4:8 | b/4:q. b/4:8 b/4:q~ | b/4:h." width="700" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 79 &middot; Tutto quello che sai" notes="b/4:h b/4:q | b/4:h b/4:q~ | b/4:q. b/4:8 b/4:q~ | b/4:h b/4:8 b/4:8 | b/4:q~ b/4:8 b/4:8 b/4:q | b/4:q~ r:q b/4:8 b/4:8 | b/4:q. b/4:8 b/4:q~ | b/4:h." width="430" tempo="69" play slow></tac-stave>
     </article>
-    <article class="solf">
+    <article class="solf" id="n82">
       <div class="testa">
         <span class="numero">82</span>
         <div>
           <h3>Tutto quello che sai &middot; 10</h3>
-          <span class="quando">UdA&nbsp;1 &middot; lezione&nbsp;6</span>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <p class="consegna">Figure, pause, punto e legatura insieme. Se viene questo, l’unità è a posto.</p>
-      <tac-stave clef="percussion" time="3/4" caption="N. 80 &middot; Tutto quello che sai" notes="b/4:8 b/4:8 b/4:q r:q | r:q b/4:h | b/4:h b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q~ r:q | b/4:q. b/4:8 b/4:q~ | b/4:q. b/4:8 r:q | b/4:q b/4:q b/4:q | b/4:h." width="700" tempo="69" play slow></tac-stave>
+      <tac-stave clef="percussion" time="3/4" caption="N. 80 &middot; Tutto quello che sai" notes="b/4:8 b/4:8 b/4:q r:q | r:q b/4:h | b/4:h b/4:8 b/4:8 | b/4:8 b/4:8 b/4:q~ r:q | b/4:q. b/4:8 b/4:q~ | b/4:q. b/4:8 r:q | b/4:q b/4:q b/4:q | b/4:h." width="430" tempo="69" play slow></tac-stave>
     </article>
-  </section>
+  </div>
 
-  <section class="parte solfeggio vuota">
-    <h2>Solfeggio parlato</h2>
-    <p class="spiega">Si dicono i <strong>nomi</strong> delle note a tempo, senza intonarle. Leggere e intonare sono due difficoltà diverse, e questa le separa.</p>
-    <p class="attesa">Comincia più avanti nell&rsquo;anno.</p>
-  </section>
-
-  <section class="parte solfeggio vuota">
-    <h2>Solfeggio cantato</h2>
-    <p class="spiega">Si intona. È l&rsquo;ultimo perché chiede le due cose insieme: la nota giusta al momento giusto.</p>
-    <p class="attesa">Comincia più avanti nell&rsquo;anno.</p>
-  </section>
-
+  <p class="piede-fascicolo">Solfeggio parlato e Solfeggio cantato cominciano pi&ugrave; avanti nell&rsquo;anno: quando comincia, i pezzi entrano in questa stessa fila.</p>
 
 </div>
 </body>

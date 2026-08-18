@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 2. La scala diatonica maggiore | La scala maggiore</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=216f52da">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=4f0a53a2" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 2 · La scala diatonica maggiore
+     Unità 4, ora 20 di 90 · classe 1ª · teoria
+
+     ══ MEZZ'ORA, NON UN'ORA ══
+     Anche su quest'ora cade una coda di orali — di solfeggio, stavolta.
+     Sei slide, venti minuti di frontale.
+
+     ══ È L'ORA IN CUI SI PAGA IL DEBITO ══
+     Unità 2, lezione 4: «I nomi sono due — maggiore e minore — e per
+     adesso non spieghiamo da dove vengono: lo faremo fra due unità, con
+     le scale». Ci siamo. La classe riconosce il maggiore all'orecchio da
+     sei ore; qui scopre che quella cosa che sentiva ha una causa
+     misurabile, e la causa sono **due posizioni**: 3-4 e 7-8.
+
+     Il momento didattico da non sprecare è quello: non «ecco la formula»,
+     ma «quella cosa che sentivate ha un perché, ed è questo».
+
+     ══ LA FORMULA VIENE DOPO IL CONTO, NON PRIMA ══
+     Ieri si sono costruiti due tetracordi. Oggi si contano le distanze
+     della scala che ne è uscita, e la formula si legge da lì:
+
+         tono tono semitono tono tono tono semitono
+
+     È la scrittura che sta, in fila sotto il rigo, in Rossi, *Teoria
+     musicale: ad uso dei Conservatori e Istituti musicali*, p. 63, nel
+     capitolo V — «L'intervallo musicale: Tono e Semitono – Le Alterazioni
+     – Le Scale modello di Do maggiore e La minore».
+
+     Darla prima e poi verificarla sarebbe stato più rapido e avrebbe
+     insegnato un'altra cosa: che la teoria si riceve. Qui esce da un
+     conto che la classe ha già fatto.
+
+     ══ I GRADI ══
+     Qui nasce la parola **grado**, che in tutta la classe 1 non era mai
+     comparsa — l'ho controllato con `_gia_fatto.py 1 --cerca grado`: zero
+     slide. Si introduce col numero romano, che servirà per anni.
+
+     Niente nomi dei gradi oggi (tonica, dominante, sensibile): sono della
+     lezione 5, e metterli qui vorrebbe dire tre cose nuove in venti
+     minuti con la coda in mezzo.
+
+     ══ IL MINORE SI NOMINA E SI RIMANDA ══
+     Ultima slide: l'altra faccia ha i semitoni in altri due posti, e la
+     si fa all'unità 6. È una promessa nuova, e sta scritta anche in
+     `_IMPIANTO.md` perché non si perda come si era persa quella del tono.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c1u4-lezione-2.jpg?v=359e1563');
+                --cop-a:#1a1035; --cop-b:#6d28d9; --cop-c:#c4b5fd">
+  <div class="slide-interna">
+    <div class="occhiello">La scala maggiore &middot; UdA 4 &middot; Lezione 2 di 9</div>
+    <h1>Perch&eacute; il maggiore suona maggiore</h1>
+    <p class="sottotitolo">Sei ore fa vi avevo detto: «i nomi sono due, e da dove vengono lo vediamo con le scale». Oggi si vede.</p>
+
+    <blockquote class="aforisma">
+      <p>tono tono semitono tono tono tono semitono</p>
+      <cite>Luigi Rossi, <em>Teoria musicale: ad uso dei Conservatori e Istituti musicali</em>, p.&nbsp;63</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Teoria</span>
+      <span>Scala &middot; Gradi</span>
+      <span class="coda-orali">Interrogazioni &middot; solfeggio e percezione</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Contiamo le distanze">
+  <div class="slide-interna">
+    <h2>Otto note, sette distanze</h2>
+
+    <p>Ieri abbiamo messo in fila due tetracordi e ne &egrave; uscita la scala di <em>do</em> maggiore. Oggi contiamo che cosa c&rsquo;&egrave; fra una nota e la successiva.</p>
+
+    <tac-stave clef="treble" time="4/4" caption="La scala di do maggiore" notes="c/4:q d/4:q e/4:q f/4:q | g/4:q a/4:q b/4:q c/5:q" width="740" tempo="60" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Le sette distanze, in fila</span>
+      <p class="grande"><strong>T &nbsp; T &nbsp; S &nbsp; T &nbsp; T &nbsp; T &nbsp; S</strong></p>
+      <p>Otto note, sette distanze. Il conto &egrave; quello di ieri: fra <em>n</em> note ci sono <em>n</em>&nbsp;&minus;&nbsp;1 distanze.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="I due posti">
+  <div class="slide-interna">
+    <h2>I semitoni cadono in due posti, e sempre gli stessi</h2>
+
+    <p>Guardate dove stanno le due <strong>S</strong>. Non sono sparse: stanno fra la terza e la quarta nota, e fra la settima e l&rsquo;ottava.</p>
+
+    <div class="colonne">
+      <div class="riquadro attenzione">
+        <span class="etichetta">Fra la 3&ordf; e la 4&ordf;</span>
+        <p>In <em>do</em> maggiore: fra <em>mi</em> e <em>fa</em>.</p>
+      </div>
+      <div class="riquadro attenzione">
+        <span class="etichetta">Fra la 7&ordf; e l&rsquo;8&ordf;</span>
+        <p>In <em>do</em> maggiore: fra <em>si</em> e <em>do</em>.</p>
+      </div>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Ed &egrave; la risposta alla domanda di sei ore fa</span>
+      <p>Una scala &egrave; <strong>maggiore</strong> quando i due semitoni cadono in quei due posti. Non perch&eacute; &egrave; allegra: perch&eacute; sono l&igrave;.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="I gradi">
+  <div class="slide-interna">
+    <h2>Ogni nota ha un numero</h2>
+
+    <p>Per dire «la terza nota della scala» senza ripetere ogni volta quale scala, si usa il <em class="termine">grado</em>: il posto che una nota occupa, contato dalla prima.</p>
+
+    <p>Si scrivono con i <strong>numeri romani</strong>, e questa scrittura vi accompagner&agrave; per cinque anni:</p>
+
+    <div class="riquadro definizione">
+      <p class="grande">I &nbsp;&nbsp; II &nbsp;&nbsp; III &nbsp;&nbsp; IV &nbsp;&nbsp; V &nbsp;&nbsp; VI &nbsp;&nbsp; VII &nbsp;&nbsp; (I)</p>
+      <p>In <em>do</em> maggiore: <em>do</em> &egrave; il I, <em>mi</em> il III, <em>sol</em> il V. L&rsquo;ottavo grado &egrave; di nuovo il primo, un&rsquo;ottava sopra.</p>
+    </div>
+
+    <p class="didascalia">Cos&igrave; i due semitoni si dicono in due parole: cadono <strong>III&ndash;IV</strong> e <strong>VII&ndash;I</strong>. In qualunque scala maggiore, non solo in questa.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Su un'altra nota">
+  <div class="slide-interna">
+    <h2>E se partiamo da <em>sol</em>?</h2>
+
+    <p>La formula non riguarda i <em>nomi</em> delle note: riguarda le distanze. Partiamo da <em>sol</em> e teniamo T T S T T T S.</p>
+
+    <tac-stave clef="treble" time="4/4" caption="Sol maggiore: il fa dev'essere diesis" notes="g/4:q a/4:q b/4:q c/5:q | d/5:q e/5:q f#/5:q g/5:q" width="740" tempo="60" play></tac-stave>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Che cosa &egrave; successo</span>
+      <p>Col <em>fa</em> naturale, fra la settima e l&rsquo;ottava ci sarebbe stato un <strong>tono</strong>, e l&igrave; ci vuole un semitono. Il <em>fa</em> va alzato: <strong>fa diesis</strong>.</p>
+      <p>Non l&rsquo;abbiamo deciso noi. L&rsquo;ha deciso la formula.</p>
+    </div>
+
+    <p class="didascalia">&Egrave; questo il lavoro dei compiti: costruire scale su altre note e accorgersi da soli di quali alterazioni servono.</p>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; la formula della scala" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; la formula della scala</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 6 minuti</span>
+      <p>Cinque affermazioni. Si risponde insieme, e chi risponde dice anche perch&eacute;.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "Fra otto note ci sono sette distanze.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: fra <em>n</em> note ci sono <em>n</em>&minus;1 distanze.",
+  "da": "Contiamo le distanze"
+ },
+ {
+  "d": "Nella scala maggiore i semitoni cadono fra il III e il IV grado.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; uno dei due posti. L&rsquo;altro &egrave; VII&ndash;I.",
+  "da": "I due posti"
+ },
+ {
+  "d": "I semitoni della scala maggiore cadono sempre negli stessi due posti.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: III&ndash;IV e VII&ndash;I, in qualunque scala maggiore.",
+  "da": "I due posti"
+ },
+ {
+  "d": "La formula della scala maggiore &egrave; T T S T T S T.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; <strong>T T S T T T S</strong>. Il secondo semitono sta in fondo.",
+  "da": "Contiamo le distanze"
+ },
+ {
+  "d": "Il grado si scrive con i numeri romani.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: I, II, III&hellip; e vi accompagner&agrave; per cinque anni.",
+  "da": "I gradi"
+ },
+ {
+  "d": "In do maggiore il V grado &egrave; <em>fa</em>.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: il V &egrave; <em>sol</em>. Il <em>fa</em> &egrave; il IV.",
+  "da": "I gradi"
+ },
+ {
+  "d": "La scala di sol maggiore ha il <em>fa</em> diesis.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e non l&rsquo;abbiamo deciso noi: l&rsquo;ha deciso la formula.",
+  "da": "Su un'altra nota"
+ },
+ {
+  "d": "Le alterazioni di una scala si imparano a memoria.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: <strong>si ricavano</strong>. Si applica la formula e si vede dove non torna.",
+  "da": "Su un'altra nota"
+ },
+ {
+  "d": "L&rsquo;ottavo grado &egrave; una nota nuova.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; di nuovo il primo, un&rsquo;ottava sopra.",
+  "da": "I gradi"
+ },
+ {
+  "d": "In do maggiore non serve nessuna alterazione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: &egrave; l&rsquo;unica scala maggiore che sta tutta sui tasti bianchi.",
+  "da": "Contiamo le distanze"
+ },
+ {
+  "d": "Il III grado di do maggiore &egrave; <em>mi</em>.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: do, re, <strong>mi</strong> &mdash; il terzo posto.",
+  "da": "I gradi"
+ },
+ {
+  "d": "Fra il VII e l&rsquo;VIII grado c&rsquo;&egrave; un tono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: un <strong>semitono</strong>. &Egrave; il secondo dei due.",
+  "da": "I due posti"
+ },
+ {
+  "d": "La formula riguarda i nomi delle note.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: riguarda le <strong>distanze</strong>. Per questo funziona partendo da qualunque nota.",
+  "da": "Su un'altra nota"
+ },
+ {
+  "d": "&laquo;Grado&raquo; vuol dire il posto che una nota occupa nella scala.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, contato dalla prima.",
+  "da": "I gradi"
+ },
+ {
+  "d": "In sol maggiore il settimo grado è <em>fa</em> diesis.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e per questo va alzato: fra VII e VIII ci vuole un semitono.",
+  "da": "Su un'altra nota"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">La formula</span>
+        <p><strong>T T S T T T S</strong>. I semitoni cadono <strong>III&ndash;IV</strong> e <strong>VII&ndash;I</strong>, in qualunque scala maggiore.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">La cosa da ricordare</span>
+        <p>Le alterazioni di una scala non si imparano a memoria: <strong>si ricavano</strong>. Si applica la formula e si vede dove non torna.</p>
+      </div>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">E il minore?</span>
+      <p>Ha gli stessi sette gradi, ma i semitoni cadono in <strong>altri due posti</strong>. &Egrave; tutta l&igrave; la differenza che sentite. Lo facciamo all&rsquo;unit&agrave; 6.</p>
+    </div>
+
+    <p class="didascalia">La prossima ora: si canta. Perch&eacute; una scala si capisce con la voce prima che con gli occhi.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Tre scale, e le alterazioni che servono.</strong> Sul quaderno costruisci le scale maggiori di <em>re</em>, di <em>fa</em> e di <em>la</em>.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-04.html#C1-U4-L2-02"><strong>Workbook</strong></a>, scheda C1-U4-L2-02.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","via":"uda-01","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"materiali":[{"titolo":"Workbook · unità 1","file":"../materiali/workbook-uda-01.html","stato":"pronta"},{"titolo":"Scheda di lavoro autonomo","file":"../materiali/scheda-lavoro-autonomo-1.html","stato":"pronta"},{"titolo":"Partiture da stampare","file":"../materiali/partiture-uda-01.html","stato":"pronta"}]},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"da preparare","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all'ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"pronta","lezioni":[{"n":1,"titolo":"Diesis, bemolle, bequadro: che cosa alterano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Segni di ottava e loro lettura","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato con alterazioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La suddivisione e i tempi composti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Bicordi: terze e seste all’ascolto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":1,"unita":4,"lezione":2}}</script>
+</body>
+</html>

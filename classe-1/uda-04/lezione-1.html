@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 1. Il tetracordo, mattone della scala | La scala maggiore</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=216f52da">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=4f0a53a2" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 1 · Il tetracordo, mattone della scala
+     Unità 4, ora 19 di 90 · classe 1ª · teoria
+
+     ══ MEZZ'ORA, NON UN'ORA ══
+     Su quest'ora cade una CODA DI ORALI di teoria — la calcola
+     `ore.code(1)`, e la copertina lo dice da sé. Tre studenti interrogati
+     a dieci minuti, e la classe che lavora sulla scheda a quattro gruppi.
+     Restano venti minuti di lezione frontale: sei slide, non dodici. Una
+     lezione scritta per cinquanta minuti in questo giorno non ci sta, e
+     il pezzo che si taglia in fretta è sempre l'ultimo, cioè quello che
+     tiene insieme il resto.
+
+     ══ IL DEBITO CHE SI COMINCIA A PAGARE ══
+     Unità 2, lezione 4, slide «Lo sentite già»: «I nomi sono due —
+     maggiore e minore — e per adesso non spieghiamo da dove vengono: lo
+     faremo fra due unità, con le scale». Due unità dopo la seconda è
+     questa. La classe riconosce maggiore e minore all'orecchio da sei ore
+     e non sa perché: l'unità intera serve a rispondere, e la risposta è
+     **dove cadono i due semitoni**.
+
+     Oggi però non si arriva ancora alla scala. Oggi si costruisce il
+     pezzo con cui la scala è fatta.
+
+     ══ PERCHÉ IL TETRACORDO, E NON DIRETTAMENTE LA SCALA ══
+     Si potrebbe dare la formula intera — tono tono semitono tono tono
+     tono semitono — e farla imparare. Sette intervalli in fila non si
+     ricordano: si ricordano male, e chi li ricorda male sbaglia sempre
+     nello stesso punto, il quarto grado.
+
+     Spezzata in due metà uguali diventa una cosa sola da ricordare:
+     **tono tono semitono**, due volte, con un tono in mezzo. E non è un
+     trucco mnemonico inventato qui — è come la scala è nata. Farina,
+     *Trattato di Armonia*, vol. 1, p. 99: «Base del sistema greco era il
+     tetracordo, cioè una serie di 4 suoni». Il genere diatonico lo
+     costruisce, p. 105, con «un semitono e due toni variamente disposti».
+
+     Cappellari, *Armonia, analisi e composizione*, p. 27, chiama le due
+     metà **tetracordo inferiore** e superiore, con la «successione di
+     intervalli di tono/tono/semitono». È uno dei pochi volumi della
+     biblioteca non passato per il riconoscimento ottico, quindi il passo
+     si può prendere così com'è.
+
+     ══ IL PREREQUISITO, E DOVE STA ══
+     Il tono serve, e c'è: unità 3, lezione 1, «due semitoni fanno un
+     tono». Ci è arrivato il 18 agosto, e prima non c'era — «semitono» si
+     usava dieci volte in quell'unità, verifica compresa, e «tono» non
+     compariva mai in tutta la classe 1. Da qui in avanti il tono non è
+     più solo un nome: diventa il metro con cui si misura.
+
+     ══ CHE COSA NON ENTRA ══
+     Non l'armatura (unità 5). Non gli intervalli come teoria (unità 7,
+     e c'è una promessa esplicita di tre settimane). Non le scale minori
+     (unità 6). Il minore si nomina soltanto, alla fine della lezione 2.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c1u4-lezione-1.jpg?v=3955245f');
+                --cop-a:#0c2a1f; --cop-b:#047857; --cop-c:#6ee7b7">
+  <div class="slide-interna">
+    <div class="occhiello">La scala maggiore &middot; UdA 4 &middot; Lezione 1 di 9</div>
+    <h1>Quattro note, e poi di nuovo quattro</h1>
+    <p class="sottotitolo">Sapete riconoscere il maggiore dal minore da sei ore. Oggi si comincia a capire <strong>da che cosa</strong> dipende quella differenza.</p>
+
+    <blockquote class="aforisma">
+      <p>Base del sistema greco era il tetracordo, cio&egrave; una serie di 4 suoni.</p>
+      <cite>Guido Farina, <em>Trattato di Armonia</em>, vol.&nbsp;1, p.&nbsp;99</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Teoria</span>
+      <span>Tetracordo</span>
+      <span class="coda-orali">Interrogazioni &middot; teoria e armonia</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Sette note, e un ordine">
+  <div class="slide-interna">
+    <h2>Le sette note le sapete. L&rsquo;ordine no.</h2>
+
+    <p>Da <em>do</em> a <em>do</em> ci sono sette note e poi si ricomincia. Questo lo sapete dall&rsquo;unit&agrave; 2.</p>
+
+    <p>Ma fra una nota e la successiva la distanza <strong>non &egrave; sempre la stessa</strong>. In certi punti c&rsquo;&egrave; un tono, in altri un semitono. E non &egrave; un dettaglio: &egrave; l&rsquo;unica cosa che distingue il maggiore dal minore.</p>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">La domanda dell&rsquo;unit&agrave;</span>
+      <p>Perch&eacute; una scala suona <em>maggiore</em>? Non perch&eacute; &egrave; allegra &mdash; quello l&rsquo;abbiamo gi&agrave; smontato. Perch&eacute; i due semitoni cadono in due posti precisi.</p>
+    </div>
+
+    <p class="didascalia">Oggi non arriviamo alla scala intera. Costruiamo il pezzo con cui &egrave; fatta.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il tetracordo">
+  <div class="slide-interna">
+    <h2>Quattro note, in un ordine solo</h2>
+
+    <p>Un <em class="termine">tetracordo</em> &egrave; un gruppo di <strong>quattro note vicine</strong>. La parola &egrave; greca e vuol dire «quattro corde»: nasce dalla cetra, dove quattro corde stavano sotto la mano senza spostarla.</p>
+
+    <tac-stave clef="treble" time="4/4" caption="Il tetracordo di do: do re mi fa" notes="c/4:q d/4:q e/4:q f/4:q" width="420" tempo="60" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">La misura, ed &egrave; una sola</span>
+      <p>Fra la prima e la seconda: un <strong>tono</strong>.<br>
+      Fra la seconda e la terza: un <strong>tono</strong>.<br>
+      Fra la terza e la quarta: un <strong>semitono</strong>.</p>
+      <p><strong>Tono &mdash; tono &mdash; semitono.</strong> Sempre in quest&rsquo;ordine.</p>
+    </div>
+
+    <p class="didascalia">Al pianoforte: da <em>do</em> a <em>re</em> si salta un tasto nero, da <em>re</em> a <em>mi</em> pure. Da <em>mi</em> a <em>fa</em> no: sono attaccati.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il semitono si vede">
+  <div class="slide-interna">
+    <h2>Il semitono sta in fondo, ed &egrave; l&rsquo;unico</h2>
+
+    <p>Sul rigo le quattro note sembrano equidistanti: una linea, uno spazio, una linea, uno spazio. <strong>Non lo sono</strong>, e il rigo non lo dice.</p>
+
+    <tac-piano from="c/4" to="f/4" highlight="e/4,f/4"></tac-piano>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">L&rsquo;errore che si fa qui</span>
+      <p>Contare le note invece delle <strong>distanze</strong>. Fra quattro note ci sono <em>tre</em> distanze, non quattro: &egrave; il conto che si sbaglia ogni volta.</p>
+    </div>
+
+    <p><em>Mi</em> e <em>fa</em> sono i due tasti bianchi senza nero in mezzo. Quello &egrave; il semitono, e sulla tastiera si vede a occhio.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Due tetracordi">
+  <div class="slide-interna">
+    <h2>E se ne mettiamo due?</h2>
+
+    <p>Prendiamo il tetracordo di <em>do</em>. Poi, partendo da <em>sol</em>, ne costruiamo un altro <strong>con la stessa misura</strong>: tono, tono, semitono.</p>
+
+    <tac-stave clef="treble" time="4/4" caption="Due tetracordi uguali: do re mi fa · sol la si do" notes="c/4:q d/4:q e/4:q f/4:q | g/4:q a/4:q b/4:q c/5:q" width="740" tempo="60" play></tac-stave>
+
+    <p>Otto note. Da <em>do</em> a <em>do</em>. &Egrave; la <strong>scala di do maggiore</strong> &mdash; e non l&rsquo;abbiamo cercata: &egrave; venuta fuori mettendo in fila due pezzi identici.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Il pezzo che tiene insieme</span>
+      <p>Fra il <em>fa</em> che chiude il primo e il <em>sol</em> che apre il secondo c&rsquo;&egrave; un <strong>tono</strong>. Serve: senza, i due gruppi si toccherebbero e la scala non tornerebbe.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; il tetracordo" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; il tetracordo</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 6 minuti</span>
+      <p>Cinque affermazioni sul gruppo di quattro note. Si risponde insieme, e chi risponde dice anche perch&eacute;.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "Un tetracordo &egrave; fatto di quattro note vicine.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. La parola &egrave; greca e vuol dire «quattro corde».",
+  "da": "Il tetracordo"
+ },
+ {
+  "d": "Le tre distanze di un tetracordo sono tono, tono, semitono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e sempre in quest&rsquo;ordine: il semitono sta in fondo.",
+  "da": "Il tetracordo"
+ },
+ {
+  "d": "Fra quattro note ci sono quattro distanze.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: ce ne sono <strong>tre</strong>. &Egrave; il conto che si sbaglia ogni volta.",
+  "da": "Il semitono si vede"
+ },
+ {
+  "d": "Nel tetracordo di do il semitono sta fra <em>mi</em> e <em>fa</em>.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: sono i due tasti bianchi senza nero in mezzo.",
+  "da": "Il semitono si vede"
+ },
+ {
+  "d": "Il semitono di un tetracordo sta all&rsquo;inizio.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sta <strong>in fondo</strong>. Tono, tono, semitono.",
+  "da": "Il tetracordo"
+ },
+ {
+  "d": "Due tetracordi uguali di fila fanno una scala maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, se fra l&rsquo;uno e l&rsquo;altro c&rsquo;&egrave; un tono.",
+  "da": "Due tetracordi"
+ },
+ {
+  "d": "Fra il <em>fa</em> e il <em>sol</em> che uniscono i due tetracordi c&rsquo;&egrave; un semitono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: c&rsquo;&egrave; un <strong>tono</strong>. Senza, la scala non tornerebbe.",
+  "da": "Due tetracordi"
+ },
+ {
+  "d": "Sul rigo si vede a occhio dove cade il semitono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sul rigo le quattro note sembrano equidistanti. Il rigo non lo dice, la tastiera s&igrave;.",
+  "da": "Il semitono si vede"
+ },
+ {
+  "d": "Da <em>do</em> a <em>re</em> c&rsquo;&egrave; un tono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: al pianoforte si salta il tasto nero in mezzo.",
+  "da": "Il tetracordo"
+ },
+ {
+  "d": "La parola «tetracordo» viene dalla cetra.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: quattro corde sotto la mano, senza spostarla.",
+  "da": "Il tetracordo"
+ },
+ {
+  "d": "Il tetracordo si usa solo nella musica greca antica.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; il pezzo con cui si costruisce la scala che usiamo oggi.",
+  "da": "Due tetracordi"
+ },
+ {
+  "d": "Due semitoni fanno un tono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e serve saperlo per misurare il tetracordo.",
+  "da": "Il tetracordo"
+ },
+ {
+  "d": "La scala di do maggiore ha otto note, da do a do.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: due tetracordi da quattro, e l&rsquo;ultima ripete la prima un&rsquo;ottava sopra.",
+  "da": "Due tetracordi"
+ },
+ {
+  "d": "Il secondo tetracordo della scala di do parte da <em>fa</em>.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: parte da <strong>sol</strong>. Il <em>fa</em> chiude il primo.",
+  "da": "Due tetracordi"
+ },
+ {
+  "d": "I due tetracordi di una scala maggiore hanno misure diverse.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sono <strong>uguali</strong>. Tono, tono, semitono tutti e due.",
+  "da": "Due tetracordi"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Il tetracordo</span>
+        <p>Quattro note vicine, misurate <strong>tono &mdash; tono &mdash; semitono</strong>. Il semitono sta sempre in fondo.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">La cosa da ricordare</span>
+        <p>Due tetracordi uguali, separati da un <strong>tono</strong>, fanno una scala maggiore. Non &egrave; una regola da imparare: &egrave; un conto che si rif&agrave;.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">La prossima ora: la scala intera, e la formula che ne esce &mdash; sette distanze in fila, e i due posti dove cade il semitono.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Quattro tetracordi da costruire.</strong> Sul quaderno, in chiave di violino: costruisci il tetracordo che parte da <em>sol</em>, da <em>fa</em>, da <em>re</em> e da <em>la</em>.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-04.html#C1-U4-L1-02"><strong>Workbook</strong></a>, scheda C1-U4-L1-02.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","via":"uda-01","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"materiali":[{"titolo":"Workbook · unità 1","file":"../materiali/workbook-uda-01.html","stato":"pronta"},{"titolo":"Scheda di lavoro autonomo","file":"../materiali/scheda-lavoro-autonomo-1.html","stato":"pronta"},{"titolo":"Partiture da stampare","file":"../materiali/partiture-uda-01.html","stato":"pronta"}]},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"da preparare","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all'ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"pronta","lezioni":[{"n":1,"titolo":"Diesis, bemolle, bequadro: che cosa alterano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Segni di ottava e loro lettura","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato con alterazioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La suddivisione e i tempi composti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Bicordi: terze e seste all’ascolto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":1,"unita":4,"lezione":1}}</script>
+</body>
+</html>

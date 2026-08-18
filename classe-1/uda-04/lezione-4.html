@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 4. Il circolo delle quinte con i diesis | La scala maggiore</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=216f52da">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=4f0a53a2" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 4 · Il circolo delle quinte con i diesis
+     Unità 4, ora 22 di 90 · classe 1ª · teoria
+
+     ══ ORA INTERA, ED È LA PIÙ PIENA DELL'UNITÀ ══
+     Niente coda. Nove slide, e sono giustificate: qui non si aggiunge un
+     concetto, si scopre un **ordine**. La scoperta ha bisogno di essere
+     fatta, non raccontata, e farla richiede passi.
+
+     ══ IL FILO ══
+     Alla lezione 2 la classe ha visto che sol maggiore vuole il fa
+     diesis. Qui si va avanti di quinta ogni volta e si guarda che cosa
+     succede: un diesis in più, e sempre **quello nuovo è la sensibile**
+     della tonalità nuova. Il diesis non si aggiunge a caso: si aggiunge
+     dove la formula lo chiede, cioè al VII grado.
+
+     La scoperta è che i diesis arrivano in un ordine fisso — fa, do, sol,
+     re, la, mi, si — e che quell'ordine è di nuovo una catena di quinte.
+     Due volte la stessa struttura: le tonalità procedono per quinte, e i
+     diesis pure.
+
+     ══ CHE COSA NON ENTRA, E QUI SERVE DISCIPLINA ══
+     · I BEMOLLI. Sono l'unità 5, lezione 1. La tentazione di «già che ci
+       siamo» è forte e va rifiutata: raddoppierebbe l'ora e toglierebbe
+       l'apertura all'unità dopo.
+     · L'ARMATURA DI CHIAVE. Unità 5, lezione 2. Oggi i diesis si scrivono
+       **davanti alle note**, come si è sempre fatto. Che si possano
+       raccogliere in cima al rigo è la scoperta della prossima unità, e
+       anticiparla qui la sprecherebbe.
+     · IL NOME «SENSIBILE». È della lezione 5. Qui si dice «il settimo
+       grado», che la classe ha imparato ieri l'altro.
+
+     ══ LA FONTE ══
+     Avena, *Teoria & armonia, prima parte*, p. 95: la definizione del
+     circolo come «serie contigua di dodici intervalli» di quinta, e a
+     p. 97 la cosa che alla classe interessa davvero — percorrendolo tutto
+     si torna alla nota di partenza. Il cerchio si chiude, e questo si può
+     dire oggi anche senza i bemolli.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c1u4-lezione-4.jpg?v=de840902');
+                --cop-a:#3b1d0e; --cop-b:#c2410c; --cop-c:#fdba74">
+  <div class="slide-interna">
+    <div class="occhiello">La scala maggiore &middot; UdA 4 &middot; Lezione 4 di 9</div>
+    <h1>Un diesis per volta, e non a caso</h1>
+    <p class="sottotitolo">Sol maggiore vuole un <em>fa</em> diesis. Re maggiore ne vuole due. Oggi si scopre che non &egrave; un elenco da imparare: &egrave; una catena.</p>
+
+    <blockquote class="aforisma">
+      <p>Il circolo delle quinte &egrave; la serie contigua di dodici intervalli di quinta.</p>
+      <cite>Andrea Avena, <em>Teoria &amp; armonia, prima parte</em>, p.&nbsp;95</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Teoria</span>
+      <span>Circolo delle quinte</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Da dove riprendiamo">
+  <div class="slide-interna">
+    <h2>Dove eravamo rimasti</h2>
+
+    <p>Alla lezione 2 abbiamo costruito la scala di <em>sol</em> tenendo la formula, e ci siamo accorti che il <em>fa</em> doveva essere diesis.</p>
+
+    <tac-stave clef="treble" time="4/4" caption="Sol maggiore" notes="g/4:q a/4:q b/4:q c/5:q | d/5:q e/5:q f#/5:q g/5:q" width="600" tempo="60" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">E il diesis non era una scelta</span>
+      <p>Serviva perch&eacute; fra il <strong>settimo grado</strong> e l&rsquo;ottavo ci vuole un semitono. Col <em>fa</em> naturale sarebbe stato un tono, e la scala non sarebbe stata maggiore.</p>
+    </div>
+
+    <p class="didascalia">Oggi facciamo la stessa cosa un&rsquo;altra volta. E poi un&rsquo;altra ancora.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Ancora una quinta">
+  <div class="slide-interna">
+    <h2>Da <em>sol</em>, saliamo di un&rsquo;altra quinta</h2>
+
+    <p>Da <em>do</em> a <em>sol</em> ci sono cinque gradi. Facciamo lo stesso passo da <em>sol</em>: si arriva a <em>re</em>.</p>
+
+    <tac-stave clef="treble" time="4/4" caption="Re maggiore: due diesis" notes="d/4:q e/4:q f#/4:q g/4:q | a/4:q b/4:q c#/5:q d/5:q" width="600" tempo="60" play></tac-stave>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Guardate quale diesis &egrave; arrivato</span>
+      <p>Il <em>fa</em> diesis c&rsquo;era gi&agrave;. Quello nuovo &egrave; il <strong>do diesis</strong>, ed &egrave; ancora una volta il <strong>settimo grado</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="La regola">
+  <div class="slide-interna">
+    <h2>La regola, in una riga</h2>
+
+    <div class="riquadro definizione">
+      <p class="grande">Ogni quinta in su &rarr; <strong>un diesis in pi&ugrave;</strong><br>
+      e il diesis nuovo &egrave; sempre il <strong>settimo grado</strong>.</p>
+    </div>
+
+    <p>Non &egrave; una coincidenza e non &egrave; una regola da imparare a memoria: &egrave; una conseguenza. La formula chiede il semitono fra il settimo e l&rsquo;ottavo, e salendo di quinta il settimo grado cade ogni volta su una nota che senza diesis non ce l&rsquo;avrebbe.</p>
+
+    <p class="didascalia">Da qui in avanti si pu&ograve; andare avanti da soli. Ed &egrave; quello che facciamo.</p>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo &middot; la catena" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Andiamo avanti insieme</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo &middot; 12 minuti</span>
+      <p>Sul quaderno, uno per volta alla lavagna: dopo <em>re</em>, la quinta successiva &egrave; <em>la</em>. Poi <em>mi</em>, poi <em>si</em>. Per ciascuna: da che nota parte, quanti diesis ha, e <strong>quale</strong> &egrave; il diesis nuovo.</p>
+    </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">Attenzione a questo</span>
+      <p>Non contate i diesis a memoria: <strong>ricavateli</strong>. Si scrive la scala, si applica T T S T T T S, e si vede dove non torna.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="L'ordine dei diesis">
+  <div class="slide-interna">
+    <h2>E adesso guardate l&rsquo;ordine in cui sono arrivati</h2>
+
+    <div class="riquadro definizione">
+      <p class="grande"><strong>fa &nbsp; do &nbsp; sol &nbsp; re &nbsp; la &nbsp; mi &nbsp; si</strong></p>
+      <p>&Egrave; l&rsquo;ordine in cui i diesis si aggiungono, sempre. Il primo &egrave; il <em>fa</em>, il secondo il <em>do</em>, e cos&igrave; via.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">E adesso la cosa che sorprende</span>
+      <p>Da <em>fa</em> a <em>do</em> c&rsquo;&egrave; una quinta. Da <em>do</em> a <em>sol</em> una quinta. Da <em>sol</em> a <em>re</em> una quinta. <strong>Anche i diesis vanno per quinte.</strong></p>
+    </div>
+
+    <p class="didascalia">Due volte la stessa catena: le tonalit&agrave; salgono di quinta, e i diesis pure. Non &egrave; un caso &mdash; &egrave; la stessa cosa vista da due parti.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il cerchio">
+  <div class="slide-interna">
+    <h2>Perch&eacute; si chiama <em>circolo</em></h2>
+
+    <p>Se si continua a salire di quinta non si va avanti all&rsquo;infinito: dopo dodici passi si torna alla nota di partenza. La catena si chiude, ed &egrave; per questo che si disegna come un cerchio.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Dove siamo arrivati oggi</span>
+      <p><em>do</em> (nessun diesis) &rarr; <em>sol</em> (1) &rarr; <em>re</em> (2) &rarr; <em>la</em> (3) &rarr; <em>mi</em> (4) &rarr; <em>si</em> (5)</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">E l&rsquo;altra met&agrave; del cerchio?</span>
+      <p>Si va anche <strong>in gi&ugrave;</strong> di quinta, e da quella parte arrivano i <strong>bemolli</strong>. &Egrave; la prima ora della prossima unit&agrave;.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; la catena delle quinte" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; la catena delle quinte</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 8 minuti</span>
+      <p>Cinque affermazioni sul circolo. Chi risponde dice anche perch&eacute;.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "Salendo di una quinta si aggiunge un diesis.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e quello nuovo &egrave; sempre il settimo grado.",
+  "da": "La regola"
+ },
+ {
+  "d": "Il diesis nuovo &egrave; sempre il settimo grado della tonalit&agrave; nuova.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: la formula chiede il semitono fra VII e VIII.",
+  "da": "La regola"
+ },
+ {
+  "d": "Re maggiore ha tre diesis.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: ne ha <strong>due</strong>, fa e do. Tre &egrave; la maggiore.",
+  "da": "Ancora una quinta"
+ },
+ {
+  "d": "L&rsquo;ordine dei diesis &egrave; fa, do, sol, re, la, mi, si.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; sempre quello.",
+  "da": "L'ordine dei diesis"
+ },
+ {
+  "d": "Anche i diesis, fra loro, vanno per quinte.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: da fa a do c&rsquo;&egrave; una quinta, da do a sol pure. La stessa catena vista da due parti.",
+  "da": "L'ordine dei diesis"
+ },
+ {
+  "d": "Il primo diesis che compare &egrave; il do.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: il primo &egrave; il <strong>fa</strong>.",
+  "da": "L'ordine dei diesis"
+ },
+ {
+  "d": "Sol maggiore ha un diesis.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: il fa diesis.",
+  "da": "Da dove riprendiamo"
+ },
+ {
+  "d": "Continuando a salire di quinta non si torna mai al punto di partenza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: dopo dodici passi il cerchio si chiude. Per questo si chiama circolo.",
+  "da": "Il cerchio"
+ },
+ {
+  "d": "Scendendo di quinta arrivano i bemolli.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; l&rsquo;altra met&agrave; del cerchio: la facciamo all&rsquo;unit&agrave; 5.",
+  "da": "Il cerchio"
+ },
+ {
+  "d": "La maggiore ha quattro diesis.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: ne ha <strong>tre</strong>. Quattro &egrave; mi maggiore.",
+  "da": "Proviamo &middot; la catena"
+ },
+ {
+  "d": "Il numero dei diesis si impara a memoria.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si <strong>ricava</strong>. Si scrive la scala e si vede dove la formula non torna.",
+  "da": "Proviamo &middot; la catena"
+ },
+ {
+  "d": "Mi maggiore ha quattro diesis.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: fa, do, sol, re.",
+  "da": "L'ordine dei diesis"
+ },
+ {
+  "d": "Il circolo si chiude dopo sette passi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: dopo <strong>dodici</strong>.",
+  "da": "Il cerchio"
+ },
+ {
+  "d": "Si va di quinta anche in giù.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è da quella parte che arrivano i bemolli.",
+  "da": "Il cerchio"
+ },
+ {
+  "d": "Passando da sol a re maggiore, il diesis nuovo è il <em>do</em>.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: il fa c’era già, e il do è il settimo grado di re.",
+  "da": "Ancora una quinta"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">La catena</span>
+        <p>Ogni quinta in su, un diesis in pi&ugrave;, e quello nuovo &egrave; il <strong>settimo grado</strong>.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">L&rsquo;ordine dei diesis</span>
+        <p><strong>fa do sol re la mi si</strong> &mdash; e anche loro vanno per quinte.</p>
+      </div>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Una cosa che non abbiamo ancora fatto</span>
+      <p>Finora i diesis li abbiamo scritti <strong>davanti alle note</strong>, uno per uno. Si possono raccogliere tutti in cima al rigo, una volta sola: si chiama <em>armatura</em>, e si fa nell&rsquo;unit&agrave; 5.</p>
+    </div>
+
+    <p class="didascalia">La prossima ora: dentro la scala non tutti i gradi contano uguale. Due hanno un nome, e si sentono.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. La catena, fino a mi maggiore.</strong> Sul quaderno: scrivi le scale di <em>la</em> maggiore e di <em>mi</em> maggiore.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-04.html#C1-U4-L4-02"><strong>Workbook</strong></a>, scheda C1-U4-L4-02.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","via":"uda-01","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"materiali":[{"titolo":"Workbook · unità 1","file":"../materiali/workbook-uda-01.html","stato":"pronta"},{"titolo":"Scheda di lavoro autonomo","file":"../materiali/scheda-lavoro-autonomo-1.html","stato":"pronta"},{"titolo":"Partiture da stampare","file":"../materiali/partiture-uda-01.html","stato":"pronta"}]},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"da preparare","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all'ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"pronta","lezioni":[{"n":1,"titolo":"Diesis, bemolle, bequadro: che cosa alterano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Segni di ottava e loro lettura","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato con alterazioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La suddivisione e i tempi composti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Bicordi: terze e seste all’ascolto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":1,"unita":4,"lezione":4}}</script>
+</body>
+</html>

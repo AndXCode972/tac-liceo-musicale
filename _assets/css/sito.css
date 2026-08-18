@@ -63,11 +63,23 @@ body {
    a partire dai dati d'ascolto. Da vicino non si capisce; da
    lontano è la musica di cui parliamo.
    ------------------------------------------------------------ */
+/* I TRE COLORI DELLA FASCIA SONO VARIABILI, E OGNI CLASSE HA I SUOI.
+
+   Prima erano scritti qui dentro, uguali per tutti: cinque classi e una
+   sola fascia viola. Adesso la pagina li dichiara, e questi sono i valori
+   del corso — chi non dice niente resta com'era.
+
+   Andrea, 18 agosto: «possiamo anche differenziare il colore di fondo
+   classe per classe». Non è decorazione: il colore dice a chi apre una
+   pagina in quale anno si trova, prima di aver letto il titolo. */
 .testata {
+  --t-a: #1e1b4b;
+  --t-b: #4c1d95;
+  --t-c: #155e75;
   position: relative;
   overflow: hidden;
   color: #fff;
-  background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 45%, #155e75 100%);
+  background: linear-gradient(135deg, var(--t-a) 0%, var(--t-b) 45%, var(--t-c) 100%);
 }
 .testata::after {
   content: ''; position: absolute; inset: 0;
@@ -87,14 +99,101 @@ body {
   background-size: cover;
   background-position: center 62%;
 }
+/* LA VELATURA NON DEVE RICOLORARE L'IMMAGINE.
+
+   Prima era una sfumatura **viola all'82-90%**: qualunque fotografia ci
+   stesse sotto era invisibile, e la fascia sembrava una tinta piatta.
+   Alleggerirla non bastava, ed è stato il secondo errore: Andrea, 18
+   agosto, «attenzione alle velature che modificano i colori delle
+   immagini». Un velo colorato al 60% non scurisce soltanto, **sposta la
+   tinta**: l'immagine della quinta diventava tutta verde e quella della
+   quarta tutta rossa, e dell'opera scelta non restava il colore.
+
+   Quindi due strati separati, che fanno due lavori diversi:
+
+     · un velo **neutro** — nero, senza tinta — forte a sinistra dove sta
+       il titolo e trasparente a destra. Scurisce quel che deve senza
+       toccare i colori: è la stessa forma della velatura riparata sulle
+       copertine delle lezioni il 17 agosto;
+     · una **punta di colore della classe**, che dice a chi apre la
+       pagina in quale anno si trova.
+
+   E quanta tinta si può mettere **non è uguale per tutte**: dipende da
+   quanto è satura l'immagine sotto. Misurata la saturazione media delle
+   sei testate, e misurato di quanti gradi si sposta la tinta della parte
+   scoperta, viene fuori che su un'immagine viva il 14% non si sente (la
+   terza si sposta di 2 gradi, la quarta di 17), mentre su una quasi
+   grigia lo stesso 14% la colora tutta — la prima, che è beige e bianca,
+   si spostava di 41 gradi, la seconda di 68.
+
+   Quindi `--t-velo` sta nella pagina, non qui: **0 per la prima**, che è
+   quasi monocroma e va lasciata com'è; **8% per la seconda**; **14% per
+   le altre**. Il valore si ricava dalla saturazione, non a occhio.
+
+   Il colore della classe fa il suo lavoro vero altrove — i numeri delle
+   unità, i bordi, le scorciatoie — dove non c'è una fotografia sotto. */
 .testata.foto::before {
   content: ''; position: absolute; inset: 0; z-index: 0;
-  background: linear-gradient(135deg,
-    rgba(30, 27, 75, .90) 0%, rgba(76, 29, 149, .82) 45%, rgba(21, 94, 117, .88) 100%);
+  background:
+    linear-gradient(103deg,
+      rgba(6, 8, 20, .86)  0%,
+      rgba(6, 8, 20, .78) 26%,
+      rgba(6, 8, 20, .44) 46%,
+      rgba(6, 8, 20, .14) 64%,
+      rgba(6, 8, 20, 0)   80%),
+    linear-gradient(0deg,
+      color-mix(in srgb, var(--t-b) var(--t-velo, 14%), transparent),
+      color-mix(in srgb, var(--t-b) var(--t-velo, 14%), transparent));
+}
+/* Senza `color-mix` resta il solo velo neutro: si perde la punta di
+   colore, non la leggibilità. */
+@supports not (color: color-mix(in srgb, red 50%, transparent)) {
+  .testata.foto::before {
+    background: linear-gradient(103deg,
+      rgba(6, 8, 20, .86) 0%, rgba(6, 8, 20, .78) 26%,
+      rgba(6, 8, 20, .44) 46%, rgba(6, 8, 20, .14) 64%,
+      rgba(6, 8, 20, 0) 80%);
+  }
 }
 .testata.foto::after { z-index: 1; opacity: .3; }
 .testata.foto > * { z-index: 2; }
 .testata > * { position: relative; z-index: 1; }
+
+
+/* ------------------------------------------------------------
+   1-bis. LE SCORCIATOIE
+
+   I materiali — Workbook, fascicolo di solfeggio, partiture — stavano in
+   fondo alla pagina, dopo undici unità. C'erano, e per arrivarci
+   bisognava scorrere tutto. Andrea, 18 agosto: «mancano dei collegamenti
+   più diretti al workbook e al fascicolo di solfeggio».
+
+   Una cosa che esiste ma sta dopo undici sezioni, per chi la cerca in
+   aula con la classe che aspetta, è come se non ci fosse. Quindi una
+   barra subito sotto la testata, prima delle unità.
+
+   Il libro c'è come voce ma è spento: dice che è in preparazione invece
+   di tacere. Una voce mancante fa credere che il libro non esista; una
+   voce spenta dice che sta arrivando, ed è quello che vogliamo.
+   ------------------------------------------------------------ */
+.scorciatoie {
+  max-width: 1060px; margin: -1.6rem auto 2.2rem; padding: 0 5vw;
+  display: flex; flex-wrap: wrap; gap: .7rem;
+  position: relative; z-index: 3;
+}
+.scorciatoie a, .scorciatoie span.spenta {
+  display: inline-flex; align-items: baseline; gap: .5rem;
+  padding: .72rem 1.1rem; border-radius: 999px;
+  background: #fff; border: 1px solid rgba(15, 23, 42, .10);
+  box-shadow: 0 3px 14px rgba(15, 23, 42, .10);
+  font-size: .95rem; text-decoration: none; color: var(--inchiostro, #1e293b);
+}
+.scorciatoie a:hover { border-color: var(--t-b, #4c1d95); box-shadow: 0 5px 20px rgba(15, 23, 42, .16); }
+.scorciatoie .che { font-weight: 700; color: var(--t-b, #4c1d95); }
+.scorciatoie .come { color: #64748b; font-size: .87rem; }
+.scorciatoie span.spenta { opacity: .58; box-shadow: none; }
+.scorciatoie span.spenta .che { color: #64748b; }
+@media print { .scorciatoie { display: none; } }
 
 .testata-interna { max-width: 1060px; margin: 0 auto; padding: 4.5rem 5vw 3.5rem; }
 .testata.bassa .testata-interna { padding: 2.6rem 5vw 2.2rem; }

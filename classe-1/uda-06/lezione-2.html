@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 2. La minore armonica e il grado di sensibile | Le scale minori</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=216f52da">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=4f0a53a2" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 2 · La minore armonica e il grado di sensibile
+     Unità 6, ora 35 di 90 · classe 1ª · teoria
+
+     ══ MEZZ'ORA ══
+     Coda di orali, di teoria. Sette slide, venti minuti.
+
+     ══ SI SENTE PRIMA DI SPIEGARLO ══
+     Zanettovich, cap. 27, propone di «verificare empiricamente» che una
+     conclusione con la sottotonica non convince. È esattamente quello
+     che si fa qui, e va fatto **prima** di qualunque definizione: si
+     suonano due frasi di quattro note, una col sol naturale e una col
+     sol♯, e si chiede quale delle due finisce.
+
+     La classe risponde giusto. Sempre. Il colore del minore lo
+     riconoscono dall'unità 2, e la sensibile la conoscono dall'unità 4:
+     hanno tutto quello che serve per sentirlo, e niente per dirlo. Il
+     nome arriva dopo, e arriva su una cosa già percepita.
+
+     ══ IL NOME NUOVO ══
+     **Sottotonica.** Il settimo grado della minore naturale sta a un
+     TONO dalla tonica, non a un semitono: non è una sensibile, è
+     un'altra cosa e ha un altro nome (Zanettovich p. 165; Cappellari
+     TAP vol. 1 p. 85, in nota).
+
+     Vale la pena darlo, il nome. Senza, l'unica cosa che si può dire è
+     «il settimo grado che non è la sensibile», che è una perifrasi e non
+     si ricorda.
+
+     ══ L'ERRORE CHE FARANNO, ANNUNCIATO QUI ══
+     Metteranno il sol♯ in armatura. È prevedibile e va detto prima: la
+     lezione 5 dell'unità scorsa ha appena insegnato che i segni si
+     raccolgono in cima al rigo, e adesso arriva un segno che in cima al
+     rigo non ci va.
+
+     Zanettovich: l'innalzamento «non interferirà sull'armatura tonale
+     della scala, ma si manifesterà come alterazione transitoria».
+     Cappellari lo mette in nota a fondo pagina. Qui è un riquadro
+     d'attenzione, perché è il difetto dell'unità.
+
+     ══ CHE COSA NON ENTRA ══
+     **La seconda eccedente.** Alzando il settimo si apre una distanza di
+     un tono e mezzo fra VI e VII, ed è il problema che genera la
+     melodica. Ma è la lezione 4 che lo scopre, e scoprirlo è metà del
+     suo lavoro. Qui si esce con la minore armonica in mano e nessun
+     sospetto.
+
+     **La ragione armonica vera**, cioè l'accordo di dominante. Le triadi
+     sono l'unità 8. Qui l'argomento resta melodico: la frase arriva o
+     non arriva.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c1u6-lezione-2.jpg?v=a9be3bb7');
+                --cop-a:#1a0f2e; --cop-b:#6d28d9; --cop-c:#c4b5fd">
+  <div class="slide-interna">
+    <div class="occhiello">Le scale minori &middot; UdA 6 &middot; Lezione 2 di 9</div>
+    <h1>Manca qualcosa, e si sente</h1>
+    <p class="sottotitolo">La scala di ieri, cos&igrave; com&rsquo;&egrave;, non riesce a chiudere una frase. Oggi si scopre perch&eacute;, e si rimedia con un segno solo.</p>
+
+    <blockquote class="aforisma">
+      <p>Il settimo grado non acquista la qualit&agrave; di sensibile se non quando trovasi alla distanza di un semitono dalla tonica.</p>
+      <cite>Cesare de Sanctis, <em>Trattato d&rsquo;armonia</em>, p.&nbsp;47</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Teoria</span>
+      <span>Minore armonica &middot; Sensibile</span>
+      <span class="coda-orali">Interrogazioni &middot; teoria e armonia</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Due frasi">
+  <div class="slide-interna">
+    <h2>Due frasi. Quale delle due finisce?</h2>
+
+    <p>Non guardate le note: <strong>ascoltate</strong>. Le due frasi hanno le stesse prime tre note.</p>
+
+    <tac-stave clef="treble" time="3/4" caption="Prima" notes="c/5:q b/4:q g/4:q | a/4:h." width="420" tempo="52" play></tac-stave>
+
+    <tac-stave clef="treble" time="3/4" caption="Seconda" notes="c/5:q b/4:q g#/4:q | a/4:h." width="420" tempo="52" play></tac-stave>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Una parola sola, sul quaderno</span>
+      <p>Quale delle due <strong>arriva a casa</strong>? E, se ci riuscite: che cosa &egrave; cambiato?</p>
+    </div>
+
+    <p class="didascalia">Rispondono tutti giusto, e quasi nessuno sa dire perch&eacute;. Il perch&eacute; &egrave; la lezione di oggi.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il buco">
+  <div class="slide-interna">
+    <h2>Guardate il settimo grado della minore</h2>
+
+    <p>Nella scala di la minore naturale, fra il <strong>sol</strong> e il <strong>la</strong> c&rsquo;&egrave; un <strong>tono</strong>.</p>
+
+    <tac-stave clef="treble" time="4/4" caption="Gli ultimi due gradi: un tono di distanza" notes="g/5:h a/5:h" width="300" tempo="50" play></tac-stave>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">E allora non &egrave; una sensibile</span>
+      <p>La sensibile, l&rsquo;avete imparata all&rsquo;unit&agrave; 4: sta a <strong>un semitono</strong> dalla tonica, ed &egrave; da l&igrave; che viene la sua tensione. Qui il semitono non c&rsquo;&egrave;.</p>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Ha un nome suo</span>
+      <p>Un settimo grado che sta a un <strong>tono</strong> dalla tonica si chiama <strong>sottotonica</strong>. Non &egrave; una sensibile mal riuscita: &egrave; un&rsquo;altra cosa.</p>
+    </div>
+
+    <p class="didascalia">La prima frase finiva con la sottotonica. Ecco perch&eacute; restava sospesa.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il rimedio">
+  <div class="slide-interna">
+    <h2>Si alza il settimo grado di un semitono</h2>
+
+    <p>Il <em>sol</em> diventa <em>sol</em>&#9839;, e la distanza dalla tonica diventa un semitono. La sensibile c&rsquo;&egrave;.</p>
+
+    <tac-stave clef="treble" time="4/4" caption="La minore armonica" notes="a/4:q b/4:q c/5:q d/5:q | e/5:q f/5:q g#/5:q a/5:q" width="640" tempo="66" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Come si chiama</span>
+      <p><strong>Scala minore armonica</strong>: la minore naturale col <strong>settimo grado innalzato</strong>. L&rsquo;innalzamento vale anche scendendo.</p>
+    </div>
+
+    <p class="didascalia">Si chiama <em>armonica</em> perch&eacute; il problema che risolve &egrave; di armonia: lo vedrete per intero quando arriveranno gli accordi, all&rsquo;unit&agrave; 10. Per adesso vi basta l&rsquo;orecchio, e vi &egrave; bastato.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Non in armatura">
+  <div class="slide-interna">
+    <h2>E adesso l&rsquo;errore che state per fare</h2>
+
+    <p>La tentazione, dopo l&rsquo;unit&agrave; scorsa, &egrave; scrivere il <em>sol</em>&#9839; <strong>in cima al rigo</strong>, insieme agli altri segni. Non ci va.</p>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Perch&eacute; no</span>
+      <p>L&rsquo;armatura di la minore &egrave; <strong>quella della sua relativa</strong>: nessun segno, come do maggiore. Il <em>sol</em>&#9839; si scrive <strong>davanti alla nota</strong>, dentro la battuta, ogni volta che serve.</p>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Il nome della cosa</span>
+      <p>Si chiama <strong>alterazione transitoria</strong>. Sta nella battuta, vale fino alla stanghetta, e non tocca l&rsquo;armatura.</p>
+    </div>
+
+    <p class="didascalia">Se il <em>sol</em>&#9839; finisse in armatura, l&rsquo;armatura direbbe un&rsquo;altra tonalit&agrave;: un diesis vuol dire sol maggiore o mi minore. Sarebbe scritto un pezzo diverso.</p>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; sensibile e sottotonica" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; sensibile e sottotonica</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 5 minuti</span>
+      <p>Cinque affermazioni. La quarta &egrave; quella che sbaglia pi&ugrave; di met&agrave; classe.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "Nella minore naturale il settimo grado è una sensibile.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sta a un <strong>tono</strong> dalla tonica, e si chiama <strong>sottotonica</strong>.",
+  "da": "Il buco"
+ },
+ {
+  "d": "La sensibile sta a un semitono dalla tonica.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è da quella vicinanza che viene tutta la sua tensione.",
+  "da": "Il buco"
+ },
+ {
+  "d": "La minore armonica ha il settimo grado innalzato.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, di un semitono, e l'innalzamento vale anche scendendo.",
+  "da": "Il rimedio"
+ },
+ {
+  "d": "Il sol&#9839; della minore armonica di la si scrive in armatura.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed è l'errore dell'unità. Si scrive <strong>davanti alla nota</strong>: è un'alterazione transitoria.",
+  "da": "Non in armatura"
+ },
+ {
+  "d": "L'armatura di la minore è la stessa di do maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: nessun segno. La relativa dà l'armatura, sempre.",
+  "da": "Non in armatura"
+ },
+ {
+  "d": "Un'alterazione transitoria vale fino alla fine del brano.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: vale fino alla <strong>stanghetta</strong>. È l'armatura che vale per tutto.",
+  "da": "Non in armatura"
+ },
+ {
+  "d": "Si chiama «armonica» perché il problema che risolve è di armonia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. Lo vedrete per intero quando arriveranno gli accordi.",
+  "da": "Il rimedio"
+ },
+ {
+  "d": "Una frase che finisce con la sottotonica suona conclusa quanto una che finisce con la sensibile.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e l'avete sentito: resta sospesa.",
+  "da": "Due frasi"
+ },
+ {
+  "d": "Nella minore armonica di mi, il settimo grado alzato è re&#9839;.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: il settimo grado di mi minore è re, e alzato diventa re&#9839;.",
+  "da": "Il rimedio"
+ },
+ {
+  "d": "Se il sol&#9839; finisse in armatura, l'armatura direbbe un'altra tonalità.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: un diesis vuol dire sol maggiore o mi minore. Sarebbe scritto un altro pezzo.",
+  "da": "Non in armatura"
+ },
+ {
+  "d": "La minore armonica sale in un modo e scende in un altro.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è la <strong>melodica</strong> che lo fa. L'armonica tiene il settimo alzato nei due versi.",
+  "da": "Il rimedio"
+ },
+ {
+  "d": "Nella minore armonica di re, il settimo grado alzato è do&#9839;.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. E l'armatura resta quella di fa maggiore: un bemolle.",
+  "da": "Il rimedio"
+ },
+ {
+  "d": "La sottotonica è una sensibile venuta male.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è un'altra cosa e ha un altro nome. Non è un difetto, è una distanza diversa.",
+  "da": "Il buco"
+ },
+ {
+  "d": "Nella minore armonica l'alterazione del settimo grado c'è anche scendendo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: è la melodica che la toglie in discesa, non l'armonica.",
+  "da": "Il rimedio"
+ },
+ {
+  "d": "L'armatura di una tonalità minore è quella della sua relativa maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, sempre, per tutte e tre le forme della minore.",
+  "da": "Non in armatura"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo &middot; alzare il settimo" data-segno
+         style="--segno: url('../../_assets/segni/segno-11.png')">
+  <div class="slide-interna">
+    <h2>Tre minori, e il settimo da alzare</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo &middot; 8 minuti</span>
+      <p>Sul quaderno, scrivete la scala <strong>minore armonica</strong> di: <strong>1</strong> <em>mi</em> minore &nbsp;&middot;&nbsp; <strong>2</strong> <em>re</em> minore &nbsp;&middot;&nbsp; <strong>3</strong> <em>si</em> minore.</p>
+      <p>Per ciascuna dite anche: <strong>qual &egrave; l&rsquo;armatura</strong>, e <strong>quale segno</strong> avete dovuto mettere dentro la battuta.</p>
+    </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">I due passi, in quest&rsquo;ordine</span>
+      <p><strong>1</strong> &middot; prima la scala <strong>naturale</strong>, con la sola armatura della relativa maggiore.<br>
+      <strong>2</strong> &middot; poi si alza il settimo grado, e il segno si scrive <strong>davanti alla nota</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Sottotonica e sensibile</span>
+        <p>A un <strong>tono</strong> dalla tonica: sottotonica, e la frase resta sospesa.<br>
+        A un <strong>semitono</strong>: sensibile, e la frase arriva.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">La minore armonica</span>
+        <p>Settimo grado <strong>innalzato</strong>, salendo e scendendo. Il segno sta <strong>dentro la battuta</strong>, mai in armatura.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">La prossima ora si canta: il <em>sol</em>&#9839; a voce &egrave; un&rsquo;altra cosa che sulla carta. Poi, alla lezione 4, si guarda meglio che cosa abbiamo fatto alzando quel settimo &mdash; perch&eacute; abbiamo aggiustato una cosa e ne abbiamo rotta un&rsquo;altra.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Cinque minori armoniche.</strong> Scrivi la scala minore <strong>armonica</strong> di <em>la</em>, <em>mi</em>, <em>re</em>, <em>si</em> e <em>sol</em>.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-06.html#C1-U6-L2-02"><strong>Workbook</strong></a>, scheda C1-U6-L2-02.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"pronta","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all’ascolto: il primo colore","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"pronta","lezioni":[{"n":1,"titolo":"Diesis, bemolle, bequadro: che cosa alterano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Segni di ottava e loro lettura","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato con alterazioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La suddivisione e i tempi composti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Bicordi: terze e seste all’ascolto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"pronta","lezioni":[{"n":1,"titolo":"Il tetracordo, mattone della scala","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La scala diatonica maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione della scala di Do","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il circolo delle quinte con i diesis","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La scala armonizzata: tonica e dominante","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in Do","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Riconoscere tonica e dominante in un brano","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: scrivere una scala su qualunque nota","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico entro la quinta","file":"lezione-9.html","stato":"pronta"}],"via":"uda-04"},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"pronta","lezioni":[{"n":1,"titolo":"Il circolo con i bemolli","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le armature di chiave: come si leggono","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato melodico in Do e in Sol","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Trovare la tonica dall’armatura","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Solfeggio cantato con armatura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V2 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-05"},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"pronta","lezioni":[{"n":1,"titolo":"Il modo minore naturale, e le tonalità relative","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La minore armonica e il grado di sensibile","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione nel modo minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Perché la settima si alza","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La minore melodica, e perché cambia salendo e scendendo","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in modo minore","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Le tre minori a confronto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: le tre minori scritte su una nota data","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico in modo minore","file":"lezione-9.html","stato":"pronta"}],"via":"uda-06"},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"da preparare","lezioni":[{"n":1,"titolo":"Quantità dell’intervallo: contare i gradi","file":"lezione-1.html","stato":"in preparazione"},{"n":2,"titolo":"Qualità: giusti, maggiori, minori","file":"lezione-2.html","stato":"in preparazione"},{"n":3,"titolo":"Intonazione degli intervalli entro la quinta","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"Aumentati, diminuiti, enarmonia","file":"lezione-4.html","stato":"in preparazione"},{"n":5,"titolo":"L’inversione degli intervalli","file":"lezione-5.html","stato":"in preparazione"},{"n":6,"titolo":"Dettato a salti","file":"lezione-6.html","stato":"in preparazione"},{"n":7,"titolo":"Consonanti e dissonanti: che cosa vuol dire davvero","file":"lezione-7.html","stato":"in preparazione"},{"n":8,"titolo":"Intonazione degli intervalli oltre la quinta","file":"lezione-8.html","stato":"in preparazione"},{"n":9,"titolo":"V3 · verifica scritta cumulativa","file":"lezione-9.html","stato":"in preparazione"}]},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"da preparare","lezioni":[{"n":1,"titolo":"La triade come due terze sovrapposte","file":"lezione-1.html","stato":"in preparazione"},{"n":2,"titolo":"Le quattro specie: maggiore, minore, diminuita, aumentata","file":"lezione-2.html","stato":"in preparazione"},{"n":3,"titolo":"Riconoscimento uditivo di maggiore e minore","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"Le triadi sui gradi della scala","file":"lezione-4.html","stato":"in preparazione"},{"n":5,"titolo":"I rivolti e la cifratura. La scala cromatica","file":"lezione-5.html","stato":"in preparazione"},{"n":6,"titolo":"Arpeggi cantati sulle triadi","file":"lezione-6.html","stato":"in preparazione"}]},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[{"n":1,"titolo":"Struttura della quadriade","file":"lezione-1.html","stato":"in preparazione"},{"n":2,"titolo":"La settima di dominante","file":"lezione-2.html","stato":"in preparazione"},{"n":3,"titolo":"Ear training sugli intervalli","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"La risoluzione della settima","file":"lezione-4.html","stato":"in preparazione"},{"n":5,"titolo":"Riconoscere la dominante in partitura","file":"lezione-5.html","stato":"in preparazione"},{"n":6,"titolo":"Dettato melodico con salti d’accordo","file":"lezione-6.html","stato":"in preparazione"},{"n":7,"titolo":"Esercitazione: cifrare e realizzare","file":"lezione-7.html","stato":"in preparazione"},{"n":8,"titolo":"Solfeggio cantato con accompagnamento","file":"lezione-8.html","stato":"in preparazione"},{"n":9,"titolo":"V4 · verifica scritta cumulativa","file":"lezione-9.html","stato":"in preparazione"}]},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[{"n":1,"titolo":"Tonica, dominante, sottodominante","file":"lezione-1.html","stato":"in preparazione"},{"n":2,"titolo":"La progressione I–IV–V–I","file":"lezione-2.html","stato":"in preparazione"},{"n":3,"titolo":"Dettato ritmico-melodico","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"La condotta delle parti: moti e divieti","file":"lezione-4.html","stato":"in preparazione"},{"n":5,"titolo":"Esercitazione: trovare e correggere gli errori di condotta","file":"lezione-5.html","stato":"in preparazione"},{"n":6,"titolo":"Lettura in tempi composti","file":"lezione-6.html","stato":"in preparazione"},{"n":7,"titolo":"Riconoscere le funzioni all’ascolto","file":"lezione-7.html","stato":"in preparazione"},{"n":8,"titolo":"Esercitazione: armonizzare un basso dato","file":"lezione-8.html","stato":"in preparazione"},{"n":9,"titolo":"Solfeggio ritmico in 6/8","file":"lezione-9.html","stato":"in preparazione"},{"n":10,"titolo":"Le funzioni in un brano vero","file":"lezione-10.html","stato":"in preparazione"},{"n":11,"titolo":"Dettato armonico: due funzioni","file":"lezione-11.html","stato":"in preparazione"},{"n":12,"titolo":"V5 · verifica scritta cumulativa","file":"lezione-12.html","stato":"in preparazione"}]},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[{"n":1,"titolo":"La cadenza autentica","file":"lezione-1.html","stato":"in preparazione"},{"n":2,"titolo":"Plagale, sospesa, d’inganno","file":"lezione-2.html","stato":"in preparazione"},{"n":3,"titolo":"Solfeggio a due voci","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"Riconoscere le cadenze all’ascolto","file":"lezione-4.html","stato":"in preparazione"},{"n":5,"titolo":"Le cadenze come punteggiatura della frase","file":"lezione-5.html","stato":"in preparazione"},{"n":6,"titolo":"Intonazione di arpeggi","file":"lezione-6.html","stato":"in preparazione"},{"n":7,"titolo":"Prima armonizzazione di una melodia","file":"lezione-7.html","stato":"in preparazione"},{"n":8,"titolo":"Armonizzazione: la seconda prova","file":"lezione-8.html","stato":"in preparazione"},{"n":9,"titolo":"Dettato melodico con cadenza finale","file":"lezione-9.html","stato":"in preparazione"},{"n":10,"titolo":"Le cadenze dentro un brano del repertorio","file":"lezione-10.html","stato":"in preparazione"},{"n":11,"titolo":"Solfeggio: ripasso dell’anno","file":"lezione-11.html","stato":"in preparazione"},{"n":12,"titolo":"V6 · verifica scritta cumulativa","file":"lezione-12.html","stato":"in preparazione"}]}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":1,"unita":6,"lezione":2}}</script>
+</body>
+</html>

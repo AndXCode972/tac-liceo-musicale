@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 1. Quantità dell'intervallo: contare i gradi | Gli intervalli</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=28f539c5">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=ef6660e0" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 1 · Quantità dell'intervallo: contare i gradi
+     Unità 7, ora 43 di 90 · classe 1ª · teoria
+
+     ══ MEZZ'ORA ══
+     Coda di orali, di teoria. Sette slide, venti minuti.
+
+     ══ LA PROMESSA PIÙ VECCHIA DEL CORSO ══
+     Unità 2, lezione 3, slide «Il salto»: «Una nota che salta una
+     posizione, una che ne salta due. All'unità 7 questa cosa avrà un
+     nome — intervallo — e la studieremo per tre settimane».
+
+     Sono passate quarantuno ore. La classe salta da un mese e mezzo e
+     chiama i salti «grandi» e «piccoli»: oggi cominciano ad avere un
+     numero.
+
+     ══ UN'ORA INTERA PER UNA COSA CHE SI DICE IN UN MINUTO ══
+     Contare le lettere, estremi compresi. È tutto qui, e sembra uno
+     spreco dedicarci un'ora.
+
+     Non lo è, e la ragione è quello che NON si dice oggi: **le
+     alterazioni non contano**. do–mi♭ è una terza esattamente come
+     do–mi, perché le lettere sono le stesse tre. Chi non ha capito
+     questo chiama do–mi♭ «una seconda e mezzo», e alla lezione 5 non
+     capisce l'inversione.
+
+     Insegnare quantità e qualità insieme sembra più economico e non lo
+     è: chi le impara insieme, quando sbaglia, non sa quale delle due
+     misure ha sbagliato.
+
+     ══ L'ERRORE CHE FARANNO, E VA FATTO FARE ══
+     Conteranno gli **spazi** invece delle lettere: do–re per loro è
+     «uno», perché si sposta di un posto. È l'errore di chi ragiona sul
+     rigo invece che sui nomi, ed è utilissimo — si corregge da sé
+     contando a voce «do uno, re due».
+
+     ══ CHE COSA NON ENTRA ══
+     Qualsiasi qualità. Niente maggiore, niente minore, niente giusto:
+     sono la lezione 2 e nominarle oggi svuota quella.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c1u7-lezione-1.jpg?v=8fefc840');
+                --cop-a:#0d1f2d; --cop-b:#155e75; --cop-c:#a5f3fc">
+  <div class="slide-interna">
+    <div class="occhiello">Gli intervalli &middot; UdA 7 &middot; Lezione 1 di 9</div>
+    <h1>Adesso i salti hanno un numero</h1>
+    <p class="sottotitolo">Saltate da un mese e mezzo chiamandoli grandi e piccoli. Da oggi si misurano, e la prima misura si conta sulle dita.</p>
+
+    <blockquote class="aforisma">
+      <p>Una nota che salta una posizione, una che ne salta due: all&rsquo;unit&agrave; 7 questa cosa avr&agrave; un nome.</p>
+      <cite>Questo corso, unit&agrave; 2, lezione 3 &mdash; sei settimane fa</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Teoria</span>
+      <span>Quantit&agrave;</span>
+      <span class="coda-orali">Interrogazioni &middot; teoria e armonia</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cos'è">
+  <div class="slide-interna">
+    <h2>Un intervallo &egrave; la distanza fra due suoni</h2>
+
+    <p>Due note suonate una dopo l&rsquo;altra, o insieme. La distanza fra loro si chiama <strong>intervallo</strong>, e si misura.</p>
+
+    <tac-stave clef="treble" time="4/4" caption="Lo stesso intervallo, di seguito e insieme" notes="c/4:h e/4:h" width="380" tempo="52" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Si misura <strong>due volte</strong></span>
+      <p><strong>1</strong> &middot; <strong>quante lettere</strong> ci sono &mdash; e si conta.<br>
+      <strong>2</strong> &middot; <strong>quanti toni e semitoni</strong> ci stanno dentro &mdash; e si sente.</p>
+    </div>
+
+    <p class="didascalia">Oggi facciamo <strong>solo la prima</strong>. La seconda &egrave; la prossima ora, e sono due cose diverse: chi le impara insieme, quando sbaglia, non sa quale delle due ha sbagliato.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Si contano le lettere">
+  <div class="slide-interna">
+    <h2>Si contano le <em>lettere</em>, estremi compresi</h2>
+
+    <p>Da <em>do</em> a <em>mi</em>: do, re, mi. <strong>Tre lettere</strong> &rarr; &egrave; una <strong>terza</strong>.</p>
+
+    <tac-stave clef="treble" time="4/4" caption="do – mi: tre lettere, una terza" notes="c/4:h e/4:h" width="340" tempo="52" play></tac-stave>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Estremi compresi, ed &egrave; qui che si sbaglia</span>
+      <p>Si contano <strong>anche le due note che stanno agli estremi</strong>. Da do a re non &egrave; «uno»: &egrave; <strong>due</strong>, cio&egrave; una <strong>seconda</strong>. Due note vicine formano una seconda, non una prima.</p>
+    </div>
+
+    <p class="didascalia">Contate a voce e con le dita: &laquo;do uno, re due, mi tre&raquo;. Sembra da bambini e toglie il novanta per cento degli errori.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="I nomi">
+  <div class="slide-interna">
+    <h2>Dall&rsquo;unisono all&rsquo;ottava</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Gli otto nomi, e non ce ne sono altri</span>
+      <p><strong>1</strong> unisono &nbsp;&middot;&nbsp; <strong>2</strong> seconda &nbsp;&middot;&nbsp; <strong>3</strong> terza &nbsp;&middot;&nbsp; <strong>4</strong> quarta<br>
+      <strong>5</strong> quinta &nbsp;&middot;&nbsp; <strong>6</strong> sesta &nbsp;&middot;&nbsp; <strong>7</strong> settima &nbsp;&middot;&nbsp; <strong>8</strong> ottava</p>
+    </div>
+
+    <tac-stave clef="treble" time="4/4" caption="Da do, tutti gli intervalli fino all'ottava" notes="c/4:q d/4:q c/4:q e/4:q | c/4:q f/4:q c/4:q g/4:q | c/4:q a/4:q c/4:q b/4:q | c/4:h c/5:h" width="740" tempo="72" play></tac-stave>
+
+    <p class="didascalia">L&rsquo;<strong>unisono</strong> &egrave; la stessa nota due volte: distanza zero, e un nome ce l&rsquo;ha lo stesso. L&rsquo;<strong>ottava</strong> chiude il giro e ricomincia.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Le alterazioni non contano">
+  <div class="slide-interna">
+    <h2>E i diesis? Non contano. Oggi.</h2>
+
+    <p>Guardate questi tre. Sono <strong>tutti e tre una terza</strong>.</p>
+
+    <tac-stave clef="treble" time="4/4" caption="do–mi, do–mi♭, do♯–mi: tre lettere ciascuno" notes="c/4:h e/4:h | c/4:h eb/4:h | c#/4:h e/4:h" width="620" tempo="60" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Perch&eacute;</span>
+      <p>La quantit&agrave; conta le <strong>lettere</strong>, e le lettere sono sempre <em>do, re, mi</em>. Un bemolle non toglie una lettera: cambia il suono, non il nome del grado.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Non vuol dire che siano uguali</span>
+      <p>Suonano diversi, e lo sentite. La differenza si chiama <strong>qualit&agrave;</strong> ed &egrave; la prossima ora. Ma la quantit&agrave; &egrave; la stessa, e le due misure non si mescolano.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; contare i gradi" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; contare i gradi</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 5 minuti</span>
+      <p>Cinque affermazioni. La seconda &egrave; quella che sbaglia mezza classe.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "La quantità di un intervallo si conta sulle lettere, estremi compresi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. Da do a mi: do, re, mi — tre lettere, una terza.",
+  "da": "Si contano le lettere"
+ },
+ {
+  "d": "Da do a re c'è una prima.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è una <strong>seconda</strong>. Si contano tutte e due le note, non i passi in mezzo.",
+  "da": "Si contano le lettere"
+ },
+ {
+  "d": "do–mi e do–mi&#9837; hanno la stessa quantità.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: tutte e due terze. Le lettere sono le stesse tre, e le alterazioni non le cambiano.",
+  "da": "Le alterazioni non contano"
+ },
+ {
+  "d": "do–mi e do–mi&#9837; sono lo stesso intervallo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso. Stessa quantità e qualità diversa: suonano diversi, e lo sentite.",
+  "da": "Le alterazioni non contano"
+ },
+ {
+  "d": "L'unisono è due note diverse molto vicine.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è la <strong>stessa nota</strong> due volte. Distanza zero, e un nome ce l'ha lo stesso.",
+  "da": "I nomi"
+ },
+ {
+  "d": "Da mi a la c'è una quarta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: mi, fa, sol, la — quattro lettere.",
+  "da": "Si contano le lettere"
+ },
+ {
+  "d": "Da si a fa c'è una quinta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero come quantità: si, do, re, mi, fa. Che qualità sia lo vediamo dopo, e non è quella che ci si aspetta.",
+  "da": "Si contano le lettere"
+ },
+ {
+  "d": "Fra due note vicine sul rigo c'è sempre una seconda.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: due lettere consecutive fanno sempre una seconda, comunque siano alterate.",
+  "da": "Si contano le lettere"
+ },
+ {
+  "d": "Un diesis davanti alla nota acuta cambia la quantità dell'intervallo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: cambia la qualità. La quantità la decidono le lettere.",
+  "da": "Le alterazioni non contano"
+ },
+ {
+  "d": "L'ottava chiude il giro: dopo si ricomincia con gli stessi nomi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è la stessa ragione per cui la scala ha sette lettere e l'ottava è la prima che torna.",
+  "da": "I nomi"
+ },
+ {
+  "d": "Da re a do, salendo, c'è una settima.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: re, mi, fa, sol, la, si, do — sette lettere. Si conta sempre in avanti, anche passando dal do.",
+  "da": "Si contano le lettere"
+ },
+ {
+  "d": "La quantità si sente; la qualità si conta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed è il contrario: la <strong>quantità si conta</strong> — sono lettere — e la qualità si sente e si verifica contando i semitoni.",
+  "da": "Che cos'è"
+ },
+ {
+  "d": "Da fa a fa, la stessa lettera due volte, c'è un unisono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero se sono la stessa nota. Se una sta un'ottava sopra è un'ottava — la lettera è la stessa ma le note no.",
+  "da": "I nomi"
+ },
+ {
+  "d": "Gli intervalli hanno otto nomi, dall'unisono all'ottava.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è tutto quello che serve per il primo anno.",
+  "da": "I nomi"
+ },
+ {
+  "d": "Per contare la quantità bisogna guardare le alterazioni in armatura.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: la quantità non le guarda mai. Guarda solo le lettere.",
+  "da": "Le alterazioni non contano"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo &middot; contare" data-segno
+         style="--segno: url('../../_assets/segni/segno-12.png')">
+  <div class="slide-interna">
+    <h2>Otto intervalli, otto numeri</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo &middot; 8 minuti</span>
+      <p>Sul quaderno, per ciascuno: <strong>che intervallo &egrave;</strong>, e le lettere che avete contato.</p>
+      <p><em>do&ndash;fa</em> &middot; <em>mi&ndash;la</em> &middot; <em>sol&ndash;re</em> &middot; <em>si&ndash;fa</em> &middot; <em>re&ndash;do</em> &middot; <em>la&ndash;la</em> &middot; <em>fa&ndash;mi</em> &middot; <em>mi&ndash;do</em></p>
+    </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">Due che vanno guardati</span>
+      <p><em>la&ndash;la</em>: stessa lettera, distanza zero &rarr; <strong>unisono</strong>.<br>
+      <em>re&ndash;do</em> e <em>fa&ndash;mi</em>: si sale, e si passa dal <em>do</em>. Contate lo stesso in avanti: re, mi, fa, sol, la, si, do &rarr; <strong>settima</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">La quantit&agrave;</span>
+        <p>Quante <strong>lettere</strong>, estremi compresi. Da do a re fa <strong>due</strong>, non uno.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">Le alterazioni</span>
+        <p>Non toccano la quantit&agrave;. <em>do&ndash;mi</em> e <em>do&ndash;mi</em>&#9837; sono tutte e due <strong>terze</strong>.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">La prossima ora la seconda misura: quanti toni ci stanno dentro. &Egrave; l&igrave; che <em>do&ndash;mi</em> e <em>do&ndash;mi</em>&#9837; smettono di essere la stessa cosa.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Dodici intervalli, solo la quantit&agrave;.</strong> Per ciascuno, <strong>quante lettere</strong> e come si chiama. Niente qualit&agrave;: quella &egrave; domani.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-07.html#C1-U7-L1-02"><strong>Workbook</strong></a>, scheda C1-U7-L1-02.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"pronta","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all’ascolto: il primo colore","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"pronta","lezioni":[{"n":1,"titolo":"Diesis, bemolle, bequadro: che cosa alterano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Segni di ottava e loro lettura","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato con alterazioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La suddivisione e i tempi composti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Bicordi: terze e seste all’ascolto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"pronta","lezioni":[{"n":1,"titolo":"Il tetracordo, mattone della scala","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La scala diatonica maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione della scala di Do","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il circolo delle quinte con i diesis","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La scala armonizzata: tonica e dominante","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in Do","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Riconoscere tonica e dominante in un brano","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: scrivere una scala su qualunque nota","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico entro la quinta","file":"lezione-9.html","stato":"pronta"}],"via":"uda-04"},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"pronta","lezioni":[{"n":1,"titolo":"Il circolo con i bemolli","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le armature di chiave: come si leggono","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato melodico in Do e in Sol","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Trovare la tonica dall’armatura","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Solfeggio cantato con armatura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V2 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-05"},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"pronta","lezioni":[{"n":1,"titolo":"Il modo minore naturale, e le tonalità relative","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La minore armonica e il grado di sensibile","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione nel modo minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Perché la settima si alza","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La minore melodica, e perché cambia salendo e scendendo","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in modo minore","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Le tre minori a confronto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: le tre minori scritte su una nota data","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico in modo minore","file":"lezione-9.html","stato":"pronta"}],"via":"uda-06"},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"pronta","lezioni":[{"n":1,"titolo":"Quantità dell’intervallo: contare i gradi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Qualità: giusti, maggiori, minori","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione degli intervalli entro la quinta","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Aumentati, diminuiti, enarmonia","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"L’inversione degli intervalli","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato a salti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Consonanti e dissonanti: che cosa vuol dire davvero","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Intonazione degli intervalli oltre la quinta","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V3 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-07"},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"da preparare","lezioni":[{"n":1,"titolo":"La triade come due terze sovrapposte","file":"lezione-1.html","stato":"in preparazione"},{"n":2,"titolo":"Le quattro specie: maggiore, minore, diminuita, aumentata","file":"lezione-2.html","stato":"in preparazione"},{"n":3,"titolo":"Riconoscimento uditivo di maggiore e minore","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"Le triadi sui gradi della scala","file":"lezione-4.html","stato":"in preparazione"},{"n":5,"titolo":"I rivolti e la cifratura. La scala cromatica","file":"lezione-5.html","stato":"in preparazione"},{"n":6,"titolo":"Arpeggi cantati sulle triadi","file":"lezione-6.html","stato":"in preparazione"}]},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[{"n":1,"titolo":"Struttura della quadriade","file":"lezione-1.html","stato":"in preparazione"},{"n":2,"titolo":"La settima di dominante","file":"lezione-2.html","stato":"in preparazione"},{"n":3,"titolo":"Ear training sugli intervalli","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"La risoluzione della settima","file":"lezione-4.html","stato":"in preparazione"},{"n":5,"titolo":"Riconoscere la dominante in partitura","file":"lezione-5.html","stato":"in preparazione"},{"n":6,"titolo":"Dettato melodico con salti d’accordo","file":"lezione-6.html","stato":"in preparazione"},{"n":7,"titolo":"Esercitazione: cifrare e realizzare","file":"lezione-7.html","stato":"in preparazione"},{"n":8,"titolo":"Solfeggio cantato con accompagnamento","file":"lezione-8.html","stato":"in preparazione"},{"n":9,"titolo":"V4 · verifica scritta cumulativa","file":"lezione-9.html","stato":"in preparazione"}]},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[{"n":1,"titolo":"Tonica, dominante, sottodominante","file":"lezione-1.html","stato":"in preparazione"},{"n":2,"titolo":"La progressione I–IV–V–I","file":"lezione-2.html","stato":"in preparazione"},{"n":3,"titolo":"Dettato ritmico-melodico","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"La condotta delle parti: moti e divieti","file":"lezione-4.html","stato":"in preparazione"},{"n":5,"titolo":"Esercitazione: trovare e correggere gli errori di condotta","file":"lezione-5.html","stato":"in preparazione"},{"n":6,"titolo":"Lettura in tempi composti","file":"lezione-6.html","stato":"in preparazione"},{"n":7,"titolo":"Riconoscere le funzioni all’ascolto","file":"lezione-7.html","stato":"in preparazione"},{"n":8,"titolo":"Esercitazione: armonizzare un basso dato","file":"lezione-8.html","stato":"in preparazione"},{"n":9,"titolo":"Solfeggio ritmico in 6/8","file":"lezione-9.html","stato":"in preparazione"},{"n":10,"titolo":"Le funzioni in un brano vero","file":"lezione-10.html","stato":"in preparazione"},{"n":11,"titolo":"Dettato armonico: due funzioni","file":"lezione-11.html","stato":"in preparazione"},{"n":12,"titolo":"V5 · verifica scritta cumulativa","file":"lezione-12.html","stato":"in preparazione"}]},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[{"n":1,"titolo":"La cadenza autentica","file":"lezione-1.html","stato":"in preparazione"},{"n":2,"titolo":"Plagale, sospesa, d’inganno","file":"lezione-2.html","stato":"in preparazione"},{"n":3,"titolo":"Solfeggio a due voci","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"Riconoscere le cadenze all’ascolto","file":"lezione-4.html","stato":"in preparazione"},{"n":5,"titolo":"Le cadenze come punteggiatura della frase","file":"lezione-5.html","stato":"in preparazione"},{"n":6,"titolo":"Intonazione di arpeggi","file":"lezione-6.html","stato":"in preparazione"},{"n":7,"titolo":"Prima armonizzazione di una melodia","file":"lezione-7.html","stato":"in preparazione"},{"n":8,"titolo":"Armonizzazione: la seconda prova","file":"lezione-8.html","stato":"in preparazione"},{"n":9,"titolo":"Dettato melodico con cadenza finale","file":"lezione-9.html","stato":"in preparazione"},{"n":10,"titolo":"Le cadenze dentro un brano del repertorio","file":"lezione-10.html","stato":"in preparazione"},{"n":11,"titolo":"Solfeggio: ripasso dell’anno","file":"lezione-11.html","stato":"in preparazione"},{"n":12,"titolo":"V6 · verifica scritta cumulativa","file":"lezione-12.html","stato":"in preparazione"}]}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":1,"unita":7,"lezione":1}}</script>
+</body>
+</html>

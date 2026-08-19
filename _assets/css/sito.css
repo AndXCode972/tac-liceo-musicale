@@ -248,19 +248,43 @@ main > h2:first-child { margin-top: 0; }
 .classe {
   display: block; text-decoration: none; color: inherit;
   background: var(--carta); border: 1px solid var(--bordo);
-  border-radius: var(--raggio); padding: 1.4rem 1.5rem;
+  border-radius: var(--raggio); padding: 0;
   box-shadow: var(--ombra); transition: transform .14s, box-shadow .14s, border-color .14s;
   position: relative; overflow: hidden;
 }
+.classe .dentro { display: block; padding: 1.25rem 1.5rem 1.4rem; }
 
-/* Una fascia dipinta in cima a ogni scheda, un colore per anno. Serve a
-   riconoscere la classe di colpo, prima ancora di leggere il numero.
-   Nelle schede in preparazione resta, ma smorzata. */
-.classe::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+/* LA FOTOGRAFIA DELLA CLASSE, in cima alla scheda.
+
+   Fino al 19 agosto qui c'era **solo** la fascia dipinta alta sei pixel.
+   Bastava a distinguere gli anni — un colore per classe — e lasciava la
+   pagina d'ingresso come un elenco di rettangoli bianchi, mentre le
+   cinque fotografie scelte una per una stavano solo dentro le pagine di
+   classe, cioè dove si arriva **dopo** aver scelto.
+
+   Adesso la scheda porta la stessa immagine che apre la pagina a cui
+   porta: chi ha già visto la classe la riconosce, e chi non l'ha mai
+   aperta vede qualcosa invece di un titolo.
+
+   L'ALTEZZA È 132px, e non è un numero tondo per caso: sotto i 120 le
+   fotografie di gruppo diventano una striscia in cui non si distingue
+   niente, sopra i 150 la scheda diventa più immagine che testo e il
+   titolo scende sotto la piega su uno schermo di portatile. */
+.classe .ritratto {
+  display: block; position: relative; height: 132px;
+  background: var(--foto) center 55% / cover no-repeat;
+  background-color: var(--carta2);
+}
+
+/* La fascia di colore resta, e adesso sta **sotto** la fotografia invece
+   che in cima alla scheda: separa l'immagine dal testo e continua a dire
+   di che anno si tratta. È la stessa banda da cui vengono i colori della
+   testata della classe. */
+.classe .ritratto::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
   background: var(--banda) center / cover no-repeat;
 }
-.classe.futura::before { filter: grayscale(.55); opacity: .5; }
+.classe.futura .ritratto { filter: grayscale(.55); opacity: .7; }
 a.classe:hover { transform: translateY(-3px); box-shadow: var(--ombra-lg); border-color: var(--viola); }
 .classe .anno {
   display: inline-block; font-size: .74rem; font-weight: 800; letter-spacing: .1em;

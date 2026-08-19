@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 5. Trovare e correggere gli errori di condotta | Le funzioni armoniche</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=28f539c5">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=ef6660e0" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 5 · Esercitazione: trovare e correggere gli errori
+     Unità 10, ora 71 di 90 · classe 1ª · teoria
+
+     ══ ORA INTERA, E SI LAVORA ══
+     Dieci slide, e trenta minuti di correzione vera.
+
+     ══ PERCHÉ CORREGGERE PRIMA DI SAPER SCRIVERE BENE ══
+     Perché è più difficile, e perché è la competenza che serve. Chi sa
+     scrivere un collegamento giusto e non sa rileggerlo scrive giusto
+     finché è concentrato; chi sa rileggere trova i propri errori per
+     sempre.
+
+     È anche l'unico modo di far vedere che l'errore **non si sente**
+     necessariamente: le quinte parallele non sono sgradevoli, sono
+     povere, e per trovarle bisogna **guardare**.
+
+     ══ IL METODO, ED È TUTTO QUI ══
+     Quattro voci fanno **sei coppie**:
+
+         basso–tenore   basso–contralto   basso–soprano
+         tenore–contralto   tenore–soprano   contralto–soprano
+
+     Si controllano una per una. Sei controlli per ogni collegamento
+     sembrano tanti e si fanno in trenta secondi, perché quattro coppie
+     su sei si escludono a occhio: se una delle due voci sta ferma, o se
+     vanno in direzioni opposte, non può esserci un parallelo.
+
+     Restano da guardare davvero solo le coppie in **moto retto**. È il
+     motivo per cui Tissoni chiama il retto «difettoso» — non perché sia
+     brutto, ma perché è l'unico che va controllato.
+
+     ══ L'ORDINE, E SI COMINCIA DAL BASSO ══
+     Le coppie che contengono il **basso** si guardano per prime: è la
+     voce che si muove di più e quella su cui i paralleli si sentono di
+     più. Poi basso–soprano, che sono le due voci esterne e le due che
+     l'orecchio segue.
+
+     ══ CORREGGERE NON È CANCELLARE ══
+     La cosa da insegnare: quando si trova un parallelo, si cambia **una
+     nota sola**, e quasi sempre in una voce interna. Riscrivere tutto il
+     collegamento è il modo di introdurre due errori nuovi.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c1u10-lezione-5.jpg?v=363e97c9');
+                --cop-a:#1e1b4b; --cop-b:#4f46e5; --cop-c:#e0e7ff">
+  <div class="slide-interna">
+    <div class="occhiello">Le funzioni armoniche &middot; UdA 10 &middot; Lezione 5 di 12</div>
+    <h1>Trovare un errore che non si sente</h1>
+    <p class="sottotitolo">Le quinte parallele non sono sgradevoli: sono povere. E per trovarle bisogna <strong>guardare</strong>.</p>
+
+    <blockquote class="aforisma">
+      <p>Sono le leggi dell&rsquo;armonia che tu devi conoscere a fondo; e le imparerai scrivendo.</p>
+      <cite>Robert Schumann, <em>Regole di vita musicale</em>, 1850</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Teoria</span>
+      <span>Trovare e correggere</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Correggere &egrave; pi&ugrave; difficile">
+  <div class="slide-interna">
+    <h2>Oggi non si scrive: si rilegge</h2>
+
+    <p>Ieri avete scritto sei collegamenti. Alcuni saranno giusti. Il punto di oggi non &egrave; scriverne altri sei: &egrave; imparare a <strong>guardare</strong> un collegamento e dire se sta in piedi.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Perch&eacute; questa &egrave; la competenza che serve</span>
+      <p>Chi sa scrivere giusto e non sa rileggere, scrive giusto <strong>finch&eacute; &egrave; concentrato</strong>. Chi sa rileggere trova i propri errori per sempre &mdash; anche in quarta, anche fra dieci anni.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">E c&rsquo;&egrave; una ragione tecnica</span>
+      <p>L&rsquo;errore di condotta <strong>non si sente</strong>, o si sente male. Non &egrave; una stonatura: &egrave; un impoverimento. Aspettare che l&rsquo;orecchio protesti non funziona.</p>
+    </div>
+
+    <p class="didascalia">&Egrave; l&rsquo;unico argomento dell&rsquo;anno in cui l&rsquo;orecchio, da solo, non basta. E vale la pena dirlo, perch&eacute; per nove unit&agrave; vi ho detto il contrario.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Sei coppie">
+  <div class="slide-interna">
+    <h2>Quattro voci fanno sei coppie. Si guardano tutte</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Le sei</span>
+      <p><strong>basso&ndash;tenore</strong> &middot; <strong>basso&ndash;contralto</strong> &middot; <strong>basso&ndash;soprano</strong><br>
+      <strong>tenore&ndash;contralto</strong> &middot; <strong>tenore&ndash;soprano</strong> &middot; <strong>contralto&ndash;soprano</strong></p>
+    </div>
+
+    <p>Sembra un lavoro lungo. Non lo &egrave;, e la ragione &egrave; la lezione di ieri.</p>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Quattro coppie su sei si escludono a occhio</span>
+      <p>Se in una coppia <strong>una voce sta ferma</strong> &rarr; moto obliquo, nessun parallelo possibile.<br>
+      Se le due voci <strong>vanno in direzioni opposte</strong> &rarr; moto contrario, nessun parallelo possibile.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Restano da guardare davvero</span>
+      <p>Solo le coppie in <strong>moto retto</strong>. Ed &egrave; per questo che Tissoni lo chiama &laquo;difettoso&raquo;: non perch&eacute; sia brutto, ma perch&eacute; &egrave; l&rsquo;unico che va controllato.</p>
+    </div>
+
+    <p class="didascalia">In un collegamento normale le coppie in moto retto sono una o due. Sei controlli diventano due, e si fanno in mezzo minuto.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Come si guarda una coppia">
+  <div class="slide-interna">
+    <h2>Tre domande, e la terza si fa solo se serve</h2>
+
+    <div class="riquadro studio">
+      <span class="etichetta">La procedura</span>
+      <p><strong>1</strong> &middot; le due voci si muovono <strong>nello stesso senso</strong>? Se no, passa oltre.<br>
+      <strong>2</strong> &middot; che <strong>intervallo</strong> c&rsquo;era prima?<br>
+      <strong>3</strong> &middot; che intervallo c&rsquo;&egrave; dopo? Se &egrave; <strong>lo stesso</strong>, ed &egrave; una quinta giusta o un&rsquo;ottava, &egrave; un errore.</p>
+    </div>
+
+    <tac-stave clef="treble" time="4/4" caption="Stesso senso, e l'intervallo resta una quinta: errore" notes="c/4+g/4:h d/4+a/4:h" width="320" tempo="44" play></tac-stave>
+
+    <tac-stave clef="treble" time="4/4" caption="Stesso senso, ma l'intervallo cambia: nessun problema" notes="c/4+g/4:h d/4+b/4:h" width="320" tempo="44" play></tac-stave>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">L&rsquo;errore che si fa correggendo</span>
+      <p>Guardare solo il <strong>secondo</strong> intervallo. Due quinte di fila sono un errore; una quinta che <strong>arriva</strong> da una sesta non lo &egrave;.</p>
+    </div>
+
+    <p class="didascalia">E ricordate l&rsquo;avvertenza di Tissoni: l&rsquo;errore c&rsquo;&egrave; anche &laquo;oltre l&rsquo;ottava&raquo;. Una quinta seguita da una dodicesima &egrave; lo stesso parallelo, e si vede solo contando.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Da dove si comincia">
+  <div class="slide-interna">
+    <h2>Le coppie non pesano uguale: si comincia dal basso</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">L&rsquo;ordine di controllo</span>
+      <p><strong>1</strong> &middot; <strong>basso&ndash;soprano</strong>: le due voci esterne, quelle che l&rsquo;orecchio segue.<br>
+      <strong>2</strong> &middot; le altre due col <strong>basso</strong>: &egrave; la voce che si muove di pi&ugrave;.<br>
+      <strong>3</strong> &middot; le tre coppie fra voci interne, per ultime.</p>
+    </div>
+
+    <p>Non &egrave; che i paralleli fra due voci interne siano meno errori. &Egrave; che sono <strong>meno frequenti</strong> &mdash; le voci interne si muovono poco &mdash; e meno udibili.</p>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Se avete poco tempo</span>
+      <p>Controllate <strong>basso&ndash;soprano</strong>. Se ne dovete controllare una sola, quella.</p>
+    </div>
+
+    <p class="didascalia">In verifica il tempo &egrave; poco davvero, e questa gerarchia vale punti: chi controlla le sei coppie in ordine casuale e finisce il tempo a met&agrave; ha guardato le meno importanti.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="I tre errori">
+  <div class="slide-interna">
+    <h2>Nei fogli di oggi ce ne sono di tre tipi</h2>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">1 &middot; Quinte o ottave parallele</span>
+      <p>Il pi&ugrave; comune, e nasce quasi sempre dal passaggio <strong>IV&rarr;V</strong>, dove non c&rsquo;&egrave; nota comune e viene naturale salire tutti insieme.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">2 &middot; La nota comune buttata via</span>
+      <p>Due accordi hanno una nota in comune e chi ha scritto l&rsquo;ha spostata lo stesso. Non &egrave; un errore <em>vietato</em>: &egrave; una scelta peggiore, e a questo punto dell&rsquo;anno si conta come errore.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">3 &middot; Una voce che salta senza motivo</span>
+      <p>Il basso pu&ograve; saltare &mdash; &egrave; il suo mestiere. Le altre tre dovrebbero muoversi di <strong>un grado o restare ferme</strong>. Una voce interna che fa una sesta ha quasi sempre sbagliato.</p>
+    </div>
+
+    <p class="didascalia">Il secondo e il terzo si trovano <strong>senza controllare le coppie</strong>: basta guardare se le voci si muovono poco. Chi comincia da l&igrave; risparmia met&agrave; del lavoro.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Un esempio insieme">
+  <div class="slide-interna">
+    <h2>Guardiamone uno alla lavagna, tutti insieme</h2>
+
+    <tac-stave clef="treble" time="4/4" caption="IV → V. Cercate l'errore prima di girare pagina" notes="f/3+f/4+a/4+c/5:h g/3+g/4+b/4+d/5:h" width="440" tempo="40" play slow></tac-stave>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Passo per passo</span>
+      <p>Basso: fa&rarr;sol, <strong>sale</strong>.<br>
+      Le altre tre: fa&rarr;sol, la&rarr;si, do&rarr;re. <strong>Salgono tutte.</strong><br>
+      Quattro voci nello stesso senso: <strong>tutte e sei le coppie sono in moto retto</strong>, e vanno guardate tutte.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Che cosa si trova</span>
+      <p>Basso&ndash;tenore: ottava, poi ottava &rarr; <strong>ottave parallele</strong>.<br>
+      Basso&ndash;contralto: terza, poi terza &rarr; nessun problema.<br>
+      Basso&ndash;soprano: quinta, poi quinta &rarr; <strong>quinte parallele</strong>.</p>
+    </div>
+
+    <tac-stave clef="treble" time="4/4" caption="Corretto: il basso sale, le altre tre scendono" notes="f/3+f/4+a/4+c/5:h g/3+d/4+g/4+b/4:h" width="440" tempo="40" play slow></tac-stave>
+
+    <p class="didascalia">Un errore solo &mdash; salire tutti insieme &mdash; ne produce <strong>due</strong>. &Egrave; il caso normale: i paralleli vengono a grappoli, e trovarne uno vuol dire cercarne subito un altro.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Correggere non &egrave; cancellare">
+  <div class="slide-interna">
+    <h2>Trovato l&rsquo;errore, si cambia <em>una nota</em></h2>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Che cosa non si fa</span>
+      <p><strong>Riscrivere tutto il collegamento.</strong> &Egrave; il modo pi&ugrave; sicuro di introdurre due errori nuovi al posto di uno.</p>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Che cosa si fa</span>
+      <p><strong>1</strong> &middot; si guarda quale delle due voci in parallelo si pu&ograve; muovere diversamente.<br>
+      <strong>2</strong> &middot; si sceglie quasi sempre una voce <strong>interna</strong> &mdash; il basso &egrave; dato, il soprano &egrave; la melodia.<br>
+      <strong>3</strong> &middot; si ricontrolla <strong>quella coppia</strong> e le due che la toccano.</p>
+    </div>
+
+    <p>Il punto 3 &egrave; quello che si dimentica: cambiando una nota si cambiano <strong>tre</strong> coppie, non una. Una correzione non ricontrollata produce l&rsquo;errore successivo.</p>
+
+    <p class="didascalia">&Egrave; la stessa cosa che vi dico per i compiti scritti da settembre: chi corregge senza rileggere ha spostato l&rsquo;errore, non l&rsquo;ha tolto.</p>
+  </div>
+</section>
+
+<section class="slide esercizio" data-titolo="Proviamo &middot; otto collegamenti" data-segno
+         style="--segno: url('../../_assets/segni/segno-06.png')">
+  <div class="slide-interna">
+    <h2>Otto collegamenti, e sei hanno qualcosa che non va</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Venti minuti &middot; a coppie, poi alla lavagna</span>
+      <p>Per ciascuno: <strong>c&rsquo;&egrave; un errore?</strong> Se s&igrave;, <strong>fra quali due voci</strong>, <strong>che tipo</strong>, e <strong>come lo correggeresti</strong> cambiando una nota sola.</p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Si scrive a lato, e serve a me</span>
+      <p>Segnate le <strong>coppie in moto retto</strong> che avete controllato. Voglio vedere il metodo, non solo la risposta: chi trova l&rsquo;errore senza aver guardato le coppie ha indovinato.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Due su otto sono giusti</span>
+      <p>E sono i pi&ugrave; difficili, perch&eacute; cercare un errore che non c&rsquo;&egrave; &egrave; l&rsquo;esercizio che insegna di pi&ugrave;. Scrivere &laquo;va bene&raquo; &egrave; una risposta, e vale come le altre.</p>
+    </div>
+
+    <p class="didascalia">Chi finisce prima non ha finito: rifaccia i due che ha dichiarato giusti, controllando tutte e sei le coppie. Uno dei due lo &egrave;.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Il metodo</span>
+        <p><strong>Sei coppie</strong>, ma solo quelle in <strong>moto retto</strong> vanno guardate. Si comincia da <strong>basso&ndash;soprano</strong>.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">La correzione</span>
+        <p><strong>Una nota sola</strong>, in una voce interna. E poi si <strong>ricontrolla</strong>: cambiando una nota si cambiano tre coppie.</p>
+      </div>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">E la cosa da ricordare fra un mese</span>
+      <p>I paralleli vengono <strong>a grappoli</strong>. Se ne trovate uno, cercatene subito un altro nella stessa coppia di accordi.</p>
+    </div>
+
+    <p class="didascalia">Domani si torna alle orecchie, e si cambia argomento per un&rsquo;ora: i <strong>tempi composti</strong>. Poi si ricomincia con le funzioni, che &egrave; il filo di tutta l&rsquo;unit&agrave;.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Otto collegamenti da correggere.</strong> Otto collegamenti in fotocopia. Per ciascuno: c&rsquo;&egrave; un errore? Se s&igrave;, <strong>fra quali due voci</strong>, di che tipo, e come lo correggeresti <strong>cambiando una nota sola</strong>.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-10.html#C1-U10-L5-01"><strong>Workbook</strong></a>, scheda C1-U10-L5-01.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"pronta","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all’ascolto: il primo colore","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"pronta","lezioni":[{"n":1,"titolo":"Diesis, bemolle, bequadro: che cosa alterano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Segni di ottava e loro lettura","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato con alterazioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La suddivisione e i tempi composti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Bicordi: terze e seste all’ascolto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"pronta","lezioni":[{"n":1,"titolo":"Il tetracordo, mattone della scala","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La scala diatonica maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione della scala di Do","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il circolo delle quinte con i diesis","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La scala armonizzata: tonica e dominante","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in Do","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Riconoscere tonica e dominante in un brano","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: scrivere una scala su qualunque nota","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico entro la quinta","file":"lezione-9.html","stato":"pronta"}],"via":"uda-04"},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"pronta","lezioni":[{"n":1,"titolo":"Il circolo con i bemolli","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le armature di chiave: come si leggono","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato melodico in Do e in Sol","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Trovare la tonica dall’armatura","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Solfeggio cantato con armatura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V2 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-05"},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"pronta","lezioni":[{"n":1,"titolo":"Il modo minore naturale, e le tonalità relative","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La minore armonica e il grado di sensibile","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione nel modo minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Perché la settima si alza","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La minore melodica, e perché cambia salendo e scendendo","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in modo minore","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Le tre minori a confronto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: le tre minori scritte su una nota data","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico in modo minore","file":"lezione-9.html","stato":"pronta"}],"via":"uda-06"},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"pronta","lezioni":[{"n":1,"titolo":"Quantità dell’intervallo: contare i gradi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Qualità: giusti, maggiori, minori","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione degli intervalli entro la quinta","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Aumentati, diminuiti, enarmonia","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"L’inversione degli intervalli","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato a salti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Consonanti e dissonanti: che cosa vuol dire davvero","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Intonazione degli intervalli oltre la quinta","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V3 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-07"},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"pronta","lezioni":[{"n":1,"titolo":"La triade come due terze sovrapposte","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le quattro specie: maggiore, minore, diminuita, aumentata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Riconoscimento uditivo di maggiore e minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Le triadi sui gradi della scala","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"I rivolti e la cifratura. La scala cromatica","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Arpeggi cantati sulle triadi","file":"lezione-6.html","stato":"pronta"}],"via":"uda-08"},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"pronta","lezioni":[{"n":1,"titolo":"Struttura della quadriade","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La settima di dominante","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ear training sugli intervalli","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La risoluzione della settima","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Riconoscere la dominante in partitura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico con salti d’accordo","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Esercitazione: cifrare e realizzare","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Solfeggio cantato con accompagnamento","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V4 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-09"},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"pronta","lezioni":[{"n":1,"titolo":"Tonica, dominante, sottodominante","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La progressione I–IV–V–I","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato ritmico-melodico","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La condotta delle parti: moti e divieti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Esercitazione: trovare e correggere gli errori di condotta","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura in tempi composti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Riconoscere le funzioni all’ascolto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: armonizzare un basso dato","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Solfeggio ritmico in 6/8","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Le funzioni in un brano vero","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Dettato armonico: due funzioni","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V5 · verifica scritta cumulativa","file":"lezione-12.html","stato":"pronta"}],"via":"uda-10"},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"pronta","lezioni":[{"n":1,"titolo":"La cadenza autentica","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Plagale, sospesa, d’inganno","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio a due voci","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Riconoscere le cadenze all’ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le cadenze come punteggiatura della frase","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Intonazione di arpeggi","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Prima armonizzazione di una melodia","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Armonizzazione: la seconda prova","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico con cadenza finale","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Le cadenze dentro un brano del repertorio","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Solfeggio: ripasso dell’anno","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V6 · verifica scritta cumulativa","file":"lezione-12.html","stato":"pronta"}],"via":"uda-11"}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":1,"unita":10,"lezione":5}}</script>
+</body>
+</html>

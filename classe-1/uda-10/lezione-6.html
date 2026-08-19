@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 6. Lettura in tempi composti | Le funzioni armoniche</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=28f539c5">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=ef6660e0" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 6 · Lettura in tempi composti
+     Unità 10, ora 72 di 90 · classe 1ª · percezione
+
+     ══ ORA INTERA ══
+     Dieci slide e trenta minuti di lettura ad alta voce.
+
+     ══ È UN RITORNO, E VA DETTO ══
+     I tempi composti la classe li ha visti all'unità 3, lezione 4 — «La
+     suddivisione e i tempi composti» — e da allora **mai più**. Sono
+     passate sette unità, cioè quattro mesi, e in quattro mesi una cosa
+     vista una volta sola si è dissolta.
+
+     Quindi la prima parte dell'ora è un ripasso vero, non un richiamo:
+     si rifà il conto da zero. La seconda parte è quello che all'unità 3
+     non si era fatto — **leggere a tempo**, ad alta voce, con la mano
+     che batte.
+
+     ══ IL CONTO, E IL PUNTO IN CUI TUTTI SBAGLIANO ══
+     In 6/8 il numero di sopra dice **sei crome**; i movimenti che si
+     dirigono sono **due**. Nei tempi semplici i due conti coincidono e
+     sembrano una regola sola; qui si separano, ed è l'inganno.
+
+     Il movimento è la **semiminima col punto**, non la croma. Chi batte
+     sei volte per battuta legge un 6/8 lentissimo che non è un 6/8.
+
+     ══ 6/8 CONTRO 3/4, CHE È IL CONFRONTO CHE INSEGNA ══
+     Stesso numero di crome — sei — e raggruppamento diverso:
+
+         3/4   ♪♪ ♪♪ ♪♪    tre gruppi di due
+         6/8   ♪♪♪ ♪♪♪     due gruppi di tre
+
+     Si scrivono con le stesse note e si battono in modo diverso. È il
+     modo più rapido di far capire che il metro non è nelle note: è nel
+     raggruppamento.
+
+     ══ 9/8 E 12/8 ══
+     Si nominano e si leggono una volta ciascuno. Non c'è niente di
+     nuovo: tre movimenti e quattro invece di due, con lo stesso
+     movimento — la semiminima col punto.
+
+     ══ COSA PORTANO A CASA ══
+     Il fascicolo di solfeggio non aveva **nemmeno un pezzo in 6/8**.
+     Dall'unità 10 ce ne sono dieci, in coda, ed è il materiale delle ore
+     72 e 75.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c1u10-lezione-6.jpg?v=86c5e4d7');
+                --cop-a:#0c2620; --cop-b:#0d9488; --cop-c:#ccfbf1">
+  <div class="slide-interna">
+    <div class="occhiello">Le funzioni armoniche &middot; UdA 10 &middot; Lezione 6 di 12</div>
+    <h1>Sei crome, ma due movimenti</h1>
+    <p class="sottotitolo">Il numero di sopra non conta i movimenti. Nei tempi semplici sembrava di s&igrave;, e qui si scopre che era una coincidenza.</p>
+
+    <blockquote class="aforisma">
+      <p>Non basta che tu suoni i pezzi con le dita: devi poterli canticchiare anche senza pianoforte.</p>
+      <cite>Robert Schumann, <em>Regole di vita musicale</em>, 1850</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Percezione</span>
+      <span>Tempi composti</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Un ritorno, dopo quattro mesi">
+  <div class="slide-interna">
+    <h2>L&rsquo;ultima volta &egrave; stata a novembre</h2>
+
+    <p>I tempi composti li avete visti all&rsquo;<strong>unit&agrave; 3, lezione 4</strong>. Da allora, mai pi&ugrave;: sette unit&agrave;, quattro mesi.</p>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Quindi non &egrave; un richiamo: &egrave; un ripasso vero</span>
+      <p>Rifacciamo il conto da zero, come se non l&rsquo;aveste mai fatto. Chi se lo ricorda perde cinque minuti; chi non se lo ricorda &mdash; e sar&agrave; la maggioranza &mdash; non resta indietro.</p>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">E poi si fa quello che l&rsquo;unit&agrave; 3 non aveva fatto</span>
+      <p>All&rsquo;unit&agrave; 3 il 6/8 si era <strong>capito</strong>. Oggi si <strong>legge</strong>: ad alta voce, a tempo, con la mano che batte.</p>
+    </div>
+
+    <p class="didascalia">Capire un metro e leggerlo sono due cose diverse, e la seconda non viene dalla prima. Si impara solo facendola, e per questo l&rsquo;ora &egrave; di percezione.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="L&rsquo;inganno del numero">
+  <div class="slide-interna">
+    <h2>Il numero di sopra ha smesso di dire quello che diceva</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Nei tempi <strong>semplici</strong></span>
+        <p>2/4, 3/4, 4/4: il numero di sopra dice <strong>quanti movimenti</strong>. E dice anche quante semiminime. I due conti coincidono.</p>
+      </div>
+      <div class="riquadro attenzione">
+        <span class="etichetta">Nei tempi <strong>composti</strong></span>
+        <p>6/8: il numero di sopra dice <strong>quante crome</strong>, e basta. I movimenti sono <strong>due</strong>, e non sono scritti da nessuna parte.</p>
+      </div>
+    </div>
+
+    <p>Non &egrave; che la regola sia cambiata. &Egrave; che nei tempi semplici le due cose coincidevano <strong>per caso</strong>, e sembravano una cosa sola.</p>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Il conto, in una riga</span>
+      <p>Sei crome, raggruppate a <strong>tre</strong>. Ogni gruppo &egrave; un movimento: <strong>due movimenti</strong>, e ciascuno dura una <strong>semiminima col punto</strong>.</p>
+    </div>
+
+    <tac-stave clef="percussion" time="6/8" caption="Sei crome, due gruppi da tre" notes="b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8" width="380" tempo="60" play></tac-stave>
+
+    <p class="didascalia">Chi batte <strong>sei</strong> volte per battuta non sta leggendo un 6/8: sta leggendo un 6/8 rallentato sei volte, e si sente.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il movimento &egrave; puntato">
+  <div class="slide-interna">
+    <h2>La semiminima col punto, e si batte lei</h2>
+
+    <tac-stave clef="percussion" time="6/8" caption="I due movimenti, scritti" notes="b/4:q. b/4:q." width="300" tempo="60" play></tac-stave>
+
+    <p>La semiminima col punto vale <strong>tre crome</strong>: una semiminima pi&ugrave; met&agrave;. Questo lo sapete dall&rsquo;unit&agrave; 1 &mdash; il punto aggiunge la met&agrave;.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Quindi</span>
+      <p>Nei tempi composti il movimento &egrave; sempre una figura <strong>col punto</strong>. In 6/8 &egrave; la semiminima col punto; il numero di sotto dice la <strong>suddivisione</strong>, non il movimento.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">La cosa che disorienta, e va detta</span>
+      <p>&Egrave; l&rsquo;unico caso in cui la figura del movimento <strong>non compare</strong> nella frazione. In 3/4 il 4 dice &laquo;semiminima&raquo; e il movimento &egrave; la semiminima. In 6/8 l&rsquo;8 dice &laquo;croma&raquo;, e il movimento &egrave; un&rsquo;altra cosa.</p>
+    </div>
+
+    <p class="didascalia">Se vi sembra una convenzione scomoda, avete ragione: lo &egrave;. Nessuno l&rsquo;ha progettata &mdash; si &egrave; depositata, come quasi tutta la notazione.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="6/8 contro 3/4">
+  <div class="slide-interna">
+    <h2>Le stesse sei crome, due musiche diverse</h2>
+
+    <tac-stave clef="percussion" time="3/4" caption="3/4: tre gruppi di due" notes="b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8" width="380" tempo="60" play></tac-stave>
+
+    <tac-stave clef="percussion" time="6/8" caption="6/8: due gruppi di tre" notes="b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8" width="380" tempo="60" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Sono <strong>le stesse note</strong></span>
+      <p>Sei crome, nello stesso ordine, con la stessa durata totale. Cambia solo <strong>come si raggruppano</strong>, e quindi dove cadono gli accenti.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Il metro non sta nelle note</span>
+      <p>Sta nel <strong>raggruppamento</strong>, e il raggruppamento si vede dalle <strong>travature</strong>. In 3/4 le crome si uniscono a due a due, in 6/8 a tre a tre.</p>
+    </div>
+
+    <p>Ascoltatele di fila e battete: la stessa fila di crome, con la mano che batte tre volte o due volte, diventa un&rsquo;altra cosa.</p>
+
+    <p class="didascalia">&Egrave; la stessa scoperta dell&rsquo;unit&agrave; 1: la pulsazione non &egrave; nel suono, ci si mette sopra. Qui il suono &egrave; addirittura identico, e il metro lo decide chi legge.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Le figure che ci stanno">
+  <div class="slide-interna">
+    <h2>Che cosa si pu&ograve; scrivere dentro un movimento</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Le tre combinazioni che coprono quasi tutto</span>
+      <p><strong>Tre crome</strong> &mdash; il movimento diviso in tre parti uguali.<br>
+      <strong>Semiminima + croma</strong> &mdash; due terzi e un terzo.<br>
+      <strong>Semiminima col punto</strong> &mdash; il movimento tutto intero, un suono solo.</p>
+    </div>
+
+    <tac-stave clef="percussion" time="6/8" caption="Tre crome, poi semiminima e croma" notes="b/4:8 b/4:8 b/4:8 b/4:q b/4:8" width="380" tempo="60" play></tac-stave>
+
+    <tac-stave clef="percussion" time="6/8" caption="Un movimento intero, poi tre crome" notes="b/4:q. b/4:8 b/4:8 b/4:8" width="380" tempo="60" play></tac-stave>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Quella che sorprende</span>
+      <p><strong>Semiminima + croma</strong>. In 6/8 &egrave; una figura normalissima; in 3/4 la stessa coppia di figure occuperebbe un movimento e mezzo. Le figure sono le stesse, il posto che occupano no.</p>
+    </div>
+
+    <p class="didascalia">Non c&rsquo;&egrave; niente da imparare a memoria: si conta in <strong>crome</strong> e si controlla che ogni gruppo ne faccia <strong>tre</strong>.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="9/8 e 12/8">
+  <div class="slide-interna">
+    <h2>E gli altri due, che non aggiungono niente</h2>
+
+    <tac-stave clef="percussion" time="9/8" caption="9/8: tre movimenti" notes="b/4:q. b/4:q. b/4:q." width="360" tempo="60" play></tac-stave>
+
+    <tac-stave clef="percussion" time="12/8" caption="12/8: quattro movimenti" notes="b/4:q. b/4:q. b/4:q. b/4:q." width="420" tempo="60" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">La regola, una volta per tutte</span>
+      <p>Si divide il numero di sopra per <strong>tre</strong>, e viene il numero dei movimenti.<br>
+      6/8 &rarr; <strong>due</strong> &middot; 9/8 &rarr; <strong>tre</strong> &middot; 12/8 &rarr; <strong>quattro</strong></p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">E la simmetria che li rende facili</span>
+      <p>2 movimenti &rarr; binario, come il 2/4.<br>
+      3 movimenti &rarr; ternario, come il 3/4.<br>
+      4 movimenti &rarr; quaternario, come il 4/4.<br>
+      Cambia la <strong>suddivisione</strong> &mdash; in tre invece che in due &mdash; non il numero di movimenti.</p>
+    </div>
+
+    <p class="didascalia">Un 6/8 si dirige come un 2/4 e un 12/8 come un 4/4. Il gesto della mano &egrave; identico: quello che cambia &egrave; quante cose ci stanno dentro.</p>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; i tempi composti" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; i tempi composti</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 5 minuti</span>
+      <p>Cinque affermazioni. La prima &egrave; l&rsquo;inganno del numero.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "In 6/8 il numero di sopra dice quanti movimenti ci sono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: dice quante <strong>crome</strong>. I movimenti sono due, e non sono scritti da nessuna parte.",
+  "da": "L&rsquo;inganno del numero"
+ },
+ {
+  "d": "Nei tempi semplici il numero di sopra conta i movimenti.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e conta anche le semiminime: i due conti coincidono, e sembravano una regola sola.",
+  "da": "L&rsquo;inganno del numero"
+ },
+ {
+  "d": "In 6/8 il movimento è la croma.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è la <strong>semiminima col punto</strong>, che vale tre crome.",
+  "da": "Il movimento &egrave; puntato"
+ },
+ {
+  "d": "Nei tempi composti il movimento è sempre una figura col punto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è l'unico caso in cui la figura del movimento non compare nella frazione.",
+  "da": "Il movimento &egrave; puntato"
+ },
+ {
+  "d": "Sei crome in 3/4 e sei crome in 6/8 sono la stessa musica.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: stesse note, raggruppamento diverso. Tre gruppi di due contro due gruppi di tre, e cambiano gli accenti.",
+  "da": "6/8 contro 3/4"
+ },
+ {
+  "d": "Il raggruppamento si vede dalle travature.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: in 3/4 le crome si uniscono a due a due, in 6/8 a tre a tre.",
+  "da": "6/8 contro 3/4"
+ },
+ {
+  "d": "Il metro sta nelle note.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sta nel <strong>raggruppamento</strong>. È la stessa scoperta dell'unità 1 — la pulsazione non è nel suono, ci si mette sopra.",
+  "da": "6/8 contro 3/4"
+ },
+ {
+  "d": "In 6/8 una semiminima seguita da una croma occupa un movimento.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: due terzi e un terzo. In 3/4 le stesse figure occuperebbero un movimento e mezzo.",
+  "da": "Le figure che ci stanno"
+ },
+ {
+  "d": "Per sapere quanti movimenti ha un tempo composto si divide il numero di sopra per tre.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: 6/8 due, 9/8 tre, 12/8 quattro.",
+  "da": "9/8 e 12/8"
+ },
+ {
+  "d": "Un 12/8 si dirige come un 3/4.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: come un <strong>4/4</strong>. Quattro movimenti, con la suddivisione in tre invece che in due.",
+  "da": "9/8 e 12/8"
+ },
+ {
+  "d": "Il 9/8 è un tempo ternario.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: tre movimenti, come il 3/4. Cambia la suddivisione, non il numero di movimenti.",
+  "da": "9/8 e 12/8"
+ },
+ {
+  "d": "I tempi composti li avete visti per la prima volta in questa unità.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: unità 3, lezione 4. Sono passati quattro mesi, ed è per questo che si rifà il conto da zero.",
+  "da": "Un ritorno, dopo quattro mesi"
+ },
+ {
+  "d": "Chi batte sei volte per battuta in un 6/8 sta contando le crome.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e si sente: il pezzo diventa lento e piatto.",
+  "da": "L&rsquo;inganno del numero"
+ },
+ {
+  "d": "La semiminima col punto vale tre crome.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: il punto aggiunge la metà, e lo sapete dall'unità 1.",
+  "da": "Il movimento &egrave; puntato"
+ },
+ {
+  "d": "In 6/8 si può scrivere un movimento intero come una figura sola.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: è la semiminima col punto. Le tre combinazioni normali sono tre crome, semiminima+croma, e la puntata da sola.",
+  "da": "Le figure che ci stanno"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo &middot; leggere a tempo" data-segno
+         style="--segno: url('../../_assets/segni/segno-07.png')">
+  <div class="slide-interna">
+    <h2>Sei righi in 6/8, ad alta voce</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Quindici minuti &middot; tutti insieme, poi a turno</span>
+      <p>Si legge a <strong>sillaba sola</strong>, come nel solfeggio ritmico, con la <strong>mano che batte due volte</strong> per battuta.</p>
+      <p>Prima molto lenti, con la voce che dice <em>uno-e-a, due-e-a</em>. Poi si toglie il conto e si tiene solo il battito.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">L&rsquo;errore da aspettarsi</span>
+      <p>Battere <strong>sei</strong> volte. Viene naturale perch&eacute; il numero dice sei, ed &egrave; esattamente l&rsquo;inganno di cui abbiamo parlato. Chi lo fa, lo sente da s&eacute;: il pezzo diventa lentissimo e piatto.</p>
+    </div>
+
+    <p class="didascalia">Il primo dei sei ha solo crome e semiminime puntate. L&rsquo;ultimo ha la <strong>semiminima+croma</strong> spostata sul secondo movimento, ed &egrave; quello su cui ci si ferma.</p>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="A due gruppi" data-segno
+         style="--segno: url('../../_assets/segni/segno-08.png')">
+  <div class="slide-interna">
+    <h2>Dieci minuti a due gruppi, e si scambia</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Come si fa</span>
+      <p><strong>Gruppo A</strong> batte i <strong>due movimenti</strong>, forte e regolare. <strong>Gruppo B</strong> legge il rigo sopra quel battito.</p>
+      <p>Poi ci si scambia. Poi si toglie il gruppo che batte e si vede chi resta in tempo.</p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Perch&eacute; battere &egrave; il compito difficile</span>
+      <p>Chi batte deve tenere <strong>due movimenti lenti</strong> mentre sente sei crome. &Egrave; molto pi&ugrave; difficile che leggere, e chi ci riesce ha capito il 6/8 meglio di chi legge.</p>
+    </div>
+
+    <p class="didascalia">L&rsquo;ultimo giro, senza nessuno che batte, &egrave; quello che conta. Se il gruppo rallenta, sta contando le crome invece dei movimenti.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Il conto</span>
+        <p>Numero di sopra <strong>diviso tre</strong> = movimenti. Il movimento &egrave; una figura <strong>col punto</strong>.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">La differenza col 3/4</span>
+        <p>Stesse sei crome. In 3/4 <strong>tre gruppi di due</strong>, in 6/8 <strong>due gruppi di tre</strong>. Lo dicono le travature.</p>
+      </div>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Da oggi c&rsquo;&egrave; anche da studiare</span>
+      <p>Il fascicolo di solfeggio non aveva <strong>nemmeno un pezzo in 6/8</strong>. Adesso ne ha <strong>dieci</strong>, in fondo, ed &egrave; il materiale di quest&rsquo;ora e dell&rsquo;ora 75.</p>
+    </div>
+
+    <p class="didascalia">Domani si torna alle funzioni, e si fa la cosa per cui servivano: <strong>riconoscerle all&rsquo;ascolto</strong>. Fra un&rsquo;ora e mezza saprete dire, sentendo un accordo dentro un brano, che mestiere sta facendo.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Sei ottavi &middot; Due movimenti &middot; 1.</strong> Otto battute in <strong>6/8</strong>. Si batte <strong>due</strong> volte per battuta, non sei.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-10.html#C1-U10-L6-02"><strong>Workbook</strong></a>, scheda C1-U10-L6-02.</p>
+      </li>
+      <li>
+        <p class="testo-compito"><strong>2. Sei ottavi &middot; Due movimenti &middot; 2.</strong> Otto battute in <strong>6/8</strong>. Si batte <strong>due</strong> volte per battuta, non sei.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-10.html#C1-U10-L6-03"><strong>Workbook</strong></a>, scheda C1-U10-L6-03.</p>
+      </li>
+      <li>
+        <p class="testo-compito"><strong>3. Sei ottavi &middot; Due movimenti &middot; 3.</strong> Otto battute in <strong>6/8</strong>. Si batte <strong>due</strong> volte per battuta, non sei.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-10.html#C1-U10-L6-04"><strong>Workbook</strong></a>, scheda C1-U10-L6-04.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"pronta","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all’ascolto: il primo colore","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"pronta","lezioni":[{"n":1,"titolo":"Diesis, bemolle, bequadro: che cosa alterano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Segni di ottava e loro lettura","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato con alterazioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La suddivisione e i tempi composti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Bicordi: terze e seste all’ascolto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"pronta","lezioni":[{"n":1,"titolo":"Il tetracordo, mattone della scala","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La scala diatonica maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione della scala di Do","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il circolo delle quinte con i diesis","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La scala armonizzata: tonica e dominante","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in Do","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Riconoscere tonica e dominante in un brano","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: scrivere una scala su qualunque nota","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico entro la quinta","file":"lezione-9.html","stato":"pronta"}],"via":"uda-04"},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"pronta","lezioni":[{"n":1,"titolo":"Il circolo con i bemolli","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le armature di chiave: come si leggono","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato melodico in Do e in Sol","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Trovare la tonica dall’armatura","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Solfeggio cantato con armatura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V2 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-05"},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"pronta","lezioni":[{"n":1,"titolo":"Il modo minore naturale, e le tonalità relative","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La minore armonica e il grado di sensibile","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione nel modo minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Perché la settima si alza","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La minore melodica, e perché cambia salendo e scendendo","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in modo minore","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Le tre minori a confronto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: le tre minori scritte su una nota data","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico in modo minore","file":"lezione-9.html","stato":"pronta"}],"via":"uda-06"},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"pronta","lezioni":[{"n":1,"titolo":"Quantità dell’intervallo: contare i gradi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Qualità: giusti, maggiori, minori","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione degli intervalli entro la quinta","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Aumentati, diminuiti, enarmonia","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"L’inversione degli intervalli","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato a salti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Consonanti e dissonanti: che cosa vuol dire davvero","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Intonazione degli intervalli oltre la quinta","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V3 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-07"},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"pronta","lezioni":[{"n":1,"titolo":"La triade come due terze sovrapposte","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le quattro specie: maggiore, minore, diminuita, aumentata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Riconoscimento uditivo di maggiore e minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Le triadi sui gradi della scala","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"I rivolti e la cifratura. La scala cromatica","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Arpeggi cantati sulle triadi","file":"lezione-6.html","stato":"pronta"}],"via":"uda-08"},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"pronta","lezioni":[{"n":1,"titolo":"Struttura della quadriade","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La settima di dominante","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ear training sugli intervalli","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La risoluzione della settima","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Riconoscere la dominante in partitura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico con salti d’accordo","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Esercitazione: cifrare e realizzare","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Solfeggio cantato con accompagnamento","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V4 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-09"},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"pronta","lezioni":[{"n":1,"titolo":"Tonica, dominante, sottodominante","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La progressione I–IV–V–I","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato ritmico-melodico","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La condotta delle parti: moti e divieti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Esercitazione: trovare e correggere gli errori di condotta","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura in tempi composti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Riconoscere le funzioni all’ascolto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: armonizzare un basso dato","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Solfeggio ritmico in 6/8","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Le funzioni in un brano vero","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Dettato armonico: due funzioni","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V5 · verifica scritta cumulativa","file":"lezione-12.html","stato":"pronta"}],"via":"uda-10"},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"pronta","lezioni":[{"n":1,"titolo":"La cadenza autentica","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Plagale, sospesa, d’inganno","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio a due voci","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Riconoscere le cadenze all’ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le cadenze come punteggiatura della frase","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Intonazione di arpeggi","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Prima armonizzazione di una melodia","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Armonizzazione: la seconda prova","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico con cadenza finale","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Le cadenze dentro un brano del repertorio","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Solfeggio: ripasso dell’anno","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V6 · verifica scritta cumulativa","file":"lezione-12.html","stato":"pronta"}],"via":"uda-11"}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":1,"unita":10,"lezione":6}}</script>
+</body>
+</html>

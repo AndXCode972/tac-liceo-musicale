@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 3. Riconoscimento uditivo di maggiore e minore | Le triadi sui gradi</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=28f539c5">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=ef6660e0" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 3 · Riconoscimento uditivo di maggiore e minore
+     Unità 8, ora 54 di 90 · classe 1ª · percezione
+
+     ══ ORA INTERA ══
+     Niente coda. Undici slide e trentacinque minuti di ascolto.
+
+     ══ IL TITOLO DICE «MAGGIORE E MINORE», E SI FA ANCHE IL RESTO ══
+     Il piano chiede le due specie che contano. Ma la lezione 2 ne ha
+     date quattro, e lasciare le altre due fuori dall'ascolto vorrebbe
+     dire insegnarle solo sulla carta — cioè non insegnarle.
+
+     L'ora quindi ha due parti di peso diverso: **venti minuti sulle due
+     normali**, dove si pretende sicurezza, e **dieci sulle due rare**,
+     dove basta accorgersi che non sono né maggiori né minori. Il
+     livello di richiesta è diverso e va detto alla classe.
+
+     ══ NON SI ASCOLTA L'ACCORDO: SI ASCOLTA LA TERZA ══
+     È la cosa che rende la lezione insegnabile. «Senti se è maggiore o
+     minore» non è un'istruzione: è la domanda ripetuta. L'istruzione è
+     «canta la nota più bassa, poi sali alla seconda: sono due toni o un
+     tono e mezzo?» — e quello la classe lo sa fare dall'unità 7.
+
+     Chi non riconosce l'accordo riconosce quasi sempre l'intervallo. Il
+     lavoro dell'ora è convincerli a passare per lì invece di aspettare
+     che il nome arrivi da solo.
+
+     ══ CAPPELLARI, E I QUATTRO INCIPIT ══
+     `Teoria, Analisi e Percezione Musicale`, vol. 1, p. 116, dà quattro
+     incipit di repertorio, uno per specie:
+
+        maggiore    Beethoven, Sinfonia n. 5, IV movimento
+        minore      A. Marcello, Adagio
+        diminuita   Beethoven, Sinfonia n. 5, II movimento
+        eccedente   Bach, Passione secondo Matteo, n. 66
+
+     Vanno **suonati al pianoforte**, non descritti. Il primo lo
+     riconoscono tutti e serve da àncora: il finale della Quinta apre
+     salendo sulla triade di do maggiore, e chi ha in testa quel profilo
+     ha in testa la triade maggiore.
+
+     ══ L'ERRORE CHE FARANNO ══
+     Confondere **minore e diminuita**. Hanno tutte e due la terza
+     minore, e la classe ascolta la terza: fin lì è coerente. La
+     differenza è nella quinta, e la quinta si sente solo se la si va a
+     cercare — cioè cantando la nota più alta contro la più bassa.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c1u8-lezione-3.jpg?v=68f710ea');
+                --cop-a:#0f2a2e; --cop-b:#0d9488; --cop-c:#ccfbf1">
+  <div class="slide-interna">
+    <div class="occhiello">Le triadi sui gradi &middot; UdA 8 &middot; Lezione 3 di 6</div>
+    <h1>Non si ascolta l&rsquo;accordo: si ascolta la terza</h1>
+    <p class="sottotitolo">&laquo;Senti se &egrave; maggiore&raquo; non &egrave; un&rsquo;istruzione. Cantare la nota di mezzo lo &egrave;.</p>
+
+    <blockquote class="aforisma">
+      <p>&Egrave; un accordo di moto, e quindi ha tendenza alla risoluzione.</p>
+      <cite>Francesco Tissoni, <em>Metodo elementare di Armonia</em>, p.&nbsp;8, sulla triade diminuita</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Percezione</span>
+      <span>Le quattro specie all&rsquo;ascolto</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il colore, prima del nome">
+  <div class="slide-interna">
+    <h2>Questo lo sapete fare dall&rsquo;unit&agrave; 2</h2>
+
+    <tac-stave clef="treble" time="4/4" caption="Due accordi, e la differenza si sente prima di saperla spiegare" notes="c/4+e/4+g/4:h c/4+eb/4+g/4:h" width="420" tempo="46" play></tac-stave>
+
+    <p>Alla quarta ora dell&rsquo;anno avevate gi&agrave; distinto questi due colori senza sapere niente di triadi. Non si &egrave; imparato in cinque mesi: si sapeva gi&agrave;.</p>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">E la cosa che avevamo smontato</span>
+      <p><strong>Minore non vuol dire triste.</strong> L&rsquo;avevamo verificato con un brano minore e allegro. Se oggi qualcuno risponde &laquo;minore&raquo; perch&eacute; gli sembra malinconico, indovina met&agrave; delle volte.</p>
+    </div>
+
+    <p>Quello che cambia da oggi non &egrave; <em>se</em> lo sentite. &Egrave; <strong>che cosa state ascoltando</strong> quando lo sentite.</p>
+
+    <p class="didascalia">Il colore &egrave; una risposta buona e non &egrave; verificabile. Alla fine dell&rsquo;ora ne avrete una che si pu&ograve; controllare.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa si ascolta">
+  <div class="slide-interna">
+    <h2>Di tre suoni, uno solo porta l&rsquo;informazione</h2>
+
+    <p>Fondamentale e quinta sono <strong>uguali</strong> nella maggiore e nella minore. L&rsquo;unico suono che cambia &egrave; quello di mezzo.</p>
+
+    <tac-stave clef="treble" time="4/4" caption="Gli estremi non si muovono: si muove la terza" notes="c/4+g/4:h c/4+g/4:h | c/4+e/4+g/4:h c/4+eb/4+g/4:h" width="560" tempo="46" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">L&rsquo;istruzione, ed &egrave; una cosa che sapete gi&agrave; fare</span>
+      <p><strong>1</strong> &middot; canta la nota pi&ugrave; <strong>bassa</strong> dell&rsquo;accordo.<br>
+      <strong>2</strong> &middot; sali alla nota di <strong>mezzo</strong>.<br>
+      <strong>3</strong> &middot; quell&rsquo;intervallo &egrave; <strong>due toni</strong> o <strong>un tono e mezzo</strong>?</p>
+    </div>
+
+    <p>Terza maggiore e terza minore le cantate dall&rsquo;unit&agrave; 7, lezione 3. Non si sta imparando un ascolto nuovo: si sta usando quello vecchio dentro una cosa nuova.</p>
+
+    <p class="didascalia">Questo &egrave; il passaggio dell&rsquo;ora. Chi aspetta che il nome dell&rsquo;accordo arrivi da solo indovina; chi passa dalla terza <strong>ricava</strong>, e sbaglia molto meno.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Quattro incipit">
+  <div class="slide-interna">
+    <h2>Una musica vera per ciascuna, da tenere in testa</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Andrea Cappellari, <em>Teoria, Analisi e Percezione Musicale</em>, vol.&nbsp;1, p.&nbsp;116</span>
+      <p><strong>maggiore</strong> &mdash; Beethoven, Sinfonia n.&nbsp;5, IV movimento<br>
+      <strong>minore</strong> &mdash; A.&nbsp;Marcello, <em>Adagio</em><br>
+      <strong>diminuita</strong> &mdash; Beethoven, Sinfonia n.&nbsp;5, II movimento<br>
+      <strong>eccedente</strong> &mdash; Bach, <em>Passione secondo Matteo</em>, n.&nbsp;66</p>
+    </div>
+
+    <p>Ve li suono tutti e quattro. Il primo lo riconoscete: il finale della Quinta comincia <strong>salendo sulla triade di do maggiore</strong>.</p>
+
+    <tac-stave clef="treble" time="4/4" caption="Il profilo che apre il finale della Quinta: la triade, in salita" notes="c/4:q e/4:q g/4:q c/5:q | g/4:h e/4:h" width="480" tempo="60" play></tac-stave>
+
+    <div class="riquadro studio">
+      <span class="etichetta">A che cosa serve avere una musica in testa</span>
+      <p>Quando in verifica sentite un accordo e non vi viene il nome, non cercate il nome: cercate <strong>quale delle quattro musiche</strong> vi ricorda. Poi il nome ce l&rsquo;ha lei.</p>
+    </div>
+
+    <p class="didascalia">&Egrave; lo stesso metodo delle canzoni per gli intervalli, dell&rsquo;unit&agrave; 7. Funziona per la stessa ragione: un profilo lungo si ricorda, un&rsquo;etichetta corta no.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Arpeggio o insieme">
+  <div class="slide-interna">
+    <h2>Le stesse tre note, e uno dei due modi &egrave; molto pi&ugrave; facile</h2>
+
+    <div class="colonne">
+      <div>
+        <tac-stave clef="treble" time="4/4" caption="Tutte insieme" notes="c/4+e/4+g/4:w" width="240" tempo="48" play></tac-stave>
+      </div>
+      <div>
+        <tac-stave clef="treble" time="4/4" caption="In arpeggio, una per volta" notes="c/4:q e/4:q g/4:q c/5:q" width="280" tempo="60" play></tac-stave>
+      </div>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Perch&eacute; l&rsquo;arpeggio &egrave; pi&ugrave; facile</span>
+      <p>Perch&eacute; l&rsquo;orecchio deve separare i suoni prima di misurarli. Nell&rsquo;arpeggio sono gi&agrave; separati e la terza si canta subito; tutte insieme, prima bisogna tirarle fuori.</p>
+    </div>
+
+    <p>Cappellari fa i suoi esercizi di riconoscimento <strong>in arpeggio</strong>, e noi facciamo lo stesso. Ma non &egrave; una scorciatoia da tenere per sempre.</p>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Il piano dell&rsquo;ora</span>
+      <p>Prima in arpeggio, finch&eacute; non vengono tutte. Poi <strong>tutte insieme</strong>, che &egrave; come si presentano nella musica vera.</p>
+    </div>
+
+    <p class="didascalia">Se in arpeggio non viene, tutte insieme &egrave; peggio: si torna indietro e si riparte dalla terza cantata.</p>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; che cosa si ascolta" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; che cosa si ascolta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 6 minuti</span>
+      <p>Cinque affermazioni sul <em>metodo</em>, non sugli accordi. Prima di riascoltare.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "Per riconoscere una triade all'orecchio si ascolta la terza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: fondamentale e quinta non portano informazione, sono uguali nella maggiore e nella minore.",
+  "da": "Che cosa si ascolta"
+ },
+ {
+  "d": "Maggiore e minore hanno la stessa fondamentale e la stessa quinta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e per questo l'unico suono da misurare è quello di mezzo.",
+  "da": "Che cosa si ascolta"
+ },
+ {
+  "d": "Se un accordo sembra malinconico, allora è minore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e lo avevamo smontato all'unità 2 con un brano minore e allegro. Chi risponde col sentimento indovina metà delle volte.",
+  "da": "Il colore, prima del nome"
+ },
+ {
+  "d": "All'unità 2 sapevate già distinguere maggiore e minore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e senza sapere niente di triadi. Quello che cambia oggi non è <em>se</em> lo sentite: è che cosa state ascoltando.",
+  "da": "Il colore, prima del nome"
+ },
+ {
+  "d": "Il colore è una risposta che si può controllare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è una risposta buona e non verificabile. La misura della terza invece si controlla, ed è quello che si impara oggi.",
+  "da": "Il colore, prima del nome"
+ },
+ {
+  "d": "La terza maggiore vale un tono e mezzo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: <strong>due toni</strong>, quattro semitoni. Un tono e mezzo è la minore.",
+  "da": "Che cosa si ascolta"
+ },
+ {
+  "d": "Se il nome non arriva da solo, si canta la nota più bassa e poi quella di mezzo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è tutta l'istruzione dell'ora. Aspettare che il nome arrivi vuol dire indovinare.",
+  "da": "Che cosa si ascolta"
+ },
+ {
+  "d": "Riconoscere una triade in arpeggio è più facile che tutta insieme.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: nell'arpeggio i suoni sono già separati, e la terza si canta subito.",
+  "da": "Arpeggio o insieme"
+ },
+ {
+  "d": "Nell'arpeggio i suoni arrivano uno per volta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è esattamente il motivo per cui l'orecchio fa meno fatica.",
+  "da": "Arpeggio o insieme"
+ },
+ {
+  "d": "L'arpeggio è una scorciatoia e ci si ferma lì.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si comincia in arpeggio e si finisce con gli accordi <strong>tutti insieme</strong>, che è come si presentano nella musica vera.",
+  "da": "Arpeggio o insieme"
+ },
+ {
+  "d": "Nella musica gli accordi si presentano sempre in arpeggio.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: quasi mai. L'arpeggio è un modo di studiare, non un modo di comporre.",
+  "da": "Arpeggio o insieme"
+ },
+ {
+  "d": "Cappellari propone il finale della Quinta di Beethoven come incipit della triade maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e il tema apre proprio salendo sulla triade di do maggiore.",
+  "da": "Quattro incipit"
+ },
+ {
+  "d": "Cappellari usa la <em>Passione secondo Matteo</em> per la triade eccedente.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, il n.&nbsp;66. È l'incipit più difficile dei quattro, e infatti è per la specie più rara.",
+  "da": "Quattro incipit"
+ },
+ {
+  "d": "Avere una musica in testa serve meno che sapere l'etichetta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed è la stessa cosa delle canzoni per gli intervalli: un profilo lungo si ricorda, un'etichetta corta no.",
+  "da": "Quattro incipit"
+ },
+ {
+  "d": "I quattro incipit di Cappellari sono uno per ciascuna specie.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: maggiore, minore, diminuita, eccedente.",
+  "da": "Quattro incipit"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo &middot; dodici ascolti" data-segno
+         style="--segno: url('../../_assets/segni/segno-29.png')">
+  <div class="slide-interna">
+    <h2>Dodici triadi, e per ora solo due risposte possibili</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Dodici ascolti &middot; maggiore o minore</span>
+      <p>Suono dodici triadi in arpeggio, ognuna due volte. Scrivete <strong>M</strong> o <strong>m</strong>, una riga per numero. Nessuna diminuita, nessuna eccedente: quelle vengono dopo.</p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Regola dell&rsquo;ora</span>
+      <p>Se la risposta vi arriva da sola, scrivetela. Se non arriva, <strong>cantate la terza</strong> e ricavatela. Non state fermi ad aspettare: la seconda esecuzione passa comunque.</p>
+    </div>
+
+    <p class="didascalia">Correggiamo subito, tutte e dodici. Chi ne sbaglia pi&ugrave; di tre non ha l&rsquo;orecchio peggiore: ha saltato il passaggio dalla terza, e si vede da quali ha sbagliato.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Le due strane all&rsquo;orecchio">
+  <div class="slide-interna">
+    <h2>Adesso le altre due, con una pretesa pi&ugrave; bassa</h2>
+
+    <div class="colonne">
+      <div>
+        <tac-stave clef="treble" time="4/4" caption="Diminuita: stretta, chiede di chiudersi" notes="c/4:q eb/4:q gb/4:q eb/4:q | c/4+eb/4+gb/4:w" width="420" tempo="56" play></tac-stave>
+      </div>
+      <div>
+        <tac-stave clef="treble" time="4/4" caption="Eccedente: larga, resta sospesa" notes="c/4:q e/4:q g#/4:q e/4:q | c/4+e/4+g#/4:w" width="420" tempo="56" play></tac-stave>
+      </div>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Che cosa si chiede di sentire</span>
+      <p>Non il nome. Solo questo: <strong>non &egrave; n&eacute; maggiore n&eacute; minore</strong>, e c&rsquo;&egrave; qualcosa che non sta fermo.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Se volete distinguerle</span>
+      <p>La <strong>diminuita</strong> tira verso l&rsquo;interno: sembra che voglia stringersi in due note. L&rsquo;<strong>eccedente</strong> non tira da nessuna parte: galleggia, ed &egrave; il suono pi&ugrave; smarrito dei quattro.</p>
+    </div>
+
+    <p class="didascalia">Tissoni chiama la diminuita &laquo;un accordo di <strong>moto</strong>&raquo;. &Egrave; la parola giusta: non &egrave; un colore, &egrave; una spinta.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="L&rsquo;errore che farete">
+  <div class="slide-interna">
+    <h2>Minore e diminuita si confondono, ed &egrave; un errore intelligente</h2>
+
+    <tac-stave clef="treble" time="3/4" caption="Le prime due note sono identiche: la differenza arriva alla terza" notes="c/4:q eb/4:q g/4:q | c/4:q eb/4:q gb/4:q" width="480" tempo="56" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Perch&eacute; succede</span>
+      <p>Perch&eacute; hanno <strong>la stessa terza</strong>, minore. Voi ascoltate la terza &mdash; ed &egrave; giusto &mdash; e fin l&igrave; sono uguali. La differenza sta nella <strong>quinta</strong>.</p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Il rimedio, quando il dubbio &egrave; fra queste due</span>
+      <p>Canta la nota pi&ugrave; <strong>alta</strong> contro la pi&ugrave; <strong>bassa</strong>, saltando quella di mezzo. Quinta giusta: &egrave; minore. Quel po&rsquo; pi&ugrave; stretta che vi d&agrave; fastidio: &egrave; diminuita.</p>
+    </div>
+
+    <p class="didascalia">Confondere maggiore e minore &egrave; un errore di ascolto. Confondere minore e diminuita &egrave; un errore di <strong>procedura</strong> &mdash; avete misurato la cosa giusta e non ne avete misurate abbastanza.</p>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="A coppie &middot; dieci minuti" data-segno
+         style="--segno: url('../../_assets/segni/segno-30.png')">
+  <div class="slide-interna">
+    <h2>A coppie, al pianoforte o cantando</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Dieci minuti &middot; ci si scambia a met&agrave;</span>
+      <p>Uno costruisce una triade su una fondamentale a scelta e la esegue <strong>in arpeggio</strong>; l&rsquo;altro dice la specie, dicendo <strong>ad alta voce</strong> che cosa ha misurato.</p>
+      <p>Chi esegue tiene il conto: sei triadi a testa, almeno una diminuita.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">La regola che rende utile l&rsquo;esercizio</span>
+      <p>Non si dice &laquo;giusto&raquo; o &laquo;sbagliato&raquo;: si <strong>riesegue</strong> e si chiede &laquo;la terza?&raquo;. Chi corregge dicendo la risposta non aiuta nessuno.</p>
+    </div>
+
+    <p class="didascalia">Chi non ha lo strumento canta l&rsquo;arpeggio. Cantarlo &egrave; pi&ugrave; difficile per chi esegue e pi&ugrave; facile per chi ascolta, e vale il doppio: &egrave; l&rsquo;ora 57.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Il metodo</span>
+        <p>Non si ascolta l&rsquo;accordo: si <strong>canta la terza</strong> e si misura. Se il dubbio resta, si canta la <strong>quinta</strong>.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">Le quattro musiche</span>
+        <p>Un incipit per specie, e il pi&ugrave; utile &egrave; il primo: il <strong>finale della Quinta</strong> sale sulla triade maggiore.</p>
+      </div>
+    </div>
+
+    <p>Domani si smette di ascoltare accordi sciolti e si va a vedere <strong>dove stanno</strong>: si costruisce una triade su ogni grado della scala, e si scopre perch&eacute; certe specie si incontrano di continuo e altre quasi mai.</p>
+
+    <p class="didascalia">Anticipazione: delle sette triadi della scala maggiore, <strong>nessuna</strong> &egrave; eccedente. Ecco perch&eacute; quel suono vi &egrave; sembrato cos&igrave; strano.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da ascoltare, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da ascoltare, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Cinque minuti al giorno, quattro accordi.</strong> Ogni giorno, al pianoforte o con qualunque strumento: le quattro triadi dal <em>do</em>, in arpeggio. Poi <strong>a occhi chiusi</strong>, facendosele suonare da qualcuno in ordine sparso.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"pronta","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all’ascolto: il primo colore","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"pronta","lezioni":[{"n":1,"titolo":"Diesis, bemolle, bequadro: che cosa alterano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Segni di ottava e loro lettura","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato con alterazioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La suddivisione e i tempi composti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Bicordi: terze e seste all’ascolto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"pronta","lezioni":[{"n":1,"titolo":"Il tetracordo, mattone della scala","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La scala diatonica maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione della scala di Do","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il circolo delle quinte con i diesis","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La scala armonizzata: tonica e dominante","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in Do","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Riconoscere tonica e dominante in un brano","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: scrivere una scala su qualunque nota","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico entro la quinta","file":"lezione-9.html","stato":"pronta"}],"via":"uda-04"},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"pronta","lezioni":[{"n":1,"titolo":"Il circolo con i bemolli","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le armature di chiave: come si leggono","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato melodico in Do e in Sol","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Trovare la tonica dall’armatura","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Solfeggio cantato con armatura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V2 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-05"},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"pronta","lezioni":[{"n":1,"titolo":"Il modo minore naturale, e le tonalità relative","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La minore armonica e il grado di sensibile","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione nel modo minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Perché la settima si alza","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La minore melodica, e perché cambia salendo e scendendo","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in modo minore","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Le tre minori a confronto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: le tre minori scritte su una nota data","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico in modo minore","file":"lezione-9.html","stato":"pronta"}],"via":"uda-06"},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"pronta","lezioni":[{"n":1,"titolo":"Quantità dell’intervallo: contare i gradi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Qualità: giusti, maggiori, minori","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione degli intervalli entro la quinta","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Aumentati, diminuiti, enarmonia","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"L’inversione degli intervalli","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato a salti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Consonanti e dissonanti: che cosa vuol dire davvero","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Intonazione degli intervalli oltre la quinta","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V3 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-07"},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"pronta","lezioni":[{"n":1,"titolo":"La triade come due terze sovrapposte","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le quattro specie: maggiore, minore, diminuita, aumentata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Riconoscimento uditivo di maggiore e minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Le triadi sui gradi della scala","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"I rivolti e la cifratura. La scala cromatica","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Arpeggi cantati sulle triadi","file":"lezione-6.html","stato":"pronta"}],"via":"uda-08"},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"pronta","lezioni":[{"n":1,"titolo":"Struttura della quadriade","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La settima di dominante","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ear training sugli intervalli","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La risoluzione della settima","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Riconoscere la dominante in partitura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico con salti d’accordo","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Esercitazione: cifrare e realizzare","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Solfeggio cantato con accompagnamento","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V4 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-09"},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"pronta","lezioni":[{"n":1,"titolo":"Tonica, dominante, sottodominante","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La progressione I–IV–V–I","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato ritmico-melodico","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La condotta delle parti: moti e divieti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Esercitazione: trovare e correggere gli errori di condotta","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura in tempi composti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Riconoscere le funzioni all’ascolto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: armonizzare un basso dato","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Solfeggio ritmico in 6/8","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Le funzioni in un brano vero","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Dettato armonico: due funzioni","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V5 · verifica scritta cumulativa","file":"lezione-12.html","stato":"pronta"}],"via":"uda-10"},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"pronta","lezioni":[{"n":1,"titolo":"La cadenza autentica","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Plagale, sospesa, d’inganno","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio a due voci","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Riconoscere le cadenze all’ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le cadenze come punteggiatura della frase","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Intonazione di arpeggi","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Prima armonizzazione di una melodia","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Armonizzazione: la seconda prova","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico con cadenza finale","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Le cadenze dentro un brano del repertorio","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Solfeggio: ripasso dell’anno","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V6 · verifica scritta cumulativa","file":"lezione-12.html","stato":"pronta"}],"via":"uda-11"}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":1,"unita":8,"lezione":3}}</script>
+</body>
+</html>

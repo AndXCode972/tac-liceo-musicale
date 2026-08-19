@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 2. La settima di dominante | La quadriade</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=28f539c5">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=ef6660e0" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 2 · La settima di dominante
+     Unità 9, ora 59 di 90 · classe 1ª · teoria
+
+     ══ ORA INTERA ══
+     Undici slide. È l'ora centrale dell'unità e forse dell'anno: da qui
+     in poi la classe ha in mano l'accordo che chiude quasi tutta la
+     musica che conosce.
+
+     ══ LA DIMOSTRAZIONE, E VA FATTA FARE ══
+     Delle sette quadriadi della scala, quella del V è **l'unica** con
+     triade maggiore *e* settima minore. Il conto:
+
+        I    triade maggiore + 7ª maggiore
+        II   triade minore   + 7ª minore
+        III  triade minore   + 7ª minore
+        IV   triade maggiore + 7ª maggiore
+        V    triade maggiore + 7ª MINORE   ← unica
+        VI   triade minore   + 7ª minore
+        VII  triade diminuita + 7ª minore
+
+     Le triadi le sanno dall'unità 8 (tre-tre-una); le settime le hanno
+     scritte ieri sera per compito. Quindi la tabella non si dà: si
+     **compila insieme**, e l'unicità del V viene fuori da sé. È il
+     momento migliore dell'unità e non va sprecato dettandolo.
+
+     ══ IL TRITONO, TERZA VOLTA ══
+     Unità 7 lezione 9: il tritono sta dentro la scala di do senza
+     alterazioni, fra IV e VII grado — presentato come sorpresa finale.
+     Unità 8 lezione 4: quel tritono è dentro la triade del VII grado.
+     Oggi: è dentro la settima di dominante, fra la sua **terza** e la
+     sua **settima**.
+
+     Tre unità, tre volte lo stesso intervallo, ogni volta un piano più
+     su. Vale la pena dirlo esplicitamente: è la prova che il programma
+     non è una fila di argomenti.
+
+     ══ CHE COSA NON ENTRA ══
+     La risoluzione è domani (lezione 4). Oggi si dice soltanto che
+     l'accordo è **teso** — la parola di Cappellari è «maggiore tensione
+     nella scala» — e che la tensione dovrà andare da qualche parte.
+     Chi chiede «e poi dove va?» merita un «bravo» e un rinvio di
+     due giorni.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c1u9-lezione-2.jpg?v=332fb3ec');
+                --cop-a:#1a1005; --cop-b:#a16207; --cop-c:#fef9c3">
+  <div class="slide-interna">
+    <div class="occhiello">La quadriade &middot; UdA 9 &middot; Lezione 2 di 9</div>
+    <h1>Sette quadriadi, e una sola conta</h1>
+    <p class="sottotitolo">Quella del quinto grado &egrave; l&rsquo;unica fatta cos&igrave;. Ed &egrave; l&rsquo;accordo che chiude quasi tutta la musica che conoscete.</p>
+
+    <blockquote class="aforisma">
+      <p>&Egrave; l&rsquo;accordo che ha maggiore tensione nella scala, e che prepara solitamente la conclusione sulla tonica.</p>
+      <cite>Andrea Cappellari, <em>Armonia, analisi e composizione</em>, p.&nbsp;30</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Teoria</span>
+      <span>La settima di dominante</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Compiliamo la tabella">
+  <div class="slide-interna">
+    <h2>Prima di dirvi qualunque cosa, mettiamo insieme quello che sapete</h2>
+
+    <p>Le <strong>triadi</strong> sui gradi le sapete dalla settimana scorsa. Le <strong>settime</strong> le avete scritte ieri sera. Mettiamole in colonna.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Do maggiore &middot; grado per grado</span>
+      <p><strong>I</strong> triade maggiore + 7ª maggiore<br>
+      <strong>II</strong> triade minore + 7ª minore<br>
+      <strong>III</strong> triade minore + 7ª minore<br>
+      <strong>IV</strong> triade maggiore + 7ª maggiore<br>
+      <strong>V</strong> triade maggiore + <strong>7ª minore</strong><br>
+      <strong>VI</strong> triade minore + 7ª minore<br>
+      <strong>VII</strong> triade diminuita + 7ª minore</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Guardate la colonna</span>
+      <p>Triade maggiore ce l&rsquo;hanno il I, il IV e il V. Settima minore ce l&rsquo;hanno tutti tranne il I e il IV.<br>
+      <strong>Chi ha tutte e due?</strong></p>
+    </div>
+
+    <p class="didascalia">Solo il <strong>V</strong>. Non &egrave; una delle sette: &egrave; l&rsquo;unica fatta cos&igrave;, in tutta la scala. E siccome lo stesso conto vale in ogni tonalit&agrave;, &egrave; l&rsquo;unica ovunque.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Com&rsquo;&egrave; fatta">
+  <div class="slide-interna">
+    <h2>La settima di dominante, da vicino</h2>
+
+    <tac-stave clef="treble" time="4/4" caption="Sol – si – re – fa: la settima di dominante di do maggiore" notes="g/4+b/4+d/5+f/5:w" width="300" tempo="46" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Cappellari, <em>Armonia, analisi e composizione</em>, p.&nbsp;30</span>
+      <p>&laquo;L&rsquo;accordo di settima di dominante si trova sul <strong>V grado</strong> del Modo Maggiore e minore ed &egrave; composto dalla triade di dominante con l&rsquo;aggiunta della settima rispetto al basso fondamentale: <strong>terza maggiore, quinta giusta, settima minore</strong>.&raquo;</p>
+    </div>
+
+    <p>Tre misure, contate dalla fondamentale. E si scrivono nell&rsquo;ordine in cui si incontrano salendo.</p>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Da imparare come una formula</span>
+      <p>Dal <strong>sol</strong>: <em>si</em> a una terza maggiore, <em>re</em> a una quinta giusta, <em>fa</em> a una settima minore. Sono tre intervalli che sapete misurare dall&rsquo;unit&agrave; 7.</p>
+    </div>
+
+    <p class="didascalia">Attenzione a una cosa che sembra un dettaglio: la triade &egrave; <strong>maggiore</strong> e la settima &egrave; <strong>minore</strong>. Chi la scrive con la settima maggiore ottiene la quadriade del I grado, che &egrave; un altro accordo e non chiude niente.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il tritono, terza volta">
+  <div class="slide-interna">
+    <h2>Guardate la seconda e la quarta nota</h2>
+
+    <tac-stave clef="treble" time="4/4" caption="Dentro l'accordo: si e fa" notes="g/4+b/4+d/5+f/5:h b/4+f/5:h" width="440" tempo="46" play></tac-stave>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">&Egrave; il <strong>tritono</strong>, e lo incontrate per la terza volta</span>
+      <p><strong>Unit&agrave; 7</strong>, lezione 9: sta dentro la scala di do senza una sola alterazione, fra IV e VII grado. Sembrava una curiosit&agrave;.<br>
+      <strong>Unit&agrave; 8</strong>, lezione 4: &egrave; dentro la triade del VII grado, ed &egrave; il motivo per cui quella triade &egrave; diminuita.<br>
+      <strong>Oggi</strong>: &egrave; dentro la settima di dominante, fra la sua <strong>terza</strong> e la sua <strong>settima</strong>.</p>
+    </div>
+
+    <p>Tre unit&agrave;, lo stesso intervallo, ogni volta un piano pi&ugrave; su. Non &egrave; che torna per caso: &egrave; l&rsquo;unico intervallo <em>instabile</em> che la scala maggiore produce da sola, e tutto quello che nella tonalit&agrave; &laquo;tira&raquo; passa di l&igrave;.</p>
+
+    <p class="didascalia">Le due note del tritono sono anche le due pi&ugrave; caratterizzate della scala: il <strong>si</strong> &egrave; la sensibile, il <strong>fa</strong> &egrave; il grado che le sta di fronte. Domani si vede che cosa fanno.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Perch&eacute; proprio il quinto">
+  <div class="slide-interna">
+    <h2>Non &egrave; una convenzione: viene dalla forma della scala</h2>
+
+    <div class="colonne">
+      <div>
+        <tac-stave clef="treble" time="4/4" caption="I grado: triade maggiore, ma 7ª maggiore" notes="c/4+e/4+g/4+b/4:w" width="240" tempo="46" play></tac-stave>
+      </div>
+      <div>
+        <tac-stave clef="treble" time="4/4" caption="IV grado: triade maggiore, ma 7ª maggiore" notes="f/4+a/4+c/5+e/5:w" width="240" tempo="46" play></tac-stave>
+      </div>
+    </div>
+
+    <p>Il I e il IV hanno anche loro la triade maggiore. Ma la loro settima &egrave; <strong>maggiore</strong>, cio&egrave; a un semitono dall&rsquo;ottava: suona morbida, non spinge.</p>
+
+    <tac-stave clef="treble" time="4/4" caption="V grado: triade maggiore e settima minore. Ascoltate la differenza" notes="c/4+e/4+g/4+b/4:h g/4+b/4+d/5+f/5:h" width="460" tempo="44" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">La ragione, in una riga</span>
+      <p>La settima minore sul V grado &egrave; il <strong>quarto grado</strong> della scala. La settima maggiore sul I &egrave; la <strong>sensibile</strong>. Sono due note diversissime, e producono due accordi diversissimi.</p>
+    </div>
+
+    <p class="didascalia">In tutte le tonalit&agrave; maggiori il conto &egrave; lo stesso, perch&eacute; la formula della scala &egrave; la stessa. Non c&rsquo;&egrave; niente da imparare tonalit&agrave; per tonalit&agrave;: si cerca il quinto grado e si costruisce.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Come si cifra">
+  <div class="slide-interna">
+    <h2>Un sette, e basta</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">K&aacute;rolyi, p.&nbsp;94</span>
+      <p>La settima &laquo;si indica con un <strong>piccolo 7 in cifra araba</strong> posto accanto al numero romano indicante il grado della scala&raquo;.</p>
+    </div>
+
+    <p>Quindi: <strong>V<sup>7</sup></strong>. Il numero romano dice su quale grado, il sette dice che c&rsquo;&egrave; la settima.</p>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">I due sistemi, ancora</span>
+      <p>Dall&rsquo;unit&agrave; 8: numeri <strong>romani</strong> per i gradi, cifre <strong>arabe</strong> per gli intervalli sopra il basso. Il 7 di V<sup>7</sup> &egrave; una cifra araba, e infatti dice un intervallo: la settima sopra la fondamentale.</p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Che cosa <em>non</em> vi chiedo</span>
+      <p>Le cifre dei <strong>tre rivolti</strong> della quadriade. Esistono, sono tre, e si studiano in quarta. Che i rivolti siano tre invece di due &mdash; quello s&igrave;.</p>
+    </div>
+
+    <p class="didascalia">Cappellari lo dice pi&ugrave; asciutto: allo stato fondamentale la settima di dominante &laquo;viene cifrata semplicemente con 7&raquo;.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Completa e incompleta">
+  <div class="slide-interna">
+    <h2>A volte una nota manca, e va bene lo stesso</h2>
+
+    <div class="colonne">
+      <div>
+        <tac-stave clef="treble" time="4/4" caption="Completa: tutti e quattro i suoni" notes="g/4+b/4+d/5+f/5:w" width="250" tempo="46" play></tac-stave>
+      </div>
+      <div>
+        <tac-stave clef="treble" time="4/4" caption="Incompleta: niente re, e il sol raddoppiato" notes="g/4+b/4+f/5+g/5:w" width="250" tempo="46" play></tac-stave>
+      </div>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Cappellari, p.&nbsp;30</span>
+      <p>L&rsquo;accordo &laquo;pu&ograve; presentarsi in forma <strong>completa</strong> (cio&egrave; con tutti e quattro i suoni reali presenti) oppure <strong>incompleta</strong> (con la omissione della <strong>quinta</strong> e il raddoppio della fondamentale)&raquo;.</p>
+    </div>
+
+    <p>Si toglie la <strong>quinta</strong> e non un&rsquo;altra nota, e la ragione &egrave; che la quinta &egrave; l&rsquo;unica che non serve a riconoscerlo: la fondamentale dice quale accordo &egrave;, la terza e la settima fanno il tritono.</p>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Quindi</span>
+      <p>Le due note che <strong>non si tolgono mai</strong> sono la <strong>terza</strong> e la <strong>settima</strong>. Sono quelle che rendono l&rsquo;accordo quello che &egrave;.</p>
+    </div>
+
+    <p class="didascalia">Ascoltate le due versioni una dopo l&rsquo;altra: la seconda &egrave; pi&ugrave; magra e tira uguale. &Egrave; la prova che la tensione sta nel tritono e non nel numero di note.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Anche in minore">
+  <div class="slide-interna">
+    <h2>In tonalit&agrave; minore &egrave; identica, e si capisce finalmente perch&eacute;</h2>
+
+    <tac-stave clef="treble" time="4/4" caption="La minore: mi – sol♯ – si – re" notes="e/4+g#/4+b/4+d/5:w" width="300" tempo="46" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Le stesse tre misure</span>
+      <p>Dal <em>mi</em>: <em>sol</em>&#9839; terza <strong>maggiore</strong>, <em>si</em> quinta giusta, <em>re</em> settima minore. Cappellari: l&rsquo;accordo &egrave; &laquo;comune ai due modi&raquo;.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">E il sol&#9839; da dove viene?</span>
+      <p>Dalla <strong>sensibile alzata</strong> della minore armonica &mdash; l&rsquo;ossessione dell&rsquo;unit&agrave; 6. Senza quel segno la triade di dominante sarebbe minore, e la settima di dominante non esisterebbe in modo minore.</p>
+    </div>
+
+    <p>Alla lezione 2 dell&rsquo;unit&agrave; 6 vi avevo detto che la scala minore armonica &laquo;si chiama cos&igrave; perch&eacute; il problema che risolve &egrave; di armonia&raquo;. <strong>Questo</strong> era il problema.</p>
+
+    <p class="didascalia">Il sol&#9839; non serviva a far suonare meglio la scala: serviva a rendere possibile questo accordo. Tre unit&agrave; dopo, la promessa &egrave; pagata.</p>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; la settima di dominante" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; la settima di dominante</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 5 minuti</span>
+      <p>Cinque affermazioni. Una &egrave; sull&rsquo;equivoco del nome.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "La settima di dominante sta sul V grado.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, in modo maggiore e in modo minore. «Settima» è l'intervallo fra la prima e l'ultima nota, non il grado.",
+  "da": "Compiliamo la tabella"
+ },
+ {
+  "d": "La settima di dominante sta sul VII grado, perché si chiama settima.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed è l'equivoco più comune: sta sul <strong>quinto</strong>. Il sette conta l'intervallo interno all'accordo.",
+  "da": "Compiliamo la tabella"
+ },
+ {
+  "d": "È l'unica quadriade della scala con triade maggiore e settima minore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e il conto lo dimostra: il I e il IV hanno la triade maggiore ma la settima maggiore; gli altri hanno la triade minore o diminuita.",
+  "da": "Compiliamo la tabella"
+ },
+ {
+  "d": "La sua formula è: terza maggiore, quinta giusta, settima minore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. Tre misure contate dalla fondamentale, e le sapete misurare tutte e tre dall'unità 7.",
+  "da": "Compiliamo la tabella"
+ },
+ {
+  "d": "Dentro la settima di dominante c'è un tritono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, fra la sua <strong>terza</strong> e la sua <strong>settima</strong>. Nessun'altra quadriade della scala ce l'ha con la triade maggiore intorno.",
+  "da": "Il tritono, terza volta"
+ },
+ {
+  "d": "Il tritono della scala di do maggiore ha bisogno di un'alterazione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e lo sapete dall'unità 7: fa–si sta nella scala senza un solo segno.",
+  "da": "Il tritono, terza volta"
+ },
+ {
+  "d": "La settima di dominante si cifra scrivendo 7 accanto al numero romano.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: <strong>V<sup>7</sup></strong>. Károlyi lo dice così — «un piccolo 7 in cifra araba accanto al numero romano».",
+  "da": "Come si cifra"
+ },
+ {
+  "d": "Il 7 di V<sup>7</sup> è un numero romano.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è una cifra <strong>araba</strong>, e infatti dice un intervallo. Il romano dice il grado.",
+  "da": "Come si cifra"
+ },
+ {
+  "d": "Nella forma incompleta si toglie la terza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si toglie la <strong>quinta</strong>, e si raddoppia la fondamentale. Terza e settima non si tolgono mai — sono quelle che fanno il tritono.",
+  "da": "Completa e incompleta"
+ },
+ {
+  "d": "L'accordo incompleto tira meno di quello completo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: tira uguale, perché la tensione sta nel tritono e non nel numero di note.",
+  "da": "Completa e incompleta"
+ },
+ {
+  "d": "In tonalità minore la settima di dominante è fatta allo stesso modo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è possibile solo grazie alla <strong>sensibile alzata</strong>. Senza il sol&#9839;, in la minore, la triade di dominante sarebbe minore.",
+  "da": "Anche in minore"
+ },
+ {
+  "d": "In la minore il V<sup>7</sup> è mi–sol–si–re.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: serve il <strong>sol&#9839;</strong>. Con il sol naturale non c'è nessun tritono e l'accordo non è di dominante.",
+  "da": "Anche in minore"
+ },
+ {
+  "d": "La scala minore armonica ha la sensibile alzata proprio per rendere possibile questo accordo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è la risposta alla domanda lasciata aperta all'unità 6: «il problema che risolve è di armonia». Questo era il problema.",
+  "da": "Anche in minore"
+ },
+ {
+  "d": "La quadriade del I grado è morbida e non spinge.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: la sua settima è maggiore, a un semitono dall'ottava. Non contiene tritono.",
+  "da": "Compiliamo la tabella"
+ },
+ {
+  "d": "Il conto delle sette quadriadi cambia da una tonalità all'altra.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: la formula della scala maggiore è sempre la stessa, quindi anche le quadriadi che ne vengono.",
+  "da": "Compiliamo la tabella"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide esercizio" data-titolo="Proviamo &middot; sei tonalit&agrave;" data-segno
+         style="--segno: url('../../_assets/segni/segno-21.png')">
+  <div class="slide-interna">
+    <h2>Sei V<sup>7</sup>, in sei tonalit&agrave;</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Otto minuti &middot; a coppie, poi alla lavagna</span>
+      <p>Scrivete la settima di dominante di: <strong>sol maggiore</strong> &middot; <strong>fa maggiore</strong> &middot; <strong>re maggiore</strong> &middot; <strong>si</strong>&#9837; <strong>maggiore</strong> &middot; <strong>la minore</strong> &middot; <strong>re minore</strong>.</p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">I due passi, in quest&rsquo;ordine</span>
+      <p><strong>1</strong> &middot; trova il <strong>quinto grado</strong> della tonalit&agrave;. Quella &egrave; la fondamentale.<br>
+      <strong>2</strong> &middot; da l&igrave;: terza maggiore, quinta giusta, settima minore.<br>
+      Poi il controllo: dentro ci deve essere un <strong>tritono</strong>.</p>
+    </div>
+
+    <p class="didascalia">Le due minori sono le pi&ugrave; istruttive: la terza dell&rsquo;accordo va <strong>alzata</strong>, ed &egrave; la sensibile. Chi se lo dimentica scrive una settima minore su triade minore, che &egrave; la quadriade del I grado di un&rsquo;altra tonalit&agrave;.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">La formula</span>
+        <p>Sul <strong>V grado</strong>: terza maggiore, quinta giusta, <strong>settima minore</strong>. In maggiore e in minore.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">Il segno</span>
+        <p><strong>V<sup>7</sup></strong>. Romano il grado, araba la settima.</p>
+      </div>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">E la cosa che rende questo accordo diverso da tutti</span>
+      <p>Dentro c&rsquo;&egrave; un <strong>tritono</strong>, fra la sua terza e la sua settima. Nessun&rsquo;altra quadriade della scala ce l&rsquo;ha con la triade maggiore intorno.</p>
+    </div>
+
+    <p class="didascalia">Domani si canta, e si allenano proprio i tre intervalli di questa formula. Fra due giorni si scopre <strong>dove va</strong> tutta questa tensione &mdash; e la risposta &egrave; pi&ugrave; semplice di quanto sembri.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Otto settime di dominante.</strong> Scrivi il <strong>V<sup>7</sup></strong> di ciascuna tonalit&agrave;, allo stato fondamentale, con l&rsquo;armatura.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-09.html#C1-U9-L2-02"><strong>Workbook</strong></a>, scheda C1-U9-L2-02.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"pronta","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all’ascolto: il primo colore","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"pronta","lezioni":[{"n":1,"titolo":"Diesis, bemolle, bequadro: che cosa alterano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Segni di ottava e loro lettura","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato con alterazioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La suddivisione e i tempi composti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Bicordi: terze e seste all’ascolto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"pronta","lezioni":[{"n":1,"titolo":"Il tetracordo, mattone della scala","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La scala diatonica maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione della scala di Do","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il circolo delle quinte con i diesis","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La scala armonizzata: tonica e dominante","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in Do","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Riconoscere tonica e dominante in un brano","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: scrivere una scala su qualunque nota","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico entro la quinta","file":"lezione-9.html","stato":"pronta"}],"via":"uda-04"},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"pronta","lezioni":[{"n":1,"titolo":"Il circolo con i bemolli","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le armature di chiave: come si leggono","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato melodico in Do e in Sol","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Trovare la tonica dall’armatura","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Solfeggio cantato con armatura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V2 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-05"},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"pronta","lezioni":[{"n":1,"titolo":"Il modo minore naturale, e le tonalità relative","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La minore armonica e il grado di sensibile","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione nel modo minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Perché la settima si alza","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La minore melodica, e perché cambia salendo e scendendo","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in modo minore","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Le tre minori a confronto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: le tre minori scritte su una nota data","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico in modo minore","file":"lezione-9.html","stato":"pronta"}],"via":"uda-06"},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"pronta","lezioni":[{"n":1,"titolo":"Quantità dell’intervallo: contare i gradi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Qualità: giusti, maggiori, minori","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione degli intervalli entro la quinta","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Aumentati, diminuiti, enarmonia","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"L’inversione degli intervalli","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato a salti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Consonanti e dissonanti: che cosa vuol dire davvero","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Intonazione degli intervalli oltre la quinta","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V3 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-07"},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"pronta","lezioni":[{"n":1,"titolo":"La triade come due terze sovrapposte","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le quattro specie: maggiore, minore, diminuita, aumentata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Riconoscimento uditivo di maggiore e minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Le triadi sui gradi della scala","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"I rivolti e la cifratura. La scala cromatica","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Arpeggi cantati sulle triadi","file":"lezione-6.html","stato":"pronta"}],"via":"uda-08"},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"pronta","lezioni":[{"n":1,"titolo":"Struttura della quadriade","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La settima di dominante","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ear training sugli intervalli","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La risoluzione della settima","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Riconoscere la dominante in partitura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico con salti d’accordo","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Esercitazione: cifrare e realizzare","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Solfeggio cantato con accompagnamento","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V4 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-09"},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"pronta","lezioni":[{"n":1,"titolo":"Tonica, dominante, sottodominante","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La progressione I–IV–V–I","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato ritmico-melodico","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La condotta delle parti: moti e divieti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Esercitazione: trovare e correggere gli errori di condotta","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura in tempi composti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Riconoscere le funzioni all’ascolto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: armonizzare un basso dato","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Solfeggio ritmico in 6/8","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Le funzioni in un brano vero","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Dettato armonico: due funzioni","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V5 · verifica scritta cumulativa","file":"lezione-12.html","stato":"pronta"}],"via":"uda-10"},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"pronta","lezioni":[{"n":1,"titolo":"La cadenza autentica","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Plagale, sospesa, d’inganno","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio a due voci","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Riconoscere le cadenze all’ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le cadenze come punteggiatura della frase","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Intonazione di arpeggi","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Prima armonizzazione di una melodia","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Armonizzazione: la seconda prova","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico con cadenza finale","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Le cadenze dentro un brano del repertorio","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Solfeggio: ripasso dell’anno","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V6 · verifica scritta cumulativa","file":"lezione-12.html","stato":"pronta"}],"via":"uda-11"}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":1,"unita":9,"lezione":2}}</script>
+</body>
+</html>

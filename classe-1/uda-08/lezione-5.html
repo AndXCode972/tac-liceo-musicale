@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 5. I rivolti e la cifratura. La scala cromatica | Le triadi sui gradi</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=28f539c5">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=ef6660e0" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 5 · I rivolti e la cifratura. La scala cromatica
+     Unità 8, ora 56 di 90 · classe 1ª · teoria
+
+     ══ ORA INTERA, E L'ORA PIÙ DENSA DEL PERCORSO ══
+     Tredici slide. Il piano dà a quest'ora **due titoli**, ed è una
+     scelta discussa con Andrea il 19 agosto: si tengono tutti e due.
+
+     ══ PERCHÉ STANNO INSIEME, E VA DETTO ALLA CLASSE ══
+     Non per comodità di calendario. Perché sono lo stesso principio
+     due volte:
+
+         La scrittura dipende dal contesto, non dal suono.
+
+     Le stesse tre note cambiano cifra secondo chi sta al basso —
+     do-mi-sol è 5/3, 6 o 6/4 e resta do-mi-sol.
+     Gli stessi dodici suoni cambiano grafia secondo la direzione —
+     salendo diesis, scendendo bemolli, e sono gli stessi tasti.
+
+     La slide che fa il ponte è dichiarata e non si toglie: senza,
+     l'ora sembra due mezze lezioni attaccate.
+
+     ══ LA PROMESSA DELL'UNITÀ 7 ══
+     Lezione 5, *Che cosa non entra*: «I rivolti degli accordi. Sono la
+     stessa idea e sono l'unità 8: qui si semina, e si dice che si
+     semina». E nel corpo: «in armonia i rivolti degli accordi sono la
+     stessa idea un piano più su».
+
+     Quindi oggi **non si insegna un'idea nuova**. Si dice che è la
+     stessa, e si mostra dov'è diversa: rovesciando un intervallo la
+     nota grave sale di un'ottava e basta; rovesciando un accordo di
+     note ce ne sono tre, e si sale a turno.
+
+     ══ IL TRUCCO DELLA QUARTA ══
+     In un rivolto, l'unico salto di **quarta** fra due note vicine
+     punta alla fondamentale: la fondamentale è la nota **sopra** la
+     quarta. Vale per tutti e due i rivolti e si controlla in due
+     secondi. È la cosa più utile dell'ora e va fatta scoprire, non
+     dettata.
+
+     ══ QUANTA CIFRATURA ENTRA ══
+     Tre simboli: niente (o 5/3), **6**, **6/4**. Tissoni p. 18 li
+     chiama «accordo di 6ª» e «accordo di 6/4». Il basso numerato vero è
+     armonia del triennio e non si tocca.
+
+     ══ LA SCALA CROMATICA, E ZANETTOVICH ══
+     Cap. 30, p. 94. La definizione, le due regole di grafia, e a p. 95
+     la frase che rende il capitolo utile invece che pedante: «Questi
+     principi teorici risultano peraltro, assai spesso, disattesi nella
+     pratica, dove prevale genericamente la soluzione più immediata ai
+     fini della lettura».
+
+     Una regola che ammette di essere disattesa si impara meglio di una
+     che pretende di non esserlo. È la stessa onestà di Károlyi sulla
+     consonanza, all'unità 7.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c1u8-lezione-5.jpg?v=0460c9e8');
+                --cop-a:#111827; --cop-b:#0369a1; --cop-c:#e0f2fe">
+  <div class="slide-interna">
+    <div class="occhiello">Le triadi sui gradi &middot; UdA 8 &middot; Lezione 5 di 6</div>
+    <h1>La scrittura dipende dal contesto, non dal suono</h1>
+    <p class="sottotitolo">Due argomenti, una regola sola. Le stesse tre note cambiano cifra; gli stessi dodici suoni cambiano grafia.</p>
+
+    <blockquote class="aforisma">
+      <p>Questi principi teorici risultano peraltro, assai spesso, disattesi nella pratica, dove prevale genericamente la soluzione pi&ugrave; immediata ai fini della lettura.</p>
+      <cite>Daniele Zanettovich, <em>Elementi fondamentali di teoria e di ortografia musicale</em>, p.&nbsp;95</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>1 ora</span>
+      <span>Teoria</span>
+      <span>Rivolti &middot; cifratura &middot; cromatica</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Le stesse tre note">
+  <div class="slide-interna">
+    <h2>Prendiamo la triade di do e mettiamo il <em>do</em> in cima</h2>
+
+    <tac-stave clef="treble" time="4/4" caption="do – mi – sol: il do sta sotto" notes="c/4+e/4+g/4:w" width="260" tempo="48" play></tac-stave>
+
+    <tac-stave clef="treble" time="4/4" caption="Lo stesso accordo, col do portato un'ottava sopra" notes="e/4+g/4+c/5:w" width="260" tempo="48" play></tac-stave>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Unit&agrave; 7, lezione 5 &middot; quello che avevo detto</span>
+      <p>&laquo;In armonia i rivolti degli <strong>accordi</strong> sono la stessa idea un piano pi&ugrave; su &mdash; qui si semina, e si dice che si semina.&raquo;</p>
+    </div>
+
+    <p>Rovesciare un intervallo voleva dire portare la nota grave un&rsquo;ottava sopra. Rovesciare un accordo &egrave; la stessa identica mossa: <strong>la nota pi&ugrave; grave sale di un&rsquo;ottava</strong>.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">La differenza, ed &egrave; solo di quantit&agrave;</span>
+      <p>Un intervallo ha due note: si rovescia una volta e si torna al punto di partenza. Una triade ne ha <strong>tre</strong>: si pu&ograve; rovesciare <strong>due</strong> volte, e alla terza si &egrave; tornati all&rsquo;inizio.</p>
+    </div>
+
+    <p class="didascalia">Le note sono sempre do, mi e sol. Nessuna &egrave; entrata, nessuna &egrave; uscita: &egrave; cambiato solo <strong>chi sta sotto</strong>.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Tre posizioni">
+  <div class="slide-interna">
+    <h2>Tre note, tre modi di metterle. E tre nomi</h2>
+
+    <tac-stave clef="treble" time="4/4" caption="Stato fondamentale — 1° rivolto — 2° rivolto — e si ricomincia" notes="c/4+e/4+g/4:q e/4+g/4+c/5:q g/4+c/5+e/5:q c/5+e/5+g/5:q" width="520" tempo="52" play slow></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Come si chiamano, e il nome dipende da chi sta al basso</span>
+      <p><strong>Stato fondamentale</strong> &mdash; al basso c&rsquo;&egrave; la <strong>fondamentale</strong>.<br>
+      <strong>Primo rivolto</strong> &mdash; al basso c&rsquo;&egrave; la <strong>terza</strong>.<br>
+      <strong>Secondo rivolto</strong> &mdash; al basso c&rsquo;&egrave; la <strong>quinta</strong>.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Ecco perch&eacute; i nomi si erano fatti cos&igrave;</span>
+      <p>Alla lezione 1 avevo insistito: si dice <em>la terza dell&rsquo;accordo</em>, non <em>la seconda nota</em>. Adesso si vede perch&eacute;. Nel primo rivolto la terza &egrave; la nota <strong>pi&ugrave; grave</strong>: se il nome dipendesse dal posto, non funzionerebbe pi&ugrave;.</p>
+    </div>
+
+    <p class="didascalia">L&rsquo;accordo &egrave; sempre <strong>la triade di do maggiore</strong>. Tutti e tre. Non ci sono tre accordi: c&rsquo;&egrave; un accordo in tre posizioni.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Trovare la fondamentale">
+  <div class="slide-interna">
+    <h2>Come si fa a sapere che accordo &egrave;, se il basso non &egrave; la fondamentale</h2>
+
+    <p>Guardate le distanze <strong>fra note vicine</strong>, dal basso in su.</p>
+
+    <div class="colonne">
+      <div>
+        <tac-stave clef="treble" time="4/4" caption="Fondamentale: terza + terza" notes="c/4+e/4+g/4:w" width="230" tempo="48" play></tac-stave>
+      </div>
+      <div>
+        <tac-stave clef="treble" time="4/4" caption="1° rivolto: terza + QUARTA" notes="e/4+g/4+c/5:w" width="230" tempo="48" play></tac-stave>
+      </div>
+      <div>
+        <tac-stave clef="treble" time="4/4" caption="2° rivolto: QUARTA + terza" notes="g/4+c/5+e/5:w" width="230" tempo="48" play></tac-stave>
+      </div>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">La regola, ed &egrave; la cosa pi&ugrave; utile dell&rsquo;ora</span>
+      <p>Allo stato fondamentale ci sono <strong>due terze</strong> e nessuna quarta.<br>
+      Nei rivolti compare <strong>una quarta</strong>, ed &egrave; una sola.<br>
+      La <strong>fondamentale &egrave; la nota sopra la quarta</strong>.</p>
+    </div>
+
+    <p>Primo rivolto: la quarta &egrave; sol&ndash;do, sopra c&rsquo;&egrave; il <em>do</em>. Secondo rivolto: la quarta &egrave; sol&ndash;do, sopra c&rsquo;&egrave; ancora il <em>do</em>. Fondamentale: <strong>do</strong>, in tutti e due i casi.</p>
+
+    <p class="didascalia">Trovata la fondamentale, la specie si ricava rimettendo mentalmente l&rsquo;accordo in ordine. Nessun accordo si classifica dalla posizione in cui capita.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="I numeri contano dal basso">
+  <div class="slide-interna">
+    <h2>Adesso serve un modo di <em>scrivere</em> in che posizione sta</h2>
+
+    <p>Non basta dire &laquo;triade di do maggiore&raquo;: bisogna poter dire anche <strong>com&rsquo;&egrave; messa</strong>, e in un modo che si scriva sotto il rigo in due caratteri.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">La regola della cifratura, e va capita una volta sola</span>
+      <p>I numeri dicono <strong>quali intervalli ci sono sopra la nota di basso</strong>. Si contano dal basso in su, sempre, qualunque nota sia.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Non confondeteli coi numeri romani</span>
+      <p><strong>I, IV, V</strong> sono i <strong>gradi della scala</strong>: dicono su quale nota della tonalit&agrave; sta l&rsquo;accordo.<br>
+      <strong>6, 6/4</strong> sono <strong>intervalli sopra il basso</strong>: dicono come l&rsquo;accordo &egrave; messo.<br>
+      Due sistemi diversi, due domande diverse.</p>
+    </div>
+
+    <p class="didascalia">&Egrave; l&rsquo;errore prevedibile di quest&rsquo;unit&agrave;, ed &egrave; prevedibile perch&eacute; sono tutti e due numeri scritti sotto il rigo. Cifre romane in alto, cifre arabe in basso: nel dubbio, guardate la forma.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Cinque-tre, sei, sei-quattro">
+  <div class="slide-interna">
+    <h2>Contiamo, per tutte e tre le posizioni</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Stato fondamentale &mdash; basso <em>do</em></span>
+      <p>Sopra il do ci sono il <em>mi</em> (una <strong>terza</strong>) e il <em>sol</em> (una <strong>quinta</strong>). La cifra sarebbe <strong>5/3</strong>, ed &egrave; cos&igrave; comune che <strong>non si scrive</strong>.</p>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Primo rivolto &mdash; basso <em>mi</em></span>
+      <p>Sopra il mi ci sono il <em>sol</em> (terza) e il <em>do</em> (<strong>sesta</strong>). La cifra piena sarebbe 6/3; si scrive solo <strong>6</strong>.</p>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Secondo rivolto &mdash; basso <em>sol</em></span>
+      <p>Sopra il sol ci sono il <em>do</em> (<strong>quarta</strong>) e il <em>mi</em> (<strong>sesta</strong>). La cifra &egrave; <strong>6/4</strong>, e si scrive tutta.</p>
+    </div>
+
+    <tac-stave clef="treble" time="4/4" caption="niente — 6 — 6/4: la stessa triade, tre posizioni" notes="c/4+e/4+g/4:h e/4+g/4+c/5:h | g/4+c/5+e/5:w" width="480" tempo="48" play></tac-stave>
+
+    <p class="didascalia">Tissoni li chiama proprio cos&igrave;: &laquo;accordo di 6ª&raquo; il primo rivolto e &laquo;accordo di 6/4&raquo; il secondo (<em>Metodo elementare di Armonia</em>, p.&nbsp;18). Sono i nomi che sentirete per cinque anni.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="La cifra non dice che accordo &egrave;">
+  <div class="slide-interna">
+    <h2>Il punto che di solito sfugge</h2>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Una cifra non identifica un accordo</span>
+      <p><strong>6</strong> non vuol dire &laquo;triade di do maggiore in primo rivolto&raquo;. Vuol dire soltanto: <em>sopra questo basso c&rsquo;&egrave; una sesta e una terza</em>. Quale accordo sia dipende da <strong>che nota c&rsquo;&egrave; al basso</strong>.</p>
+    </div>
+
+    <tac-stave clef="treble" time="4/4" caption="Due accordi diversi, la stessa cifra: 6" notes="e/4+g/4+c/5:h d/4+f/4+b/4:h" width="440" tempo="48" play></tac-stave>
+
+    <p>Il primo &egrave; do maggiore in primo rivolto. Il secondo &egrave; la triade del VII grado &mdash; si&ndash;re&ndash;fa, diminuita &mdash; anche lei in primo rivolto. Cifra identica, accordi diversi.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Quindi la cifratura risponde a una domanda sola</span>
+      <p><strong>Come &egrave; messo</strong>, non <strong>che cos&rsquo;&egrave;</strong>. Per sapere che cos&rsquo;&egrave; servono il basso e la tonalit&agrave;.</p>
+    </div>
+
+    <p class="didascalia">Un giorno &mdash; in quarta &mdash; vi daranno un basso con sotto solo i numeri e vi chiederanno di scriverci sopra gli accordi. Funziona proprio perch&eacute; la cifra dice come, e il basso dice cosa.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il ponte">
+  <div class="slide-interna">
+    <h2>Fermiamoci un attimo su quello che abbiamo appena imparato</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Riassunto della prima met&agrave;</span>
+      <p>Le <strong>stesse tre note</strong> &mdash; do, mi, sol &mdash; si scrivono in tre modi e prendono tre cifre diverse. Il suono &egrave; sempre quello: cambia la <strong>posizione</strong>, e la scrittura la segue.</p>
+    </div>
+
+    <p>Adesso cambiamo argomento, e sembra di cambiare argomento. Non &egrave; cos&igrave;: nella seconda met&agrave; dell&rsquo;ora vedrete la <strong>stessa cosa</strong> detta su un altro terreno.</p>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Tenete a mente questa frase</span>
+      <p><strong>La scrittura dipende dal contesto, non dal suono.</strong><br>
+      L&rsquo;abbiamo appena vista sugli accordi. Fra dieci minuti la vedrete sui semitoni.</p>
+    </div>
+
+    <p class="didascalia">&Egrave; una delle poche idee di questo corso che tornano a ogni livello: teoria, armonia, analisi. Quando la ritroverete in quarta, non sar&agrave; nuova.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="La scala cromatica">
+  <div class="slide-interna">
+    <h2>Tutti i tasti, uno per uno</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Zanettovich, <em>Elementi fondamentali</em>, cap.&nbsp;30, p.&nbsp;94</span>
+      <p>&laquo;Come <strong>scala cromatica</strong> s&rsquo;intende una scala che si sviluppa attraverso tutti i <strong>dodici semitoni</strong> che stanno nell&rsquo;ambito di un&rsquo;ottava.&raquo;</p>
+    </div>
+
+    <p>Non sette note come la diatonica: <strong>dodici</strong>. Sul pianoforte sono tutti i tasti da un do al do successivo, bianchi e neri, senza saltarne nessuno.</p>
+
+    <tac-piano from="c/4" to="c/5"></tac-piano>
+
+    <p>Sulla tastiera &egrave; la cosa pi&ugrave; semplice che ci sia: si va avanti a dita attaccate. Sul <strong>foglio</strong> no, e il problema comincia qui.</p>
+
+    <p class="didascalia">Il rigo ha sette posizioni per ottava e i suoni sono dodici. Cinque suoni devono per forza prendere in prestito la posizione di un altro, con un&rsquo;alterazione davanti &mdash; e quale prestito si sceglie non &egrave; indifferente.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Le due regole">
+  <div class="slide-interna">
+    <h2>Salendo diesis, scendendo bemolli</h2>
+
+    <tac-stave clef="treble" time="4/4" caption="Salendo: si alza, non si abbassa mai" notes="c/4:8 c#/4:8 d/4:8 d#/4:8 e/4:8 f/4:8 f#/4:8 g/4:8 | g#/4:8 a/4:8 a#/4:8 b/4:8 c/5:h" width="620" tempo="60" play slow></tac-stave>
+
+    <tac-stave clef="treble" time="4/4" caption="Scendendo: si abbassa, non si alza mai" notes="c/5:8 b/4:8 bb/4:8 a/4:8 ab/4:8 g/4:8 gb/4:8 f/4:8 | e/4:8 eb/4:8 d/4:8 db/4:8 c/4:h" width="620" tempo="60" play slow></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Zanettovich, p.&nbsp;94 &middot; le due regole, alla lettera</span>
+      <p>&laquo;Nella fase <strong>ascendente</strong>, <em>non si abbassa cromaticamente</em> alcun suono della scala diatonica.<br>
+      Nella fase <strong>discendente</strong>, <em>non si innalza cromaticamente</em> alcun suono della scala diatonica.&raquo;</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">E i suoni?</span>
+      <p>Sono <strong>gli stessi</strong>. Zanettovich lo dice esplicitamente: nel sistema temperato i suoni della salita sono &laquo;esattamente identici&raquo; a quelli della discesa. Cambia solo <strong>come si scrivono</strong>.</p>
+    </div>
+
+    <p class="didascalia">Do&#9839; salendo, re&#9837; scendendo: stesso tasto, due grafie. &Egrave; l&rsquo;<strong>enarmonia</strong> dell&rsquo;unit&agrave; 3, e qui ha finalmente una regola che dice quale delle due scegliere.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="E la pratica">
+  <div class="slide-interna">
+    <h2>E adesso la cosa onesta, che Zanettovich scrive alla pagina dopo</h2>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Zanettovich, p.&nbsp;95</span>
+      <p>&laquo;Questi principi teorici risultano peraltro, <strong>assai spesso, disattesi nella pratica</strong>, dove prevale genericamente la soluzione pi&ugrave; immediata ai fini della <strong>lettura</strong>.&raquo;</p>
+    </div>
+
+    <p>Cio&egrave;: nella musica vera troverete continuamente scale cromatiche scritte contro queste due regole, e non sono errori. Sono scelte fatte per rendere il passo <strong>pi&ugrave; facile da leggere</strong> a chi lo deve suonare.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Come si tiene insieme</span>
+      <p>La regola &egrave; il <strong>modo giusto in mancanza di ragioni contrarie</strong>. Se scrivete una scala cromatica in un compito, si applica. Se ne trovate una scritta diversamente in uno spartito, non correggete: chiedetevi che cosa rendeva pi&ugrave; comoda quella grafia.</p>
+    </div>
+
+    <p class="didascalia">&Egrave; la seconda volta quest&rsquo;anno che un autore ci dice che la sua regola non &egrave; assoluta &mdash; la prima era K&aacute;rolyi sulla consonanza. Un libro che lo ammette vale pi&ugrave; di uno che non lo ammette.</p>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; rivolti, cifre e semitoni" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; rivolti, cifre e semitoni</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 5 minuti</span>
+      <p>Cinque affermazioni sulle due met&agrave; dell&rsquo;ora.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "Rivoltare una triade vuol dire portare la nota più grave un'ottava sopra.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è la stessa mossa dell'inversione degli intervalli, unità 7.",
+  "da": "Le stesse tre note"
+ },
+ {
+  "d": "Rivoltando una triade le note cambiano.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sono sempre le stesse tre. Cambia soltanto <strong>chi sta sotto</strong>.",
+  "da": "Le stesse tre note"
+ },
+ {
+  "d": "Una triade ha due rivolti.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: al terzo giro si è tornati allo stato fondamentale. Un intervallo, che ha due note, ne ha uno solo.",
+  "da": "Tre posizioni"
+ },
+ {
+  "d": "Nel primo rivolto al basso c'è la terza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. Nel secondo c'è la quinta.",
+  "da": "Tre posizioni"
+ },
+ {
+  "d": "Nel secondo rivolto al basso c'è la fondamentale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: c'è la <strong>quinta</strong>. La fondamentale al basso è lo stato fondamentale, ed è il caso senza rivolti.",
+  "da": "Tre posizioni"
+ },
+ {
+  "d": "In un rivolto la fondamentale è la nota che sta sopra la quarta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è il trucco più utile dell'unità: si trova in due secondi.",
+  "da": "Trovare la fondamentale"
+ },
+ {
+  "d": "Allo stato fondamentale una triade contiene una quarta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: contiene <strong>due terze</strong> e nessuna quarta. La quarta compare solo nei rivolti, ed è una sola.",
+  "da": "Trovare la fondamentale"
+ },
+ {
+  "d": "I numeri della cifratura contano gli intervalli sopra la nota di basso.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, sempre dal basso in su, qualunque nota sia.",
+  "da": "I numeri contano dal basso"
+ },
+ {
+  "d": "I numeri romani e le cifre arabe dicono la stessa cosa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: i romani dicono <strong>su quale grado</strong> sta l'accordo, le arabe dicono <strong>come è messo</strong>. Due domande diverse.",
+  "da": "I numeri contano dal basso"
+ },
+ {
+  "d": "La cifra <strong>6</strong> indica il secondo rivolto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: indica il <strong>primo</strong>. Il secondo è 6/4.",
+  "da": "Cinque-tre, sei, sei-quattro"
+ },
+ {
+  "d": "La cifra <strong>6/4</strong> indica il secondo rivolto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: sopra il basso ci sono una quarta e una sesta.",
+  "da": "Cinque-tre, sei, sei-quattro"
+ },
+ {
+  "d": "Allo stato fondamentale di solito non si scrive nessuna cifra.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: sarebbe 5/3, ed è talmente comune che si sottintende.",
+  "da": "Cinque-tre, sei, sei-quattro"
+ },
+ {
+  "d": "La scala cromatica ha dodici suoni nell'ambito di un'ottava.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è la definizione di Zanettovich: tutti i semitoni, senza saltarne nessuno.",
+  "da": "La scala cromatica"
+ },
+ {
+  "d": "Salendo, la scala cromatica si scrive con i bemolli.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: salendo <strong>diesis</strong>, scendendo <strong>bemolli</strong>. La regola di Zanettovich lo dice al contrario ma è la stessa cosa: salendo non si abbassa niente.",
+  "da": "Le due regole"
+ },
+ {
+  "d": "Zanettovich ammette che nella pratica queste regole sono spesso disattese.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e lo scrive: prevale «la soluzione più immediata ai fini della lettura». Una regola che ammette di essere disattesa si impara meglio.",
+  "da": "E la pratica"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide esercizio" data-titolo="Proviamo &middot; cifrare e scrivere" data-segno
+         style="--segno: url('../../_assets/segni/segno-32.png')">
+  <div class="slide-interna">
+    <h2>Due esercizi corti, uno per met&agrave; dell&rsquo;ora</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Primo &middot; sei minuti, alla lavagna</span>
+      <p>Vi do sei accordi scritti. Per ciascuno: <strong>la fondamentale</strong> (col trucco della quarta), <strong>la specie</strong> e <strong>la cifra</strong>.</p>
+    </div>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Secondo &middot; sei minuti, sul quaderno</span>
+      <p>Scrivete la scala cromatica <strong>dal sol al sol</strong>, salendo e scendendo, applicando le due regole. Otto righe di note, e conta la grafia pi&ugrave; delle note.</p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Il controllo che potete fare da soli</span>
+      <p>Salendo non deve comparire <strong>nessun bemolle</strong>; scendendo <strong>nessun diesis</strong>. Se ne trovate uno, quello &egrave; il punto da rifare.</p>
+    </div>
+
+    <p class="didascalia">Non ci sono bequadri in questa scala cromatica perch&eacute; partiamo dal sol e restiamo in do maggiore. Partendo da una tonalit&agrave; con armatura ce ne sarebbero, ed &egrave; il caso che vediamo in seconda.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">I rivolti</span>
+        <p>Tre posizioni, un accordo solo. Il nome dipende da <strong>chi sta al basso</strong>, e la fondamentale &egrave; la nota <strong>sopra la quarta</strong>.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">Le cifre</span>
+        <p><strong>niente</strong> &middot; <strong>6</strong> &middot; <strong>6/4</strong>. Contano gli intervalli sopra il basso, e non dicono che accordo &egrave;.</p>
+      </div>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">E la frase che tiene insieme le due met&agrave;</span>
+      <p><strong>La scrittura dipende dal contesto, non dal suono.</strong> Le stesse tre note cambiano cifra secondo il basso; gli stessi dodici semitoni cambiano grafia secondo la direzione.</p>
+    </div>
+
+    <p class="didascalia">Domani si canta. &Egrave; l&rsquo;ultima ora dell&rsquo;unit&agrave;, e le triadi che avete scritto per cinque giorni vi tocca farle uscire dalla gola.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Cifrare, e poi scrivere la cromatica.</strong> Due parti, una per met&agrave; della lezione.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-08.html#C1-U8-L5-02"><strong>Workbook</strong></a>, scheda C1-U8-L5-02.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"pronta","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all’ascolto: il primo colore","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"pronta","lezioni":[{"n":1,"titolo":"Diesis, bemolle, bequadro: che cosa alterano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Segni di ottava e loro lettura","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato con alterazioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La suddivisione e i tempi composti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Bicordi: terze e seste all’ascolto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"pronta","lezioni":[{"n":1,"titolo":"Il tetracordo, mattone della scala","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La scala diatonica maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione della scala di Do","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il circolo delle quinte con i diesis","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La scala armonizzata: tonica e dominante","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in Do","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Riconoscere tonica e dominante in un brano","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: scrivere una scala su qualunque nota","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico entro la quinta","file":"lezione-9.html","stato":"pronta"}],"via":"uda-04"},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"pronta","lezioni":[{"n":1,"titolo":"Il circolo con i bemolli","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le armature di chiave: come si leggono","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato melodico in Do e in Sol","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Trovare la tonica dall’armatura","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Solfeggio cantato con armatura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V2 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-05"},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"pronta","lezioni":[{"n":1,"titolo":"Il modo minore naturale, e le tonalità relative","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La minore armonica e il grado di sensibile","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione nel modo minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Perché la settima si alza","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La minore melodica, e perché cambia salendo e scendendo","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in modo minore","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Le tre minori a confronto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: le tre minori scritte su una nota data","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico in modo minore","file":"lezione-9.html","stato":"pronta"}],"via":"uda-06"},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"pronta","lezioni":[{"n":1,"titolo":"Quantità dell’intervallo: contare i gradi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Qualità: giusti, maggiori, minori","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione degli intervalli entro la quinta","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Aumentati, diminuiti, enarmonia","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"L’inversione degli intervalli","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato a salti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Consonanti e dissonanti: che cosa vuol dire davvero","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Intonazione degli intervalli oltre la quinta","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V3 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-07"},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"pronta","lezioni":[{"n":1,"titolo":"La triade come due terze sovrapposte","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le quattro specie: maggiore, minore, diminuita, aumentata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Riconoscimento uditivo di maggiore e minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Le triadi sui gradi della scala","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"I rivolti e la cifratura. La scala cromatica","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Arpeggi cantati sulle triadi","file":"lezione-6.html","stato":"pronta"}],"via":"uda-08"},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"pronta","lezioni":[{"n":1,"titolo":"Struttura della quadriade","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La settima di dominante","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ear training sugli intervalli","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La risoluzione della settima","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Riconoscere la dominante in partitura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico con salti d’accordo","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Esercitazione: cifrare e realizzare","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Solfeggio cantato con accompagnamento","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V4 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-09"},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"pronta","lezioni":[{"n":1,"titolo":"Tonica, dominante, sottodominante","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La progressione I–IV–V–I","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato ritmico-melodico","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La condotta delle parti: moti e divieti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Esercitazione: trovare e correggere gli errori di condotta","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura in tempi composti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Riconoscere le funzioni all’ascolto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: armonizzare un basso dato","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Solfeggio ritmico in 6/8","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Le funzioni in un brano vero","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Dettato armonico: due funzioni","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V5 · verifica scritta cumulativa","file":"lezione-12.html","stato":"pronta"}],"via":"uda-10"},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"pronta","lezioni":[{"n":1,"titolo":"La cadenza autentica","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Plagale, sospesa, d’inganno","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio a due voci","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Riconoscere le cadenze all’ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le cadenze come punteggiatura della frase","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Intonazione di arpeggi","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Prima armonizzazione di una melodia","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Armonizzazione: la seconda prova","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico con cadenza finale","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Le cadenze dentro un brano del repertorio","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Solfeggio: ripasso dell’anno","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V6 · verifica scritta cumulativa","file":"lezione-12.html","stato":"pronta"}],"via":"uda-11"}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":1,"unita":8,"lezione":5}}</script>
+</body>
+</html>

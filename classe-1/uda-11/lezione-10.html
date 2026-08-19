@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 10. Le cadenze dentro un brano del repertorio | Le cadenze</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=28f539c5">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=ef6660e0" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 10 · Le cadenze dentro un brano del repertorio
+     Unità 11, ora 88 di 90 · classe 1ª · teoria
+
+     ══ È IL PUNTO D'ARRIVO DELL'UNITÀ, E DELL'ANNO ══
+     Tutto quello che si è fatto in novanta ore serve a fare questa cosa:
+     prendere una pagina che non si è mai vista e capire come è fatta.
+     Oggi si fa, per la prima volta, su musica vera.
+
+     ══ I BRANI SONO QUELLI STAMPATI IN CAPPELLARI ══
+     E si citano con la pagina, così chi vuole va a vederli:
+       p. 24  Diabelli, Allegretto in Do maggiore n. 7 — cadenza perfetta
+       p. 24  Clementi, Sonatina op. 36 (Rondò) — cadenza sospesa
+       p. 25  Mozart, Kirchenlieder KV 343,2 — cadenza plagale
+       p. 25  Arcadelt, Ave Maria — perfetta + plagale in fila
+       p. 34  Buxtehude, Cantate Domino BuxWV 12 — sospesa (VI–V)
+       p. 34  M. Haydn, Tenuisti manum dexteram meam — d'inganno
+       p. 38  Mozart, Contretänze K. 609 — il periodo intero
+     Nessun brano inventato, nessun link che non posso garantire.
+
+     ══ IL METODO IN QUATTRO MOSSE, ED È QUELLO CHE RESTA ══
+       1. dove finiscono le frasi — nota lunga, respiro, ripetizione
+       2. su quelle fini, quali due accordi
+       3. il nome della cadenza
+       4. e allora: che forma ha il pezzo?
+     È lo stesso ordine della lezione 5, applicato a una pagina intera.
+
+     ══ LA COSA DA NON FARE, E SI FARÀ ══
+     Analizzare tutti gli accordi. In prima non serve e non si può: la
+     musica vera ha rivolti, settime e note estranee. Si guardano **solo
+     le fini di frase**, dove l'armonia è quasi sempre semplice — ed è
+     esattamente perché è semplice che ci si può arrivare oggi.
+
+     ══ L'ARCADELT È IL PEZZO CHE VALE L'ORA ══
+     Due cadenze in fila sulla stessa parola, «Amen»: prima la perfetta,
+     poi la plagale. Cappellari lo dice, Károlyi spiega perché si chiama
+     «cadenza dell'Amen», e la classe lo sente in quindici secondi.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c1u11-lezione-10.jpg?v=46d2eade');
+                --cop-a:#1e1b4b; --cop-b:#4338ca; --cop-c:#e0e7ff">
+  <div class="slide-interna">
+    <div class="occhiello">Le cadenze &middot; UdA 11 &middot; Lezione 10 di 12</div>
+    <h1>Musica vera, per la prima volta</h1>
+    <p class="sottotitolo">Novanta ore servivano a questo: aprire una pagina mai vista e <strong>capire come &egrave; fatta</strong>.</p>
+
+    <blockquote class="aforisma">
+      <p>I momenti significativi di articolazione del discorso armonico coincidono con particolari concatenazioni accordali […]: le Cadenze.</p>
+      <cite>Stefano Procaccioli, <em>Introduzione all&rsquo;analisi formale</em>, p.&nbsp;33</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>50 minuti</span>
+      <span>Teoria &middot; analisi</span>
+      <span>Sette brani</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa NON si fa">
+  <div class="slide-interna">
+    <h2>Prima una cosa che <em>non</em> faremo</h2>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Non si analizzano tutti gli accordi</span>
+      <p>In una pagina vera ce ne sono cinquanta, con <strong>rivolti</strong>, <strong>settime</strong> e <strong>note che non appartengono all&rsquo;accordo</strong>. Sono tutte cose che non avete ancora, e provarci vorrebbe dire sbagliare quaranta volte su cinquanta.</p>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Si guardano <strong>solo le fini di frase</strong></span>
+      <p>E l&igrave; l&rsquo;armonia &egrave; quasi sempre <strong>semplice</strong>: due accordi allo stato fondamentale, quelli che sapete. Non &egrave; una fortuna &mdash; &egrave; il motivo per cui una cadenza si sente.</p>
+    </div>
+
+    <p>Un compositore complica il centro della frase e <strong>semplifica la fine</strong>: se complicasse anche quella, nessuno capirebbe che &egrave; finita.</p>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Quindi, in pratica</span>
+      <p>Di una pagina di cinquanta accordi ne guardiamo <strong>otto</strong>: quattro fini di frase, due accordi ciascuna. E con quegli otto si dice come &egrave; fatto il pezzo.</p>
+    </div>
+
+    <p class="didascalia">&Egrave; la differenza fra analizzare e <strong>guardare dove serve</strong>. Con gli strumenti di prima si pu&ograve; fare la seconda cosa, e si pu&ograve; farla bene.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Le quattro mosse">
+  <div class="slide-interna">
+    <h2>Quattro mosse, in ordine</h2>
+
+    <div class="riquadro definizione">
+      <p><strong>1</strong> &middot; dove finiscono le <strong>frasi</strong> &mdash; nota lunga, respiro, ripetizione<br>
+      <strong>2</strong> &middot; su quelle fini, quali <strong>due accordi</strong><br>
+      <strong>3</strong> &middot; il <strong>nome</strong> della cadenza<br>
+      <strong>4</strong> &middot; e allora: che <strong>forma</strong> ha il pezzo?</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">La 1 prima della 2, sempre</span>
+      <p>Chi cerca i V&ndash;I e poi decide che l&igrave; finisce una frase trova cadenze dappertutto. In una pagina i V&ndash;I sono decine, e quasi nessuno &egrave; una cadenza.</p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">E la mossa 4 &egrave; quella che d&agrave; senso alle prime tre</span>
+      <p>Trovate le cadenze, il pezzo si divide da solo. Cappellari, sotto il suo Mozart, scrive: &laquo;<strong>Periodo binario formato da due frasi</strong>&raquo;. Sono cinque parole, e vengono dopo l&rsquo;aver guardato due cadenze.</p>
+    </div>
+
+    <p class="didascalia">Le prime tre mosse sono lavoro; la quarta &egrave; il motivo per cui lo si fa. Se una lezione di analisi finisce alla mossa 3, ha fatto fare fatica senza dire a che serviva.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il primo: Mozart">
+  <div class="slide-interna">
+    <h2>Mozart, <em>Contretanz</em> K.&nbsp;609 &mdash; Cappellari, pp.&nbsp;38&ndash;39</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Che cosa si vede, e Cappellari lo scrive sotto</span>
+      <p>Otto battute. Alla <strong>quarta</strong> la melodia si ferma e l&rsquo;armonia sta sul <strong>V</strong>: cadenza <strong>sospesa</strong>. All&rsquo;<strong>ottava</strong> si arriva sul <strong>I</strong> preceduto dal <strong>V</strong>: cadenza <strong>autentica</strong>.</p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Le sue parole, p.&nbsp;39</span>
+      <p>&laquo;Alla fine della prima frase c&rsquo;&egrave; una cadenza sospesa; alla fine della seconda una cadenza perfetta.&raquo;</p>
+      <p>E, sull&rsquo;armonia: &laquo;La struttura armonica di questo periodo si basa <strong>esclusivamente</strong> sulle armonie di tonica e dominante allo stato fondamentale.&raquo;</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Fermiamoci su quella parola: <em>esclusivamente</em></span>
+      <p>Un periodo intero di Mozart, con flauto, tamburo, due violini, violoncello e contrabbasso, sta in piedi con <strong>due accordi</strong>. Gli stessi due con cui avete armonizzato luned&igrave;.</p>
+    </div>
+
+    <p class="didascalia">Questa &egrave; la cosa che vale l&rsquo;ora, e va detta piano: il perimetro stretto di quest&rsquo;anno non era una versione ridotta della musica. Era <strong>un pezzo di musica vera</strong>, per intero.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il secondo: Arcadelt">
+  <div class="slide-interna">
+    <h2>Arcadelt, <em>Ave Maria</em> &mdash; due cadenze sulla stessa parola</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Cappellari, p.&nbsp;25</span>
+      <p>Sull&rsquo;<strong>Amen</strong> finale ci sono <strong>due</strong> cadenze in fila: prima una <strong>perfetta</strong>, poi una <strong>plagale</strong>.</p>
+    </div>
+
+    <tac-stave clef="treble" time="4/4" caption="Lo schema: si chiude, e poi si conferma" notes="g/4+b/4+d/5:h c/4+e/4+c/5:h | f/4+a/4+c/5:h c/4+e/4+c/5:h" width="620" tempo="40" play slow></tac-stave>
+
+    <p>La prima chiude. La seconda <strong>chiude di nuovo</strong> &mdash; e chiudere due volte non &egrave; un errore: &egrave; il modo di dire <em>&laquo;stavolta &egrave; finita davvero&raquo;</em>.</p>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Cappellari, sotto l&rsquo;esempio</span>
+      <p>&laquo;Nella musica polifonica sacra era molto usata a conclusione della composizione la cadenza plagale <strong>preceduta dalla cadenza perfetta</strong>.&raquo;</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">E i due libri si danno ragione</span>
+      <p>K&aacute;rolyi, p.&nbsp;90: la plagale &laquo;talvolta la si trova chiamata <strong>cadenza dell&rsquo;</strong><em>Amen</em>, dato il suo frequente uso in corrispondenza di questa parola&raquo;.<br>
+      Procaccioli, p.&nbsp;35: la plagale &laquo;viene normalmente utilizzata […] anche <strong>dopo una cadenza autentica perfetta come conferma di questa</strong>&raquo;.</p>
+    </div>
+
+    <p class="didascalia">Tre libri, tre linguaggi diversi, e dicono la stessa cosa di quattro battute del Cinquecento. Quando succede questo, non state imparando un&rsquo;opinione.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Gli altri cinque">
+  <div class="slide-interna">
+    <h2>E gli altri, uno per tipo</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Le quattro cadenze, in quattro brani veri</span>
+      <p><strong>autentica</strong> &middot; Diabelli, <em>Allegretto in Do maggiore</em> n.&nbsp;7 &mdash; Cappellari p.&nbsp;24<br>
+      <strong>sospesa</strong> &middot; Clementi, <em>Sonatina</em> op.&nbsp;36, Rond&ograve; &mdash; p.&nbsp;24<br>
+      <strong>plagale</strong> &middot; Mozart, <em>Kirchenlieder</em> KV 343,2 &mdash; p.&nbsp;25<br>
+      <strong>d&rsquo;inganno</strong> &middot; M.&nbsp;Haydn, <em>Tenuisti manum dexteram meam</em> &mdash; p.&nbsp;34</p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">E uno in pi&ugrave;, che serve a togliere un dubbio</span>
+      <p>Buxtehude, <em>Cantate Domino</em> BuxWV&nbsp;12 (p.&nbsp;34): la cadenza sospesa &egrave; <strong>VI&ndash;V</strong>, non I&ndash;V. Conferma che quello che conta &egrave; <strong>dove si arriva</strong>, non da dove si viene.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Una cosa da notare, e non &egrave; un dettaglio</span>
+      <p>Buxtehude &egrave; del Seicento, Arcadelt del Cinquecento, Mozart e Haydn del Settecento, Clementi e Diabelli dell&rsquo;Ottocento. <strong>Trecento anni</strong>, e le stesse quattro cadenze fanno lo stesso mestiere.</p>
+    </div>
+
+    <p class="didascalia">Questo non vuol dire che la musica non cambi. Vuol dire che la <strong>punteggiatura</strong> &egrave; la parte che cambia pi&ugrave; lentamente &mdash; come nella lingua, dove il vocabolario si rinnova ogni generazione e il punto fermo no.</p>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; analizzare" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; analizzare</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 5 minuti</span>
+      <p>Cinque affermazioni sul metodo e sui brani.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "Per trovare le cadenze di un brano bisogna analizzare tutti gli accordi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si guardano <strong>solo le fini di frase</strong>. In una pagina vera gli accordi sono cinquanta, con rivolti e settime che non avete ancora.",
+  "da": "Che cosa NON si fa"
+ },
+ {
+  "d": "Alla fine di una frase l'armonia è di solito più semplice che in mezzo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e non è una fortuna: se un compositore complicasse anche la fine, nessuno capirebbe che è finita.",
+  "da": "Che cosa NON si fa"
+ },
+ {
+  "d": "La prima mossa dell'analisi è dire quali accordi ci sono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: la prima mossa è trovare <strong>dove finiscono le frasi</strong>.",
+  "da": "Le quattro mosse"
+ },
+ {
+  "d": "Cappellari scrive che il periodo del Contretanz K. 609 di Mozart sta in piedi con due soli accordi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, p. 39: la struttura armonica «si basa <strong>esclusivamente</strong> sulle armonie di tonica e dominante allo stato fondamentale». Gli stessi due con cui avete armonizzato.",
+  "da": "Il primo: Mozart"
+ },
+ {
+  "d": "Nell'<em>Ave Maria</em> di Arcadelt la cadenza plagale viene prima della perfetta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: viene <strong>dopo</strong>, a confermarla. Cappellari, p. 25, e Procaccioli, p. 35, dicono la stessa cosa con parole diverse.",
+  "da": "Il secondo: Arcadelt"
+ },
+ {
+  "d": "La cadenza sospesa di Buxtehude, in <em>Cantate Domino</em>, è VI-V.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, Cappellari p. 34, e conferma che quello che conta è dove si arriva, non da dove si viene.",
+  "da": "Gli altri cinque"
+ },
+ {
+  "d": "«Ci sono tre cadenze sospese e una autentica» è una risposta alla domanda «che forma ha il pezzo».",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è un <strong>elenco</strong>. Una risposta dice come è fatto: «quattro frasi di quattro battute, le prime tre sospese e l'ultima che chiude».",
+  "da": "Le quattro mosse"
+ },
+ {
+  "d": "In una pagina di musica vera si possono analizzare tutti gli accordi con gli strumenti della prima.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: ci sono rivolti, settime e note estranee. Si sbaglierebbe quaranta volte su cinquanta.",
+  "da": "Che cosa NON si fa"
+ },
+ {
+  "d": "Di una pagina di cinquanta accordi, per trovare le cadenze, se ne guardano otto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: quattro fini di frase, due accordi ciascuna. E con quegli otto si dice com'è fatto il pezzo.",
+  "da": "Che cosa NON si fa"
+ },
+ {
+  "d": "Un compositore semplifica il centro della frase e complica la fine.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: il contrario. Se complicasse anche la fine, nessuno capirebbe che è finita.",
+  "da": "Che cosa NON si fa"
+ },
+ {
+  "d": "Chi cerca i V-I e poi decide che lì finisce una frase trova cadenze dappertutto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è l'errore da non fare: prima la frase, poi l'armonia.",
+  "da": "Le quattro mosse"
+ },
+ {
+  "d": "La quarta mossa — «che forma ha il pezzo» — è facoltativa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è il motivo per cui si fanno le prime tre. Una lezione di analisi che finisce alla terza ha fatto fare fatica senza dire a che serviva.",
+  "da": "Le quattro mosse"
+ },
+ {
+  "d": "Il periodo del Contretanz K. 609 dura otto battute, con la sospesa alla quarta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e l'autentica all'ottava: Cappellari, p. 39.",
+  "da": "Il primo: Mozart"
+ },
+ {
+  "d": "Chiudere due volte di fila, con la perfetta e poi la plagale, è un errore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è il modo di dire «stavolta è finita davvero». Procaccioli, p. 35: la plagale si usa «dopo una cadenza autentica perfetta come conferma di questa».",
+  "da": "Il secondo: Arcadelt"
+ },
+ {
+  "d": "I brani citati coprono circa trecento anni di musica.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: Arcadelt è del Cinquecento, Buxtehude del Seicento, Mozart e Haydn del Settecento, Clementi e Diabelli dell'Ottocento. E le stesse quattro cadenze fanno lo stesso mestiere.",
+  "da": "Gli altri cinque"
+ },
+ {
+  "d": "La cadenza sospesa di Buxtehude conferma che conta da dove si viene.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: conferma il contrario. È VI-V, non I-V, e quello che conta è <strong>dove si arriva</strong>.",
+  "da": "Gli altri cinque"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide esercizio" data-titolo="Proviamo &middot; una pagina nuova" data-segno
+         style="--segno: url('../../_assets/segni/segno-31.png')">
+  <div class="slide-interna">
+    <h2>Venti minuti, a coppie, su un brano che non avete mai visto</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Sul foglio, e si consegna</span>
+      <p>Un pezzo di <strong>sedici battute</strong>, in do maggiore. Per prima cosa lo suono due volte intero.</p>
+      <p><strong>a)</strong> segnate con una barra dove finiscono le <strong>frasi</strong><br>
+      <strong>b)</strong> per ciascuna, scrivete i <strong>due accordi</strong> finali in numeri romani<br>
+      <strong>c)</strong> e il <strong>nome</strong> della cadenza<br>
+      <strong>d)</strong> in una riga: <strong>com&rsquo;&egrave; fatto</strong> il pezzo?</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">La d) vale quanto le altre tre insieme</span>
+      <p>&laquo;Quattro frasi di quattro battute; le prime tre finiscono sospese e l&rsquo;ultima chiude&raquo; &egrave; una risposta. &laquo;Ci sono tre cadenze sospese e una autentica&raquo; &egrave; un elenco: dice le stesse cose e non dice <strong>che forma ha</strong>.</p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Se vi bloccate sulla b)</span>
+      <p>Guardate la <strong>nota pi&ugrave; bassa</strong> delle ultime due battute, e basta quella per il grado. Le voci di mezzo, oggi, non servono.</p>
+    </div>
+
+    <p class="didascalia">&Egrave; il primo compito d&rsquo;analisi del corso, e assomiglia molto a quello che vi verr&agrave; chiesto per i prossimi quattro anni &mdash; con brani sempre pi&ugrave; lunghi e strumenti sempre pi&ugrave; fini. La domanda, per&ograve;, resta questa.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Le quattro mosse</span>
+        <p>Frasi &rarr; due accordi &rarr; nome &rarr; <strong>forma</strong>. E la prima prima di tutte.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">Il perimetro</span>
+        <p>Non tutti gli accordi: <strong>solo le fini di frase</strong>, dove l&rsquo;armonia &egrave; semplice apposta.</p>
+      </div>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">E la cosa che vale l&rsquo;ora, e forse l&rsquo;anno</span>
+      <p>Con <strong>due o tre accordi</strong> e quattro nomi di cadenza si legge la struttura di un pezzo di Mozart. Non una versione semplificata: quel pezzo l&igrave;, per intero. Il poco che avete non &egrave; un anticipo di quello che serve &mdash; &egrave; gi&agrave; uno strumento che funziona.</p>
+    </div>
+
+    <p class="didascalia">Domani si guarda indietro: novanta ore, undici unit&agrave;, e un&rsquo;ora per rimetterle in fila. Poi la <strong>V6</strong>, e la prima &egrave; finita.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. Sedici battute, e che forma hanno.</strong> Un pezzo di sedici battute in <em>do maggiore</em>. Barre dove finiscono le frasi, i due accordi finali di ciascuna in numeri romani, e il nome della cadenza.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-11.html#C1-U11-L10-02"><strong>Workbook</strong></a>, scheda C1-U11-L10-02.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"pronta","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all’ascolto: il primo colore","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"pronta","lezioni":[{"n":1,"titolo":"Diesis, bemolle, bequadro: che cosa alterano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Segni di ottava e loro lettura","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato con alterazioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La suddivisione e i tempi composti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Bicordi: terze e seste all’ascolto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"pronta","lezioni":[{"n":1,"titolo":"Il tetracordo, mattone della scala","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La scala diatonica maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione della scala di Do","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il circolo delle quinte con i diesis","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La scala armonizzata: tonica e dominante","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in Do","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Riconoscere tonica e dominante in un brano","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: scrivere una scala su qualunque nota","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico entro la quinta","file":"lezione-9.html","stato":"pronta"}],"via":"uda-04"},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"pronta","lezioni":[{"n":1,"titolo":"Il circolo con i bemolli","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le armature di chiave: come si leggono","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato melodico in Do e in Sol","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Trovare la tonica dall’armatura","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Solfeggio cantato con armatura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V2 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-05"},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"pronta","lezioni":[{"n":1,"titolo":"Il modo minore naturale, e le tonalità relative","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La minore armonica e il grado di sensibile","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione nel modo minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Perché la settima si alza","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La minore melodica, e perché cambia salendo e scendendo","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in modo minore","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Le tre minori a confronto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: le tre minori scritte su una nota data","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico in modo minore","file":"lezione-9.html","stato":"pronta"}],"via":"uda-06"},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"pronta","lezioni":[{"n":1,"titolo":"Quantità dell’intervallo: contare i gradi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Qualità: giusti, maggiori, minori","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione degli intervalli entro la quinta","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Aumentati, diminuiti, enarmonia","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"L’inversione degli intervalli","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato a salti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Consonanti e dissonanti: che cosa vuol dire davvero","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Intonazione degli intervalli oltre la quinta","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V3 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-07"},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"pronta","lezioni":[{"n":1,"titolo":"La triade come due terze sovrapposte","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le quattro specie: maggiore, minore, diminuita, aumentata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Riconoscimento uditivo di maggiore e minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Le triadi sui gradi della scala","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"I rivolti e la cifratura. La scala cromatica","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Arpeggi cantati sulle triadi","file":"lezione-6.html","stato":"pronta"}],"via":"uda-08"},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"pronta","lezioni":[{"n":1,"titolo":"Struttura della quadriade","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La settima di dominante","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ear training sugli intervalli","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La risoluzione della settima","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Riconoscere la dominante in partitura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico con salti d’accordo","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Esercitazione: cifrare e realizzare","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Solfeggio cantato con accompagnamento","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V4 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-09"},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"pronta","lezioni":[{"n":1,"titolo":"Tonica, dominante, sottodominante","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La progressione I–IV–V–I","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato ritmico-melodico","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La condotta delle parti: moti e divieti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Esercitazione: trovare e correggere gli errori di condotta","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura in tempi composti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Riconoscere le funzioni all’ascolto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: armonizzare un basso dato","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Solfeggio ritmico in 6/8","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Le funzioni in un brano vero","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Dettato armonico: due funzioni","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V5 · verifica scritta cumulativa","file":"lezione-12.html","stato":"pronta"}],"via":"uda-10"},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"pronta","lezioni":[{"n":1,"titolo":"La cadenza autentica","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Plagale, sospesa, d’inganno","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio a due voci","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Riconoscere le cadenze all’ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le cadenze come punteggiatura della frase","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Intonazione di arpeggi","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Prima armonizzazione di una melodia","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Armonizzazione: la seconda prova","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico con cadenza finale","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Le cadenze dentro un brano del repertorio","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Solfeggio: ripasso dell’anno","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V6 · verifica scritta cumulativa","file":"lezione-12.html","stato":"pronta"}],"via":"uda-11"}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","lezioni":[{"n":1,"titolo":"Che cos'è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","stato":"pronta","file":"lezione-2.html"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","stato":"pronta","file":"lezione-3.html"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","stato":"pronta","file":"lezione-4.html"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","stato":"pronta","file":"lezione-5.html"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","stato":"pronta","file":"lezione-6.html"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Le funzioni, all'orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: frase, periodo, forme semplici","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"da preparare","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La settima di dominante scritta","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"I rivolti dell'accordo di settima di dominante","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–5","stato":"da preparare","lezioni":[]},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 6–7","stato":"da preparare","lezioni":[]},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 8–10","stato":"da preparare","lezioni":[]},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 11–12","stato":"da preparare","lezioni":[]},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 13–15","stato":"da preparare","lezioni":[]},{"n":7,"titolo":"Il corale","quando":"settimane 16–18","stato":"da preparare","lezioni":[]},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 19–20","stato":"da preparare","lezioni":[]},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 21–22","stato":"da preparare","lezioni":[]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 23–26","stato":"da preparare","lezioni":[]},{"n":11,"titolo":"La seconda prova dell'Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[]}]}],"qui":{"classe":1,"unita":11,"lezione":10}}</script>
+</body>
+</html>

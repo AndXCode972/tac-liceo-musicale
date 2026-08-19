@@ -5637,6 +5637,129 @@
   }
   customElements.define('tac-chiuso', TacChiuso);
 
+  /* ==========================================================
+     <tac-orale> — IL SOLFEGGIO DI PRIMA VISTA, DIETRO UN CODICE
+
+     <tac-orale sale="…" invito="…">
+       <script type="application/json">[{iv, dati}, …]</script>
+     </tac-orale>
+
+     PERCHÉ NON BASTAVA `tac-chiuso`. Quello apre **un** blocco con
+     **un** codice, ed è giusto per la soluzione di un dettato, che è
+     una sola. Qui i pezzi sono dodici e il codice dice **quale**: sul
+     foglio dell'interrogazione ogni studente ha il suo, e scrivendolo
+     deve comparire il suo e nessun altro.
+
+     COME LO FA. Deriva la chiave una volta sola dal codice scritto, poi
+     prova ad aprire i dodici blocchi. AES-GCM è autenticato: quello che
+     si apre è quello giusto, e sugli altri la decifratura fallisce
+     invece di produrre spazzatura plausibile. Se non si apre niente, il
+     codice è sbagliato.
+
+     UN SALE SOLO PER PAGINA, e la ragione è il tempo. Con un sale per
+     pezzo servirebbero dodici derivazioni PBKDF2 a 150.000 giri: qualche
+     secondo, in piedi, davanti alla classe che aspetta. Con un sale solo
+     si deriva una volta e le dodici decifrature sono istantanee.
+
+     E NIENTE IN CHIARO NEL SORGENTE. È tutto il punto: «prima vista»
+     smette di esserlo se il pezzo si può leggere il giorno prima
+     guardando il codice della pagina.
+     ========================================================== */
+
+  class TacOrale extends HTMLElement {
+    connectedCallback() {
+      if (this._fatto) return;
+      this._fatto = true;
+
+      const dep = this.querySelector('script[type="application/json"]');
+      let blocchi = [];
+      try { blocchi = JSON.parse(dep ? dep.textContent : '[]'); } catch (e) {}
+      this._blocchi = blocchi;
+      if (dep) dep.remove();
+
+      const invito = this.getAttribute('invito') ||
+                     'Il codice sta sul foglio dell\u2019interrogazione';
+      const box = document.createElement('div');
+      box.className = 'tac-chiuso tac-orale-avvio';
+      box.innerHTML =
+        '<p class="tac-chiuso-invito">&#128274; ' + invito + '</p>' +
+        '<div class="tac-chiuso-riga">' +
+        '<input type="text" class="tac-chiuso-campo tac-orale-campo" ' +
+        'placeholder="codice" autocomplete="off" spellcheck="false" ' +
+        'maxlength="6" inputmode="latin">' +
+        '<button type="button" class="tac-chiuso-tasto">Mostra</button>' +
+        '</div><p class="tac-chiuso-esito" role="status"></p>';
+      this.appendChild(box);
+      this._avvio = box;
+
+      const campo = box.querySelector('.tac-chiuso-campo');
+      const tasto = box.querySelector('.tac-chiuso-tasto');
+      const esito = box.querySelector('.tac-chiuso-esito');
+      /* Maiuscolo sempre: i codici lo sono, e chi scrive al volo davanti
+         a una classe non guarda il tasto delle maiuscole. */
+      campo.addEventListener('input', () => {
+        campo.value = campo.value.toUpperCase();
+      });
+      const apri = () => this.apri(campo.value.trim(), esito);
+      tasto.addEventListener('click', apri);
+      campo.addEventListener('keydown', e => {
+        if (e.key === 'Enter') { e.preventDefault(); apri(); }
+      });
+    }
+
+    async apri(cod, esito) {
+      const b = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+      if (!cod) { esito.textContent = 'Scrivi il codice.'; return; }
+      esito.textContent = 'Apro\u2026';
+      let chiave;
+      try {
+        const base = await crypto.subtle.importKey(
+          'raw', new TextEncoder().encode(cod), 'PBKDF2', false, ['deriveKey']);
+        chiave = await crypto.subtle.deriveKey(
+          { name: 'PBKDF2', salt: b(this.getAttribute('sale')),
+            iterations: 150000, hash: 'SHA-256' },
+          base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+      } catch (e) {
+        esito.textContent = 'Qui non posso aprire niente: serve una pagina ' +
+                            'aperta da internet, non da disco.';
+        return;
+      }
+
+      for (const blocco of (this._blocchi || [])) {
+        try {
+          const chiaro = await crypto.subtle.decrypt(
+            { name: 'AES-GCM', iv: b(blocco.iv) }, chiave, b(blocco.dati));
+          this.mostra(JSON.parse(new TextDecoder().decode(chiaro)));
+          return;
+        } catch (e) { /* non è questo: si prova il prossimo */ }
+      }
+      esito.textContent = 'Codice non valido.';
+    }
+
+    mostra(pezzo) {
+      if (this._avvio) this._avvio.remove();
+      const d = document.createElement('div');
+      d.className = 'tac-orale-pezzo';
+      d.innerHTML = pezzo.svg;
+      this.appendChild(d);
+
+      /* Il tasto per chiudere: fra uno studente e l'altro il pezzo deve
+         sparire, sennò il secondo entra e lo trova sullo schermo. */
+      const chiudi = document.createElement('button');
+      chiudi.type = 'button';
+      chiudi.className = 'tac-chiuso-tasto tac-orale-chiudi';
+      chiudi.textContent = 'Nascondi';
+      chiudi.addEventListener('click', () => {
+        d.remove();
+        chiudi.remove();
+        this._fatto = false;
+        this.connectedCallback();
+      });
+      this.appendChild(chiudi);
+    }
+  }
+  customElements.define('tac-orale', TacOrale);
+
   document.addEventListener('DOMContentLoaded', () => Deck.init());
 
 })();

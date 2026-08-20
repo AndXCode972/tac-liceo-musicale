@@ -14,8 +14,8 @@
 <!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
      usa, e con `defer` i due file girano nell'ordine in cui stanno
      scritti qui. -->
-<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=bfce2466" defer></script>
+<script src="../../_assets/js/codice.js" defer></script>
+<script src="../../_assets/js/tac-core.js?v=24bd9561" defer></script>
 <style>
   .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
                 border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
@@ -31,7 +31,9 @@
      tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
      parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
      oltre la sua misura di stampa. */
-  .materiale img.inciso { display: block; width: 100%; max-width: 175mm;
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
                           height: auto; margin: .35rem 0; }
 </style>
 </head>
@@ -134,7 +136,7 @@
       <p class="titolo-consegna"><span class="num">2</span> Costruisci le consonanze sopra cinque note</p>
       <div class="testo">Sopra ciascuna delle cinque note date, scrivi la <strong>terza</strong>, la <strong>quinta</strong> e la <strong>sesta</strong>. Poi segna quali sono perfette e quali imperfette.<p class="dettaglio">Le note date sono do, re, mi, fa, sol in chiave di violino. Resta in tonalità di do maggiore: nessuna alterazione.</p></div>
       <div class="materiale">
-      <img class="inciso" src="incisioni/0cd3afa1646a-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/69037c5bad0f-1.svg" alt="">
       </div>
     </div>
     </section>
@@ -198,7 +200,7 @@
       <p class="titolo-consegna"><span class="num">1</span> La seconda voce, scritta due volte</p>
       <div class="testo">Sulla stessa voce data di oggi, scrivi <strong>due</strong> seconde voci diverse: una che usi soprattutto il moto <strong>parallelo</strong>, e una che usi soprattutto il <strong>contrario</strong>.<p class="dettaglio">Le regole sono quelle dell’ora: nota contro nota, tutte consonanze. Poi suonale tutte e due &mdash; al pianoforte o con un compagno &mdash; e scrivi sotto ciascuna quante voci si sentono.</p></div>
       <div class="materiale">
-      <img class="inciso" src="incisioni/19abd5d8fb60-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/56af08eff2b7-1.svg" alt="">
       </div>
     </div>
     </section>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbook — UdA 6 · Comporre: la frase, il periodo, e una seconda voce | TAC Classe 2&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=28f539c5">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=16a2ad3b">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
+     usa, e con `defer` i due file girano nell'ordine in cui stanno
+     scritti qui. -->
+<script src="../../_assets/js/codice.js" defer></script>
+<script src="../../_assets/js/tac-core.js?v=24bd9561" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
+     fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
+                          height: auto; margin: .35rem 0; }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 2&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>
+      <a href="solfeggi-classe-2.html">Il quaderno di lettura · tutto l'anno</a>
+      <a class="attiva" href="workbook-uda-06.html">Workbook · unità 6</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa tutto il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Workbook</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">UdA 6 · Comporre: la frase, il periodo, e una seconda voce — il foglio di lavoro, una pagina per lezione</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale — Classe 2&ordf;
+    </div>
+  </div>
+
+  <!-- Niente riga per nome, classe e data: il foglio non si consegna mai.
+       Lo scritto va sul quaderno e si fotografa, l'online restituisce un
+       codice, l'ascolto e' una spunta che lo studente fa per se'. La riga
+       era un'abitudine presa dal compito in classe, e costava un centimetro
+       e mezzo in cima a ogni foglio stampato. -->
+
+  <div class="riquadro attenzione">
+    <span class="etichetta">Come si usa</span>
+    <p>I compiti sono di tre specie, e ognuna si consegna in modo suo. <strong>Da fare online</strong>: allo schermo. <strong>Da ascoltare</strong>: serve all'orecchio. <strong>Da scrivere</strong>: sul quaderno, poi una foto su Classroom.</p>
+    <p style="margin-top:.5rem">Il voto dell'unità lo dà <strong>una cosa sola</strong>: la verifica in fondo, quella che restituisce un codice. Tutto il resto si consegna e si corregge, ma non fa voto &mdash; il che non vuol dire che non conti: è lì che si impara, e la verifica misura solo quello che hai imparato facendolo.</p>
+    <p style="margin-top:.5rem">Stampa <strong>una lezione alla volta</strong>, col pulsante che trovi accanto al titolo.</p>
+  </div>
+
+  <div class="lez" data-lezione="1">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 1</span>
+        <h2>Lezione 1 &mdash; Il motivo: la cellula che si riconosce</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U6-L1-01">
+      <p class="titolo-consegna"><span class="num">1</span> Lo stesso, o un altro?</p>
+      <div class="testo">Il primo rigo &egrave; il motivo. Per ciascuno degli altri tre scrivi se &egrave; <strong>a</strong>, <strong>a1</strong> (una variante) oppure <strong>b</strong> (un motivo diverso), e <strong>perch&eacute;</strong>.<p class="dettaglio">La domanda vera &egrave; la seconda: che cosa ti fa dire di s&igrave; o di no. Scrivi la ragione, non il verdetto.</p></div>
+      <div class="materiale">
+      <img class="inciso" style="width:63.3mm" src="incisioni/fd506c964a68-1.svg" alt="">
+      <img class="inciso" style="width:63.7mm" src="incisioni/8c94c0d0c1f9-1.svg" alt="">
+      <img class="inciso" style="width:62.3mm" src="incisioni/f09ded13f261-1.svg" alt="">
+      <img class="inciso" style="width:64.8mm" src="incisioni/300f6010564d-1.svg" alt="">
+      </div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="2">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 2</span>
+        <h2>Lezione 2 &mdash; Antecedente e conseguente: il periodo</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U6-L2-01">
+      <p class="titolo-consegna"><span class="num">1</span> Dove finisce l&rsquo;antecedente</p>
+      <div class="testo">Segna sul quaderno <strong>dove finisce l&rsquo;antecedente</strong> e su quale nota, e poi la stessa cosa per il conseguente.<p class="dettaglio">Il segno da cercare non &egrave; una stanghetta doppia: &egrave; una <strong>nota lunga</strong> su cui la linea si ferma.</p></div>
+      <div class="materiale">
+      <img class="inciso" style="width:155.4mm" src="incisioni/0bd085c0b2fa-1.svg" alt="">
+      </div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="3">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 3</span>
+        <h2>Lezione 3 &mdash; Bicinia: cantare a due voci per gruppi</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C2-S-K04">
+      <p class="titolo-consegna"><span class="num">1</span> Otto battute: antecedente e conseguente</p>
+      <div class="testo">Cantalo tutto. Poi fermati dopo la <strong>quarta</strong> battuta e senti come resta sospeso.</div>
+      <p class="vai no-stampa"><a href="../uda-06/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C2-S-R04">
+      <p class="titolo-consegna"><span class="num">2</span> Le semicrome, quattro per battito</p>
+      <div class="testo">Quattro semicrome fanno <strong>un</strong> battito. Batti con la mano e dille dentro il colpo, non sopra.</div>
+      <p class="vai no-stampa"><a href="../uda-06/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C2-U6-L3-01">
+      <p class="titolo-consegna"><span class="num">3</span> Il bicinium, la tua voce e quella dell&rsquo;altro</p>
+      <div class="testo">Canta <strong>tutte e due</strong> le voci del bicinium nuovo, una per volta. Prima la tua, poi quella dell&rsquo;altro gruppo.<p class="dettaglio">Conoscere la voce dell&rsquo;altro gruppo &egrave; il modo pi&ugrave; rapido per smettere di scivolarci sopra.</p></div>
+      <p class="vai no-stampa"><a href="../uda-06/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="4">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 4</span>
+        <h2>Lezione 4 &mdash; La testura, e il primo accompagnamento: basso e accordi sotto una melodia</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U6-L4-02">
+      <p class="titolo-consegna"><span class="num">1</span> Tre accordi sotto una melodia</p>
+      <div class="testo">Sotto ognuna delle quattro battute scrivi <strong>quale funzione</strong> useresti &mdash; I, IV o V &mdash; e poi scrivi il basso: la fondamentale, in semibrevi.<p class="dettaglio">Il metodo &egrave; quello di oggi: guarda la nota sul <strong>primo movimento</strong>, poi chiediti quale delle tre funzioni la contiene. Se ne va bene pi&ugrave; di una, scegli a orecchio e scrivi perch&eacute;.</p></div>
+      <div class="materiale">
+      <img class="inciso" style="width:155.4mm" src="incisioni/8767ea66969e-1.svg" alt="">
+      </div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="5">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 5</span>
+        <h2>Lezione 5 &mdash; Comporre otto battute su un metro dato</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U6-L5-01">
+      <p class="titolo-consegna"><span class="num">1</span> Otto battute tue</p>
+      <div class="testo">Componi <strong>otto battute</strong> in 4/4, in do maggiore, in forma di <strong>periodo</strong>. Le prime due sono quelle decise alla lavagna.<p class="dettaglio">I vincoli: ambito entro una nona, quasi tutto per gradi, <strong>un culmine solo</strong>, la battuta 4 finisce sospesa e la 8 sul do. E il consiglio che fa risparmiare mezz&rsquo;ora: scrivi <strong>prima le battute 4 e 8</strong>, poi riempi in mezzo. Le battute 5 e 6 possono essere identiche alle prime due.</p></div>
+      <div class="materiale">
+      <img class="inciso" style="width:67.5mm" src="incisioni/1163c81962cb-1.svg" alt="">
+      </div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="6">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 6</span>
+        <h2>Lezione 6 &mdash; Solfeggio a due parti</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C2-U6-L6-01">
+      <p class="titolo-consegna"><span class="num">1</span> Due parlati dal quaderno</p>
+      <div class="testo">Due pezzi del quaderno di lettura, in ordine, uno per sera. A tempo, senza fermarsi.<p class="dettaglio">Corto apposta: questa settimana il lavoro &egrave; la melodia.</p></div>
+      <p class="vai no-stampa"><a href="../uda-06/lezione-6.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="7">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 7</span>
+        <h2>Lezione 7 &mdash; Dare una seconda voce alla propria melodia</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U6-L7-01">
+      <p class="titolo-consegna"><span class="num">1</span> Perch&eacute; ti sei bloccato l&igrave;</p>
+      <div class="testo">Guarda dove ti sei bloccato scrivendo la seconda voce, e scrivi in tre righe <strong>che cosa</strong> della tua melodia ti ha messo in difficolt&agrave;.<p class="dettaglio">Non serve una soluzione: serve capire il legame fra quello che hai composto e quello che si pu&ograve; farci sopra.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="8">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 8</span>
+        <h2>Lezione 8 &mdash; Canone: la forma più semplice di imitazione</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C2-U6-L8-02">
+      <p class="titolo-consegna"><span class="num">1</span> Ripasso per la V3 &middot; unit&agrave; 1&ndash;6</p>
+      <div class="testo">Sei domande su tutto quello che la verifica chieder&agrave;. Rifallo pi&ugrave; volte.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="6">
+[
+ {
+  "d": "Un motivo si riconosce solo se torna con le stesse note.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Si riconosce dal profilo: dove sale, dove scende, dov'è il salto. Trasportato o con un ritmo diverso è ancora lo stesso."
+ },
+ {
+  "d": "Marenco segna con a1, a2 le varianti ritmiche o melodiche di uno stesso frammento.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "E il segno serve perché dice due cose insieme: «questo è lo stesso» e «non è identico»."
+ },
+ {
+  "d": "Una frase è di otto battute.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Di quattro. Otto fanno un periodo, e in italiano «frase» si usa proprio per il segmento standard di quattro."
+ },
+ {
+  "d": "Un periodo è fatto di antecedente e conseguente.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Quattro battute che chiedono e quattro che rispondono."
+ },
+ {
+  "d": "Antecedente e conseguente si distinguono perché hanno melodie diverse.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Si distinguono per la **cadenza**: sospesa la prima, chiusa la seconda. La melodia può essere identica, e quasi sempre lo è per metà."
+ },
+ {
+  "d": "L'antecedente di un periodo finisce con una cadenza sospesa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Cioè su una nota che non è la tonica: la frase chiede."
+ },
+ {
+  "d": "In un canone «antecedente» e «conseguente» vogliono dire le stesse cose che nel periodo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "No: là sono le due metà di una melodia, qui sono due **voci** — dux e comes. È la terminologia corrente, e per questo nel corso usiamo dux e comes."
+ },
+ {
+  "d": "Il dux è la voce che espone per prima il tema.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "E il comes è quella che lo imita. In latino: la guida e il compagno."
+ },
+ {
+  "d": "Un canone funziona perché la melodia è particolarmente bella.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Funziona perché è stata **verificata**: chi la scrive controlla nota per nota che cosa cade insieme a distanza fissa."
+ },
+ {
+  "d": "La testura è il numero di voci di un brano.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "È il **modo** in cui le voci stanno fra loro, non quante sono."
+ },
+ {
+  "d": "«Melodia con accompagnamento» è una testura.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Una linea porta e il resto sostiene. È quella di quasi tutta la musica che si ascolta tutti i giorni."
+ },
+ {
+  "d": "In una testura contrappuntistica l'orecchio segue una voce sola.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Si divide: sono linee pari, tutte da seguire. È nella melodia con accompagnamento che l'orecchio sta su una sola."
+ },
+ {
+  "d": "Con le tre funzioni I, IV e V si accompagna quasi qualunque melodia semplice.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Non è un trucco: è il motivo per cui quelle tre si chiamano funzioni."
+ },
+ {
+  "d": "Per accompagnare una battuta si guarda la nota che cade sul primo movimento.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "È quella che l'accordo deve contenere. Poi si sceglie fra le tre funzioni quella che ce l'ha."
+ },
+ {
+  "d": "Quando la seconda voce va sotto la melodia, gli intervalli si contano dall'alto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Si contano sempre dal basso. Ed è per questo che scrivere sotto disorienta all'inizio: una terza diventa una sesta."
+ },
+ {
+  "d": "Se la propria melodia rende difficile la seconda voce, conviene cambiare la melodia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "No: quella difficoltà è un'informazione su come si è composto. Cambiare la melodia insegna che si compone per comodità di chi armonizza."
+ },
+ {
+  "d": "Una melodia in valori lunghi regge meglio una seconda specie di una melodia già mossa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Le minime e le semibrevi lasciano spazio a una voce che si muove. Quattro note per battuta più due sotto fanno confusione."
+ },
+ {
+  "d": "L'imitazione di due voci a distanza è all'origine dell'esposizione della fuga.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Marenco, p. 5: dal primo episodio del mottetto, «per via di trasformazioni posteriori», nasce l'esposizione della fuga barocca."
+ },
+ {
+  "d": "In un periodo le battute 5 e 6 sono spesso identiche alle battute 1 e 2.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Non è pigrizia: un periodo è la stessa melodia due volte con due finali diversi."
+ },
+ {
+  "d": "Quando si compone un periodo conviene scrivere prima le battute in ordine, dalla 1 alla 8.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Conviene scrivere prima le **cadenze** — battute 4 e 8 — perché sono quelle che decidono la forma. Poi si riempie in mezzo."
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U6-L8-01">
+      <p class="titolo-consegna"><span class="num">2</span> Verifica il canone</p>
+      <div class="testo">Prendi il canone di oggi e verifica <strong>tre incontri</strong>: scrivi la battuta 3 sotto la 1, la 4 sotto la 2, la 5 sotto la 3, e per ciascuna coppia scrivi gli intervalli che si formano.<p class="dettaglio">Il comes entra alla battuta 3, un&rsquo;ottava sotto. Quindi quello che canta nella battuta 3 &egrave; la battuta 1 del dux.</p></div>
+      <div class="materiale">
+      <img class="inciso" style="width:155.4mm" src="incisioni/ea8b7e553d5f-1.svg" alt="">
+      </div>
+    </div>
+    </section>
+  </div>
+
+</div>
+
+<footer class="piede no-stampa">
+  <div class="piede-interno">
+    <p><a href="../">&larr; Torna alla classe 2&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-2.html">Il quaderno di lettura · tutto l'anno</a></p>
+    <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
+  </div>
+</footer>
+
+<script>
+/* «Stampa solo questa». Il compito della settimana e una pagina: se per
+   averla si deve mandare in stampa il fascicolo intero e poi scegliere gli
+   intervalli di pagina nel pannello del browser, nessuno lo fa, e si
+   stampano undici fogli per usarne uno. Il pulsante nasconde gli altri
+   blocchi per la durata della stampa e li rimette a posto subito dopo. */
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-stampa]');
+  if (!b) return;
+  var blocco = b.closest('.lez');
+  document.body.classList.add('stampa-una');
+  blocco.classList.add('da-stampare');
+  var pulisci = function () {
+    document.body.classList.remove('stampa-una');
+    blocco.classList.remove('da-stampare');
+    window.removeEventListener('afterprint', pulisci);
+  };
+  window.addEventListener('afterprint', pulisci);
+  window.print();
+});
+</script>
+</body>
+</html>

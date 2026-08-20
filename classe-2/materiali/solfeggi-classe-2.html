@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="../../_assets/css/sito.css?v=16a2ad3b">
 <script src="../../_assets/lib/vexflow.js"></script>
 <script src="../../_assets/lib/tone.js"></script>
-<script src="../../_assets/js/tac-core.js?v=bfce2466" defer></script>
+<script src="../../_assets/js/tac-core.js?v=24bd9561" defer></script>
 <style>
   :root { --classe: #0d9488; }
   .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
@@ -50,9 +50,16 @@
                         color: #fff; border: 0; }
   .copertina-libro .sotto { font-size: 1.12rem; opacity: .92; margin: .9rem 0 0;
                             max-width: 34ch; }
+  /* IL NOME IN FONDO SI DEVE LEGGERE. Stava a `opacity: .9` sopra una
+     fotografia chiara, cioè grigio su grigio: Andrea non riusciva a
+     leggerlo. Opacità piena e un'ombra scura sotto, che è il modo di
+     staccare del testo da un'immagine senza metterci un riquadro. */
   .copertina-libro .fondo { display: flex; justify-content: space-between;
                             align-items: flex-end; gap: 1rem;
-                            font-size: .86rem; opacity: .9; }
+                            font-size: .94rem; font-weight: 600;
+                            line-height: 1.45;
+                            text-shadow: 0 1px 5px rgba(0,0,0,.85),
+                                         0 0 2px rgba(0,0,0,.7); }
   .copertina-libro .quanti-grande { font-size: 2.6rem; font-weight: 800; line-height: 1; }
 
   /* ── L'INDICE ────────────────────────────────────────────────────
@@ -154,7 +161,9 @@
      per uno riempie la pagina di linee che non sono musica. */
   /* IL RIGO INCISO. È un'immagine, e vale la stessa misura presa dal
      Pozzoli: 175 mm di larghezza massima, e non si ingrandisce oltre. */
-  .pezzi .solf img.inciso { display: block; width: 100%; max-width: 175mm;
+  /* La larghezza la porta ogni immagine, in millimetri: v. `_mm()`.
+     Qui si mette solo il tetto, per gli schermi stretti. */
+  .pezzi .solf img.inciso { display: block; max-width: 100%;
                             height: auto; margin: .2rem 0 0; }
 
   .pezzi .solf tac-stave { border: 0; box-shadow: none; background: none;
@@ -195,6 +204,7 @@
     <span class="sep">&rsaquo;</span>
     <span class="qui">Materiali</span>
     <span class="voci">
+      <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>
       <a class="attiva" href="solfeggi-classe-2.html">Il quaderno di lettura · tutto l'anno</a>
       <a href="workbook-uda-01.html">Workbook · unità 1</a>
     </span>
@@ -211,14 +221,10 @@
     <div>
       <div class="occhiello">Teoria, Analisi e Composizione &middot; Classe 2&ordf;</div>
       <h1>Il quaderno di lettura</h1>
-      <p class="sotto">Si comincia dal numero 1 e si va avanti, un pezzo per volta, fino a giugno.</p>
     </div>
     <div class="fondo">
       <div></div>
-      <div style="text-align:right">
-        Liceo Musicale &laquo;G.&nbsp;Carducci&raquo;<br>
-        Si stampa una volta e resta sul leggio
-      </div>
+      <div style="text-align:right">Andrea Gorini<br>Liceo Musicale &laquo;G.&nbsp;Carducci&raquo;</div>
     </div>
   </section>
 
@@ -232,408 +238,1510 @@
     </p>
     <ol>
       <li class="salto">Primo gradino</li>
-      <li><span class="n">1</span><span class="t">Quattro battute in quattro, per ricominciare</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">2</span><span class="t">La voce acuta delle otto battute</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">3</span><span class="t">Quattro battute lunghe, per il canto d&rsquo;insieme</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">4</span><span class="t">Quattro battute con le crome</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">1</span><span class="t">Quattro quarti, ripasso</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">2</span><span class="t">Tre quarti, ripasso</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">3</span><span class="t">Le pause dentro la battuta</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">4</span><span class="t">Quattro battute in quattro, per ricominciare</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">5</span><span class="t">La voce acuta delle otto battute</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">6</span><span class="t">Quattro battute lunghe, per il canto d&rsquo;insieme</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">7</span><span class="t">Una linea che sale una volta sola</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">8</span><span class="t">Il culmine alla fine</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">9</span><span class="t">Due archi uguali</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">10</span><span class="t">Contralto, cinque note</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">11</span><span class="t">Contralto, sotto il do</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">12</span><span class="t">Contralto, l&rsquo;ottava intera</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">13</span><span class="t">Contralto, in tre quarti</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">14</span><span class="t">Contralto, terze</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">15</span><span class="t">Quattro battute con le crome</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">16</span><span class="t">Tre quarti, cantabile</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">17</span><span class="t">La nota di passaggio</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">18</span><span class="t">La nota di volta</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">19</span><span class="t">Contralto, con le pause</span><span class="s">Solfeggio parlato</span></li>
       <li class="salto">Secondo gradino</li>
-      <li><span class="n">5</span><span class="t">Quattro battute in tre, con la sincope</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">6</span><span class="t">Nomi di nota a tempo, in chiave di violino</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">7</span><span class="t">Nomi di nota a tempo, in chiave di basso</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">8</span><span class="t">La voce grave delle stesse otto battute</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">9</span><span class="t">Il canto dato, letto a nomi in chiave di basso</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">10</span><span class="t">Il canto dato dell&rsquo;unit&agrave;</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">11</span><span class="t">Quattro battute in quattro, con una sincope</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">12</span><span class="t">Sei battute in due quarti, con le pause</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">13</span><span class="t">Il contrappunto della lezione 7</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">14</span><span class="t">Una linea con un culmine solo</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">15</span><span class="t">La chiave di contralto, per gradi</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">16</span><span class="t">Contralto, con qualche salto</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">17</span><span class="t">In modo dorico, senza sensibile</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">18</span><span class="t">Senza alterazioni, come nei modi</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">19</span><span class="t">Il quarto puntato, in tre</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">20</span><span class="t">La nota di passaggio, cantata</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">21</span><span class="t">Chiave di basso, con le note di passaggio</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">22</span><span class="t">Alla breve: la minima conta</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">23</span><span class="t">Otto battute: antecedente e conseguente</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">24</span><span class="t">Le semicrome, quattro per battito</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">25</span><span class="t">Quattro note per battito, cantate</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">26</span><span class="t">La chiave di tenore</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">27</span><span class="t">Sei ottavi, e il battito &egrave; il puntato</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">28</span><span class="t">I tre arpeggi delle funzioni</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">29</span><span class="t">Un'armatura di due diesis</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">30</span><span class="t">La sincope, in tre</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">31</span><span class="t">Chiave di basso, ambito largo</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">32</span><span class="t">L'arpeggio con la settima</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">33</span><span class="t">Con le alterazioni dentro la battuta</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">34</span><span class="t">Tre ottavi: l'unit&agrave; &egrave; la croma</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">35</span><span class="t">Una forma-Lied binaria, in sedici battute</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">36</span><span class="t">Nove ottavi</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">20</span><span class="t">Quattro battute in tre, con la sincope</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">21</span><span class="t">Nomi di nota a tempo, in chiave di violino</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">22</span><span class="t">Nomi di nota a tempo, in chiave di basso</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">23</span><span class="t">La voce grave delle stesse otto battute</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">24</span><span class="t">Il canto dato, letto a nomi in chiave di basso</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">25</span><span class="t">Il canto dato dell&rsquo;unit&agrave;</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">26</span><span class="t">Quattro battute in quattro, con una sincope</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">27</span><span class="t">Sei battute in due quarti, con le pause</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">28</span><span class="t">Il contrappunto della lezione 7</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">29</span><span class="t">I sedicesimi, a gruppi di quattro</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">30</span><span class="t">Due sedicesimi e un ottavo</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">31</span><span class="t">Il ritmo puntato</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">32</span><span class="t">La scala di contralto, e poi due pezzi del quaderno</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">33</span><span class="t">Una linea con un culmine solo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">34</span><span class="t">La chiave di contralto, per gradi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">35</span><span class="t">Contralto, con qualche salto</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">36</span><span class="t">Contralto, crome</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">37</span><span class="t">Contralto, salti larghi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">38</span><span class="t">Contralto, alterazioni</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">39</span><span class="t">La sincope, dentro la battuta</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">40</span><span class="t">Il contrattempo</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">41</span><span class="t">Nove ottavi</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">42</span><span class="t">In modo dorico, senza sensibile</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">43</span><span class="t">Senza alterazioni, come nei modi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">44</span><span class="t">Il quarto puntato, in tre</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">45</span><span class="t">Il dorico, cantato tre sere di fila</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">46</span><span class="t">Dorico su re</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">47</span><span class="t">Frigio su mi</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">48</span><span class="t">Lidio su fa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">49</span><span class="t">Misolidio su sol</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">50</span><span class="t">Eolio su la</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">51</span><span class="t">Tenore, cinque note</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">52</span><span class="t">Tenore, l&rsquo;ottava intera</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">53</span><span class="t">Tenore, terze</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">54</span><span class="t">Tenore, in tre quarti</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">55</span><span class="t">Dodici ottavi</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">56</span><span class="t">Tre ottavi</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">57</span><span class="t">La pausa sul battito forte</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">58</span><span class="t">La nota di passaggio, cantata</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">59</span><span class="t">Chiave di basso, con le note di passaggio</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">60</span><span class="t">Alla breve: la minima conta</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">61</span><span class="t">La voce che passa, cantata tre sere</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">62</span><span class="t">Le crome, in linea</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">63</span><span class="t">Antecedente e conseguente, in do</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">64</span><span class="t">Antecedente e conseguente, in sol</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">65</span><span class="t">Tenore, crome</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">66</span><span class="t">Basso, per gradi e per terze</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">67</span><span class="t">Basso, sotto il rigo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">68</span><span class="t">Basso, crome</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">69</span><span class="t">Cinque quarti</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">70</span><span class="t">Quattro sedicesimi e una minima</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">71</span><span class="t">Sincope su due battute</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">72</span><span class="t">Otto battute: antecedente e conseguente</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">73</span><span class="t">Le semicrome, quattro per battito</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">74</span><span class="t">Il bicinium, la tua voce e quella dell&rsquo;altro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">75</span><span class="t">Le tre funzioni, arpeggiate</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">76</span><span class="t">La cadenza, cantata</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">77</span><span class="t">La settima che scende</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">78</span><span class="t">Terzina, cantata</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">79</span><span class="t">Violino, due diesis</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">80</span><span class="t">Violino, due bemolli</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">81</span><span class="t">Terzina, per gradi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">82</span><span class="t">La terzina di ottavi</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">83</span><span class="t">Quattro note per battito, cantate</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">84</span><span class="t">La chiave di tenore</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">85</span><span class="t">Sei ottavi, e il battito &egrave; il puntato</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">86</span><span class="t">Tenore e contralto, alternati</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">87</span><span class="t">In fa maggiore</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">88</span><span class="t">In re minore</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">89</span><span class="t">In mi minore</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">90</span><span class="t">I tre arpeggi delle funzioni</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">91</span><span class="t">Un'armatura di due diesis</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">92</span><span class="t">La sincope, in tre</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">93</span><span class="t">Chiave di basso, ambito largo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">94</span><span class="t">L'arpeggio con la settima</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">95</span><span class="t">Con le alterazioni dentro la battuta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">96</span><span class="t">Tre ottavi: l'unit&agrave; &egrave; la croma</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">97</span><span class="t">Una forma-Lied binaria, in otto battute</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">98</span><span class="t">Nove ottavi</span><span class="s">Solfeggio ritmico</span></li>
+      <li class="salto">Terzo gradino</li>
+      <li><span class="n">99</span><span class="t">Le stesse otto battute, nelle tre chiavi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">100</span><span class="t">Terzina e sincope insieme</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">101</span><span class="t">Contralto in sol maggiore</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">102</span><span class="t">Sedicesimi e puntati insieme</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">103</span><span class="t">Sei ottavi, con i sedicesimi</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">104</span><span class="t">Sette ottavi</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">105</span><span class="t">Terzina contro due crome</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">106</span><span class="t">Terzina in tre quarti</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">107</span><span class="t">Le terzine del quaderno</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">108</span><span class="t">Contralto in fa maggiore</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">109</span><span class="t">Tenore in sol maggiore</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">110</span><span class="t">Basso in si bemolle maggiore</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">111</span><span class="t">Il quinario, spostato</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">112</span><span class="t">Contrattempo di sedicesimo</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">113</span><span class="t">Sincope lunga</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">114</span><span class="t">Sei ottavi, cantabile</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">115</span><span class="t">Nove ottavi, cantabile</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">116</span><span class="t">Dodici ottavi</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">117</span><span class="t">Contralto, sei ottavi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">118</span><span class="t">Tenore, sei ottavi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">119</span><span class="t">Contralto, semicrome</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">120</span><span class="t">Dodici ottavi, mosso</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">121</span><span class="t">Tutto il vocabolario, in quattro quarti</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">122</span><span class="t">Il salto d&rsquo;ottava, cantato</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">123</span><span class="t">Con le semicrome</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">124</span><span class="t">La sincope, cantata</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">125</span><span class="t">Basso, ambito di due ottave</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">126</span><span class="t">Tenore, alterazioni dentro la battuta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">127</span><span class="t">Due quarti, con i sedicesimi</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">128</span><span class="t">Tre quarti, sincopato</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">129</span><span class="t">In si bemolle maggiore</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">130</span><span class="t">In la maggiore</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">131</span><span class="t">In mi bemolle maggiore</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">132</span><span class="t">Il pezzo pi&ugrave; lungo del quaderno</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">133</span><span class="t">Contralto in mi bemolle maggiore</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">134</span><span class="t">Le tre chiavi di seguito</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">135</span><span class="t">Il pi&ugrave; lungo, in sei ottavi</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">136</span><span class="t">Il pi&ugrave; lungo, in quattro quarti</span><span class="s">Solfeggio ritmico</span></li>
     </ol>
   </section>
 
   <div class="pezzi">
-    <div class="gradino"><span>Primo gradino</span><span class="quanti">4 pezzi</span></div>
+    <div class="gradino"><span>Primo gradino</span><span class="quanti">19 pezzi</span></div>
     <article class="solf" id="n1">
       <div class="testa">
         <span class="numero">1</span>
         <div>
-          <h3>Quattro battute in quattro, per ricominciare</h3>
+          <h3>Quattro quarti, ripasso</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/9b7d2c4f500c-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/38d884437c05-1.svg" alt="">
     </article>
     <article class="solf" id="n2">
       <div class="testa">
         <span class="numero">2</span>
         <div>
-          <h3>La voce acuta delle otto battute</h3>
-          <span class="quando">Solfeggio cantato</span>
+          <h3>Tre quarti, ripasso</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/8eba6764fabc-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/2c0c8f83bcda-1.svg" alt="">
     </article>
     <article class="solf" id="n3">
       <div class="testa">
         <span class="numero">3</span>
         <div>
-          <h3>Quattro battute lunghe, per il canto d&rsquo;insieme</h3>
+          <h3>Le pause dentro la battuta</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/522f6dd41a85-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/fcd2ed62e094-1.svg" alt="">
     </article>
     <article class="solf" id="n4">
       <div class="testa">
         <span class="numero">4</span>
         <div>
-          <h3>Quattro battute con le crome</h3>
+          <h3>Quattro battute in quattro, per ricominciare</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/06e40c02654f-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/7111cdadcccf-1.svg" alt="">
     </article>
-    <div class="gradino"><span>Secondo gradino</span><span class="quanti">32 pezzi</span></div>
     <article class="solf" id="n5">
       <div class="testa">
         <span class="numero">5</span>
         <div>
-          <h3>Quattro battute in tre, con la sincope</h3>
-          <span class="quando">Solfeggio ritmico</span>
+          <h3>La voce acuta delle otto battute</h3>
+          <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/aa7e5a96fd7f-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/260b431f1aa0-1.svg" alt="">
     </article>
     <article class="solf" id="n6">
       <div class="testa">
         <span class="numero">6</span>
         <div>
-          <h3>Nomi di nota a tempo, in chiave di violino</h3>
-          <span class="quando">Solfeggio parlato</span>
+          <h3>Quattro battute lunghe, per il canto d&rsquo;insieme</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/4c88c43ca4d2-1.svg" alt="">
+      <img class="inciso" style="width:87.6mm" src="incisioni/7ad0fc21a904-1.svg" alt="">
     </article>
     <article class="solf" id="n7">
       <div class="testa">
         <span class="numero">7</span>
         <div>
-          <h3>Nomi di nota a tempo, in chiave di basso</h3>
-          <span class="quando">Solfeggio parlato</span>
+          <h3>Una linea che sale una volta sola</h3>
+          <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/406d9f0b308e-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/aa82316a6e4f-1.svg" alt="">
     </article>
     <article class="solf" id="n8">
       <div class="testa">
         <span class="numero">8</span>
         <div>
-          <h3>La voce grave delle stesse otto battute</h3>
+          <h3>Il culmine alla fine</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/cb4038531bf5-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/e90ef2050be2-1.svg" alt="">
     </article>
     <article class="solf" id="n9">
       <div class="testa">
         <span class="numero">9</span>
         <div>
-          <h3>Il canto dato, letto a nomi in chiave di basso</h3>
-          <span class="quando">Solfeggio parlato</span>
+          <h3>Due archi uguali</h3>
+          <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/4c418883dedb-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/2bd7396f8c5b-1.svg" alt="">
     </article>
     <article class="solf" id="n10">
       <div class="testa">
         <span class="numero">10</span>
         <div>
-          <h3>Il canto dato dell&rsquo;unit&agrave;</h3>
-          <span class="quando">Solfeggio cantato</span>
+          <h3>Contralto, cinque note</h3>
+          <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/cc4250a2b3d9-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/31b29c728c19-1.svg" alt="">
     </article>
     <article class="solf" id="n11">
       <div class="testa">
         <span class="numero">11</span>
         <div>
-          <h3>Quattro battute in quattro, con una sincope</h3>
-          <span class="quando">Solfeggio ritmico</span>
+          <h3>Contralto, sotto il do</h3>
+          <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/211b5ee2d9b3-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/357c987ac535-1.svg" alt="">
     </article>
     <article class="solf" id="n12">
       <div class="testa">
         <span class="numero">12</span>
         <div>
-          <h3>Sei battute in due quarti, con le pause</h3>
-          <span class="quando">Solfeggio ritmico</span>
+          <h3>Contralto, l&rsquo;ottava intera</h3>
+          <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/38cb89e40e82-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/2326d9885e59-1.svg" alt="">
     </article>
     <article class="solf" id="n13">
       <div class="testa">
         <span class="numero">13</span>
         <div>
-          <h3>Il contrappunto della lezione 7</h3>
-          <span class="quando">Solfeggio cantato</span>
+          <h3>Contralto, in tre quarti</h3>
+          <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/bcc2d1dcbfd5-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/71d4616c2d5f-1.svg" alt="">
     </article>
     <article class="solf" id="n14">
       <div class="testa">
         <span class="numero">14</span>
         <div>
-          <h3>Una linea con un culmine solo</h3>
-          <span class="quando">Solfeggio cantato</span>
+          <h3>Contralto, terze</h3>
+          <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/a0e43c9e4db2-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/89effc1d615b-1.svg" alt="">
     </article>
     <article class="solf" id="n15">
       <div class="testa">
         <span class="numero">15</span>
         <div>
-          <h3>La chiave di contralto, per gradi</h3>
-          <span class="quando">Solfeggio parlato</span>
+          <h3>Quattro battute con le crome</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/ff32c33f5b83-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/25677a4442ba-1.svg" alt="">
     </article>
     <article class="solf" id="n16">
       <div class="testa">
         <span class="numero">16</span>
         <div>
-          <h3>Contralto, con qualche salto</h3>
-          <span class="quando">Solfeggio parlato</span>
+          <h3>Tre quarti, cantabile</h3>
+          <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/4383e16e17ea-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/88bf52b6add1-1.svg" alt="">
     </article>
     <article class="solf" id="n17">
       <div class="testa">
         <span class="numero">17</span>
         <div>
-          <h3>In modo dorico, senza sensibile</h3>
+          <h3>La nota di passaggio</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/6eb77af5985c-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/a4db0fd577eb-1.svg" alt="">
     </article>
     <article class="solf" id="n18">
       <div class="testa">
         <span class="numero">18</span>
         <div>
-          <h3>Senza alterazioni, come nei modi</h3>
-          <span class="quando">Solfeggio parlato</span>
+          <h3>La nota di volta</h3>
+          <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/2c46bc5fa2fe-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/98eb37d9d1bd-1.svg" alt="">
     </article>
     <article class="solf" id="n19">
       <div class="testa">
         <span class="numero">19</span>
         <div>
-          <h3>Il quarto puntato, in tre</h3>
-          <span class="quando">Solfeggio ritmico</span>
+          <h3>Contralto, con le pause</h3>
+          <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/c9ffdffc103b-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/49eb56a21b12-1.svg" alt="">
     </article>
+    <div class="gradino"><span>Secondo gradino</span><span class="quanti">79 pezzi</span></div>
     <article class="solf" id="n20">
       <div class="testa">
         <span class="numero">20</span>
         <div>
-          <h3>La nota di passaggio, cantata</h3>
-          <span class="quando">Solfeggio cantato</span>
+          <h3>Quattro battute in tre, con la sincope</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/a80b6ab3978d-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/cb292f3e16c4-1.svg" alt="">
     </article>
     <article class="solf" id="n21">
       <div class="testa">
         <span class="numero">21</span>
         <div>
-          <h3>Chiave di basso, con le note di passaggio</h3>
+          <h3>Nomi di nota a tempo, in chiave di violino</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/43c226d628e8-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/5b698fb5890a-1.svg" alt="">
     </article>
     <article class="solf" id="n22">
       <div class="testa">
         <span class="numero">22</span>
         <div>
-          <h3>Alla breve: la minima conta</h3>
-          <span class="quando">Solfeggio ritmico</span>
+          <h3>Nomi di nota a tempo, in chiave di basso</h3>
+          <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/7204e21e3896-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/ec4e9be67857-1.svg" alt="">
     </article>
     <article class="solf" id="n23">
       <div class="testa">
         <span class="numero">23</span>
         <div>
-          <h3>Otto battute: antecedente e conseguente</h3>
+          <h3>La voce grave delle stesse otto battute</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/256d625d0f73-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/731dc747fcdf-1.svg" alt="">
     </article>
     <article class="solf" id="n24">
       <div class="testa">
         <span class="numero">24</span>
         <div>
-          <h3>Le semicrome, quattro per battito</h3>
-          <span class="quando">Solfeggio ritmico</span>
+          <h3>Il canto dato, letto a nomi in chiave di basso</h3>
+          <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/315c7265c665-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/f2d182ed40b0-1.svg" alt="">
     </article>
     <article class="solf" id="n25">
       <div class="testa">
         <span class="numero">25</span>
         <div>
-          <h3>Quattro note per battito, cantate</h3>
+          <h3>Il canto dato dell&rsquo;unit&agrave;</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/0d5a64bb14f7-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/5efd10716dca-1.svg" alt="">
     </article>
     <article class="solf" id="n26">
       <div class="testa">
         <span class="numero">26</span>
         <div>
-          <h3>La chiave di tenore</h3>
-          <span class="quando">Solfeggio parlato</span>
+          <h3>Quattro battute in quattro, con una sincope</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/dc9654d422af-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/c3dbe8ad2d49-1.svg" alt="">
     </article>
     <article class="solf" id="n27">
       <div class="testa">
         <span class="numero">27</span>
         <div>
-          <h3>Sei ottavi, e il battito &egrave; il puntato</h3>
+          <h3>Sei battute in due quarti, con le pause</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/37606b8dcf46-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/f77883861c1c-1.svg" alt="">
     </article>
     <article class="solf" id="n28">
       <div class="testa">
         <span class="numero">28</span>
         <div>
-          <h3>I tre arpeggi delle funzioni</h3>
+          <h3>Il contrappunto della lezione 7</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/15e4798a72ea-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/3e6946a1d4fe-1.svg" alt="">
     </article>
     <article class="solf" id="n29">
       <div class="testa">
         <span class="numero">29</span>
         <div>
-          <h3>Un'armatura di due diesis</h3>
-          <span class="quando">Solfeggio parlato</span>
+          <h3>I sedicesimi, a gruppi di quattro</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/996f66d06538-1.svg" alt="">
+      <img class="inciso" style="width:156.0mm" src="incisioni/461fdfbc1bf7-1.svg" alt="">
     </article>
     <article class="solf" id="n30">
       <div class="testa">
         <span class="numero">30</span>
         <div>
-          <h3>La sincope, in tre</h3>
+          <h3>Due sedicesimi e un ottavo</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/97e3ed173b93-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/2497d23e5084-1.svg" alt="">
     </article>
     <article class="solf" id="n31">
       <div class="testa">
         <span class="numero">31</span>
         <div>
-          <h3>Chiave di basso, ambito largo</h3>
-          <span class="quando">Solfeggio parlato</span>
+          <h3>Il ritmo puntato</h3>
+          <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/0843e98bc6b8-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/950aa4cb7609-1.svg" alt="">
     </article>
     <article class="solf" id="n32">
       <div class="testa">
         <span class="numero">32</span>
         <div>
-          <h3>L'arpeggio con la settima</h3>
-          <span class="quando">Solfeggio cantato</span>
+          <h3>La scala di contralto, e poi due pezzi del quaderno</h3>
+          <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/4a25e222347a-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/5fb662a4038d-1.svg" alt="">
     </article>
     <article class="solf" id="n33">
       <div class="testa">
         <span class="numero">33</span>
         <div>
-          <h3>Con le alterazioni dentro la battuta</h3>
-          <span class="quando">Solfeggio parlato</span>
+          <h3>Una linea con un culmine solo</h3>
+          <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/c0d58386695f-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/b6daee42bd9e-1.svg" alt="">
     </article>
     <article class="solf" id="n34">
       <div class="testa">
         <span class="numero">34</span>
         <div>
-          <h3>Tre ottavi: l'unit&agrave; &egrave; la croma</h3>
-          <span class="quando">Solfeggio ritmico</span>
+          <h3>La chiave di contralto, per gradi</h3>
+          <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/cea1f8286f31-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/55816ba2f1de-1.svg" alt="">
     </article>
     <article class="solf" id="n35">
       <div class="testa">
         <span class="numero">35</span>
         <div>
-          <h3>Una forma-Lied binaria, in sedici battute</h3>
-          <span class="quando">Solfeggio cantato</span>
+          <h3>Contralto, con qualche salto</h3>
+          <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/7f365faa8e08-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/22b8cd4b16b8-1.svg" alt="">
     </article>
     <article class="solf" id="n36">
       <div class="testa">
         <span class="numero">36</span>
         <div>
+          <h3>Contralto, crome</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/83a15f2ecbae-1.svg" alt="">
+    </article>
+    <article class="solf" id="n37">
+      <div class="testa">
+        <span class="numero">37</span>
+        <div>
+          <h3>Contralto, salti larghi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/905358a9dbdb-1.svg" alt="">
+    </article>
+    <article class="solf" id="n38">
+      <div class="testa">
+        <span class="numero">38</span>
+        <div>
+          <h3>Contralto, alterazioni</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/d7eea06ef29b-1.svg" alt="">
+    </article>
+    <article class="solf" id="n39">
+      <div class="testa">
+        <span class="numero">39</span>
+        <div>
+          <h3>La sincope, dentro la battuta</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/9679705ec101-1.svg" alt="">
+    </article>
+    <article class="solf" id="n40">
+      <div class="testa">
+        <span class="numero">40</span>
+        <div>
+          <h3>Il contrattempo</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/9fc1be57aead-1.svg" alt="">
+    </article>
+    <article class="solf" id="n41">
+      <div class="testa">
+        <span class="numero">41</span>
+        <div>
           <h3>Nove ottavi</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
-      <img class="inciso" src="incisioni/322d520ed922-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/2573e56755b6-1.svg" alt="">
+    </article>
+    <article class="solf" id="n42">
+      <div class="testa">
+        <span class="numero">42</span>
+        <div>
+          <h3>In modo dorico, senza sensibile</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/b76cfcf721f4-1.svg" alt="">
+    </article>
+    <article class="solf" id="n43">
+      <div class="testa">
+        <span class="numero">43</span>
+        <div>
+          <h3>Senza alterazioni, come nei modi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/77cad946b7fc-1.svg" alt="">
+    </article>
+    <article class="solf" id="n44">
+      <div class="testa">
+        <span class="numero">44</span>
+        <div>
+          <h3>Il quarto puntato, in tre</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/d71631c7ffd6-1.svg" alt="">
+    </article>
+    <article class="solf" id="n45">
+      <div class="testa">
+        <span class="numero">45</span>
+        <div>
+          <h3>Il dorico, cantato tre sere di fila</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/bfefa2651db8-1.svg" alt="">
+    </article>
+    <article class="solf" id="n46">
+      <div class="testa">
+        <span class="numero">46</span>
+        <div>
+          <h3>Dorico su re</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/3635fced05d8-1.svg" alt="">
+    </article>
+    <article class="solf" id="n47">
+      <div class="testa">
+        <span class="numero">47</span>
+        <div>
+          <h3>Frigio su mi</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/037604726ab4-1.svg" alt="">
+    </article>
+    <article class="solf" id="n48">
+      <div class="testa">
+        <span class="numero">48</span>
+        <div>
+          <h3>Lidio su fa</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/0c29806c298c-1.svg" alt="">
+    </article>
+    <article class="solf" id="n49">
+      <div class="testa">
+        <span class="numero">49</span>
+        <div>
+          <h3>Misolidio su sol</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/c0b3ba8ca483-1.svg" alt="">
+    </article>
+    <article class="solf" id="n50">
+      <div class="testa">
+        <span class="numero">50</span>
+        <div>
+          <h3>Eolio su la</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/2b708a2a599c-1.svg" alt="">
+    </article>
+    <article class="solf" id="n51">
+      <div class="testa">
+        <span class="numero">51</span>
+        <div>
+          <h3>Tenore, cinque note</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/afb42869a436-1.svg" alt="">
+    </article>
+    <article class="solf" id="n52">
+      <div class="testa">
+        <span class="numero">52</span>
+        <div>
+          <h3>Tenore, l&rsquo;ottava intera</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/9d635bfffdb3-1.svg" alt="">
+    </article>
+    <article class="solf" id="n53">
+      <div class="testa">
+        <span class="numero">53</span>
+        <div>
+          <h3>Tenore, terze</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/de71d2b52ddd-1.svg" alt="">
+    </article>
+    <article class="solf" id="n54">
+      <div class="testa">
+        <span class="numero">54</span>
+        <div>
+          <h3>Tenore, in tre quarti</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/78fc36a861b2-1.svg" alt="">
+    </article>
+    <article class="solf" id="n55">
+      <div class="testa">
+        <span class="numero">55</span>
+        <div>
+          <h3>Dodici ottavi</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:156.0mm" src="incisioni/a51f8a8a7dce-1.svg" alt="">
+    </article>
+    <article class="solf" id="n56">
+      <div class="testa">
+        <span class="numero">56</span>
+        <div>
+          <h3>Tre ottavi</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/679116697cd5-1.svg" alt="">
+    </article>
+    <article class="solf" id="n57">
+      <div class="testa">
+        <span class="numero">57</span>
+        <div>
+          <h3>La pausa sul battito forte</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/0f43cd6df779-1.svg" alt="">
+    </article>
+    <article class="solf" id="n58">
+      <div class="testa">
+        <span class="numero">58</span>
+        <div>
+          <h3>La nota di passaggio, cantata</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/f9af7183a95f-1.svg" alt="">
+    </article>
+    <article class="solf" id="n59">
+      <div class="testa">
+        <span class="numero">59</span>
+        <div>
+          <h3>Chiave di basso, con le note di passaggio</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/950dfde0803d-1.svg" alt="">
+    </article>
+    <article class="solf" id="n60">
+      <div class="testa">
+        <span class="numero">60</span>
+        <div>
+          <h3>Alla breve: la minima conta</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/ae9fb74a4e6b-1.svg" alt="">
+    </article>
+    <article class="solf" id="n61">
+      <div class="testa">
+        <span class="numero">61</span>
+        <div>
+          <h3>La voce che passa, cantata tre sere</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/4bde915d962a-1.svg" alt="">
+    </article>
+    <article class="solf" id="n62">
+      <div class="testa">
+        <span class="numero">62</span>
+        <div>
+          <h3>Le crome, in linea</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/f53ab8dcaf2a-1.svg" alt="">
+    </article>
+    <article class="solf" id="n63">
+      <div class="testa">
+        <span class="numero">63</span>
+        <div>
+          <h3>Antecedente e conseguente, in do</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/12905f2611ff-1.svg" alt="">
+    </article>
+    <article class="solf" id="n64">
+      <div class="testa">
+        <span class="numero">64</span>
+        <div>
+          <h3>Antecedente e conseguente, in sol</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/f34e07367895-1.svg" alt="">
+    </article>
+    <article class="solf" id="n65">
+      <div class="testa">
+        <span class="numero">65</span>
+        <div>
+          <h3>Tenore, crome</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/75383218e750-1.svg" alt="">
+    </article>
+    <article class="solf" id="n66">
+      <div class="testa">
+        <span class="numero">66</span>
+        <div>
+          <h3>Basso, per gradi e per terze</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/d7df5c823b60-1.svg" alt="">
+    </article>
+    <article class="solf" id="n67">
+      <div class="testa">
+        <span class="numero">67</span>
+        <div>
+          <h3>Basso, sotto il rigo</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/b0436c0c6277-1.svg" alt="">
+    </article>
+    <article class="solf" id="n68">
+      <div class="testa">
+        <span class="numero">68</span>
+        <div>
+          <h3>Basso, crome</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/26a4b19720cd-1.svg" alt="">
+    </article>
+    <article class="solf" id="n69">
+      <div class="testa">
+        <span class="numero">69</span>
+        <div>
+          <h3>Cinque quarti</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/e4948fb42410-1.svg" alt="">
+    </article>
+    <article class="solf" id="n70">
+      <div class="testa">
+        <span class="numero">70</span>
+        <div>
+          <h3>Quattro sedicesimi e una minima</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/221e78829d00-1.svg" alt="">
+    </article>
+    <article class="solf" id="n71">
+      <div class="testa">
+        <span class="numero">71</span>
+        <div>
+          <h3>Sincope su due battute</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/18d046f2d538-1.svg" alt="">
+    </article>
+    <article class="solf" id="n72">
+      <div class="testa">
+        <span class="numero">72</span>
+        <div>
+          <h3>Otto battute: antecedente e conseguente</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/9208cd3b22f9-1.svg" alt="">
+    </article>
+    <article class="solf" id="n73">
+      <div class="testa">
+        <span class="numero">73</span>
+        <div>
+          <h3>Le semicrome, quattro per battito</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/cb52da9765b8-1.svg" alt="">
+    </article>
+    <article class="solf" id="n74">
+      <div class="testa">
+        <span class="numero">74</span>
+        <div>
+          <h3>Il bicinium, la tua voce e quella dell&rsquo;altro</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/7b24c7ffebfd-1.svg" alt="">
+    </article>
+    <article class="solf" id="n75">
+      <div class="testa">
+        <span class="numero">75</span>
+        <div>
+          <h3>Le tre funzioni, arpeggiate</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/1052d7e85379-1.svg" alt="">
+    </article>
+    <article class="solf" id="n76">
+      <div class="testa">
+        <span class="numero">76</span>
+        <div>
+          <h3>La cadenza, cantata</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/30d82a0461cf-1.svg" alt="">
+    </article>
+    <article class="solf" id="n77">
+      <div class="testa">
+        <span class="numero">77</span>
+        <div>
+          <h3>La settima che scende</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/6d67d3f53698-1.svg" alt="">
+    </article>
+    <article class="solf" id="n78">
+      <div class="testa">
+        <span class="numero">78</span>
+        <div>
+          <h3>Terzina, cantata</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/28c3d5fb514c-1.svg" alt="">
+    </article>
+    <article class="solf" id="n79">
+      <div class="testa">
+        <span class="numero">79</span>
+        <div>
+          <h3>Violino, due diesis</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/9f7a57e9137c-1.svg" alt="">
+    </article>
+    <article class="solf" id="n80">
+      <div class="testa">
+        <span class="numero">80</span>
+        <div>
+          <h3>Violino, due bemolli</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/1f6e344d20f4-1.svg" alt="">
+    </article>
+    <article class="solf" id="n81">
+      <div class="testa">
+        <span class="numero">81</span>
+        <div>
+          <h3>Terzina, per gradi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/3c1b8657e57b-1.svg" alt="">
+    </article>
+    <article class="solf" id="n82">
+      <div class="testa">
+        <span class="numero">82</span>
+        <div>
+          <h3>La terzina di ottavi</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/6a0cadc9bece-1.svg" alt="">
+    </article>
+    <article class="solf" id="n83">
+      <div class="testa">
+        <span class="numero">83</span>
+        <div>
+          <h3>Quattro note per battito, cantate</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/100c20ec0245-1.svg" alt="">
+    </article>
+    <article class="solf" id="n84">
+      <div class="testa">
+        <span class="numero">84</span>
+        <div>
+          <h3>La chiave di tenore</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/07030aa78910-1.svg" alt="">
+    </article>
+    <article class="solf" id="n85">
+      <div class="testa">
+        <span class="numero">85</span>
+        <div>
+          <h3>Sei ottavi, e il battito &egrave; il puntato</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/f61f50485803-1.svg" alt="">
+    </article>
+    <article class="solf" id="n86">
+      <div class="testa">
+        <span class="numero">86</span>
+        <div>
+          <h3>Tenore e contralto, alternati</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:70.8mm" src="incisioni/fc0e5a9c2cce-1.svg" alt="">
+    </article>
+    <article class="solf" id="n87">
+      <div class="testa">
+        <span class="numero">87</span>
+        <div>
+          <h3>In fa maggiore</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/76a125bceaf6-1.svg" alt="">
+    </article>
+    <article class="solf" id="n88">
+      <div class="testa">
+        <span class="numero">88</span>
+        <div>
+          <h3>In re minore</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/0068643fc12e-1.svg" alt="">
+    </article>
+    <article class="solf" id="n89">
+      <div class="testa">
+        <span class="numero">89</span>
+        <div>
+          <h3>In mi minore</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/2ee884f4221d-1.svg" alt="">
+    </article>
+    <article class="solf" id="n90">
+      <div class="testa">
+        <span class="numero">90</span>
+        <div>
+          <h3>I tre arpeggi delle funzioni</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/b26283a106c0-1.svg" alt="">
+    </article>
+    <article class="solf" id="n91">
+      <div class="testa">
+        <span class="numero">91</span>
+        <div>
+          <h3>Un'armatura di due diesis</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/1bfe0c7a9df9-1.svg" alt="">
+    </article>
+    <article class="solf" id="n92">
+      <div class="testa">
+        <span class="numero">92</span>
+        <div>
+          <h3>La sincope, in tre</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/f7fa782b3f26-1.svg" alt="">
+    </article>
+    <article class="solf" id="n93">
+      <div class="testa">
+        <span class="numero">93</span>
+        <div>
+          <h3>Chiave di basso, ambito largo</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/663dafb34c00-1.svg" alt="">
+    </article>
+    <article class="solf" id="n94">
+      <div class="testa">
+        <span class="numero">94</span>
+        <div>
+          <h3>L'arpeggio con la settima</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/e407546c985b-1.svg" alt="">
+    </article>
+    <article class="solf" id="n95">
+      <div class="testa">
+        <span class="numero">95</span>
+        <div>
+          <h3>Con le alterazioni dentro la battuta</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/4ff14d07cfc4-1.svg" alt="">
+    </article>
+    <article class="solf" id="n96">
+      <div class="testa">
+        <span class="numero">96</span>
+        <div>
+          <h3>Tre ottavi: l'unit&agrave; &egrave; la croma</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/a956c4e236e1-1.svg" alt="">
+    </article>
+    <article class="solf" id="n97">
+      <div class="testa">
+        <span class="numero">97</span>
+        <div>
+          <h3>Una forma-Lied binaria, in otto battute</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/ad06d5dbbefe-1.svg" alt="">
+    </article>
+    <article class="solf" id="n98">
+      <div class="testa">
+        <span class="numero">98</span>
+        <div>
+          <h3>Nove ottavi</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/fc6bc9c0ff5c-1.svg" alt="">
+    </article>
+    <div class="gradino"><span>Terzo gradino</span><span class="quanti">38 pezzi</span></div>
+    <article class="solf" id="n99">
+      <div class="testa">
+        <span class="numero">99</span>
+        <div>
+          <h3>Le stesse otto battute, nelle tre chiavi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/22b8cd4b16b8-1.svg" alt="">
+    </article>
+    <article class="solf" id="n100">
+      <div class="testa">
+        <span class="numero">100</span>
+        <div>
+          <h3>Terzina e sincope insieme</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/588985c6788d-1.svg" alt="">
+    </article>
+    <article class="solf" id="n101">
+      <div class="testa">
+        <span class="numero">101</span>
+        <div>
+          <h3>Contralto in sol maggiore</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/29a09aae5b53-1.svg" alt="">
+    </article>
+    <article class="solf" id="n102">
+      <div class="testa">
+        <span class="numero">102</span>
+        <div>
+          <h3>Sedicesimi e puntati insieme</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:156.0mm" src="incisioni/c54218151e56-1.svg" alt="">
+    </article>
+    <article class="solf" id="n103">
+      <div class="testa">
+        <span class="numero">103</span>
+        <div>
+          <h3>Sei ottavi, con i sedicesimi</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/d2ceefcda4d8-1.svg" alt="">
+    </article>
+    <article class="solf" id="n104">
+      <div class="testa">
+        <span class="numero">104</span>
+        <div>
+          <h3>Sette ottavi</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/d000578c2822-1.svg" alt="">
+    </article>
+    <article class="solf" id="n105">
+      <div class="testa">
+        <span class="numero">105</span>
+        <div>
+          <h3>Terzina contro due crome</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:156.0mm" src="incisioni/72028ef241ce-1.svg" alt="">
+    </article>
+    <article class="solf" id="n106">
+      <div class="testa">
+        <span class="numero">106</span>
+        <div>
+          <h3>Terzina in tre quarti</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/8bca257fca4a-1.svg" alt="">
+    </article>
+    <article class="solf" id="n107">
+      <div class="testa">
+        <span class="numero">107</span>
+        <div>
+          <h3>Le terzine del quaderno</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/a259010477cc-1.svg" alt="">
+    </article>
+    <article class="solf" id="n108">
+      <div class="testa">
+        <span class="numero">108</span>
+        <div>
+          <h3>Contralto in fa maggiore</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/d8cefdda6b72-1.svg" alt="">
+    </article>
+    <article class="solf" id="n109">
+      <div class="testa">
+        <span class="numero">109</span>
+        <div>
+          <h3>Tenore in sol maggiore</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/9f299f14d7da-1.svg" alt="">
+    </article>
+    <article class="solf" id="n110">
+      <div class="testa">
+        <span class="numero">110</span>
+        <div>
+          <h3>Basso in si bemolle maggiore</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/e0992dc03c58-1.svg" alt="">
+    </article>
+    <article class="solf" id="n111">
+      <div class="testa">
+        <span class="numero">111</span>
+        <div>
+          <h3>Il quinario, spostato</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/1e5b3625dc3e-1.svg" alt="">
+    </article>
+    <article class="solf" id="n112">
+      <div class="testa">
+        <span class="numero">112</span>
+        <div>
+          <h3>Contrattempo di sedicesimo</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:156.0mm" src="incisioni/8e50fec053a9-1.svg" alt="">
+    </article>
+    <article class="solf" id="n113">
+      <div class="testa">
+        <span class="numero">113</span>
+        <div>
+          <h3>Sincope lunga</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/f1d002683bd5-1.svg" alt="">
+    </article>
+    <article class="solf" id="n114">
+      <div class="testa">
+        <span class="numero">114</span>
+        <div>
+          <h3>Sei ottavi, cantabile</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/e83001607a88-1.svg" alt="">
+    </article>
+    <article class="solf" id="n115">
+      <div class="testa">
+        <span class="numero">115</span>
+        <div>
+          <h3>Nove ottavi, cantabile</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/d6364cca4079-1.svg" alt="">
+    </article>
+    <article class="solf" id="n116">
+      <div class="testa">
+        <span class="numero">116</span>
+        <div>
+          <h3>Dodici ottavi</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:156.0mm" src="incisioni/42f2f0fd35e7-1.svg" alt="">
+    </article>
+    <article class="solf" id="n117">
+      <div class="testa">
+        <span class="numero">117</span>
+        <div>
+          <h3>Contralto, sei ottavi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/29854cbda287-1.svg" alt="">
+    </article>
+    <article class="solf" id="n118">
+      <div class="testa">
+        <span class="numero">118</span>
+        <div>
+          <h3>Tenore, sei ottavi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/3a4859aa6968-1.svg" alt="">
+    </article>
+    <article class="solf" id="n119">
+      <div class="testa">
+        <span class="numero">119</span>
+        <div>
+          <h3>Contralto, semicrome</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:156.0mm" src="incisioni/655cfb1caa20-1.svg" alt="">
+    </article>
+    <article class="solf" id="n120">
+      <div class="testa">
+        <span class="numero">120</span>
+        <div>
+          <h3>Dodici ottavi, mosso</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:156.0mm" src="incisioni/ff208515e9ca-1.svg" alt="">
+    </article>
+    <article class="solf" id="n121">
+      <div class="testa">
+        <span class="numero">121</span>
+        <div>
+          <h3>Tutto il vocabolario, in quattro quarti</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:156.0mm" src="incisioni/30e86e26534e-1.svg" alt="">
+    </article>
+    <article class="solf" id="n122">
+      <div class="testa">
+        <span class="numero">122</span>
+        <div>
+          <h3>Il salto d&rsquo;ottava, cantato</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/caa088818b8a-1.svg" alt="">
+    </article>
+    <article class="solf" id="n123">
+      <div class="testa">
+        <span class="numero">123</span>
+        <div>
+          <h3>Con le semicrome</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/97ba9b0fec56-1.svg" alt="">
+    </article>
+    <article class="solf" id="n124">
+      <div class="testa">
+        <span class="numero">124</span>
+        <div>
+          <h3>La sincope, cantata</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/a088238fa1cc-1.svg" alt="">
+    </article>
+    <article class="solf" id="n125">
+      <div class="testa">
+        <span class="numero">125</span>
+        <div>
+          <h3>Basso, ambito di due ottave</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/414e368107a0-1.svg" alt="">
+    </article>
+    <article class="solf" id="n126">
+      <div class="testa">
+        <span class="numero">126</span>
+        <div>
+          <h3>Tenore, alterazioni dentro la battuta</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/07fff16d109e-1.svg" alt="">
+    </article>
+    <article class="solf" id="n127">
+      <div class="testa">
+        <span class="numero">127</span>
+        <div>
+          <h3>Due quarti, con i sedicesimi</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/e80d0bd2456f-1.svg" alt="">
+    </article>
+    <article class="solf" id="n128">
+      <div class="testa">
+        <span class="numero">128</span>
+        <div>
+          <h3>Tre quarti, sincopato</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/8760f5b7b7cb-1.svg" alt="">
+    </article>
+    <article class="solf" id="n129">
+      <div class="testa">
+        <span class="numero">129</span>
+        <div>
+          <h3>In si bemolle maggiore</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/b97a53dd1ef1-1.svg" alt="">
+    </article>
+    <article class="solf" id="n130">
+      <div class="testa">
+        <span class="numero">130</span>
+        <div>
+          <h3>In la maggiore</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/4b62ade2dd5c-1.svg" alt="">
+    </article>
+    <article class="solf" id="n131">
+      <div class="testa">
+        <span class="numero">131</span>
+        <div>
+          <h3>In mi bemolle maggiore</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/70926ffb7610-1.svg" alt="">
+    </article>
+    <article class="solf" id="n132">
+      <div class="testa">
+        <span class="numero">132</span>
+        <div>
+          <h3>Il pezzo pi&ugrave; lungo del quaderno</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/693f31f22a5d-1.svg" alt="">
+    </article>
+    <article class="solf" id="n133">
+      <div class="testa">
+        <span class="numero">133</span>
+        <div>
+          <h3>Contralto in mi bemolle maggiore</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/d94d9d244a76-1.svg" alt="">
+    </article>
+    <article class="solf" id="n134">
+      <div class="testa">
+        <span class="numero">134</span>
+        <div>
+          <h3>Le tre chiavi di seguito</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/5a7d1f1dde62-1.svg" alt="">
+    </article>
+    <article class="solf" id="n135">
+      <div class="testa">
+        <span class="numero">135</span>
+        <div>
+          <h3>Il pi&ugrave; lungo, in sei ottavi</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/55008aeabef6-1.svg" alt="">
+    </article>
+    <article class="solf" id="n136">
+      <div class="testa">
+        <span class="numero">136</span>
+        <div>
+          <h3>Il pi&ugrave; lungo, in quattro quarti</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:156.0mm" src="incisioni/64d7cb904802-1.svg" alt="">
     </article>
   </div>
 

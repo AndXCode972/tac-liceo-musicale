@@ -14,8 +14,8 @@
 <!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
      usa, e con `defer` i due file girano nell'ordine in cui stanno
      scritti qui. -->
-<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=bfce2466" defer></script>
+<script src="../../_assets/js/codice.js" defer></script>
+<script src="../../_assets/js/tac-core.js?v=24bd9561" defer></script>
 <style>
   .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
                 border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
@@ -31,7 +31,9 @@
      tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
      parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
      oltre la sua misura di stampa. */
-  .materiale img.inciso { display: block; width: 100%; max-width: 175mm;
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
                           height: auto; margin: .35rem 0; }
 </style>
 </head>
@@ -175,7 +177,7 @@
       <p class="titolo-consegna"><span class="num">1</span> Otto numeri sotto otto battute</p>
       <div class="testo">Scrivi gli <strong>otto intervalli</strong> sotto le otto battute di questo frammento. Poi dì se c’è una parallela, e dove.<p class="dettaglio">Otto minuti, non di più: è un compito di controllo, non di scrittura. Oggi c’era l’interrogazione.</p></div>
       <div class="materiale">
-      <img class="inciso" src="incisioni/bcc2d1dcbfd5-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/3e6946a1d4fe-1.svg" alt="">
       </div>
     </div>
     </section>
@@ -217,7 +219,7 @@
       <p class="titolo-consegna"><span class="num">1</span> Un secondo contrappunto, diverso dal primo</p>
       <div class="testo">Sullo <strong>stesso</strong> canto dato di oggi, scrivi un secondo contrappunto <strong>diverso</strong> da quello fatto in classe. Stessa regola: sopra, una nota contro una, tutte consonanze.<p class="dettaglio">Il modo più semplice per farlo diverso davvero: metti il <strong>culmine in un’altra battuta</strong>. Tutto il resto cambia da sé. E prima di consegnare, gli otto numeri.</p></div>
       <div class="materiale">
-      <img class="inciso" src="incisioni/4c418883dedb-1.svg" alt="">
+      <img class="inciso" style="width:155.4mm" src="incisioni/f2d182ed40b0-1.svg" alt="">
       </div>
     </div>
     </section>
@@ -688,7 +690,7 @@
       <p class="titolo-consegna"><span class="num">2</span> Trova la parallela</p>
       <div class="testo">Quattro battute. Scrivi i <strong>quattro intervalli</strong> sotto le battute, poi dì se c’è una parallela e <strong>fra quali due battute</strong>.<p class="dettaglio">Se c’è, riscrivi la battuta che la toglie &mdash; cambiando la voce acuta, perché quella grave è il canto dato.</p></div>
       <div class="materiale">
-      <img class="inciso" src="incisioni/909f851f05e1-1.svg" alt="">
+      <img class="inciso" style="width:80.1mm" src="incisioni/13e09116e474-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C2-U2-U04">

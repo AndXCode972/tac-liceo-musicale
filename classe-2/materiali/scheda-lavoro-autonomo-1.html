@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scheda di lavoro autonomo &mdash; tornata 1 | TAC classe 2ª</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script src="../../_assets/js/tac-core.js" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 0; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  .giro { border-collapse: collapse; margin: 1.2rem 0; }
+  .giro th, .giro td { border: 1px solid var(--bordo); padding: .45rem .9rem;
+                       text-align: center; }
+  .giro th { background: var(--carta2); }
+  .giro td.salta { color: var(--inchiostro2); font-style: italic; }
+  .posto { border-top: 4px solid #0e7490; padding-top: 1rem; margin: 2.4rem 0;
+           page-break-inside: avoid; }
+  .posto > .testa { display: flex; align-items: baseline; gap: 1rem;
+                    margin-bottom: .8rem; flex-wrap: wrap; }
+  .posto > .testa h2 { border: 0; margin: 0; font-size: 1.45rem; }
+  .posto > .testa .durata { margin-left: auto; background: #0e7490; color: #fff;
+                            padding: .25rem .9rem; border-radius: 999px;
+                            font-size: .85rem; font-weight: 800; }
+  .lettera { display: inline-flex; align-items: center; justify-content: center;
+             width: 2.1rem; height: 2.1rem; border-radius: 50%;
+             background: #0e7490; color: #fff; font-weight: 800; }
+  .minimo, .extra { border-left: 4px solid var(--bordo); padding: .1rem 0 .1rem .9rem;
+                    margin: .8rem 0; }
+  .minimo { border-left-color: #0e7490; }
+  .etichetta-riga { font-size: .78rem; letter-spacing: .06em; text-transform: uppercase;
+                    color: var(--inchiostro2); font-weight: 800; }
+
+  /* LA MISURA DEL RIGO STA DENTRO L'SVG, dal 20 agosto: ogni incisione
+     dichiara la propria larghezza in millimetri sulla radice. Qui basta
+     non contraddirla — `width: 100%` la sovrascriveva e ingrandiva i
+     pezzi corti, pentagramma compreso. */
+  img.inciso { display: block; max-width: 100%; height: auto; margin: .4rem 0; }
+  .didascalia-rigo { font-size: .85rem; color: var(--inchiostro2);
+                     margin: .6rem 0 .1rem; font-weight: 600; }
+</style>
+</head>
+<body class="documento">
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">Stampa</button>
+</div>
+
+<h1>Chiave di contralto e profilo</h1>
+<p class="sottotitolo">Classe 2&ordf; &middot; tornata 1</p>
+<p>Dopo l&rsquo;unit&agrave; 3 &mdash; serve la chiave di contralto e la prima specie.</p>
+
+<div class="riquadro attenzione">
+  <span class="etichetta">Come funziona</span>
+  <p>Ogni postazione ha <strong>il minimo</strong> e <strong>se avanza
+  tempo</strong>. Il minimo lo fanno tutti; il resto &egrave; per chi
+  finisce prima. Non arrivare in fondo al secondo <strong>non</strong>
+  vuol dire aver lavorato male.</p>
+  <p>Al segnale ci si sposta, anche a met&agrave; di una cosa. Il tempo
+  &egrave; parte dell&rsquo;esercizio.</p>
+</div>
+
+<h2>Il giro delle postazioni</h2>
+<p>Quattro postazioni, quattro gruppi, tre giri da 10 minuti. Ogni
+gruppo ne salta una &mdash; ed &egrave; sempre una diversa: quella saltata
+&egrave; il compito di stasera per quel gruppo.</p>
+
+<table class="giro">
+<tr><th></th><th>1&ordm; giro</th><th>2&ordm; giro</th><th>3&ordm; giro</th><th>salta</th></tr>
+<tr><th>Gruppo 1</th><td><strong>A</strong></td><td><strong>B</strong></td><td><strong>C</strong></td><td class="salta">D</td></tr>
+<tr><th>Gruppo 2</th><td><strong>B</strong></td><td><strong>C</strong></td><td><strong>D</strong></td><td class="salta">A</td></tr>
+<tr><th>Gruppo 3</th><td><strong>C</strong></td><td><strong>D</strong></td><td><strong>A</strong></td><td class="salta">B</td></tr>
+<tr><th>Gruppo 4</th><td><strong>D</strong></td><td><strong>A</strong></td><td><strong>B</strong></td><td class="salta">C</td></tr>
+</table>
+
+<section class="posto">
+  <div class="testa">
+    <span class="lettera">A</span>
+    <h2>Lettura in contralto, a coppie</h2>
+    <span class="durata">10 minuti</span>
+  </div>
+  <p>Uno legge a nomi, l&rsquo;altro segue e segna dove il compagno si ferma. Non si corregge a voce: si segna e basta.</p>
+  <tac-stave clef="alto" time="4/4" caption="Otto battute in chiave di contralto" notes="c/4:q e/4:q g/4:q e/4:q | f/4:q d/4:q c/4:h | d/4:q f/4:q a/4:q f/4:q | g/4:q e/4:q d/4:h | e/4:q g/4:q c/5:q g/4:q | a/4:q f/4:q e/4:h | c/4:q g/4:q e/4:q d/4:q | c/4:w" width="700" tempo="56" play slow></tac-stave>
+  <div class="minimo">
+    <div class="etichetta-riga">Il minimo</div>
+    <p>Il pezzo qui sotto, <strong>una volta per ciascuno</strong>, a tempo, senza fermarsi.</p>
+  </div>
+  <div class="extra">
+    <div class="etichetta-riga">Se avanza tempo</div>
+    <p>Rifatelo al doppio. Poi confrontate i punti segnati: quasi sempre sono gli stessi due.</p>
+  </div>
+</section>
+<section class="posto">
+  <div class="testa">
+    <span class="lettera">B</span>
+    <h2>Misurare un profilo</h2>
+    <span class="durata">10 minuti</span>
+  </div>
+  <p>Da soli, poi si confrontano i numeri in coppia.</p>
+  <tac-stave clef="alto" time="4/4" caption="Otto semibrevi" notes="c/4:w | d/4:w | f/4:w | e/4:w | a/4:w | g/4:w | d/4:w | c/4:w" width="700" tempo="50" play slow></tac-stave>
+  <div class="minimo">
+    <div class="etichetta-riga">Il minimo</div>
+    <p>Della melodia qui sotto scrivete <strong>tre numeri</strong>: ambito, quante volte compare il culmine, quanti salti.</p>
+  </div>
+  <div class="extra">
+    <div class="etichetta-riga">Se avanza tempo</div>
+    <p>Dite se la usereste come canto dato, e <strong>con quale dei tre numeri</strong> lo motivate.</p>
+  </div>
+</section>
+<section class="posto">
+  <div class="testa">
+    <span class="lettera">C</span>
+    <h2>Dettato reciproco a due voci</h2>
+    <span class="durata">10 minuti</span>
+  </div>
+  <p>A coppie, uno alla tastiera se c&rsquo;&egrave;, altrimenti a voce. Schiena contro schiena.</p>
+  <div class="minimo">
+    <div class="etichetta-riga">Il minimo</div>
+    <p>Chi detta suona <strong>due suoni insieme</strong>, otto volte. Chi ascolta scrive solo se ogni coppia &egrave; una <strong>terza</strong>, una <strong>quinta</strong> o un&rsquo;<strong>ottava</strong>. Poi ci si scambia.</p>
+  </div>
+  <div class="extra">
+    <div class="etichetta-riga">Se avanza tempo</div>
+    <p>Chi detta ne fa otto in fila che formino una successione sensata. Chi ascolta deve dire anche se ci sono <strong>due perfette uguali di seguito</strong>.</p>
+  </div>
+</section>
+<section class="posto">
+  <div class="testa">
+    <span class="lettera">D</span>
+    <h2>Riscrivere in tre chiavi</h2>
+    <span class="durata">10 minuti</span>
+  </div>
+  <p>Da soli, in silenzio.</p>
+  <tac-stave clef="treble" time="4/4" caption="In chiave di violino" notes="c/4:q d/4:q e/4:q f/4:q | g/4:q f/4:q e/4:h | d/4:q e/4:q f/4:q g/4:q | c/4:w" width="700" tempo="56" play slow></tac-stave>
+  <div class="minimo">
+    <div class="etichetta-riga">Il minimo</div>
+    <p>Riscrivete le quattro battute qui sotto <strong>in chiave di contralto</strong>. Stessi suoni.</p>
+  </div>
+  <div class="extra">
+    <div class="etichetta-riga">Se avanza tempo</div>
+    <p>Riscrivetele anche in chiave di basso, e mettete le tre versioni una sotto l&rsquo;altra.</p>
+  </div>
+</section>
+
+</body>
+</html>

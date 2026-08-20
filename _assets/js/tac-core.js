@@ -790,6 +790,7 @@
      notes="c/4:q  e/4:8  f/4:8  g/4:h."
      accordi: c/4+e/4+g/4:h        pausa: r:q
      legatura di valore: c/4:q~ c/4:q     (la tilde lega alla nota dopo)
+     terzina: c/4:8t d/4:8t e/4:8t        (la « t » su tutte e tre)
      ========================================================== */
 
   const DURATE_BATTITI = { w: 4, h: 2, q: 1, '8': 0.5, '16': 0.25, '32': 0.125 };
@@ -820,13 +821,32 @@
       const legata = gettone.endsWith('~');
       if (legata) gettone = gettone.slice(0, -1);
       const [parteNote, parteDur = 'q'] = gettone.split(':');
+      /* LA TERZINA si scrive con una « t » in coda alla figura, su
+         ciascuna delle tre note: « c/4:8t d/4:8t e/4:8t ».
+
+         Perché il segno sta su ogni nota e non su una parentesi intorno
+         al gruppo: una parentesi vuole un parser annidato, e sopra a un
+         formato che per il resto è una nota per gettone sarebbe l'unica
+         cosa che non si legge da sinistra a destra. Marcando le note, il
+         gruppo si ricostruisce contando fino a tre — ed è la stessa cosa
+         che fa chi legge.
+
+         Il difetto possibile è dichiarato: una terzina scritta su due
+         note sole, o su quattro, qui non dà errore. Lo trova
+         `_notazione.py`, che conta i movimenti di ogni battuta, perché è
+         lì che si vede: una terzina monca non torna. */
+      const terzina = /t\.?$/.test(parteDur);
       const puntata = parteDur.includes('.');
-      const dur = parteDur.replace(/\./g, '') || 'q';
+      const dur = parteDur.replace(/[.t]/g, '') || 'q';
       const pausa = /^r$/i.test(parteNote);
       const keys = pausa ? ['b/4'] : parteNote.split('+').map(s => s.trim().toLowerCase());
       let battiti = DURATE_BATTITI[dur] || 1;
       if (puntata) battiti *= 1.5;
-      return { keys, dur, puntata, pausa, battiti, legata };
+      /* tre nel tempo di due: ogni nota dura due terzi di quello che
+         c'è scritto, ed è **questa** riga che fa suonare la terzina —
+         la parentesi col numero sopra è solo come si vede. */
+      if (terzina) battiti *= 2 / 3;
+      return { keys, dur, puntata, pausa, battiti, legata, terzina };
     });
   }
 
@@ -847,6 +867,35 @@
     } catch (e) {
       return new VF.GhostNote({ duration: 'q' });
     }
+  }
+
+  /* Le terzine, nella forma che VexFlow disegna: la parentesi e il « 3 ».
+
+     Va chiamata **prima** che la voce riceva le note. `VF.Tuplet`, nel
+     costruire, moltiplica i tick delle note che gli si danno: se la voce
+     le ha già contate, le conta al valore scritto e la battuta risulta
+     più lunga di quello che è. Costruire dopo non dà errore — dà una
+     battuta che non torna, che è peggio.
+
+     I gruppi si fanno contando fino a tre. Un gruppo che resta a due o
+     a uno non diventa una terzina: si scarta, e la battuta non tornerà.
+     È voluto — vedi il commento sulla « t » in `leggiNote`. */
+  function costruisciTerzine(VF, dati, note) {
+    const gruppi = [];
+    let g = [];
+    dati.forEach((d, i) => {
+      if (d.stanghetta) { g = []; return; }
+      if (!d.terzina) { g = []; return; }
+      g.push(note[i]);
+      if (g.length === 3) { gruppi.push(g); g = []; }
+    });
+    return gruppi.map(tre => {
+      try {
+        return new VF.Tuplet(tre, { num_notes: 3, notes_occupied: 2 });
+      } catch (e) {
+        return null;
+      }
+    }).filter(Boolean);
   }
 
   /* A quale nota si lega quella marcata con la tilde.
@@ -1120,6 +1169,11 @@
           return sn;
         });
 
+        /* Le terzine si costruiscono qui, prima della voce: `VF.Tuplet`
+           corregge i tick delle note, e la voce deve contarle già
+           corrette. */
+        const terzine = costruisciTerzine(VF, dati, note);
+
         const totale = dati.reduce((s, d) => s + d.battiti, 0);
         const voce = new VF.Voice({ numBeats: Math.max(1, Math.ceil(totale)), beatValue: 4 });
         voce.setMode(VF.VoiceMode.SOFT);
@@ -1174,6 +1228,9 @@
         F.format(tutte, larghezza - 90);
         voce.draw(ctx, stave);
         travature.forEach(b => b.setContext(ctx).draw());
+        /* La parentesi col « 3 » si disegna dopo la voce: come le
+           legature, chiede alle note dove sono finite sul rigo. */
+        terzine.forEach(t => t.setContext(ctx).draw());
         disegnaLegature(VF, ctx, dati, note);
         if (giu) {
           giu.voce.draw(ctx, staveB);

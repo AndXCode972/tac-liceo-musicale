@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbook — UdA 4 · Prima specie: le cadenze e i modi | TAC Classe 2&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=28f539c5">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=16a2ad3b">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
+     usa, e con `defer` i due file girano nell'ordine in cui stanno
+     scritti qui. -->
+<script src="../../_assets/js/codice.js" defer></script>
+<script src="../../_assets/js/tac-core.js?v=24bd9561" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
+     fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
+                          height: auto; margin: .35rem 0; }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 2&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>
+      <a href="solfeggi-classe-2.html">Il quaderno di lettura · tutto l'anno</a>
+      <a class="attiva" href="workbook-uda-04.html">Workbook · unità 4</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa tutto il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Workbook</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">UdA 4 · Prima specie: le cadenze e i modi — il foglio di lavoro, una pagina per lezione</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale — Classe 2&ordf;
+    </div>
+  </div>
+
+  <!-- Niente riga per nome, classe e data: il foglio non si consegna mai.
+       Lo scritto va sul quaderno e si fotografa, l'online restituisce un
+       codice, l'ascolto e' una spunta che lo studente fa per se'. La riga
+       era un'abitudine presa dal compito in classe, e costava un centimetro
+       e mezzo in cima a ogni foglio stampato. -->
+
+  <div class="riquadro attenzione">
+    <span class="etichetta">Come si usa</span>
+    <p>I compiti sono di tre specie, e ognuna si consegna in modo suo. <strong>Da fare online</strong>: allo schermo. <strong>Da ascoltare</strong>: serve all'orecchio. <strong>Da scrivere</strong>: sul quaderno, poi una foto su Classroom.</p>
+    <p style="margin-top:.5rem">Il voto dell'unità lo dà <strong>una cosa sola</strong>: la verifica in fondo, quella che restituisce un codice. Tutto il resto si consegna e si corregge, ma non fa voto &mdash; il che non vuol dire che non conti: è lì che si impara, e la verifica misura solo quello che hai imparato facendolo.</p>
+    <p style="margin-top:.5rem">Stampa <strong>una lezione alla volta</strong>, col pulsante che trovi accanto al titolo.</p>
+  </div>
+
+  <div class="lez" data-lezione="1">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 1</span>
+        <h2>Lezione 1 &mdash; </h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U4-L1-02">
+      <p class="titolo-consegna"><span class="num">1</span> Trova le due clausole</p>
+      <div class="testo">In questa cadenza a due voci, segna sul quaderno <strong>quale clausola fa ciascuna voce</strong>, e scrivi gli intervalli delle ultime due battute.<p class="dettaglio">Le quattro clausole sono: cantizans (semitono su), tenorizans (tono gi&ugrave;), basizans (quarta su o quinta gi&ugrave;), altizans (tono su, tenuta, terza gi&ugrave;).</p></div>
+      <div class="materiale">
+      <img class="inciso" style="width:80.2mm" src="incisioni/c71124d793bc-1.svg" alt="">
+      </div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="2">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 2</span>
+        <h2>Lezione 2 &mdash; </h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U4-L2-01">
+      <p class="titolo-consegna"><span class="num">1</span> Dove va, e dove non va</p>
+      <div class="testo">Tre punti di una linea in dorico. Per ciascuno scrivi se l&rsquo;alterazione <strong>ci va</strong> o <strong>non ci va</strong>, e in una riga il perch&eacute;.<p class="dettaglio">(a) il do penultimo di una cadenza che chiude sul re; (b) il do di una discesa per gradi in mezzo alla frase; (c) il si di un salto fa&ndash;si in mezzo alla frase.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="3">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 3</span>
+        <h2>Lezione 3 &mdash; </h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C2-S-K02">
+      <p class="titolo-consegna"><span class="num">1</span> In modo dorico, senza sensibile</p>
+      <div class="testo">Cantalo. La penultima nota &egrave; un <em>mi</em> e non un <em>do</em> diesis: <strong>qui la sensibile non c'&egrave;</strong>.</div>
+      <p class="vai no-stampa"><a href="../uda-04/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C2-S-P03">
+      <p class="titolo-consegna"><span class="num">2</span> Senza alterazioni, come nei modi</p>
+      <div class="testo">Di' i nomi a tempo. Non c'&egrave; nessuna alterazione, e non &egrave; una dimenticanza: nei modi non ce ne sono.</div>
+      <p class="vai no-stampa"><a href="../uda-04/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C2-S-R02">
+      <p class="titolo-consegna"><span class="num">3</span> Il quarto puntato, in tre</p>
+      <div class="testo">Il quarto puntato occupa un battito <strong>e mezzo</strong>: la croma che segue cade sulla met&agrave; del secondo.</div>
+      <p class="vai no-stampa"><a href="../uda-04/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C2-U4-L3-01">
+      <p class="titolo-consegna"><span class="num">4</span> Il dorico, cantato tre sere di fila</p>
+      <div class="testo">Canta questa linea <strong>una volta a sera</strong> fino alla prossima lezione. Con lo strumento la prima volta, da solo le altre.<p class="dettaglio">La cosa da sorvegliare &egrave; una sola: il <strong>do della settima battuta</strong>. Deve stare basso. Se ti sembra che non chiuda, va bene cos&igrave;: quello &egrave; il suono del dorico.</p></div>
+      <p class="vai no-stampa"><a href="../uda-04/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="4">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 4</span>
+        <h2>Lezione 4 &mdash; </h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U4-L4-02">
+      <p class="titolo-consegna"><span class="num">1</span> Le quattro tavole, scritte a mano</p>
+      <div class="testo">Scrivi sul quaderno le <strong>quattro scale</strong> &mdash; dorico, frigio, lidio, misolidio &mdash; ciascuna dalla sua finalis all&rsquo;ottava, in semibrevi, senza alterazioni.<p class="dettaglio">Sotto ognuna scrivi tre cose: <strong>finalis</strong>, <strong>repercussa</strong>, e <strong>il segno che la riconosce</strong> (l&rsquo;intervallo caratteristico).</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="5">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 5</span>
+        <h2>Lezione 5 &mdash; </h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U4-L5-01">
+      <p class="titolo-consegna"><span class="num">1</span> Un contrappunto di prima specie, intero</p>
+      <div class="testo">Scrivi un contrappunto di <strong>prima specie</strong> sopra questo canto dato. Nota contro nota, otto note, la tua voce <strong>sopra</strong>.<p class="dettaglio">Quattro vincoli. Tre li conosci: consonanza perfetta all&rsquo;inizio, unisono o ottava alla fine, niente quinte n&eacute; ottave parallele. Il quarto &egrave; nuovo: <strong>il modo &egrave; dorico</strong>, quindi nessuna alterazione &mdash; tranne eventualmente sulla clausola finale, e se la metti devi saper dire perch&eacute;.</p></div>
+      <div class="materiale">
+      <img class="inciso" style="width:155.4mm" src="incisioni/e65ff74c6d9b-1.svg" alt="">
+      </div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="6">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 6</span>
+        <h2>Lezione 6 &mdash; </h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U4-L6-01">
+      <p class="titolo-consegna"><span class="num">1</span> Riascolta il dettato, e conta una cosa sola</p>
+      <div class="testo">Riguarda il tuo foglio del dettato e conta <strong>quante alterazioni hai scritto che non c&rsquo;erano</strong>. Poi scrivi dove stavano: in mezzo alla linea o alla fine?<p class="dettaglio">Non conta per il voto. Conta perch&eacute; quella &egrave; l&rsquo;abitudine tonale al lavoro, e si toglie soltanto vedendola.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="7">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 7</span>
+        <h2>Lezione 7 &mdash; </h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U4-L7-01">
+      <p class="titolo-consegna"><span class="num">1</span> Conta i moti contrari</p>
+      <div class="testo">Riprendi il tuo contrappunto e conta, sui sette passaggi da una nota alla successiva, quante volte le due voci vanno in <strong>direzioni opposte</strong>. Scrivi il numero in fondo al foglio.<p class="dettaglio">Sette passaggi, non otto: si contano gli spostamenti, non le note.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="8">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 8</span>
+        <h2>Lezione 8 &mdash; </h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C2-U4-L8-01">
+      <p class="titolo-consegna"><span class="num">1</span> Ripasso per la V2 &middot; unit&agrave; 1&ndash;4</p>
+      <div class="testo">Sei domande su tutto quello che la verifica chieder&agrave;. Rifallo pi&ugrave; volte: escono sempre domande diverse.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="6">
+[
+ {
+  "d": "Nella polifonia del Cinquecento la cadenza è una successione di accordi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "È una stratificazione di moti melodici — le clausole. L'accordo è il risultato, non la causa (Marenco, p. 7)."
+ },
+ {
+  "d": "La clausola cantizans sale di semitono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "È il movimento della sensibile verso la finale, e prende il nome dal cantus."
+ },
+ {
+  "d": "La clausola tenorizans scende di tono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Ed è la più frequente di tutte."
+ },
+ {
+  "d": "La clausola basizans salta una quarta ascendente o una quinta discendente.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Sentita da sola somiglia a un V–I, ed è per questo che inganna."
+ },
+ {
+  "d": "Ogni clausola può comparire solo nella voce da cui prende il nome.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Il nome dice da dove viene, non dove sta: un basso può fare una cantizans."
+ },
+ {
+  "d": "A due voci la cadenza tipica è cantizans più tenorizans.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Una sale di semitono, l'altra scende di tono: sesta che va all'ottava."
+ },
+ {
+  "d": "Se si sente un V–I, allora c'è certamente una cadenza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Marenco (p. 8) mostra un passo con effetto di V–I e una sola clausola. Sentire l'accordo non basta: si guardano le voci."
+ },
+ {
+  "d": "Nella cadenza fuggita una voce pausa o attacca un inciso nuovo invece di chiudere.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Serve a non fermare il brano: chiude una frase mentre un'altra comincia."
+ },
+ {
+  "d": "La cadenza perfetta richiede il concorso di tutte le voci.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Ognuna fa la sua clausola e chiudono insieme."
+ },
+ {
+  "d": "L'intervallo penultimo di una cadenza a due voci è una sesta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "E l'ultimo è un'ottava. Sesta che va all'ottava è la firma."
+ },
+ {
+  "d": "La musica ficta sono alterazioni scritte nella fonte originale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "È il contrario: sono quelle che **non** sono scritte, e che l'esecutore aggiungeva."
+ },
+ {
+  "d": "Nelle edizioni moderne le alterazioni di musica ficta si stampano sopra il rigo, fra parentesi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "È il modo dell'editore di dire «questa la mettiamo noi, e sappiamo di metterla»."
+ },
+ {
+  "d": "Un'alterazione si può aggiungere in mezzo a una linea per farla suonare meglio.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Sulla clausola sì, in mezzo alla linea no: lì il modo dev'essere quello che è."
+ },
+ {
+  "d": "Una partitura contiene sempre tutto quello che si esegue.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Non nel Cinquecento. Quella scrittura è un promemoria, e dà per scontato quello che chi leggeva sapeva."
+ },
+ {
+  "d": "La clausola altizans sale di tono, tiene il suono e scende di terza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "È la più articolata e la meno riconoscibile delle quattro."
+ },
+ {
+  "d": "Una cadenza fuggita è una cadenza sbagliata.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "È una cadenza deliberatamente non compiuta, e serve a tenere il brano in movimento."
+ },
+ {
+  "d": "Un modo è una scala che comincia da una nota diversa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Sono tre cose insieme: finalis, repercussa e ambito. Ridurlo a una rotazione della scala è il modo in cui i modi si imparano male dappertutto."
+ },
+ {
+  "d": "La finalis è la nota su cui il pezzo chiude.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "E dà il nome al modo."
+ },
+ {
+  "d": "Negli autentici la repercussa sta una quinta sopra la finalis.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "È la nota su cui la linea si appoggia e torna."
+ },
+ {
+  "d": "Il dorico ha finalis re e repercussa la.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Terza minore, ma sesta maggiore: il si è naturale."
+ },
+ {
+  "d": "Il dorico e il re minore naturale hanno le stesse note.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Il re minore ha il si bemolle. Nel dorico il si è naturale, ed è proprio la nota che li distingue."
+ },
+ {
+  "d": "Nel frigio c'è un semitono fra il primo e il secondo grado.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Mi–fa. Nessun'altra scala nota alla classe fa così, e per questo il frigio è inconfondibile."
+ },
+ {
+  "d": "Il frigio chiude scendendo di semitono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Fa–mi: è il rovescio esatto della sensibile."
+ },
+ {
+  "d": "Il lidio ha un tritono fra il primo e il quarto grado.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Fa–si. Era la cosa da evitare per eccellenza, e il rimedio era abbassare il si."
+ },
+ {
+  "d": "Un lidio con il si bemolle ha le stesse note del fa maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Ed è la ragione per cui Glareano ci vedeva un altro modo."
+ },
+ {
+  "d": "Il misolidio ha terza maggiore e settima minore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Niente sensibile: la chiusa fa–sol è un tono."
+ },
+ {
+  "d": "Il misolidio è il modo in cui è più facile aggiungere la sensibile senza accorgersene.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Perché è il più vicino al maggiore. Se ci si deve sorvegliare da qualche parte, è qui."
+ },
+ {
+  "d": "Un modo plagale ha una finalis diversa dal suo autentico.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Ha la **stessa** finalis e un altro ambito: la finalis sta in mezzo all'ottava invece che in fondo."
+ },
+ {
+  "d": "Negli autentici l'ottava è divisa quinta + quarta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Nei plagali quarta + quinta (Marenco, p. 7)."
+ },
+ {
+  "d": "Glareano, nel Dodecachordon del 1547, porta i modi da otto a dodici.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Aggiunge eolio (su la) e ionio (su do) con i rispettivi plagali."
+ },
+ {
+  "d": "Orlando di Lasso accetta i dodici modi di Glareano.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Una lettera dell'8 agosto 1593 del suo allievo Leonhardt Lechner riferisce, richiamandosi al maestro, che otto modi sono più che sufficienti."
+ },
+ {
+  "d": "L'eolio e lo ionio sono, con altri nomi, la minore naturale e il do maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "E sono i due che si aggiungono per ultimi, e con più fatica. Poi ci si costruirà sopra tutto."
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+  </div>
+
+</div>
+
+<footer class="piede no-stampa">
+  <div class="piede-interno">
+    <p><a href="../">&larr; Torna alla classe 2&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-2.html">Il quaderno di lettura · tutto l'anno</a></p>
+    <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
+  </div>
+</footer>
+
+<script>
+/* «Stampa solo questa». Il compito della settimana e una pagina: se per
+   averla si deve mandare in stampa il fascicolo intero e poi scegliere gli
+   intervalli di pagina nel pannello del browser, nessuno lo fa, e si
+   stampano undici fogli per usarne uno. Il pulsante nasconde gli altri
+   blocchi per la durata della stampa e li rimette a posto subito dopo. */
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-stampa]');
+  if (!b) return;
+  var blocco = b.closest('.lez');
+  document.body.classList.add('stampa-una');
+  blocco.classList.add('da-stampare');
+  var pulisci = function () {
+    document.body.classList.remove('stampa-una');
+    blocco.classList.remove('da-stampare');
+    window.removeEventListener('afterprint', pulisci);
+  };
+  window.addEventListener('afterprint', pulisci);
+  window.print();
+});
+</script>
+</body>
+</html>

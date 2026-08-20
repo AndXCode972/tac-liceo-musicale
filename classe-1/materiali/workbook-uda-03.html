@@ -14,8 +14,8 @@
 <!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
      usa, e con `defer` i due file girano nell'ordine in cui stanno
      scritti qui. -->
-<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=bfce2466" defer></script>
+<script src="../../_assets/js/codice.js" defer></script>
+<script src="../../_assets/js/tac-core.js?v=24bd9561" defer></script>
 <style>
   .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
                 border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
@@ -31,7 +31,9 @@
      tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
      parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
      oltre la sua misura di stampa. */
-  .materiale img.inciso { display: block; width: 100%; max-width: 175mm;
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
                           height: auto; margin: .35rem 0; }
 </style>
 </head>

@@ -404,3 +404,22 @@ a.ris:hover { border-color: var(--viola); background: #f7f4ff; transform: transl
   .testata-interna { padding: 3rem 6vw 2.4rem; }
   main { padding: 2rem 6vw 3.5rem; }
 }
+
+
+/* IL QUADERNO DI LETTURA, dalla home.
+   Andrea, 20 agosto: «il collegamento ai fascicoli di solfeggio va anche
+   sulla pagina principale». È l'unico materiale che si stampa una volta a
+   settembre e resta sul leggio: chiederlo passando dalla pagina della
+   classe va bene la prima volta e dà fastidio dalla seconda.
+
+   Sta **fuori** dalla scheda e non dentro, perché un `<a>` dentro un
+   altro `<a>` non è HTML valido e ogni browser lo ripara a modo suo. */
+.classi .quaderno {
+  display: block; margin: -.6rem 0 1.4rem; padding: .5rem .9rem;
+  font-size: .92rem; font-weight: 600; text-decoration: none;
+  color: var(--inchiostro2, #475569);
+  border: 1px solid var(--bordo, #e2e8f0); border-radius: 10px;
+  background: var(--carta2, #f8fafc);
+}
+.classi .quaderno:hover { color: var(--inchiostro, #0f172a);
+                          border-color: var(--inchiostro2, #475569); }

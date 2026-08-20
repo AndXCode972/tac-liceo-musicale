@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solfeggio &mdash; il fascicolo dell'anno | TAC Classe 2&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=28f539c5">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=1a483dac">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script src="../../_assets/js/tac-core.js?v=bfce2466" defer></script>
+<style>
+  :root { --classe: #0d9488; }
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+
+  /* ── LA COPERTINA ────────────────────────────────────────────────
+     Una pagina intera, e da sola. Un fascicolo che si stampa una volta
+     e resta sul leggio per un anno ha una copertina; un foglio di
+     esercizi no, ed è la differenza fra le due cose. */
+  /* LA COPERTINA HA UN'IMMAGINE, ed è la stessa della pagina della
+     classe: il fascicolo e la classe devono sembrare la stessa cosa.
+     Sopra ci va un velo **neutro**, non colorato — la lezione del 18
+     agosto, «attenzione alle velature che modificano i colori delle
+     immagini»: forte in alto dove sta il titolo, e via verso il basso
+     dove l'opera si vede per quello che è. */
+  .copertina-libro {
+    position: relative; overflow: hidden;
+    min-height: 88vh; display: flex; flex-direction: column;
+    justify-content: space-between;
+    padding: 3.4rem 3rem; margin: 0 0 2rem;
+    color: #fff; border-radius: 14px;
+    background-image: var(--copertina);
+    background-size: cover; background-position: center;
+  }
+  .copertina-libro::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(168deg,
+      rgba(6, 8, 20, .88) 0%, rgba(6, 8, 20, .74) 34%,
+      rgba(6, 8, 20, .30) 62%, rgba(6, 8, 20, .06) 100%);
+  }
+  .copertina-libro > * { position: relative; z-index: 1; }
+  .copertina-libro .occhiello { letter-spacing: .16em; text-transform: uppercase;
+                                font-size: .76rem; opacity: .85; }
+  .copertina-libro h1 { font-size: 3.4rem; line-height: 1.05; margin: .5rem 0 0;
+                        color: #fff; border: 0; }
+  .copertina-libro .sotto { font-size: 1.12rem; opacity: .92; margin: .9rem 0 0;
+                            max-width: 34ch; }
+  .copertina-libro .fondo { display: flex; justify-content: space-between;
+                            align-items: flex-end; gap: 1rem;
+                            font-size: .86rem; opacity: .9; }
+  .copertina-libro .quanti-grande { font-size: 2.6rem; font-weight: 800; line-height: 1; }
+
+  /* ── L'INDICE ────────────────────────────────────────────────────
+     Su ottantadue pezzi è l'unico modo di trovarne uno. Due colonne,
+     perché in una sola sarebbe lungo tre pagine. */
+  .indice-libro { margin: 0 0 2.4rem; }
+  .indice-libro h2 { border-bottom: 2px solid var(--bordo); padding-bottom: .3rem; }
+  .indice-libro ol { list-style: none; margin: 1rem 0 0; padding: 0;
+                     columns: 2; column-gap: 2.4rem; }
+  /* L'indice resta a due colonne: è un elenco di titoli brevi, e in una
+     sola sarebbe lungo tre pagine. Le colonne danno fastidio ai righi,
+     non alle righe di testo. */
+  .indice-libro li { display: flex; gap: .55rem; align-items: baseline;
+                     padding: .16rem 0; break-inside: avoid;
+                     font-size: .92rem; }
+  .indice-libro li.salto { display: block; margin: .9rem 0 .35rem;
+                           font-weight: 700; color: var(--classe);
+                           font-size: .8rem; letter-spacing: .08em;
+                           text-transform: uppercase; break-after: avoid; }
+  .indice-libro .n { min-width: 1.9rem; text-align: right; font-weight: 700;
+                     color: var(--classe); }
+  .indice-libro .t { flex: 1; }
+  .indice-libro .s { color: var(--inchiostro2); font-size: .78rem; white-space: nowrap; }
+
+  /* ── I PEZZI, IN FILA ────────────────────────────────────────────
+     Due colonne: ci sta il doppio per pagina, e un rigo da 430 in una
+     colonna da mezzo foglio è della misura giusta. */
+  /* UNA COLONNA SOLA. «Gli esercizi devono andare su un rigo soltanto,
+     non in due colonne»: un solfeggio si legge da sinistra a destra
+     tutto di fila, e spezzarlo in due colonne obbliga l'occhio a
+     tornare indietro a metà pagina. Il rigo prende tutta la larghezza,
+     e la notazione si rimpicciolisce scalando. */
+  .pezzi { columns: auto; }
+  /* IL GRADINO NON APRE UNA COLONNA. Ci aveva `break-before: column`, e
+     in un contenitore a due colonne un'interruzione forzata **aggiunge**
+     colonne invece di spostarsi: tre gradini facevano tre colonne, e la
+     terza usciva dal foglio. Qui il gradino è un respiro dentro la fila,
+     non un capitolo: scorre con gli altri. */
+  .gradino { break-inside: avoid;
+             display: flex; justify-content: space-between; align-items: baseline;
+             margin: .2rem 0 1rem; padding-bottom: .3rem;
+             border-bottom: 2px solid var(--classe);
+             font-size: .8rem; letter-spacing: .08em; text-transform: uppercase;
+             font-weight: 700; color: var(--classe); }
+  .gradino .quanti { font-weight: 400; letter-spacing: 0; text-transform: none;
+                     color: var(--inchiostro2); }
+
+  /* UN SOLFEGGIO NON SI SPEZZA FRA DUE PAGINE. Un rigo tagliato a metà
+     dalla piegatura non si legge: si perde proprio la battuta a cavallo,
+     che è quella dove si sbaglia. */
+  .solf { break-inside: avoid; page-break-inside: avoid;
+          margin: 0 0 .7rem; padding-bottom: .5rem;
+          border-bottom: 1px solid var(--bordo); }
+  .solf .testa { display: flex; gap: .7rem; align-items: baseline; }
+  .solf h3 { margin: 0; font-size: .95rem; }
+  .solf .quando { font-size: .72rem; color: var(--inchiostro2); }
+  /* Il numero è l'indirizzo del pezzo: è la parola con cui si dice alla
+     classe quale si fa. Grande, ma non quanto prima: in due colonne
+     rubava la riga al titolo. */
+  .solf .numero { font-size: 1.2rem; font-weight: 800; color: var(--classe);
+                  min-width: 1.5rem; text-align: right; }
+  /* LA RETE. Il rigo è disegnato per la colonna, ma la colonna cambia
+     con la finestra — sul telefono, su uno schermo stretto, dentro una
+     stampa in A5. Qui l'SVG si adatta invece di sbordare: è un ripiego,
+     non il modo giusto di ottenere la misura, e infatti la misura giusta
+     si ottiene disegnandolo alla larghezza che serve. */
+  /* Disegnato a 1100 e mostrato a quanto è largo il foglio: la scala
+     fa il resto, e la notazione viene il trenta per cento più piccola.
+     L'SVG è vettoriale, quindi non si sgrana. */
+  /* ══ LA MISURA DEL RIGO, PRESA DA UN LIBRO VERO ══
+     Andrea, 20 agosto: «la dimensione del rigo deve essere quella di un
+     testo di solfeggio scritto, non più grande, prendi esempio dai
+     numerosi testi che abbiamo in biblioteca».
+
+     Misurato su **Pozzoli, «Corso facile di Solfeggio» parte I, p. 8**,
+     scansione a 150 dpi: le cinque linee stanno a 9,75 px l'una
+     dall'altra, cioè **1,65 mm**, e il pentagramma è alto **6,6 mm** dalla
+     prima linea alla quinta. I sistemi si ripetono ogni 22,5 mm.
+
+     Il rigo qui è disegnato a 1100 unità. Perché una linea disegnata a 10
+     unità venga 1,65 mm, l'SVG intero deve essere largo 1100 × 0,165 =
+     **181 mm**; su A4 con i margini si arriva a 175, e il rigo viene
+     6,4 mm — il tre per cento più corto del Pozzoli, che a occhio non si
+     distingue.
+
+     Il `max-width` in **millimetri** è la parte che conta: senza, su uno
+     schermo largo `width: 100%` ingrandisce l'SVG oltre la sua misura di
+     stampa, e il fascicolo si vede più grande di come esce. Era questo il
+     difetto. */
+  .pezzi .solf svg { width: 100%; max-width: 175mm; height: auto; }
+
+  /* IL RIGO QUI NON STA IN UN RIQUADRO.
+     Andrea, 20 agosto: «ogni esercizio è scritto dentro a un riquadro,
+     vorrei che fosse scritto senza alcun riquadro».
+     Il riquadro arriva da `tac.css`, dove `tac-stave` ha bordo, ombra,
+     fondo bianco e padding. Su una slide serve: il rigo è **una cosa in
+     mezzo ad altre**, e il riquadro dice dove comincia e dove finisce.
+     In un fascicolo di solfeggio i righi sono tutto, e incorniciarli uno
+     per uno riempie la pagina di linee che non sono musica. */
+  .pezzi .solf tac-stave { border: 0; box-shadow: none; background: none;
+                           padding: 0; margin: .2rem 0 0; overflow-x: visible; }
+  .pezzi .solf tac-stave .tac-didascalia { margin: 0 0 .1rem; font-weight: 500; }
+
+  .piede-fascicolo { margin: 2rem 0 0; padding-top: .8rem;
+                     border-top: 1px solid var(--bordo);
+                     color: var(--inchiostro2); font-size: .9rem; }
+
+  @media print {
+    .barra-alto, .barra-sito { display: none; }
+    /* SENZA QUESTA RIGA LA COPERTINA SI STAMPA BIANCA. I browser
+       scartano le immagini di sfondo quando stampano, ed è una scelta
+       loro sensata — di solito uno sfondo è decorazione e costa
+       inchiostro. Qui lo sfondo *è* la copertina. */
+    .copertina-libro { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .copertina-libro { min-height: 92vh; break-after: page; page-break-after: always;
+                       border-radius: 0; margin: 0; }
+    /* NIENTE RIQUADRO INTORNO AI RIGHI, e nemmeno sullo schermo: v. sotto. */
+    .pezzi .solf tac-stave { box-shadow: none; border: 0; padding: 0; }
+    .indice-libro { break-after: page; page-break-after: always; }
+    .pezzi { columns: auto; }
+  }
+  @media (max-width: 700px) {
+    .indice-libro ol { columns: 1; }
+    .copertina-libro h1 { font-size: 2.4rem; }
+  }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 2&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a class="attiva" href="solfeggi-classe-2.html">Il leggio · letture di tutto l'anno</a>
+      <a href="workbook-uda-01.html">Workbook · unità 1</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <section class="copertina-libro" style="--copertina: url('../../_assets/immagini/testata-classe-2.jpg')">
+    <div>
+      <div class="occhiello">Teoria, Analisi e Composizione &middot; Classe 2&ordf;</div>
+      <h1>Il leggio</h1>
+      <p class="sotto">Letture, ritmi e canti di tutto l&rsquo;anno, in fila, dal pi&ugrave; facile al pi&ugrave; difficile.</p>
+    </div>
+    <div class="fondo">
+      <div></div>
+      <div style="text-align:right">
+        Liceo Musicale &laquo;G.&nbsp;Carducci&raquo;<br>
+        Si stampa una volta e resta sul leggio
+      </div>
+    </div>
+  </section>
+
+  <section class="indice-libro">
+    <h2>Indice</h2>
+    <p class="didascalia" style="text-align:left; margin:.6rem 0 0">
+      Si legge a tempo e senza fermarsi, battendo la pulsazione. Vale per
+      tutti: &egrave; scritto qui una volta e non si ripete pezzo per pezzo.
+      Il <strong>numero</strong> &egrave; l&rsquo;indirizzo &mdash; &egrave;
+      con quello che si dice quale si fa.
+    </p>
+    <ol>
+      <li class="salto">Primo gradino</li>
+      <li><span class="n">1</span><span class="t">Quattro battute in quattro, per ricominciare</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">2</span><span class="t">La voce acuta delle otto battute</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">3</span><span class="t">Quattro battute lunghe, per il canto d&rsquo;insieme</span><span class="s">Solfeggio ritmico</span></li>
+      <li class="salto">Secondo gradino</li>
+      <li><span class="n">4</span><span class="t">Quattro battute in tre, con la sincope</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">5</span><span class="t">Nomi di nota a tempo, in chiave di violino</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">6</span><span class="t">Nomi di nota a tempo, in chiave di basso</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">7</span><span class="t">La voce grave delle stesse otto battute</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">8</span><span class="t">Il canto dato, letto a nomi in chiave di basso</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">9</span><span class="t">Il canto dato dell&rsquo;unit&agrave;</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">10</span><span class="t">Quattro battute in quattro, con una sincope</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">11</span><span class="t">Sei battute in due quarti, con le pause</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">12</span><span class="t">Il contrappunto della lezione 7</span><span class="s">Solfeggio cantato</span></li>
+    </ol>
+  </section>
+
+  <div class="pezzi">
+    <div class="gradino"><span>Primo gradino</span><span class="quanti">3 pezzi</span></div>
+    <article class="solf" id="n1">
+      <div class="testa">
+        <span class="numero">1</span>
+        <div>
+          <h3>Quattro battute in quattro, per ricominciare</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <tac-stave clef="percussion" time="4/4" notes="b/4:q b/4:q b/4:h | b/4:q b/4:8 b/4:8 b/4:h | b/4:h b/4:q b/4:q | b/4:w" width="1100" tempo="76"></tac-stave>
+    </article>
+    <article class="solf" id="n2">
+      <div class="testa">
+        <span class="numero">2</span>
+        <div>
+          <h3>La voce acuta delle otto battute</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <tac-stave clef="treble" time="4/4" notes="e/5:h f/5:h | g/5:h f/5:h | e/5:h d/5:h | e/5:w" width="1100" tempo="60"></tac-stave>
+    </article>
+    <article class="solf" id="n3">
+      <div class="testa">
+        <span class="numero">3</span>
+        <div>
+          <h3>Quattro battute lunghe, per il canto d&rsquo;insieme</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <tac-stave clef="percussion" time="4/4" notes="b/4:w | b/4:h b/4:h | b/4:w | b/4:h b/4:q b/4:q" width="1100" tempo="60"></tac-stave>
+    </article>
+    <div class="gradino"><span>Secondo gradino</span><span class="quanti">9 pezzi</span></div>
+    <article class="solf" id="n4">
+      <div class="testa">
+        <span class="numero">4</span>
+        <div>
+          <h3>Quattro battute in tre, con la sincope</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <tac-stave clef="percussion" time="3/4" notes="b/4:q b/4:h | b/4:8 b/4:q b/4:q b/4:8 | b/4:q b/4:q b/4:q | b/4:h." width="1100" tempo="72"></tac-stave>
+    </article>
+    <article class="solf" id="n5">
+      <div class="testa">
+        <span class="numero">5</span>
+        <div>
+          <h3>Nomi di nota a tempo, in chiave di violino</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <tac-stave clef="treble" time="4/4" notes="c/5:q d/5:q e/5:h | f/5:q e/5:q d/5:h | c/5:q e/5:q g/5:q e/5:q | c/5:w" width="1100" tempo="66"></tac-stave>
+    </article>
+    <article class="solf" id="n6">
+      <div class="testa">
+        <span class="numero">6</span>
+        <div>
+          <h3>Nomi di nota a tempo, in chiave di basso</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <tac-stave clef="bass" time="4/4" notes="c/3:q e/3:q g/3:h | f/3:q e/3:q d/3:h | c/3:q d/3:q e/3:q f/3:q | g/3:w" width="1100" tempo="66"></tac-stave>
+    </article>
+    <article class="solf" id="n7">
+      <div class="testa">
+        <span class="numero">7</span>
+        <div>
+          <h3>La voce grave delle stesse otto battute</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <tac-stave clef="bass" time="4/4" notes="c/4:h d/4:h | e/4:h d/4:h | c/4:h b/3:h | c/4:w" width="1100" tempo="60"></tac-stave>
+    </article>
+    <article class="solf" id="n8">
+      <div class="testa">
+        <span class="numero">8</span>
+        <div>
+          <h3>Il canto dato, letto a nomi in chiave di basso</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <tac-stave clef="bass" time="4/4" notes="c/4:w | d/4:w | f/4:w | e/4:w | g/4:w | f/4:w | d/4:w | c/4:w" width="1100" tempo="50"></tac-stave>
+    </article>
+    <article class="solf" id="n9">
+      <div class="testa">
+        <span class="numero">9</span>
+        <div>
+          <h3>Il canto dato dell&rsquo;unit&agrave;</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <tac-stave clef="treble" time="4/4" notes="c/5:w | d/5:w | f/5:w | e/5:w | g/5:w | f/5:w | d/5:w | c/5:w" width="1100" tempo="46"></tac-stave>
+    </article>
+    <article class="solf" id="n10">
+      <div class="testa">
+        <span class="numero">10</span>
+        <div>
+          <h3>Quattro battute in quattro, con una sincope</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <tac-stave clef="percussion" time="4/4" notes="b/4:q b/4:q b/4:h | b/4:h b/4:q b/4:q | b/4:8 b/4:q b/4:q b/4:q b/4:8 | b/4:w" width="1100" tempo="72"></tac-stave>
+    </article>
+    <article class="solf" id="n11">
+      <div class="testa">
+        <span class="numero">11</span>
+        <div>
+          <h3>Sei battute in due quarti, con le pause</h3>
+          <span class="quando">Solfeggio ritmico</span>
+        </div>
+      </div>
+      <tac-stave clef="percussion" time="2/4" notes="b/4:8 b/4:8 b/4:q | b/4:q r:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:8 b/4:8 | r:q b/4:q | b/4:h" width="1100" tempo="80"></tac-stave>
+    </article>
+    <article class="solf" id="n12">
+      <div class="testa">
+        <span class="numero">12</span>
+        <div>
+          <h3>Il contrappunto della lezione 7</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <tac-stave clef="treble" time="4/4" notes="c/5:w | a/4:w | d/5:w | c/5:w | b/4:w | c/5:w | b/4:w | c/5:w" width="1100" tempo="46"></tac-stave>
+    </article>
+  </div>
+
+
+</div>
+</body>
+</html>

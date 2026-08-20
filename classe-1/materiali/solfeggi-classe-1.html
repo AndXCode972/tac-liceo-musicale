@@ -122,7 +122,39 @@
   /* Disegnato a 1100 e mostrato a quanto è largo il foglio: la scala
      fa il resto, e la notazione viene il trenta per cento più piccola.
      L'SVG è vettoriale, quindi non si sgrana. */
-  .pezzi .solf svg { width: 100%; height: auto; }
+  /* ══ LA MISURA DEL RIGO, PRESA DA UN LIBRO VERO ══
+     Andrea, 20 agosto: «la dimensione del rigo deve essere quella di un
+     testo di solfeggio scritto, non più grande, prendi esempio dai
+     numerosi testi che abbiamo in biblioteca».
+
+     Misurato su **Pozzoli, «Corso facile di Solfeggio» parte I, p. 8**,
+     scansione a 150 dpi: le cinque linee stanno a 9,75 px l'una
+     dall'altra, cioè **1,65 mm**, e il pentagramma è alto **6,6 mm** dalla
+     prima linea alla quinta. I sistemi si ripetono ogni 22,5 mm.
+
+     Il rigo qui è disegnato a 1100 unità. Perché una linea disegnata a 10
+     unità venga 1,65 mm, l'SVG intero deve essere largo 1100 × 0,165 =
+     **181 mm**; su A4 con i margini si arriva a 175, e il rigo viene
+     6,4 mm — il tre per cento più corto del Pozzoli, che a occhio non si
+     distingue.
+
+     Il `max-width` in **millimetri** è la parte che conta: senza, su uno
+     schermo largo `width: 100%` ingrandisce l'SVG oltre la sua misura di
+     stampa, e il fascicolo si vede più grande di come esce. Era questo il
+     difetto. */
+  .pezzi .solf svg { width: 100%; max-width: 175mm; height: auto; }
+
+  /* IL RIGO QUI NON STA IN UN RIQUADRO.
+     Andrea, 20 agosto: «ogni esercizio è scritto dentro a un riquadro,
+     vorrei che fosse scritto senza alcun riquadro».
+     Il riquadro arriva da `tac.css`, dove `tac-stave` ha bordo, ombra,
+     fondo bianco e padding. Su una slide serve: il rigo è **una cosa in
+     mezzo ad altre**, e il riquadro dice dove comincia e dove finisce.
+     In un fascicolo di solfeggio i righi sono tutto, e incorniciarli uno
+     per uno riempie la pagina di linee che non sono musica. */
+  .pezzi .solf tac-stave { border: 0; box-shadow: none; background: none;
+                           padding: 0; margin: .2rem 0 0; overflow-x: visible; }
+  .pezzi .solf tac-stave .tac-didascalia { margin: 0 0 .1rem; font-weight: 500; }
 
   .piede-fascicolo { margin: 2rem 0 0; padding-top: .8rem;
                      border-top: 1px solid var(--bordo);
@@ -130,8 +162,15 @@
 
   @media print {
     .barra-alto, .barra-sito { display: none; }
+    /* SENZA QUESTA RIGA LA COPERTINA SI STAMPA BIANCA. I browser
+       scartano le immagini di sfondo quando stampano, ed è una scelta
+       loro sensata — di solito uno sfondo è decorazione e costa
+       inchiostro. Qui lo sfondo *è* la copertina. */
+    .copertina-libro { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .copertina-libro { min-height: 92vh; break-after: page; page-break-after: always;
                        border-radius: 0; margin: 0; }
+    /* NIENTE RIQUADRO INTORNO AI RIGHI, e nemmeno sullo schermo: v. sotto. */
+    .pezzi .solf tac-stave { box-shadow: none; border: 0; padding: 0; }
     .indice-libro { break-after: page; page-break-after: always; }
     .pezzi { columns: auto; }
   }
@@ -152,7 +191,7 @@
     <span class="qui">Materiali</span>
     <span class="voci">
       <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>
-      <a class="attiva" href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a>
+      <a class="attiva" href="solfeggi-classe-1.html">Il leggio · letture di tutto l'anno</a>
       <a href="workbook-uda-01.html">Workbook · unità 1</a>
     </span>
   </div>
@@ -167,14 +206,11 @@
   <section class="copertina-libro" style="--copertina: url('../../_assets/immagini/testata-classe-1.jpg')">
     <div>
       <div class="occhiello">Teoria, Analisi e Composizione &middot; Classe 1&ordf;</div>
-      <h1>Solfeggio</h1>
-      <p class="sotto">Gli esercizi dell&rsquo;anno, in fila, dal pi&ugrave; facile al pi&ugrave; difficile.</p>
+      <h1>Il leggio</h1>
+      <p class="sotto">Letture, ritmi e canti di tutto l&rsquo;anno, in fila, dal pi&ugrave; facile al pi&ugrave; difficile.</p>
     </div>
     <div class="fondo">
-      <div>
-        <div class="quanti-grande">96</div>
-        pezzi
-      </div>
+      <div></div>
       <div style="text-align:right">
         Liceo Musicale &laquo;G.&nbsp;Carducci&raquo;<br>
         Si stampa una volta e resta sul leggio

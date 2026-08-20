@@ -51,9 +51,20 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
 <body>
 <div id="tac-deck">
 
+<!-- LA TAVOLOZZA NON È SOLO IL COLORE DEL TESTO. `da_foto.py` la usa
+     anche per **tingere l'immagine** — funzione `tingi`, fino al 30% —
+     e con il magenta #db2777 di prima questa copertina usciva vinaccia
+     e scura. Andrea, 20 agosto: «molto scura, tendente al rosso scuro,
+     non mi piace». Blu, ciano e ambra chiara lasciano vedere il
+     batterista invece di annegarlo.
+
+     Cambiando i tre colori va **rifatta l'immagine**, altrimenti testo
+     e fotografia non dicono più la stessa cosa:
+        python3 copertine_unita.py 1 1 --scrivi                        -->
+
 <section class="slide copertina foto" data-titolo="Copertina"
          style="--foto: url('../../_assets/copertine/lezione-1.jpg?v=28f2254a');
-                --cop-a:#3730a3; --cop-b:#7c3aed; --cop-c:#db2777">
+                --cop-a:#1e3a5f; --cop-b:#0891b2; --cop-c:#fde68a">
   <div class="slide-interna">
     <div class="occhiello">Il battito della musica · UdA 1 · Lezione 1 di 6</div>
     <h1>Dove sta il battito</h1>

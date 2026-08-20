@@ -34,7 +34,7 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
 </script>
 
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=ef6660e0" defer></script>
+<script src="../../_assets/js/tac-core.js?v=bfce2466" defer></script>
 </head>
 <body>
 <div id="tac-deck">
@@ -126,11 +126,28 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
     <h2>L&rsquo;errore che non si accorge di s&eacute;</h2>
 
    <p>Chi legge 6/8 come sei battiti <strong>conta giusto e suona sbagliato</strong>: arriva in fondo alla battuta con il numero esatto di note, e la musica non &egrave; quella.</p>
+
+   <!-- Le stesse sei crome, travate in due modi. La slide diceva «se ne
+        accorge solo l'orecchio» e non dava niente da ascoltare: le due
+        descrizioni stavano in due riquadri di testo, e la differenza fra
+        una marcia sgangherata e una giga restava una cosa da credere.
+        Aggiunte il 20 agosto. -->
    <div class="colonne">
-     <div class="riquadro attenzione"><p><strong>Sei battiti uguali</strong><br>una marcia sgangherata: nessun raggruppamento si sente</p></div>
-     <div class="riquadro"><p><strong>Due battiti di tre</strong><br>il dondolio della giga, della tarantella, della barcarola</p></div>
+     <div>
+       <tac-stave clef="percussion" time="6/8" travatura="2"
+                  caption="Contate a sei: le crome a due a due"
+                  notes="b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8" width="330" tempo="120" play></tac-stave>
+       <div class="riquadro attenzione"><p><strong>Sei battiti uguali</strong><br>una marcia sgangherata: nessun raggruppamento si sente</p></div>
+     </div>
+     <div>
+       <tac-stave clef="percussion" time="6/8" travatura="3"
+                  caption="Contate a due: le crome a tre a tre"
+                  notes="b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8" width="330" tempo="120" play></tac-stave>
+       <div class="riquadro"><p><strong>Due battiti di tre</strong><br>il dondolio della giga, della tarantella, della barcarola</p></div>
+     </div>
    </div>
-   <p class="didascalia">&Egrave; il tipo di errore peggiore, perch&eacute; il conto torna. Se ne accorge solo l&rsquo;orecchio &mdash; e per questo l&rsquo;abbiamo ascoltato prima di scriverlo.</p>
+
+   <p class="didascalia">Le note sono <strong>le stesse sei</strong>, e cambia solo come sono raggruppate. &Egrave; il tipo di errore peggiore, perch&eacute; il conto torna: se ne accorge solo l&rsquo;orecchio.</p>
   </div>
 </section>
 

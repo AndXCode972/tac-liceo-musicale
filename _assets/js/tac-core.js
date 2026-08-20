@@ -696,6 +696,31 @@
   const NOMI_IT = { c: 'do', d: 're', e: 'mi', f: 'fa', g: 'sol', a: 'la', b: 'si' };
   const SEMI = { c: 0, d: 2, e: 4, f: 5, g: 7, a: 9, b: 11 };
 
+  /* QUALI NOTE ALTERA UN'ARMATURA, nell'ordine in cui i segni si scrivono.
+
+     Serve perché fino al 20 agosto 2026 l'armatura si **vedeva e non si
+     sentiva**: `keysig` finiva su `addKeySignature`, cioè nel disegno, e
+     la riproduzione leggeva le note com'erano scritte. Un rigo con
+     `keysig="Bb"` e `notes="b/4 …"` mostrava un si sotto due bemolli — che
+     si legge si bemolle — e faceva sentire un si naturale.
+
+     Era esattamente la slide dell'unità 5, lezione 2, quella che dice
+     «il rigo qui sopra si legge si♭, do, re, mi♭… anche se davanti alle
+     note non c'è niente». Diceva il vero all'occhio e il falso
+     all'orecchio, ed è il guasto peggiore di tutti perché in una lezione
+     sull'armatura l'orecchio è la prova. */
+  const ARMATURE = {
+    'C': [],
+    'G': ['f'], 'D': ['f', 'c'], 'A': ['f', 'c', 'g'],
+    'E': ['f', 'c', 'g', 'd'], 'B': ['f', 'c', 'g', 'd', 'a'],
+    'F#': ['f', 'c', 'g', 'd', 'a', 'e'],
+    'C#': ['f', 'c', 'g', 'd', 'a', 'e', 'b'],
+    'F': ['b'], 'Bb': ['b', 'e'], 'Eb': ['b', 'e', 'a'],
+    'Ab': ['b', 'e', 'a', 'd'], 'Db': ['b', 'e', 'a', 'd', 'g'],
+    'Gb': ['b', 'e', 'a', 'd', 'g', 'c'],
+    'Cb': ['b', 'e', 'a', 'd', 'g', 'c', 'f']
+  };
+
   const N = TAC.note = {
 
     /* "f#/4" -> {lettera:'f', alt:'#', ottava:4} */
@@ -710,6 +735,22 @@
       const p = this.scomponi(k);
       const alt = p.alt === 'n' ? '' : p.alt;
       return p.lettera.toUpperCase() + alt + p.ottava;
+    },
+
+    /* La nota come la si **sente** sotto un'armatura.
+
+       Un'alterazione scritta davanti alla nota comanda sempre: se c'è un
+       bequadro, o un diesis, o un bemolle, l'armatura non c'entra più. È
+       la regola vera, ed è anche quello che serve — le lezioni che
+       mostrano un'armatura mostrano quasi sempre, subito dopo, la nota
+       che ne esce. */
+    conArmatura(k, armatura) {
+      const segni = ARMATURE[armatura];
+      if (!segni || !segni.length) return k;
+      const p = this.scomponi(k);
+      if (p.alt) return k;
+      if (segni.indexOf(p.lettera) < 0) return k;
+      return p.lettera + (/b$/.test(armatura) ? 'b' : '#') + '/' + p.ottava;
     },
 
     /* "f#/4" -> "fa diesis" */
@@ -903,6 +944,7 @@
       const clef    = this.getAttribute('clef')   || 'treble';
       const time    = this.getAttribute('time')   || '';
       const keysig  = this.getAttribute('keysig') || '';
+      this._armatura = keysig;   /* la riproduzione la applica: v. conArmatura */
       const caption = this.getAttribute('caption') || '';
       /* LE QUATTRO PARTI. Basta `soprano` per entrare in questa modalità:
          il rigo acuto prende soprano e contralto, il grave tenore e basso,
@@ -1100,6 +1142,7 @@
            Con `travatura="3"` i gruppi si formano a tre. Il numero è quanti
            ottavi stanno sotto una travatura sola. */
         const perGruppo = parseInt(this.getAttribute('travatura') || '', 10);
+        this._perGruppo = perGruppo > 0 ? perGruppo : 0;
         const modoTravatura = perGruppo > 0
           ? { groups: [new VF.Fraction(perGruppo, 8)] } : undefined;
         const travature = [];
@@ -1316,24 +1359,42 @@
         serie.forEach((d, i) => {
           if (d.stanghetta) return;
           if (!d.pausa && !muta2[i]) {
-            voce.triggerAttackRelease(d.keys.map(k => N.aTone(k)),
+            voce.triggerAttackRelease(
+              d.keys.map(k => N.aTone(N.conArmatura(k, this._armatura))),
                                       dur2[i] * durBattito * 0.92, ta);
           }
           ta += d.battiti * durBattito;
         });
       });
 
+      let dentroBattuta = 0;   /* posizione nella battuta, in quarti */
       this._dati.forEach((d, i) => {
-        if (d.stanghetta) return;          /* non dura e non suona */
+        if (d.stanghetta) { dentroBattuta = 0; return; }  /* non dura e non suona */
         const secondi = d.battiti * durBattito;
         const suonati = durate[i] * durBattito;
         if (!d.pausa && !muta[i]) {
           if (soloRitmo) {
-            Audio.tick.triggerAttackRelease(Audio.LIVELLI.ritmo.altezza, '64n', t,
-                                            Audio.LIVELLI.ritmo.forza);
+            /* L'ACCENTO CADE DOVE CADE LA TRAVATURA.
+
+               Prima ogni colpo aveva la stessa forza, e allora due righi
+               con le **stesse sei crome** travate a due e a tre suonavano
+               identici. La slide dell'unità 3 lezione 4 dice che fra sei
+               battiti uguali e due battiti di tre «se ne accorge solo
+               l'orecchio»: era vero in aula e falso nell'esempio, che è il
+               modo peggiore di sbagliare — l'esempio suonava, quindi
+               sembrava funzionare.
+
+               Il conto si azzera a ogni stanghetta e va in quarti:
+               `perGruppo` crome fanno perGruppo/2 di quarto. Senza
+               `travatura` non si accenta niente, come prima. */
+            const capo = this._perGruppo &&
+                         Math.abs(dentroBattuta % (this._perGruppo / 2)) < 1e-6;
+            const liv = capo ? Audio.LIVELLI.metro : Audio.LIVELLI.ritmo;
+            Audio.tick.triggerAttackRelease(liv.altezza, '64n', t, liv.forza);
           } else {
             voce.triggerAttackRelease(
-              d.keys.map(k => N.aTone(k)), suonati * 0.92, t
+              d.keys.map(k => N.aTone(N.conArmatura(k, this._armatura))),
+              suonati * 0.92, t
             );
           }
           const teste = catena[i]
@@ -1350,6 +1411,7 @@
           }
         }
         t += secondi;
+        dentroBattuta += d.battiti;
       });
 
       const attesa = (t - Tone.now()) * 1000 + 200;

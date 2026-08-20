@@ -23,6 +23,16 @@
   @media print { .barra-alto { display: none; } }
   /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
      fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  .materiale img.inciso { display: block; width: 100%; max-width: 175mm;
+                          height: auto; margin: .35rem 0; }
 </style>
 </head>
 <body class="documento">
@@ -36,7 +46,7 @@
     <span class="qui">Materiali</span>
     <span class="voci">
       <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>
-      <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a>
+      <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a>
       <a class="attiva" href="workbook-uda-05.html">Workbook · unità 5</a>
     </span>
   </div>
@@ -119,11 +129,30 @@
       <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
     </div>
 
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C1-S-C03">
+      <p class="titolo-consegna"><span class="num">1</span> La quinta, e come si ci arriva</p>
+      <div class="testo">Cantalo. La quinta &egrave; l'intervallo che regge tutto: se quella &egrave; giusta, il resto si aggiusta da s&eacute;.</div>
+      <p class="vai no-stampa"><a href="../uda-05/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C1-S-P08">
+      <p class="titolo-consegna"><span class="num">2</span> Un'armatura di un diesis</p>
+      <div class="testo">Di' i nomi a tempo. <strong>Attenzione</strong>: l'armatura ha un diesis, ma in queste sette note il <em>fa</em> non c'&egrave;.</div>
+      <p class="vai no-stampa"><a href="../uda-05/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C1-S-P09">
+      <p class="titolo-consegna"><span class="num">3</span> Un'armatura di un bemolle</p>
+      <div class="testo">Di' i nomi per intero. La quarta nota &egrave; alterata dall'armatura: si dice <em>si bemolle</em>.</div>
+      <p class="vai no-stampa"><a href="../uda-05/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
     <section class="parte scritto">
       <h3>Da scrivere sul quaderno</h3>
       <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
     <div class="consegna" id="C1-U5-L3-01">
-      <p class="titolo-consegna"><span class="num">1</span> Dal riferimento all&rsquo;armatura, sei volte</p>
+      <p class="titolo-consegna"><span class="num">4</span> Dal riferimento all&rsquo;armatura, sei volte</p>
       <div class="testo">Per ognuno dei sei casi: che <strong>tonalit&agrave;</strong> &egrave;, e che <strong>armatura</strong> si scrive.<p class="dettaglio"><strong>1</strong> la tonica &egrave; il <em>do</em> stesso &middot; <strong>2</strong> la tonica sta una quinta sopra il <em>do</em> &middot; <strong>3</strong> una quinta sotto &middot; <strong>4</strong> due quinte sopra &middot; <strong>5</strong> due quinte sotto &middot; <strong>6</strong> tre quinte sopra.<br>Per ciascuno scrivi anche <strong>quale</strong> &egrave; il segno nuovo rispetto al caso precedente: &egrave; quello che ti dice se il conto torna.</p></div>
     </div>
     </section>
@@ -159,9 +188,14 @@
 
     <section class="parte ascolto">
       <h3>Da ascoltare</h3>
-      <p class="spiega">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C1-S-C04">
+      <p class="titolo-consegna"><span class="num">1</span> In sol maggiore, con l'armatura</p>
+      <div class="testo">Cantalo. L'armatura ha un diesis, e in queste note il <em>fa</em> non c'&egrave;: cambia la <strong>casa</strong>, non le note.</div>
+      <p class="vai no-stampa"><a href="../uda-05/lezione-5.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
     <div class="consegna" id="C1-U5-L5-01">
-      <p class="titolo-consegna"><span class="num">1</span> Cinque minuti al giorno, in sol</p>
+      <p class="titolo-consegna"><span class="num">2</span> Cinque minuti al giorno, in sol</p>
       <div class="testo">Ogni giorno: la scala di <em>sol</em> maggiore, salendo e scendendo, coi nomi delle note.<p class="dettaglio">Prima <strong>dici a voce</strong> che tonalit&agrave; &egrave; e quale nota &egrave; alterata. Poi i nomi a tempo, col fa diesis detto per intero. Poi canti.</p></div>
       <p class="vai no-stampa"><a href="../uda-05/lezione-5.html">Apri l&rsquo;ascolto &rarr;</a></p>
     </div>
@@ -439,7 +473,7 @@
 
 <footer class="piede no-stampa">
   <div class="piede-interno">
-    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a></p>
+    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a></p>
     <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
   </div>
 </footer>

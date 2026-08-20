@@ -23,6 +23,16 @@
   @media print { .barra-alto { display: none; } }
   /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
      fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  .materiale img.inciso { display: block; width: 100%; max-width: 175mm;
+                          height: auto; margin: .35rem 0; }
 </style>
 </head>
 <body class="documento">
@@ -36,7 +46,7 @@
     <span class="qui">Materiali</span>
     <span class="voci">
       <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>
-      <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a>
+      <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a>
       <a class="attiva" href="workbook-uda-10.html">Workbook · unità 10</a>
     </span>
   </div>
@@ -123,8 +133,13 @@
     <section class="parte ascolto">
       <h3>Da ascoltare</h3>
       <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C1-S-P12">
+      <p class="titolo-consegna"><span class="num">1</span> In sei ottavi, e i nomi restano quelli</p>
+      <div class="testo">Di' i nomi a tempo, contando <strong>due</strong> e non sei. Le crome vanno a tre a tre.</div>
+      <p class="vai no-stampa"><a href="../uda-10/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
     <div class="consegna" id="C1-U10-L3-01">
-      <p class="titolo-consegna"><span class="num">1</span> Il quadro a tre, su tre registrazioni</p>
+      <p class="titolo-consegna"><span class="num">2</span> Il quadro a tre, su tre registrazioni</p>
       <div class="testo">Tre melodie brevi su <strong>I, IV e V</strong>. Per ciascuna scrivi solo il <strong>quadro</strong>: un numero romano sotto ogni battuta.<p class="dettaglio">&Egrave; la fase 3 del dettato, isolata &mdash; la stessa dell&rsquo;unit&agrave; 9, con una possibilit&agrave; in pi&ugrave;.<br>Se una battuta non si decide, cerca una nota che <strong>decide</strong>: <em>mi</em> solo I, <em>fa</em> e <em>la</em> solo IV, <em>si</em> e <em>re</em> solo V.</p></div>
       <p class="vai no-stampa"><a href="../uda-10/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
     </div>
@@ -185,21 +200,21 @@
       <p class="titolo-consegna"><span class="num">1</span> Sei ottavi &middot; Due movimenti &middot; 1</p>
       <div class="testo">Otto battute in <strong>6/8</strong>. Si batte <strong>due</strong> volte per battuta, non sei.</div>
       <div class="materiale">
-      <tac-stave clef="percussion" time="6/8" caption="Otto battute in 6/8" notes="b/4:q. b/4:q. | b/4:8 b/4:8 b/4:8 b/4:q. | b/4:q. b/4:q. | b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q. b/4:q. | b/4:8 b/4:8 b/4:8 b/4:q. | b/4:q. b/4:8 b/4:8 b/4:8 | b/4:q. b/4:q." width="700" tempo="63" play slow></tac-stave>
+      <img class="inciso" src="incisioni/87847c0e73a6-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C1-U10-L6-03">
       <p class="titolo-consegna"><span class="num">2</span> Sei ottavi &middot; Due movimenti &middot; 2</p>
       <div class="testo">Otto battute in <strong>6/8</strong>. Si batte <strong>due</strong> volte per battuta, non sei.</div>
       <div class="materiale">
-      <tac-stave clef="percussion" time="6/8" caption="Otto battute in 6/8" notes="b/4:8 b/4:8 b/4:8 b/4:q. | b/4:q. b/4:8 b/4:8 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q. b/4:q. | b/4:8 b/4:8 b/4:8 b/4:q. | b/4:q. b/4:8 b/4:8 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q. b/4:q." width="700" tempo="63" play slow></tac-stave>
+      <img class="inciso" src="incisioni/00e188a871fa-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C1-U10-L6-04">
       <p class="titolo-consegna"><span class="num">3</span> Sei ottavi &middot; Due movimenti &middot; 3</p>
       <div class="testo">Otto battute in <strong>6/8</strong>. Si batte <strong>due</strong> volte per battuta, non sei.</div>
       <div class="materiale">
-      <tac-stave clef="percussion" time="6/8" caption="Otto battute in 6/8" notes="b/4:q. b/4:8 b/4:8 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:q. | r:q. b/4:8 b/4:8 b/4:8 | b/4:q. b/4:q. | b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q. r:q. | b/4:8 b/4:8 b/4:8 b/4:q. | b/4:q. b/4:q." width="700" tempo="63" play slow></tac-stave>
+      <img class="inciso" src="incisioni/f4e81a0515a2-1.svg" alt="">
       </div>
     </div>
     </section>
@@ -253,56 +268,65 @@
       <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
     </div>
 
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C1-S-C11">
+      <p class="titolo-consegna"><span class="num">1</span> In sei ottavi, cantato</p>
+      <div class="testo">Cantalo contando <strong>due</strong>, non sei. Le crome vanno a tre a tre.</div>
+      <p class="vai no-stampa"><a href="../uda-10/lezione-9.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
     <section class="parte scritto">
       <h3>Da scrivere sul quaderno</h3>
       <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
     <div class="consegna" id="C1-U10-L9-01">
-      <p class="titolo-consegna"><span class="num">1</span> Sei ottavi &middot; Due terzi e un terzo &middot; 1</p>
+      <p class="titolo-consegna"><span class="num">2</span> Sei ottavi &middot; Due terzi e un terzo &middot; 1</p>
       <div class="testo">Otto battute in <strong>6/8</strong>. Cinque minuti al giorno, e <strong>non ci si ferma</strong> agli errori.</div>
       <div class="materiale">
-      <tac-stave clef="percussion" time="6/8" caption="Otto battute in 6/8" notes="b/4:q b/4:8 b/4:q. | b/4:q. b/4:q b/4:8 | b/4:8 b/4:8 b/4:8 b/4:q b/4:8 | b/4:q. b/4:q. | b/4:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q. b/4:q b/4:8 | b/4:q b/4:8 b/4:q. | b/4:q. b/4:q." width="700" tempo="63" play slow></tac-stave>
+      <img class="inciso" src="incisioni/f1f0c945211d-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C1-U10-L9-02">
-      <p class="titolo-consegna"><span class="num">2</span> Sei ottavi &middot; Due terzi e un terzo &middot; 2</p>
+      <p class="titolo-consegna"><span class="num">3</span> Sei ottavi &middot; Due terzi e un terzo &middot; 2</p>
       <div class="testo">Otto battute in <strong>6/8</strong>. Cinque minuti al giorno, e <strong>non ci si ferma</strong> agli errori.</div>
       <div class="materiale">
-      <tac-stave clef="percussion" time="6/8" caption="Otto battute in 6/8" notes="b/4:q. b/4:q b/4:8 | b/4:8 b/4:8 b/4:8 b/4:q b/4:8 | b/4:q. b/4:q b/4:8 | b/4:q. b/4:q. | b/4:q b/4:8 b/4:q b/4:8 | b/4:8 b/4:8 b/4:8 b/4:q. | b/4:q. b/4:q b/4:8 | b/4:q. b/4:q." width="700" tempo="63" play slow></tac-stave>
+      <img class="inciso" src="incisioni/87be81456759-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C1-U10-L9-03">
-      <p class="titolo-consegna"><span class="num">3</span> Sei ottavi &middot; Due terzi e un terzo &middot; 3</p>
+      <p class="titolo-consegna"><span class="num">4</span> Sei ottavi &middot; Due terzi e un terzo &middot; 3</p>
       <div class="testo">Otto battute in <strong>6/8</strong>. Cinque minuti al giorno, e <strong>non ci si ferma</strong> agli errori.</div>
       <div class="materiale">
-      <tac-stave clef="percussion" time="6/8" caption="Otto battute in 6/8" notes="b/4:q b/4:8 b/4:q b/4:8 | b/4:q. b/4:8 b/4:8 b/4:8 | b/4:q b/4:8 b/4:q. | b/4:8 b/4:8 b/4:8 b/4:q b/4:8 | b/4:q. b/4:q b/4:8 | b/4:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q. b/4:q b/4:8 | b/4:q. b/4:q." width="700" tempo="63" play slow></tac-stave>
+      <img class="inciso" src="incisioni/02a4948cfd71-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C1-U10-L9-04">
-      <p class="titolo-consegna"><span class="num">4</span> Sei ottavi &middot; Due terzi e un terzo &middot; 4</p>
+      <p class="titolo-consegna"><span class="num">5</span> Sei ottavi &middot; Due terzi e un terzo &middot; 4</p>
       <div class="testo">Otto battute in <strong>6/8</strong>. Cinque minuti al giorno, e <strong>non ci si ferma</strong> agli errori.</div>
       <div class="materiale">
-      <tac-stave clef="percussion" time="6/8" caption="Otto battute in 6/8" notes="b/4:8 b/4:8 b/4:8 b/4:q b/4:8 | b/4:q b/4:8 b/4:q. | b/4:q. b/4:q b/4:8 | b/4:q b/4:8 b/4:8 b/4:8 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q. b/4:q b/4:8 | b/4:q b/4:8 b/4:q b/4:8 | b/4:q. b/4:q." width="700" tempo="63" play slow></tac-stave>
+      <img class="inciso" src="incisioni/eeb1f2848554-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C1-U10-L9-05">
-      <p class="titolo-consegna"><span class="num">5</span> Sei ottavi &middot; Le pause dentro il movimento &middot; 1</p>
+      <p class="titolo-consegna"><span class="num">6</span> Sei ottavi &middot; Le pause dentro il movimento &middot; 1</p>
       <div class="testo">Otto battute in <strong>6/8</strong>. Cinque minuti al giorno, e <strong>non ci si ferma</strong> agli errori.</div>
       <div class="materiale">
-      <tac-stave clef="percussion" time="6/8" caption="Otto battute in 6/8" notes="b/4:8 b/4:8 r:8 b/4:q. | b/4:q. b/4:8 b/4:8 r:8 | b/4:q b/4:8 b/4:q. | r:q. b/4:8 b/4:8 b/4:8 | b/4:8 r:8 b/4:8 b/4:q. | b/4:q. b/4:q b/4:8 | b/4:8 b/4:8 b/4:8 r:q. | b/4:q. b/4:q." width="700" tempo="63" play slow></tac-stave>
+      <img class="inciso" src="incisioni/351b9c03606f-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C1-U10-L9-06">
-      <p class="titolo-consegna"><span class="num">6</span> Sei ottavi &middot; Le pause dentro il movimento &middot; 2</p>
+      <p class="titolo-consegna"><span class="num">7</span> Sei ottavi &middot; Le pause dentro il movimento &middot; 2</p>
       <div class="testo">Otto battute in <strong>6/8</strong>. Cinque minuti al giorno, e <strong>non ci si ferma</strong> agli errori.</div>
       <div class="materiale">
-      <tac-stave clef="percussion" time="6/8" caption="Otto battute in 6/8" notes="b/4:q. r:q. | b/4:8 b/4:8 b/4:8 b/4:q b/4:8 | r:8 b/4:8 b/4:8 b/4:q. | b/4:q b/4:8 r:q. | b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q. b/4:8 r:8 b/4:8 | b/4:q b/4:8 b/4:q b/4:8 | b/4:q. b/4:q." width="700" tempo="63" play slow></tac-stave>
+      <img class="inciso" src="incisioni/1bb1e8a0d72e-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C1-U10-L9-07">
-      <p class="titolo-consegna"><span class="num">7</span> Sei ottavi &middot; Le pause dentro il movimento &middot; 3</p>
+      <p class="titolo-consegna"><span class="num">8</span> Sei ottavi &middot; Le pause dentro il movimento &middot; 3</p>
       <div class="testo">Otto battute in <strong>6/8</strong>. Cinque minuti al giorno, e <strong>non ci si ferma</strong> agli errori.</div>
       <div class="materiale">
-      <tac-stave clef="percussion" time="6/8" caption="Otto battute in 6/8" notes="b/4:8 b/4:8 b/4:8 b/4:8 r:8 b/4:8 | b/4:q b/4:8 b/4:q. | r:8 b/4:8 b/4:8 b/4:q b/4:8 | b/4:q. b/4:q. | b/4:8 r:8 b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q. b/4:q b/4:8 | b/4:q b/4:8 b/4:8 r:8 b/4:8 | b/4:q. b/4:q." width="700" tempo="63" play slow></tac-stave>
+      <img class="inciso" src="incisioni/45365a744252-1.svg" alt="">
       </div>
     </div>
     </section>
@@ -687,7 +711,7 @@
 
 <footer class="piede no-stampa">
   <div class="piede-interno">
-    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a></p>
+    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a></p>
     <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
   </div>
 </footer>

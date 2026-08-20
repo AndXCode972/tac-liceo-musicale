@@ -23,6 +23,16 @@
   @media print { .barra-alto { display: none; } }
   /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
      fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  .materiale img.inciso { display: block; width: 100%; max-width: 175mm;
+                          height: auto; margin: .35rem 0; }
 </style>
 </head>
 <body class="documento">
@@ -36,7 +46,7 @@
     <span class="qui">Materiali</span>
     <span class="voci">
       <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>
-      <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a>
+      <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a>
       <a class="attiva" href="workbook-uda-06.html">Workbook · unità 6</a>
     </span>
   </div>
@@ -122,8 +132,13 @@
     <section class="parte ascolto">
       <h3>Da ascoltare</h3>
       <p class="spiega">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C1-S-C05">
+      <p class="titolo-consegna"><span class="num">1</span> La minore naturale</p>
+      <div class="testo">Cantalo. Qui il <em>sol</em> &egrave; naturale, e la melodia scende verso il <em>la</em> senza tirare.</div>
+      <p class="vai no-stampa"><a href="../uda-06/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
     <div class="consegna" id="C1-U6-L3-01">
-      <p class="titolo-consegna"><span class="num">1</span> Cinque minuti al giorno, in la minore</p>
+      <p class="titolo-consegna"><span class="num">2</span> Cinque minuti al giorno, in la minore</p>
       <div class="testo">Ogni giorno: il gesto d'avvio, poi la scala minore naturale e l'armonica, salendo e scendendo.<p class="dettaglio">Il gesto d'avvio &egrave; sempre lo stesso: si sente il <em>la</em>, si canta <em>la&ndash;mi&ndash;la</em>, poi si parte. Sull'armonica fermatevi un momento sul passaggio <em>fa &rarr; sol</em>&#9839;: &egrave; quello che non viene.</p></div>
       <p class="vai no-stampa"><a href="../uda-06/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
     </div>
@@ -180,8 +195,13 @@
     <section class="parte ascolto">
       <h3>Da ascoltare</h3>
       <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C1-S-C06">
+      <p class="titolo-consegna"><span class="num">1</span> La minore, con la sensibile</p>
+      <div class="testo">Cantalo. La penultima riga ha un <strong>sol diesis</strong>: &egrave; la sensibile, e tira verso il <em>la</em>.</div>
+      <p class="vai no-stampa"><a href="../uda-06/lezione-6.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
     <div class="consegna" id="C1-U6-L6-01">
-      <p class="titolo-consegna"><span class="num">1</span> I due solfeggi, a memoria</p>
+      <p class="titolo-consegna"><span class="num">2</span> I due solfeggi, a memoria</p>
       <div class="testo">I due solfeggi di oggi, uno al giorno, con i nomi a tempo prima di cantare.<p class="dettaglio">Il secondo &egrave; in <em>re</em> minore e ha due segni di mestiere diverso: il <em>si</em>&#9837; in armatura, che vale sempre, e il <em>do</em>&#9839; nella battuta, che c'&egrave; solo dove serve. Dite tutti e due a voce.</p></div>
       <p class="vai no-stampa"><a href="../uda-06/lezione-6.html">Apri l&rsquo;ascolto &rarr;</a></p>
     </div>
@@ -447,7 +467,7 @@
 
 <footer class="piede no-stampa">
   <div class="piede-interno">
-    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a></p>
+    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a></p>
     <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
   </div>
 </footer>

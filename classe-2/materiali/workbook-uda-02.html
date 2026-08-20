@@ -23,6 +23,16 @@
   @media print { .barra-alto { display: none; } }
   /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
      fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  .materiale img.inciso { display: block; width: 100%; max-width: 175mm;
+                          height: auto; margin: .35rem 0; }
 </style>
 </head>
 <body class="documento">
@@ -165,7 +175,7 @@
       <p class="titolo-consegna"><span class="num">1</span> Otto numeri sotto otto battute</p>
       <div class="testo">Scrivi gli <strong>otto intervalli</strong> sotto le otto battute di questo frammento. Poi dì se c’è una parallela, e dove.<p class="dettaglio">Otto minuti, non di più: è un compito di controllo, non di scrittura. Oggi c’era l’interrogazione.</p></div>
       <div class="materiale">
-      <tac-stave clef="treble" time="4/4" caption="Il canto dato è la voce grave" notes="c/5:w | a/4:w | d/5:w | c/5:w | b/4:w | c/5:w | b/4:w | c/5:w" bass="c/4:w | d/4:w | f/4:w | e/4:w | g/4:w | f/4:w | d/4:w | c/4:w" width="740" tempo="52" play slow></tac-stave>
+      <img class="inciso" src="incisioni/bcc2d1dcbfd5-1.svg" alt="">
       </div>
     </div>
     </section>
@@ -207,7 +217,7 @@
       <p class="titolo-consegna"><span class="num">1</span> Un secondo contrappunto, diverso dal primo</p>
       <div class="testo">Sullo <strong>stesso</strong> canto dato di oggi, scrivi un secondo contrappunto <strong>diverso</strong> da quello fatto in classe. Stessa regola: sopra, una nota contro una, tutte consonanze.<p class="dettaglio">Il modo più semplice per farlo diverso davvero: metti il <strong>culmine in un’altra battuta</strong>. Tutto il resto cambia da sé. E prima di consegnare, gli otto numeri.</p></div>
       <div class="materiale">
-      <tac-stave clef="bass" time="4/4" caption="Il canto dato dell’unità" notes="c/4:w | d/4:w | f/4:w | e/4:w | g/4:w | f/4:w | d/4:w | c/4:w" width="740" tempo="50" play slow></tac-stave>
+      <img class="inciso" src="incisioni/4c418883dedb-1.svg" alt="">
       </div>
     </div>
     </section>
@@ -678,7 +688,7 @@
       <p class="titolo-consegna"><span class="num">2</span> Trova la parallela</p>
       <div class="testo">Quattro battute. Scrivi i <strong>quattro intervalli</strong> sotto le battute, poi dì se c’è una parallela e <strong>fra quali due battute</strong>.<p class="dettaglio">Se c’è, riscrivi la battuta che la toglie &mdash; cambiando la voce acuta, perché quella grave è il canto dato.</p></div>
       <div class="materiale">
-      <tac-stave clef="treble" time="4/4" caption="Quattro battute: da controllare" notes="c/5:w | a/4:w | b/4:w | a/4:w" bass="c/4:w | d/4:w | e/4:w | c/4:w" width="620" tempo="52" play slow></tac-stave>
+      <img class="inciso" src="incisioni/909f851f05e1-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C2-U2-U04">

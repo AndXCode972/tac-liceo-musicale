@@ -23,6 +23,16 @@
   @media print { .barra-alto { display: none; } }
   /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
      fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  .materiale img.inciso { display: block; width: 100%; max-width: 175mm;
+                          height: auto; margin: .35rem 0; }
 </style>
 </head>
 <body class="documento">
@@ -36,7 +46,7 @@
     <span class="qui">Materiali</span>
     <span class="voci">
       <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>
-      <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a>
+      <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a>
       <a class="attiva" href="workbook-uda-11.html">Workbook · unità 11</a>
     </span>
   </div>
@@ -126,14 +136,14 @@
       <p class="titolo-consegna"><span class="num">1</span> Due voci &middot; Terze e seste &middot; cadenza autentica</p>
       <div class="testo">Otto battute a <strong>due voci</strong>. Si canta la parte che <strong>non</strong> hai fatto in classe.</div>
       <div class="materiale">
-      <tac-stave clef="treble" time="4/4" caption="Otto battute a due voci" notes="c/4+e/4:h d/4+f/4:h | e/4+g/4:h d/4+f/4:h | c/4+e/4:q d/4+f/4:q e/4+g/4:q f/4+a/4:q | e/4+g/4:h d/4+b/4:h | c/4+e/4:h e/4+c/5:h | f/4+a/4:h e/4+g/4:h | e/4+c/5:h g/4+b/4:h | c/4+c/5:w" width="700" tempo="60" play slow></tac-stave>
+      <img class="inciso" src="incisioni/1d478ca83a83-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C1-U11-L3-02">
       <p class="titolo-consegna"><span class="num">2</span> Due voci &middot; Moto contrario &middot; cadenza plagale</p>
       <div class="testo">Otto battute a <strong>due voci</strong>. Si canta la parte che <strong>non</strong> hai fatto in classe.</div>
       <div class="materiale">
-      <tac-stave clef="treble" time="4/4" caption="Otto battute a due voci" notes="e/4+g/4:h d/4+a/4:h | c/4+c/5:h d/4+b/4:h | e/4+g/4:h f/4+a/4:h | g/4+b/4:h g/4+b/4:h | a/4+c/5:h g/4+b/4:h | f/4+a/4:h e/4+c/5:h | f/4+a/4:h f/4+c/5:h | c/4+c/5:w" width="700" tempo="60" play slow></tac-stave>
+      <img class="inciso" src="incisioni/d73677a3dc60-1.svg" alt="">
       </div>
     </div>
     </section>
@@ -187,11 +197,20 @@
       <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
     </div>
 
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C1-S-C12">
+      <p class="titolo-consegna"><span class="num">1</span> Una frase che chiude, e una che non chiude</p>
+      <div class="testo">Cantalo tutto. Poi fermati dopo la seconda battuta e senti come resta <strong>aperto</strong>.</div>
+      <p class="vai no-stampa"><a href="../uda-11/lezione-6.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
     <section class="parte scritto">
       <h3>Da scrivere sul quaderno</h3>
       <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
     <div class="consegna" id="C1-U11-L6-01">
-      <p class="titolo-consegna"><span class="num">1</span> I quattro arpeggi, due minuti al giorno</p>
+      <p class="titolo-consegna"><span class="num">2</span> I quattro arpeggi, due minuti al giorno</p>
       <div class="testo"><strong>I, IV, V</strong> maggiori e <strong>VI</strong> minore, salendo e scendendo, a nome di nota.<p class="dettaglio">Il <em>do</em> si prende con lo strumento e poi si <strong>toglie</strong>: da l&igrave; in avanti ci si tiene da soli.<br>Poi due volte <strong>I&ndash;IV&ndash;V&ndash;I</strong> di fila, che &egrave; la cadenza cantata da una voce sola, e due volte <strong>I&ndash;IV&ndash;V&ndash;VI</strong>, che &egrave; la d&rsquo;inganno.<br>Due minuti al giorno per due giorni valgono pi&ugrave; di venti minuti domenica sera.</p></div>
     </div>
     </section>
@@ -290,14 +309,14 @@
       <p class="titolo-consegna"><span class="num">1</span> Due voci &middot; La voce di sotto si muove &middot; cadenza autentica</p>
       <div class="testo">Otto battute a <strong>due voci</strong>. Sono i due pi&ugrave; difficili del fascicolo, e restano per l&rsquo;estate.</div>
       <div class="materiale">
-      <tac-stave clef="treble" time="4/4" caption="Otto battute a due voci" notes="c/4+e/4:q e/4+g/4:q g/4+b/4:h | f/4+a/4:q e/4+g/4:q d/4+f/4:h | e/4+g/4:q f/4+a/4:q g/4+b/4:h | c/4+e/4:h g/4+b/4:h | a/4+c/5:q g/4+b/4:q f/4+a/4:h | e/4+g/4:q d/4+f/4:q c/4+e/4:h | d/4+f/4:h g/4+b/4:h | c/4+c/5:w" width="700" tempo="60" play slow></tac-stave>
+      <img class="inciso" src="incisioni/2b3316d79470-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C1-U11-L11-02">
       <p class="titolo-consegna"><span class="num">2</span> Due voci &middot; Le due voci si scambiano &middot; cadenza autentica</p>
       <div class="testo">Otto battute a <strong>due voci</strong>. Sono i due pi&ugrave; difficili del fascicolo, e restano per l&rsquo;estate.</div>
       <div class="materiale">
-      <tac-stave clef="treble" time="4/4" caption="Otto battute a due voci" notes="c/4+c/5:h d/4+b/4:h | e/4+a/4:h f/4+a/4:h | e/4+g/4:q d/4+f/4:q c/4+e/4:h | d/4+f/4:h g/4+b/4:h | c/4+e/4:h d/4+f/4:h | e/4+g/4:q f/4+a/4:q g/4+b/4:h | a/4+c/5:h g/4+b/4:h | c/4+c/5:w" width="700" tempo="60" play slow></tac-stave>
+      <img class="inciso" src="incisioni/34f26b75f985-1.svg" alt="">
       </div>
     </div>
     </section>
@@ -330,7 +349,7 @@
 
 <footer class="piede no-stampa">
   <div class="piede-interno">
-    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a></p>
+    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a></p>
     <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
   </div>
 </footer>

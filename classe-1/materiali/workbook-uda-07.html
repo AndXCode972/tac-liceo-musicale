@@ -23,6 +23,16 @@
   @media print { .barra-alto { display: none; } }
   /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
      fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  .materiale img.inciso { display: block; width: 100%; max-width: 175mm;
+                          height: auto; margin: .35rem 0; }
 </style>
 </head>
 <body class="documento">
@@ -36,7 +46,7 @@
     <span class="qui">Materiali</span>
     <span class="voci">
       <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>
-      <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a>
+      <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a>
       <a class="attiva" href="workbook-uda-07.html">Workbook · unità 7</a>
     </span>
   </div>
@@ -122,8 +132,23 @@
     <section class="parte ascolto">
       <h3>Da ascoltare</h3>
       <p class="spiega">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C1-S-C07">
+      <p class="titolo-consegna"><span class="num">1</span> Intervalli entro la quinta, uno per volta</p>
+      <div class="testo">Cantalo. Ogni volta si riparte dal <em>do</em> e si sale di un grado in pi&ugrave;: seconda, terza, quarta, quinta.</div>
+      <p class="vai no-stampa"><a href="../uda-07/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C1-S-P10">
+      <p class="titolo-consegna"><span class="num">2</span> Le due chiavi, sullo stesso foglio</p>
+      <div class="testo">Prima questa riga, poi quella dopo. Sono la stessa melodia in due chiavi diverse: leggile <strong>senza fermarti in mezzo</strong>.</div>
+      <p class="vai no-stampa"><a href="../uda-07/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C1-S-P11">
+      <p class="titolo-consegna"><span class="num">3</span> La stessa melodia, in chiave di basso</p>
+      <div class="testo">La riga di prima, in chiave di basso. Gli stessi nomi, un'altra posizione sul rigo.</div>
+      <p class="vai no-stampa"><a href="../uda-07/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
     <div class="consegna" id="C1-U7-L3-01">
-      <p class="titolo-consegna"><span class="num">1</span> Cinque minuti al giorno, cinque intervalli</p>
+      <p class="titolo-consegna"><span class="num">4</span> Cinque minuti al giorno, cinque intervalli</p>
       <div class="testo">Ogni giorno, dal <em>do</em>: seconda, terza minore, terza maggiore, quarta, quinta. <strong>Su e gi&ugrave;.</strong><p class="dettaglio">Prima con la canzone che vi &egrave; venuta in mente in classe, poi senza. Il giorno che uno degli intervalli viene <strong>senza</strong> ripensare alla canzone, quello &egrave; fatto: segnatelo e passate agli altri.</p></div>
       <p class="vai no-stampa"><a href="../uda-07/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
     </div>
@@ -448,7 +473,7 @@
 
 <footer class="piede no-stampa">
   <div class="piede-interno">
-    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a></p>
+    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a></p>
     <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
   </div>
 </footer>

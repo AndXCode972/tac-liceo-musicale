@@ -23,6 +23,16 @@
   @media print { .barra-alto { display: none; } }
   /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
      fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  .materiale img.inciso { display: block; width: 100%; max-width: 175mm;
+                          height: auto; margin: .35rem 0; }
 </style>
 </head>
 <body class="documento">
@@ -36,7 +46,7 @@
     <span class="qui">Materiali</span>
     <span class="voci">
       <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>
-      <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a>
+      <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a>
       <a class="attiva" href="workbook-uda-03.html">Workbook · unità 3</a>
     </span>
   </div>
@@ -245,15 +255,29 @@
       <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
     </div>
 
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C1-S-P04">
+      <p class="titolo-consegna"><span class="num">1</span> Con le alterazioni, e la stanghetta che azzera</p>
+      <div class="testo">Di' i nomi <strong>per intero</strong>: &laquo;fa&raquo;, &laquo;fa diesis&raquo;, &laquo;sol&raquo;&hellip; La quarta nota &egrave; ancora alterata?</div>
+      <p class="vai no-stampa"><a href="../uda-03/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C1-S-P05">
+      <p class="titolo-consegna"><span class="num">2</span> Il bequadro in mezzo alla battuta</p>
+      <div class="testo">Di' i nomi per intero. La terza nota ha un <strong>bequadro</strong>: come si legge?</div>
+      <p class="vai no-stampa"><a href="../uda-03/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
     <section class="parte scritto">
       <h3>Da scrivere sul quaderno</h3>
       <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
     <div class="consegna" id="C1-U3-L3-01">
-      <p class="titolo-consegna"><span class="num">1</span> Quattro righe al giorno, col giro muto</p>
+      <p class="titolo-consegna"><span class="num">3</span> Quattro righe al giorno, col giro muto</p>
       <div class="testo">Sul Workbook trovi otto righe con le alterazioni. Quattro al giorno, per quattro giorni.<p class="dettaglio">Sempre con il <strong>giro muto</strong> prima: trova i segni, segna col puntino dove arrivano, e solo dopo attacca. Dieci secondi, non di più.</p></div>
     </div>
     <div class="consegna" id="C1-U3-L3-02">
-      <p class="titolo-consegna"><span class="num">2</span> I puntini, contati</p>
+      <p class="titolo-consegna"><span class="num">4</span> I puntini, contati</p>
       <div class="testo">Su due delle otto righe, conta quanti <strong>puntini</strong> hai dovuto mettere nel giro muto e scrivi il numero accanto.<p class="dettaglio">Se in una riga i puntini sono zero, o l’hai guardata male, o quella riga è facile: dimmi tu quale delle due.</p></div>
     </div>
     </section>
@@ -655,7 +679,7 @@
 
 <footer class="piede no-stampa">
   <div class="piede-interno">
-    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a></p>
+    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a></p>
     <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
   </div>
 </footer>

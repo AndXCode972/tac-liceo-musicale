@@ -23,6 +23,16 @@
   @media print { .barra-alto { display: none; } }
   /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
      fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  .materiale img.inciso { display: block; width: 100%; max-width: 175mm;
+                          height: auto; margin: .35rem 0; }
 </style>
 </head>
 <body class="documento">
@@ -36,7 +46,7 @@
     <span class="qui">Materiali</span>
     <span class="voci">
       <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>
-      <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a>
+      <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a>
       <a class="attiva" href="workbook-uda-08.html">Workbook · unità 8</a>
     </span>
   </div>
@@ -180,8 +190,18 @@
     <section class="parte ascolto">
       <h3>Da ascoltare</h3>
       <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C1-S-C08">
+      <p class="titolo-consegna"><span class="num">1</span> L'arpeggio maggiore</p>
+      <div class="testo">Cantalo. Sono sempre le stesse tre note: <em>do</em>, <em>mi</em>, <em>sol</em>. Cambia l'ordine.</div>
+      <p class="vai no-stampa"><a href="../uda-08/lezione-6.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C1-S-C09">
+      <p class="titolo-consegna"><span class="num">2</span> L'arpeggio minore, subito dopo</p>
+      <div class="testo">Cantalo subito dopo quello maggiore, senza pausa in mezzo. La differenza sta in <strong>una nota sola</strong>.</div>
+      <p class="vai no-stampa"><a href="../uda-08/lezione-6.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
     <div class="consegna" id="C1-U8-L6-01">
-      <p class="titolo-consegna"><span class="num">1</span> Gli arpeggi, cinque minuti al giorno</p>
+      <p class="titolo-consegna"><span class="num">3</span> Gli arpeggi, cinque minuti al giorno</p>
       <div class="testo">Le quattro specie dal <em>do</em>, su e gi&ugrave;. Poi le sette triadi della scala di do, in fila, dal I al VII.<p class="dettaglio">La regola &egrave; una sola: <strong>non si parte dallo strumento</strong>. Si canta prima, e si controlla dopo.<br>Sulle sette della scala, fermatevi ogni volta sul settimo grado e state zitti due secondi prima di ricominciare: quella sensazione di essere rimasti a met&agrave; &egrave; la cosa che dovete portare all&rsquo;unit&agrave; 11.</p></div>
       <p class="vai no-stampa"><a href="../uda-08/lezione-6.html">Apri l&rsquo;ascolto &rarr;</a></p>
     </div>
@@ -545,7 +565,7 @@
 
 <footer class="piede no-stampa">
   <div class="piede-interno">
-    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a></p>
+    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a></p>
     <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
   </div>
 </footer>

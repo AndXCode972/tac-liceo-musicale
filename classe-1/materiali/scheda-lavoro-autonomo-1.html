@@ -29,6 +29,15 @@
   .checklist td:first-child, .checklist th:first-child { text-align: left; }
   .quadretto { display: inline-block; width: 1.3rem; height: 1.3rem; border: 2px solid var(--inchiostro2);
                border-radius: 4px; vertical-align: middle; }
+
+  /* IL RIGO INCISO, dal 20 agosto. Misura presa dal Pozzoli,
+     «Corso facile di Solfeggio» parte I, p. 8: linee a 1,65 mm.
+     Il max-width in millimetri impedisce che su uno schermo largo
+     l'immagine si ingrandisca oltre la sua misura di stampa. */
+  img.inciso { display: block; width: 100%; max-width: 175mm;
+               height: auto; margin: .4rem 0; }
+  .didascalia-rigo { font-size: .85rem; color: var(--inchiostro2);
+                     margin: .6rem 0 .1rem; font-weight: 600; }
 </style>
 </head>
 <body class="documento">
@@ -73,13 +82,17 @@
     <p>Uno legge il ritmo con una sillaba libera (<em>pam</em>, <em>ta</em>), l'altro batte la pulsazione con la mano. Dopo i primi due modelli <strong>vi scambiate</strong>.</p>
     <div class="riquadro attenzione"><span class="etichetta">A bassa voce</span><p>Si legge <strong>a mezza voce</strong>, quanto basta perché vi sentiate voi due. Alla cattedra un compagno sta eseguendo un solfeggio a prima vista e ha diritto di sentire sé stesso.</p></div>
 
-    <tac-stave clef="percussion" time="2/4" caption="Modello 1" notes="b/4:q b/4:8 b/4:8 | b/4:q b/4:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:q" width="680" tempo="80" play slow></tac-stave>
+    <p class="didascalia-rigo">Modello 1</p>
+      <img class="inciso" src="incisioni/0460efa66a4b-1.svg" alt="Modello 1">
 
-    <tac-stave clef="percussion" time="2/4" caption="Modello 2" notes="b/4:8 b/4:8 b/4:q b/4:q r:q b/4:8 b/4:8 b/4:8 b/4:8 b/4:h" width="680" tempo="80" play slow></tac-stave>
+    <p class="didascalia-rigo">Modello 2</p>
+      <img class="inciso" src="incisioni/cf734dd20607-1.svg" alt="Modello 2">
 
-    <tac-stave clef="percussion" time="6/8" caption="Modello 3" notes="b/4:q. b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:q." width="680" tempo="112" play slow></tac-stave>
+    <p class="didascalia-rigo">Modello 3</p>
+      <img class="inciso" src="incisioni/8a2906054059-1.svg" alt="Modello 3">
 
-    <tac-stave clef="percussion" time="3/4" caption="Modello 4" notes="b/4:q b/4:q b/4:8 b/4:8 b/4:h b/4:q b/4:8 b/4:8 b/4:q b/4:q" width="680" tempo="88" play slow></tac-stave>
+    <p class="didascalia-rigo">Modello 4</p>
+      <img class="inciso" src="incisioni/42993488578c-1.svg" alt="Modello 4">
 
     <p><strong>Controllo reciproco.</strong> Segna una crocetta per ogni criterio rispettato dal tuo compagno.</p>
 
@@ -173,17 +186,25 @@
     <div class="colonne">
       <div>
         <p><strong>Schede di A</strong> — le batte A, le trascrive B</p>
-      <tac-stave clef="percussion" time="2/4" caption="A1" notes="b/4:q b/4:q b/4:8 b/4:8 b/4:q" width="300"></tac-stave>
-      <tac-stave clef="percussion" time="2/4" caption="A2" notes="b/4:8 b/4:8 b/4:q b/4:q b/4:q" width="300"></tac-stave>
-      <tac-stave clef="percussion" time="2/4" caption="A3" notes="b/4:q b/4:8 b/4:8 b/4:q b/4:q" width="300"></tac-stave>
-      <tac-stave clef="percussion" time="2/4" caption="A4" notes="b/4:8 b/4:8 b/4:8 b/4:8 b/4:q r:q" width="300"></tac-stave>
+      <p class="didascalia-rigo">A1</p>
+      <img class="inciso" src="incisioni/1dfa101ae53b-1.svg" alt="A1">
+      <p class="didascalia-rigo">A2</p>
+      <img class="inciso" src="incisioni/85ec282cff0c-1.svg" alt="A2">
+      <p class="didascalia-rigo">A3</p>
+      <img class="inciso" src="incisioni/df6659b2f049-1.svg" alt="A3">
+      <p class="didascalia-rigo">A4</p>
+      <img class="inciso" src="incisioni/8ac0e42ca4fd-1.svg" alt="A4">
       </div>
       <div>
         <p><strong>Schede di B</strong> — le batte B, le trascrive A</p>
-      <tac-stave clef="percussion" time="2/4" caption="B1" notes="b/4:q b/4:q b/4:q r:q" width="300"></tac-stave>
-      <tac-stave clef="percussion" time="2/4" caption="B2" notes="b/4:8 b/4:8 b/4:q b/4:8 b/4:8 b/4:q" width="300"></tac-stave>
-      <tac-stave clef="percussion" time="2/4" caption="B3" notes="b/4:q b/4:8 b/4:8 b/4:8 b/4:8 b/4:q" width="300"></tac-stave>
-      <tac-stave clef="percussion" time="2/4" caption="B4" notes="r:q b/4:q b/4:8 b/4:8 b/4:8 b/4:8" width="300"></tac-stave>
+      <p class="didascalia-rigo">B1</p>
+      <img class="inciso" src="incisioni/22839f0a7eff-1.svg" alt="B1">
+      <p class="didascalia-rigo">B2</p>
+      <img class="inciso" src="incisioni/0cb8186fa5d3-1.svg" alt="B2">
+      <p class="didascalia-rigo">B3</p>
+      <img class="inciso" src="incisioni/bb218ac59954-1.svg" alt="B3">
+      <p class="didascalia-rigo">B4</p>
+      <img class="inciso" src="incisioni/bb180ea87b04-1.svg" alt="B4">
       </div>
     </div>
 

@@ -23,6 +23,16 @@
   @media print { .barra-alto { display: none; } }
   /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
      fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  .materiale img.inciso { display: block; width: 100%; max-width: 175mm;
+                          height: auto; margin: .35rem 0; }
 </style>
 </head>
 <body class="documento">
@@ -124,7 +134,7 @@
       <p class="titolo-consegna"><span class="num">2</span> Costruisci le consonanze sopra cinque note</p>
       <div class="testo">Sopra ciascuna delle cinque note date, scrivi la <strong>terza</strong>, la <strong>quinta</strong> e la <strong>sesta</strong>. Poi segna quali sono perfette e quali imperfette.<p class="dettaglio">Le note date sono do, re, mi, fa, sol in chiave di violino. Resta in tonalità di do maggiore: nessuna alterazione.</p></div>
       <div class="materiale">
-      <tac-stave clef="treble" time="4/4" caption="Le cinque note di partenza" notes="c/4:w | d/4:w | e/4:w | f/4:w | g/4:w" width="700"></tac-stave>
+      <img class="inciso" src="incisioni/0cd3afa1646a-1.svg" alt="">
       </div>
     </div>
     </section>
@@ -188,7 +198,7 @@
       <p class="titolo-consegna"><span class="num">1</span> La seconda voce, scritta due volte</p>
       <div class="testo">Sulla stessa voce data di oggi, scrivi <strong>due</strong> seconde voci diverse: una che usi soprattutto il moto <strong>parallelo</strong>, e una che usi soprattutto il <strong>contrario</strong>.<p class="dettaglio">Le regole sono quelle dell’ora: nota contro nota, tutte consonanze. Poi suonale tutte e due &mdash; al pianoforte o con un compagno &mdash; e scrivi sotto ciascuna quante voci si sentono.</p></div>
       <div class="materiale">
-      <tac-stave clef="treble" time="2/2" caption="La voce data" notes="c/5:h d/5:h | e/5:h c/5:h | f/5:h e/5:h | d/5:h g/4:h | a/4:h b/4:h | c/5:h d/5:h | e/5:h d/5:h | c/5:h c/5:h" width="740" tempo="60" play slow></tac-stave>
+      <img class="inciso" src="incisioni/19abd5d8fb60-1.svg" alt="">
       </div>
     </div>
     </section>

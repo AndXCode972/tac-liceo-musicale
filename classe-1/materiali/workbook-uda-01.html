@@ -23,6 +23,16 @@
   @media print { .barra-alto { display: none; } }
   /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
      fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  .materiale img.inciso { display: block; width: 100%; max-width: 175mm;
+                          height: auto; margin: .35rem 0; }
 </style>
 </head>
 <body class="documento">
@@ -36,7 +46,7 @@
     <span class="qui">Materiali</span>
     <span class="voci">
       <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>
-      <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a>
+      <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a>
       <a class="attiva" href="workbook-uda-01.html">Workbook · unità 1</a>
     </span>
   </div>
@@ -356,7 +366,7 @@
       <p class="titolo-consegna"><span class="num">3</span> Dove vanno le stanghette</p>
       <div class="testo">Il rigo qui sotto è <strong>parzialmente scritto</strong>: mancano le stanghette. Aggiungile tu, sapendo che il metro è <strong>2/4</strong>. Poi segna con <em>F</em> e <em>D</em> gli accenti forti e deboli.</div>
       <div class="materiale">
-      <tac-stave clef="percussion" caption="Aggiungi le stanghette" notes="b/4:q b/4:8 b/4:8 b/4:q b/4:q b/4:8 b/4:8 b/4:8 b/4:8 b/4:q b/4:q b/4:q" width="640"></tac-stave>
+      <img class="inciso" src="incisioni/8fd0f78a04c4-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C1-U1-L2-09">
@@ -829,7 +839,7 @@
       <p class="titolo-consegna"><span class="num">3</span> Raggruppare con i tratti di unione</p>
       <div class="testo">Guarda come sono raggruppate le figure qui sotto: è sbagliato. Riscrivi <strong>sul quaderno</strong> la stessa sequenza raggruppandola correttamente con i tratti di unione. Il metro è <strong>2/4</strong>.</div>
       <div class="materiale">
-      <tac-stave travatura="3" clef="percussion" time="2/4" caption="Come è raggruppata adesso: i tratti scavalcano il quarto" notes="b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8" width="640"></tac-stave>
+      <img class="inciso" src="incisioni/0b238b7615f5-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C1-U1-L5-02">
@@ -869,15 +879,15 @@
       <p class="titolo-consegna"><span class="num">3</span> Che metro è?</p>
       <div class="testo">Per ciascun rigo scrivi l'indicazione di metro corretta, deducendola dal contenuto delle battute.</div>
       <div class="materiale">
-      <tac-stave clef="percussion" notes="b/4:q b/4:q b/4:q b/4:q b/4:8 b/4:8 b/4:q" width="640"></tac-stave>
-      <tac-stave clef="percussion" caption="E questo?" notes="b/4:q. b/4:q. b/4:8 b/4:8 b/4:8 b/4:q." width="640"></tac-stave>
+      <img class="inciso" src="incisioni/b1ecb60bf154-1.svg" alt="">
+      <img class="inciso" src="incisioni/66ba17a92ec5-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C1-U1-L6-02">
       <p class="titolo-consegna"><span class="num">4</span> La pulsazione sotto la melodia</p>
       <div class="testo">La melodia è già scritta nel rigo superiore. Nel rigo <strong>inferiore</strong> scrivi la sola <strong>pulsazione</strong>, in quarti, come farebbe un accompagnamento minimo: una nota sotto ogni battito, allineata a quello che succede sopra.</div>
       <div class="materiale">
-      <tac-stave clef="treble" bass="" time="3/4" keysig="C" caption="La pulsazione va nel rigo di sotto" notes="g/4:q a/4:q b/4:q c/5:h d/5:q" width="640"></tac-stave>
+      <img class="inciso" src="incisioni/2bd5c5952592-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C1-U1-L6-04">
@@ -888,7 +898,7 @@
       <p class="titolo-consegna"><span class="num">6</span> Cinque minuti al giorno, in tre</p>
       <div class="testo">Il rigo qui sotto, ogni giorno per cinque minuti, battendo la pulsazione con la mano. Non tutto d'un fiato la sera prima: il ritmo si impara col ripasso corto e ripetuto, come le scale.<p class="dettaglio">Batti sempre con la stessa mano e tieni il gesto in tre della lezione 3. Se ti accorgi di accelerare, ricomincia più lento: la velocità viene da sé, la regolarità no.</p></div>
       <div class="materiale">
-      <tac-stave clef="percussion" time="3/4" caption="Da leggere ogni giorno" notes="b/4:q b/4:8 b/4:8 b/4:q | b/4:h b/4:q | b/4:q b/4:q b/4:q | b/4:h. | b/4:8 b/4:8 b/4:8 b/4:8 b/4:q | b/4:q r:q b/4:q | b/4:q b/4:8 b/4:8 b/4:q | b/4:h." width="700" tempo="60" play slow></tac-stave>
+      <img class="inciso" src="incisioni/30802d0a3239-1.svg" alt="">
       </div>
     </div>
     </section>
@@ -1789,7 +1799,7 @@
       <p class="titolo-consegna"><span class="num">8</span> Quattro battute, dall’inizio alla fine</p>
       <div class="testo">Batti la pulsazione con la mano e leggi il ritmo a voce su <em>ta</em>. La regola è una sola: <strong>si arriva in fondo</strong>. Se ti perdi non ricominci — tieni la mano e rientri al battito dopo.<p class="dettaglio">Prima leggilo in silenzio e ripetilo a memoria, poi esegui. Due volte: la prima lenta, la seconda al tempo segnato.</p></div>
       <div class="materiale">
-      <tac-stave clef="percussion" time="2/4" caption="Quattro battute in 2/4" notes="b/4:q b/4:8 b/4:8 | b/4:q r:q | b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h" width="640" tempo="66" play slow></tac-stave>
+      <img class="inciso" src="incisioni/dc716dc9dad9-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C1-U1-L5-07">
@@ -1807,7 +1817,7 @@
 
 <footer class="piede no-stampa">
   <div class="piede-interno">
-    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a></p>
+    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a></p>
     <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
   </div>
 </footer>

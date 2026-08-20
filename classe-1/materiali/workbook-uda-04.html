@@ -23,6 +23,16 @@
   @media print { .barra-alto { display: none; } }
   /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
      fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  .materiale img.inciso { display: block; width: 100%; max-width: 175mm;
+                          height: auto; margin: .35rem 0; }
 </style>
 </head>
 <body class="documento">
@@ -36,7 +46,7 @@
     <span class="qui">Materiali</span>
     <span class="voci">
       <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>
-      <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a>
+      <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a>
       <a class="attiva" href="workbook-uda-04.html">Workbook · unità 4</a>
     </span>
   </div>
@@ -122,8 +132,18 @@
     <section class="parte ascolto">
       <h3>Da ascoltare</h3>
       <p class="spiega">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C1-S-C01">
+      <p class="titolo-consegna"><span class="num">1</span> La scala di do, andata e ritorno</p>
+      <div class="testo">Cantalo sul nome delle note, lentamente. Prima con lo strumento, poi senza.</div>
+      <p class="vai no-stampa"><a href="../uda-04/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C1-S-P06">
+      <p class="titolo-consegna"><span class="num">2</span> La chiave di basso, per cominciare</p>
+      <div class="testo">Di' i nomi a tempo. &Egrave; la chiave in cui sta quasi sempre la voce grave, e la userete per due anni.</div>
+      <p class="vai no-stampa"><a href="../uda-04/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
     <div class="consegna" id="C1-U4-L3-01">
-      <p class="titolo-consegna"><span class="num">1</span> Cinque minuti al giorno, con la scala</p>
+      <p class="titolo-consegna"><span class="num">3</span> Cinque minuti al giorno, con la scala</p>
       <div class="testo">Ogni giorno, per cinque minuti: canta la scala di <em>do</em> salendo e scendendo, poi per salti (do&ndash;mi&ndash;sol&ndash;do).<p class="dettaglio">Prima con una nota data dallo strumento, poi <strong>senza</strong>. Fermati sui due punti stretti &mdash; <em>mi</em>&ndash;<em>fa</em> e <em>si</em>&ndash;<em>do</em> &mdash; e ripetili tre volte.</p></div>
       <p class="vai no-stampa"><a href="../uda-04/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
     </div>
@@ -161,8 +181,18 @@
     <section class="parte ascolto">
       <h3>Da ascoltare</h3>
       <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C1-S-C02">
+      <p class="titolo-consegna"><span class="num">1</span> Terze dentro la scala</p>
+      <div class="testo">Cantalo. Ogni salto di terza &egrave; seguito da un grado congiunto che scende: &egrave; il modo in cui un salto si &laquo;paga&raquo;.</div>
+      <p class="vai no-stampa"><a href="../uda-04/lezione-6.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C1-S-P07">
+      <p class="titolo-consegna"><span class="num">2</span> Chiave di basso, per gradi</p>
+      <div class="testo">Stessa consegna. La quarta nota esce dal rigo: &egrave; il <em>do</em> centrale.</div>
+      <p class="vai no-stampa"><a href="../uda-04/lezione-6.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
     <div class="consegna" id="C1-U4-L6-01">
-      <p class="titolo-consegna"><span class="num">1</span> I due solfeggi di oggi, e uno nuovo</p>
+      <p class="titolo-consegna"><span class="num">3</span> I due solfeggi di oggi, e uno nuovo</p>
       <div class="testo">Ogni giorno: i due solfeggi cantati in classe, e poi il numero <strong>27</strong> del fascicolo, che non abbiamo ancora fatto.<p class="dettaglio">Prima i nomi <strong>a tempo</strong>, poi si canta: sono due difficolt&agrave; diverse e vanno separate. Sul terzo, che &egrave; nuovo, fermati dove non viene e ripeti quella battuta sola cinque volte &mdash; ricominciare da capo non serve a niente.</p></div>
       <p class="vai no-stampa"><a href="../uda-04/lezione-6.html">Apri l&rsquo;ascolto &rarr;</a></p>
     </div>
@@ -500,7 +530,7 @@
 
 <footer class="piede no-stampa">
   <div class="piede-interno">
-    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Solfeggio · tutto l'anno</a></p>
+    <p><a href="../">&larr; Torna alla classe 1&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-1.html">Il quaderno di lettura · tutto l'anno</a></p>
     <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
   </div>
 </footer>

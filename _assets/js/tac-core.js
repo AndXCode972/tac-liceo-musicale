@@ -5280,90 +5280,145 @@
         return '../../' + (cl.via || ('classe-' + cl.n)) + '/' + sotto + '/' + nome;
       };
 
-      let html = '';
-      (ind.classi || []).forEach(cl => {
-        const suClasse = cl.n === qui.classe;
-        const pronte = (cl.unita || []).reduce(
-          (n, u) => n + (u.lezioni || []).filter(l => l.stato === 'pronta').length, 0);
+      /* ══ DUE FILE DI PASTIGLIE, E POI LE LEZIONI ══
 
-        html += '<button type="button" class="tac-classe' +
-                (suClasse ? ' qui aperta' : '') + '" data-classe="' + cl.n + '">' +
-                '<span class="freccia">&#9656;</span>' +
-                'Classe ' + cl.n + '&ordf; &middot; ' + cl.titolo +
-                '<span class="conto">' +
-                (pronte ? pronte + (pronte === 1 ? ' lezione' : ' lezioni') : 'in preparazione') +
-                '</span></button>';
+         Andrea, 21 agosto: «il menu "vai a" risulta ancora poco
+         fruibile, lo spostamento fra le classi e fra le unità deve
+         essere più agevole».
 
-        html += '<div class="tac-gruppo' + (suClasse ? ' aperta' : '') +
-                '" data-gruppo="' + cl.n + '">';
+         Prima era **un elenco solo**: le classi si aprivano e si
+         chiudevano, ma dentro una classe c'erano tutte le unità con
+         tutte le loro lezioni. Aprire la prima voleva dire novanta righe
+         di lezione da scorrere per arrivare all'unità 11.
 
-        (cl.unita || []).forEach(u => {
-          const viaU = u.via || ('uda-' + String(u.n).padStart(2, '0'));
-          const suUnita = suClasse && u.n === qui.unita;
-          const lez = u.lezioni || [];
-          html += '<div class="tac-tendina-testa' + (suUnita ? ' qui' : '') + '">' +
-                  'Unità ' + u.n + ' · ' + u.titolo +
-                  (u.quando ? '<span class="quando">' + u.quando + '</span>' : '') +
-                  '</div>';
-          if (!lez.length) {
-            html += '<div class="tac-voce vuota">' +
-                    (u.stato || 'da preparare') + '</div>';
-            return;
-          }
-          lez.forEach(l => {
-            const corrente = suUnita && l.n === qui.lezione;
-            const pronta = l.stato === 'pronta';
-            const dove = via(cl, suUnita ? null : viaU, l.file);
-            if (corrente)
-              html += '<div class="tac-voce corrente" aria-current="page">' +
-                      '<b>' + l.n + '.</b> ' + l.titolo + '<span class="segno">sei qui</span></div>';
-            else if (pronta)
-              html += '<a class="tac-voce" href="' + dove + '">' +
-                      '<b>' + l.n + '.</b> ' + l.titolo + '</a>';
-            else
-              html += '<div class="tac-voce vuota"><b>' + l.n + '.</b> ' + l.titolo +
-                      '<span class="segno">in preparazione</span></div>';
-          });
-          (u.materiali || []).forEach(m => {
-            if (m.stato !== 'pronta') return;
-            /* i materiali sono dichiarati come `../materiali/nome.html`,
-               relativi alla cartella di un'unità: si prende il nome nudo
-               e si ricostruisce, o da un'altra classe punterebbero alla
-               cartella `materiali` sbagliata */
-            const nome = String(m.file).split('/').pop();
-            html += '<a class="tac-voce materiale" href="' +
-                    via(cl, 'materiali', nome) + '">' + m.titolo + '</a>';
+         Adesso sono **tre pezzi sovrapposti**:
+
+           riga 1   le cinque classi, cinque pastiglie
+           riga 2   le unità della classe scelta, una pastiglia per unità
+           corpo    le lezioni della sola unità scelta
+
+         Cioè: due clic per arrivare ovunque, e **niente da scorrere** —
+         perché quello che si vede alla volta è una unità sola, che è al
+         massimo dodici righe.
+
+         Le pastiglie dei numeri sono piccole apposta: in classe si
+         cerca «l'unità 7», non il suo titolo. Il titolo compare sotto,
+         quando l'unità è scelta. */
+      const CL = ind.classi || [];
+      let scelta = { classe: qui.classe, unita: qui.unita };
+
+      const trovaCl = n => CL.find(c => c.n === n) || CL[0];
+      const trovaU = (cl, n) => (cl.unita || []).find(u => u.n === n)
+                             || (cl.unita || [])[0];
+
+      const pronteDi = cl => (cl.unita || []).reduce(
+        (n, u) => n + (u.lezioni || []).filter(l => l.stato === 'pronta').length, 0);
+
+      const disegna = () => {
+        const cl = trovaCl(scelta.classe);
+        const u  = trovaU(cl, scelta.unita);
+        let h = '';
+
+        /* riga 1 · le classi */
+        h += '<div class="tac-pastiglie classi">';
+        CL.forEach(c => {
+          const n = pronteDi(c);
+          h += '<button type="button" class="tac-pil' +
+               (c.n === scelta.classe ? ' scelta' : '') +
+               (c.n === qui.classe ? ' qui' : '') +
+               (n ? '' : ' vuota') + '" data-cl="' + c.n + '"' +
+               ' title="Classe ' + c.n + '\u00aa \u00b7 ' + (c.titolo || '') +
+               ' \u00b7 ' + (n ? n + ' lezioni' : 'in preparazione') + '">' +
+               c.n + '\u00aa</button>';
+        });
+        h += '</div>';
+
+        /* riga 2 · le unità della classe scelta */
+        h += '<div class="tac-pastiglie unita">';
+        (cl.unita || []).forEach(x => {
+          const n = (x.lezioni || []).filter(l => l.stato === 'pronta').length;
+          h += '<button type="button" class="tac-pil' +
+               (u && x.n === u.n ? ' scelta' : '') +
+               (cl.n === qui.classe && x.n === qui.unita ? ' qui' : '') +
+               (n ? '' : ' vuota') + '" data-u="' + x.n + '"' +
+               ' title="Unit\u00e0 ' + x.n + ' \u00b7 ' + (x.titolo || '') + '">' +
+               x.n + '</button>';
+        });
+        h += '</div>';
+
+        /* corpo · le lezioni della sola unità scelta */
+        if (!u) { menu.innerHTML = h; return; }
+        const viaU = u.via || ('uda-' + String(u.n).padStart(2, '0'));
+        const suUnita = cl.n === qui.classe && u.n === qui.unita;
+
+        h += '<div class="tac-tendina-testa' + (suUnita ? ' qui' : '') + '">' +
+             'Classe ' + cl.n + '\u00aa \u00b7 unit\u00e0 ' + u.n + ' \u00b7 ' + u.titolo +
+             (u.quando ? '<span class="quando">' + u.quando + '</span>' : '') +
+             '</div>';
+
+        const lez = u.lezioni || [];
+        if (!lez.length) {
+          h += '<div class="tac-voce vuota">' + (u.stato || 'da preparare') + '</div>';
+        }
+        lez.forEach(l => {
+          const corrente = suUnita && l.n === qui.lezione;
+          const dove = via(cl, suUnita ? null : viaU, l.file);
+          if (corrente)
+            h += '<div class="tac-voce corrente" aria-current="page">' +
+                 '<b>' + l.n + '.</b> ' + l.titolo + '<span class="segno">sei qui</span></div>';
+          else if (l.stato === 'pronta')
+            h += '<a class="tac-voce" href="' + dove + '">' +
+                 '<b>' + l.n + '.</b> ' + l.titolo + '</a>';
+          else
+            h += '<div class="tac-voce vuota"><b>' + l.n + '.</b> ' + l.titolo +
+                 '<span class="segno">in preparazione</span></div>';
+        });
+        (u.materiali || []).forEach(m => {
+          if (m.stato !== 'pronta') return;
+          const nome = String(m.file).split('/').pop();
+          h += '<a class="tac-voce materiale" href="' +
+               via(cl, 'materiali', nome) + '">' + m.titolo + '</a>';
+        });
+
+        menu.innerHTML = h;
+
+        /* i clic sulle pastiglie **non** chiudono la tendina: scegliere
+           una classe o un'unità è navigare dentro l'elenco, non uscirne */
+        menu.querySelectorAll('.tac-pastiglie.classi .tac-pil').forEach(b => {
+          b.addEventListener('click', ev => {
+            ev.stopPropagation();
+            const n = parseInt(b.dataset.cl, 10);
+            scelta.classe = n;
+            /* passando a un'altra classe si va alla sua prima unità, non
+               a «l'unità con lo stesso numero»: fra classi il numero
+               d'unità non vuol dire niente */
+            scelta.unita = (n === qui.classe) ? qui.unita
+                                              : ((trovaCl(n).unita || [{}])[0].n || 1);
+            disegna();
           });
         });
-        html += '</div>';
-      });
-      menu.innerHTML = html;
-
-      /* le barre delle classi si aprono e si chiudono, e non chiudono la
-         tendina: cliccarle è navigare dentro l'elenco, non uscirne */
-      menu.querySelectorAll('.tac-classe').forEach(b => {
-        b.addEventListener('click', ev => {
-          ev.stopPropagation();
-          const g = menu.querySelector('.tac-gruppo[data-gruppo="' +
-                                       b.dataset.classe + '"]');
-          const apri = !b.classList.contains('aperta');
-          b.classList.toggle('aperta', apri);
-          if (g) g.classList.toggle('aperta', apri);
+        menu.querySelectorAll('.tac-pastiglie.unita .tac-pil').forEach(b => {
+          b.addEventListener('click', ev => {
+            ev.stopPropagation();
+            scelta.unita = parseInt(b.dataset.u, 10);
+            disegna();
+          });
         });
-      });
+      };
+
+      disegna();
 
       const bottone = nav.querySelector('#tac-btn-vai');
       const chiudi = () => cont.classList.remove('aperto');
       bottone.onclick = e => {
         e.stopPropagation();
-        cont.classList.toggle('aperto');
-        /* aperta, si porta subito sotto gli occhi la voce corrente:
-           con undici unità l'elenco è lungo e quella è il punto di
-           partenza di chiunque */
-        if (cont.classList.contains('aperto')) {
-          const q = menu.querySelector('.corrente');
-          if (q) menu.scrollTop = Math.max(0, q.offsetTop - menu.clientHeight / 2);
+        /* riaprendola si riparte sempre da dove si è, non da dove si era
+           andati a curiosare l'ultima volta */
+        if (!cont.classList.contains('aperto')) {
+          scelta = { classe: qui.classe, unita: qui.unita };
+          disegna();
         }
+        cont.classList.toggle('aperto');
       };
       document.addEventListener('click', ev => {
         if (!cont.contains(ev.target)) chiudi();

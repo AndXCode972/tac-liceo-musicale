@@ -678,6 +678,50 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
 #tac-nav .tac-tendina-menu .tac-gruppo { display: none; padding-left: .35rem; }
 #tac-nav .tac-tendina-menu .tac-gruppo.aperta { display: block; }
 
+/* ══ LE DUE FILE DI PASTIGLIE DELLA TENDINA «VAI A» ══
+
+   Andrea, 21 agosto: lo spostamento fra classi e fra unità dev'essere
+   più agevole. Prima l'elenco era uno solo e aprire la classe 1 voleva
+   dire novanta righe da scorrere.
+
+   Adesso in cima ci sono due file di numeri — le classi, poi le unità
+   della classe scelta — e sotto le lezioni di quella sola unità. Due
+   clic per arrivare ovunque, e niente da scorrere.
+
+   I numeri sono nudi apposta: in classe si cerca «l'unità 7», non il
+   suo titolo. Il titolo compare nell'intestazione appena l'unità è
+   scelta, e nel `title` al passaggio del mouse. */
+.tac-pastiglie {
+  display: flex; flex-wrap: wrap; gap: .25rem;
+  padding: .3rem .25rem; 
+}
+.tac-pastiglie.classi { border-bottom: 1px solid var(--bordo); }
+.tac-pastiglie.unita {
+  border-bottom: 1px solid var(--bordo); margin-bottom: .3rem;
+}
+#tac-nav .tac-tendina-menu .tac-pil {
+  min-width: 2rem; padding: .3rem .45rem; border: 1px solid var(--bordo);
+  background: var(--carta); border-radius: 8px; cursor: pointer;
+  font: inherit; font-weight: 700; font-size: .82rem; line-height: 1;
+  color: var(--inchiostro2);
+}
+#tac-nav .tac-tendina-menu .tac-pil:hover {
+  background: #f3effe; color: var(--viola); border-color: var(--viola);
+}
+/* SCELTA e QUI sono due cose diverse, e si vedono diverse.
+   «scelta» è quello che stai guardando adesso nell'elenco; «qui» è dove
+   sei davvero. Sovrapporle vorrebbe dire non sapere più, dopo tre clic,
+   da dove si era partiti. */
+#tac-nav .tac-tendina-menu .tac-pil.scelta {
+  background: var(--viola); border-color: var(--viola); color: #fff;
+}
+#tac-nav .tac-tendina-menu .tac-pil.qui::after {
+  content: ''; display: block; height: 2px; margin: .18rem -.1rem -.12rem;
+  background: currentColor; border-radius: 2px; opacity: .8;
+}
+#tac-nav .tac-tendina-menu .tac-pil.vuota { opacity: .42; }
+#tac-nav .tac-tendina-menu .tac-tendina-testa { padding-top: .1rem; }
+
 @media (max-width: 780px) { .tac-tendina-menu { width: 17rem; } }
 @media print { #tac-nav .tac-tendina { display: none; } }
 

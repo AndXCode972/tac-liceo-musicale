@@ -1096,6 +1096,14 @@
           const travB = VF.Beam.generateBeams(
             noteB.filter((n, i) => !this._datiB[i].pausa && !this._datiB[i].stanghetta),
             perGruppoB > 0 ? { groups: [new VF.Fraction(perGruppoB, 8)] } : undefined);
+          /* e adesso il gambo torna in giù: `generateBeams` l'ha appena
+             ricalcolato. Solo a quattro parti — da solo, il basso tiene
+             la direzione che gli viene dall'altezza. */
+          if (quattro) noteB.forEach((n, i) => {
+            const d = this._datiB[i];
+            if (d && (d.pausa || d.stanghetta)) return;
+            if (typeof n.setStemDirection === 'function') n.setStemDirection(VF.Stem.DOWN);
+          });
           /* NON SI FORMATTA ANCORA: si mette da parte. Le due voci vanno
              formattate **insieme**, altrimenti ogni rigo distribuisce le
              sue note per conto suo e le simultanee non cadono incolonnate.
@@ -1110,6 +1118,35 @@
           this._vociGiu = { voce: vB, trav: travB };
         }
       }
+
+      /* ══ IL GAMBO SI RIMETTE DOPO LE TRAVATURE ══
+         Andrea, 21 agosto, guardando la prima lezione dell'unità 10: «le
+         direzioni delle gambe sono sbagliate». Soprano con il gambo in
+         giù e basso in su: le due voci **esterne** invertite, le due
+         interne giuste.
+
+         La causa è `VF.Beam.generateBeams`, che di suo ha
+         `maintain_stem_directions: false` e **ricalcola** la direzione dei
+         gambi del gruppo che gli si passa — anche quando il gruppo è di
+         una nota sola e non produce nessuna travatura. Il soprano e il
+         basso ci passano (righe 1096 e 1206); il contralto e il tenore no,
+         e per questo erano gli unici due giusti.
+
+         Il difetto è del genere peggiore: non dà errore, disegna quattro
+         note nel posto giusto, e sbaglia l'unica cosa che dice **a chi
+         appartiene una nota**. Su una lezione che insegna a leggere quattro
+         linee, il disegno smentiva il contenuto.
+
+         Si rimette dopo, e non ci si fida di un'opzione: `generateBeams`
+         viene chiamato in due punti diversi con configurazioni diverse, e
+         una terza chiamata domani se ne dimenticherebbe. Questo passaggio
+         è l'ultimo prima di formattare, e vale per tutti. */
+      const rimettiGambi = (note, dati, verso) => {
+        note.forEach((n, i) => {
+          if (dati[i] && (dati[i].pausa || dati[i].stanghetta)) return;
+          if (typeof n.setStemDirection === 'function') n.setStemDirection(verso);
+        });
+      };
 
       /* LE DUE VOCI INTERNE, contralto e tenore.
 
@@ -1209,6 +1246,8 @@
           if (!d.pausa) gruppo.push(note[i]);
         });
         travature.push(...VF.Beam.generateBeams(gruppo, modoTravatura));
+        /* e il soprano riprende il gambo in su, per la stessa ragione */
+        if (quattro) rimettiGambi(note, dati, VF.Stem.UP);
         /* UN SOLO FORMATTER PER TUTTE LE VOCI DEL SISTEMA. È quello che
            incolonna le simultanee: il formattatore guarda tutte le voci
            insieme, trova gli istanti in cui qualcosa accade e dà a

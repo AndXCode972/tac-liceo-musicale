@@ -195,6 +195,50 @@
 
   const esito = giro();
 
+  /* ══ I GAMBI DELLE QUATTRO PARTI ══
+
+     Andrea, 21 agosto: «le direzioni delle gambe sono sbagliate». Soprano
+     con il gambo in giù e basso in su, su ogni rigo a quattro voci del
+     progetto — cioè da quando la notazione a quattro parti esiste.
+
+     La causa stava in `VF.Beam.generateBeams`, che ricalcola la direzione
+     dei gambi del gruppo che gli si passa anche quando quel gruppo è di
+     una nota sola. È stata corretta in `tac-core.js`.
+
+     Questo controllo c'è perché quella correzione non basta a garantire
+     che non torni: nessuno dei controlli in Python può vederla — la
+     direzione del gambo nasce nel browser, dopo la formattazione, e nel
+     sorgente non c'è. Un difetto che vive solo a schermo va cercato a
+     schermo.
+
+     LA REGOLA. Soprano in su, contralto in giù, tenore in su, basso in
+     giù. È l'unica cosa che dice a chi appartiene una nota: due voci sullo
+     stesso rigo si distinguono per il gambo, non per l'altezza. */
+  const ATTESO = { soprano: 1, contralto: -1, tenore: 1, basso: -1 };
+  const gambi = [];
+  document.querySelectorAll('tac-stave[soprano]').forEach((s, n) => {
+    const dir = (nota) => {
+      try { return nota.getStemDirection(); } catch (e) { return 0; }
+    };
+    const guarda = (nome, note, dati) => {
+      if (!note) return;
+      note.forEach((nota, i) => {
+        const d = dati && dati[i];
+        if (d && (d.pausa || d.stanghetta)) return;
+        const v = dir(nota);
+        if (v && v !== ATTESO[nome]) {
+          gambi.push({ rigo: n, didascalia: (s.getAttribute('caption') || '').slice(0, 40),
+                       voce: nome, nota: i, verso: v > 0 ? 'su' : 'giù',
+                       atteso: ATTESO[nome] > 0 ? 'su' : 'giù' });
+        }
+      });
+    };
+    guarda('soprano', s._note, s._dati);
+    if (s._vociGiu) guarda('basso', s._vociGiu.voce.getTickables(), s._datiB);
+    (s._vociInterne || []).forEach(v => guarda(v.nome, v.note, v.dati));
+  });
+  esito.gambi_storti = gambi;
+
   /* LA PROVA IN BIANCO, e non è pignoleria.
 
      Questo strumento ha già mentito una volta, e ha mentito **verso l'alto**:

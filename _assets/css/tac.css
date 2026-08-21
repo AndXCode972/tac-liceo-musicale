@@ -699,9 +699,11 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
 /* I due collegamenti ai materiali stanno nella barra come le uscite,
    ma si distinguono: quelli portano fuori dalla lezione all'indietro
    (classe, corso), questi portano a un foglio di lavoro. */
+#tac-nav .uscita.materiale {
   border-color: var(--viola); color: var(--viola);
 }
 #tac-nav .uscita.materiale:hover { background: #f0eaff; }
+@media (max-width: 780px) { #tac-nav .uscita.materiale { display: none; } }
 
 /* ══ LE DUE FILE DI PASTIGLIE DELLA TENDINA «VAI A» ══
 

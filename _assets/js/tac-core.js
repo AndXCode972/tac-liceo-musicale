@@ -5249,6 +5249,33 @@
        Adesso ogni classe è una barra che si apre e si chiude: quella in
        cui si è nasce aperta, le altre chiuse. Andrea, 17 agosto: «per
        andare alle lezioni della quinta devo scorrere fino in fondo». */
+    /* I due collegamenti fissi della barra: il workbook dell'unità
+       aperta e il quaderno di lettura della classe.
+
+       Non tutti e undici i workbook: **quello di questa unità**. Un
+       elenco da scegliere in mezzo alla lezione è un elenco che non si
+       apre — e gli altri restano raggiungibili dalla tendina «Vai a». */
+    materiali(nav) {
+      const posto = nav.querySelector('#tac-materiali');
+      const dati = document.getElementById('tac-indice-corso');
+      if (!posto || !dati) return;
+      let ind;
+      try { ind = JSON.parse(dati.textContent); } catch (e) { return; }
+      const qui = ind.qui || {};
+      const cl = (ind.classi || []).find(c => c.n === qui.classe);
+      if (!cl) return;
+      const mat = cl.materiali || [];
+
+      const wb = mat.find(m => m.unita === qui.unita);
+      const let_ = mat.find(m => /^solfeggi-/.test(m.file));
+      let h = '';
+      if (wb) h += '<a class="uscita materiale" href="../materiali/' + wb.file +
+                   '" title="' + wb.titolo + ': i compiti di questa unità">Workbook</a>';
+      if (let_) h += '<a class="uscita materiale" href="../materiali/' + let_.file +
+                     '" title="' + let_.titolo + ': i pezzi di lettura dell\'anno">Letture</a>';
+      posto.innerHTML = h;
+    },
+
     costruisciTendina(nav) {
       const cont = nav.querySelector('#tac-vai');
       const menu = cont && cont.querySelector('.tac-tendina-menu');
@@ -5346,8 +5373,16 @@
         });
         h += '</div>';
 
-        /* corpo · le lezioni della sola unità scelta */
-        if (!u) { menu.innerHTML = h; return; }
+        /* corpo · le lezioni della sola unità scelta.
+
+           Sta dentro un contenitore suo, ed è quello che scorre. Il
+           pannello ha altezza fissa: se cambiasse con il numero di
+           lezioni, le pastiglie in cima si sposterebbero a ogni clic —
+           il pannello è ancorato in basso e cresce verso l'alto. Andrea,
+           21 agosto: «si ridimensiona quando clicchi un pulsante e ti
+           ritrovi a rincorrere i pulsanti». */
+        if (!u) { menu.innerHTML = h + '<div class="tac-elenco"></div>'; return; }
+        h += '<div class="tac-elenco">';
         const viaU = u.via || ('uda-' + String(u.n).padStart(2, '0'));
         const suUnita = cl.n === qui.classe && u.n === qui.unita;
 
@@ -5380,6 +5415,7 @@
                via(cl, 'materiali', nome) + '">' + m.titolo + '</a>';
         });
 
+        h += '</div>';
         menu.innerHTML = h;
 
         /* i clic sulle pastiglie **non** chiudono la tendina: scegliere
@@ -5465,6 +5501,20 @@
         '<div class="gruppo">' +
           '<a class="uscita" href="../" title="Torna alle unità della classe">&#8592; Classe</a>' +
           '<a class="uscita" href="../../" title="Torna all\'indice del corso">Corso</a>' +
+          /* ══ I MATERIALI, RAGGIUNGIBILI DA OGNI SLIDE ══
+             Andrea, 21 agosto: «dobbiamo studiare anche dei collegamenti
+             migliori verso il workbook e gli esercizi di lettura, forse
+             direttamente dalla pagina di lettura delle slides».
+
+             Prima l'unico modo di arrivarci era la slide dei compiti, in
+             fondo: per aprire il workbook a metà lezione bisognava
+             scorrere fino alla fine e poi tornare indietro. Adesso stanno
+             nella barra, e la barra c'è su ogni slide.
+
+             Li riempie `materiali()` dopo, quando l'indice è stato letto:
+             qui si lascia solo il posto, perché il workbook da mostrare è
+             quello **dell'unità aperta** e l'unità la sa l'indice. */
+          '<span id="tac-materiali"></span>' +
           '<div id="tac-vai" class="tac-tendina">' +
             '<button id="tac-btn-vai" title="Vai a un\'altra lezione o unità">' +
               '<span class="etichetta-vai">Vai a</span> &#9662;</button>' +
@@ -5532,6 +5582,7 @@
         setTimeout(() => window.print(), 120);
       });
       this.costruisciTendina(nav);
+      this.materiali(nav);
 
       nav.querySelector('#tac-btn-indice').onclick = () =>
         document.getElementById('tac-indice').classList.toggle('aperto');

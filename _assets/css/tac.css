@@ -592,14 +592,23 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
 }
 .tac-tendina-menu {
   display: none; position: absolute; bottom: calc(100% + .5rem); left: 0;
-  /* 72vh e non 62: con le pastiglie in cima, un'unità da dodici lezioni
-     sforava di novanta pixel — una riga e mezza. Il senso del menu nuovo
-     è che non si scorra, e novanta pixel bastano a smentirlo. */
-  width: 22rem; max-height: 72vh; overflow-y: auto; z-index: 120;
+  /* ══ ALTEZZA FISSA, E NON È UN CAPRICCIO ══
+     Il pannello è ancorato **in basso** e cresce verso l'alto. Se la sua
+     altezza cambiasse con il numero di lezioni dell'unità scelta — sei,
+     nove, dodici — a ogni clic su una pastiglia il pannello si
+     ridimensionerebbe e le pastiglie in cima si sposterebbero **sotto il
+     dito**. Andrea, 21 agosto: «ti ritrovi a rincorrere i pulsanti».
+
+     Con l'altezza fissa le due file di pastiglie stanno sempre nello
+     stesso punto: si può cliccare tre unità di seguito senza spostare il
+     mouse. Quello che cambia è solo l'elenco sotto, che scorre per conto
+     suo. */
+  width: 22rem; height: min(72vh, 34rem); z-index: 120;
+  display: flex; flex-direction: column; overflow: hidden;
   background: var(--carta); border: 1px solid var(--bordo); border-radius: 12px;
   box-shadow: 0 12px 34px rgba(20,16,40,.18); padding: .35rem;
 }
-.tac-tendina.aperto .tac-tendina-menu { display: block; }
+.tac-tendina.aperto .tac-tendina-menu { display: flex; }
 .tac-tendina-testa {
   font-size: .72rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
   color: var(--inchiostro2); padding: .6rem .6rem .3rem; display: flex;
@@ -687,6 +696,13 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
 #tac-nav .tac-tendina-menu .tac-gruppo { display: none; padding-left: .35rem; }
 #tac-nav .tac-tendina-menu .tac-gruppo.aperta { display: block; }
 
+/* I due collegamenti ai materiali stanno nella barra come le uscite,
+   ma si distinguono: quelli portano fuori dalla lezione all'indietro
+   (classe, corso), questi portano a un foglio di lavoro. */
+  border-color: var(--viola); color: var(--viola);
+}
+#tac-nav .uscita.materiale:hover { background: #f0eaff; }
+
 /* ══ LE DUE FILE DI PASTIGLIE DELLA TENDINA «VAI A» ══
 
    Andrea, 21 agosto: lo spostamento fra classi e fra unità dev'essere
@@ -702,8 +718,10 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
    scelta, e nel `title` al passaggio del mouse. */
 .tac-pastiglie {
   display: flex; flex-wrap: wrap; gap: .25rem;
-  padding: .3rem .25rem; 
+  padding: .3rem .25rem; flex: 0 0 auto;
 }
+/* l'unica parte che scorre */
+.tac-elenco { flex: 1 1 auto; overflow-y: auto; min-height: 0; }
 .tac-pastiglie.classi { border-bottom: 1px solid var(--bordo); }
 .tac-pastiglie.unita {
   border-bottom: 1px solid var(--bordo); margin-bottom: .3rem;

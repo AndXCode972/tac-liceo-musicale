@@ -602,7 +602,13 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
   color: var(--inchiostro2); padding: .6rem .6rem .3rem; display: flex;
   justify-content: space-between; gap: .5rem; align-items: baseline;
 }
-.tac-tendina-testa .quando { font-weight: 600; text-transform: none; letter-spacing: 0; opacity: .7; }
+/* IL «QUANDO» VA A CAPO. Attaccato al titolo produceva «…e la
+   settimasettimane 23–26»: due parole diverse che sembrano una parola
+   sola sbagliata. */
+.tac-tendina-testa .quando {
+  display: block; font-weight: 600; text-transform: none;
+  letter-spacing: 0; opacity: .7; margin-top: .1rem;
+}
 .tac-tendina-testa.qui { color: var(--viola); }
 .tac-tendina-menu .tac-voce {
   /* Il titolo sta attaccato al suo numero. Con `space-between` — com'era

@@ -153,9 +153,13 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
   <div class="slide-interna">
     <h2>Il riscaldamento: separare due voci che suonano insieme</h2>
 
-    <tac-stave clef="treble" time="4/4" keysig="C"
-               notazione="e/4:h g/4:h | g/4:q f/4:q e/4:q d/4:q"
-               bass="c/4:w | g/3:w"
+    <!-- Sono le prime due battute del dettato di quest'ora, e devono
+         restarlo: il riscaldamento serve perché è *quel* materiale.
+         Aggiornate il 24 agosto insieme al dettato, che è passato al
+         6/8 e a mi bemolle maggiore. -->
+    <tac-stave clef="treble" time="6/8" keysig="Eb"
+               notazione="eb/4:8 f/4:8 g/4:8 ab/4:8 g/4:8 f/4:8 | g/4:q. eb/4:q."
+               bass="eb/3:h. | bb/3:h."
                caption="Due battute sole. Cantiamole a due gruppi, e poi scambiamo"
                width="700" tempo="56" play></tac-stave>
 
@@ -193,15 +197,15 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
   <div class="slide-interna">
     <h2>Le maniglie, viste e sentite</h2>
 
-    <tac-stave clef="treble" time="4/4" keysig="C"
-               notazione="g/4:h a/4:h"
-               bass="e/4:h c/4:h"
+    <tac-stave clef="treble" time="6/8" keysig="Eb"
+               notazione="g/4:q. ab/4:q."
+               bass="c/4:q. ab/3:q."
                caption="<strong>Moto contrario</strong>: una sale, l&rsquo;altra scende. Le due linee si staccano da sole"
                width="620" tempo="52" play></tac-stave>
 
-    <tac-stave clef="treble" time="4/4" keysig="C"
-               notazione="g/4:h a/4:h"
-               bass="e/4:h f/4:h"
+    <tac-stave clef="treble" time="6/8" keysig="Eb"
+               notazione="g/4:q. ab/4:q."
+               bass="eb/4:q. f/4:q."
                caption="<strong>Moto parallelo</strong> per terze: qui l&rsquo;orecchio fonde e sente un accordo che si sposta"
                width="620" tempo="52" play></tac-stave>
 
@@ -215,9 +219,9 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
   <div class="slide-interna">
     <h2>E la cosa che rende due voci davvero due: il ritmo</h2>
 
-    <tac-stave clef="treble" time="4/4" keysig="C"
-               notazione="e/4:q f/4:q g/4:q a/4:q | g/4:h e/4:h"
-               bass="c/4:w | g/3:w"
+    <tac-stave clef="treble" time="6/8" keysig="Eb"
+               notazione="bb/4:8 ab/4:8 g/4:8 f/4:8 g/4:8 ab/4:8 | g/4:q. eb/4:q."
+               bass="g/3:h. | bb/3:h."
                caption="La grave tiene, l&rsquo;acuta si muove: due ritmi, e quindi due voci"
                width="700" tempo="56" play></tac-stave>
 
@@ -2923,16 +2927,22 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
   <div class="slide-interna">
     <h2>Il dettato</h2>
 
-    <tac-stave clef="treble" time="4/4" keysig="C" nascondi
-               notazione="e/4:h g/4:h | g/4:q f/4:q e/4:q d/4:q | c/4:h e/4:h | f/4:h a/4:h | g/4:q e/4:q g/4:q e/4:q | b/3:h d/4:h | d/4:h b/3:h | c/4:w"
-               bass="c/4:w | g/3:w | a/3:w | f/3:w | c/4:w | g/3:w | g/3:w | c/3:w"
-               caption="Otto battute, due voci, do maggiore"
+    <!-- ══ QUESTO RIGO È UNA COPIA, E VA TENUTO ALLINEATO A MANO ══
+         La fonte del dettato è `02_Esercizi e Verifiche/_archivio/
+         dettati.py`, voce C2-U11-L6. Qui è ricopiato perché la lezione
+         lo deve suonare, e il 24 agosto la copia era rimasta indietro:
+         il dettato era passato al 6/8 e la lezione suonava ancora il
+         vecchio in do maggiore. Se si cambia là, si cambia anche qui. -->
+    <tac-stave clef="treble" time="6/8" keysig="Eb" nascondi
+               notazione="eb/4:8 f/4:8 g/4:8 ab/4:8 g/4:8 f/4:8 | g/4:q. eb/4:q. | f/4:8 g/4:8 ab/4:8 bb/4:8 ab/4:8 g/4:8 | ab/4:q. c/5:q. | bb/4:8 ab/4:8 g/4:8 f/4:8 g/4:8 ab/4:8 | g/4:q. eb/4:q. | f/4:8 g/4:8 ab/4:8 g/4:8 f/4:8 eb/4:8 | eb/4:h."
+               bass="eb/3:h. | bb/3:h. | c/4:h. | ab/3:h. | g/3:h. | bb/3:h. | bb/3:h. | eb/3:h."
+               caption="Otto battute, due voci, mi bemolle maggiore, in 6/8"
                width="900" tempo="52" play slow></tac-stave>
 
     <div class="riquadro compito">
       <span class="etichetta">Quello che vi dico prima di cominciare</span>
       <p>Otto battute, <strong>due voci</strong>. La grave si muove poco: quasi sempre una nota per battuta. L&rsquo;acuta si muove di pi&ugrave;.</p>
-      <p>Comincia e finisce con le due voci a distanza di <strong>terza</strong> e di <strong>ottava</strong>: sono i due punti in cui potete controllarvi da soli.</p>
+      <p>Comincia e finisce con le due voci all&rsquo;<strong>ottava</strong>, sul <em>mi bemolle</em>: sono i due punti in cui potete controllarvi da soli. Se in fondo non vi tornano all&rsquo;ottava, l&rsquo;errore &egrave; prima.</p>
     </div>
   </div>
 </section>

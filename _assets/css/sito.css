@@ -414,12 +414,41 @@ a.ris:hover { border-color: var(--viola); background: #f7f4ff; transform: transl
 
    Sta **fuori** dalla scheda e non dentro, perché un `<a>` dentro un
    altro `<a>` non è HTML valido e ogni browser lo ripara a modo suo. */
+/* ══ IL QUADERNO HA UNA FACCIA, DAL 24 AGOSTO ══
+   Era un rettangolo di testo, e in mezzo a schede con la fotografia
+   spariva: Andrea, «i quaderni di lettura non si vedono le copertine
+   nella pagina principale». Adesso porta a sinistra la stessa immagine
+   della classe — quella che il fascicolo usa già come copertina — in
+   piccolo, e resta comunque un link fuori dalla scheda, perché un `<a>`
+   dentro un altro `<a>` non è HTML valido. */
 .classi .quaderno {
-  display: block; margin: -.6rem 0 1.4rem; padding: .5rem .9rem;
+  display: flex; align-items: center; gap: .9rem;
+  margin: -.6rem 0 1.4rem; padding: .5rem .9rem .5rem .5rem;
   font-size: .92rem; font-weight: 600; text-decoration: none;
   color: var(--inchiostro2, #475569);
   border: 1px solid var(--bordo, #e2e8f0); border-radius: 10px;
   background: var(--carta2, #f8fafc);
+  transition: border-color .18s, color .18s;
+}
+.classi .quaderno .miniatura {
+  flex: 0 0 auto; width: 4.4rem; height: 3.1rem; border-radius: 7px;
+  background-image: var(--foto); background-size: cover;
+  background-position: center 42%;
+  /* Il fascicolo è carta stampata: la miniatura lo dice con un filo di
+     grigio, e riprende colore quando ci si passa sopra. */
+  filter: saturate(.72) contrast(1.04);
+  box-shadow: inset 0 0 0 1px rgba(20,16,40,.10);
+  transition: filter .18s;
+}
+.classi .quaderno .dicitura { display: flex; flex-direction: column; gap: .12rem; }
+.classi .quaderno .nota {
+  font-size: .78rem; font-weight: 500; line-height: 1.35;
+  color: var(--inchiostro2, #475569); opacity: .78;
 }
 .classi .quaderno:hover { color: var(--inchiostro, #0f172a);
                           border-color: var(--inchiostro2, #475569); }
+.classi .quaderno:hover .miniatura { filter: none; }
+
+@media (max-width: 480px) {
+  .classi .quaderno .miniatura { width: 3.4rem; height: 2.4rem; }
+  .classi .quaderno .nota { display: none; }

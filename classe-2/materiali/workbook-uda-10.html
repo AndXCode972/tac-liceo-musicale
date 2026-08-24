@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbook — UdA 10 · Le tre funzioni a quattro parti, e la settima | TAC Classe 2&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=1a75d039">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=16a2ad3b">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
+     usa, e con `defer` i due file girano nell'ordine in cui stanno
+     scritti qui. -->
+<script src="../../_assets/js/codice.js" defer></script>
+<script src="../../_assets/js/tac-core.js?v=fd8af17d" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
+     fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
+                          height: auto; margin: .35rem 0; }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 2&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>
+      <a href="solfeggi-classe-2.html">Il quaderno di lettura · tutto l'anno</a>
+      <a class="attiva" href="workbook-uda-10.html">Workbook · unità 10</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa tutto il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Workbook</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">UdA 10 · Le tre funzioni a quattro parti, e la settima — il foglio di lavoro, una pagina per lezione</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale — Classe 2&ordf;
+    </div>
+  </div>
+
+  <!-- Niente riga per nome, classe e data: il foglio non si consegna mai.
+       Lo scritto va sul quaderno e si fotografa, l'online restituisce un
+       codice, l'ascolto e' una spunta che lo studente fa per se'. La riga
+       era un'abitudine presa dal compito in classe, e costava un centimetro
+       e mezzo in cima a ogni foglio stampato. -->
+
+  <div class="riquadro attenzione">
+    <span class="etichetta">Come si usa</span>
+    <p>I compiti sono di tre specie, e ognuna si consegna in modo suo. <strong>Da fare online</strong>: allo schermo. <strong>Da ascoltare</strong>: serve all'orecchio. <strong>Da scrivere</strong>: sul quaderno, poi una foto su Classroom.</p>
+    <p style="margin-top:.5rem">Il voto dell'unità lo dà <strong>una cosa sola</strong>: la verifica in fondo, quella che restituisce un codice. Tutto il resto si consegna e si corregge, ma non fa voto &mdash; il che non vuol dire che non conti: è lì che si impara, e la verifica misura solo quello che hai imparato facendolo.</p>
+    <p style="margin-top:.5rem">Stampa <strong>una lezione alla volta</strong>, col pulsante che trovi accanto al titolo.</p>
+  </div>
+
+  <div class="lez" data-lezione="1">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 1</span>
+        <h2>Lezione 1 &mdash; Il quarto grado, e il giro completo a quattro parti</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C2-U10-L1-03">
+      <p class="titolo-consegna"><span class="num">1</span> Il giro, alla tastiera</p>
+      <div class="testo">Suona il giro <strong>I &ndash; IV &ndash; V &ndash; I</strong> in do, fa e sol maggiore. Poi <strong>a occhi chiusi</strong>, e prova a sentire in anticipo dove va la mano.<p class="dettaglio">Non serve suonarlo bene: serve suonarlo abbastanza da averlo in mano quando arriva il dettato armonico.</p></div>
+      <p class="vai no-stampa"><a href="../uda-10/lezione-1.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U10-L1-01">
+      <p class="titolo-consegna"><span class="num">2</span> Il giro, tre volte</p>
+      <div class="testo">Scrivi <strong>tre volte</strong> il giro <strong>I &ndash; IV &ndash; V &ndash; I</strong> in do maggiore, a quattro parti, cambiando ogni volta la <strong>posizione melodica</strong> del primo accordo: di 8&ordf;, di 3&ordf;, di 5&ordf;.<p class="dettaglio">Il basso &egrave; sempre lo stesso: <em>do fa sol do</em>. A cambiare sono le tre voci sopra.</p></div>
+    </div>
+    <div class="consegna" id="C2-U10-L1-02">
+      <p class="titolo-consegna"><span class="num">3</span> Due accordi che non hanno niente</p>
+      <div class="testo">Scrivi <strong>quattro</strong> collegamenti <strong>IV &rarr; V</strong>, in do, fa, sol e re maggiore. Ogni volta segna con una freccia la direzione di ciascuna voce.<p class="dettaglio">Sono tutti lo stesso problema in quattro tonalit&agrave;: serve a vedere che la regola non dipende dalle note.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="2">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 2</span>
+        <h2>Lezione 2 &mdash; La sensibile sale, e non si raddoppia</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U10-L2-01">
+      <p class="titolo-consegna"><span class="num">1</span> Dove non pu&ograve; stare</p>
+      <div class="testo">Scrivi <strong>tre</strong> accordi di dominante a quattro parti in do maggiore, tutti diversi. In ciascuno <strong>cerchia la sensibile</strong> e scrivi accanto in quale voce si trova.<p class="dettaglio">La sensibile di do maggiore &egrave; il <em>si</em>. In un accordo di sol maggiore c&rsquo;&egrave; sempre, ed &egrave; sempre una sola.</p></div>
+    </div>
+    <div class="consegna" id="C2-U10-L2-02">
+      <p class="titolo-consegna"><span class="num">2</span> La sensibile nelle tue scale</p>
+      <div class="testo">Per le tonalit&agrave; <strong>do, sol, fa, re, si bemolle</strong> maggiore scrivi la <strong>sensibile</strong> e il nome dell&rsquo;accordo di dominante che la contiene.<p class="dettaglio">Sono cinque righe. Serve ad averle in automatico, perch&eacute; nell&rsquo;unit&agrave; la sensibile torna in ogni lezione.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="3">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 3</span>
+        <h2>Lezione 3 &mdash; Dettato armonico con le tre funzioni</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C2-S-K07">
+      <p class="titolo-consegna"><span class="num">1</span> L'arpeggio con la settima</p>
+      <div class="testo">Cantalo. La quarta nota di ogni arpeggio &egrave; un <em>fa</em>: &egrave; la <strong>settima</strong>, e <strong>scende</strong> di un grado.</div>
+      <p class="vai no-stampa"><a href="../uda-10/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C2-S-P08">
+      <p class="titolo-consegna"><span class="num">2</span> Con le alterazioni dentro la battuta</p>
+      <div class="testo">Di' i nomi per intero. Attenzione: <strong>ogni alterazione vale fino alla stanghetta</strong>, e qui ce ne sono tre diverse.</div>
+      <p class="vai no-stampa"><a href="../uda-10/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C2-U10-L3-01">
+      <p class="titolo-consegna"><span class="num">3</span> Tre funzioni, in un pezzo vero</p>
+      <div class="testo">Prendi un pezzo che studi in strumento e trova <strong>quattro punti</strong> in cui riconosci T, S o D. Scrivi la battuta e la lettera.<p class="dettaglio">Non serve che siano consecutivi e non serve che siano giusti tutti e quattro: serve provarci sul repertorio vero, dove gli accordi non sono in fila.</p></div>
+      <p class="vai no-stampa"><a href="../uda-10/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U10-L3-02">
+      <p class="titolo-consegna"><span class="num">4</span> Otto lettere, e poi gli accordi</p>
+      <div class="testo">Ti do otto lettere: <strong>T S D T S S D T</strong>. Scrivi sotto ciascuna il <strong>basso</strong> in do maggiore, e sopra la <strong>posizione melodica</strong> che sceglieresti.<p class="dettaglio">&Egrave; lo stesso quadro del dettato di oggi, ma al contrario: l&igrave; si ascoltava e si scrivevano le lettere, qui si parte dalle lettere.</p></div>
+    </div>
+    <div class="consegna" id="C2-U10-L3-03">
+      <p class="titolo-consegna"><span class="num">5</span> Il quadro del prossimo dettato</p>
+      <div class="testo">Inventa tu un quadro di <strong>otto funzioni</strong> che cominci e finisca con T, e che contenga <strong>una coppia di funzioni uguali di fila</strong>. Poi scrivi in due righe <strong>dove sta la difficolt&agrave;</strong> del tuo quadro.<p class="dettaglio">Serve a capire come sono costruiti i dettati: non a caso, ma intorno a un punto che mette alla prova.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="4">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 4</span>
+        <h2>Lezione 4 &mdash; Lo stesso accordo con tre bassi diversi: il rivolto</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U10-L4-01">
+      <p class="titolo-consegna"><span class="num">1</span> Lo stesso accordo, tre bassi</p>
+      <div class="testo">Scrivi la triade di <strong>do maggiore</strong> nei suoi tre stati &mdash; fondamentale, primo rivolto, secondo rivolto &mdash; e sotto ciascuno scrivi <strong>quale nota sta al basso</strong>.<p class="dettaglio">Poi ripeti per <strong>fa</strong> e per <strong>sol</strong> maggiore. Nove accordi in tutto, e ci vogliono dieci minuti.</p></div>
+    </div>
+    <div class="consegna" id="C2-U10-L4-02">
+      <p class="titolo-consegna"><span class="num">2</span> Che rivolto &egrave;</p>
+      <div class="testo">Per ciascun accordo scrivi <strong>il grado</strong> e <strong>in che stato</strong> si trova.<p class="dettaglio">Guarda <strong>il basso</strong> e chiediti che nota &egrave; rispetto alla fondamentale.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="5">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 5</span>
+        <h2>Lezione 5 &mdash; La cifratura: leggere e scrivere un basso numerato</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U10-L5-01">
+      <p class="titolo-consegna"><span class="num">1</span> Cifrare un basso di otto note</p>
+      <div class="testo">Sotto ognuna di queste otto note scrivi la <strong>cifratura completa</strong>: numero romano del grado, e i numeri del rivolto se serve.<p class="dettaglio">&Egrave; il basso dell&rsquo;officina, e cifrarlo a casa vuol dire arrivarci con met&agrave; lavoro fatto.</p></div>
+      <div class="materiale">
+      <tac-stave clef="bass" time="4/4" caption="Do maggiore. Attenzione alla seconda e alla quinta" notes="c/3:w | e/3:w | f/3:w | g/3:w | a/3:w | f/3:w | g/3:w | c/3:w" width="700" tempo="46" play slow></tac-stave>
+      </div>
+    </div>
+    <div class="consegna" id="C2-U10-L5-02">
+      <p class="titolo-consegna"><span class="num">2</span> Il mestiere opposto: realizzare</p>
+      <div class="testo">Ti do il basso e la cifra: <em>do</em> (I), <em>fa</em> (IV), <em>sol</em> (V), <em>do</em> (I). <strong>Realizzalo a quattro parti</strong>, e poi controlla le sei coppie.<p class="dettaglio">&Egrave; il giro che avete scritto alla lezione 1, ma stavolta ci arrivate dalla cifratura invece che dai nomi delle funzioni.</p></div>
+    </div>
+    <div class="consegna" id="C2-U10-L5-03">
+      <p class="titolo-consegna"><span class="num">3</span> I rivolti della prima, ritrovati</p>
+      <div class="testo">In prima, unit&agrave; 8, avevate cifrato i rivolti con <strong>5/3, 6/3, 6/4</strong>. Scrivi la corrispondenza fra quelle cifre e i numeri romani che usiamo adesso, e in due righe di&rsquo; <strong>che cosa aggiunge</strong> il numero romano.<p class="dettaglio">&Egrave; la stessa informazione detta in due modi. Uno dei due dice una cosa in pi&ugrave;.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="6">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 6</span>
+        <h2>Lezione 6 &mdash; Metri con l’unità di tempo sull’ottavo</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C2-S-R07">
+      <p class="titolo-consegna"><span class="num">1</span> Tre ottavi: l'unit&agrave; &egrave; la croma</p>
+      <div class="testo">Qui il battito &egrave; la <strong>croma</strong>: tre per battuta. La semiminima ne occupa due.</div>
+      <p class="vai no-stampa"><a href="../uda-10/lezione-6.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C2-U10-L6-03">
+      <p class="titolo-consegna"><span class="num">2</span> Il 6/8 nel tuo repertorio</p>
+      <div class="testo">Cerca nel tuo repertorio un pezzo in <strong>6/8, 9/8 o 12/8</strong> e solfeggialo parlato per otto battute, contando <strong>i movimenti</strong> e non le crome.<p class="dettaglio">Se non ne trovi, va bene una giga, una tarantella o una barcarola: sono quasi sempre in metro composto.</p></div>
+      <p class="vai no-stampa"><a href="../uda-10/lezione-6.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U10-L6-01">
+      <p class="titolo-consegna"><span class="num">3</span> Sei crome, due modi</p>
+      <div class="testo">Scrivi <strong>due battute</strong> con le stesse sei crome: una in <strong>3/4</strong> e una in <strong>6/8</strong>. Segna con un accento i <strong>movimenti</strong> di ciascuna.<p class="dettaglio">Le note sono identiche. Cambia soltanto come si raggruppano, e dove cade l&rsquo;accento.</p></div>
+    </div>
+    <div class="consegna" id="C2-U10-L6-02">
+      <p class="titolo-consegna"><span class="num">4</span> Quattro battute in 6/8</p>
+      <div class="testo">Componi <strong>quattro battute in 6/8</strong> in sol maggiore, che comincino in levare e usino almeno una volta la <strong>semiminima col punto</strong>.<p class="dettaglio">Poi battile con la mano contando <strong>due</strong> per battuta, non sei.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="7">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 7</span>
+        <h2>Lezione 7 &mdash; La settima di dominante: forma completa, incompleta e risoluzioni</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U10-L7-01">
+      <p class="titolo-consegna"><span class="num">1</span> Completa e incompleta</p>
+      <div class="testo">Scrivi <strong>V&#8311; &rarr; I</strong> in do maggiore <strong>due volte</strong>: la prima con la settima <strong>completa</strong>, la seconda <strong>incompleta</strong>. Sotto ciascuna scrivi quante note ha l&rsquo;accordo di tonica.<p class="dettaglio">Non &egrave; una scelta di gusto: le due strade danno due risultati diversi, e la lezione ha spiegato perch&eacute;.</p></div>
+    </div>
+    <div class="consegna" id="C2-U10-L7-02">
+      <p class="titolo-consegna"><span class="num">2</span> Dopo il IV, obbligatoriamente</p>
+      <div class="testo">Scrivi <strong>IV &rarr; V&#8311; &rarr; I</strong> in <strong>tre tonalit&agrave;</strong>: do, fa e sol maggiore. Ogni volta la settima va scritta <strong>incompleta</strong>, e accanto scrivi in una riga perch&eacute;.<p class="dettaglio">Se la scrivi completa, controlla le sei coppie e vedi che cosa succede.</p></div>
+    </div>
+    <div class="consegna" id="C2-U10-L7-03">
+      <p class="titolo-consegna"><span class="num">3</span> La settima della prima, ritrovata</p>
+      <div class="testo">In prima, unit&agrave; 9, avevate imparato che la settima scende e la sensibile sale. Scrivi in tre righe <strong>che cosa hai imparato oggi che allora non sapevi</strong>.<p class="dettaglio">&Egrave; una domanda vera, non retorica: le due cose sono diverse e vale la pena metterle a fuoco.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="8">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 8</span>
+        <h2>Lezione 8 &mdash; Officina breve: in che ordine si applicano le regole</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U10-L8-01">
+      <p class="titolo-consegna"><span class="num">1</span> Finire il basso dell&rsquo;officina</p>
+      <div class="testo">Completa la realizzazione cominciata in classe: dal <strong>quarto accordo</strong> alla fine. Poi controlla le sei coppie su ogni collegamento.<p class="dettaglio">Il contralto era fermo sul <em>do</em>: al quarto accordo scende al <em>si</em>, e la settima viene incompleta.</p></div>
+    </div>
+    <div class="consegna" id="C2-U10-L8-02">
+      <p class="titolo-consegna"><span class="num">2</span> La lista, a memoria</p>
+      <div class="testo">Scrivi i <strong>sette passi</strong> della lista di controllo <strong>senza guardare</strong>, e poi confrontali con la slide.<p class="dettaglio">Non &egrave; un esercizio di memoria: &egrave; per accorgersi di quale passo si dimentica, che &egrave; quasi sempre lo stesso per ciascuno.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="9">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 9</span>
+        <h2>Lezione 9 &mdash; Dettato melodico modulante</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C2-U10-L9-02">
+      <p class="titolo-consegna"><span class="num">1</span> Modulazione o tonicizzazione</p>
+      <div class="testo">Riascolta il <strong>Lindenbaum</strong> e poi un pezzo che studi. Per ciascuno scrivi se secondo te <strong>cambia casa</strong>, <strong>la sfiora</strong> o <strong>cambia solo colore</strong>, e in che punto.<p class="dettaglio">Le tre cose le hai sentite tutte in classe. Adesso si tratta di distinguerle senza che nessuno te lo dica.</p></div>
+      <p class="vai no-stampa"><a href="../uda-10/lezione-9.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U10-L9-01">
+      <p class="titolo-consegna"><span class="num">2</span> Le due scale, e la nota che cambia</p>
+      <div class="testo">Scrivi le scale di <strong>do maggiore</strong> e <strong>sol maggiore</strong> una sotto l&rsquo;altra, e cerchia le note che <strong>non</strong> hanno in comune. Poi fai lo stesso con <strong>do</strong> e <strong>fa</strong>.<p class="dettaglio">Due minuti a coppia di scale, e resta in testa per sempre.</p></div>
+    </div>
+    <div class="consegna" id="C2-U10-L9-03">
+      <p class="titolo-consegna"><span class="num">3</span> Otto battute che modulano</p>
+      <div class="testo">Componi <strong>otto battute</strong> in do maggiore che a met&agrave; strada modulino a <strong>sol</strong>. Solo melodia, una voce.<p class="dettaglio">Due vincoli: il <strong>fa naturale</strong> deve comparire prima, e il <strong>fa diesis</strong> deve comparire <strong>due volte</strong>, sempre salendo al sol.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="10">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 10</span>
+        <h2>Lezione 10 &mdash; I toni vicini: che cosa vuol dire che una tonalità è vicina</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U10-L10-01">
+      <p class="titolo-consegna"><span class="num">1</span> I cinque, per quattro tonalit&agrave;</p>
+      <div class="testo">Scrivi i <strong>cinque toni vicini</strong> di <strong>re maggiore</strong>, <strong>si bemolle maggiore</strong>, <strong>la minore</strong> e <strong>mi minore</strong>.<p class="dettaglio">Usa la procedura dei quattro passi: conta le alterazioni, aggiungine una, togline una, prendi le tre relative.</p></div>
+    </div>
+    <div class="consegna" id="C2-U10-L10-02">
+      <p class="titolo-consegna"><span class="num">2</span> Contare le note in comune</p>
+      <div class="testo">Per <strong>tre coppie</strong> di tonalit&agrave; a tua scelta &mdash; una vicina, una media, una lontana &mdash; conta quante note hanno in comune e scrivi il numero.<p class="dettaglio">Si scrivono le due scale e si contano. Non serve altro.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="11">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 11</span>
+        <h2>Lezione 11 &mdash; Intonazione fino a quattro alterazioni, e il temperamento</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C2-U10-L11-01">
+      <p class="titolo-consegna"><span class="num">1</span> La terza che smette di battere</p>
+      <div class="testo">Con il tuo strumento (o con un compagno) tieni una <strong>terza maggiore</strong> insieme al pianoforte, e prova ad <strong>abbassarla</strong> finch&eacute; i battimenti spariscono.<p class="dettaglio">Se suoni pianoforte o chitarra non puoi farlo: scrivi in due righe <strong>perch&eacute;</strong>.</p></div>
+      <p class="vai no-stampa"><a href="../uda-10/lezione-11.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C2-U10-L11-02">
+      <p class="titolo-consegna"><span class="num">2</span> Il riscaldamento, scritto</p>
+      <div class="testo">Scrivi per <strong>mi maggiore</strong> e <strong>la bemolle maggiore</strong> le tre cose del riscaldamento: <strong>arpeggio di tonica</strong>, <strong>scala</strong>, <strong>cadenza</strong>.<p class="dettaglio">Poi cantale. Scriverle serve a non sbagliarle mentre si canta.</p></div>
+    </div>
+    <div class="consegna" id="C2-U10-L11-03">
+      <p class="titolo-consegna"><span class="num">3</span> Quello che sale, alto</p>
+      <div class="testo">Prendi quattro battute del tuo repertorio e <strong>segna con una freccia</strong> le note che canteresti (o suoneresti) <strong>alte</strong> e quelle che canteresti <strong>basse</strong>.<p class="dettaglio">La regola &egrave; una sola: quello che sale, alto; quello che scende, basso.</p></div>
+    </div>
+    </section>
+  </div>
+
+</div>
+
+<footer class="piede no-stampa">
+  <div class="piede-interno">
+    <p><a href="../">&larr; Torna alla classe 2&ordf;</a>  &middot;  <a href="scheda-lavoro-autonomo-1.html">Lavoro autonomo · tornata 1</a>  &middot;  <a href="solfeggi-classe-2.html">Il quaderno di lettura · tutto l'anno</a></p>
+    <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
+  </div>
+</footer>
+
+<script>
+/* «Stampa solo questa». Il compito della settimana e una pagina: se per
+   averla si deve mandare in stampa il fascicolo intero e poi scegliere gli
+   intervalli di pagina nel pannello del browser, nessuno lo fa, e si
+   stampano undici fogli per usarne uno. Il pulsante nasconde gli altri
+   blocchi per la durata della stampa e li rimette a posto subito dopo. */
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-stampa]');
+  if (!b) return;
+  var blocco = b.closest('.lez');
+  document.body.classList.add('stampa-una');
+  blocco.classList.add('da-stampare');
+  var pulisci = function () {
+    document.body.classList.remove('stampa-una');
+    blocco.classList.remove('da-stampare');
+    window.removeEventListener('afterprint', pulisci);
+  };
+  window.addEventListener('afterprint', pulisci);
+  window.print();
+});
+</script>
+</body>
+</html>

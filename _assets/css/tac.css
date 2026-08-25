@@ -572,7 +572,37 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
   color: var(--inchiostro2); background: var(--carta); white-space: nowrap;
 }
 #tac-nav .uscita:hover { background: #f3effe; border-color: var(--viola); color: var(--viola); }
-@media (max-width: 780px) { #tac-nav .uscita { display: none; } }
+/* ══ SOTTO GLI 800 PX LE USCITE SI STRINGONO, NON SPARISCONO ══
+
+   TROVATO IL 25 AGOSTO. Andrea, guardando una lezione: «i menu in basso
+   sono scomparsi». Non era sparita la barra — erano sparite le uscite e
+   i materiali, perché la sua finestra di Chrome era larga circa 720 px e
+   la regola qui sotto diceva `display: none` sotto i 780.
+
+   La regola era nata per un telefono, dove sei collegamenti in fila non
+   ci stanno davvero. Ma «non ci sta» e «non serve» sono due cose
+   diverse, e nasconderli del tutto toglieva l'unico modo di uscire da
+   una lezione: chi la apriva restava dentro finché non chiudeva la
+   scheda, che è esattamente il difetto per cui quelle uscite erano state
+   messe.
+
+   Adesso si stringono al loro simbolo — una freccia, una casa, un foglio
+   — e restano cliccabili. Trenta pixel l'una invece di ottanta, e in una
+   finestra a metà schermo ci stanno tutte.
+
+   La soglia è passata da 780 a 800: una finestra affiancata su un monitor
+   da 1440 fa 720 px, e stava appena sotto il limite vecchio. */
+@media (max-width: 800px) {
+  #tac-nav .uscita {
+    padding: 0 .45rem; gap: 0;
+    font-size: 0;                    /* il testo sparisce, il link resta */
+  }
+  #tac-nav .uscita::before {
+    font-size: .95rem; font-weight: 700; line-height: 1;
+  }
+  #tac-nav .uscita.verso-classe::before { content: '\2190'; }   /* ← */
+  #tac-nav .uscita.verso-corso::before  { content: '\2302'; }   /* ⌂ */
+}
 
 /* ── la tendina «Vai a»: le altre lezioni e le altre unità ──────────
    Si apre verso l'ALTO, perché la barra sta in fondo allo schermo e un
@@ -716,7 +746,12 @@ tac-rhythm { display: block; margin: 1.6rem 0; }
   border-color: var(--viola); color: var(--viola);
 }
 #tac-nav .uscita.materiale:hover { background: #f0eaff; }
-@media (max-width: 780px) { #tac-nav .uscita.materiale { display: none; } }
+/* Anche i materiali si stringono invece di sparire: vedi la nota alla
+   regola delle uscite. Il simbolo è un foglio, uguale per tutti e due —
+   li distingue il `title`, che sul desktop compare al passaggio. */
+@media (max-width: 800px) {
+  #tac-nav .uscita.materiale::before { content: '\1F5CD'; }     /* 🗍 */
+}
 
 /* ══ LE DUE FILE DI PASTIGLIE DELLA TENDINA «VAI A» ══
 

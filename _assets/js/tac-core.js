@@ -5499,8 +5499,12 @@
            classe e il corso, e sono gli stessi che la barra in cima alle
            pagine del sito mostra come briciole di pane. */
         '<div class="gruppo">' +
-          '<a class="uscita" href="../" title="Torna alle unità della classe">&#8592; Classe</a>' +
-          '<a class="uscita" href="../../" title="Torna all\'indice del corso">Corso</a>' +
+          /* Le due classi in più — `verso-classe` e `verso-corso` — servono
+             al CSS: sotto gli 800 px le uscite non spariscono, si stringono
+             al loro simbolo, e il simbolo dev'essere diverso per le due.
+             Vedi la nota nel foglio di stile, alla regola delle uscite. */
+          '<a class="uscita verso-classe" href="../" title="Torna alle unità della classe">&#8592; Classe</a>' +
+          '<a class="uscita verso-corso" href="../../" title="Torna all\'indice del corso">Corso</a>' +
           /* ══ I MATERIALI, RAGGIUNGIBILI DA OGNI SLIDE ══
              Andrea, 21 agosto: «dobbiamo studiare anche dei collegamenti
              migliori verso il workbook e gli esercizi di lettura, forse

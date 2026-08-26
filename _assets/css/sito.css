@@ -245,6 +245,30 @@ main > h2:first-child { margin-top: 0; }
 /* le cinque classi, in griglia */
 .classi { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 
+/* ══ I QUADERNI DI LETTURA, IN UNA FASCIA LORO ═════════════════════
+   26 agosto. Stavano dentro `.classi`, uno dietro la scheda della sua
+   classe, e con tre colonne spezzavano la sequenza degli anni: 1ª,
+   quaderno, 2ª | quaderno, 3ª, 4ª | 5ª da sola. Andrea: «riordina le
+   classi nella pagina principale».
+   Adesso hanno una griglia loro, sotto, con celle piu strette: sono
+   cinque link a un fascicolo, non cinque schede di corso, e la
+   dimensione lo deve dire. */
+.quaderni {
+  display: grid; gap: .7rem;
+  /* `auto-fill` e non `auto-fit`: i quaderni esistono solo per le classi
+     che hanno gia il fascicolo — oggi due su cinque — e con `auto-fit`
+     due schede si allargherebbero a meta pagina ciascuna, sembrando
+     l'elenco completo. Con `auto-fill` le colonne restano quelle e le
+     schede mancanti si vedono mancare. */
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+}
+main > h2.minore { margin-top: 3.2rem; margin-bottom: .3rem; }
+.sottotitolo-sezione {
+  margin: 0 0 1.1rem; max-width: 52ch;
+  font-size: .92rem; line-height: 1.5;
+  color: var(--inchiostro2, #475569); opacity: .85;
+}
+
 .classe {
   display: block; text-decoration: none; color: inherit;
   background: var(--carta); border: 1px solid var(--bordo);
@@ -421,16 +445,16 @@ a.ris:hover { border-color: var(--viola); background: #f7f4ff; transform: transl
    della classe — quella che il fascicolo usa già come copertina — in
    piccolo, e resta comunque un link fuori dalla scheda, perché un `<a>`
    dentro un altro `<a>` non è HTML valido. */
-.classi .quaderno {
+.quaderni .quaderno {
   display: flex; align-items: center; gap: .9rem;
-  margin: -.6rem 0 1.4rem; padding: .5rem .9rem .5rem .5rem;
+  margin: 0; padding: .5rem .9rem .5rem .5rem;
   font-size: .92rem; font-weight: 600; text-decoration: none;
   color: var(--inchiostro2, #475569);
   border: 1px solid var(--bordo, #e2e8f0); border-radius: 10px;
   background: var(--carta2, #f8fafc);
   transition: border-color .18s, color .18s;
 }
-.classi .quaderno .miniatura {
+.quaderni .quaderno .miniatura {
   flex: 0 0 auto; width: 4.4rem; height: 3.1rem; border-radius: 7px;
   background-image: var(--foto); background-size: cover;
   background-position: center 42%;
@@ -440,15 +464,15 @@ a.ris:hover { border-color: var(--viola); background: #f7f4ff; transform: transl
   box-shadow: inset 0 0 0 1px rgba(20,16,40,.10);
   transition: filter .18s;
 }
-.classi .quaderno .dicitura { display: flex; flex-direction: column; gap: .12rem; }
-.classi .quaderno .nota {
+.quaderni .quaderno .dicitura { display: flex; flex-direction: column; gap: .12rem; }
+.quaderni .quaderno .nota {
   font-size: .78rem; font-weight: 500; line-height: 1.35;
   color: var(--inchiostro2, #475569); opacity: .78;
 }
-.classi .quaderno:hover { color: var(--inchiostro, #0f172a);
+.quaderni .quaderno:hover { color: var(--inchiostro, #0f172a);
                           border-color: var(--inchiostro2, #475569); }
-.classi .quaderno:hover .miniatura { filter: none; }
+.quaderni .quaderno:hover .miniatura { filter: none; }
 
 @media (max-width: 480px) {
-  .classi .quaderno .miniatura { width: 3.4rem; height: 2.4rem; }
-  .classi .quaderno .nota { display: none; }
+  .quaderni .quaderno .miniatura { width: 3.4rem; height: 2.4rem; }
+  .quaderni .quaderno .nota { display: none; }

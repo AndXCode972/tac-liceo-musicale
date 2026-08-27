@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbook — UdA 7 · Armonizzare una melodia | TAC Classe 3&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=fcf329f0">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=3ae1cb65">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
+     usa, e con `defer` i due file girano nell'ordine in cui stanno
+     scritti qui. -->
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=8415162f" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
+     fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
+                          height: auto; margin: .35rem 0; }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 3&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a class="attiva" href="workbook-uda-07.html">Workbook · unità 7</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa tutto il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Workbook</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">UdA 7 · Armonizzare una melodia — il foglio di lavoro, una pagina per lezione</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale — Classe 3&ordf;
+    </div>
+  </div>
+
+  <!-- Niente riga per nome, classe e data: il foglio non si consegna mai.
+       Lo scritto va sul quaderno e si fotografa, l'online restituisce un
+       codice, l'ascolto e' una spunta che lo studente fa per se'. La riga
+       era un'abitudine presa dal compito in classe, e costava un centimetro
+       e mezzo in cima a ogni foglio stampato. -->
+
+  <div class="riquadro attenzione">
+    <span class="etichetta">Come si usa</span>
+    <p>I compiti sono di tre specie, e ognuna si consegna in modo suo. <strong>Da fare online</strong>: allo schermo. <strong>Da ascoltare</strong>: serve all'orecchio. <strong>Da scrivere</strong>: sul quaderno, poi una foto su Classroom.</p>
+    <p style="margin-top:.5rem">Il voto dell'unità lo dà <strong>una cosa sola</strong>: la verifica in fondo, quella che restituisce un codice. Tutto il resto si consegna e si corregge, ma non fa voto &mdash; il che non vuol dire che non conti: è lì che si impara, e la verifica misura solo quello che hai imparato facendolo.</p>
+    <p style="margin-top:.5rem">Stampa <strong>una lezione alla volta</strong>, col pulsante che trovi accanto al titolo.</p>
+  </div>
+
+  <div class="lez" data-lezione="1">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 1</span>
+        <h2>Lezione 1 &mdash; Sotto ogni nota, quali accordi sono possibili</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C3-U7-L1-01">
+      <p class="titolo-consegna"><span class="num">1</span> Otto note, tutte le opzioni</p>
+      <div class="testo">Sul Workbook, sezione A: una melodia di <strong>otto note</strong> in do maggiore. Sotto ognuna scrivi in colonna <strong>tutti</strong> gli accordi possibili.<p class="dettaglio">Non sceglierne nessuno: &egrave; vietato, e in correzione lo guardo. Alla fine conta quante opzioni hai in tutto e scrivi il numero in fondo. Se &egrave; minore di venti, ne hai dimenticata qualcuna &mdash; quasi sempre quelle in cui la nota &egrave; <strong>quinta</strong>.</p></div>
+    </div>
+    <div class="consegna" id="C3-U7-L1-02">
+      <p class="titolo-consegna"><span class="num">2</span> Dove le opzioni si stringono</p>
+      <div class="testo">Nella stessa melodia, segna con un cerchio le note che ammettono <strong>meno di tre</strong> accordi, e scrivi accanto perch&eacute;.<p class="dettaglio">Ce ne sono due o tre. Le ragioni sono di due tipi soli: o quella nota &egrave; la <strong>sensibile</strong>, o sta in un punto in cui la <strong>forma</strong> chiede qualcosa &mdash; la fine, o la met&agrave;.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="2">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 2</span>
+        <h2>Lezione 2 &mdash; Il ritmo armonico: quanto dura un accordo</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C3-U7-L2-01">
+      <p class="titolo-consegna"><span class="num">1</span> Contare gli accordi, in tre brani</p>
+      <div class="testo">Prendi <strong>tre brani</strong> molto diversi &mdash; un corale, un pezzo di pianoforte, una canzone &mdash; e per ognuno conta <strong>quanti accordi per battuta</strong>.<p class="dettaglio">Non serve nominarli: basta contare i <em>cambi</em>. Poi una riga: quale dei tre ha il ritmo armonico pi&ugrave; fitto, e ti sembra che c&rsquo;entri col <strong>genere</strong>?</p></div>
+      <p class="vai no-stampa"><a href="../uda-07/lezione-2.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C3-U7-L2-02">
+      <p class="titolo-consegna"><span class="num">2</span> Quattro battute troppo ferme</p>
+      <div class="testo">Sezione B: quattro battute a quattro parti con <strong>un accordo per battuta</strong>. Rendile meno ferme.<p class="dettaglio">Due strade, e usale tutte e due: in due battute metti un <strong>secondo accordo</strong>, nelle altre due cambia soltanto la <strong>posizione</strong> dello stesso. Sotto, una riga: quale delle due strade ti sembra pi&ugrave; efficace, e perch&eacute;.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="3">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 3</span>
+        <h2>Lezione 3 &mdash; Dettato a due voci</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C3-U7-L3-01">
+      <p class="titolo-consegna"><span class="num">1</span> Rifare il dettato, e contare le distanze</p>
+      <div class="testo">Riapri la lezione e rifai il dettato con il suono della pagina. Prima i <strong>profili</strong> di tutte e due le voci, poi le note.<p class="dettaglio">Alla fine scrivi, battuta per battuta, la <strong>distanza</strong> fra le due voci sul primo movimento. Otto numeri. &Egrave; il modo in cui il dettato andava scritto, ed &egrave; anche il modo di controllarlo.</p></div>
+      <p class="vai no-stampa"><a href="../uda-07/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C3-U7-L3-04">
+      <p class="titolo-consegna"><span class="num">2</span> Suonare una voce e cantare l&rsquo;altra</p>
+      <div class="testo">Prendi il pezzo del riscaldamento di oggi. Suona la voce di <strong>sotto</strong> e canta quella di sopra. Poi al contrario.<p class="dettaglio">La seconda &egrave; molto pi&ugrave; difficile, e va fatta: da quest&rsquo;unit&agrave; il solfeggio a prima vista &egrave; <strong>a due parti</strong>, e questo esercizio smette di essere un consiglio.</p></div>
+      <p class="vai no-stampa"><a href="../uda-07/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C3-U7-L3-02">
+      <p class="titolo-consegna"><span class="num">3</span> Venti intervalli, e nessuna melodia</p>
+      <div class="testo">Sezione C: <strong>venti coppie</strong> di note scritte sul rigo. Scrivi sotto ognuna l&rsquo;<strong>intervallo</strong>.<p class="dettaglio">&Egrave; noioso e funziona. Riconoscere un intervallo armonico in mezzo secondo si allena come una scala, e nessuno lo allena. Cronometrati: la seconda volta ci metterai met&agrave; tempo.</p></div>
+    </div>
+    <div class="consegna" id="C3-U7-L3-03">
+      <p class="titolo-consegna"><span class="num">4</span> Riscrivere il dettato con i gambi giusti</p>
+      <div class="testo">Ricopia in bella il dettato di oggi, e questa volta guarda solo una cosa: i <strong>gambi</strong>.<p class="dettaglio">Voce di sopra in su, voce di sotto in gi&ugrave;, sempre, anche quando la nota sta dalla parte sbagliata del rigo. Poi somma le due voci battuta per battuta: se una non torna, quasi sempre manca una pausa. &Egrave; il controllo che costa trenta secondi e recupera pi&ugrave; punti di qualunque altra cosa.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="4">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 4</span>
+        <h2>Lezione 4 &mdash; Armonizzare una melodia di otto battute</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C3-U7-L4-02">
+      <p class="titolo-consegna"><span class="num">1</span> Cantare il proprio basso</p>
+      <div class="testo">Canta il basso che hai scritto, dall&rsquo;inizio alla fine, senza lo strumento.<p class="dettaglio">Se non ci riesci, il problema non &egrave; la tua voce: &egrave; che quel basso <strong>non &egrave; una linea</strong>. Segna i due punti in cui ti sei fermato e guarda se un rivolto li aggiusta.</p></div>
+      <p class="vai no-stampa"><a href="../uda-07/lezione-4.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C3-U7-L4-01">
+      <p class="titolo-consegna"><span class="num">2</span> Finire l&rsquo;armonizzazione delle otto battute</p>
+      <div class="testo">Finisci a quattro parti la melodia di oggi. Rigo delle fondamentali, basso come linea, poi le voci.<p class="dettaglio">Sul retro del foglio scrivi <strong>due punti</strong> in cui hai scelto, con l&rsquo;alternativa scartata e una riga sul perch&eacute;. Un&rsquo;armonizzazione senza le alternative &egrave; una risposta senza domanda, e non si pu&ograve; correggere.</p></div>
+    </div>
+    <div class="consegna" id="C3-U7-L4-03">
+      <p class="titolo-consegna"><span class="num">3</span> La stessa cadenza, in tre modi</p>
+      <div class="testo">Scrivi le <strong>ultime due battute</strong> della melodia in tre modi: con il II prima del V, con il IV, e con il VI.<p class="dettaglio">Tutte e tre sono corrette. Sotto ognuna scrivi una riga su <strong>come cambia</strong>, e alla fine metti una crocetta su quella che useresti. La crocetta vale meno delle tre righe.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="5">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 5</span>
+        <h2>Lezione 5 &mdash; La stessa melodia armonizzata due volte, e una terza volta dal suo autore: confronto</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C3-U7-L5-03">
+      <p class="titolo-consegna"><span class="num">1</span> Il basso di Bach, cantato</p>
+      <div class="testo">Riascolta il corale e canta il <strong>basso</strong> per quattro battute, seguendolo sulla partitura.<p class="dettaglio">Poi una riga: <strong>si canta</strong>? Bene: quello &egrave; il criterio con cui si giudica anche il tuo. Il basso di un corale non &egrave; un accompagnamento &mdash; &egrave; una parte che qualcuno canta davvero.</p></div>
+      <p class="vai no-stampa"><a href="../uda-07/lezione-5.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C3-U7-L5-01">
+      <p class="titolo-consegna"><span class="num">2</span> Riarmonizzare, con cinque gradi</p>
+      <div class="testo">Riarmonizza la melodia dell&rsquo;ora 49 usando <strong>almeno cinque gradi diversi</strong>, e con il basso che in un punto <strong>cammina per quattro note di fila</strong>.<p class="dettaglio">&Egrave; un vincolo artificiale e lo dico apertamente: serve a costringerti a guardare l&rsquo;elenco invece di quello che ti viene in mente. Quasi sempre il risultato piace di pi&ugrave; anche a chi lo scrive.</p></div>
+    </div>
+    <div class="consegna" id="C3-U7-L5-02">
+      <p class="titolo-consegna"><span class="num">3</span> Il conto dei gradi, sulle tre versioni</p>
+      <div class="testo">Per le <strong>tre</strong> armonizzazioni guardate oggi &mdash; le due della classe e quella di Bach &mdash; conta quanti <strong>gradi diversi</strong> compaiono.<p class="dettaglio">Poi fai il rapporto fra gradi diversi e accordi totali, e scrivi i tre numeri. Non misura la bellezza: misura <strong>quante decisioni</strong> sono state prese. Chi ne prende poche di solito non ha scelto, ha ripetuto.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="6">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 6</span>
+        <h2>Lezione 6 &mdash; Intonazione con sensibili secondarie</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C3-U7-L6-01">
+      <p class="titolo-consegna"><span class="num">1</span> Le quattro melodie, in due versioni</p>
+      <div class="testo">Canta le quattro melodie di oggi <strong>due volte</strong>: prima senza l&rsquo;alterazione, poi con.<p class="dettaglio">Il primo passaggio &egrave; quello che si salta ed &egrave; il pi&ugrave; utile: cantare la versione &laquo;normale&raquo; fa sentire <strong>di quanto</strong> l&rsquo;altra si sposta. E ricordati il semitono <strong>stretto</strong>: cantato largo, l&rsquo;effetto muore.</p></div>
+      <p class="vai no-stampa"><a href="../uda-07/lezione-6.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C3-U7-L6-02">
+      <p class="titolo-consegna"><span class="num">2</span> Cercarle in una pagina vera</p>
+      <div class="testo">Prendi una pagina di musica che hai sul leggio e cerca ogni alterazione <strong>non in armatura</strong>. Segnale tutte.<p class="dettaglio">Per ognuna, due colonne: <em>sale o scende?</em> e <em>verso che nota?</em>. Non tutte saranno sensibili secondarie, e va bene: alcune saranno note di passaggio. Il compito &egrave; trovarle, non classificarle.</p></div>
+    </div>
+    <div class="consegna" id="C3-U7-L6-03">
+      <p class="titolo-consegna"><span class="num">3</span> La differenza in tre righe</p>
+      <div class="testo">Scrivi <strong>tre righe</strong> sulla differenza fra una modulazione e una sensibile secondaria.<p class="dettaglio">Le due cose usano le <strong>stesse note</strong>, e questo &egrave; il punto: la differenza non &egrave; nelle note. Se le tue tre righe parlano di alterazioni, riscrivile.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="7">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 7</span>
+        <h2>Lezione 7 &mdash; Officina: armonizzare un corale semplice</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C3-U7-L7-01">
+      <p class="titolo-consegna"><span class="num">1</span> Finire il corale, quattro voci</p>
+      <div class="testo">Finisci il corale di oggi: otto battute, quattro voci. Si consegna alla lezione prossima e lo corregge un <strong>compagno</strong>.<p class="dettaglio">Sul retro: <strong>due punti</strong> in cui hai scelto, con l&rsquo;alternativa e il perch&eacute;. All&rsquo;ora 53 sar&agrave; la prima cosa che il tuo compagno legge, e senza quella non pu&ograve; correggere niente.</p></div>
+    </div>
+    <div class="consegna" id="C3-U7-L7-02">
+      <p class="titolo-consegna"><span class="num">2</span> La lista di controllo, sul proprio foglio</p>
+      <div class="testo">Prima di consegnare, applica al <strong>tuo</strong> corale la lista di controllo della V3, dal passo zero.<p class="dettaglio">Segna a matita quello che trovi, e non correggerlo: lascialo. All&rsquo;ora 53 confronterai la tua lista con quella del compagno, e la differenza fra le due &egrave; la cosa interessante.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="8">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 8</span>
+        <h2>Lezione 8 &mdash; Correggere il lavoro di un compagno</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C3-U7-L8-02">
+      <p class="titolo-consegna"><span class="num">1</span> Rispondere alla correzione</p>
+      <div class="testo">Rileggi la correzione che ti ha scritto il compagno e rispondi <strong>per iscritto</strong>, tre righe.<p class="dettaglio">Una riga per ogni parte della sua correzione: la cosa che funziona (sei d&rsquo;accordo?), gli errori (li avevi visti?), la sua alternativa (la prendi o la rifiuti, e perch&eacute;?). Rifiutarla motivandola vale quanto accettarla.</p></div>
+    </div>
+    <div class="consegna" id="C3-U7-L8-03">
+      <p class="titolo-consegna"><span class="num">2</span> Le due liste, a confronto</p>
+      <div class="testo">Metti accanto la <strong>tua</strong> lista di controllo &mdash; quella che avevi fatto sul tuo foglio &mdash; e quella che ha scritto il compagno.<p class="dettaglio">Poi due righe: che cosa ha visto lui che tu non avevi visto, e che cosa avevi visto tu che lui non ha segnato. La seconda &egrave; la pi&ugrave; interessante, e quasi sempre riguarda una <strong>scelta</strong>: la conosci solo tu, perch&eacute; sai che cosa avevi scartato.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="9">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 9</span>
+        <h2>Lezione 9 &mdash; Solfeggio ritmico a due parti</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C3-U7-L9-01">
+      <p class="titolo-consegna"><span class="num">1</span> Le due parti, tutte e due</p>
+      <div class="testo">Rifai i tre pezzi di oggi <strong>da solo</strong>: batti una parte con la mano e di&rsquo; l&rsquo;altra a voce.<p class="dettaglio">Poi scambia. Il terzo pezzo &mdash; tre contro due &mdash; da soli &egrave; molto pi&ugrave; difficile che a gruppi, e serve proprio per quello: non c&rsquo;&egrave; nessuno da seguire.</p></div>
+      <p class="vai no-stampa"><a href="../uda-07/lezione-9.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    <div class="consegna" id="C3-U7-L9-04">
+      <p class="titolo-consegna"><span class="num">2</span> Il metronomo sul due e sul quattro</p>
+      <div class="testo">Suona una scala, o un passo che stai studiando, con il metronomo <strong>solo sui tempi deboli</strong>.<p class="dettaglio">La prima volta ci si perde entro due battute: &egrave; normale, ed &egrave; il punto. La pulsazione che credevi di avere era quella del metronomo. Due settimane cos&igrave; cambiano il modo in cui si suona in orchestra.</p></div>
+      <p class="vai no-stampa"><a href="../uda-07/lezione-9.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C3-U7-L9-02">
+      <p class="titolo-consegna"><span class="num">3</span> Scrivere un pezzo a due parti</p>
+      <div class="testo">Scrivi <strong>otto battute</strong> di solfeggio ritmico a due parti, in 4/4, con una sincope oltre la stanghetta e almeno due battute di silenzio per parte.<p class="dettaglio">Controlla che <strong>tutte e due</strong> le parti tornino in ogni battuta: &egrave; l&rsquo;errore pi&ugrave; frequente e il pi&ugrave; facile da trovare. Poi provalo con qualcuno, e correggi quello che non funziona battendolo.</p></div>
+    </div>
+    <div class="consegna" id="C3-U7-L9-03">
+      <p class="titolo-consegna"><span class="num">4</span> Due parti, in una partitura tua</p>
+      <div class="testo">Prendi una pagina di un pezzo d&rsquo;insieme che stai suonando e trova <strong>due parti</strong> che nella stessa battuta fanno ritmi diversi.<p class="dettaglio">Ricopiale su un rigo di percussione, senza altezze, per <strong>quattro battute</strong>. Poi provale battendo, una per mano. Se non ci riesci a mani separate non ci riuscirai nemmeno in prova: quello &egrave; il punto da studiare.</p></div>
+    </div>
+    </section>
+  </div>
+
+</div>
+
+<footer class="piede no-stampa">
+  <div class="piede-interno">
+    <p><a href="../">&larr; Torna alla classe 3&ordf;</a></p>
+    <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
+  </div>
+</footer>
+
+<script>
+/* «Stampa solo questa». Il compito della settimana e una pagina: se per
+   averla si deve mandare in stampa il fascicolo intero e poi scegliere gli
+   intervalli di pagina nel pannello del browser, nessuno lo fa, e si
+   stampano undici fogli per usarne uno. Il pulsante nasconde gli altri
+   blocchi per la durata della stampa e li rimette a posto subito dopo. */
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-stampa]');
+  if (!b) return;
+  var blocco = b.closest('.lez');
+  document.body.classList.add('stampa-una');
+  blocco.classList.add('da-stampare');
+  var pulisci = function () {
+    document.body.classList.remove('stampa-una');
+    blocco.classList.remove('da-stampare');
+    window.removeEventListener('afterprint', pulisci);
+  };
+  window.addEventListener('afterprint', pulisci);
+  window.print();
+});
+</script>
+</body>
+</html>

@@ -5498,13 +5498,54 @@
            dentro finché non chiudeva la scheda. Due passi bastano, la
            classe e il corso, e sono gli stessi che la barra in cima alle
            pagine del sito mostra come briciole di pane. */
-        '<div class="gruppo">' +
+        /* ══ TRE ZONE, E CIASCUNA RISPONDE A UNA DOMANDA SOLA ══
+
+           Andrea, 27 agosto, con la fotografia della barra: «il menu in
+           basso va decisamente riordinato». Nella fotografia si vedono
+           quattro difetti insieme, e sono tutti la stessa cosa — otto
+           comandi in fila indiana in una barra alta 58 pixel:
+
+             · «Workbook» e «Letture» impilati uno sopra l'altro, fuori
+               dalla barra sotto e sopra;
+             · «Vai a» spezzato in due righe;
+             · il titolo della slide addosso alla freccia indietro;
+             · le due frecce lontane l'una dall'altra, separate da un
+               conteggio che in quella lezione era vuoto.
+
+           Il rimedio non è stringere: è dividere. Le uscite, i
+           materiali, l'indice, la tendina e le frecce facevano tutti
+           parte di un unico `.gruppo`, e un gruppo solo non ha un
+           ordine — ha una fila. Adesso sono tre, e ognuno risponde a
+           una domanda:
+
+               DA DOVE VENGO      DOVE SONO        CHE COSA APRO
+               ← Classe  Corso    ‹  3 / 16  ›     Workbook Letture ☰ Vai a
+
+           Le frecce restano al centro come prima, e adesso sono
+           davvero al centro invece che spinte lì da quello che le
+           circonda.
+
+           IL TITOLO DELLA SLIDE ESCE DALLA BARRA. Non è una resa: era
+           il `data-titolo` della slide corrente, cioè **la stessa cosa
+           scritta in grande sulla slide che si sta guardando**. In
+           dodici pixel troncati diventava «Da scrivere, per la pro…»,
+           che non dice niente e occupava il posto delle frecce. Dove si
+           è dentro la lezione lo dicono il conteggio al centro e
+           l'indice sotto il ☰, che il titolo intero ce l'ha. */
+        '<div class="gruppo indietro">' +
           /* Le due classi in più — `verso-classe` e `verso-corso` — servono
              al CSS: sotto gli 800 px le uscite non spariscono, si stringono
              al loro simbolo, e il simbolo dev'essere diverso per le due.
              Vedi la nota nel foglio di stile, alla regola delle uscite. */
           '<a class="uscita verso-classe" href="../" title="Torna alle unità della classe">&#8592; Classe</a>' +
           '<a class="uscita verso-corso" href="../../" title="Torna all\'indice del corso">Corso</a>' +
+        '</div>' +
+        '<div class="gruppo frecce">' +
+          '<button id="tac-prec" title="Precedente">&#8249;</button>' +
+          '<span id="tac-conta"></span>' +
+          '<button id="tac-succ" title="Successiva">&#8250;</button>' +
+        '</div>' +
+        '<div class="gruppo avanti">' +
           /* ══ I MATERIALI, RAGGIUNGIBILI DA OGNI SLIDE ══
              Andrea, 21 agosto: «dobbiamo studiare anche dei collegamenti
              migliori verso il workbook e gli esercizi di lettura, forse
@@ -5517,22 +5558,17 @@
 
              Li riempie `materiali()` dopo, quando l'indice è stato letto:
              qui si lascia solo il posto, perché il workbook da mostrare è
-             quello **dell'unità aperta** e l'unità la sa l'indice. */
+             quello **dell'unità aperta** e l'unità la sa l'indice.
+
+             Stanno a destra e non più a sinistra: aprono qualcosa, non
+             chiudono la lezione, e stavano nel gruppo sbagliato. */
           '<span id="tac-materiali"></span>' +
+          '<button id="tac-btn-indice" title="Indice della lezione (I)">&#9776;</button>' +
           '<div id="tac-vai" class="tac-tendina">' +
             '<button id="tac-btn-vai" title="Vai a un\'altra lezione o unità">' +
               '<span class="etichetta-vai">Vai a</span> &#9662;</button>' +
             '<div class="tac-tendina-menu" role="menu"></div>' +
           '</div>' +
-          '<button id="tac-btn-indice" title="Indice della lezione (I)">&#9776;</button>' +
-          '<span id="tac-titolo-corrente"></span>' +
-        '</div>' +
-        '<div class="gruppo frecce">' +
-          '<button id="tac-prec" title="Precedente">&#8249;</button>' +
-          '<span id="tac-conta"></span>' +
-          '<button id="tac-succ" title="Successiva">&#8250;</button>' +
-        '</div>' +
-        '<div class="gruppo">' +
           '<button class="testo solo-regia" id="tac-correggi" ' +
             'title="Correggi i testi. Le correzioni restano su questo computer">Correggi</button>' +
           '<button class="testo solo-regia" id="tac-scorda" ' +
@@ -5786,8 +5822,39 @@
       this.i = Math.max(0, Math.min(n, this.slides.length - 1));
       this.slides.forEach((s, k) => s.classList.toggle('attiva', k === this.i));
       const cur = this.slides[this.i];
-      document.getElementById('tac-titolo-corrente').textContent =
+      const titolo =
         cur.dataset.titolo || (cur.querySelector('h1,h2') || {}).textContent || '';
+
+      /* ══ IL CONTEGGIO FRA LE DUE FRECCE, CHE NON C'ERA MAI STATO ══
+
+         `#tac-conta` esisteva nella barra dal primo giorno, con un
+         `min-width: 5.5rem` nel foglio di stile, e **nessuno lo
+         riempiva**: in tutto il file non c'era una riga che gli
+         scrivesse dentro qualcosa. Il risultato era uno spazio vuoto di
+         88 pixel fra la freccia indietro e quella avanti, che sembrava
+         un difetto di allineamento e invece era un dato mancante.
+
+         Si vede nella fotografia del 27 agosto: le due frecce lontane
+         l'una dall'altra senza niente in mezzo. Andrea l'ha letto come
+         disordine, ed era disordine — ma la causa non era il CSS.
+
+         Adesso dice a che slide si è e quante sono, che è l'unica cosa
+         che in una lezione proiettata si vuole sapere a colpo d'occhio. */
+      const conta = document.getElementById('tac-conta');
+      if (conta) conta.textContent = (this.i + 1) + ' / ' + this.slides.length;
+
+      /* Il titolo della slide non sta più nella barra — era la stessa
+         cosa scritta in grande sulla slide, e troncato a dodici pixel
+         non diceva niente. Resta come suggerimento del pulsante
+         dell'indice: chi ci passa sopra col mouse lo legge intero,
+         senza che rubi spazio alle frecce. */
+      const ind = document.getElementById('tac-btn-indice');
+      if (ind) {
+        ind.title = titolo
+          ? 'Indice della lezione (I) — sei su: ' + titolo
+          : 'Indice della lezione (I)';
+      }
+
       document.getElementById('tac-progresso').style.width =
         ((this.i + 1) / this.slides.length * 100) + '%';
       /* Cambiando slide si zittisce quello che stava suonando.

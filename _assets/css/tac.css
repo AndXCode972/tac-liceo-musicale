@@ -1714,17 +1714,97 @@ body.modalita-studio .tac-brano-part figure[data-quale="incipit"] svg,
   .aforisma { border-left-color: #999; }
 }
 
-/* --- Le frecce restano al centro, qualunque sia la lunghezza del titolo --- */
+/* ══════════════════════════════════════════════════════════════════
+   LA BARRA IN BASSO, RIORDINATA — 27 agosto 2026
+   ══════════════════════════════════════════════════════════════════
+
+   Andrea, con due fotografie a distanza di un'ora: «il menu vai a è a
+   capo, meglio allargare il pulsante. Il titolo della lezione si
+   sovrappone alle frecce di navigazione», e poi «il menu in basso va
+   decisamente riordinato».
+
+   Nella seconda fotografia si contano quattro difetti insieme:
+   «Workbook» e «Letture» impilati uno sopra l'altro e sbordati fuori
+   dalla barra, «Vai a» spezzato in due righe, il titolo addosso alla
+   freccia indietro, e le due frecce lontane con un vuoto in mezzo.
+
+   Erano quattro sintomi di una causa sola: **otto comandi in un solo
+   gruppo**. Un gruppo con dentro le uscite, i materiali, la tendina,
+   l'indice e il titolo non ha un ordine, ha una fila; e una fila,
+   quando lo spazio manca, si accartoccia dal punto più debole.
+
+   Adesso i gruppi sono tre, e ognuno risponde a una domanda:
+
+       DA DOVE VENGO      DOVE SONO        CHE COSA APRO
+       ← Classe  Corso    ‹  3 / 16  ›     Workbook Letture ☰ Vai a
+
+   Le tre regole che tengono in piedi il tutto:
+
+   1. Ogni pastiglia ha la larghezza che ha (`flex: 0 0 auto`) e non si
+      stringe. È la riga che impedisce a «Vai a» di andare a capo.
+   2. `#tac-materiali` è un flex a sua volta. Era un `<span>` — quindi
+      `display: inline` — e i suoi due collegamenti si impilavano appena
+      lo spazio si stringeva, sfondando la barra sopra e sotto. Questo
+      era il difetto più vistoso della fotografia, ed era una parola
+      sola di CSS mancante.
+   3. Tutto è alto **34 px**. Prima i pulsanti quadrati erano 38 e le
+      pastiglie 30: nella stessa barra, otto pixel di differenza si
+      vedono come un allineamento sbagliato.
+
+   ⚠ NIENTE `overflow: hidden` SUI GRUPPI. L'avevo scritto come rete di
+   sicurezza e sarebbe stato un guasto: dentro il gruppo di destra c'è
+   `#tac-vai`, il cui pannello è `position: absolute` ancorato sopra la
+   barra. Un `overflow: hidden` sull'antenato lo taglia, e la tendina si
+   sarebbe aperta invisibile. */
 #tac-nav {
   display: grid !important;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
+  gap: .6rem;
 }
-#tac-nav > .gruppo:first-child { justify-self: start; min-width: 0; }
-#tac-nav > .gruppo.frecce     { justify-self: center; }
-#tac-nav > .gruppo:last-child { justify-self: end; }
-#tac-titolo-corrente { min-width: 0; }
-#tac-conta { min-width: 5.5rem; text-align: center; display: inline-block; }
+#tac-nav > .gruppo.indietro { justify-self: start;  min-width: 0; }
+#tac-nav > .gruppo.frecce   { justify-self: center; }
+#tac-nav > .gruppo.avanti   { justify-self: end;    min-width: 0; }
+
+/* nessuna pastiglia si stringe: chi non ci sta esce, non va a capo */
+#tac-nav > .gruppo > * { flex: 0 0 auto; }
+#tac-nav #tac-materiali { display: flex; align-items: center; gap: .5rem; }
+#tac-nav #tac-btn-vai { white-space: nowrap; line-height: 1; }
+
+/* una sola altezza per tutto quello che sta nella barra */
+#tac-nav button,
+#tac-nav .uscita,
+#tac-nav #tac-btn-vai { height: 34px; }
+#tac-nav button { width: 34px; }
+#tac-nav button.testo,
+#tac-nav #tac-btn-vai { width: auto; }
+
+/* ⚠ LA TENDINA CAMBIA LATO INSIEME AL SUO PULSANTE.
+
+   `.tac-tendina-menu` era ancorata `left: 0`, e andava bene finché
+   «Vai a» stava a sinistra. Spostandolo nel gruppo di destra, il
+   pannello — largo 352 px — è finito con il bordo destro a 1604 px in
+   una finestra da 1386: **fuori dallo schermo**, e in modo silenzioso,
+   perché la tendina si apriva davvero e semplicemente non si vedeva.
+
+   Trovato misurando il rettangolo del pannello dopo lo spostamento, non
+   guardando lo schermo: a occhio, un pannello che esce a destra sembra
+   un pannello che non si è aperto. */
+#tac-nav .gruppo.avanti .tac-tendina-menu { left: auto; right: 0; }
+
+/* il conteggio: `3 / 16`, e adesso è davvero scritto — vedi `vai()` in
+   tac-core.js, dove per mesi non lo scriveva nessuno */
+#tac-conta {
+  min-width: 4.5rem; text-align: center; display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Il titolo della slide è uscito dalla barra: era il `data-titolo`
+   della slide corrente, cioè la stessa cosa scritta in grande sulla
+   slide, e troncato diventava «Da scrivere, per la pro…». Adesso è il
+   suggerimento del pulsante ☰. La regola resta per le lezioni ancora
+   montate col JavaScript vecchio: se quell'elemento c'è, si nasconde. */
+#tac-titolo-corrente { display: none; }
 
 .tac-tubo .tac-fuori {
   display: inline-block; margin-top: .5rem; padding: .45rem .9rem;

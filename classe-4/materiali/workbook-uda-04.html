@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbook — UdA 4 · Dall’alto: i profili melodici cadenzali | TAC Classe 4&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=6da4e558">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=3ae1cb65">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
+     usa, e con `defer` i due file girano nell'ordine in cui stanno
+     scritti qui. -->
+<script src="../../_assets/js/codice.js" defer></script>
+<script src="../../_assets/js/tac-core.js?v=8415162f" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
+     fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
+                          height: auto; margin: .35rem 0; }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 4&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a class="attiva" href="workbook-uda-04.html">Workbook · unità 4</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa tutto il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Workbook</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">UdA 4 · Dall’alto: i profili melodici cadenzali — il foglio di lavoro, una pagina per lezione</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale — Classe 4&ordf;
+    </div>
+  </div>
+
+  <!-- Niente riga per nome, classe e data: il foglio non si consegna mai.
+       Lo scritto va sul quaderno e si fotografa, l'online restituisce un
+       codice, l'ascolto e' una spunta che lo studente fa per se'. La riga
+       era un'abitudine presa dal compito in classe, e costava un centimetro
+       e mezzo in cima a ogni foglio stampato. -->
+
+  <div class="riquadro attenzione">
+    <span class="etichetta">Come si usa</span>
+    <p>I compiti sono di tre specie, e ognuna si consegna in modo suo. <strong>Da fare online</strong>: allo schermo. <strong>Da ascoltare</strong>: serve all'orecchio. <strong>Da scrivere</strong>: sul quaderno, poi una foto su Classroom.</p>
+    <p style="margin-top:.5rem">Il voto dell'unità lo dà <strong>una cosa sola</strong>: la verifica in fondo, quella che restituisce un codice. Tutto il resto si consegna e si corregge, ma non fa voto &mdash; il che non vuol dire che non conti: è lì che si impara, e la verifica misura solo quello che hai imparato facendolo.</p>
+    <p style="margin-top:.5rem">Stampa <strong>una lezione alla volta</strong>, col pulsante che trovi accanto al titolo.</p>
+  </div>
+
+  <div class="lez" data-lezione="1">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 1</span>
+        <h2>Lezione 1 &mdash; Guardare dall’alto: che cos’è un profilo cadenzale</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U4-L1-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; guardare dall’alto</p>
+      <div class="testo">Quattro affermazioni sul modo di guardare e sul ii⁶.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Un profilo melodico cadenzale è fatto dalle ultime due o tre note del soprano prima di una cadenza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e si scrivono in <strong>gradi</strong> perché così la figura vale in tutte le tonalità.",
+  "da": "Che cos’è un profilo"
+ },
+ {
+  "d": "I profili si scrivono con i nomi delle note.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: con i <strong>numeri dei gradi</strong>. In do è re–si–do, in mi♭ è fa–re–mi♭, e il profilo è lo stesso.",
+  "da": "Che cos’è un profilo"
+ },
+ {
+  "d": "Il libro dice che i profili si imparano a memoria.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e lo scrive senza giri di parole: sono «formule memorizzabili e applicabili» (p. 38).",
+  "da": "Una cosa nuova nel metodo"
+ },
+ {
+  "d": "Imparare una formula vuol dire smettere di ragionare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: toglie al ragionamento il lavoro che ha già fatto venti volte. Nessuno ricalcola 7×8 da zero, e non per questo è peggiore in aritmetica.",
+  "da": "Una cosa nuova nel metodo"
+ },
+ {
+  "d": "Il ii⁶ ha funzione di sottodominante e si porta sempre sul V.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e per questo il libro lo chiama accordo cadenzale (p. 34).",
+  "da": "Il primo accordo nuovo"
+ },
+ {
+  "d": "Il ii⁶ è tipico della musica barocca.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: il libro lo dice tipico dell’<strong>epoca classica</strong>, e in particolare di Haydn, Mozart e Beethoven.",
+  "da": "Il primo accordo nuovo"
+ },
+ {
+  "d": "Le note del soprano che possono stare sopra un ii⁶ sono il 2°, il 4° e il 6°.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: sono le tre note della triade di secondo grado.",
+  "da": "Quali note lo reggono"
+ },
+ {
+  "d": "Quelle tre note compaiono con la stessa frequenza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e il libro dà un ordine di ricorrenza riferito al Classicismo. È un fatto storico, non una regola.",
+  "da": "Quali note lo reggono"
+ },
+ {
+  "d": "Il profilo 2°–7°–1° sopra ii⁶ – V – I è il più usato del Classicismo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e il libro dice perché: tre accordi completi, raddoppi normali, tonica al soprano.",
+  "da": "Perché proprio quello"
+ },
+ {
+  "d": "Una cadenza che finisce con il 5° al soprano chiude come una che finisce con l’1°.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è una cadenza <strong>imperfetta</strong>, e il libro la dice «molto meno consueta» in questo contesto.",
+  "da": "Le due poco usate"
+ },
+ {
+  "d": "Armonizzando un canto dato conviene partire dalle cadenze e andare all’indietro.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: le cadenze sono i punti in cui si ha meno libertà, e si fissano per prime.",
+  "da": "Come si usa, scrivendo"
+ },
+ {
+  "d": "Il ii⁶ e il IV hanno due note in comune.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero — in do il fa e il la — e la stessa funzione: sopra un 4° o un 6° al soprano si scambiano quasi sempre.",
+  "da": "ii6 o IV"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U4-L1-01">
+      <p class="titolo-consegna"><span class="num">2</span> Sei finali di frase, e tre sono uguali</p>
+      <div class="testo">Sul Workbook trovi sei finali di frase, soprano solo. Scrivi i <strong>gradi</strong> sopra le note e armonizza a quattro parti quelli che finiscono 2°–7°–1°.<p class="dettaglio">I tre che finiscono così si armonizzano <strong>allo stesso modo</strong>, ed è il punto del compito. Sotto uno dei tre scrivi una riga: perché quel profilo dà una chiusa così netta.</p></div>
+    </div>
+    <div class="consegna" id="C4-U4-L1-02">
+      <p class="titolo-consegna"><span class="num">3</span> ii<sup>6</sup> o IV: quale dei due, e perch&eacute;</p>
+      <div class="testo">Quattro frammenti con una sottodominante. Per ciascuno scrivi quale dei due accordi è, guardando il basso.<p class="dettaglio">Poi due righe: in quale dei quattro la scelta <strong>non era libera</strong>, e che cosa la vincolava. Il libro lo dice per il 6° al soprano.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="2">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 2</span>
+        <h2>Lezione 2 &mdash; Le due clausole: di soprano e di tenore</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U4-L2-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; le due clausole</p>
+      <div class="testo">Due affermazioni sui profili idiomatici e sui loro nomi.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="2">
+[
+ {
+  "d": "I due profili idiomatici sopra la quarta e sesta cadenzale sono 3°–2°–1° e 1°–7°–1°.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e il libro li chiama «indizi» dell’uso di quella successione (p. 36).",
+  "da": "I due profili"
+ },
+ {
+  "d": "La clausola di tenore è il movimento 7°–1°.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: quella è la clausola di <strong>soprano</strong>. La clausola di tenore è <strong>2°–1°</strong>.",
+  "da": "I nomi, e da dove vengono"
+ },
+ {
+  "d": "Le due clausole del libro sono la cantizans e la tenorizans studiate in seconda.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: stessi due movimenti, studiati allora in un mottetto del Cinquecento e ritrovati qui in una cadenza a quattro parti.",
+  "da": "I nomi, e da dove vengono"
+ },
+ {
+  "d": "La parola «clausula» nasce nell’Ottocento.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è il nome di una sezione polifonica nella scuola di Notre-Dame, <strong>XIII secolo</strong> (Dionisi, p. 213).",
+  "da": "I nomi, e da dove vengono"
+ },
+ {
+  "d": "Un indizio è una prova.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: dice <em>dove guardare</em>. La conferma la dà sempre il basso.",
+  "da": "Che cosa vuol dire indizio"
+ },
+ {
+  "d": "Un profilo idiomatico funziona sia analizzando sia scrivendo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e sono i due mestieri dell’unità: dal profilo all’armonia, e viceversa.",
+  "da": "Che cosa vuol dire indizio"
+ },
+ {
+  "d": "Il 5° tenuto al soprano sopra la quarta e sesta è la disposizione più comune.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è «poco comune», perché mette in contrasto due segnali opposti — una successione fortemente conclusiva e una cadenza imperfetta.",
+  "da": "Il terzo, che si usa poco"
+ },
+ {
+  "d": "In quest’ora si è imparata una successione armonica nuova.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e il libro lo dice: «non troverai successioni armoniche che non conosci». Cambia da dove le si guarda.",
+  "da": "La quarta e sesta"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U4-L2-01">
+      <p class="titolo-consegna"><span class="num">2</span> Le due clausole, in quattro tonalit&agrave;</p>
+      <div class="testo">Scrivi a quattro parti I<span class="cifrata"><sup>6</sup><sub>4</sub></span> – V – I in do, sol, fa e mi♭ maggiore: due volte con il profilo 3°–2°–1° e due con 1°–7°–1°.<p class="dettaglio">Accanto a ciascuna scrivi il <strong>nome</strong> della clausola. E in una delle quattro fai scendere la sensibile di terza, in una voce interna: scrivi sotto perché lì si può.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="3">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 3</span>
+        <h2>Lezione 3 &mdash; Dettato a due voci</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U4-L3-04">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; scrivere due voci</p>
+      <div class="testo">Tre affermazioni sulla procedura del dettato a due parti.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="3">
+[
+ {
+  "d": "Nel dettato di oggi si scrivono le due voci estreme.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: il soprano e il basso, cioè i due termini della relazione che l’unità studia.",
+  "da": "Perché queste due"
+ },
+ {
+  "d": "Conviene scrivere prima la voce acuta, che ha più note.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: prima la <strong>grave</strong>, tutta, nelle prime due esecuzioni. Diventa il reticolo su cui appoggiare l’altra.",
+  "da": "Prima la grave"
+ },
+ {
+  "d": "Il metro e l’armatura sono stampati sul foglio.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: li riconoscete voi e li scrivete. È il primo gesto di chi trascrive qualcosa.",
+  "da": "Il metro e la tonalità"
+ },
+ {
+  "d": "Nel dettato c’è una sola terzina.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, alla battuta 5, in una battuta che per il resto è di semiminime: due difficoltà ritmiche insieme non si misurano.",
+  "da": "La terzina"
+ },
+ {
+  "d": "Le ultime tre note del soprano sono un profilo studiato.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: 3°–2°–1° sopra la quarta e sesta cadenzale. Chi lo riconosce le scrive senza sentirle.",
+  "da": "Il finale lo sapete"
+ },
+ {
+  "d": "Riconoscere una formula in un dettato è una scorciatoia scorretta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è esattamente quello che l’unità insegna a fare. Poi si verifica con l’orecchio, nella fase 4.",
+  "da": "Il finale lo sapete"
+ },
+ {
+  "d": "Nella griglia le due voci pesano uguale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, sette punti ciascuna. Quattro punti stanno sull’incastro.",
+  "da": "Come si valuta"
+ },
+ {
+  "d": "Si possono prendere tutte le note e perdere punti lo stesso.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: se le note che suonano insieme non sono incolonnate, l’incastro è sbagliato e vale quattro punti.",
+  "da": "L’incastro"
+ },
+ {
+  "d": "Sapere in anticipo quanto sono grandi i salti aiuta a scrivere.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: chi sa che il massimo è una quinta non scrive mai un’ottava per sbaglio, perché sa che non può esserci.",
+  "da": "Che cosa fa la voce acuta"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C4-U4-L3-01">
+      <p class="titolo-consegna"><span class="num">2</span> Il dettato di oggi, rifatto da soli</p>
+      <div class="testo">Riascolta il dettato e riscrivilo da capo, senza guardare quello corretto.<p class="dettaglio">Poi confronta i due fogli e guarda per prima cosa l’<strong>incastro</strong>: le note che suonano insieme stanno incolonnate? È la parte che si perde senza accorgersene.</p></div>
+      <p class="vai no-stampa"><a href="../uda-04/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U4-L3-02">
+      <p class="titolo-consegna"><span class="num">3</span> Cinque minuti al giorno &middot; due voci insieme</p>
+      <div class="testo">Per cinque giorni prendi un pezzo che conosci e canta <strong>solo il basso</strong>, poi la melodia mentre suoni il basso.<p class="dettaglio">Il quinto giorno prova a <strong>cantare il basso e immaginare la melodia</strong>. Un foglio, cinque righe: data e com’è andata.</p></div>
+    </div>
+    <div class="consegna" id="C4-U4-L3-03">
+      <p class="titolo-consegna"><span class="num">4</span> La tua correzione, in tre colonne</p>
+      <div class="testo">Conta gli errori del dettato dividendoli in tre colonne: <strong>voce grave</strong>, <strong>voce acuta</strong>, <strong>incastro</strong>.<p class="dettaglio">Poi due righe: quale colonna è più lunga, e che cosa vuol dire. Se è l’incastro, il problema è di scrittura e si risolve in cinque minuti; se sono le note, costa di più e si vede meno.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="4">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 4</span>
+        <h2>Lezione 4 &mdash; La cadenza doppia</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U4-L4-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; la cadenza doppia</p>
+      <div class="testo">Due affermazioni sulla figura e sull’accordo correttivo.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="2">
+[
+ {
+  "d": "Nella cadenza doppia fra il 4° e il 3° del soprano si interpone il 2°.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e in posizione ritmicamente <strong>forte</strong>: è la condizione, ed è scritta in tre parole.",
+  "da": "Che cos’è"
+ },
+ {
+  "d": "Se il 2° cade su un tempo debole si tratta comunque di una cadenza doppia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: allora è una nota di passaggio dentro la clausola di tenore. Stessa melodia, due cose diverse, e a deciderlo è il ritmo.",
+  "da": "Come si riconosce"
+ },
+ {
+  "d": "La cadenza doppia permette di scegliere fra tre accordi di sottodominante.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: IV, ii⁶ e ii (p. 37).",
+  "da": "Le tre scelte"
+ },
+ {
+  "d": "L’accordo correttivo si mette perché l’armonia lo richiede.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si mette per <strong>separare due quinte parallele</strong>. È un uso della grammatica, non una scelta armonica.",
+  "da": "L’accordo correttivo"
+ },
+ {
+  "d": "Separare due parallele mettendoci un accordo in mezzo è una soluzione legittima.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è la terza dopo «cambio disposizione» e «cambio accordo».",
+  "da": "L’accordo correttivo"
+ },
+ {
+  "d": "A parti late, con il 4° al soprano, si può usare indifferentemente il IV o il ii.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: la successione regge <strong>esclusivamente il quarto</strong>. Con il secondo, contralto e tenore fanno due quinte parallele.",
+  "da": "Il vincolo di disposizione"
+ },
+ {
+  "d": "A parti strette quell’errore si elimina invertendo tenore e contralto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero (p. 37), ed è la terza volta in due unità che la disposizione cambia ciò che è permesso.",
+  "da": "Il vincolo di disposizione"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U4-L4-01">
+      <p class="titolo-consegna"><span class="num">2</span> La stessa cadenza doppia, con tre sottodominanti</p>
+      <div class="testo">Scrivi a quattro parti il profilo 4°–2°–3° in fa maggiore, <strong>tre volte</strong>: con il IV, con il ii⁶ e con il ii.<p class="dettaglio">Nella terza versione metti il <strong>V<span class="cifrata"><sup>6</sup><sub>4</sub></span> correttivo</strong> fra i due accordi, e segna con una freccia le due quinte che separa. È la parte da consegnare.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="5">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 5</span>
+        <h2>Lezione 5 &mdash; La losanga, il napoletano, e i profili sulle espansioni</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U4-L5-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; le ultime figure</p>
+      <div class="testo">Tre affermazioni su losanga, napoletano, inganno ed espansioni.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="3">
+[
+ {
+  "d": "Il profilo a losanga ha la successione 6°–2°–7°–1° al soprano.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e si riconosce perché ha <strong>quattro</strong> note invece di tre e comincia da un salto.",
+  "da": "La losanga"
+ },
+ {
+  "d": "Il nome «losanga» viene dall’armonia che lo sostiene.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: viene dal <strong>disegno</strong> che le voci fanno sulla carta.",
+  "da": "Perché due nomi propri"
+ },
+ {
+  "d": "Il profilo napoletano si presenta quasi sempre con il 2° abbassato al soprano.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e si usa perlopiù nel modo minore. Una nota sola, e l’armonia è decisa.",
+  "da": "Il napoletano"
+ },
+ {
+  "d": "Il grado napoletano si studia per intero in quest’unità.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è fatto in terza. Qui compare solo come profilo riconoscibile.",
+  "da": "Il napoletano"
+ },
+ {
+  "d": "Tutte le cadenze che finiscono 2°–1° e 7°–1° possono risolvere sul sesto grado.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero (p. 40), e per questo il profilo dice quale cadenza sta arrivando, non dove va a finire.",
+  "da": "L’inganno"
+ },
+ {
+  "d": "Il profilo 5°–3° è tipico della cadenza autentica.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è tipico della cadenza <strong>d’inganno</strong>, e si trova raramente armonizzato con una autentica.",
+  "da": "Il profilo dell’inganno"
+ },
+ {
+  "d": "Nello scambio modale della cadenza d’inganno si abbassano il 3° e il 6°.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, prendendo il VI della scala minore omonima. Beethoven, Sonata op. 10 n. 3.",
+  "da": "Lo scambio modale"
+ },
+ {
+  "d": "L’espansione con cambio di stato serve a dare varietà al profilo del basso.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è molto praticata sulla tonica e meno sulla dominante (p. 42).",
+  "da": "Le espansioni"
+ },
+ {
+  "d": "Nei corali di Bach il caso più frequente dentro un’espansione è il moto contrario con scambio delle voci.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sono le <strong>note ribattute</strong> al soprano, con uno o più cambi di stato al basso.",
+  "da": "I cinque casi"
+ },
+ {
+  "d": "Dentro un’espansione tutti i movimenti melodici sono possibili.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sono esclusi quelli che sulla dominante raddoppierebbero la sensibile o le darebbero risoluzioni improbabili.",
+  "da": "Il vincolo sulla dominante"
+ },
+ {
+  "d": "Le figure del repertorio dell’unità sono più di venti.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sono <strong>sette</strong>, e stanno in mezza pagina di quaderno. È questo a renderle utili.",
+  "da": "Il repertorio, chiuso"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U4-L5-01">
+      <p class="titolo-consegna"><span class="num">2</span> Otto frammenti, e due non sono niente</p>
+      <div class="testo">Sul Workbook trovi otto frammenti di soprano. Per ciascuno: i gradi, il <strong>nome della figura</strong>, e il basso sotto quelle riconosciute.<p class="dettaglio"><strong>Due degli otto non sono nessuna figura</strong>, e scrivere «nessuna» è la risposta giusta. Se te ne risultano riconoscibili più di sei, stai forzando.</p></div>
+    </div>
+    <div class="consegna" id="C4-U4-L5-02">
+      <p class="titolo-consegna"><span class="num">3</span> Il foglio delle sette figure</p>
+      <div class="testo">Costruisci il tuo foglio del repertorio: le sette figure, con i gradi, il basso e il nome.<p class="dettaglio">Mezza pagina, scritta a mano, che si tiene aperta mentre si armonizza. Aggiungi una colonna: <strong>dove finisce</strong> — sul I o sul vi, o tutti e due.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="6">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 6</span>
+        <h2>Lezione 6 &mdash; Analisi: i profili cadenzali di un corale</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U4-L6-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; come si scrive il verbale</p>
+      <div class="testo">Due affermazioni sulla procedura dell’analisi.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="2">
+[
+ {
+  "d": "Nell’analisi si parte dal soprano per trovare i profili.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si parte dal <strong>basso</strong>, per trovare i punti cadenzali. Il profilo si legge dopo.",
+  "da": "Prima il punto, poi il profilo"
+ },
+ {
+  "d": "Un 3°–2°–1° in mezzo a una frase è un profilo cadenzale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è una scala che scende. Un profilo è cadenzale perché sta in un punto cadenzale.",
+  "da": "Prima il punto, poi il profilo"
+ },
+ {
+  "d": "Un basso fermo per due accordi in fondo a una frase è un punto cadenzale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero quanto un salto di quinta: è il segnale della quarta e sesta.",
+  "da": "Il secondo, da soli"
+ },
+ {
+  "d": "«Nessuna figura» è una risposta legittima.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è una competenza: le sette figure non coprono tutto.",
+  "da": "Che cosa portiamo a casa"
+ },
+ {
+  "d": "Se un profilo risolve sul vi, nel verbale si scrive solo il nome del profilo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si scrivono tutte e due le cose, perché sono due informazioni separate — quale figura, e dove è andata a finire.",
+  "da": "Il terzo, con l’inganno"
+ },
+ {
+  "d": "Il verbale è lo stesso metodo delle unità 2 e 3.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, per la terza volta: si scrive quello che c’è, e chi legge deve poter rifare tutto.",
+  "da": "Il metodo, per la terza volta"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U4-L6-01">
+      <p class="titolo-consegna"><span class="num">2</span> Il verbale di un corale</p>
+      <div class="testo">Sul Workbook trovi un corale con quattro punti cadenzali. Per ciascuno: i gradi al soprano e il nome della figura.<p class="dettaglio">Uno dei quattro <strong>non è nessuna figura</strong>, e uno finisce sul vi: in quel caso scrivi tutte e due le cose. Ricorda l’ordine: prima il punto, poi il profilo.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="7">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 7</span>
+        <h2>Lezione 7 &mdash; Ascolto: riconoscere il profilo in un corale</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C4-U4-L7-01">
+      <p class="titolo-consegna"><span class="num">1</span> Dieci cadenze, a distanza di due giorni</p>
+      <div class="testo">Riascolta le dieci cadenze dell’ora e riscrivi che cadenza è e — se ci arrivi — quale figura.<p class="dettaglio">Farlo <strong>a distanza</strong> è parte dell’esercizio: rifarlo subito vuol dire ricordare le risposte invece di risentirle.</p></div>
+      <p class="vai no-stampa"><a href="../uda-04/lezione-7.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U4-L7-02">
+      <p class="titolo-consegna"><span class="num">2</span> In che gradino sono, e due righe prima della V2</p>
+      <div class="testo">Scrivi in quale dei quattro gradini ti sei trovato oggi, e due righe su quale figura fatichi ancora a riconoscere.<p class="dettaglio">Non è un tema: è la cosa da rileggere la sera prima della V2. Datala e mettila nel quaderno — fra un mese la riguardiamo.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="99">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Tutta l&rsquo;unità insieme</span>
+        <h2>Ripasso di fine unità</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna verifica" id="C4U4V">
+      <p class="titolo-consegna"><span class="num">1</span> Verifica di fine unit&agrave; 4</p>
+      <div class="testo">2 esercizi, uno per volta. Non si torna indietro: prima di rispondere pensaci. Alla fine esce un <strong>codice</strong> che consegni su Classroom.<br><strong>&Egrave; l&rsquo;unica cosa dell&rsquo;unit&agrave; che fa voto.</strong></div>
+      <div class="online-vivo no-stampa">
+        <tac-verifica sigla="C4U4V" dove="casa" titolo="Verifica di fine unità 4">
+    <tac-quiz quante="8" scheda="C4U4L703" peso="3">
+[
+ {
+  "d": "Un profilo cadenzale si scrive in gradi, non in note.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "unità 4"
+ },
+ {
+  "d": "Quest’unità guarda il basso, come le tre precedenti.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "unità 4"
+ },
+ {
+  "d": "Il libro dice che i profili si imparano a memoria.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il ii⁶ si porta sempre sul V.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il ii⁶ è tipico del Barocco.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il profilo più usato del Classicismo sopra il ii⁶ è il 2°–7°–1°.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "La clausola di soprano è il 2°–1°.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Le due clausole erano già state studiate in seconda con nomi latini.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "I due profili idiomatici della quarta e sesta sono 3°–2°–1° e 1°–7°–1°.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Un indizio melodico basta a stabilire l’armonia con certezza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Nella cadenza doppia il 2° interposto deve stare su un tempo forte.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "L’accordo correttivo serve a separare due quinte parallele.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "A parti late con il 4° al soprano si può usare il secondo grado.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Il profilo a losanga ha quattro note.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Il profilo napoletano si usa perlopiù nel modo maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Il 5°–3° è il profilo tipico della cadenza d’inganno.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Un profilo cadenzale può finire sul vi invece che sul I.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "L’espansione con cambio di stato è più praticata sulla dominante che sulla tonica.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Nei corali di Bach il caso più frequente è la nota ribattuta al soprano con cambio di stato al basso.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Dentro un’espansione la sensibile si può raddoppiare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Le figure del repertorio sono sette.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "unità 4"
+ },
+ {
+  "d": "Nell’analisi si parte dal soprano.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "«Nessuna figura» è una risposta sbagliata.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Nel dettato a due voci si scrive prima la voce grave.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Nel dettato a due voci le due voci pesano uguale nella griglia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "All’ascolto si riconosce un profilo contando i gradi mentre la musica passa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "La prima domanda all’ascolto è se la cadenza chiude o no.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "Armonizzando un canto dato conviene cominciare dall’inizio.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "La parola «clausula» ha ottocento anni.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Una formula sostituisce il ragionamento.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "unità 4"
+ }
+]
+    </tac-quiz>
+    <tac-drag quante="5" scheda="C4U4L704" peso="2">
+{
+ "frasi": [
+  {
+   "testo": "Il movimento 7° – 1° al soprano si chiama clausola di ___.",
+   "giusta": "soprano"
+  },
+  {
+   "testo": "Il movimento 2° – 1° al soprano si chiama clausola di ___.",
+   "giusta": "tenore"
+  },
+  {
+   "testo": "Il profilo 6° – 2° – 7° – 1° si chiama profilo ___.",
+   "giusta": "a losanga"
+  },
+  {
+   "testo": "Il profilo con il 2° abbassato, nel minore, si chiama profilo ___.",
+   "giusta": "napoletano"
+  },
+  {
+   "testo": "Il profilo 5° – 3° è tipico della cadenza ___.",
+   "giusta": "d’inganno"
+  },
+  {
+   "testo": "Quando fra il 4° e il 3° si interpone il 2° sul tempo forte si ha una cadenza ___.",
+   "giusta": "doppia"
+  },
+  {
+   "testo": "L’accordo messo per separare due quinte parallele si dice ___.",
+   "giusta": "correttivo"
+  },
+  {
+   "testo": "La stessa armonia tenuta con il basso che cambia posizione è un’espansione con cambio di ___.",
+   "giusta": "stato"
+  }
+ ],
+ "gettoni": []
+}
+    </tac-drag>
+        </tac-verifica>
+      </div>
+      <div class="esito"><span class="etichetta-esito">Codice ottenuto</span><span class="casella-codice"></span></div>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U4-L7-05">
+      <p class="titolo-consegna"><span class="num">2</span> Un canto dato, e le cadenze per prime</p>
+      <div class="testo">Sul Workbook trovi un canto dato di otto battute con <strong>tre punti cadenzali</strong>. Armonizzalo a quattro parti.<p class="dettaglio">Si comincia dalle <strong>cadenze</strong>: si riconoscono i profili, si scrive l’armonia lì, e poi si riempie all’indietro. Sotto, mezza pagina: quali figure hai riconosciuto e che cosa avresti fatto senza riconoscerle.</p></div>
+    </div>
+    </section>
+  </div>
+
+</div>
+
+<footer class="piede no-stampa">
+  <div class="piede-interno">
+    <p><a href="../">&larr; Torna alla classe 4&ordf;</a></p>
+    <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
+  </div>
+</footer>
+
+<script>
+/* «Stampa solo questa». Il compito della settimana e una pagina: se per
+   averla si deve mandare in stampa il fascicolo intero e poi scegliere gli
+   intervalli di pagina nel pannello del browser, nessuno lo fa, e si
+   stampano undici fogli per usarne uno. Il pulsante nasconde gli altri
+   blocchi per la durata della stampa e li rimette a posto subito dopo. */
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-stampa]');
+  if (!b) return;
+  var blocco = b.closest('.lez');
+  document.body.classList.add('stampa-una');
+  blocco.classList.add('da-stampare');
+  var pulisci = function () {
+    document.body.classList.remove('stampa-una');
+    blocco.classList.remove('da-stampare');
+    window.removeEventListener('afterprint', pulisci);
+  };
+  window.addEventListener('afterprint', pulisci);
+  window.print();
+});
+</script>
+</body>
+</html>

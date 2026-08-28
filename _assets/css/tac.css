@@ -2251,3 +2251,65 @@ body.regia .corretto { box-shadow: -4px 0 0 -1px var(--viola); }
   margin: 1rem auto 0;
   background: var(--inchiostro2, #555);
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   LA CIFRATURA DEI RIVOLTI: i numeri UNO SOPRA L'ALTRO
+
+   Andrea, 28 agosto 2026: «V⁴₂ si possono avere le numeriche una sopra
+   l'altra, come dovrebbe essere?»
+
+   Sì, e ha ragione: nella cifratura del basso continuo i due numeri
+   sono INCOLONNATI. `V<sup>4</sup><sub>2</sub>` in HTML li mette uno in
+   alto e uno in basso ma SPOSTATI A DESTRA — cioè in diagonale, che è
+   una cosa che nella notazione musicale non esiste.
+
+   ⚠ E NON È UN VEZZO TIPOGRAFICO. Due numeri in colonna dicono «questo
+   accordo», due numeri in fila dicono «prima questo, poi quello»: è la
+   differenza fra un V⁴₃ e un ritardo 4–3, che la lezione 2 dell'unità 3
+   della quarta deve spiegare a parole proprio perché la pagina li
+   scriveva uguali. Con l'incolonnamento la distinzione si vede.
+
+   COME FUNZIONA. Una colonna flex inline: i due numeri finiscono uno
+   sotto l'altro, allineati a sinistra. `position: static` annulla lo
+   spostamento verticale che il browser dà per default a <sup> e <sub>,
+   che qui lo farebbe due volte.
+
+   ⚠ E LA COPPIA STA TUTTA SOPRA LA LINEA, non a cavallo di essa.
+   Andrea, subito dopo la prima versione: «anche quando sono due cifre
+   devono essere in alto, come quando ce n'è una sola». Ha ragione, e
+   la ragione è la pratica: le cifre del basso continuo si scrivono
+   SOPRA la nota, non attorno. Una coppia a cavallo della linea di base
+   sarebbe un terzo oggetto tipografico — né apice né pedice — e in
+   mezzo a una frase abbasserebbe la riga.
+
+   Lo fa il `top: -.62em`, che è in em del blocco (già rimpicciolito a
+   .68em): sono circa .42em del testo, e portano il fondo della coppia
+   appena sopra la linea, nella stessa fascia in cui sta un apice
+   solo.
+
+   ⚠ SI DEGRADA BENE: senza questa regola restano un apice e un pedice
+   normali, cioè `V⁴₂` — leggibile, solo non incolonnato. Nessuna pagina
+   si rompe se il CSS non arriva.
+
+   Il wrapper NON si scrive a mano: lo mette `monta.py` attorno a ogni
+   coppia <sup>…</sup><sub>…</sub> adiacente. Nei sorgenti si continua a
+   scrivere come sempre.
+   ══════════════════════════════════════════════════════════════════════ */
+.cifrata {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: .68em;
+  line-height: 1.04;
+  vertical-align: baseline;
+  position: relative;
+  top: -.62em;
+  margin-left: .1em;
+}
+.cifrata sup,
+.cifrata sub {
+  position: static;
+  font-size: 1em;
+  line-height: inherit;
+  vertical-align: baseline;
+}

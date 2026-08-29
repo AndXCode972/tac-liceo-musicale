@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbook — UdA 8 · Il corale di Bach | TAC Classe 4&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=6da4e558">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=3ae1cb65">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
+     usa, e con `defer` i due file girano nell'ordine in cui stanno
+     scritti qui. -->
+<script src="../../_assets/js/codice.js" defer></script>
+<script src="../../_assets/js/tac-core.js?v=8415162f" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
+     fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
+                          height: auto; margin: .35rem 0; }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 4&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a href="solfeggi-classe-4.html">Il quaderno di lettura · tutto l'anno</a>
+      <a class="attiva" href="workbook-uda-08.html">Workbook · unità 8</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa tutto il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Workbook</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">UdA 8 · Il corale di Bach — il foglio di lavoro, una pagina per lezione</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale — Classe 4&ordf;
+    </div>
+  </div>
+
+  <!-- Niente riga per nome, classe e data: il foglio non si consegna mai.
+       Lo scritto va sul quaderno e si fotografa, l'online restituisce un
+       codice, l'ascolto e' una spunta che lo studente fa per se'. La riga
+       era un'abitudine presa dal compito in classe, e costava un centimetro
+       e mezzo in cima a ogni foglio stampato. -->
+
+  <div class="riquadro attenzione">
+    <span class="etichetta">Come si usa</span>
+    <p>I compiti sono di tre specie, e ognuna si consegna in modo suo. <strong>Da fare online</strong>: allo schermo. <strong>Da ascoltare</strong>: serve all'orecchio. <strong>Da scrivere</strong>: sul quaderno, poi una foto su Classroom.</p>
+    <p style="margin-top:.5rem">Il voto dell'unità lo dà <strong>una cosa sola</strong>: la verifica in fondo, quella che restituisce un codice. Tutto il resto si consegna e si corregge, ma non fa voto &mdash; il che non vuol dire che non conti: è lì che si impara, e la verifica misura solo quello che hai imparato facendolo.</p>
+    <p style="margin-top:.5rem">Stampa <strong>una lezione alla volta</strong>, col pulsante che trovi accanto al titolo.</p>
+  </div>
+
+  <div class="lez" data-lezione="1">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 1</span>
+        <h2>Lezione 1 &mdash; Quattro linee che cantano: gli accordi, la corona, il respiro, la cadenza</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U8-L1-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; che cos&rsquo;&egrave; un corale</p>
+      <div class="testo">Tre affermazioni sulla forma e sulle corone.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="3">
+[
+ {
+  "d": "Nel corale la corona serve ad allungare la nota a piacere.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è <strong>punteggiatura</strong>. Dice dove finisce una frase del testo, e lì si respira.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "La melodia del soprano è data e non si inventa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: «la melodia di Corale è \"data\" e non da inventare» (Dionisi, p.&nbsp;25). È il vincolo che rende il corale una palestra.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Le frasi di un corale sono sempre simmetriche, di quattro battute l’una.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: dipendono dalla <strong>metrica del testo poetico</strong> (Dionisi, p.&nbsp;29), e spesso non lo sono.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Nel corale semplice si mette un accordo per ogni nota della melodia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è una conseguenza del canto sillabico. Il ritmo armonico è costante e veloce.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Le melodie di corale sono state scritte da Bach.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sono del Cinquecento luterano. Bach, due secoli dopo, le <strong>armonizza</strong>.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il corale è insieme una successione di accordi e quattro melodie.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e nessuna delle due descrizioni è più vera dell’altra. È il punto in cui le due dimensioni dell’anno si incontrano.",
+  "da": "lezione 1"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U8-L1-01">
+      <p class="titolo-consegna"><span class="num">2</span> Le corone di un corale, contate</p>
+      <div class="testo">Prendi il corale della lezione e segna con una matita tutte le <strong>corone</strong>. Poi scrivi quante frasi ci sono e quante battute ha ciascuna.<p class="dettaglio">Le frasi non saranno tutte uguali, e non &egrave; un difetto: dipendono dal testo. Sotto, una riga: quale &egrave; la pi&ugrave; lunga e quale la pi&ugrave; corta.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="2">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 2</span>
+        <h2>Lezione 2 &mdash; Cantare un corale a quattro parti, per gruppi</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U8-L2-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; cantare a quattro parti</p>
+      <div class="testo">Tre affermazioni su quello che si scopre cantando.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="3">
+[
+ {
+  "d": "Una voce interna è più difficile da cantare di una esterna.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: non ha un profilo suo, si muove poco e riempie. Cantandola non si sa mai dove si è.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "Se il tuo contralto non si canta, è comunque corretto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è scritto male. Da oggi hai un modo per accorgertene.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "Il tenore in zona grave si sente bene.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: è «velata e poco sonora» (Dionisi, p.&nbsp;26). L’accordo perde una nota senza che nessuno l’abbia tolta.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "In un corale si respira dove serve, ognuno per conto suo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si respira <strong>solo sulle corone</strong>, e tutti insieme. Chi respira altrove rompe la frase.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "Togliendo il soprano si riconosce ancora il pezzo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed è la prova più istruttiva dell’ora: restano tre voci su quattro e il corale non c’è più.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "Le corone servivano a far respirare insieme una comunità intera.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: nel corale luterano cantavano tutti, non un coro di professionisti.",
+  "da": "lezione 2"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U8-L2-01">
+      <p class="titolo-consegna"><span class="num">2</span> La tua voce, ricopiata e guardata</p>
+      <div class="testo">Ricopia su un rigo la <strong>voce che hai cantato</strong> oggi, dall&rsquo;inizio alla fine.<p class="dettaglio">Poi due righe: dove ti sei trovato scomodo, e perch&eacute;? Salto troppo largo, registro troppo grave, nota che non sapevi da dove prendere? &Egrave; la stessa domanda che ti farai correggendo i tuoi compiti.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="3">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 3</span>
+        <h2>Lezione 3 &mdash; Officina: armonizzare una melodia di corale</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U8-L3-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; i cinque passi</p>
+      <div class="testo">Tre affermazioni sulla procedura e sul suo ordine.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="3">
+[
+ {
+  "d": "Si comincia dal primo accordo e si va avanti fino in fondo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si comincia dalle <strong>corone</strong>. Chi arriva all’ultima cadenza per ultimo ha le mani legate da trenta scelte.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Solo l’ultima frase chiude con una cadenza perfetta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: le altre chiudono «con cadenze sospese, evitate, semiplagali» (Dionisi, p.&nbsp;40).",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Le voci interne sono il primo passo della procedura.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sono il <strong>quinto</strong>, cioè l’ultimo. E se i primi quattro sono fatti bene, vengono quasi da sole.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Se una frase melodica torna, conviene armonizzarla nello stesso modo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: «converrà armonizzare la ripetizione in modo diverso» (p.&nbsp;40), con bassi differenti o rivolti diversi.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Il basso di un corale può ripetere la stessa nota di seguito, liberamente.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: «non ripeterà mai, successivamente, la stessa nota», con due eccezioni dichiarate (p.&nbsp;40).",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Il basso di un corale è una melodia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e non una fila di fondamentali: «monotona, piatta o poco scorrevole» sono tre difetti diversi che il manuale vieta.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Nell’accordo finale la condotta delle parti si può allentare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: lì conta «il risultato sonoro della conclusione» più della perfezione dei moti (Dionisi, p.&nbsp;38).",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Quattro cadenze uguali sono un errore di regola.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sono un errore di <strong>forma</strong>, che è peggio. Il pezzo si ferma quattro volte nello stesso modo.",
+  "da": "lezione 3"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U8-L3-01">
+      <p class="titolo-consegna"><span class="num">2</span> Il corale dell&rsquo;officina, finito a casa</p>
+      <div class="testo">Finisci l&rsquo;armonizzazione cominciata in classe, e consegnala segnando sul foglio <strong>dove finisce ogni passo</strong>: una riga di matita fra il passo 3 e il passo 5.<p class="dettaglio">Voglio vedere l&rsquo;ordine, non solo il risultato. Un compito che arriva gi&agrave; finito non mi dice se hai cominciato dalle corone o dal primo accordo, e quello &egrave; il contenuto dell&rsquo;ora.</p></div>
+    </div>
+    <div class="consegna" id="C4-U8-L3-02">
+      <p class="titolo-consegna"><span class="num">3</span> Quattro cadenze diverse, sulla stessa melodia</p>
+      <div class="testo">Prendi la melodia di corale del Workbook e scrivi <strong>solo i bassi delle quattro cadenze</strong>, in modo che siano tutte e quattro diverse.<p class="dettaglio">Accanto a ciascuna scrivi come si chiama: sospesa, evitata, semiplagale, perfetta. E la perfetta dev&rsquo;essere l&rsquo;ultima: se la metti prima, il corale finisce a met&agrave;.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="4">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 4</span>
+        <h2>Lezione 4 &mdash; Dettato: il basso di un corale</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U8-L4-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; il dettato del basso</p>
+      <div class="testo">Tre affermazioni sulla strategia del dettato.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="3">
+[
+ {
+  "d": "Nel dettato del corale si scrive il basso e non le quattro voci.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed è la voce che decide l’armonia — oltre a essere la prima che si scrive componendo.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Se ti perdi in una frase, conviene tornare indietro a recuperare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si lascia il buco e si riparte dalla corona successiva. Le frasi sono compartimenti stagni.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Un basso che cammina per gradi è pieno di primi rivolti.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: fondamentali per gradi darebbero ottave parallele, e nessuno le scrive.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Conviene cifrare alla fine, dopo aver scritto tutte le note.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: alla fine non c’è più l’ascolto, e la cifratura diventa una deduzione. Si cifra <em>mentre</em> si sente.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Un’alterazione dentro un corale vuol dire che si è modulato.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, non ancora: fino all’unità 9 è una dominante secondaria. Scrivila e vai avanti.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Nel corale gli accordi sono tendenzialmente completi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero (p.&nbsp;18), ed è un <strong>controllo</strong>: se ti risulta un accordo senza terza, probabilmente il basso è sbagliato.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "L’ultima frase è quella su cui si può contare di più.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: cadenza perfetta, basso V&ndash;I con la fondamentale. Si scrive per prima, appena la si sente.",
+  "da": "lezione 4"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C4-U8-L4-01">
+      <p class="titolo-consegna"><span class="num">2</span> Cinque sere di bassi, alla tastiera</p>
+      <div class="testo">Ogni sera, per cinque giorni: suona il basso di un corale con la mano sinistra e canta la melodia del soprano.<p class="dettaglio">Non serve suonare le voci interne. Serve abituare l&rsquo;orecchio a sentire l&rsquo;armonia da due note sole, che &egrave; quello che dovrai fare al dettato.</p></div>
+      <p class="vai no-stampa"><a href="../uda-08/lezione-4.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U8-L4-02">
+      <p class="titolo-consegna"><span class="num">3</span> Il dettato di oggi, ricostruito a quattro voci</p>
+      <div class="testo">Riprendi il basso che hai scritto al dettato e <strong>completalo a quattro parti</strong>, con la cifratura sotto.<p class="dettaglio">&Egrave; il passo 5 della procedura, applicato a un basso che non hai scelto tu. Alla fine confronta con la soluzione: dove Bach ha fatto diverso da te, e perch&eacute;?</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="99">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Tutta l&rsquo;unità insieme</span>
+        <h2>Ripasso di fine unità</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna verifica" id="C4U8V">
+      <p class="titolo-consegna"><span class="num">1</span> Verifica di fine unit&agrave; 8</p>
+      <div class="testo">2 esercizi, uno per volta. Non si torna indietro: prima di rispondere pensaci. Alla fine esce un <strong>codice</strong> che consegni su Classroom.<br><strong>&Egrave; l&rsquo;unica cosa dell&rsquo;unit&agrave; che fa voto.</strong></div>
+      <div class="online-vivo no-stampa">
+        <tac-verifica sigla="C4U8V" dove="casa" titolo="Verifica di fine unità 8">
+    <tac-quiz quante="8" scheda="C4U8L405" peso="3">
+[
+ {
+  "d": "Nel corale la corona serve ad allungare la nota a piacere.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "La melodia del soprano è data e non si inventa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Le frasi di un corale sono sempre simmetriche, di quattro battute l’una.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Nel corale semplice si mette un accordo per ogni nota della melodia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Le melodie di corale sono state scritte da Bach.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Una voce interna è più difficile da cantare di una esterna.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Se il tuo contralto non si canta, è comunque corretto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Il tenore in zona grave si sente bene.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "In un corale si respira dove serve, ognuno per conto suo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Si comincia dal primo accordo e si va avanti fino in fondo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Solo l’ultima frase chiude con una cadenza perfetta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Le voci interne sono il primo passo della procedura.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Se una frase melodica torna, conviene armonizzarla nello stesso modo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Il basso di un corale può ripetere la stessa nota di seguito, liberamente.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Il basso di un corale è una melodia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Nel dettato del corale si scrive il basso e non le quattro voci.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Se ti perdi in una frase, conviene tornare indietro a recuperare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Un basso che cammina per gradi è pieno di primi rivolti.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Conviene cifrare alla fine, dopo aver scritto tutte le note.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Un’alterazione dentro un corale vuol dire che si è modulato.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ }
+]
+    </tac-quiz>
+    <tac-drag quante="5" scheda="C4U8L406" peso="2">
+{
+ "frasi": [
+  {
+   "d": "Il segno che divide le frasi di un corale si chiama ___.",
+   "da": "lezione 1"
+  },
+  {
+   "d": "La voce che nel corale non si inventa &egrave; il ___.",
+   "da": "lezione 1"
+  },
+  {
+   "d": "Nel corale semplice si mette un accordo per ogni ___ della melodia.",
+   "da": "lezione 1"
+  },
+  {
+   "d": "La forma delle frasi dipende dalla metrica del ___.",
+   "da": "lezione 1"
+  },
+  {
+   "d": "Un canto che ha una nota per sillaba si dice ___.",
+   "da": "lezione 1"
+  },
+  {
+   "d": "Le migliori zone di voce del tenore sono la centrale e l’___.",
+   "da": "lezione 2"
+  },
+  {
+   "d": "Nel corale si respira solo sulle ___.",
+   "da": "lezione 2"
+  },
+  {
+   "d": "Il primo passo della procedura sono le ___.",
+   "da": "lezione 3"
+  },
+  {
+   "d": "L’ultimo passo della procedura sono le voci ___.",
+   "da": "lezione 3"
+  },
+  {
+   "d": "Solo l’ultima frase chiude con una cadenza ___.",
+   "da": "lezione 3"
+  },
+  {
+   "d": "Una cadenza che va da V a vi si chiama ___.",
+   "da": "lezione 3"
+  },
+  {
+   "d": "Una cadenza che chiude sulla dominante si chiama ___.",
+   "da": "lezione 3"
+  },
+  {
+   "d": "Il basso non deve ___ la stessa nota di seguito.",
+   "da": "lezione 3"
+  },
+  {
+   "d": "Se una frase melodica torna, si armonizza in modo ___.",
+   "da": "lezione 3"
+  },
+  {
+   "d": "Un basso che cammina per gradi &egrave; pieno di primi ___.",
+   "da": "lezione 4"
+  },
+  {
+   "d": "Nel dettato si cifra ___ si sente, non dopo.",
+   "da": "lezione 4"
+  },
+  {
+   "d": "Nel corale gli accordi sono tendenzialmente in forma ___.",
+   "da": "lezione 4"
+  }
+ ],
+ "gettoni": [
+  "acuta",
+  "completa",
+  "corona",
+  "corone",
+  "diverso",
+  "evitata",
+  "interne",
+  "mentre",
+  "nota",
+  "perfetta",
+  "ripetere",
+  "rivolti",
+  "sillabico",
+  "soprano",
+  "sospesa",
+  "testo poetico"
+ ]
+}
+    </tac-drag>
+        </tac-verifica>
+      </div>
+      <div class="esito"><span class="etichetta-esito">Codice ottenuto</span><span class="casella-codice"></span></div>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U8-L4-04">
+      <p class="titolo-consegna"><span class="num">2</span> Ripasso per la V4: le due unit&agrave; su un foglio</p>
+      <div class="testo">Su un foglio solo, in due colonne: a sinistra l&rsquo;<strong>unit&agrave;&nbsp;7</strong> (le quattro figurazioni, il contrappunto a tre, l&rsquo;imitazione e le tre distanze), a destra l&rsquo;<strong>unit&agrave;&nbsp;8</strong> (le quattro voci, le corone, i cinque passi).<p class="dettaglio">In fondo una riga sola che vale per tutte e due, ed &egrave; la domanda della verifica: questa musica va letta per accordi o per linee?</p></div>
+    </div>
+    </section>
+  </div>
+
+</div>
+
+<footer class="piede no-stampa">
+  <div class="piede-interno">
+    <p><a href="../">&larr; Torna alla classe 4&ordf;</a>  &middot;  <a href="solfeggi-classe-4.html">Il quaderno di lettura · tutto l'anno</a></p>
+    <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
+  </div>
+</footer>
+
+<script>
+/* «Stampa solo questa». Il compito della settimana e una pagina: se per
+   averla si deve mandare in stampa il fascicolo intero e poi scegliere gli
+   intervalli di pagina nel pannello del browser, nessuno lo fa, e si
+   stampano undici fogli per usarne uno. Il pulsante nasconde gli altri
+   blocchi per la durata della stampa e li rimette a posto subito dopo. */
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-stampa]');
+  if (!b) return;
+  var blocco = b.closest('.lez');
+  document.body.classList.add('stampa-una');
+  blocco.classList.add('da-stampare');
+  var pulisci = function () {
+    document.body.classList.remove('stampa-una');
+    blocco.classList.remove('da-stampare');
+    window.removeEventListener('afterprint', pulisci);
+  };
+  window.addEventListener('afterprint', pulisci);
+  window.print();
+});
+</script>
+</body>
+</html>

@@ -1518,24 +1518,53 @@
         const su = cima - 10, giu = fondo + 10;
 
         if (solaNota) {
-          /* il cerchietto intorno alla nota */
+          /* ⚠ IL CERCHIETTO STA INTORNO ALLA TESTA, NON INTORNO AL RIGO.
+             Nella prima versione lo centravo a metà del pentagramma: su
+             una nota che sta in mezzo funzionava, su una acuta o grave
+             diventava un ovale lungo che la nota la conteneva per caso.
+             Trovato misurando le coordinate sul sito, non guardando —
+             tutti e cinque i cerchi uscivano a `cy` 82, cioè sempre alla
+             stessa altezza su cinque musiche diverse.
+             Adesso l'altezza la chiede alla nota disegnata. */
+          let cy = (su + giu) / 2, ry = (giu - su) / 2;
+          try {
+            const el = note[primo].getSVGElement();
+            const b = el && el.getBBox();
+            if (b && b.height) {
+              /* la testa è la parte bassa del disegno se il gambo va in
+                 su, e viceversa: si prende il centro del riquadro e lo si
+                 corregge verso la metà più fitta. Un raggio fisso di 13
+                 tiene la testa comoda senza coprire quella accanto. */
+              cy = b.y + b.height / 2;
+              ry = 13;
+              if (b.height > 34) {            /* c'è il gambo */
+                const suGambo = (b.y + b.height / 2) < (su + giu) / 2;
+                cy = suGambo ? b.y + b.height - 8 : b.y + 8;
+              }
+            }
+          } catch (e) { /* resta il centro del rigo, come prima */ }
           const c = document.createElementNS(NS, 'ellipse');
           c.setAttribute('cx', (sx + dx) / 2);
-          c.setAttribute('cy', (su + giu) / 2);
+          c.setAttribute('cy', cy);
           c.setAttribute('rx', (dx - sx) / 2);
-          c.setAttribute('ry', (giu - su) / 2);
+          c.setAttribute('ry', ry);
           c.setAttribute('fill', 'none');
           c.setAttribute('stroke', 'var(--segno, #b45309)');
           c.setAttribute('stroke-width', '2');
           g.appendChild(c);
-          /* e la freccia che lo indica, da sopra */
+          /* e la freccia che lo indica, da sopra.
+             Si ferma appena sopra il cerchietto, non sopra il rigo: su
+             una nota grave, una freccia che si ferma in cima al
+             pentagramma indica il pentagramma, non la nota. */
           const f = document.createElementNS(NS, 'path');
           const cx = (sx + dx) / 2;
-          f.setAttribute('d', 'M ' + cx + ' ' + (su - 26) +
-                              ' L ' + cx + ' ' + (su - 6) +
-                              ' M ' + (cx - 5) + ' ' + (su - 12) +
-                              ' L ' + cx + ' ' + (su - 5) +
-                              ' L ' + (cx + 5) + ' ' + (su - 12));
+          const punta = Math.max(su - 5, cy - ry - 4);
+          const coda = Math.min(punta - 20, su - 24);
+          f.setAttribute('d', 'M ' + cx + ' ' + coda +
+                              ' L ' + cx + ' ' + (punta - 1) +
+                              ' M ' + (cx - 5) + ' ' + (punta - 7) +
+                              ' L ' + cx + ' ' + punta +
+                              ' L ' + (cx + 5) + ' ' + (punta - 7));
           f.setAttribute('fill', 'none');
           f.setAttribute('stroke', 'var(--segno, #b45309)');
           f.setAttribute('stroke-width', '2');

@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbook — UdA 11 · Forme barocche, forme ternarie, e la fuga | TAC Classe 4&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=6da4e558">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=3ae1cb65">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
+     usa, e con `defer` i due file girano nell'ordine in cui stanno
+     scritti qui. -->
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=8415162f" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
+     fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
+                          height: auto; margin: .35rem 0; }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 4&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a href="solfeggi-classe-4.html">Il quaderno di lettura · tutto l'anno</a>
+      <a class="attiva" href="workbook-uda-11.html">Workbook · unità 11</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa tutto il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Workbook</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">UdA 11 · Forme barocche, forme ternarie, e la fuga — il foglio di lavoro, una pagina per lezione</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale — Classe 4&ordf;
+    </div>
+  </div>
+
+  <!-- Niente riga per nome, classe e data: il foglio non si consegna mai.
+       Lo scritto va sul quaderno e si fotografa, l'online restituisce un
+       codice, l'ascolto e' una spunta che lo studente fa per se'. La riga
+       era un'abitudine presa dal compito in classe, e costava un centimetro
+       e mezzo in cima a ogni foglio stampato. -->
+
+  <div class="riquadro attenzione">
+    <span class="etichetta">Come si usa</span>
+    <p>I compiti sono di tre specie, e ognuna si consegna in modo suo. <strong>Da fare online</strong>: allo schermo. <strong>Da ascoltare</strong>: serve all'orecchio. <strong>Da scrivere</strong>: sul quaderno, poi una foto su Classroom.</p>
+    <p style="margin-top:.5rem">Il voto dell'unità lo dà <strong>una cosa sola</strong>: la verifica in fondo, quella che restituisce un codice. Tutto il resto si consegna e si corregge, ma non fa voto &mdash; il che non vuol dire che non conti: è lì che si impara, e la verifica misura solo quello che hai imparato facendolo.</p>
+    <p style="margin-top:.5rem">Stampa <strong>una lezione alla volta</strong>, col pulsante che trovi accanto al titolo.</p>
+  </div>
+
+  <div class="lez" data-lezione="1">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 1</span>
+        <h2>Lezione 1 &mdash; Le forme ternarie e le forme barocche a due ritornelli</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U11-L1-01">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; binaria, ternaria, e il basso</p>
+      <div class="testo">Quattro affermazioni sulle due forme di oggi.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "In una forma binaria con due ritornelli le due met&agrave; finiscono nella stessa tonalit&agrave;.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed &egrave; il punto. La prima met&agrave; <strong>va altrove</strong> &mdash; alla dominante, o al relativo &mdash; e la seconda riporta a casa. Se finissero tutt&rsquo;e due uguali i due ritornelli non servirebbero a niente.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Nella forma ternaria la terza parte &egrave; sempre identica alla prima.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: <strong>somiglia</strong>, e la somiglianza basta a farla riconoscere. Spesso &egrave; abbreviata, o variata. Il ritorno dev&rsquo;essere riconoscibile, non fotografico.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "La trio sonata di Corelli che abbiamo guardato ha tre parti che suonano.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: due violini e il basso. Il nome &laquo;trio&raquo; conta le <strong>linee</strong>, non gli esecutori &mdash; al basso ci sono quasi sempre due strumenti.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "In quelle diciannove battute di Corelli il basso &egrave; un accompagnamento, non una linea.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; una linea, e si canta. Nel Barocco il basso <strong>ha un profilo</strong> ed &egrave; la prima cosa da guardare in un&rsquo;analisi.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Nella forma binaria le due parti hanno quasi sempre lo stesso materiale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e questa &egrave; la differenza con la sonata: la binaria barocca non oppone <em>due temi</em>, rigira lo stesso. L&rsquo;opposizione &egrave; solo tonale.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Una forma ternaria e una forma sonata sono la stessa cosa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso. Tutt&rsquo;e due hanno tre parti, ma nella sonata la terza &egrave; una <strong>riscrittura</strong> che porta a casa il secondo tema; nella ternaria &egrave; un ritorno. Lo si vede dal piano tonale, non dal numero delle sezioni.",
+  "da": "lezione 1"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U11-L1-02">
+      <p class="titolo-consegna"><span class="num">2</span> Binaria o ternaria: decidete, e dite da che cosa</p>
+      <div class="testo">Prendete un pezzo che state studiando in strumento e stabilite se &egrave; <strong>binario</strong> o <strong>ternario</strong>. Scrivete: la battuta in cui finisce la prima parte, la tonalit&agrave; in cui finisce, e la battuta in cui torna il materiale iniziale (se torna).<p class="dettaglio">Tre numeri e una tonalit&agrave;: niente aggettivi. Se il pezzo non &egrave; n&eacute; l&rsquo;una n&eacute; l&rsquo;altra, scrivetelo e dite perch&eacute; &mdash; vale lo stesso.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="2">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 2</span>
+        <h2>Lezione 2 &mdash; Dettato polifonico</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U11-L2-03">
+      <p class="titolo-consegna"><span class="num">1</span> Dove le due voci si separano</p>
+      <div class="testo">Sul dettato che avete riscritto, segnate con una crocetta la <strong>prima battuta in cui le due voci smettono di dire la stessa cosa</strong>, e scrivete in una riga come ve ne siete accorti.<p class="dettaglio">&Egrave; la trappola dell&rsquo;ora, e questo compito chiede di dimostrare di non esserci caduti.</p></div>
+      <div class="online-vivo no-stampa">
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U11-L2-01">
+      <p class="titolo-consegna"><span class="num">2</span> Il dettato in bella, tutte e due le voci</p>
+      <div class="testo">Riscrivete in bella le otto battute del dettato, <strong>tutte e due le voci</strong>, anche quelle rimaste in bianco.<p class="dettaglio">La voce grave per prima, come si &egrave; fatto in classe. Chi ricopia partendo dall&rsquo;acuta riproduce anche gli errori dell&rsquo;acuta.</p></div>
+    </div>
+    <div class="consegna" id="C4-U11-L2-02">
+      <p class="titolo-consegna"><span class="num">3</span> Quattro battute a due voci, con imitazione</p>
+      <div class="testo">Scrivete <strong>quattro battute a due voci</strong> in cui la seconda entra dopo una battuta ripetendo all&rsquo;ottava sotto quello che ha detto la prima.<p class="dettaglio">Poi controllate le verticali sui tempi forti: se ne trovate una di seconda o di settima, cambiate una delle due note. &Egrave; lo stesso controllo che avete usato scrivendo il dettato.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="3">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 3</span>
+        <h2>Lezione 3 &mdash; La fuga: il soggetto</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U11-L3-04">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; il soggetto</p>
+      <div class="testo">Quattro affermazioni sul soggetto e sui suoi segni.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Il soggetto di una fuga &egrave; il tema con cui la fuga comincia, esposto da una voce sola.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. Dubois, p.&nbsp;109: &laquo;Il Soggetto &egrave; il tema scelto dal compositore, col quale ed intorno al quale verranno a com[porsi]&hellip;&raquo;. Una voce sola: se ne entrano due insieme, non &egrave; un&rsquo;esposizione di fuga.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Il soggetto del BWV 847 comincia sul primo movimento della battuta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: comincia con una <strong>pausa di croma</strong>. Il soggetto parte in levare, ed &egrave; una delle ragioni per cui si riconosce all&rsquo;orecchio anche quando &egrave; sepolto.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Un soggetto pu&ograve; avere qualsiasi ambito: pi&ugrave; largo &egrave;, meglio funziona.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e per una ragione pratica. Un soggetto deve stare in <strong>tutte</strong> le voci, e le voci hanno estensioni diverse. Un ambito stretto &egrave; una condizione della fuga, non un limite dell&rsquo;autore.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Il soggetto del BWV 847 sta dentro un&rsquo;ottava.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e l&rsquo;abbiamo contato sulla partitura, non stimato.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Un buon soggetto ha un ritmo caratteristico.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; quello che permette di ritrovarlo. Nel BWV 847 la coppia di semicrome all&rsquo;inizio &egrave; la sagoma che si insegue per trentun battute.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Dubois scrive che la fuga &egrave; soprattutto un&rsquo;ispirazione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e dice il contrario con parole dure: la fuga &laquo;non &egrave; punto un&rsquo;opera d&rsquo;inspirazione&raquo; (p.&nbsp;109). Si <em>costruisce</em>.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Il soggetto deve finire sulla tonica.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: finisce dove serve perch&eacute; la risposta possa entrare. Quello che conta &egrave; <strong>dove finisce</strong>, e stabilirlo &egrave; met&agrave; dell&rsquo;analisi.",
+  "da": "lezione 3"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U11-L3-02">
+      <p class="titolo-consegna"><span class="num">2</span> I quattro segni, su un soggetto vostro</p>
+      <div class="testo">Cercate nel vostro repertorio una melodia che si presenta da sola all&rsquo;inizio di un pezzo. Scrivete: in che battuta comincia, in che battuta finisce, qual &egrave; il suo <strong>ambito</strong> in intervallo, e qual &egrave; la figura ritmica che la rende riconoscibile.<p class="dettaglio">Quattro risposte, quattro righe. Se non riuscite a dire dove finisce, dite perch&eacute; &mdash; &egrave; la domanda difficile anche per chi le fughe le scrive.</p></div>
+    </div>
+    <div class="consegna" id="C4-U11-L3-03">
+      <p class="titolo-consegna"><span class="num">3</span> Scrivete un soggetto di quattro battute</p>
+      <div class="testo">Scrivete un <strong>soggetto</strong> di quattro battute in una tonalit&agrave; minore a vostra scelta: deve cominciare in levare, stare dentro un&rsquo;ottava, e avere una figura ritmica che si riconosca.<p class="dettaglio">Non &egrave; l&rsquo;inizio di una fuga: quest&rsquo;anno la fuga non si scrive. &Egrave; un esercizio di <strong>invenzione vincolata</strong>, e i tre vincoli sono quelli che avete misurato su Bach.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="4">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 4</span>
+        <h2>Lezione 4 &mdash; La risposta, tonale e reale</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U11-L4-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; tonale e reale</p>
+      <div class="testo">Quattro affermazioni sulla risposta.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "La risposta &egrave; il soggetto trasportato nel tono della dominante.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. Dubois, p.&nbsp;109: &laquo;La Risposta non &egrave; altro che il Soggetto stabilito, secondo certe regole, <strong>nel tono della dominante</strong>&raquo;.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Se tutte le note del soggetto sono trasportate della stessa quantit&agrave;, la risposta si chiama tonale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si chiama <strong>reale</strong>. &Egrave; tonale quando <em>almeno una nota</em> viene mutata.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Nel BWV 847 la risposta &egrave; tonale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e la differenza &egrave; <strong>una nota su nove</strong>: dove il soggetto ha la dominante, la risposta ha la tonica invece della sopratonica. Una sola nota, e cambia il nome della cosa.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "La risposta entra sempre subito dopo la fine del soggetto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: entra <strong>quando l&rsquo;autore decide</strong>, e nel BWV 847 entra alla battuta 3. Stabilire la distanza fra le entrate &egrave; una delle due misure che si prendono sempre.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "La mutazione della risposta tonale serve a non uscire dalla tonalit&agrave;.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: trasportando tutto di quinta, certe note porterebbero via da casa troppo presto. La mutazione tiene il pezzo dov&rsquo;&egrave;.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "In una fuga a tre voci la terza entrata &egrave; sempre un&rsquo;altra risposta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: nel BWV 847 la terza entrata, alla battuta 7, &egrave; di nuovo il <strong>soggetto</strong>. Lo schema &egrave; soggetto, risposta, soggetto.",
+  "da": "lezione 4"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U11-L4-01">
+      <p class="titolo-consegna"><span class="num">2</span> La risposta al vostro soggetto, e cerchiate la mutazione</p>
+      <div class="testo">Scrivete la <strong>risposta</strong> al soggetto che avete composto luned&igrave;: trasportatelo alla quinta sopra e decidete se serve mutare una nota. <strong>Cerchiate la nota mutata</strong>, se c&rsquo;&egrave;.<p class="dettaglio">Se non serve mutare niente, scrivete sotto &laquo;risposta reale&raquo; e dite perch&eacute;. Una risposta reale corretta vale quanto una tonale.</p></div>
+    </div>
+    <div class="consegna" id="C4-U11-L4-02">
+      <p class="titolo-consegna"><span class="num">3</span> Una nota su nove</p>
+      <div class="testo">Riscrivete sotto, una sotto l&rsquo;altra, le nove note del soggetto del BWV 847 e le nove della risposta. Indicate con una freccia <strong>l&rsquo;unica coppia che non &egrave; alla stessa distanza</strong>.<p class="dettaglio">Poi scrivete in una riga che intervallo c&rsquo;&egrave; fra le due note della coppia sbagliata, e che intervallo ci sarebbe se la risposta fosse reale.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="5">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 5</span>
+        <h2>Lezione 5 &mdash; Cantare l’esposizione di una fuga, per gruppi</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U11-L5-02">
+      <p class="titolo-consegna"><span class="num">1</span> Le quattro entrate di Palestrina, in una tabella</p>
+      <div class="testo">Fate una tabella di quattro righe con le quattro voci del Kyrie: in che <strong>battuta</strong> entra ciascuna e a quale <strong>intervallo</strong> rispetto a quella prima.<p class="dettaglio">Le battute sono 1, 1, 2 e 6, e le abbiamo misurate insieme. Quello che dovete aggiungere voi sono gli intervalli.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="6">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 6</span>
+        <h2>Lezione 6 &mdash; Il controsoggetto e l’esposizione</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U11-L6-04">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; controsoggetto ed esposizione</p>
+      <div class="testo">Quattro affermazioni sul controsoggetto, sulle parti libere e sulla fine dell&rsquo;esposizione.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Il controsoggetto &egrave; un secondo tema che accompagna il soggetto ogni volta che questo si presenta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: &egrave; la definizione di Dubois, p.&nbsp;109 &mdash; che scrive per&ograve; &laquo;Contrassoggetto&raquo;, che &egrave; la stessa parola in una traduzione pi&ugrave; vecchia.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Il controsoggetto si riconosce perch&eacute; torna.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; l&rsquo;unica prova che si pu&ograve; fare: nel BWV 847 la linea che accompagna la risposta alla battuta 3 <strong>ritorna alla battuta 7</strong> sopra il soggetto. Se non tornasse, sarebbe una parte libera.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Una fuga deve avere un controsoggetto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: molte non ce l&rsquo;hanno. Il controsoggetto &egrave; una risorsa, non un obbligo.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Il controsoggetto ha di solito un ritmo diverso da quello del soggetto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e serve a sentirli separati. Se avessero lo stesso ritmo si fonderebbero in un accordo.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "L&rsquo;esposizione finisce quando tutte le voci hanno detto il soggetto o la risposta una volta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. Dubois, p.&nbsp;111: le entrate soggetto, risposta, soggetto, risposta &laquo;formano ci&ograve; che si chiama [l&rsquo;Esposizione]&raquo;.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Le parti che non fanno n&eacute; il soggetto n&eacute; il controsoggetto non hanno un nome.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si chiamano <strong>parti libere</strong>, e Dubois le nomina a p.&nbsp;111. Avere un nome &egrave; il primo passo per guardarle.",
+  "da": "lezione 6"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U11-L6-02">
+      <p class="titolo-consegna"><span class="num">2</span> Lo schema dell&rsquo;esposizione del BWV 847</p>
+      <div class="testo">Disegnate lo schema delle prime dieci battute: tre righe orizzontali, una per voce, e su ciascuna segnate con un rettangolo dove sta il <strong>soggetto</strong>, dove la <strong>risposta</strong> e dove il <strong>controsoggetto</strong>.<p class="dettaglio">Le entrate sono alle battute 1, 3 e 7, e il controsoggetto compare alla 3 e torna alla 7. Il disegno deve far vedere <em>che si sovrappongono</em>: se i rettangoli non si toccano mai, avete disegnato un canone, non una fuga.</p></div>
+    </div>
+    <div class="consegna" id="C4-U11-L6-03">
+      <p class="titolo-consegna"><span class="num">3</span> Un controsoggetto per il vostro soggetto</p>
+      <div class="testo">Scrivete una seconda linea che accompagni il soggetto che avete composto: deve avere un <strong>ritmo diverso</strong> dal suo e fare consonanza sui tempi forti.<p class="dettaglio">Non serve che sia bella: serve che si <em>senta come un&rsquo;altra cosa</em>. Se cantandole insieme non distinguete le due linee, il ritmo non &egrave; abbastanza diverso.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="7">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 7</span>
+        <h2>Lezione 7 &mdash; Laboratorio: analisi di una fuga del Clavicembalo</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U11-L7-01">
+      <p class="titolo-consegna"><span class="num">1</span> Finite il foglio del laboratorio</p>
+      <div class="testo">Completate a casa il foglio cominciato in classe: <strong>tutte</strong> le entrate del soggetto segnate, ciascuna con la sua battuta e la sua voce.<p class="dettaglio">Per ogni entrata scrivete anche se &egrave; soggetto o risposta. Dove non siete sicuri, segnate un punto interrogativo invece di indovinare: marted&igrave; guardiamo quelli.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="8">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 8</span>
+        <h2>Lezione 8 &mdash; Analisi: il piano tonale di una fuga intera</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U11-L8-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; divertimento, stretto, pedale</p>
+      <div class="testo">Quattro affermazioni sulle parti di una fuga intera.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Il divertimento &egrave; la parte libera della fuga.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; la definizione di Dubois, p.&nbsp;110: &laquo;Il Divertimento &egrave; propriamente parlando <strong>la parte libera</strong> della Fuga&raquo;. Non &laquo;la parte che si pu&ograve; saltare&raquo;: la parte in cui l&rsquo;autore non &egrave; tenuto a esporre il soggetto per intero.",
+  "da": "lezione 8"
+ },
+ {
+  "d": "Nello stretto le entrate si accavallano.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: una voce comincia il soggetto prima che quella prima l&rsquo;abbia finito. &Egrave; un crescendo che non alza il volume.",
+  "da": "lezione 8"
+ },
+ {
+  "d": "Ogni fuga finisce con un pedale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e lo dice il trattato: &laquo;<strong>Nessun Pedale</strong> del resto <strong>&egrave; obbligatorio</strong> in una Fuga&raquo; (Dubois, p.&nbsp;110). Nel BWV 847 c&rsquo;&egrave;, dalla battuta 29 alla fine.",
+  "da": "lezione 8"
+ },
+ {
+  "d": "Il pedale sta di solito nella voce grave.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: &laquo;Il Pedale, generalmente posto nella parte grave, &egrave; una nota tenuta (dominante o tonica)&raquo; (p.&nbsp;110). Nel BWV 847 &egrave; la tonica.",
+  "da": "lezione 8"
+ },
+ {
+  "d": "Il BWV 847 finisce in do minore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e vale la pena averlo visto: l&rsquo;ultima nota &egrave; un <strong>mi naturale</strong>. Accordo maggiore in un pezzo in minore &mdash; la terza picarda.",
+  "da": "lezione 8"
+ },
+ {
+  "d": "Nel BWV 847 il metro cambia almeno una volta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: quattro quarti alla battuta 1, e non cambia mai per trentun battute. L&rsquo;ho contato sulla partitura.",
+  "da": "lezione 8"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U11-L8-01">
+      <p class="titolo-consegna"><span class="num">2</span> Le tre sezioni del BWV 847</p>
+      <div class="testo">Scrivete le <strong>battute di confine</strong> delle tre cose che abbiamo nominato oggi: dove finisce l&rsquo;esposizione, dove comincia lo stretto, e dove comincia il pedale.<p class="dettaglio">Il pedale l&rsquo;abbiamo misurato: comincia dentro la battuta 29 e arriva alla fine, cio&egrave; alla 31. Gli altri due confini li stabilite voi, e per ciascuno scrivete la ragione in una riga.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="9">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 9</span>
+        <h2>Lezione 9 &mdash; Analisi: la fuga dopo Bach — Beethoven, Grande Fuga op. 133</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U11-L9-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; la fuga dopo Bach</p>
+      <div class="testo">Cinque affermazioni su Beethoven, Bart&oacute;k e l&rsquo;Ottocento.<p class="dettaglio">I numeri su Beethoven li abbiamo contati sulla partitura; quelli su Bart&oacute;k vengono dall&rsquo;analisi di Mussida, e le spiegazioni lo dicono ogni volta.</p></div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="5">
+[
+ {
+  "d": "Dopo Bach la fuga smette di essere scritta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e l&rsquo;ora serve a spiegare perch&eacute;. Praticamente ogni compositore importante dei due secoli e mezzo successivi ne scrive almeno una.",
+  "da": "lezione 9"
+ },
+ {
+  "d": "Nell&rsquo;Ottocento la fuga &egrave; quasi sempre una sezione dentro un pezzo, non un pezzo intero.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: la si trova soprattutto <strong>alla fine</strong> &mdash; ultimo movimento, chiusa di un Requiem, finale di un&rsquo;opera. Non &egrave; pi&ugrave; la forma: &egrave; un modo di concludere.",
+  "da": "lezione 9"
+ },
+ {
+  "d": "La Grande Fuga op. 133 di Beethoven &egrave; pi&ugrave; lunga della fuga BWV 847 di Bach.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e di molto: <strong>742 battute contro 31</strong>. Ventiquattro volte tanto. Sono numeri contati sulle due partiture.",
+  "da": "lezione 9"
+ },
+ {
+  "d": "Nell&rsquo;op. 133 il metro non cambia mai.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: cambia <strong>nove volte</strong>, e fra la battuta 657 e la 663 tre volte in sette battute. Bach non lo cambia nemmeno una volta.",
+  "da": "lezione 9"
+ },
+ {
+  "d": "L&rsquo;op. 133 comincia con una voce sola, come vuole l&rsquo;esposizione di fuga.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: comincia con <strong>tutte e quattro all&rsquo;unisono</strong>, sul sol, in quattro ottave. Beethoven presenta il tema nudo e poi comincia la fuga.",
+  "da": "lezione 9"
+ },
+ {
+  "d": "Il primo movimento della <em>Musica per archi, percussioni e celesta</em> di Bart&oacute;k &egrave; una fuga.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. Mussida, p.&nbsp;3: &laquo;Il primo movimento &egrave; una fuga&raquo;. Il soggetto usa tutti i semitoni fra il la e il mi: una quinta di ambito.",
+  "da": "lezione 9"
+ },
+ {
+  "d": "In Bart&oacute;k le entrate del soggetto arrivano a caso.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: salgono e scendono <strong>di quinta a specchio</strong> a partire dal la &mdash; la3, mi4, re3, si4, sol2. &Egrave; il circolo delle quinte, riflesso (Mussida, p.&nbsp;4).",
+  "da": "lezione 9"
+ },
+ {
+  "d": "Il primo movimento di Bart&oacute;k comincia e finisce sulla stessa nota.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: comincia sul la e finisce a misura 89 con un unisono di la. Il punto pi&ugrave; lontano &mdash; il climax di misura 56 &mdash; &egrave; sul mi bemolle, a un tritono (Mussida, pp.&nbsp;4-5).",
+  "da": "lezione 9"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U11-L9-01">
+      <p class="titolo-consegna"><span class="num">2</span> Le due fughe, in una tabella vostra</p>
+      <div class="testo">Rifate la tabella di oggi con una colonna in pi&ugrave;: Bach BWV 847, Beethoven op. 133, e <strong>Bart&oacute;k</strong>. Le righe: numero di battute, numero di voci, e che cosa succede alla nota di partenza alla fine del pezzo.<p class="dettaglio">Di Bartók i numeri sono nelle slide e vengono da un&rsquo;analisi che ho citato: 89 misure, e si chiude sulla stessa nota da cui era partito. Scrivete accanto a ogni numero <strong>da dove viene</strong>: &laquo;contato in classe&raquo; oppure &laquo;letto in Mussida&raquo;.</p></div>
+    </div>
+    <div class="consegna" id="C4-U11-L9-02">
+      <p class="titolo-consegna"><span class="num">3</span> Dieci righe: perch&eacute; la fuga non &egrave; morta</p>
+      <div class="testo">Scrivete <strong>dieci righe</strong> che rispondano alla domanda dell&rsquo;ora: perch&eacute; nei due secoli e mezzo dopo Bach quasi tutti scrivono almeno una fuga, anche quando il linguaggio &egrave; cambiato del tutto?<p class="dettaglio">Usate almeno un esempio con un numero. Le risposte che valgono sono due, e le abbiamo dette tutt&rsquo;e due: perch&eacute; si impara, e perch&eacute; serve a concludere.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="10">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 10</span>
+        <h2>Lezione 10 &mdash; Verifica orale di solfeggio</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U11-L10-03">
+      <p class="titolo-consegna"><span class="num">1</span> Il metro, prima di tutto</p>
+      <div class="testo">Prendete tre brani del fascicolo che non avete ancora letto. Per ciascuno scrivete, <strong>senza suonarlo e senza cantarlo</strong>: il metro, se &egrave; semplice o composto, quanto vale un movimento, e se c&rsquo;&egrave; un levare.<p class="dettaglio">Quattro risposte per tre brani: dodici righe in tutto. &Egrave; esattamente quello che vi si chiede di fare nei quindici secondi prima di cominciare a leggere.</p></div>
+    </div>
+    <div class="consegna" id="C4-U11-L10-04">
+      <p class="titolo-consegna"><span class="num">2</span> Le tre chiavi, senza guardare</p>
+      <div class="testo">Scrivete su tre righi vuoti il <strong>do centrale</strong> in chiave di violino, in chiave di contralto e in chiave di tenore. Poi, sotto ciascuno, scrivete che nota sarebbe la stessa posizione letta nelle altre due chiavi.<p class="dettaglio">Senza guardare la tabella: se dovete cercarla, alla prima vista di gioved&igrave; non farete in tempo. &Egrave; il minimo che deve stare in testa da solo.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="99">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Tutta l&rsquo;unità insieme</span>
+        <h2>Ripasso di fine unità</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna verifica" id="C4U11V">
+      <p class="titolo-consegna"><span class="num">1</span> Verifica di fine unit&agrave; 11</p>
+      <div class="testo">1 esercizi, uno per volta. Non si torna indietro: prima di rispondere pensaci. Alla fine esce un <strong>codice</strong> che consegni su Classroom.<br><strong>&Egrave; l&rsquo;unica cosa dell&rsquo;unit&agrave; che fa voto.</strong></div>
+      <div class="online-vivo no-stampa">
+        <tac-verifica sigla="C4U11V" dove="casa" titolo="Verifica di fine unità 11">
+    <tac-quiz quante="6" scheda="C4U11U01" peso="3">
+[
+ {
+  "d": "Il controsoggetto &egrave; un secondo tema che accompagna il soggetto ogni volta che questo si presenta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Il controsoggetto si riconosce perch&eacute; torna.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Una fuga deve avere un controsoggetto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Il controsoggetto ha di solito un ritmo diverso da quello del soggetto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "L&rsquo;esposizione finisce quando tutte le voci hanno detto il soggetto o la risposta una volta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Le parti che non fanno n&eacute; il soggetto n&eacute; il controsoggetto non hanno un nome.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Dopo Bach la fuga smette di essere scritta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "Nell&rsquo;Ottocento la fuga &egrave; quasi sempre una sezione dentro un pezzo, non un pezzo intero.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "La Grande Fuga op. 133 di Beethoven &egrave; pi&ugrave; lunga della fuga BWV 847 di Bach.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "Nell&rsquo;op. 133 il metro non cambia mai.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "L&rsquo;op. 133 comincia con una voce sola, come vuole l&rsquo;esposizione di fuga.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "Il primo movimento della <em>Musica per archi, percussioni e celesta</em> di Bart&oacute;k &egrave; una fuga.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "In Bart&oacute;k le entrate del soggetto arrivano a caso.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "Il primo movimento di Bart&oacute;k comincia e finisce sulla stessa nota.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "In una forma binaria con due ritornelli le due met&agrave; finiscono nella stessa tonalit&agrave;.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Nella forma ternaria la terza parte &egrave; sempre identica alla prima.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "La trio sonata di Corelli che abbiamo guardato ha tre parti che suonano.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "In quelle diciannove battute di Corelli il basso &egrave; un accompagnamento, non una linea.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Nella forma binaria le due parti hanno quasi sempre lo stesso materiale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Una forma ternaria e una forma sonata sono la stessa cosa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il divertimento &egrave; la parte libera della fuga.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "Nello stretto le entrate si accavallano.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "Ogni fuga finisce con un pedale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "Il pedale sta di solito nella voce grave.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "Il BWV 847 finisce in do minore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "Nel BWV 847 il metro cambia almeno una volta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "La risposta &egrave; il soggetto trasportato nel tono della dominante.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Se tutte le note del soggetto sono trasportate della stessa quantit&agrave;, la risposta si chiama tonale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Nel BWV 847 la risposta &egrave; tonale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "La risposta entra sempre subito dopo la fine del soggetto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "La mutazione della risposta tonale serve a non uscire dalla tonalit&agrave;.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "In una fuga a tre voci la terza entrata &egrave; sempre un&rsquo;altra risposta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Il soggetto di una fuga &egrave; il tema con cui la fuga comincia, esposto da una voce sola.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Il soggetto del BWV 847 comincia sul primo movimento della battuta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Un soggetto pu&ograve; avere qualsiasi ambito: pi&ugrave; largo &egrave;, meglio funziona.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Il soggetto del BWV 847 sta dentro un&rsquo;ottava.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Un buon soggetto ha un ritmo caratteristico.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Dubois scrive che la fuga &egrave; soprattutto un&rsquo;ispirazione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Il soggetto deve finire sulla tonica.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ }
+]
+    </tac-quiz>
+        </tac-verifica>
+      </div>
+      <div class="esito"><span class="etichetta-esito">Codice ottenuto</span><span class="casella-codice"></span></div>
+    </div>
+    </section>
+  </div>
+
+</div>
+
+<footer class="piede no-stampa">
+  <div class="piede-interno">
+    <p><a href="../">&larr; Torna alla classe 4&ordf;</a>  &middot;  <a href="solfeggi-classe-4.html">Il quaderno di lettura · tutto l'anno</a></p>
+    <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
+  </div>
+</footer>
+
+<script>
+/* «Stampa solo questa». Il compito della settimana e una pagina: se per
+   averla si deve mandare in stampa il fascicolo intero e poi scegliere gli
+   intervalli di pagina nel pannello del browser, nessuno lo fa, e si
+   stampano undici fogli per usarne uno. Il pulsante nasconde gli altri
+   blocchi per la durata della stampa e li rimette a posto subito dopo. */
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-stampa]');
+  if (!b) return;
+  var blocco = b.closest('.lez');
+  document.body.classList.add('stampa-una');
+  blocco.classList.add('da-stampare');
+  var pulisci = function () {
+    document.body.classList.remove('stampa-una');
+    blocco.classList.remove('da-stampare');
+    window.removeEventListener('afterprint', pulisci);
+  };
+  window.addEventListener('afterprint', pulisci);
+  window.print();
+});
+</script>
+</body>
+</html>

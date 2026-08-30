@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbook — UdA 10 · La forma sonata | TAC Classe 4&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=6da4e558">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=3ae1cb65">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
+     usa, e con `defer` i due file girano nell'ordine in cui stanno
+     scritti qui. -->
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=8415162f" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
+     fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
+                          height: auto; margin: .35rem 0; }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 4&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a href="solfeggi-classe-4.html">Il quaderno di lettura · tutto l'anno</a>
+      <a class="attiva" href="workbook-uda-10.html">Workbook · unità 10</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa tutto il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Workbook</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">UdA 10 · La forma sonata — il foglio di lavoro, una pagina per lezione</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale — Classe 4&ordf;
+    </div>
+  </div>
+
+  <!-- Niente riga per nome, classe e data: il foglio non si consegna mai.
+       Lo scritto va sul quaderno e si fotografa, l'online restituisce un
+       codice, l'ascolto e' una spunta che lo studente fa per se'. La riga
+       era un'abitudine presa dal compito in classe, e costava un centimetro
+       e mezzo in cima a ogni foglio stampato. -->
+
+  <div class="riquadro attenzione">
+    <span class="etichetta">Come si usa</span>
+    <p>I compiti sono di tre specie, e ognuna si consegna in modo suo. <strong>Da fare online</strong>: allo schermo. <strong>Da ascoltare</strong>: serve all'orecchio. <strong>Da scrivere</strong>: sul quaderno, poi una foto su Classroom.</p>
+    <p style="margin-top:.5rem">Il voto dell'unità lo dà <strong>una cosa sola</strong>: la verifica in fondo, quella che restituisce un codice. Tutto il resto si consegna e si corregge, ma non fa voto &mdash; il che non vuol dire che non conti: è lì che si impara, e la verifica misura solo quello che hai imparato facendolo.</p>
+    <p style="margin-top:.5rem">Stampa <strong>una lezione alla volta</strong>, col pulsante che trovi accanto al titolo.</p>
+  </div>
+
+  <div class="lez" data-lezione="1">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 1</span>
+        <h2>Lezione 1 &mdash; Ripasso delle forme tematiche classiche, e la forma sonata: le tre parti e le due tonalità</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U10-L1-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; le tre parti e le due tonalit&agrave;</p>
+      <div class="testo">Quattro affermazioni su come sta in piedi una forma sonata.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "La forma sonata &egrave; uno schema di tre sezioni.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, o almeno: non &egrave; quello che la tiene in piedi. Le tre sezioni si vedono, ma quello che le rende necessarie sono le <strong>due tonalit&agrave;</strong> in opposizione. Rosen, p.&nbsp;102, parla di polarizzazione tonica-dominante.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Esistono forme sonata senza sviluppo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: Rosen le nomina esplicitamente a p.&nbsp;37. Se bastasse togliere una delle tre parti per uscire dalla forma, quelle pagine non sarebbero forme sonata &mdash; e invece lo sono.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Nel modo maggiore la seconda tonalit&agrave; dell&rsquo;esposizione &egrave; di norma la dominante.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. Nel modo minore &egrave; invece, di solito, il relativo maggiore: cambia la meta, non il meccanismo.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Un tema, in una forma sonata, deve essere una melodia cantabile.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso. Pu&ograve; essere un <strong>gesto</strong>: un arpeggio, una figura ritmica, una scala. Beethoven ne costruisce movimenti interi.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "La ripresa riporta i temi nella tonalit&agrave; d&rsquo;impianto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; il punto: <em>tutti</em> i temi, compreso quello che nell&rsquo;esposizione stava nella seconda tonalit&agrave;. Per questo la ripresa non &egrave; una copia.",
+  "da": "lezione 1"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U10-L1-01">
+      <p class="titolo-consegna"><span class="num">2</span> Perch&eacute; non basta dire &laquo;tre parti&raquo;</p>
+      <div class="testo">In <strong>otto righe</strong>: perch&eacute; una forma sonata privata dello sviluppo &egrave; ancora una forma sonata, mentre una privata del contrasto fra due tonalit&agrave; non lo &egrave;?<p class="dettaglio">La risposta non &egrave; una definizione: &egrave; un ragionamento. Se scrivete che &laquo;lo sviluppo non &egrave; essenziale&raquo; senza dire <em>che cosa lo sostituisce</em>, avete detto met&agrave;.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="2">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 2</span>
+        <h2>Lezione 2 &mdash; Dettato: trascrivere un tema</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U10-L2-04">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; le tre parti e le due tonalit&agrave;</p>
+      <div class="testo">Le quattro affermazioni di luned&igrave;, di nuovo: servono a fissare quello che il dettato ha appena fatto sentire.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "La forma sonata &egrave; uno schema di tre sezioni.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, o almeno: non &egrave; quello che la tiene in piedi. Le tre sezioni si vedono, ma quello che le rende necessarie sono le <strong>due tonalit&agrave;</strong> in opposizione. Rosen, p.&nbsp;102, parla di polarizzazione tonica-dominante.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Esistono forme sonata senza sviluppo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: Rosen le nomina esplicitamente a p.&nbsp;37. Se bastasse togliere una delle tre parti per uscire dalla forma, quelle pagine non sarebbero forme sonata &mdash; e invece lo sono.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Nel modo maggiore la seconda tonalit&agrave; dell&rsquo;esposizione &egrave; di norma la dominante.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. Nel modo minore &egrave; invece, di solito, il relativo maggiore: cambia la meta, non il meccanismo.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Un tema, in una forma sonata, deve essere una melodia cantabile.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso. Pu&ograve; essere un <strong>gesto</strong>: un arpeggio, una figura ritmica, una scala. Beethoven ne costruisce movimenti interi.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "La ripresa riporta i temi nella tonalit&agrave; d&rsquo;impianto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; il punto: <em>tutti</em> i temi, compreso quello che nell&rsquo;esposizione stava nella seconda tonalit&agrave;. Per questo la ripresa non &egrave; una copia.",
+  "da": "lezione 1"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U10-L2-01">
+      <p class="titolo-consegna"><span class="num">2</span> Il dettato in bella, e dove si ripete</p>
+      <div class="testo">Riscrivete in bella il dettato dell&rsquo;ora, tutte e otto le battute, e poi <strong>cerchiate le due battute identiche</strong>.<p class="dettaglio">Sotto, una riga: che cosa cambia fra la prima met&agrave; e la seconda, se cominciano allo stesso modo? &Egrave; la domanda che l&rsquo;unit&agrave; far&agrave; per otto ore di seguito, in scala pi&ugrave; grande.</p></div>
+    </div>
+    <div class="consegna" id="C4-U10-L2-02">
+      <p class="titolo-consegna"><span class="num">3</span> Un antecedente e il suo conseguente</p>
+      <div class="testo">Scrivete <strong>otto battute in due quarti</strong>, in una tonalit&agrave; minore a vostra scelta, costruite come un periodo: quattro battute che restano sospese e quattro che chiudono.<p class="dettaglio">Vincolo: le battute 1 e 5 devono essere <strong>identiche</strong>. &Egrave; il modo pi&ugrave; rapido di capire perch&eacute; un tema si riconosce.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="3">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 3</span>
+        <h2>Lezione 3 &mdash; Il ponte, e che cosa deve fare</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U10-L3-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; che cosa deve fare un ponte</p>
+      <div class="testo">Quattro affermazioni sul ponte e sulla dominante di preparazione.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Il ponte serve a collegare due temi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, o troppo poco: serve a <strong>cambiare tonalit&agrave; e a renderlo credibile</strong>. Rosen, p.&nbsp;175, lo descrive come ci&ograve; che afferma il I, comincia il passaggio al V, e poi conferma.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Un ponte pu&ograve; anche non modulare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, se &egrave; un ponte: se non modula &egrave; un raccordo. La modulazione &egrave; il suo lavoro, non un accessorio.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "La dominante di preparazione sta alla fine del ponte.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: &egrave; l&rsquo;accordo, spesso lungo, che regge l&rsquo;attesa prima che entri il secondo tema. La stessa figura torna alla fine dello sviluppo, prima della ripresa.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "In Haydn op. 74 n. 1 il primo suono estraneo alla tonalit&agrave; arriva dopo una cinquantina di battute.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: arriva alla <strong>battuta 4</strong>, ed &egrave; un do&sharp;. Su 155 battute totali. La forma sonata non perde tempo a dire dove andr&agrave;.",
+  "da": "lezione 3"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U10-L3-01">
+      <p class="titolo-consegna"><span class="num">2</span> Un ponte in dodici battute</p>
+      <div class="testo">Scrivete a quattro parti un ponte da <strong>do maggiore a sol maggiore</strong> in dodici battute, che faccia le tre cose nell&rsquo;ordine: affermare il I, cominciare il passaggio, confermare.<p class="dettaglio">Segnate sotto il rigo <strong>dove finisce ciascuna delle tre</strong>. Le ultime due battute devono stare ferme sulla dominante di sol: &egrave; la dominante di preparazione, e senza quella il secondo tema entra da nessuna parte.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="4">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 4</span>
+        <h2>Lezione 4 &mdash; Lo sviluppo: elaborazione motivica</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U10-L4-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; che cosa si fa con un motivo</p>
+      <div class="testo">Quattro affermazioni sullo sviluppo e sulle sue operazioni.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Lo sviluppo &egrave; la parte pi&ugrave; libera della forma.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; la pi&ugrave; <strong>vincolata</strong>. Ha un compito stretto (non stabilirsi da nessuna parte, e arrivare alla dominante d&rsquo;impianto) e quasi nessun materiale nuovo.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Frammentare vuol dire tenere un pezzo del tema e ripeterlo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; la prima delle operazioni. Un gesto si frammenta meglio di una frase compiuta: &egrave; una delle ragioni per cui i temi-gesto funzionano cos&igrave; bene.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "In uno sviluppo conviene introdurre un tema nuovo e memorabile.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: l&rsquo;ascoltatore lo prenderebbe per il pezzo importante, e la ripresa &mdash; che riporta i temi vecchi &mdash; suonerebbe come un passo indietro.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Nello sviluppo di Haydn op. 74 n. 1 compaiono cinque alterazioni diverse in quindici battute.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, misurato: fra le battute 61 e 75 ci sono si&flat;, mi&flat;, re&flat;, do&sharp; e re&sharp;, sei volte ciascuna. Nelle battute 136-150 ce n&rsquo;&egrave; <strong>una sola</strong>. Lo sviluppo si riconosce dal disordine.",
+  "da": "lezione 4"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U10-L4-01">
+      <p class="titolo-consegna"><span class="num">2</span> Quattro operazioni sullo stesso motivo</p>
+      <div class="testo">Prendete il motivo di tre note che apre il tema del K.&nbsp;545 (do&ndash;mi&ndash;sol) e scrivete <strong>quattro passaggi di due battute</strong>: uno frammentato, uno in sequenza, uno rivoltato, uno con due operazioni insieme.<p class="dettaglio">Sopra ciascuno scrivete <strong>quale operazione &egrave;</strong>. Non serve che sia bello: serve che si riconosca l&rsquo;operazione.</p></div>
+    </div>
+    <div class="consegna" id="C4-U10-L4-02">
+      <p class="titolo-consegna"><span class="num">3</span> Contare le alterazioni, e vedere lo sviluppo</p>
+      <div class="testo">Sul quartetto di Haydn op. 74 n. 1, contate le alterazioni estranee <strong>nelle battute 61-75</strong> e poi <strong>nelle battute 136-150</strong>.<p class="dettaglio">Scrivete i due numeri e una riga di commento. Il confronto dice, da solo, dove sta lo sviluppo e dove la ripresa &mdash; senza aver riconosciuto nemmeno un tema.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="5">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 5</span>
+        <h2>Lezione 5 &mdash; Analisi: il ponte di tre sonate a confronto</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U10-L5-04">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; che cosa deve fare un ponte</p>
+      <div class="testo">Le quattro affermazioni sul ponte, dopo averne visti quattro veri.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Il ponte serve a collegare due temi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, o troppo poco: serve a <strong>cambiare tonalit&agrave; e a renderlo credibile</strong>. Rosen, p.&nbsp;175, lo descrive come ci&ograve; che afferma il I, comincia il passaggio al V, e poi conferma.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Un ponte pu&ograve; anche non modulare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, se &egrave; un ponte: se non modula &egrave; un raccordo. La modulazione &egrave; il suo lavoro, non un accessorio.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "La dominante di preparazione sta alla fine del ponte.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: &egrave; l&rsquo;accordo, spesso lungo, che regge l&rsquo;attesa prima che entri il secondo tema. La stessa figura torna alla fine dello sviluppo, prima della ripresa.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "In Haydn op. 74 n. 1 il primo suono estraneo alla tonalit&agrave; arriva dopo una cinquantina di battute.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: arriva alla <strong>battuta 4</strong>, ed &egrave; un do&sharp;. Su 155 battute totali. La forma sonata non perde tempo a dire dove andr&agrave;.",
+  "da": "lezione 3"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U10-L5-01">
+      <p class="titolo-consegna"><span class="num">2</span> La tabella dei quattro primi cromatismi</p>
+      <div class="testo">Rifate la tabella dell&rsquo;ora: per ciascuno dei quattro pezzi visti, la tonalit&agrave;, la <strong>prima nota estranea</strong> e la <strong>battuta</strong> in cui arriva.<p class="dettaglio">Poi due righe: che cosa hanno in comune i quattro numeri? Sono tutti piccoli, e il pi&ugrave; grande &egrave; venti. Che cosa dice questo su come cominciano le forme sonata?</p></div>
+    </div>
+    <div class="consegna" id="C4-U10-L5-02">
+      <p class="titolo-consegna"><span class="num">3</span> Lo stesso passaggio, in due modi</p>
+      <div class="testo">Scrivete <strong>due volte</strong> lo stesso passaggio da fa maggiore a do maggiore, in otto battute: una volta con un pivot dichiarato, una volta con un cromatismo improvviso.<p class="dettaglio">Sotto ciascuno, una riga su <em>che effetto fa</em>. Sono due soluzioni allo stesso problema, e nessuna delle due &egrave; migliore in assoluto.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="6">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 6</span>
+        <h2>Lezione 6 &mdash; La ripresa, e perché il secondo tema cambia tonalità</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U10-L6-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; la ripresa come riscrittura</p>
+      <div class="testo">Quattro affermazioni sulla ripresa e sulla riconduzione alla tonica.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "La ripresa &egrave; una ripetizione dell&rsquo;esposizione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; una <strong>riscrittura</strong>. Rosen, p.&nbsp;51, parla di riscrittura dell&rsquo;esposizione per tramutarla in ripresa &mdash; perch&eacute; il ponte, che prima portava via, adesso deve tenere a casa.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Nella ripresa il secondo tema torna nella tonalit&agrave; d&rsquo;impianto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; la sola cosa che <em>deve</em> succedere. Tutto il resto pu&ograve; variare.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Le prime battute di una ripresa sono spesso identiche a quelle dell&rsquo;esposizione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e serve: l&rsquo;ascoltatore deve <strong>riconoscerle</strong>. La riscrittura comincia poco dopo, quando la strada deve cambiare.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Rosen chiama la ripresa una &laquo;riconduzione alla tonica&raquo; (p.&nbsp;115).",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e la parola conta: non un ritorno, una <em>riconduzione</em>. Qualcuno deve condurre, e per farlo deve cambiare il percorso.",
+  "da": "lezione 6"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U10-L6-01">
+      <p class="titolo-consegna"><span class="num">2</span> Riscrivere un ponte perch&eacute; non porti via</p>
+      <div class="testo">Prendete il ponte che avete scritto per l&rsquo;ora del marted&igrave; (do &rarr; sol) e <strong>riscrivetelo perch&eacute; resti in do</strong>, mantenendo lo stesso numero di battute e lo stesso profilo del basso.<p class="dettaglio">&Egrave; letteralmente il lavoro che fa un compositore nella ripresa: stesso materiale, destinazione diversa. Segnate <strong>la prima battuta</strong> in cui le due versioni divergono.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="7">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 7</span>
+        <h2>Lezione 7 &mdash; Laboratorio: il primo movimento della Sonata op. 31 n. 2</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U10-L7-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; la ripresa come riscrittura</p>
+      <div class="testo">Quattro affermazioni sulla ripresa &mdash; utili proprio adesso, dopo aver visto una ripresa che si interrompe.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "La ripresa &egrave; una ripetizione dell&rsquo;esposizione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; una <strong>riscrittura</strong>. Rosen, p.&nbsp;51, parla di riscrittura dell&rsquo;esposizione per tramutarla in ripresa &mdash; perch&eacute; il ponte, che prima portava via, adesso deve tenere a casa.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Nella ripresa il secondo tema torna nella tonalit&agrave; d&rsquo;impianto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; la sola cosa che <em>deve</em> succedere. Tutto il resto pu&ograve; variare.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Le prime battute di una ripresa sono spesso identiche a quelle dell&rsquo;esposizione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e serve: l&rsquo;ascoltatore deve <strong>riconoscerle</strong>. La riscrittura comincia poco dopo, quando la strada deve cambiare.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Rosen chiama la ripresa una &laquo;riconduzione alla tonica&raquo; (p.&nbsp;115).",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e la parola conta: non un ritorno, una <em>riconduzione</em>. Qualcuno deve condurre, e per farlo deve cambiare il percorso.",
+  "da": "lezione 6"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U10-L7-01">
+      <p class="titolo-consegna"><span class="num">2</span> La prima pagina della Tempesta, guardata</p>
+      <div class="testo">Guardate la prima pagina dell&rsquo;op. 31 n. 2 e scrivete <strong>l&rsquo;armatura</strong> e <strong>l&rsquo;accordo con cui il pezzo comincia</strong>.<p class="dettaglio">Poi due righe: che rapporto c&rsquo;&egrave; fra i due? La risposta si vede in due secondi e vale tutta l&rsquo;ora &mdash; la sonata non comincia dalla sua tonica.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="8">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 8</span>
+        <h2>Lezione 8 &mdash; Ascolto guidato di una sonata intera</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U10-L8-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; che cosa si sente e che cosa no</p>
+      <div class="testo">Quattro affermazioni sull&rsquo;ascolto di una forma sonata.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Sentire l&rsquo;inizio tornare uguale vuol dire che &egrave; cominciata la ripresa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: pu&ograve; essere il <strong>ritornello</strong> dell&rsquo;esposizione. La differenza &egrave; da dove ci si arriva: dopo il ritornello si riparte da capo, dopo lo sviluppo si arriva da lontano.",
+  "da": "lezione 8"
+ },
+ {
+  "d": "In Haydn op. 74 n. 1 le prime due battute stanno fuori dal segno di ritornello.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: il ritornello comincia alla battuta 3. Haydn dice cos&igrave; che quei due accordi <strong>non fanno parte dell&rsquo;esposizione</strong>: si suonano una volta sola.",
+  "da": "lezione 8"
+ },
+ {
+  "d": "Nel quartetto op. 74 n. 1 sviluppo e ripresa stanno dentro lo stesso segno di ritornello.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: il secondo ritornello va dalla battuta 55 alla 155. &Egrave; la pratica normale del Settecento, e dice che per Haydn non sono due sezioni separate.",
+  "da": "lezione 8"
+ },
+ {
+  "d": "Se durante lo sviluppo non si capisce pi&ugrave; in che tonalit&agrave; si &egrave;, vuol dire che non si &egrave; ascoltato bene.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: vuol dire che si &egrave; ascoltato benissimo. Lo sviluppo &egrave; instabile <em>di proposito</em>.",
+  "da": "lezione 8"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U10-L8-01">
+      <p class="titolo-consegna"><span class="num">2</span> Quattro numeri, e sono i vostri</p>
+      <div class="testo">Riascoltate a casa il primo movimento dell&rsquo;op. 74 n. 1, una volta sola, e scrivete <strong>quattro minuti</strong>: fine dell&rsquo;esposizione, inizio dello sviluppo, inizio della ripresa, fine.<p class="dettaglio">Non importa se sono giusti: importa che siano vostri e che siano quattro. Un foglio con tre numeri e un punto interrogativo &egrave; una risposta migliore di quattro numeri copiati.</p></div>
+    </div>
+    <div class="consegna" id="C4-U10-L8-02">
+      <p class="titolo-consegna"><span class="num">3</span> Dove la ripresa smette di essere una copia</p>
+      <div class="testo">Le battute 97-98 dell&rsquo;op. 74 n. 1 sono identiche alle 3-4. <strong>Qual &egrave; la prima battuta in cui non lo sono pi&ugrave;?</strong><p class="dettaglio">Si trova mettendo le due pagine una accanto all&rsquo;altra e confrontando battuta per battuta. &Egrave; un lavoro noioso ed &egrave; esattamente quello che fa un analista. Scrivete il numero e una riga su come lo avete trovato.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="9">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 9</span>
+        <h2>Lezione 9 &mdash; Sintesi grafica della forma: il Concerto op. 35 di Čajkovskij</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U10-L9-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; tre pezzi, ottantacinque anni</p>
+      <div class="testo">Quattro affermazioni sui tre schemi confrontati.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "In una sintesi grafica le lunghezze dei tratti sono indifferenti.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sono <strong>l&rsquo;informazione principale</strong>. Un disegno fuori scala racconta un pezzo che non esiste.",
+  "da": "lezione 9"
+ },
+ {
+  "d": "Il primo movimento dell&rsquo;op. 59 n. 1 di Beethoven non ha segni di ritornello.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, misurato: nessuno. In Haydn, tredici anni prima, ce n&rsquo;erano due. E il pezzo &egrave; passato da 155 a 400 battute: le due cose stanno insieme.",
+  "da": "lezione 9"
+ },
+ {
+  "d": "Nell&rsquo;op. 59 n. 1 il tema del violoncello compare tre volte, sempre identico, e tutte e tre le volte &egrave; un ritorno a casa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso. Le note sono identiche alle battute 1, 103 e 254, ma l&rsquo;analisi tonale dice fa maggiore, <strong>sol minore</strong>, fa maggiore. Quella di mezzo &egrave; l&rsquo;inizio dello sviluppo travestito da ritornello.",
+  "da": "lezione 9"
+ },
+ {
+  "d": "Nello schema formale dell&rsquo;op. 35 di &Ccaron;ajkovskij le tre sezioni del primo movimento portano la stessa tonalit&agrave;.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: re maggiore tutte e tre (Musumeci, Es.&nbsp;1). Non vuol dire che non ci siano modulazioni <em>dentro</em> le sezioni: vuol dire che il <strong>disegno grande</strong> non &egrave; pi&ugrave; fatto di quelle.",
+  "da": "lezione 9"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U10-L9-01">
+      <p class="titolo-consegna"><span class="num">2</span> La sintesi grafica dell&rsquo;Haydn, in bella</p>
+      <div class="testo">Su un foglio solo, in orizzontale: la forma del primo movimento dell&rsquo;op. 74 n. 1, <strong>in proporzione</strong> e con <strong>le tonalit&agrave; scritte sotto ogni tratto</strong>.<p class="dettaglio">Le proporzioni sono un vincolo, non un consiglio: una sezione lunga il doppio si disegna lunga il doppio. Avete tutti i numeri: 155 battute, confini a 2, 54, 96.</p></div>
+    </div>
+    <div class="consegna" id="C4-U10-L9-02">
+      <p class="titolo-consegna"><span class="num">3</span> Che cosa si vede nel disegno e non nella tabella</p>
+      <div class="testo">In <strong>tre righe</strong>: guardando il vostro foglio, che cosa si vede che nella tabella dell&rsquo;ora non si vedeva?<p class="dettaglio">Rispondete guardando il <em>vostro</em> disegno, non ricopiando la slide. Se la risposta &egrave; &laquo;niente&raquo;, ditelo &mdash; e spiegate perch&eacute;.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="10">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 10</span>
+        <h2>Lezione 10 &mdash; Dettato ritmico complesso</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C4-U10-L10-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; il metro misto</p>
+      <div class="testo">Quattro affermazioni sui cinque ottavi e sul raggruppamento.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "In cinque ottavi le crome si contano una per una.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, non a centoventi: si <strong>raggruppano</strong>, 2+3 oppure 3+2, e si battono due colpi disuguali per battuta.",
+  "da": "lezione 10"
+ },
+ {
+  "d": "Una battuta di cinque crome tutte uguali non dice da sola come va raggruppata.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; il caso difficile: il raggruppamento non sta nelle durate, sta nell&rsquo;accento. Si decide guardando il contesto.",
+  "da": "lezione 10"
+ },
+ {
+  "d": "In un metro misto la travatura &egrave; una questione di grafia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: <strong>&egrave; l&rsquo;informazione</strong>. Cinque crome travate tutte insieme non dicono a chi legge come eseguire la battuta.",
+  "da": "lezione 10"
+ },
+ {
+  "d": "I metri dispari sono un&rsquo;invenzione della musica colta del Novecento.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: vengono dal canto e dalla danza, e si trovano nelle raccolte di canti popolari dell&rsquo;Ottocento. Il Novecento li ha portati nella musica scritta, non inventati.",
+  "da": "lezione 10"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C4-U10-L10-01">
+      <p class="titolo-consegna"><span class="num">2</span> Il dettato in bella, con le travature</p>
+      <div class="testo">Riscrivete in bella tutte e otto le battute del dettato, anche quelle lasciate in bianco, <strong>con le travature che disegnano il raggruppamento</strong>.<p class="dettaglio">Oggi la grafia &egrave; una risposta e non un&rsquo;ortografia: in un metro misto la travatura dice a chi legge come va contata la battuta.</p></div>
+    </div>
+    <div class="consegna" id="C4-U10-L10-02">
+      <p class="titolo-consegna"><span class="num">3</span> Quattro battute in cinque ottavi</p>
+      <div class="testo">Scrivete <strong>quattro battute in cinque ottavi</strong>: due raggruppate 2+3, due raggruppate 3+2, e almeno una con una pausa.<p class="dettaglio">Contate le crome una per una prima di consegnare. Quattro battute che tornano valgono pi&ugrave; di otto che non tornano.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="99">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Tutta l&rsquo;unità insieme</span>
+        <h2>Ripasso di fine unità</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna verifica" id="C4U10V">
+      <p class="titolo-consegna"><span class="num">1</span> Verifica di fine unit&agrave; 10</p>
+      <div class="testo">1 esercizi, uno per volta. Non si torna indietro: prima di rispondere pensaci. Alla fine esce un <strong>codice</strong> che consegni su Classroom.<br><strong>&Egrave; l&rsquo;unica cosa dell&rsquo;unit&agrave; che fa voto.</strong></div>
+      <div class="online-vivo no-stampa">
+        <tac-verifica sigla="C4U10V" dove="casa" titolo="Verifica di fine unità 10">
+    <tac-quiz quante="6" scheda="C4U10U01" peso="3">
+[
+ {
+  "d": "Sentire l&rsquo;inizio tornare uguale vuol dire che &egrave; cominciata la ripresa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "In Haydn op. 74 n. 1 le prime due battute stanno fuori dal segno di ritornello.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "Nel quartetto op. 74 n. 1 sviluppo e ripresa stanno dentro lo stesso segno di ritornello.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "Se durante lo sviluppo non si capisce pi&ugrave; in che tonalit&agrave; si &egrave;, vuol dire che non si &egrave; ascoltato bene.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "In cinque ottavi le crome si contano una per una.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 10"
+ },
+ {
+  "d": "Una battuta di cinque crome tutte uguali non dice da sola come va raggruppata.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 10"
+ },
+ {
+  "d": "In un metro misto la travatura &egrave; una questione di grafia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 10"
+ },
+ {
+  "d": "I metri dispari sono un&rsquo;invenzione della musica colta del Novecento.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 10"
+ },
+ {
+  "d": "Il ponte serve a collegare due temi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Un ponte pu&ograve; anche non modulare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "La dominante di preparazione sta alla fine del ponte.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "In Haydn op. 74 n. 1 il primo suono estraneo alla tonalit&agrave; arriva dopo una cinquantina di battute.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "La ripresa &egrave; una ripetizione dell&rsquo;esposizione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Nella ripresa il secondo tema torna nella tonalit&agrave; d&rsquo;impianto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Le prime battute di una ripresa sono spesso identiche a quelle dell&rsquo;esposizione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Rosen chiama la ripresa una &laquo;riconduzione alla tonica&raquo; (p.&nbsp;115).",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "In una sintesi grafica le lunghezze dei tratti sono indifferenti.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "Il primo movimento dell&rsquo;op. 59 n. 1 di Beethoven non ha segni di ritornello.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "Nell&rsquo;op. 59 n. 1 il tema del violoncello compare tre volte, sempre identico, e tutte e tre le volte &egrave; un ritorno a casa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "Nello schema formale dell&rsquo;op. 35 di &Ccaron;ajkovskij le tre sezioni del primo movimento portano la stessa tonalit&agrave;.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "Lo sviluppo &egrave; la parte pi&ugrave; libera della forma.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Frammentare vuol dire tenere un pezzo del tema e ripeterlo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "In uno sviluppo conviene introdurre un tema nuovo e memorabile.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Nello sviluppo di Haydn op. 74 n. 1 compaiono cinque alterazioni diverse in quindici battute.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "La forma sonata &egrave; uno schema di tre sezioni.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Esistono forme sonata senza sviluppo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Nel modo maggiore la seconda tonalit&agrave; dell&rsquo;esposizione &egrave; di norma la dominante.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Un tema, in una forma sonata, deve essere una melodia cantabile.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "La ripresa riporta i temi nella tonalit&agrave; d&rsquo;impianto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ }
+]
+    </tac-quiz>
+        </tac-verifica>
+      </div>
+      <div class="esito"><span class="etichetta-esito">Codice ottenuto</span><span class="casella-codice"></span></div>
+    </div>
+    </section>
+  </div>
+
+</div>
+
+<footer class="piede no-stampa">
+  <div class="piede-interno">
+    <p><a href="../">&larr; Torna alla classe 4&ordf;</a>  &middot;  <a href="solfeggi-classe-4.html">Il quaderno di lettura · tutto l'anno</a></p>
+    <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
+  </div>
+</footer>
+
+<script>
+/* «Stampa solo questa». Il compito della settimana e una pagina: se per
+   averla si deve mandare in stampa il fascicolo intero e poi scegliere gli
+   intervalli di pagina nel pannello del browser, nessuno lo fa, e si
+   stampano undici fogli per usarne uno. Il pulsante nasconde gli altri
+   blocchi per la durata della stampa e li rimette a posto subito dopo. */
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-stampa]');
+  if (!b) return;
+  var blocco = b.closest('.lez');
+  document.body.classList.add('stampa-una');
+  blocco.classList.add('da-stampare');
+  var pulisci = function () {
+    document.body.classList.remove('stampa-una');
+    blocco.classList.remove('da-stampare');
+    window.removeEventListener('afterprint', pulisci);
+  };
+  window.addEventListener('afterprint', pulisci);
+  window.print();
+});
+</script>
+</body>
+</html>

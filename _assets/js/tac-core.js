@@ -1526,21 +1526,36 @@
              tutti e cinque i cerchi uscivano a `cy` 82, cioè sempre alla
              stessa altezza su cinque musiche diverse.
              Adesso l'altezza la chiede alla nota disegnata. */
+          /* ⚠ L'ALTEZZA SI CHIEDE A VexFlow, NON AL LAYOUT.
+             Il primo tentativo usava `getBBox()` sull'elemento SVG della
+             nota. Non funzionava mai, e la ragione sta scritta cento
+             righe più sotto, nel commento del ritaglio: **`getBBox` su un
+             elemento non visibile risponde zero**, e una slide che non è
+             quella attiva è `display:none`. Quindi il `try` finiva sempre
+             nel `catch` e restava il centro del rigo — cioè il difetto
+             che stavo correggendo, corretto solo in apparenza.
+             Misurato di nuovo sul sito: tutti e cinque i cerchi ancora a
+             `cy` 82, con il file nuovo già caricato. Il rimedio era
+             sbagliato, non la diagnosi.
+
+             `getYs()` invece è calcolato da VexFlow quando disegna, e non
+             dipende da che cosa è visibile. Restituisce una y per ogni
+             testa dell'accordo: si prende la media, così su un accordo il
+             cerchio le comprende tutte. */
           let cy = (su + giu) / 2, ry = (giu - su) / 2;
           try {
-            const el = note[primo].getSVGElement();
-            const b = el && el.getBBox();
-            if (b && b.height) {
-              /* la testa è la parte bassa del disegno se il gambo va in
-                 su, e viceversa: si prende il centro del riquadro e lo si
-                 corregge verso la metà più fitta. Un raggio fisso di 13
-                 tiene la testa comoda senza coprire quella accanto. */
-              cy = b.y + b.height / 2;
-              ry = 13;
-              if (b.height > 34) {            /* c'è il gambo */
-                const suGambo = (b.y + b.height / 2) < (su + giu) / 2;
-                cy = suGambo ? b.y + b.height - 8 : b.y + 8;
-              }
+            const n = note[primo];
+            let ys = (typeof n.getYs === 'function') ? n.getYs() : null;
+            if ((!ys || !ys.length) && typeof n.getYForTopText === 'function') {
+              ys = null;
+            }
+            if (ys && ys.length) {
+              cy = ys.reduce((a, y) => a + y, 0) / ys.length;
+              /* il raggio verticale copre tutte le teste, più un margine;
+                 su una nota sola diventa un cerchietto di 13. */
+              const alto = Math.max.apply(null, ys);
+              const basso = Math.min.apply(null, ys);
+              ry = Math.max(13, (alto - basso) / 2 + 10);
             }
           } catch (e) { /* resta il centro del rigo, come prima */ }
           const c = document.createElementNS(NS, 'ellipse');

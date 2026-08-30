@@ -931,6 +931,108 @@
     }
   }
 
+  /* ══ I SEGNI SULLA PARTITURA ══════════════════════════════════════
+     Andrea, 30 agosto 2026: «per le analisi sarebbe importante segnalare
+     le cose in partitura, quindi far vedere la partitura con i segni
+     delle cose importanti mentre se ne parla».
+
+     È la cosa che mancava a tutto il quinto anno, che è analisi da capo
+     a fondo. Fino a oggi una slide di analisi poteva scrivere «alla
+     battuta 5 entra la risposta» e far vedere il rigo: chi legge doveva
+     contare le battute con il dito. Il `caption` diceva dove guardare,
+     il disegno no — e su un rigo di venti battute la distanza fra le due
+     cose è il punto in cui uno studente si perde.
+
+     COME SI SCRIVE:
+
+         segna="b3=entra la risposta · b7-b9=pedale di tonica"
+
+     · `b3`      tutta la battuta 3
+     · `b3.2`    la seconda nota della battuta 3
+     · `n5`      la quinta nota del rigo, battute a parte
+     · `b7-b9`   dalla battuta 7 alla 9 comprese
+     · `n5-n9`   dalla quinta nota alla nona
+     Il testo dopo `=` è l'etichetta; senza, si disegna il segno e basta.
+
+     I segni si separano con `·`, che è il separatore di tutto il corso.
+
+     ⚠ CON `a-passi` I SEGNI NON SI VEDONO SUBITO. Compaiono uno per
+     volta, a ogni clic, e sotto il rigo si legge l'etichetta di quello
+     appena comparso. È la richiesta letterale — «mentre se ne parla» —
+     ed è l'unico modo perché il segno arrivi *dopo* la domanda invece
+     che prima: un rigo con tutti i segni addosso ha già risposto.
+
+     PERCHÉ SVG A MANO E NON UN MODIFICATORE DI VexFlow. Perché i segni
+     devono potersi accendere e spegnere uno alla volta, e un modificatore
+     si disegna insieme alla nota: per nasconderlo bisognerebbe ridisegnare
+     tutto il rigo a ogni clic. Un `<g>` per segno si mostra e si nasconde
+     con una riga, e non tocca niente di quello che c'è sotto. */
+
+  /* «b3.2=la sensibile» → {tipo:'b', da:3, nota:2, a:null, testo:'…'} */
+  function leggiSegni(testo) {
+    if (!testo) return [];
+    return String(testo).split(/\s*[·|]\s*/).map(function (pezzo) {
+      const eq = pezzo.indexOf('=');
+      const dove = (eq < 0 ? pezzo : pezzo.slice(0, eq)).trim();
+      const etichetta = eq < 0 ? '' : pezzo.slice(eq + 1).trim();
+      const parti = dove.split('-').map(s => s.trim()).filter(Boolean);
+      function punto(s) {
+        const m = String(s).match(/^([bn])\s*(\d+)(?:\.(\d+))?$/i);
+        if (!m) return null;
+        return { tipo: m[1].toLowerCase(),
+                 numero: parseInt(m[2], 10),
+                 nota: m[3] ? parseInt(m[3], 10) : null };
+      }
+      const da = punto(parti[0]);
+      if (!da) return null;
+      return { da: da, a: parti[1] ? punto(parti[1]) : null,
+               testo: etichetta };
+    }).filter(Boolean);
+  }
+
+  /* Da un punto («b3.2», «n5») all'intervallo di indici dentro `dati`.
+
+     ⚠ SI CONTANO I SUONI, NON I SEGNI SUL RIGO. Le stanghette e **le
+     pause** non entrano nel conto: `n4` è il quarto suono che si sente,
+     non la quarta cosa disegnata.
+
+     Non è una comodità, è l'unico modo perché il segno dica quello che
+     dice la lezione. Il soggetto del BWV 847 comincia con una pausa di
+     croma, e la lezione 4 dell'unità 11 scrive «il quarto suono è sol»:
+     contando anche la pausa, `n4` avrebbe segnato il do e la freccia
+     avrebbe indicato la nota sbagliata sotto una frase giusta. È il
+     guasto che questo progetto continua a incontrare — il disegno che
+     contraddice il testo — e qui si evita scegliendo il conto del
+     musicista invece di quello del disegnatore.
+
+     Chi voglia segnare una pausa segna la battuta intera. */
+  function indiciDelSegno(dati, punto) {
+    const battuta = [];      // battuta di ciascun indice
+    const nellaBattuta = []; // quantesimo SUONO dentro la sua battuta
+    const progressiva = [];  // quantesimo suono del rigo
+    let b = 1, dentro = 0, tutte = 0;
+    for (let i = 0; i < dati.length; i++) {
+      if (dati[i].stanghetta) { b++; dentro = 0; battuta.push(null);
+                                nellaBattuta.push(null); progressiva.push(null);
+                                continue; }
+      if (dati[i].pausa) { battuta.push(b); nellaBattuta.push(null);
+                           progressiva.push(null); continue; }
+      dentro++; tutte++;
+      battuta.push(b); nellaBattuta.push(dentro); progressiva.push(tutte);
+    }
+    const dentroA = [];
+    for (let i = 0; i < dati.length; i++) {
+      if (battuta[i] === null) continue;
+      if (punto.tipo === 'n') {
+        if (progressiva[i] === punto.numero) dentroA.push(i);
+      } else {
+        if (battuta[i] !== punto.numero) continue;
+        if (punto.nota === null || nellaBattuta[i] === punto.nota) dentroA.push(i);
+      }
+    }
+    return dentroA;
+  }
+
   /* ==========================================================
      4. <tac-stave> — PENTAGRAMMA
 
@@ -1281,6 +1383,15 @@
         });
 
         this._note = note;
+
+        /* ══ E ADESSO I SEGNI ══
+           Si disegnano per ultimi, dopo che tutto il resto è sul rigo:
+           un segno chiede alle note dove sono finite, e prima della
+           formattazione nessuna nota lo sa. */
+        this._segni = leggiSegni(this.getAttribute('segna'));
+        if (this._segni.length) {
+          this.disegnaSegni(tela, stave, dati, note);
+        }
       } else if (this._vociGiu) {
         /* rigo acuto vuoto e grave pieno: caso raro ma possibile, e senza
            questo il grave non verrebbe disegnato affatto — la formattazione
@@ -1350,8 +1461,180 @@
       }
     }
 
-    /* Riproduce la sequenza evidenziando le note */
-    async suona(bottone, fattore = 1) {
+    /* ══ DISEGNA I SEGNI SOPRA IL RIGO ═══════════════════════════════
+       Un segno su UNA nota è un cerchietto con la freccia che lo indica.
+       Un segno su PIÙ note è una fascia con la parentesi quadra sopra.
+       La forma non si sceglie a mano: la decide quante note copre, che è
+       l'unica cosa che conta davvero — «questa nota» e «questo tratto»
+       sono due gesti diversi e vanno disegnati diversi.
+
+       ⚠ LE FRECCE SI DISEGNANO, NON SI INCOLLANO. Andrea aveva proposto
+       di prenderle dalle immagini di Adobe Stock. Non si può, e la
+       ragione è pratica prima che estetica: una freccia raster ha una
+       misura sua e non sa dov'è la nota, quindi andrebbe posizionata a
+       mano su ogni rigo e si scollerebbe al primo cambio di larghezza.
+       Disegnata in SVG parte dalla coordinata che VexFlow ha dato alla
+       nota, e resta puntata anche se il rigo si stringe. In più si
+       stampa nera e nitida, che è come il Workbook va in fotocopia. */
+    disegnaSegni(tela, stave, dati, note) {
+      const svg = tela.querySelector('svg');
+      if (!svg) return;
+      const NS = 'http://www.w3.org/2000/svg';
+
+      /* L'ascissa di una nota, chiedendola a VexFlow in tre modi.
+         Le versioni cambiano nome ai metodi, e un segno che non si
+         disegna è meglio di un errore che ferma tutta la slide. */
+      function ics(n) {
+        if (!n) return null;
+        try { if (typeof n.getAbsoluteX === 'function') {
+                const v = n.getAbsoluteX(); if (isFinite(v)) return v; } } catch (e) {}
+        try { const b = n.getBoundingBox();
+              if (b && isFinite(b.x)) return b.x + (b.w || 0) / 2; } catch (e) {}
+        try { const b = n.getBoundingBox();
+              if (b && isFinite(b.getX && b.getX())) return b.getX() + b.getW() / 2; } catch (e) {}
+        return null;
+      }
+
+      let cima = 30, fondo = 100;
+      try { cima = stave.getYForLine(0); fondo = stave.getYForLine(4); } catch (e) {}
+
+      const gruppi = [];
+      const etichette = [];
+      this._segni.forEach((s, k) => {
+        const a = indiciDelSegno(dati, s.da);
+        const b = s.a ? indiciDelSegno(dati, s.a) : a;
+        if (!a.length || !b.length) return;
+        const primo = a[0], ultimo = b[b.length - 1];
+        const x1 = ics(note[primo]), x2 = ics(note[ultimo]);
+        if (x1 === null || x2 === null) return;
+        const solaNota = (primo === ultimo);
+
+        const g = document.createElementNS(NS, 'g');
+        g.setAttribute('class', 'tac-segno');
+        g.setAttribute('data-segno', String(k + 1));
+
+        const sx = Math.min(x1, x2) - (solaNota ? 11 : 9);
+        const dx = Math.max(x1, x2) + (solaNota ? 11 : 16);
+        const su = cima - 10, giu = fondo + 10;
+
+        if (solaNota) {
+          /* il cerchietto intorno alla nota */
+          const c = document.createElementNS(NS, 'ellipse');
+          c.setAttribute('cx', (sx + dx) / 2);
+          c.setAttribute('cy', (su + giu) / 2);
+          c.setAttribute('rx', (dx - sx) / 2);
+          c.setAttribute('ry', (giu - su) / 2);
+          c.setAttribute('fill', 'none');
+          c.setAttribute('stroke', 'var(--segno, #b45309)');
+          c.setAttribute('stroke-width', '2');
+          g.appendChild(c);
+          /* e la freccia che lo indica, da sopra */
+          const f = document.createElementNS(NS, 'path');
+          const cx = (sx + dx) / 2;
+          f.setAttribute('d', 'M ' + cx + ' ' + (su - 26) +
+                              ' L ' + cx + ' ' + (su - 6) +
+                              ' M ' + (cx - 5) + ' ' + (su - 12) +
+                              ' L ' + cx + ' ' + (su - 5) +
+                              ' L ' + (cx + 5) + ' ' + (su - 12));
+          f.setAttribute('fill', 'none');
+          f.setAttribute('stroke', 'var(--segno, #b45309)');
+          f.setAttribute('stroke-width', '2');
+          f.setAttribute('stroke-linecap', 'round');
+          g.appendChild(f);
+        } else {
+          /* la fascia sotto, chiara, e la parentesi quadra sopra */
+          const r = document.createElementNS(NS, 'rect');
+          r.setAttribute('x', sx); r.setAttribute('y', su);
+          r.setAttribute('width', dx - sx); r.setAttribute('height', giu - su);
+          r.setAttribute('rx', '4');
+          r.setAttribute('fill', 'var(--segno-fondo, rgba(180,83,9,.13))');
+          g.appendChild(r);
+          const p = document.createElementNS(NS, 'path');
+          p.setAttribute('d', 'M ' + sx + ' ' + (su - 12) +
+                              ' L ' + sx + ' ' + (su - 20) +
+                              ' L ' + dx + ' ' + (su - 20) +
+                              ' L ' + dx + ' ' + (su - 12));
+          p.setAttribute('fill', 'none');
+          p.setAttribute('stroke', 'var(--segno, #b45309)');
+          p.setAttribute('stroke-width', '2');
+          g.appendChild(p);
+        }
+
+        if (s.testo) {
+          const t = document.createElementNS(NS, 'text');
+          t.setAttribute('x', (sx + dx) / 2);
+          t.setAttribute('y', su - (solaNota ? 30 : 25));
+          t.setAttribute('text-anchor', 'middle');
+          t.setAttribute('font-size', '13');
+          t.setAttribute('font-weight', '600');
+          t.setAttribute('fill', 'var(--segno, #b45309)');
+          t.textContent = s.testo;
+          g.appendChild(t);
+        }
+
+        svg.appendChild(g);
+        gruppi.push(g);
+        etichette.push(s.testo || ('segno ' + (k + 1)));
+        /* gli indici servono all'ascolto del solo tratto segnato */
+        g._da = primo; g._a = ultimo;
+      });
+
+      this._gruppiSegni = gruppi;
+      if (!gruppi.length) return;
+
+      /* ══ A PASSI ══
+         Senza `a-passi` i segni ci sono tutti e la slide è una tavola
+         già commentata: va bene per il Workbook, dove non c'è nessuno
+         che parla. In aula serve il contrario, e lo dice Andrea:
+         «mentre se ne parla». Quindi si nascondono e si accendono a uno
+         a uno, e sotto compare la frase del segno acceso. */
+      if (!this.hasAttribute('a-passi')) return;
+      gruppi.forEach(g => { g.style.display = 'none'; });
+
+      const barra = document.createElement('div');
+      barra.className = 'tac-barra no-stampa';
+      const avanti = document.createElement('button');
+      avanti.className = 'btn';
+      avanti.innerHTML = '&#9654; Segna';
+      const tutti = document.createElement('button');
+      tutti.className = 'btn secondario';
+      tutti.textContent = 'Tutti';
+      const dice = document.createElement('div');
+      dice.className = 'tac-didascalia tac-segno-detto';
+      dice.setAttribute('aria-live', 'polite');
+
+      let quanti = 0;
+      const aggiorna = () => {
+        gruppi.forEach((g, i) => { g.style.display = i < quanti ? '' : 'none'; });
+        dice.textContent = quanti ? etichette[quanti - 1] : '';
+        avanti.innerHTML = quanti >= gruppi.length
+          ? '&#8635; Da capo'
+          : '&#9654; Segna (' + (quanti + 1) + ' di ' + gruppi.length + ')';
+      };
+      avanti.onclick = () => {
+        quanti = quanti >= gruppi.length ? 0 : quanti + 1;
+        aggiorna();
+        /* e se il rigo suona, si sente SOLO il tratto appena segnato:
+           è la differenza fra dire «guarda qui» e farlo sentire. */
+        if (this.hasAttribute('play') && quanti) {
+          const g = gruppi[quanti - 1];
+          this.suona(null, 1, g._da, g._a);
+        }
+      };
+      tutti.onclick = () => { quanti = gruppi.length; aggiorna(); };
+      barra.appendChild(avanti);
+      barra.appendChild(tutti);
+      this.appendChild(barra);
+      this.appendChild(dice);
+      aggiorna();
+    }
+
+    /* Riproduce la sequenza evidenziando le note.
+
+       `da` e `a` limitano l'ascolto a un tratto: servono ai segni a
+       passi, dove ogni clic fa sentire solo quello che ha appena
+       segnato. Senza, si sente tutto, ed è il comportamento di sempre. */
+    async suona(bottone, fattore = 1, da = null, a = null) {
       if (this._inCorso) return;
       this._inCorso = true;
       if (bottone) bottone.disabled = true;
@@ -1391,7 +1674,41 @@
       }
 
       const durBattito = (60 / (this._tempo * fattore));
-      let t = Tone.now() + 0.15;
+
+      /* ══ ASCOLTARE SOLO IL TRATTO SEGNATO ══
+         `da` e `a` sono indici dentro `_dati`. Da lì si ricava una
+         FINESTRA DI TEMPO — da quando comincia la nota `da` a quando
+         finisce la nota `a` — e la finestra vale per **tutte le voci**,
+         non solo per quella su cui sta il segno.
+
+         Il tempo, e non gli indici: perché su un esempio a due righi il
+         basso ha figure diverse dall'acuto, e l'indice 7 dell'uno non è
+         l'indice 7 dell'altro. Con la finestra di tempo il basso suona
+         quello che davvero sta sotto le battute segnate, che è l'unica
+         cosa che serve a chi ascolta un'analisi.
+
+         E la finestra si sposta all'inizio: si sente subito, non dopo
+         sei battute di silenzio. */
+      let inizio = 0, fine = Infinity;
+      if (da !== null && this._dati) {
+        let q = 0;
+        this._dati.forEach((d, i) => {
+          if (d.stanghetta) return;
+          if (i === da) inizio = q;
+          q += d.battiti;
+          if (i === (a === null ? da : a)) fine = q;
+        });
+      }
+      /* ⚠ IL SEGNO DI MAGGIORE, E NON È UN DETTAGLIO.
+         Una nota che finisce ESATTAMENTE dove comincia il tratto segnato
+         è fuori, non dentro: il suo `q1` vale quanto `inizio`. Con la
+         tolleranza dalla parte sbagliata (`> inizio - 1e-9`) entrava, e
+         siccome il tempo si conta dall'inizio del tratto le veniva
+         assegnato un istante NEGATIVO — cioè partiva prima del clic.
+         Trovato simulando i tempi fuori dal browser, non guardando. */
+      const dentro = (q0, q1) => q1 > inizio + 1e-9 && q0 < fine - 1e-9;
+      const quando = (q0) => Tone.now() + 0.15 + (q0 - inizio) * durBattito;
+      let t = quando(inizio);
 
       /* LA LEGATURA DI VALORE NON È DUE SUONI: È UN SUONO SOLO, PIÙ LUNGO.
 
@@ -1441,7 +1758,7 @@
         .concat(this._datiB ? [this._datiB] : [])
         .concat((this._vociInterne || []).map(v => v.dati));
       if (!soloRitmo) altre.forEach(serie => {
-        let ta = Tone.now() + 0.15;
+        let qa = 0;   /* posizione in quarti dall'inizio di QUESTA voce */
         /* le legature valgono voce per voce, con lo stesso conto di sopra */
         const dur2 = serie.map(d => d.battiti);
         const muta2 = serie.map(() => false);
@@ -1454,20 +1771,35 @@
         }
         serie.forEach((d, i) => {
           if (d.stanghetta) return;
+          const q0 = qa;
+          qa += d.battiti;
+          if (!dentro(q0, qa)) return;   /* fuori dal tratto segnato */
           if (!d.pausa && !muta2[i]) {
             voce.triggerAttackRelease(
               d.keys.map(k => N.aTone(N.conArmatura(k, this._armatura))),
-                                      dur2[i] * durBattito * 0.92, ta);
+              Math.min(dur2[i], fine - q0) * durBattito * 0.92, quando(q0));
           }
-          ta += d.battiti * durBattito;
         });
       });
 
       let dentroBattuta = 0;   /* posizione nella battuta, in quarti */
+      let q = 0;               /* posizione dall'inizio, in quarti */
+      let ultimo = quando(inizio);
       this._dati.forEach((d, i) => {
         if (d.stanghetta) { dentroBattuta = 0; return; }  /* non dura e non suona */
-        const secondi = d.battiti * durBattito;
-        const suonati = durate[i] * durBattito;
+        const q0 = q;
+        /* ⚠ `prima` è la posizione della nota DENTRO LA SUA BATTUTA, cioè
+           quella che decide l'accento. Va letta prima di avanzare i due
+           contatori: leggendola dopo, ogni colpo prenderebbe l'accento
+           del colpo successivo — e su un rigo ritmico l'accento è
+           l'unica cosa che si valuta. */
+        const prima = dentroBattuta;
+        q += d.battiti;
+        dentroBattuta += d.battiti;
+        if (!dentro(q0, q)) return;      /* fuori dal tratto segnato */
+        t = quando(q0);
+        ultimo = Math.max(ultimo, quando(Math.min(q, fine)));
+        const suonati = Math.min(durate[i], fine - q0) * durBattito;
         if (!d.pausa && !muta[i]) {
           if (soloRitmo) {
             /* L'ACCENTO CADE DOVE CADE LA TRAVATURA.
@@ -1484,7 +1816,7 @@
                `perGruppo` crome fanno perGruppo/2 di quarto. Senza
                `travatura` non si accenta niente, come prima. */
             const capo = this._perGruppo &&
-                         Math.abs(dentroBattuta % (this._perGruppo / 2)) < 1e-6;
+                         Math.abs(prima % (this._perGruppo / 2)) < 1e-6;
             const liv = capo ? Audio.LIVELLI.metro : Audio.LIVELLI.ritmo;
             Audio.tick.triggerAttackRelease(liv.altezza, '64n', t, liv.forza);
           } else {
@@ -1506,11 +1838,9 @@
             }), ms + suonati * 1000);
           }
         }
-        t += secondi;
-        dentroBattuta += d.battiti;
       });
 
-      const attesa = (t - Tone.now()) * 1000 + 200;
+      const attesa = (ultimo - Tone.now()) * 1000 + 200;
       setTimeout(() => {
         this._inCorso = false;
         if (bottone) bottone.disabled = false;

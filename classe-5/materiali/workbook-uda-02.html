@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbook — UdA 2 · Laboratorio sulla modulazione | TAC Classe 5&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=6da4e558">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=3ae1cb65">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
+     usa, e con `defer` i due file girano nell'ordine in cui stanno
+     scritti qui. -->
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=45e1f89a" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
+     fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
+                          height: auto; margin: .35rem 0; }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 5&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a class="attiva" href="workbook-uda-02.html">Workbook · unità 2</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa tutto il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Workbook</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">UdA 2 · Laboratorio sulla modulazione — il foglio di lavoro, una pagina per lezione</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale — Classe 5&ordf;
+    </div>
+  </div>
+
+  <!-- Niente riga per nome, classe e data: il foglio non si consegna mai.
+       Lo scritto va sul quaderno e si fotografa, l'online restituisce un
+       codice, l'ascolto e' una spunta che lo studente fa per se'. La riga
+       era un'abitudine presa dal compito in classe, e costava un centimetro
+       e mezzo in cima a ogni foglio stampato. -->
+
+  <div class="riquadro attenzione">
+    <span class="etichetta">Come si usa</span>
+    <p>I compiti sono di tre specie, e ognuna si consegna in modo suo. <strong>Da fare online</strong>: allo schermo. <strong>Da ascoltare</strong>: serve all'orecchio. <strong>Da scrivere</strong>: sul quaderno, poi una foto su Classroom.</p>
+    <p style="margin-top:.5rem">Il voto dell'unità lo dà <strong>una cosa sola</strong>: la verifica in fondo, quella che restituisce un codice. Tutto il resto si consegna e si corregge, ma non fa voto &mdash; il che non vuol dire che non conti: è lì che si impara, e la verifica misura solo quello che hai imparato facendolo.</p>
+    <p style="margin-top:.5rem">Stampa <strong>una lezione alla volta</strong>, col pulsante che trovi accanto al titolo.</p>
+  </div>
+
+  <div class="lez" data-lezione="1">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 1</span>
+        <h2>Lezione 1 &mdash; Riconoscere una modulazione, anche multipla: gli indizi in partitura</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U2-L1-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; i tre indizi</p>
+      <div class="testo">Quattro affermazioni sul riconoscere una modulazione in partitura.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Un&rsquo;alterazione estranea basta a dire che si &egrave; modulato.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: dice che <em>forse</em> l&igrave;. La prova &egrave; la <strong>cadenza</strong> che conferma la tonalit&agrave; nuova. Senza cadenza si &egrave; avuta una tonicizzazione.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il tritono di una tonalit&agrave; maggiore &egrave; uno solo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: fra il quarto e il settimo grado. In do &egrave; fa&ndash;si, in fa &egrave; si&#9837;&ndash;mi. Ed &egrave; per questo che trovarlo <strong>intero</strong> individua una tonalit&agrave; sola, mentre un&rsquo;alterazione ne lascia due o tre.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Modulando dal minore alla sua sottodominante compare un&rsquo;alterazione nuova.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed &egrave; il caso che il libro sceglie apposta: la vecchia sensibile <strong>smette</strong> di essere alzata, e sulla pagina non appare nessun segno. L&rsquo;indizio &egrave; la <em>nuova</em> sensibile in una parte superiore (p.&nbsp;24).",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il grado diatonico discendente &egrave; l&rsquo;indizio pi&ugrave; facile da vedere.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e lo dice il libro stesso: &laquo;non &egrave; un indizio particolarmente visibile nella linea del basso&raquo; (p.&nbsp;24). &Egrave; il pi&ugrave; nascosto dei tre, e succede spesso.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "In una modulazione multipla la seconda tappa si cerca a partire dalla tonalit&agrave; d&rsquo;impianto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si cerca a partire dalla <strong>tonalit&agrave; nuova</strong>. I suoi toni vicini sono altri, e continuare a ragionare con l&rsquo;armatura di partenza rende la seconda modulazione incomprensibile.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Analizzando una traccia conviene segnare prima le cadenze e poi cercare gli indizi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; l&rsquo;ordine del libro a p.&nbsp;26: le cadenze sono <strong>poche e certe</strong>, le alterazioni molte e ambigue. Prima le prove, poi gli indizi.",
+  "da": "lezione 1"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U2-L1-01">
+      <p class="titolo-consegna"><span class="num">2</span> Otto battute, e da che cosa lo sai</p>
+      <div class="testo">Riprendi il basso di otto battute della lezione e rispondi per iscritto alle tre domande: <strong>quante volte</strong> cambia tonalit&agrave;, in <strong>quali battute</strong>, e <strong>quale dei tre indizi</strong> te l&rsquo;ha fatta vedere.<p class="dettaglio">La terza risposta &egrave; quella che conta, e va scritta col <em>nome</em> dell&rsquo;indizio: l&rsquo;alterazione che resta, il tritono nuovo, il grado discendente. Un&rsquo;analisi senza il numero di battuta accanto non &egrave; verificabile.</p></div>
+    </div>
+    <div class="consegna" id="C5-U2-L1-02">
+      <p class="titolo-consegna"><span class="num">3</span> Un basso che nasconde la modulazione</p>
+      <div class="testo">Scrivi <strong>otto battute di basso</strong> in la minore che modulino a <strong>re minore</strong> usando l&rsquo;indizio pi&ugrave; nascosto: nessuna alterazione nuova al basso, solo il sol che torna naturale.<p class="dettaglio">Poi, sotto, scrivi in quale <strong>parte superiore</strong> metteresti il do&#9839; &mdash; la sensibile nuova &mdash; e in che battuta. Senza quello, la modulazione non si sente: si sente solo che qualcosa manca.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="2">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 2</span>
+        <h2>Lezione 2 &mdash; Dettato armonico con una modulazione</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U2-L2-04">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; il dettato che modula</p>
+      <div class="testo">Quattro affermazioni sull&rsquo;ascoltare una modulazione dentro quattro parti.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "In un dettato armonico che modula conviene scrivere le note dalla prima battuta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: chi comincia subito arriva alla battuta 4 senza sapere dov&rsquo;&egrave;. Prima le <strong>toniche</strong>, poi la modulazione, poi le note.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "La <strong>M</strong> va nella battuta in cui si comincia a sospettare la modulazione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: va dove <strong>finiscono i dubbi</strong>. Sono due battute diverse quasi sempre, e la consegna chiede la seconda.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "Se una battuta non viene, conviene lasciarla vuota e andare avanti.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: un buco costa una battuta, inseguirlo costa tutte quelle dopo. E si gomma nelle pause, mai mentre suona &mdash; l&rsquo;attenzione tolta all&rsquo;ascolto non torna indietro.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "Il terzo grado ha una delle tre lettere T, S, D.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: non &egrave; n&eacute; tonica n&eacute; sottodominante n&eacute; dominante. Ed &egrave; il motivo per cui il momento in cui riuscite a <em>scrivere</em> una lettera &egrave; il momento in cui avete cambiato tonalit&agrave;.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "Il segnale d&rsquo;ascolto pi&ugrave; affidabile &egrave; il suono che stona con la memoria.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: il pi&ugrave; affidabile &egrave; il <strong>riposo che cade altrove</strong>. Il primo prende le modulazioni brusche e perde quelle morbide; il secondo le prende tutte, ma richiede di <em>ricordare</em> dov&rsquo;era la casa.",
+  "da": "lezione 2"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U2-L2-01">
+      <p class="titolo-consegna"><span class="num">2</span> Otto battute con le stesse quattro funzioni</p>
+      <div class="testo">Scrivi un basso di <strong>otto battute in 3/4</strong>, una sola armonia per battuta, con lo schema <strong>T S D T | T S D T</strong> &mdash; ma la seconda met&agrave; in una tonalit&agrave; diversa dalla prima.<p class="dettaglio">Scegli tu le due tonalit&agrave;, purch&eacute; <strong>non siano toni vicini</strong>. Sotto la battuta 5 scrivi una <strong>M</strong>, e in una riga di&rsquo; che cosa cambia esattamente l&igrave;.</p></div>
+    </div>
+    <div class="consegna" id="C5-U2-L2-02">
+      <p class="titolo-consegna"><span class="num">3</span> Le due met&agrave; del dettato, riscritte</p>
+      <div class="testo">Riprendi il tuo foglio del dettato. Sotto le otto caselle, scrivi <strong>due volte</strong> la stessa fila di lettere: una riferita alla prima tonalit&agrave;, una alla seconda.<p class="dettaglio">Poi cerchia le battute in cui la lettera <strong>non si pu&ograve; scrivere</strong>: sono quelle in cui il grado non &egrave; n&eacute; T, n&eacute; S, n&eacute; D. Sono le battute che dicono dove sei.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="3">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 3</span>
+        <h2>Lezione 3 &mdash; Il pedale, e che cosa regge</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U2-L3-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; il pedale</p>
+      <div class="testo">Quattro affermazioni sul pedale, le sue condizioni e le sue funzioni.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Perch&eacute; ci sia un pedale basta che il basso stia fermo per pi&ugrave; battute.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: le condizioni sono <strong>tre</strong>, e la terza &egrave; che sopra le altre parti <strong>cambino</strong>. Se sta fermo tutto non c&rsquo;&egrave; un pedale: c&rsquo;&egrave; un accordo lungo tenuto da tutti.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Il pedale di dominante prolunga la tensione prima della tonica.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, con le parole del libro: &laquo;ha lo scopo di prolungare l&rsquo;effetto <em>tensivo</em> di questo grado armonico prima della tonica&raquo; (p.&nbsp;28). Per questo sta quasi sempre prima di una fine.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Sopra un pedale le dissonanze vanno evitate come altrove.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: il pedale <strong>non partecipa all&rsquo;armonia</strong>. Le parti di sopra fanno accordi corretti fra loro, e le dissonanze si misurano fra quelle. Una nona sopra un pedale non &egrave; un errore.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Un pedale pu&ograve; far sembrare che si sia modulato.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; l&rsquo;errore pi&ugrave; comune in una traccia: chi guarda solo le parti superiori vede accordi che si allontanano e scrive &laquo;qui modula&raquo;. Il basso lo smentisce &mdash; finch&eacute; tiene, il riferimento non si &egrave; spostato.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Il pedale in una fuga &egrave; obbligatorio.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e lo scrive un trattato di fuga: &laquo;Nessun Pedale del resto &egrave; obbligatorio in una Fuga&raquo; (Dubois, p.&nbsp;110). Frequente non vuol dire obbligatorio.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Un pedale sta sempre nella parte pi&ugrave; grave.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: i due libri dicono &laquo;<em>generalmente</em>&raquo;. Esiste il pedale interno e quello acuto, e l&rsquo;effetto cambia: al basso regge, in alto ipnotizza.",
+  "da": "lezione 3"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U2-L3-01">
+      <p class="titolo-consegna"><span class="num">2</span> Due pedali, a quattro parti</p>
+      <div class="testo">In <strong>sol maggiore</strong>. <strong>a)</strong> Quattro battute di pedale di <strong>dominante</strong> (re al basso) con almeno tre armonie diverse sopra, e la risoluzione sulla tonica alla quinta battuta. <strong>b)</strong> Quattro battute di pedale di <strong>tonica</strong> che chiudano.<p class="dettaglio">Sotto ciascuno, una riga: a che cosa serve quel pedale l&igrave;, <strong>con le parole del libro</strong> (p.&nbsp;28) &mdash; <em>tensivo</em> oppure <em>stabilit&agrave;</em>. Sono i due termini che ricompaiono nella traccia d&rsquo;esame.</p></div>
+    </div>
+    <div class="consegna" id="C5-U2-L3-02">
+      <p class="titolo-consegna"><span class="num">3</span> Il pedale che non c&rsquo;&egrave;</p>
+      <div class="testo">Scrivi quattro battute in cui il basso sta fermo su una nota e <strong>non</strong> c&rsquo;&egrave; nessun pedale.<p class="dettaglio">Poi due righe: quale delle <strong>tre condizioni</strong> manca, e perch&eacute; senza quella l&rsquo;artificio non c&rsquo;&egrave;. &Egrave; un compito che si fa in dieci minuti e si capisce in uno.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="4">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 4</span>
+        <h2>Lezione 4 &mdash; Analisi: il pedale in tre brani di epoche diverse</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U2-L4-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; i tre pedali misurati</p>
+      <div class="testo">Quattro affermazioni sui tre brani dell&rsquo;ora, e sui numeri che li descrivono.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Il pedale di Haydn torna alla battuta 97, che &egrave; dove comincia la ripresa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e sono <strong>due misure indipendenti</strong>: la battuta 97 era stata trovata in quarta dal ritorno del primo tema, e qui si ritrova cercando note ferme al basso. Il pedale di tonica non decora un inizio: lo dichiara.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "I tre brani dell&rsquo;ora sono stati scelti perch&eacute; contengono pedali famosi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sono stati <strong>trovati</strong> da un programma che cerca nel corpus una nota tenuta o ribattuta per almeno tre battute con le altre parti che cambiano. I numeri si riottengono rilanciandolo.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Nello stesso movimento Haydn usa il pedale con due funzioni opposte.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: <strong>tonica</strong> alle bb. 3&ndash;6 e 97&ndash;100, <strong>dominante</strong> alle bb. 111&ndash;117. Il primo dice <em>siamo a casa</em>, il secondo <em>non ancora</em>.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "In Schumann il pedale occupa poche battute della coda.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: otto battute (357&ndash;364) e poi altre cinque (370&ndash;374), su un movimento che finisce alla 374. <strong>Quasi tutta la coda</strong> sta su una nota ferma, e il pedale ricomincia dopo essersi interrotto &mdash; cosa che n&eacute; Bach n&eacute; Haydn fanno.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "In Bach il pedale finale occupa circa un decimo della fuga.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: dalla b. 29 alla 31, su trentuno battute. Tre su trentuno. E il lavoro che fa &egrave; per <strong>sottrazione</strong>: toglie una voce dal gioco, e cos&igrave; il gioco finisce.",
+  "da": "lezione 4"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U2-L4-01">
+      <p class="titolo-consegna"><span class="num">2</span> Un pedale nel tuo repertorio</p>
+      <div class="testo">Prendi un pezzo qualunque del tuo repertorio di <strong>strumento</strong> e cercaci un pedale, con i tre controlli della lezione 3.<p class="dettaglio">Se lo trovi: copia le battute, di&rsquo; <strong>da quale a quale</strong>, <strong>che grado</strong> &egrave;, e quale dei tre lavori sta facendo &mdash; chiudere, segnare la forma, dilatare. Se non lo trovi, scrivi <strong>dove hai cercato</strong>: anche quello &egrave; un risultato, e si porta lo stesso.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="99">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Tutta l&rsquo;unità insieme</span>
+        <h2>Ripasso di fine unità</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna verifica" id="C5U2V">
+      <p class="titolo-consegna"><span class="num">1</span> Verifica di fine unit&agrave; 2</p>
+      <div class="testo">1 esercizi, uno per volta. Non si torna indietro: prima di rispondere pensaci. Alla fine esce un <strong>codice</strong> che consegni su Classroom.<br><strong>&Egrave; l&rsquo;unica cosa dell&rsquo;unit&agrave; che fa voto.</strong></div>
+      <div class="online-vivo no-stampa">
+        <tac-verifica sigla="C5U2V" dove="casa" titolo="Verifica di fine unità 2">
+    <tac-quiz quante="6" scheda="C5U2U01" peso="3">
+[
+ {
+  "d": "In un dettato armonico che modula conviene scrivere le note dalla prima battuta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "La <strong>M</strong> va nella battuta in cui si comincia a sospettare la modulazione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Se una battuta non viene, conviene lasciarla vuota e andare avanti.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Il terzo grado ha una delle tre lettere T, S, D.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Il segnale d&rsquo;ascolto pi&ugrave; affidabile &egrave; il suono che stona con la memoria.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Un&rsquo;alterazione estranea basta a dire che si &egrave; modulato.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il tritono di una tonalit&agrave; maggiore &egrave; uno solo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Modulando dal minore alla sua sottodominante compare un&rsquo;alterazione nuova.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il grado diatonico discendente &egrave; l&rsquo;indizio pi&ugrave; facile da vedere.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "In una modulazione multipla la seconda tappa si cerca a partire dalla tonalit&agrave; d&rsquo;impianto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Analizzando una traccia conviene segnare prima le cadenze e poi cercare gli indizi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il pedale di Haydn torna alla battuta 97, che &egrave; dove comincia la ripresa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "I tre brani dell&rsquo;ora sono stati scelti perch&eacute; contengono pedali famosi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Nello stesso movimento Haydn usa il pedale con due funzioni opposte.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "In Schumann il pedale occupa poche battute della coda.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "In Bach il pedale finale occupa circa un decimo della fuga.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Perch&eacute; ci sia un pedale basta che il basso stia fermo per pi&ugrave; battute.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Il pedale di dominante prolunga la tensione prima della tonica.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Sopra un pedale le dissonanze vanno evitate come altrove.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Un pedale pu&ograve; far sembrare che si sia modulato.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Il pedale in una fuga &egrave; obbligatorio.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Un pedale sta sempre nella parte pi&ugrave; grave.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ }
+]
+    </tac-quiz>
+        </tac-verifica>
+      </div>
+      <div class="esito"><span class="etichetta-esito">Codice ottenuto</span><span class="casella-codice"></span></div>
+    </div>
+    </section>
+  </div>
+
+</div>
+
+<footer class="piede no-stampa">
+  <div class="piede-interno">
+    <p><a href="../">&larr; Torna alla classe 5&ordf;</a></p>
+    <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
+  </div>
+</footer>
+
+<script>
+/* «Stampa solo questa». Il compito della settimana e una pagina: se per
+   averla si deve mandare in stampa il fascicolo intero e poi scegliere gli
+   intervalli di pagina nel pannello del browser, nessuno lo fa, e si
+   stampano undici fogli per usarne uno. Il pulsante nasconde gli altri
+   blocchi per la durata della stampa e li rimette a posto subito dopo. */
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-stampa]');
+  if (!b) return;
+  var blocco = b.closest('.lez');
+  document.body.classList.add('stampa-una');
+  blocco.classList.add('da-stampare');
+  var pulisci = function () {
+    document.body.classList.remove('stampa-una');
+    blocco.classList.remove('da-stampare');
+    window.removeEventListener('afterprint', pulisci);
+  };
+  window.addEventListener('afterprint', pulisci);
+  window.print();
+});
+</script>
+</body>
+</html>

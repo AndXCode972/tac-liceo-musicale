@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbook — UdA 4 · Altre armonie dissonanti | TAC Classe 5&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=89b635a1">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=3ae1cb65">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
+     usa, e con `defer` i due file girano nell'ordine in cui stanno
+     scritti qui. -->
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=e894da72" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
+     fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
+                          height: auto; margin: .35rem 0; }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 5&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a href="solfeggi-classe-5.html">Il quaderno di lettura · tutto l'anno</a>
+      <a class="attiva" href="workbook-uda-04.html">Workbook · unità 4</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa tutto il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Workbook</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">UdA 4 · Altre armonie dissonanti — il foglio di lavoro, una pagina per lezione</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale — Classe 5&ordf;
+    </div>
+  </div>
+
+  <!-- Niente riga per nome, classe e data: il foglio non si consegna mai.
+       Lo scritto va sul quaderno e si fotografa, l'online restituisce un
+       codice, l'ascolto e' una spunta che lo studente fa per se'. La riga
+       era un'abitudine presa dal compito in classe, e costava un centimetro
+       e mezzo in cima a ogni foglio stampato. -->
+
+  <div class="riquadro attenzione">
+    <span class="etichetta">Come si usa</span>
+    <p>I compiti sono di tre specie, e ognuna si consegna in modo suo. <strong>Da fare online</strong>: allo schermo. <strong>Da ascoltare</strong>: serve all'orecchio. <strong>Da scrivere</strong>: sul quaderno, poi una foto su Classroom.</p>
+    <p style="margin-top:.5rem">Il voto dell'unità lo dà <strong>una cosa sola</strong>: la verifica in fondo, quella che restituisce un codice. Tutto il resto si consegna e si corregge, ma non fa voto &mdash; il che non vuol dire che non conti: è lì che si impara, e la verifica misura solo quello che hai imparato facendolo.</p>
+    <p style="margin-top:.5rem">Stampa <strong>una lezione alla volta</strong>, col pulsante che trovi accanto al titolo.</p>
+  </div>
+
+  <div class="lez" data-lezione="1">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 1</span>
+        <h2>Lezione 1 &mdash; La nona di dominante, e l’accordo che si allarga a undicesima e tredicesima</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U4-L1-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; la nona che si emancipa</p>
+      <div class="testo">Quattro affermazioni sulla nona di dominante e sull&rsquo;accordo che si allarga.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "La nona di dominante &egrave; sempre stata un accordo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: per due secoli &egrave; stata una <strong>figurazione melodica</strong>. &laquo;Nell&rsquo;Ottocento&hellip; la nona si emancipa dal ruolo di figurazione melodica e d&agrave; origine a un accordo autonomo&raquo; (p.&nbsp;52). C&rsquo;&egrave; una data, e vale la pena ricordarla.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "L&rsquo;accordo di nona ha cinque suoni e le parti sono quattro: si toglie la quinta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; la stessa scelta della settima di dominante in quarta. La quinta &egrave; l&rsquo;unica che <strong>non porta informazione</strong>: la fondamentale dice chi &egrave; l&rsquo;accordo, la terza il modo, settima e nona lo caratterizzano.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "La nona pu&ograve; stare in qualunque posizione dell&rsquo;accordo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: va <strong>in alto</strong>. Il libro dice che l&rsquo;accordo &laquo;&egrave; caratterizzato dall&rsquo;intervallo di nona posto tra le note <em>estreme</em>&raquo; (p.&nbsp;52). Messa in mezzo diventa una seconda, e l&rsquo;accordo smette di essere quello che &egrave;.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Undicesima e tredicesima nascono da un meccanismo diverso dalla nona.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; lo <strong>stesso meccanismo</strong>, applicato tre volte. Il libro fa derivare anche quelle «da note di figurazione» (p.&nbsp;56). Chi ha capito la nona ha capito tutte e tre.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Nell&rsquo;accordo di undicesima la terza di solito manca.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: l&rsquo;undicesima e la terza distano un semitono e si mangiano, quindi l&rsquo;undicesima <strong>prende il posto</strong> della terza. Ed &egrave; per questo che quell&rsquo;accordo suona sospeso: senza terza non c&rsquo;&egrave; modo, senza sensibile non c&rsquo;&egrave; spinta.",
+  "da": "lezione 1"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U4-L1-01">
+      <p class="titolo-consegna"><span class="num">2</span> Una nona, tre volte</p>
+      <div class="testo">In <strong>re maggiore</strong>, a quattro parti: <strong>a)</strong> una V9 con la nona come <em>appoggiatura</em>, che risolve dentro l&rsquo;accordo; <strong>b)</strong> la stessa V9 come <em>accordo</em>, con la nona che risolve sul successivo; <strong>c)</strong> una V9 con la <strong>nona minore</strong>.<p class="dettaglio">In tutte e tre scrivi <strong>quale nota hai tolto</strong> e perch&eacute;. E nella <strong>c</strong> di&rsquo; di quale modo &egrave; quella nona.</p></div>
+    </div>
+    <div class="consegna" id="C5-U4-L1-02">
+      <p class="titolo-consegna"><span class="num">3</span> Nona o appoggiatura?</p>
+      <div class="testo">Prendi cinque punti del tuo repertorio di strumento in cui sopra una dominante c&rsquo;&egrave; una nona. Per ciascuno di&rsquo; se &egrave; un&rsquo;<strong>appoggiatura</strong> o un <strong>accordo</strong>.<p class="dettaglio">Il criterio &egrave; il libro (p.&nbsp;52): se risolve <em>dentro</em> l&rsquo;accordo &egrave; una figurazione; se risolve <em>sul successivo</em> &egrave; un accordo. Scrivi la <strong>battuta</strong> di ciascuno.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="2">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 2</span>
+        <h2>Lezione 2 &mdash; Ear training: riconoscere una nona</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U4-L2-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; nona e seconda</p>
+      <div class="testo">Quattro affermazioni sull&rsquo;ascolto della nona.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Una seconda e una nona hanno le stesse due note.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e suonano opposte: la seconda <strong>stride</strong>, la nona <strong>si apre</strong>. In mezzo c&rsquo;&egrave; solo un&rsquo;ottava, e cambia tutto.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "Il criterio pi&ugrave; affidabile per distinguerle &egrave; contare quante note si sentono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: una dissonanza <strong>stretta</strong> si fonde in un suono solo un po&rsquo; sporco; una <strong>larga</strong> resta due suoni distinti. Chi riesce a contarli, sente una nona.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "La nona minore suona pi&ugrave; dolce della maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, il contrario: la <strong>minore</strong> &egrave; dura e chiede di risolvere subito, perch&eacute; dentro ha una <strong>settima diminuita</strong>. La maggiore &egrave; aperta e si pu&ograve; tenere.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "Il rivolto cambia il carattere di tutti gli intervalli allo stesso modo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: una terza e una sesta sono parenti, una seconda e una settima anche. La <strong>nona</strong> &egrave; l&rsquo;unico caso in cui il rivolto <strong>ribalta</strong> il carattere. L&rsquo;orecchio non sente i nomi delle note: sente le distanze.",
+  "da": "lezione 2"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U4-L2-01">
+      <p class="titolo-consegna"><span class="num">2</span> La stessa V9 in tre disposizioni</p>
+      <div class="testo">Al pianoforte: suona una <strong>V9</strong> in tre disposizioni &mdash; nona in alto, nona in mezzo, nona accanto alla fondamentale.<p class="dettaglio">Scrivi in due righe come cambia, e <strong>quale delle tre</strong> suona come l&rsquo;accordo che il libro descrive. Il criterio &egrave; a p.&nbsp;52: la nona sta fra le note estreme.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="3">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 3</span>
+        <h2>Lezione 3 &mdash; Usi particolari degli accordi di settima</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U4-L3-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; la settima diminuita</p>
+      <div class="testo">Quattro affermazioni sugli usi particolari delle settime.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "La settima diminuita &egrave; una nona di dominante senza la fondamentale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: sol&ndash;si&ndash;re&ndash;fa&ndash;la&#9837; senza il sol &egrave; si&ndash;re&ndash;fa&ndash;la&#9837;. Sono lo <strong>stesso oggetto visto da due punti</strong>, e chi lo sa non deve imparare due cose.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "La settima diminuita &egrave; fatta di intervalli tutti uguali.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: <strong>quattro terze minori</strong>. Ed &egrave; la ragione di tutto il resto: se gli intervalli sono uguali, nessuna nota &egrave; pi&ugrave; &laquo;fondamentale&raquo; delle altre, e l&rsquo;accordo si pu&ograve; leggere in quattro modi.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Le quattro letture della settima diminuita danno quattro suoni diversi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: il <strong>suono &egrave; identico</strong>. Cambia solo come la si scrive, e dove va. La differenza arriva dopo, ed &egrave; retroattiva.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Se l&rsquo;ortografia di un accordo e la sua risoluzione discordano, vince l&rsquo;ortografia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: vince la <strong>risoluzione</strong>. La notazione &egrave; un&rsquo;intenzione, il movimento &egrave; un fatto &mdash; e gli editori normalizzano. Un accordo &egrave; quello che fa, non quello che sembra.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "In una catena di settime ogni accordo risolve regolarmente.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: nessuna risolve davvero. La risoluzione &egrave; <strong>rimandata</strong> alla successiva, e la tensione si accumula. &Egrave; un modo di <em>far durare</em> l&rsquo;attesa.",
+  "da": "lezione 3"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U4-L3-01">
+      <p class="titolo-consegna"><span class="num">2</span> Una settima diminuita, quattro strade</p>
+      <div class="testo">Prendi <strong>si&ndash;re&ndash;fa&ndash;la&#9837;</strong> e scrivila <strong>quattro volte</strong>, riscrivendo le note in modo che ogni volta una diversa faccia da sensibile. Sotto ciascuna: in quale tonalit&agrave; risolve, e con quale accordo.<p class="dettaglio">Il suono deve restare <strong>identico</strong> tutte e quattro le volte. Se cambia, hai cambiato nota invece che nome.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="4">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 4</span>
+        <h2>Lezione 4 &mdash; Gli accordi alterati: napoletana e seste aumentate</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U4-L4-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; napoletana e seste aumentate</p>
+      <div class="testo">Quattro affermazioni sugli accordi alterati.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Allargare un accordo e alterarlo sono la stessa cosa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso. <strong>Allargare</strong> aggiunge una terza sopra e l&rsquo;accordo resta quello che era. <strong>Alterare</strong> cambia una nota che c&rsquo;era, e l&rsquo;accordo diventa un&rsquo;altra cosa &mdash; spesso con un&rsquo;altra destinazione.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "La napoletana si usa in primo rivolto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e da l&igrave; il nome <strong>sesta</strong> napoletana: al basso va il quarto grado. Con la fondamentale al basso suonerebbe come una tonalit&agrave; nuova invece che come un colore dentro quella di partenza.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Una sesta aumentata &egrave; definita dalla sua sonorit&agrave;.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; definita dal <strong>movimento</strong>. Due voci partono a distanza di sesta aumentata e <strong>divergono per semitono</strong> fino all&rsquo;ottava. La sonorit&agrave; &egrave; la conseguenza, non la causa.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "La sesta tedesca &egrave;, suono per suono, una settima di dominante.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: la&#9837;&ndash;do&ndash;mi&#9837;&ndash;fa&#9839; riscritto con sol&#9837; al posto del fa&#9839; diventa una settima di dominante di re&#9837;. Stesso suono, due nomi, due strade &mdash; ed &egrave; il motivo per cui l&rsquo;<strong>ortografia conta</strong>.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Un accordo alterato ha molte note fuori dalla scala.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e il conto sorprende: la napoletana ne ha <strong>due su tre</strong>, la sesta italiana due su tre, la tedesca tre su quattro. Ci vuole pochissimo per andare lontano, se si sceglie bene che cosa cambiare.",
+  "da": "lezione 4"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U4-L4-01">
+      <p class="titolo-consegna"><span class="num">2</span> Tre accordi alterati, con la risoluzione</p>
+      <div class="testo">In <strong>la minore</strong>, a quattro parti: <strong>a)</strong> una <strong>napoletana in primo rivolto</strong> che va alla dominante; <strong>b)</strong> una <strong>sesta tedesca</strong>, evitando le quinte con un quarta e sesta; <strong>c)</strong> una <strong>sesta francese</strong>.<p class="dettaglio">⚠ Ogni accordo va <strong>scritto sul rigo con le alterazioni giuste</strong>: il nome da solo non basta, perch&eacute; la differenza fra queste cose sta nell&rsquo;ortografia. E sotto la <strong>c</strong>: quale nota la distingue dalla tedesca.</p></div>
+    </div>
+    <div class="consegna" id="C5-U4-L4-02">
+      <p class="titolo-consegna"><span class="num">3</span> La napoletana di Schubert, quattro ore dopo</p>
+      <div class="testo">Torna al &laquo;Lindenbaum&raquo; dell&rsquo;ora 18. Alle <strong>bb. 49&ndash;52</strong> il pezzo, che sta in mi maggiore, va a fa maggiore. Spiega in cinque righe perch&eacute; quella &egrave; una <strong>napoletana</strong>.<p class="dettaglio">Rispondi a due domande: <strong>quale grado</strong> di mi maggiore &egrave; il fa, e <strong>quante alterazioni</strong> di distanza c&rsquo;&egrave; fra le due tonalit&agrave;. Scrivi accanto la <strong>battuta</strong> in cui secondo te si &egrave; gi&agrave; dentro fa maggiore: le misure dicono 49, ma la sensazione pu&ograve; arrivare prima.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="5">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 5</span>
+        <h2>Lezione 5 &mdash; Analisi: gli alterati in un brano di Chopin</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U4-L5-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; il Chopin misurato</p>
+      <div class="testo">Quattro affermazioni su quello che la mazurka fa davvero, e sui numeri che lo dicono.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "La mazurka di Chopin &egrave; stata scelta fra molte perch&eacute; contiene gli accordi giusti.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: nel corpus c&rsquo;&egrave; <strong>una sola</strong> opera di Chopin, ed &egrave; questa. Va detto, perch&eacute; quando un&rsquo;analisi comincia con &laquo;prendiamo per esempio&raquo; quasi sempre l&rsquo;esempio &egrave; stato scelto perch&eacute; funzionava.",
+  "da": "lezione 5"
+ },
+ {
+  "d": "Le tre seste francesi di Chopin risolvono divergendo all&rsquo;ottava.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed &egrave; il punto dell&rsquo;ora: il <strong>Do𝄪 non sale</strong>. La voce che lo porta scende al La&#9839; dentro la stessa battuta, quindi &egrave; una figurazione melodica. Il basso invece scende a Re&#9839;, e l&rsquo;accordo va alla dominante della dominante.",
+  "da": "lezione 5"
+ },
+ {
+  "d": "In do&#9839; minore il fa𝄪 &egrave; la sensibile di sol&#9839;.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, cio&egrave; della <strong>dominante</strong>. Ogni fa𝄪 della mazurka annuncia una dominante della dominante: i doppi diesis non sono un vezzo notazionale, sono dominanti secondarie.",
+  "da": "lezione 5"
+ },
+ {
+  "d": "Un pezzo cromatico dell&rsquo;Ottocento usa un vocabolario diverso da quello di Bach.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, o quasi: usa <strong>gli stessi meccanismi, pi&ugrave; fitti</strong>. Nella mazurka, su diciassette battute con alterazioni, gli accordi alterati veri sono <strong>tre</strong>. Il resto sono dominanti secondarie, che la classe conosce dalla terza.",
+  "da": "lezione 5"
+ },
+ {
+  "d": "I numeri dell&rsquo;analisi del Chopin vengono da un ascolto attento.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: vengono da <code>alterati_chopin.py</code>, che cerca le seste aumentate fra il basso e le parti superiori e <strong>verifica la risoluzione</strong>. &Egrave; il programma che ha detto che la risoluzione canonica non c&rsquo;&egrave;.",
+  "da": "lezione 5"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U4-L5-01">
+      <p class="titolo-consegna"><span class="num">2</span> L&rsquo;accordo di Chopin, due risoluzioni</p>
+      <div class="testo">Scrivi <strong>Mi Sol&#9839; La&#9839; Do𝄪</strong> e la sua risoluzione <strong>due volte</strong>: una come la fa Chopin (verso la dominante della dominante) e una come vorrebbe il manuale (divergendo all&rsquo;ottava).<p class="dettaglio">Sotto ciascuna, la <strong>battuta</strong> di riferimento nella mazurka, oppure l&rsquo;indicazione &laquo;versione da manuale&raquo;.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="6">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 6</span>
+        <h2>Lezione 6 &mdash; Riconoscerli in partitura, a colpo d’occhio</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U4-L6-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; a colpo d&rsquo;occhio</p>
+      <div class="testo">Quattro affermazioni sul riconoscere gli alterati in partitura.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Per trovare gli accordi alterati conviene leggere ogni accordo verticale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e all&rsquo;esame non c&rsquo;&egrave; tempo. Si guardano le <strong>alterazioni</strong>, non gli accordi: quelle si vedono da lontano, e sono una o due note.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Un bemolle e un diesis estranei nella stessa battuta sono quasi sempre una sesta aumentata.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; la firma pi&ugrave; affidabile: le due alterazioni vanno in <strong>direzioni opposte</strong>, e nella tonalit&agrave; normale non c&rsquo;&egrave; motivo per cui debbano capitare insieme.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Nella napoletana l&rsquo;alterazione sta al basso.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: al basso c&rsquo;&egrave; il <strong>quarto grado</strong>, perch&eacute; l&rsquo;accordo &egrave; in primo rivolto. Il secondo grado abbassato sta sopra. Nella <em>sesta aumentata</em>, invece, l&rsquo;alterazione &egrave; proprio al basso.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Il sol&#9839; in la minore &egrave; un&rsquo;alterazione da segnalare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; la <strong>sensibile</strong>, cio&egrave; la tonalit&agrave;. Confonderla con un&rsquo;alterazione riempie l&rsquo;analisi di rumore. Lo stesso vale per le dominanti secondarie e per il minore melodico.",
+  "da": "lezione 6"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U4-L6-01">
+      <p class="titolo-consegna"><span class="num">2</span> Tutte le alterazioni di una pagina, classificate</p>
+      <div class="testo">Prendi una pagina del tuo repertorio di strumento e segna con la matita <strong>tutte le alterazioni estranee all&rsquo;armatura</strong>.<p class="dettaglio">Per ciascuna, una parola: <em>sensibile</em>, <em>dominante secondaria</em>, <em>passaggio</em>, o <em>alterato</em>. Poi conta quante sono le ultime, e scrivi la <strong>battuta</strong> di ognuna.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="7">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 7</span>
+        <h2>Lezione 7 &mdash; Analisi: lo stesso accordo in due contesti diversi</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U4-L7-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; lo stesso accordo, due contesti</p>
+      <div class="testo">Quattro affermazioni sull&rsquo;ambiguit&agrave; e sull&rsquo;ortografia.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "L&rsquo;identit&agrave; di un accordo si stabilisce quando l&rsquo;accordo suona.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si stabilisce <strong>all&rsquo;indietro</strong>. Chi ascolta non sa che accordo &egrave; finch&eacute; non ne sente un altro, e in quel momento la memoria lo riclassifica.",
+  "da": "lezione 7"
+ },
+ {
+  "d": "Analizzare vuol dire riconoscere.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: vuol dire <strong>seguire</strong>. &laquo;Riconoscere&raquo; presuppone di sapere in anticipo; qui si tiene l&rsquo;accordo in sospeso finch&eacute; non arriva l&rsquo;informazione che lo decide. Chi dice subito un nome sbaglia quando il compositore sorprende.",
+  "da": "lezione 7"
+ },
+ {
+  "d": "Se il suono &egrave; lo stesso, l&rsquo;ortografia non serve a niente.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: serve a <strong>dichiarare l&rsquo;intenzione</strong>. La notazione non registra un suono, registra una funzione &mdash; e &egrave; un messaggio all&rsquo;esecutore. Un do&#9839; e un re&#9837; si suonano diversi, pur essendo lo stesso tasto.",
+  "da": "lezione 7"
+ },
+ {
+  "d": "Le quattro tonalit&agrave; d&rsquo;arrivo di una settima diminuita distano una terza minore l&rsquo;una dall&rsquo;altra.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: do, mi&#9837;, sol&#9837;, la. Sono i quattro punti pi&ugrave; lontani raggiungibili <strong>senza che l&rsquo;orecchio senta uno strappo</strong>, ed &egrave; il motore dell&rsquo;unit&agrave;&nbsp;10.",
+  "da": "lezione 7"
+ },
+ {
+  "d": "Quando l&rsquo;ortografia sorprende, &egrave; sempre una scelta del compositore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: pu&ograve; essere dell&rsquo;<strong>editore</strong>. Le edizioni ottocentesche normalizzano, e due edizioni dello stesso pezzo possono avere alterazioni diverse. Quando &egrave; possibile si guarda un&rsquo;altra edizione.",
+  "da": "lezione 7"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U4-L7-01">
+      <p class="titolo-consegna"><span class="num">2</span> Un accordo, due continuazioni</p>
+      <div class="testo">Scrivi <strong>la&#9837; &ndash; do &ndash; mi&#9837; &ndash; fa&#9839;</strong> e poi due continuazioni di tre accordi: <strong>a)</strong> come <strong>sesta tedesca</strong> in do, verso la dominante e la tonica; <strong>b)</strong> riscrivendolo come <strong>settima di dominante</strong>, verso re&#9837; maggiore.<p class="dettaglio">⚠ Nel punto <strong>b</strong> l&rsquo;accordo va <strong>riscritto</strong> con le alterazioni giuste, non solo continuato: &egrave; l&igrave; che si vede se hai capito. Poi due righe: che cosa cambia per chi ascolta, e <strong>in che momento</strong> se ne accorge.</p></div>
+    </div>
+    <div class="consegna" id="C5-U4-L7-02">
+      <p class="titolo-consegna"><span class="num">3</span> Se Chopin avesse scritto Si&#9837; e Re</p>
+      <div class="testo">Guarda le battute <strong>19&ndash;20</strong> della mazurka e rispondi: se Chopin avesse scritto <strong>Si&#9837;</strong> e <strong>Re</strong> invece di La&#9839; e Do𝄪, che cosa sarebbe cambiato?<p class="dettaglio">Almeno due cose: per <strong>chi legge</strong>, e per <strong>dove il pezzo va</strong> dopo. La seconda si trova guardando che cosa succede alla battuta seguente.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="99">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Tutta l&rsquo;unità insieme</span>
+        <h2>Ripasso di fine unità</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna verifica" id="C5U4V">
+      <p class="titolo-consegna"><span class="num">1</span> Verifica di fine unit&agrave; 4</p>
+      <div class="testo">1 esercizi, uno per volta. Non si torna indietro: prima di rispondere pensaci. Alla fine esce un <strong>codice</strong> che consegni su Classroom.<br><strong>&Egrave; l&rsquo;unica cosa dell&rsquo;unit&agrave; che fa voto.</strong></div>
+      <div class="online-vivo no-stampa">
+        <tac-verifica sigla="C5U4V" dove="casa" titolo="Verifica di fine unità 4">
+    <tac-quiz quante="6" scheda="C5U4U01" peso="3">
+[
+ {
+  "d": "Allargare un accordo e alterarlo sono la stessa cosa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "La napoletana si usa in primo rivolto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Una sesta aumentata &egrave; definita dalla sua sonorit&agrave;.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "La sesta tedesca &egrave;, suono per suono, una settima di dominante.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Un accordo alterato ha molte note fuori dalla scala.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "La mazurka di Chopin &egrave; stata scelta fra molte perch&eacute; contiene gli accordi giusti.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Le tre seste francesi di Chopin risolvono divergendo all&rsquo;ottava.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "In do&#9839; minore il fa𝄪 &egrave; la sensibile di sol&#9839;.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Un pezzo cromatico dell&rsquo;Ottocento usa un vocabolario diverso da quello di Bach.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "I numeri dell&rsquo;analisi del Chopin vengono da un ascolto attento.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Per trovare gli accordi alterati conviene leggere ogni accordo verticale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Un bemolle e un diesis estranei nella stessa battuta sono quasi sempre una sesta aumentata.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Nella napoletana l&rsquo;alterazione sta al basso.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Il sol&#9839; in la minore &egrave; un&rsquo;alterazione da segnalare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "La settima diminuita &egrave; una nona di dominante senza la fondamentale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "La settima diminuita &egrave; fatta di intervalli tutti uguali.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Le quattro letture della settima diminuita danno quattro suoni diversi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Se l&rsquo;ortografia di un accordo e la sua risoluzione discordano, vince l&rsquo;ortografia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "In una catena di settime ogni accordo risolve regolarmente.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "L&rsquo;identit&agrave; di un accordo si stabilisce quando l&rsquo;accordo suona.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "Analizzare vuol dire riconoscere.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "Se il suono &egrave; lo stesso, l&rsquo;ortografia non serve a niente.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "Le quattro tonalit&agrave; d&rsquo;arrivo di una settima diminuita distano una terza minore l&rsquo;una dall&rsquo;altra.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "Quando l&rsquo;ortografia sorprende, &egrave; sempre una scelta del compositore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "La nona di dominante &egrave; sempre stata un accordo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "L&rsquo;accordo di nona ha cinque suoni e le parti sono quattro: si toglie la quinta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "La nona pu&ograve; stare in qualunque posizione dell&rsquo;accordo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Undicesima e tredicesima nascono da un meccanismo diverso dalla nona.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Nell&rsquo;accordo di undicesima la terza di solito manca.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Una seconda e una nona hanno le stesse due note.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Il criterio pi&ugrave; affidabile per distinguerle &egrave; contare quante note si sentono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "La nona minore suona pi&ugrave; dolce della maggiore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Il rivolto cambia il carattere di tutti gli intervalli allo stesso modo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ }
+]
+    </tac-quiz>
+        </tac-verifica>
+      </div>
+      <div class="esito"><span class="etichetta-esito">Codice ottenuto</span><span class="casella-codice"></span></div>
+    </div>
+    </section>
+  </div>
+
+</div>
+
+<footer class="piede no-stampa">
+  <div class="piede-interno">
+    <p><a href="../">&larr; Torna alla classe 5&ordf;</a>  &middot;  <a href="solfeggi-classe-5.html">Il quaderno di lettura · tutto l'anno</a></p>
+    <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
+  </div>
+</footer>
+
+<script>
+/* «Stampa solo questa». Il compito della settimana e una pagina: se per
+   averla si deve mandare in stampa il fascicolo intero e poi scegliere gli
+   intervalli di pagina nel pannello del browser, nessuno lo fa, e si
+   stampano undici fogli per usarne uno. Il pulsante nasconde gli altri
+   blocchi per la durata della stampa e li rimette a posto subito dopo. */
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-stampa]');
+  if (!b) return;
+  var blocco = b.closest('.lez');
+  document.body.classList.add('stampa-una');
+  blocco.classList.add('da-stampare');
+  var pulisci = function () {
+    document.body.classList.remove('stampa-una');
+    blocco.classList.remove('da-stampare');
+    window.removeEventListener('afterprint', pulisci);
+  };
+  window.addEventListener('afterprint', pulisci);
+  window.print();
+});
+</script>
+</body>
+</html>

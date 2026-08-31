@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solfeggio &mdash; il fascicolo dell'anno | TAC Classe 5&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=89b635a1">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=3ae1cb65">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script src="../../_assets/js/tac-core.js?v=e894da72" defer></script>
+<style>
+  :root { --classe: #15803d; }
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+
+  /* ── LA COPERTINA ────────────────────────────────────────────────
+     Una pagina intera, e da sola. Un fascicolo che si stampa una volta
+     e resta sul leggio per un anno ha una copertina; un foglio di
+     esercizi no, ed è la differenza fra le due cose. */
+  /* LA COPERTINA HA UN'IMMAGINE, ed è la stessa della pagina della
+     classe: il fascicolo e la classe devono sembrare la stessa cosa.
+     Sopra ci va un velo **neutro**, non colorato — la lezione del 18
+     agosto, «attenzione alle velature che modificano i colori delle
+     immagini»: forte in alto dove sta il titolo, e via verso il basso
+     dove l'opera si vede per quello che è. */
+  .copertina-libro {
+    position: relative; overflow: hidden;
+    min-height: 88vh; display: flex; flex-direction: column;
+    justify-content: space-between;
+    padding: 3.4rem 3rem; margin: 0 0 2rem;
+    color: #fff; border-radius: 14px;
+    background-image: var(--copertina);
+    background-size: cover; background-position: center;
+  }
+  .copertina-libro::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(168deg,
+      rgba(6, 8, 20, .88) 0%, rgba(6, 8, 20, .74) 34%,
+      rgba(6, 8, 20, .30) 62%, rgba(6, 8, 20, .06) 100%);
+  }
+  .copertina-libro > * { position: relative; z-index: 1; }
+  .copertina-libro .occhiello { letter-spacing: .16em; text-transform: uppercase;
+                                font-size: .76rem; opacity: .85; }
+  .copertina-libro h1 { font-size: 3.4rem; line-height: 1.05; margin: .5rem 0 0;
+                        color: #fff; border: 0; }
+  .copertina-libro .sotto { font-size: 1.12rem; opacity: .92; margin: .9rem 0 0;
+                            max-width: 34ch; }
+  /* IL NOME IN FONDO SI DEVE LEGGERE. Stava a `opacity: .9` sopra una
+     fotografia chiara, cioè grigio su grigio: Andrea non riusciva a
+     leggerlo. Opacità piena e un'ombra scura sotto, che è il modo di
+     staccare del testo da un'immagine senza metterci un riquadro. */
+  .copertina-libro .fondo { display: flex; justify-content: space-between;
+                            align-items: flex-end; gap: 1rem;
+                            font-size: .94rem; font-weight: 600;
+                            line-height: 1.45;
+                            text-shadow: 0 1px 5px rgba(0,0,0,.85),
+                                         0 0 2px rgba(0,0,0,.7); }
+  .copertina-libro .quanti-grande { font-size: 2.6rem; font-weight: 800; line-height: 1; }
+
+  /* ── L'INDICE ────────────────────────────────────────────────────
+     Su ottantadue pezzi è l'unico modo di trovarne uno. Due colonne,
+     perché in una sola sarebbe lungo tre pagine. */
+  .indice-libro { margin: 0 0 2.4rem; }
+  .indice-libro h2 { border-bottom: 2px solid var(--bordo); padding-bottom: .3rem; }
+  .indice-libro ol { list-style: none; margin: 1rem 0 0; padding: 0;
+                     columns: 2; column-gap: 2.4rem; }
+  /* L'indice resta a due colonne: è un elenco di titoli brevi, e in una
+     sola sarebbe lungo tre pagine. Le colonne danno fastidio ai righi,
+     non alle righe di testo. */
+  .indice-libro li { display: flex; gap: .55rem; align-items: baseline;
+                     padding: .16rem 0; break-inside: avoid;
+                     font-size: .92rem; }
+  .indice-libro li.salto { display: block; margin: .9rem 0 .35rem;
+                           font-weight: 700; color: var(--classe);
+                           font-size: .8rem; letter-spacing: .08em;
+                           text-transform: uppercase; break-after: avoid; }
+  .indice-libro .n { min-width: 1.9rem; text-align: right; font-weight: 700;
+                     color: var(--classe); }
+  .indice-libro .t { flex: 1; }
+  .indice-libro .s { color: var(--inchiostro2); font-size: .78rem; white-space: nowrap; }
+
+  /* ── I PEZZI, IN FILA ────────────────────────────────────────────
+     Due colonne: ci sta il doppio per pagina, e un rigo da 430 in una
+     colonna da mezzo foglio è della misura giusta. */
+  /* UNA COLONNA SOLA. «Gli esercizi devono andare su un rigo soltanto,
+     non in due colonne»: un solfeggio si legge da sinistra a destra
+     tutto di fila, e spezzarlo in due colonne obbliga l'occhio a
+     tornare indietro a metà pagina. Il rigo prende tutta la larghezza,
+     e la notazione si rimpicciolisce scalando. */
+  .pezzi { columns: auto; }
+  /* IL GRADINO NON APRE UNA COLONNA. Ci aveva `break-before: column`, e
+     in un contenitore a due colonne un'interruzione forzata **aggiunge**
+     colonne invece di spostarsi: tre gradini facevano tre colonne, e la
+     terza usciva dal foglio. Qui il gradino è un respiro dentro la fila,
+     non un capitolo: scorre con gli altri. */
+  .gradino { break-inside: avoid;
+             display: flex; justify-content: space-between; align-items: baseline;
+             margin: .2rem 0 1rem; padding-bottom: .3rem;
+             border-bottom: 2px solid var(--classe);
+             font-size: .8rem; letter-spacing: .08em; text-transform: uppercase;
+             font-weight: 700; color: var(--classe); }
+  .gradino .quanti { font-weight: 400; letter-spacing: 0; text-transform: none;
+                     color: var(--inchiostro2); }
+
+  /* UN SOLFEGGIO NON SI SPEZZA FRA DUE PAGINE. Un rigo tagliato a metà
+     dalla piegatura non si legge: si perde proprio la battuta a cavallo,
+     che è quella dove si sbaglia. */
+  .solf { break-inside: avoid; page-break-inside: avoid;
+          margin: 0 0 .7rem; padding-bottom: .5rem;
+          border-bottom: 1px solid var(--bordo); }
+  .solf .testa { display: flex; gap: .7rem; align-items: baseline; }
+  .solf h3 { margin: 0; font-size: .95rem; }
+  .solf .quando { font-size: .72rem; color: var(--inchiostro2); }
+  /* Il numero è l'indirizzo del pezzo: è la parola con cui si dice alla
+     classe quale si fa. Grande, ma non quanto prima: in due colonne
+     rubava la riga al titolo. */
+  .solf .numero { font-size: 1.2rem; font-weight: 800; color: var(--classe);
+                  min-width: 1.5rem; text-align: right; }
+  /* LA RETE. Il rigo è disegnato per la colonna, ma la colonna cambia
+     con la finestra — sul telefono, su uno schermo stretto, dentro una
+     stampa in A5. Qui l'SVG si adatta invece di sbordare: è un ripiego,
+     non il modo giusto di ottenere la misura, e infatti la misura giusta
+     si ottiene disegnandolo alla larghezza che serve. */
+  /* Disegnato a 1100 e mostrato a quanto è largo il foglio: la scala
+     fa il resto, e la notazione viene il trenta per cento più piccola.
+     L'SVG è vettoriale, quindi non si sgrana. */
+  /* ══ LA MISURA DEL RIGO, PRESA DA UN LIBRO VERO ══
+     Andrea, 20 agosto: «la dimensione del rigo deve essere quella di un
+     testo di solfeggio scritto, non più grande, prendi esempio dai
+     numerosi testi che abbiamo in biblioteca».
+
+     Misurato su **Pozzoli, «Corso facile di Solfeggio» parte I, p. 8**,
+     scansione a 150 dpi: le cinque linee stanno a 9,75 px l'una
+     dall'altra, cioè **1,65 mm**, e il pentagramma è alto **6,6 mm** dalla
+     prima linea alla quinta. I sistemi si ripetono ogni 22,5 mm.
+
+     Il rigo qui è disegnato a 1100 unità. Perché una linea disegnata a 10
+     unità venga 1,65 mm, l'SVG intero deve essere largo 1100 × 0,165 =
+     **181 mm**; su A4 con i margini si arriva a 175, e il rigo viene
+     6,4 mm — il tre per cento più corto del Pozzoli, che a occhio non si
+     distingue.
+
+     Il `max-width` in **millimetri** è la parte che conta: senza, su uno
+     schermo largo `width: 100%` ingrandisce l'SVG oltre la sua misura di
+     stampa, e il fascicolo si vede più grande di come esce. Era questo il
+     difetto. */
+  .pezzi .solf svg { width: 100%; max-width: 175mm; height: auto; }
+
+  /* IL RIGO QUI NON STA IN UN RIQUADRO.
+     Andrea, 20 agosto: «ogni esercizio è scritto dentro a un riquadro,
+     vorrei che fosse scritto senza alcun riquadro».
+     Il riquadro arriva da `tac.css`, dove `tac-stave` ha bordo, ombra,
+     fondo bianco e padding. Su una slide serve: il rigo è **una cosa in
+     mezzo ad altre**, e il riquadro dice dove comincia e dove finisce.
+     In un fascicolo di solfeggio i righi sono tutto, e incorniciarli uno
+     per uno riempie la pagina di linee che non sono musica. */
+  /* IL RIGO INCISO. È un'immagine, e vale la stessa misura presa dal
+     Pozzoli: 175 mm di larghezza massima, e non si ingrandisce oltre. */
+  /* La larghezza la porta ogni immagine, in millimetri: v. `_mm()`.
+     Qui si mette solo il tetto, per gli schermi stretti. */
+  .pezzi .solf img.inciso { display: block; max-width: 100%;
+                            height: auto; margin: .2rem 0 0; }
+
+  .pezzi .solf tac-stave { border: 0; box-shadow: none; background: none;
+                           padding: 0; margin: .2rem 0 0; overflow-x: visible; }
+  .pezzi .solf tac-stave .tac-didascalia { margin: 0 0 .1rem; font-weight: 500; }
+
+  .piede-fascicolo { margin: 2rem 0 0; padding-top: .8rem;
+                     border-top: 1px solid var(--bordo);
+                     color: var(--inchiostro2); font-size: .9rem; }
+
+  @media print {
+    .barra-alto, .barra-sito { display: none; }
+    /* SENZA QUESTA RIGA LA COPERTINA SI STAMPA BIANCA. I browser
+       scartano le immagini di sfondo quando stampano, ed è una scelta
+       loro sensata — di solito uno sfondo è decorazione e costa
+       inchiostro. Qui lo sfondo *è* la copertina. */
+    .copertina-libro { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .copertina-libro { min-height: 92vh; break-after: page; page-break-after: always;
+                       border-radius: 0; margin: 0; }
+    /* NIENTE RIQUADRO INTORNO AI RIGHI, e nemmeno sullo schermo: v. sotto. */
+    .pezzi .solf tac-stave { box-shadow: none; border: 0; padding: 0; }
+    .indice-libro { break-after: page; page-break-after: always; }
+    .pezzi { columns: auto; }
+  }
+  @media (max-width: 700px) {
+    .indice-libro ol { columns: 1; }
+    .copertina-libro h1 { font-size: 2.4rem; }
+  }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 5&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a class="attiva" href="solfeggi-classe-5.html">Il quaderno di lettura · tutto l'anno</a>
+      <a href="workbook-uda-01.html">Workbook · unità 1</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <section class="copertina-libro" style="--copertina: url('../../_assets/immagini/testata-classe-5.jpg')">
+    <div>
+      <div class="occhiello">Teoria, Analisi e Composizione &middot; Classe 5&ordf;</div>
+      <h1>Il quaderno di lettura</h1>
+    </div>
+    <div class="fondo">
+      <div></div>
+      <div style="text-align:right">Andrea Gorini<br>Liceo Musicale &laquo;G.&nbsp;Carducci&raquo;</div>
+    </div>
+  </section>
+
+  <section class="indice-libro">
+    <h2>Indice</h2>
+    <p class="didascalia" style="text-align:left; margin:.6rem 0 0">
+      Si legge a tempo e senza fermarsi, battendo la pulsazione. Vale per
+      tutti: &egrave; scritto qui una volta e non si ripete pezzo per pezzo.
+      Il <strong>numero</strong> &egrave; l&rsquo;indirizzo &mdash; &egrave;
+      con quello che si dice quale si fa.
+    </p>
+    <ol>
+      <li class="salto">Primo gradino</li>
+      <li><span class="n">1</span><span class="t">Ripresa: la modulazione &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">2</span><span class="t">Ripresa: la modulazione &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">3</span><span class="t">Ripresa: la modulazione &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">4</span><span class="t">Ripresa: la modulazione &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">5</span><span class="t">Ripresa: la modulazione &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">6</span><span class="t">Ripresa: la modulazione &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">7</span><span class="t">Ripresa: la modulazione &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">8</span><span class="t">Ripresa: la modulazione &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">9</span><span class="t">Ripresa: la modulazione &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">10</span><span class="t">Ripresa: la modulazione &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">11</span><span class="t">Ripresa: la modulazione &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">12</span><span class="t">Ripresa: la modulazione &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">13</span><span class="t">Ripresa: la modulazione &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">14</span><span class="t">Ripresa: la modulazione &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">15</span><span class="t">Riconoscerla in partitura &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">16</span><span class="t">Riconoscerla in partitura &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">17</span><span class="t">Riconoscerla in partitura &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">18</span><span class="t">Riconoscerla in partitura &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">19</span><span class="t">Riconoscerla in partitura &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">20</span><span class="t">Riconoscerla in partitura &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">21</span><span class="t">Riconoscerla in partitura &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">22</span><span class="t">Riconoscerla in partitura &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">23</span><span class="t">Riconoscerla in partitura &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">24</span><span class="t">Riconoscerla in partitura &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">25</span><span class="t">Riconoscerla in partitura &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">26</span><span class="t">Riconoscerla in partitura &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">27</span><span class="t">Riconoscerla in partitura &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">28</span><span class="t">Riconoscerla in partitura &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li class="salto">Secondo gradino</li>
+      <li><span class="n">29</span><span class="t">La modulazione nella melodia &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">30</span><span class="t">La modulazione nella melodia &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">31</span><span class="t">La modulazione nella melodia &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">32</span><span class="t">La modulazione nella melodia &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">33</span><span class="t">La modulazione nella melodia &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">34</span><span class="t">La modulazione nella melodia &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">35</span><span class="t">La modulazione nella melodia &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">36</span><span class="t">La modulazione nella melodia &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">37</span><span class="t">La modulazione nella melodia &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">38</span><span class="t">La modulazione nella melodia &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">39</span><span class="t">La modulazione nella melodia &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">40</span><span class="t">La modulazione nella melodia &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">41</span><span class="t">La modulazione nella melodia &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">42</span><span class="t">La modulazione nella melodia &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">43</span><span class="t">La nona e gli accordi alterati &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">44</span><span class="t">La nona e gli accordi alterati &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">45</span><span class="t">La nona e gli accordi alterati &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">46</span><span class="t">La nona e gli accordi alterati &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">47</span><span class="t">La nona e gli accordi alterati &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">48</span><span class="t">La nona e gli accordi alterati &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">49</span><span class="t">La nona e gli accordi alterati &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">50</span><span class="t">La nona e gli accordi alterati &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">51</span><span class="t">La nona e gli accordi alterati &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">52</span><span class="t">La nona e gli accordi alterati &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">53</span><span class="t">La nona e gli accordi alterati &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">54</span><span class="t">La nona e gli accordi alterati &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">55</span><span class="t">La nona e gli accordi alterati &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">56</span><span class="t">La nona e gli accordi alterati &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">57</span><span class="t">Il partimento &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">58</span><span class="t">Il partimento &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">59</span><span class="t">Il partimento &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">60</span><span class="t">Il partimento &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">61</span><span class="t">Il partimento &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">62</span><span class="t">Il partimento &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">63</span><span class="t">Il partimento &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">64</span><span class="t">Il partimento &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">65</span><span class="t">Il partimento &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">66</span><span class="t">Il partimento &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">67</span><span class="t">Il partimento &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">68</span><span class="t">Il partimento &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">69</span><span class="t">Il partimento &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">70</span><span class="t">Il partimento &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li class="salto">Terzo gradino</li>
+      <li><span class="n">71</span><span class="t">Sequenze e forma &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">72</span><span class="t">Sequenze e forma &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">73</span><span class="t">Sequenze e forma &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">74</span><span class="t">Sequenze e forma &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">75</span><span class="t">Sequenze e forma &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">76</span><span class="t">Sequenze e forma &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">77</span><span class="t">Sequenze e forma &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">78</span><span class="t">Sequenze e forma &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">79</span><span class="t">Sequenze e forma &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">80</span><span class="t">Sequenze e forma &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">81</span><span class="t">Sequenze e forma &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">82</span><span class="t">Sequenze e forma &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">83</span><span class="t">Sequenze e forma &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">84</span><span class="t">Sequenze e forma &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">85</span><span class="t">Il corale &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">86</span><span class="t">Il corale &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">87</span><span class="t">Il corale &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">88</span><span class="t">Il corale &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">89</span><span class="t">Il corale &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">90</span><span class="t">Il corale &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">91</span><span class="t">Il corale &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">92</span><span class="t">Il corale &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">93</span><span class="t">Il corale &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">94</span><span class="t">Il corale &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">95</span><span class="t">Il corale &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">96</span><span class="t">Il corale &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">97</span><span class="t">Il corale &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">98</span><span class="t">Il corale &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">99</span><span class="t">La testura pianistica &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">100</span><span class="t">La testura pianistica &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">101</span><span class="t">La testura pianistica &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">102</span><span class="t">La testura pianistica &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">103</span><span class="t">La testura pianistica &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">104</span><span class="t">La testura pianistica &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">105</span><span class="t">La testura pianistica &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">106</span><span class="t">La testura pianistica &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">107</span><span class="t">La testura pianistica &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">108</span><span class="t">La testura pianistica &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">109</span><span class="t">La testura pianistica &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">110</span><span class="t">La testura pianistica &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">111</span><span class="t">La testura pianistica &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">112</span><span class="t">La testura pianistica &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">113</span><span class="t">Accompagnamento e rond&ograve; &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">114</span><span class="t">Accompagnamento e rond&ograve; &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">115</span><span class="t">Accompagnamento e rond&ograve; &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">116</span><span class="t">Accompagnamento e rond&ograve; &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">117</span><span class="t">Accompagnamento e rond&ograve; &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">118</span><span class="t">Accompagnamento e rond&ograve; &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">119</span><span class="t">Accompagnamento e rond&ograve; &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">120</span><span class="t">Accompagnamento e rond&ograve; &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">121</span><span class="t">Accompagnamento e rond&ograve; &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">122</span><span class="t">Accompagnamento e rond&ograve; &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">123</span><span class="t">Accompagnamento e rond&ograve; &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">124</span><span class="t">Accompagnamento e rond&ograve; &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">125</span><span class="t">Accompagnamento e rond&ograve; &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">126</span><span class="t">Accompagnamento e rond&ograve; &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">127</span><span class="t">Oltre la tonalit&agrave; &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">128</span><span class="t">Oltre la tonalit&agrave; &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">129</span><span class="t">Oltre la tonalit&agrave; &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">130</span><span class="t">Oltre la tonalit&agrave; &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">131</span><span class="t">Oltre la tonalit&agrave; &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">132</span><span class="t">Oltre la tonalit&agrave; &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">133</span><span class="t">Oltre la tonalit&agrave; &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">134</span><span class="t">Oltre la tonalit&agrave; &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">135</span><span class="t">Oltre la tonalit&agrave; &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">136</span><span class="t">Oltre la tonalit&agrave; &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">137</span><span class="t">Oltre la tonalit&agrave; &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">138</span><span class="t">Oltre la tonalit&agrave; &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">139</span><span class="t">Oltre la tonalit&agrave; &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">140</span><span class="t">Oltre la tonalit&agrave; &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">141</span><span class="t">L&rsquo;esame &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">142</span><span class="t">L&rsquo;esame &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">143</span><span class="t">L&rsquo;esame &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">144</span><span class="t">L&rsquo;esame &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">145</span><span class="t">L&rsquo;esame &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">146</span><span class="t">L&rsquo;esame &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">147</span><span class="t">L&rsquo;esame &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">148</span><span class="t">L&rsquo;esame &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">149</span><span class="t">L&rsquo;esame &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">150</span><span class="t">L&rsquo;esame &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">151</span><span class="t">L&rsquo;esame &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">152</span><span class="t">L&rsquo;esame &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">153</span><span class="t">L&rsquo;esame &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">154</span><span class="t">L&rsquo;esame &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+    </ol>
+  </section>
+
+  <div class="pezzi">
+    <div class="gradino"><span>Primo gradino</span><span class="quanti">28 pezzi</span></div>
+    <article class="solf" id="n1">
+      <div class="testa">
+        <span class="numero">1</span>
+        <div>
+          <h3>Ripresa: la modulazione &middot; Per cominciare</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/eadc7b5195bb-1.svg" alt="">
+    </article>
+    <article class="solf" id="n2">
+      <div class="testa">
+        <span class="numero">2</span>
+        <div>
+          <h3>Ripresa: la modulazione &middot; La linea si apre</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/d6170df551f3-1.svg" alt="">
+    </article>
+    <article class="solf" id="n3">
+      <div class="testa">
+        <span class="numero">3</span>
+        <div>
+          <h3>Ripresa: la modulazione &middot; Due frasi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/cf004c276854-1.svg" alt="">
+    </article>
+    <article class="solf" id="n4">
+      <div class="testa">
+        <span class="numero">4</span>
+        <div>
+          <h3>Ripresa: la modulazione &middot; Il salto in mezzo</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/f489c42bfc1e-1.svg" alt="">
+    </article>
+    <article class="solf" id="n5">
+      <div class="testa">
+        <span class="numero">5</span>
+        <div>
+          <h3>Ripresa: la modulazione &middot; Con la pausa a metà</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/f12c466b06a1-1.svg" alt="">
+    </article>
+    <article class="solf" id="n6">
+      <div class="testa">
+        <span class="numero">6</span>
+        <div>
+          <h3>Ripresa: la modulazione &middot; La cesura</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/86f04f531273-1.svg" alt="">
+    </article>
+    <article class="solf" id="n7">
+      <div class="testa">
+        <span class="numero">7</span>
+        <div>
+          <h3>Ripresa: la modulazione &middot; Il profilo</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/fb3339b605b3-1.svg" alt="">
+    </article>
+    <article class="solf" id="n8">
+      <div class="testa">
+        <span class="numero">8</span>
+        <div>
+          <h3>Ripresa: la modulazione &middot; Verso la chiusa</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/218383c5a14e-1.svg" alt="">
+    </article>
+    <article class="solf" id="n9">
+      <div class="testa">
+        <span class="numero">9</span>
+        <div>
+          <h3>Ripresa: la modulazione &middot; Andando in su</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/b73adea38fd8-1.svg" alt="">
+    </article>
+    <article class="solf" id="n10">
+      <div class="testa">
+        <span class="numero">10</span>
+        <div>
+          <h3>Ripresa: la modulazione &middot; Andando in giù</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/08ef990a606a-1.svg" alt="">
+    </article>
+    <article class="solf" id="n11">
+      <div class="testa">
+        <span class="numero">11</span>
+        <div>
+          <h3>Ripresa: la modulazione &middot; La stessa cosa, più stretta</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/327253bb2262-1.svg" alt="">
+    </article>
+    <article class="solf" id="n12">
+      <div class="testa">
+        <span class="numero">12</span>
+        <div>
+          <h3>Ripresa: la modulazione &middot; L'ultimo respiro</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/5f000662a764-1.svg" alt="">
+    </article>
+    <article class="solf" id="n13">
+      <div class="testa">
+        <span class="numero">13</span>
+        <div>
+          <h3>Ripresa: la modulazione &middot; Tutto quello che sai</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/619f586228de-1.svg" alt="">
+    </article>
+    <article class="solf" id="n14">
+      <div class="testa">
+        <span class="numero">14</span>
+        <div>
+          <h3>Ripresa: la modulazione &middot; La prova dell'unità</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/4f20c19db3f0-1.svg" alt="">
+    </article>
+    <article class="solf" id="n15">
+      <div class="testa">
+        <span class="numero">15</span>
+        <div>
+          <h3>Riconoscerla in partitura &middot; Per cominciare</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/0d650e9b40a2-1.svg" alt="">
+    </article>
+    <article class="solf" id="n16">
+      <div class="testa">
+        <span class="numero">16</span>
+        <div>
+          <h3>Riconoscerla in partitura &middot; La linea si apre</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/ad9647de7277-1.svg" alt="">
+    </article>
+    <article class="solf" id="n17">
+      <div class="testa">
+        <span class="numero">17</span>
+        <div>
+          <h3>Riconoscerla in partitura &middot; Due frasi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/4e3da7e621c5-1.svg" alt="">
+    </article>
+    <article class="solf" id="n18">
+      <div class="testa">
+        <span class="numero">18</span>
+        <div>
+          <h3>Riconoscerla in partitura &middot; Il salto in mezzo</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/635792d9a87b-1.svg" alt="">
+    </article>
+    <article class="solf" id="n19">
+      <div class="testa">
+        <span class="numero">19</span>
+        <div>
+          <h3>Riconoscerla in partitura &middot; Con la pausa a metà</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/7d7ab21cc879-1.svg" alt="">
+    </article>
+    <article class="solf" id="n20">
+      <div class="testa">
+        <span class="numero">20</span>
+        <div>
+          <h3>Riconoscerla in partitura &middot; La cesura</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/c326154ae029-1.svg" alt="">
+    </article>
+    <article class="solf" id="n21">
+      <div class="testa">
+        <span class="numero">21</span>
+        <div>
+          <h3>Riconoscerla in partitura &middot; Il profilo</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/d74cab3c496d-1.svg" alt="">
+    </article>
+    <article class="solf" id="n22">
+      <div class="testa">
+        <span class="numero">22</span>
+        <div>
+          <h3>Riconoscerla in partitura &middot; Verso la chiusa</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/d6b86590a409-1.svg" alt="">
+    </article>
+    <article class="solf" id="n23">
+      <div class="testa">
+        <span class="numero">23</span>
+        <div>
+          <h3>Riconoscerla in partitura &middot; Andando in su</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/c770cc6622dd-1.svg" alt="">
+    </article>
+    <article class="solf" id="n24">
+      <div class="testa">
+        <span class="numero">24</span>
+        <div>
+          <h3>Riconoscerla in partitura &middot; Andando in giù</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/0b54085e55ce-1.svg" alt="">
+    </article>
+    <article class="solf" id="n25">
+      <div class="testa">
+        <span class="numero">25</span>
+        <div>
+          <h3>Riconoscerla in partitura &middot; La stessa cosa, più stretta</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/2f0cbff6719a-1.svg" alt="">
+    </article>
+    <article class="solf" id="n26">
+      <div class="testa">
+        <span class="numero">26</span>
+        <div>
+          <h3>Riconoscerla in partitura &middot; L'ultimo respiro</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/889377a104d4-1.svg" alt="">
+    </article>
+    <article class="solf" id="n27">
+      <div class="testa">
+        <span class="numero">27</span>
+        <div>
+          <h3>Riconoscerla in partitura &middot; Tutto quello che sai</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/0a50de3980b2-1.svg" alt="">
+    </article>
+    <article class="solf" id="n28">
+      <div class="testa">
+        <span class="numero">28</span>
+        <div>
+          <h3>Riconoscerla in partitura &middot; La prova dell'unità</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/ac9e57aafe62-1.svg" alt="">
+    </article>
+    <div class="gradino"><span>Secondo gradino</span><span class="quanti">42 pezzi</span></div>
+    <article class="solf" id="n29">
+      <div class="testa">
+        <span class="numero">29</span>
+        <div>
+          <h3>La modulazione nella melodia &middot; Per cominciare</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/6e5d004fe833-1.svg" alt="">
+    </article>
+    <article class="solf" id="n30">
+      <div class="testa">
+        <span class="numero">30</span>
+        <div>
+          <h3>La modulazione nella melodia &middot; La linea si apre</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/71be311f12a2-1.svg" alt="">
+    </article>
+    <article class="solf" id="n31">
+      <div class="testa">
+        <span class="numero">31</span>
+        <div>
+          <h3>La modulazione nella melodia &middot; Due frasi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/af8d189a47c9-1.svg" alt="">
+    </article>
+    <article class="solf" id="n32">
+      <div class="testa">
+        <span class="numero">32</span>
+        <div>
+          <h3>La modulazione nella melodia &middot; Il salto in mezzo</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/fa521146e770-1.svg" alt="">
+    </article>
+    <article class="solf" id="n33">
+      <div class="testa">
+        <span class="numero">33</span>
+        <div>
+          <h3>La modulazione nella melodia &middot; Con la pausa a metà</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/77e3bd81bff0-1.svg" alt="">
+    </article>
+    <article class="solf" id="n34">
+      <div class="testa">
+        <span class="numero">34</span>
+        <div>
+          <h3>La modulazione nella melodia &middot; La cesura</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/87430af3b242-1.svg" alt="">
+    </article>
+    <article class="solf" id="n35">
+      <div class="testa">
+        <span class="numero">35</span>
+        <div>
+          <h3>La modulazione nella melodia &middot; Il profilo</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/3a3dd9c155d3-1.svg" alt="">
+    </article>
+    <article class="solf" id="n36">
+      <div class="testa">
+        <span class="numero">36</span>
+        <div>
+          <h3>La modulazione nella melodia &middot; Verso la chiusa</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/bb714583ccf2-1.svg" alt="">
+    </article>
+    <article class="solf" id="n37">
+      <div class="testa">
+        <span class="numero">37</span>
+        <div>
+          <h3>La modulazione nella melodia &middot; Andando in su</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/938f29d4a777-1.svg" alt="">
+    </article>
+    <article class="solf" id="n38">
+      <div class="testa">
+        <span class="numero">38</span>
+        <div>
+          <h3>La modulazione nella melodia &middot; Andando in giù</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/7547fa6b6182-1.svg" alt="">
+    </article>
+    <article class="solf" id="n39">
+      <div class="testa">
+        <span class="numero">39</span>
+        <div>
+          <h3>La modulazione nella melodia &middot; La stessa cosa, più stretta</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/47216d419dd0-1.svg" alt="">
+    </article>
+    <article class="solf" id="n40">
+      <div class="testa">
+        <span class="numero">40</span>
+        <div>
+          <h3>La modulazione nella melodia &middot; L'ultimo respiro</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/8e5d9370f9eb-1.svg" alt="">
+    </article>
+    <article class="solf" id="n41">
+      <div class="testa">
+        <span class="numero">41</span>
+        <div>
+          <h3>La modulazione nella melodia &middot; Tutto quello che sai</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/818974585b95-1.svg" alt="">
+    </article>
+    <article class="solf" id="n42">
+      <div class="testa">
+        <span class="numero">42</span>
+        <div>
+          <h3>La modulazione nella melodia &middot; La prova dell'unità</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/7ca0f323d805-1.svg" alt="">
+    </article>
+    <article class="solf" id="n43">
+      <div class="testa">
+        <span class="numero">43</span>
+        <div>
+          <h3>La nona e gli accordi alterati &middot; Per cominciare</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/3c20512addbb-1.svg" alt="">
+    </article>
+    <article class="solf" id="n44">
+      <div class="testa">
+        <span class="numero">44</span>
+        <div>
+          <h3>La nona e gli accordi alterati &middot; La linea si apre</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/169d94616bd1-1.svg" alt="">
+    </article>
+    <article class="solf" id="n45">
+      <div class="testa">
+        <span class="numero">45</span>
+        <div>
+          <h3>La nona e gli accordi alterati &middot; Due frasi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/3c353200ff6f-1.svg" alt="">
+    </article>
+    <article class="solf" id="n46">
+      <div class="testa">
+        <span class="numero">46</span>
+        <div>
+          <h3>La nona e gli accordi alterati &middot; Il salto in mezzo</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/64ced2830dd8-1.svg" alt="">
+    </article>
+    <article class="solf" id="n47">
+      <div class="testa">
+        <span class="numero">47</span>
+        <div>
+          <h3>La nona e gli accordi alterati &middot; Con la pausa a metà</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/1c7f75be4dcd-1.svg" alt="">
+    </article>
+    <article class="solf" id="n48">
+      <div class="testa">
+        <span class="numero">48</span>
+        <div>
+          <h3>La nona e gli accordi alterati &middot; La cesura</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/13104d072f30-1.svg" alt="">
+    </article>
+    <article class="solf" id="n49">
+      <div class="testa">
+        <span class="numero">49</span>
+        <div>
+          <h3>La nona e gli accordi alterati &middot; Il profilo</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/288094c1c7cd-1.svg" alt="">
+    </article>
+    <article class="solf" id="n50">
+      <div class="testa">
+        <span class="numero">50</span>
+        <div>
+          <h3>La nona e gli accordi alterati &middot; Verso la chiusa</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/f0699c541fc7-1.svg" alt="">
+    </article>
+    <article class="solf" id="n51">
+      <div class="testa">
+        <span class="numero">51</span>
+        <div>
+          <h3>La nona e gli accordi alterati &middot; Andando in su</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/806555ab440e-1.svg" alt="">
+    </article>
+    <article class="solf" id="n52">
+      <div class="testa">
+        <span class="numero">52</span>
+        <div>
+          <h3>La nona e gli accordi alterati &middot; Andando in giù</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/aa283afe42f8-1.svg" alt="">
+    </article>
+    <article class="solf" id="n53">
+      <div class="testa">
+        <span class="numero">53</span>
+        <div>
+          <h3>La nona e gli accordi alterati &middot; La stessa cosa, più stretta</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/a0423ea65611-1.svg" alt="">
+    </article>
+    <article class="solf" id="n54">
+      <div class="testa">
+        <span class="numero">54</span>
+        <div>
+          <h3>La nona e gli accordi alterati &middot; L'ultimo respiro</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/df2e8e554466-1.svg" alt="">
+    </article>
+    <article class="solf" id="n55">
+      <div class="testa">
+        <span class="numero">55</span>
+        <div>
+          <h3>La nona e gli accordi alterati &middot; Tutto quello che sai</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/24dbf09655d7-1.svg" alt="">
+    </article>
+    <article class="solf" id="n56">
+      <div class="testa">
+        <span class="numero">56</span>
+        <div>
+          <h3>La nona e gli accordi alterati &middot; La prova dell'unità</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/7907188dee1d-1.svg" alt="">
+    </article>
+    <article class="solf" id="n57">
+      <div class="testa">
+        <span class="numero">57</span>
+        <div>
+          <h3>Il partimento &middot; Per cominciare</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/b823b6500107-1.svg" alt="">
+    </article>
+    <article class="solf" id="n58">
+      <div class="testa">
+        <span class="numero">58</span>
+        <div>
+          <h3>Il partimento &middot; La linea si apre</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/b9875f438140-1.svg" alt="">
+    </article>
+    <article class="solf" id="n59">
+      <div class="testa">
+        <span class="numero">59</span>
+        <div>
+          <h3>Il partimento &middot; Due frasi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/0136a17c7db6-1.svg" alt="">
+    </article>
+    <article class="solf" id="n60">
+      <div class="testa">
+        <span class="numero">60</span>
+        <div>
+          <h3>Il partimento &middot; Il salto in mezzo</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/834af6652fe3-1.svg" alt="">
+    </article>
+    <article class="solf" id="n61">
+      <div class="testa">
+        <span class="numero">61</span>
+        <div>
+          <h3>Il partimento &middot; Con la pausa a metà</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/defa3de579d4-1.svg" alt="">
+    </article>
+    <article class="solf" id="n62">
+      <div class="testa">
+        <span class="numero">62</span>
+        <div>
+          <h3>Il partimento &middot; La cesura</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/455e3a2b2fe3-1.svg" alt="">
+    </article>
+    <article class="solf" id="n63">
+      <div class="testa">
+        <span class="numero">63</span>
+        <div>
+          <h3>Il partimento &middot; Il profilo</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/1b42eaf92233-1.svg" alt="">
+    </article>
+    <article class="solf" id="n64">
+      <div class="testa">
+        <span class="numero">64</span>
+        <div>
+          <h3>Il partimento &middot; Verso la chiusa</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/7c660a93e345-1.svg" alt="">
+    </article>
+    <article class="solf" id="n65">
+      <div class="testa">
+        <span class="numero">65</span>
+        <div>
+          <h3>Il partimento &middot; Andando in su</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/86cb4aaa7ee2-1.svg" alt="">
+    </article>
+    <article class="solf" id="n66">
+      <div class="testa">
+        <span class="numero">66</span>
+        <div>
+          <h3>Il partimento &middot; Andando in giù</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/2e612a001178-1.svg" alt="">
+    </article>
+    <article class="solf" id="n67">
+      <div class="testa">
+        <span class="numero">67</span>
+        <div>
+          <h3>Il partimento &middot; La stessa cosa, più stretta</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/d5eaa2ff8520-1.svg" alt="">
+    </article>
+    <article class="solf" id="n68">
+      <div class="testa">
+        <span class="numero">68</span>
+        <div>
+          <h3>Il partimento &middot; L'ultimo respiro</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/54f3aa22a158-1.svg" alt="">
+    </article>
+    <article class="solf" id="n69">
+      <div class="testa">
+        <span class="numero">69</span>
+        <div>
+          <h3>Il partimento &middot; Tutto quello che sai</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/919248671244-1.svg" alt="">
+    </article>
+    <article class="solf" id="n70">
+      <div class="testa">
+        <span class="numero">70</span>
+        <div>
+          <h3>Il partimento &middot; La prova dell'unità</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/3fecbcc600b4-1.svg" alt="">
+    </article>
+    <div class="gradino"><span>Terzo gradino</span><span class="quanti">84 pezzi</span></div>
+    <article class="solf" id="n71">
+      <div class="testa">
+        <span class="numero">71</span>
+        <div>
+          <h3>Sequenze e forma &middot; Per cominciare</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/832f0edaf608-1.svg" alt="">
+    </article>
+    <article class="solf" id="n72">
+      <div class="testa">
+        <span class="numero">72</span>
+        <div>
+          <h3>Sequenze e forma &middot; La linea si apre</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/23e7d7a8ad24-1.svg" alt="">
+    </article>
+    <article class="solf" id="n73">
+      <div class="testa">
+        <span class="numero">73</span>
+        <div>
+          <h3>Sequenze e forma &middot; Due frasi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/a161f88f5e56-1.svg" alt="">
+    </article>
+    <article class="solf" id="n74">
+      <div class="testa">
+        <span class="numero">74</span>
+        <div>
+          <h3>Sequenze e forma &middot; Il salto in mezzo</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/f1570828a683-1.svg" alt="">
+    </article>
+    <article class="solf" id="n75">
+      <div class="testa">
+        <span class="numero">75</span>
+        <div>
+          <h3>Sequenze e forma &middot; Con la pausa a metà</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/01280f19b665-1.svg" alt="">
+    </article>
+    <article class="solf" id="n76">
+      <div class="testa">
+        <span class="numero">76</span>
+        <div>
+          <h3>Sequenze e forma &middot; La cesura</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/b7e905210ee9-1.svg" alt="">
+    </article>
+    <article class="solf" id="n77">
+      <div class="testa">
+        <span class="numero">77</span>
+        <div>
+          <h3>Sequenze e forma &middot; Il profilo</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/8f6e86ca21bd-1.svg" alt="">
+    </article>
+    <article class="solf" id="n78">
+      <div class="testa">
+        <span class="numero">78</span>
+        <div>
+          <h3>Sequenze e forma &middot; Verso la chiusa</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/f767da340571-1.svg" alt="">
+    </article>
+    <article class="solf" id="n79">
+      <div class="testa">
+        <span class="numero">79</span>
+        <div>
+          <h3>Sequenze e forma &middot; Andando in su</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/1c112bf10abe-1.svg" alt="">
+    </article>
+    <article class="solf" id="n80">
+      <div class="testa">
+        <span class="numero">80</span>
+        <div>
+          <h3>Sequenze e forma &middot; Andando in giù</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/2815369b3abf-1.svg" alt="">
+    </article>
+    <article class="solf" id="n81">
+      <div class="testa">
+        <span class="numero">81</span>
+        <div>
+          <h3>Sequenze e forma &middot; La stessa cosa, più stretta</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/72898826bba5-1.svg" alt="">
+    </article>
+    <article class="solf" id="n82">
+      <div class="testa">
+        <span class="numero">82</span>
+        <div>
+          <h3>Sequenze e forma &middot; L'ultimo respiro</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/4fd7ad3f19da-1.svg" alt="">
+    </article>
+    <article class="solf" id="n83">
+      <div class="testa">
+        <span class="numero">83</span>
+        <div>
+          <h3>Sequenze e forma &middot; Tutto quello che sai</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/12837d4a770d-1.svg" alt="">
+    </article>
+    <article class="solf" id="n84">
+      <div class="testa">
+        <span class="numero">84</span>
+        <div>
+          <h3>Sequenze e forma &middot; La prova dell'unità</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/9a778d5b759c-1.svg" alt="">
+    </article>
+    <article class="solf" id="n85">
+      <div class="testa">
+        <span class="numero">85</span>
+        <div>
+          <h3>Il corale &middot; Per cominciare</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/c4af0880c793-1.svg" alt="">
+    </article>
+    <article class="solf" id="n86">
+      <div class="testa">
+        <span class="numero">86</span>
+        <div>
+          <h3>Il corale &middot; La linea si apre</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/6591ccfeb399-1.svg" alt="">
+    </article>
+    <article class="solf" id="n87">
+      <div class="testa">
+        <span class="numero">87</span>
+        <div>
+          <h3>Il corale &middot; Due frasi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/7da42a0a72ce-1.svg" alt="">
+    </article>
+    <article class="solf" id="n88">
+      <div class="testa">
+        <span class="numero">88</span>
+        <div>
+          <h3>Il corale &middot; Il salto in mezzo</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/8ca0ce1df30c-1.svg" alt="">
+    </article>
+    <article class="solf" id="n89">
+      <div class="testa">
+        <span class="numero">89</span>
+        <div>
+          <h3>Il corale &middot; Con la pausa a metà</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/117abc8b0e3d-1.svg" alt="">
+    </article>
+    <article class="solf" id="n90">
+      <div class="testa">
+        <span class="numero">90</span>
+        <div>
+          <h3>Il corale &middot; La cesura</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/64c6544fe72b-1.svg" alt="">
+    </article>
+    <article class="solf" id="n91">
+      <div class="testa">
+        <span class="numero">91</span>
+        <div>
+          <h3>Il corale &middot; Il profilo</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/9b07434e325a-1.svg" alt="">
+    </article>
+    <article class="solf" id="n92">
+      <div class="testa">
+        <span class="numero">92</span>
+        <div>
+          <h3>Il corale &middot; Verso la chiusa</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/1c611e97ecd2-1.svg" alt="">
+    </article>
+    <article class="solf" id="n93">
+      <div class="testa">
+        <span class="numero">93</span>
+        <div>
+          <h3>Il corale &middot; Andando in su</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/638ba67fd2c8-1.svg" alt="">
+    </article>
+    <article class="solf" id="n94">
+      <div class="testa">
+        <span class="numero">94</span>
+        <div>
+          <h3>Il corale &middot; Andando in giù</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/53f2aa1bf396-1.svg" alt="">
+    </article>
+    <article class="solf" id="n95">
+      <div class="testa">
+        <span class="numero">95</span>
+        <div>
+          <h3>Il corale &middot; La stessa cosa, più stretta</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/2eab56941a45-1.svg" alt="">
+    </article>
+    <article class="solf" id="n96">
+      <div class="testa">
+        <span class="numero">96</span>
+        <div>
+          <h3>Il corale &middot; L'ultimo respiro</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/22a1f8df3b58-1.svg" alt="">
+    </article>
+    <article class="solf" id="n97">
+      <div class="testa">
+        <span class="numero">97</span>
+        <div>
+          <h3>Il corale &middot; Tutto quello che sai</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/8690649bef61-1.svg" alt="">
+    </article>
+    <article class="solf" id="n98">
+      <div class="testa">
+        <span class="numero">98</span>
+        <div>
+          <h3>Il corale &middot; La prova dell'unità</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/dfb8ab4e0bc6-1.svg" alt="">
+    </article>
+    <article class="solf" id="n99">
+      <div class="testa">
+        <span class="numero">99</span>
+        <div>
+          <h3>La testura pianistica &middot; Per cominciare</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/18c9a7970fb7-1.svg" alt="">
+    </article>
+    <article class="solf" id="n100">
+      <div class="testa">
+        <span class="numero">100</span>
+        <div>
+          <h3>La testura pianistica &middot; La linea si apre</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/957b96f89d14-1.svg" alt="">
+    </article>
+    <article class="solf" id="n101">
+      <div class="testa">
+        <span class="numero">101</span>
+        <div>
+          <h3>La testura pianistica &middot; Due frasi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/9931200858c5-1.svg" alt="">
+    </article>
+    <article class="solf" id="n102">
+      <div class="testa">
+        <span class="numero">102</span>
+        <div>
+          <h3>La testura pianistica &middot; Il salto in mezzo</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/912f43cf299c-1.svg" alt="">
+    </article>
+    <article class="solf" id="n103">
+      <div class="testa">
+        <span class="numero">103</span>
+        <div>
+          <h3>La testura pianistica &middot; Con la pausa a metà</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/dd856fe8094a-1.svg" alt="">
+    </article>
+    <article class="solf" id="n104">
+      <div class="testa">
+        <span class="numero">104</span>
+        <div>
+          <h3>La testura pianistica &middot; La cesura</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/956c7cd679bc-1.svg" alt="">
+    </article>
+    <article class="solf" id="n105">
+      <div class="testa">
+        <span class="numero">105</span>
+        <div>
+          <h3>La testura pianistica &middot; Il profilo</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/91f453096449-1.svg" alt="">
+    </article>
+    <article class="solf" id="n106">
+      <div class="testa">
+        <span class="numero">106</span>
+        <div>
+          <h3>La testura pianistica &middot; Verso la chiusa</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/7e0e46024b8f-1.svg" alt="">
+    </article>
+    <article class="solf" id="n107">
+      <div class="testa">
+        <span class="numero">107</span>
+        <div>
+          <h3>La testura pianistica &middot; Andando in su</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/318c677e8179-1.svg" alt="">
+    </article>
+    <article class="solf" id="n108">
+      <div class="testa">
+        <span class="numero">108</span>
+        <div>
+          <h3>La testura pianistica &middot; Andando in giù</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/3910f6d6665c-1.svg" alt="">
+    </article>
+    <article class="solf" id="n109">
+      <div class="testa">
+        <span class="numero">109</span>
+        <div>
+          <h3>La testura pianistica &middot; La stessa cosa, più stretta</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/33d1d44139fb-1.svg" alt="">
+    </article>
+    <article class="solf" id="n110">
+      <div class="testa">
+        <span class="numero">110</span>
+        <div>
+          <h3>La testura pianistica &middot; L'ultimo respiro</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/58f046391ea8-1.svg" alt="">
+    </article>
+    <article class="solf" id="n111">
+      <div class="testa">
+        <span class="numero">111</span>
+        <div>
+          <h3>La testura pianistica &middot; Tutto quello che sai</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/497ada722d2b-1.svg" alt="">
+    </article>
+    <article class="solf" id="n112">
+      <div class="testa">
+        <span class="numero">112</span>
+        <div>
+          <h3>La testura pianistica &middot; La prova dell'unità</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/d0f0ffb08c8d-1.svg" alt="">
+    </article>
+    <article class="solf" id="n113">
+      <div class="testa">
+        <span class="numero">113</span>
+        <div>
+          <h3>Accompagnamento e rond&ograve; &middot; Per cominciare</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/c3b7724fcf7f-1.svg" alt="">
+    </article>
+    <article class="solf" id="n114">
+      <div class="testa">
+        <span class="numero">114</span>
+        <div>
+          <h3>Accompagnamento e rond&ograve; &middot; La linea si apre</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/e4f490cbf106-1.svg" alt="">
+    </article>
+    <article class="solf" id="n115">
+      <div class="testa">
+        <span class="numero">115</span>
+        <div>
+          <h3>Accompagnamento e rond&ograve; &middot; Due frasi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/95968652cebd-1.svg" alt="">
+    </article>
+    <article class="solf" id="n116">
+      <div class="testa">
+        <span class="numero">116</span>
+        <div>
+          <h3>Accompagnamento e rond&ograve; &middot; Il salto in mezzo</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/4315299c21b9-1.svg" alt="">
+    </article>
+    <article class="solf" id="n117">
+      <div class="testa">
+        <span class="numero">117</span>
+        <div>
+          <h3>Accompagnamento e rond&ograve; &middot; Con la pausa a metà</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/f99b00cc86c9-1.svg" alt="">
+    </article>
+    <article class="solf" id="n118">
+      <div class="testa">
+        <span class="numero">118</span>
+        <div>
+          <h3>Accompagnamento e rond&ograve; &middot; La cesura</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/16e1eab67192-1.svg" alt="">
+    </article>
+    <article class="solf" id="n119">
+      <div class="testa">
+        <span class="numero">119</span>
+        <div>
+          <h3>Accompagnamento e rond&ograve; &middot; Il profilo</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/3fe4ae6f7cd8-1.svg" alt="">
+    </article>
+    <article class="solf" id="n120">
+      <div class="testa">
+        <span class="numero">120</span>
+        <div>
+          <h3>Accompagnamento e rond&ograve; &middot; Verso la chiusa</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/9137cd43c8d9-1.svg" alt="">
+    </article>
+    <article class="solf" id="n121">
+      <div class="testa">
+        <span class="numero">121</span>
+        <div>
+          <h3>Accompagnamento e rond&ograve; &middot; Andando in su</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/33e1ed41c4c7-1.svg" alt="">
+    </article>
+    <article class="solf" id="n122">
+      <div class="testa">
+        <span class="numero">122</span>
+        <div>
+          <h3>Accompagnamento e rond&ograve; &middot; Andando in giù</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/7bdbb00b13ee-1.svg" alt="">
+    </article>
+    <article class="solf" id="n123">
+      <div class="testa">
+        <span class="numero">123</span>
+        <div>
+          <h3>Accompagnamento e rond&ograve; &middot; La stessa cosa, più stretta</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/13df5cfe5301-1.svg" alt="">
+    </article>
+    <article class="solf" id="n124">
+      <div class="testa">
+        <span class="numero">124</span>
+        <div>
+          <h3>Accompagnamento e rond&ograve; &middot; L'ultimo respiro</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/0673e92b2da5-1.svg" alt="">
+    </article>
+    <article class="solf" id="n125">
+      <div class="testa">
+        <span class="numero">125</span>
+        <div>
+          <h3>Accompagnamento e rond&ograve; &middot; Tutto quello che sai</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/4e8ca3cc4908-1.svg" alt="">
+    </article>
+    <article class="solf" id="n126">
+      <div class="testa">
+        <span class="numero">126</span>
+        <div>
+          <h3>Accompagnamento e rond&ograve; &middot; La prova dell'unità</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/068354eba6db-1.svg" alt="">
+    </article>
+    <article class="solf" id="n127">
+      <div class="testa">
+        <span class="numero">127</span>
+        <div>
+          <h3>Oltre la tonalit&agrave; &middot; Per cominciare</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/f9ffcc3cfa1a-1.svg" alt="">
+    </article>
+    <article class="solf" id="n128">
+      <div class="testa">
+        <span class="numero">128</span>
+        <div>
+          <h3>Oltre la tonalit&agrave; &middot; La linea si apre</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/a80bedab8108-1.svg" alt="">
+    </article>
+    <article class="solf" id="n129">
+      <div class="testa">
+        <span class="numero">129</span>
+        <div>
+          <h3>Oltre la tonalit&agrave; &middot; Due frasi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/2021d38d991a-1.svg" alt="">
+    </article>
+    <article class="solf" id="n130">
+      <div class="testa">
+        <span class="numero">130</span>
+        <div>
+          <h3>Oltre la tonalit&agrave; &middot; Il salto in mezzo</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/aa93a1c51f87-1.svg" alt="">
+    </article>
+    <article class="solf" id="n131">
+      <div class="testa">
+        <span class="numero">131</span>
+        <div>
+          <h3>Oltre la tonalit&agrave; &middot; Con la pausa a metà</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/0e9037687022-1.svg" alt="">
+    </article>
+    <article class="solf" id="n132">
+      <div class="testa">
+        <span class="numero">132</span>
+        <div>
+          <h3>Oltre la tonalit&agrave; &middot; La cesura</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/23160d79298a-1.svg" alt="">
+    </article>
+    <article class="solf" id="n133">
+      <div class="testa">
+        <span class="numero">133</span>
+        <div>
+          <h3>Oltre la tonalit&agrave; &middot; Il profilo</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/3047156a5c92-1.svg" alt="">
+    </article>
+    <article class="solf" id="n134">
+      <div class="testa">
+        <span class="numero">134</span>
+        <div>
+          <h3>Oltre la tonalit&agrave; &middot; Verso la chiusa</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/6436363b7a01-1.svg" alt="">
+    </article>
+    <article class="solf" id="n135">
+      <div class="testa">
+        <span class="numero">135</span>
+        <div>
+          <h3>Oltre la tonalit&agrave; &middot; Andando in su</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/ffcde6bd6529-1.svg" alt="">
+    </article>
+    <article class="solf" id="n136">
+      <div class="testa">
+        <span class="numero">136</span>
+        <div>
+          <h3>Oltre la tonalit&agrave; &middot; Andando in giù</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/30adf7ed572c-1.svg" alt="">
+    </article>
+    <article class="solf" id="n137">
+      <div class="testa">
+        <span class="numero">137</span>
+        <div>
+          <h3>Oltre la tonalit&agrave; &middot; La stessa cosa, più stretta</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/e05fdb1c5000-1.svg" alt="">
+    </article>
+    <article class="solf" id="n138">
+      <div class="testa">
+        <span class="numero">138</span>
+        <div>
+          <h3>Oltre la tonalit&agrave; &middot; L'ultimo respiro</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/470cda3da76e-1.svg" alt="">
+    </article>
+    <article class="solf" id="n139">
+      <div class="testa">
+        <span class="numero">139</span>
+        <div>
+          <h3>Oltre la tonalit&agrave; &middot; Tutto quello che sai</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/5549a2adddee-1.svg" alt="">
+    </article>
+    <article class="solf" id="n140">
+      <div class="testa">
+        <span class="numero">140</span>
+        <div>
+          <h3>Oltre la tonalit&agrave; &middot; La prova dell'unità</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/ed19492f5444-1.svg" alt="">
+    </article>
+    <article class="solf" id="n141">
+      <div class="testa">
+        <span class="numero">141</span>
+        <div>
+          <h3>L&rsquo;esame &middot; Per cominciare</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/e1c7a1ed4c82-1.svg" alt="">
+    </article>
+    <article class="solf" id="n142">
+      <div class="testa">
+        <span class="numero">142</span>
+        <div>
+          <h3>L&rsquo;esame &middot; La linea si apre</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/752d1251088e-1.svg" alt="">
+    </article>
+    <article class="solf" id="n143">
+      <div class="testa">
+        <span class="numero">143</span>
+        <div>
+          <h3>L&rsquo;esame &middot; Due frasi</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/6eeea124cbbe-1.svg" alt="">
+    </article>
+    <article class="solf" id="n144">
+      <div class="testa">
+        <span class="numero">144</span>
+        <div>
+          <h3>L&rsquo;esame &middot; Il salto in mezzo</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/03082087d659-1.svg" alt="">
+    </article>
+    <article class="solf" id="n145">
+      <div class="testa">
+        <span class="numero">145</span>
+        <div>
+          <h3>L&rsquo;esame &middot; Con la pausa a metà</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/c13245d4b3ea-1.svg" alt="">
+    </article>
+    <article class="solf" id="n146">
+      <div class="testa">
+        <span class="numero">146</span>
+        <div>
+          <h3>L&rsquo;esame &middot; La cesura</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/a9ab8edc8001-1.svg" alt="">
+    </article>
+    <article class="solf" id="n147">
+      <div class="testa">
+        <span class="numero">147</span>
+        <div>
+          <h3>L&rsquo;esame &middot; Il profilo</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/b81572d24bd8-1.svg" alt="">
+    </article>
+    <article class="solf" id="n148">
+      <div class="testa">
+        <span class="numero">148</span>
+        <div>
+          <h3>L&rsquo;esame &middot; Verso la chiusa</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/4dcc603d19fb-1.svg" alt="">
+    </article>
+    <article class="solf" id="n149">
+      <div class="testa">
+        <span class="numero">149</span>
+        <div>
+          <h3>L&rsquo;esame &middot; Andando in su</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/0298aa241c0d-1.svg" alt="">
+    </article>
+    <article class="solf" id="n150">
+      <div class="testa">
+        <span class="numero">150</span>
+        <div>
+          <h3>L&rsquo;esame &middot; Andando in giù</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/cc5215bb5cea-1.svg" alt="">
+    </article>
+    <article class="solf" id="n151">
+      <div class="testa">
+        <span class="numero">151</span>
+        <div>
+          <h3>L&rsquo;esame &middot; La stessa cosa, più stretta</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/edd29bc37c89-1.svg" alt="">
+    </article>
+    <article class="solf" id="n152">
+      <div class="testa">
+        <span class="numero">152</span>
+        <div>
+          <h3>L&rsquo;esame &middot; L'ultimo respiro</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/5e07025cd3c0-1.svg" alt="">
+    </article>
+    <article class="solf" id="n153">
+      <div class="testa">
+        <span class="numero">153</span>
+        <div>
+          <h3>L&rsquo;esame &middot; Tutto quello che sai</h3>
+          <span class="quando">Solfeggio parlato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/fe268c9bda9e-1.svg" alt="">
+    </article>
+    <article class="solf" id="n154">
+      <div class="testa">
+        <span class="numero">154</span>
+        <div>
+          <h3>L&rsquo;esame &middot; La prova dell'unità</h3>
+          <span class="quando">Solfeggio cantato</span>
+        </div>
+      </div>
+      <img class="inciso" style="width:155.4mm" src="incisioni/b4739068578b-1.svg" alt="">
+    </article>
+  </div>
+
+  <p class="piede-fascicolo">Solfeggio ritmico comincia pi&ugrave; avanti nell&rsquo;anno: quando comincia, i pezzi entrano in questa stessa fila.</p>
+
+</div>
+</body>
+</html>

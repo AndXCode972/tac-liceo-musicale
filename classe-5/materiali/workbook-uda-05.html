@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbook — UdA 5 · Il partimento: leggere un basso e realizzarlo | TAC Classe 5&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=89b635a1">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=3ae1cb65">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
+     usa, e con `defer` i due file girano nell'ordine in cui stanno
+     scritti qui. -->
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=e894da72" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
+     fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
+                          height: auto; margin: .35rem 0; }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 5&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a href="solfeggi-classe-5.html">Il quaderno di lettura · tutto l'anno</a>
+      <a class="attiva" href="workbook-uda-05.html">Workbook · unità 5</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa tutto il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Workbook</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">UdA 5 · Il partimento: leggere un basso e realizzarlo — il foglio di lavoro, una pagina per lezione</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale — Classe 5&ordf;
+    </div>
+  </div>
+
+  <!-- Niente riga per nome, classe e data: il foglio non si consegna mai.
+       Lo scritto va sul quaderno e si fotografa, l'online restituisce un
+       codice, l'ascolto e' una spunta che lo studente fa per se'. La riga
+       era un'abitudine presa dal compito in classe, e costava un centimetro
+       e mezzo in cima a ogni foglio stampato. -->
+
+  <div class="riquadro attenzione">
+    <span class="etichetta">Come si usa</span>
+    <p>I compiti sono di tre specie, e ognuna si consegna in modo suo. <strong>Da fare online</strong>: allo schermo. <strong>Da ascoltare</strong>: serve all'orecchio. <strong>Da scrivere</strong>: sul quaderno, poi una foto su Classroom.</p>
+    <p style="margin-top:.5rem">Il voto dell'unità lo dà <strong>una cosa sola</strong>: la verifica in fondo, quella che restituisce un codice. Tutto il resto si consegna e si corregge, ma non fa voto &mdash; il che non vuol dire che non conti: è lì che si impara, e la verifica misura solo quello che hai imparato facendolo.</p>
+    <p style="margin-top:.5rem">Stampa <strong>una lezione alla volta</strong>, col pulsante che trovi accanto al titolo.</p>
+  </div>
+
+  <div class="lez" data-lezione="1">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 1</span>
+        <h2>Lezione 1 &mdash; Il partimento: un basso che contiene tutto il resto</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U5-L1-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; che cos&rsquo;&egrave; un partimento</p>
+      <div class="testo">Quattro affermazioni sul partimento e sulla Scuola Napoletana.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Un partimento &egrave; una traccia di accordi, come un basso d&rsquo;armonia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed &egrave; la differenza che conta. Il libro dice che &laquo;non si limita a suggerire una successione di accordi, ma contiene <strong>elementi tematici, spunti motivici, percorsi tonali</strong>&raquo; (p.&nbsp;66). Da un basso d&rsquo;armonia escono accordi, da un partimento esce musica.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il partimento &egrave; un brano scritto in una linea sola.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: &laquo;un vero e proprio <strong>brano musicale sintetizzato in un&rsquo;unica linea melodica</strong>&raquo; (p.&nbsp;66). Quattro parole da pesare, e la prima &egrave; <em>brano</em>.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "I partimenti si studiavano scrivendoli, e solo dopo si suonavano.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, il contrario: &laquo;<strong>realizzavano i partimenti direttamente alla tastiera</strong>, sotto la guida di un maestro&raquo; (p.&nbsp;66). La scrittura &egrave; arrivata dopo, come registrazione &mdash; ed &egrave; il motivo per cui l&rsquo;ora 30 sta alla tastiera.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "La parola &laquo;conservatorio&raquo; viene da un luogo di accoglienza, non da un&rsquo;accademia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: quattro orfanotrofi napoletani che dovevano <strong>&laquo;conservare&raquo;</strong> i ragazzi e insegnare loro un mestiere (p.&nbsp;62). Quelle scuole &laquo;elaborarono un curricolo musicale che divenne un modello&hellip; adottato in tutta Europa&raquo;.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Gli esercizi della Scuola Napoletana erano file di accordi da ripetere.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: erano &laquo;<strong>costruiti come dei veri e propri brani musicali in miniatura</strong>&raquo; (p.&nbsp;62). Un esercizio che &egrave; un brano insegna la tecnica e il gusto insieme; uno che &egrave; una fila di accordi lascia il gusto a un&rsquo;altra materia.",
+  "da": "lezione 1"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U5-L1-01">
+      <p class="titolo-consegna"><span class="num">2</span> Un basso d&rsquo;armonia e un partimento, a confronto</p>
+      <div class="testo">Prendi un <strong>basso d&rsquo;armonia</strong> fra quelli realizzati in quarta e mettilo accanto alla traccia di partimento dell&rsquo;ora 30. In cinque righe: che cosa ha uno e non ha l&rsquo;altro.<p class="dettaglio">Il criterio &egrave; la p.&nbsp;66: il partimento &laquo;<em>non si limita a suggerire una successione di accordi, ma contiene elementi tematici, spunti motivici, percorsi tonali</em>&raquo;. Indica le <strong>battute</strong> in cui vedi ciascuna delle tre cose.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="2">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 2</span>
+        <h2>Lezione 2 &mdash; La regola dell’ottava</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U5-L2-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; la regola dell&rsquo;ottava</p>
+      <div class="testo">Quattro affermazioni sulla regola e sui suoi limiti dichiarati.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "La regola dell&rsquo;ottava d&agrave; un accordo diverso per ogni grado della scala.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; tutto il principio: &laquo;<strong>Each bass tone of the major and minor scale requires a unique chord realization</strong>&raquo; (Ijzerman, p.&nbsp;78). Non una scelta fra tanti: uno.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "Nel pentacordo ascendente tutti i gradi prendono l&rsquo;accordo di sesta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: <strong>i tre in mezzo</strong>. Il primo e il quinto sono &laquo;<em>stable anchors</em>&raquo; e prendono il 5/3 (p.&nbsp;83). Se prendessero la sesta anche loro, la scala non avrebbe pi&ugrave; due punti fermi.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "Le seste sui gradi di mezzo servono a evitare ottave e quinte parallele.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; la ragione tecnica della regola. Triadi in stato fondamentale che salgono per grado producono parallele a ogni passo; le seste mandano le parti in <strong>moto contrario</strong> da sole.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "La regola dell&rsquo;ottava dice anche che cosa fare quando il basso salta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e lo dichiara il libro stesso: &laquo;<em>it <strong>does not address bass leaps at all</strong></em>&raquo; (p.&nbsp;78). Dei salti si occupano i moti del basso e le loro formule, che sono l&rsquo;ora 31.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "Chi conosce la regola pu&ograve; applicarla senza pensare, e l&rsquo;autore lo consiglia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: il libro avverte contro &laquo;<em>a <strong>thoughtless application</strong> of the RO</em>&raquo; (p.&nbsp;78). &Egrave; un <strong>vocabolario</strong>, non una grammatica: dice quali parole esistono, non quali frasi valga la pena fare.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "In minore la regola cambia struttura.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: la struttura &egrave; identica &mdash; pieno, sesta, sesta, sesta, pieno. Cambia che sopra il secondo grado la sesta &egrave; la <strong>sensibile</strong>, e viene da s&eacute; dalla scala.",
+  "da": "lezione 2"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U5-L2-01">
+      <p class="titolo-consegna"><span class="num">2</span> La regola dell&rsquo;ottava in tre tonalit&agrave;</p>
+      <div class="testo">Scrivi il <strong>pentacordo ascendente</strong> a tre parti in <strong>sol maggiore</strong>, <strong>mi&#9837; maggiore</strong> e <strong>la minore</strong>. Sotto ogni nota, la <strong>cifratura</strong>.<p class="dettaglio">Cinque accordi per ciascuna: 5/3, 6/3, 6/3, 6/3, 5/3. Nella minore, attenzione a quale nota diventa la sesta sopra il secondo grado.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="3">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 3</span>
+        <h2>Lezione 3 &mdash; Realizzazione estemporanea alla tastiera</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U5-L3-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; alla tastiera</p>
+      <div class="testo">Quattro affermazioni sulla realizzazione estemporanea.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Le tre posizioni della mano destra si distinguono da quale nota sta in cima.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: ottava, terza o quinta in cima. Non &egrave; teoria, &egrave; una scelta pratica: sapere in quale posizione si sta vuol dire sapere <strong>dove andranno le dita</strong> all&rsquo;accordo dopo.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Fra due accordi vicini conviene muovere tutte le dita insieme.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: la <strong>nota comune non si muove</strong> e le altre vanno alla pi&ugrave; vicina. &Egrave; la condotta delle parti che la classe conosce dalla terza, diventata una regola per le dita.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Se la mano destra salta, quasi sempre l&rsquo;accordo prima era nella posizione sbagliata.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; il modo pi&ugrave; rapido di correggersi da soli. Alla tastiera la sinistra fa i salti e la destra sta quasi ferma: se salta anche lei, la scelta era gi&agrave; storta.",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Dopo un errore conviene ripartire da capo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed &egrave; l&rsquo;errore che sembra diligenza. Chi riparte da capo suona sempre le prime due battute e mai le ultime: un mese cos&igrave; e il pezzo lo si sa a met&agrave;. <strong>Si va avanti.</strong>",
+  "da": "lezione 3"
+ },
+ {
+  "d": "Meglio un accordo ricco fuori tempo che uno povero a tempo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: il partimento &egrave; un <strong>brano</strong>, e un brano ha un tempo. Rallentare sui punti difficili &egrave; il modo pi&ugrave; comune di trasformare un pezzo in un esercizio.",
+  "da": "lezione 3"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U5-L3-01">
+      <p class="titolo-consegna"><span class="num">2</span> Dieci minuti al giorno, per una settimana</p>
+      <div class="testo">Il protocollo dell&rsquo;ora, tutti i giorni: due minuti di <strong>regola dell&rsquo;ottava</strong>, tre di <strong>tre posizioni</strong>, tre di <strong>cadenze</strong>, due di <strong>basso inventato</strong> a prima vista.<p class="dettaglio">Cambia <strong>tonalit&agrave;</strong> ogni giorno, seguendo il circolo delle quinte. Tieni un foglio con le sette tonalit&agrave; e una riga per ciascuna: che cosa &egrave; andato storto.</p></div>
+    </div>
+    <div class="consegna" id="C5-U5-L3-02">
+      <p class="titolo-consegna"><span class="num">3</span> Le quattro battute di stamattina, scritte</p>
+      <div class="testo">Il basso realizzato in classe alla tastiera (fa&ndash;sol&ndash;la&ndash;si&#9837; | do&ndash;fa | si&#9837;&ndash;do&ndash;fa), adesso <strong>sul foglio</strong>, a tre parti, con la cifratura.<p class="dettaglio">⚠ Deve venire <strong>quello che hai suonato</strong>, non una versione migliore trovata con calma. Se non te lo ricordi, risuonalo e poi scrivi.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="4">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 4</span>
+        <h2>Lezione 4 &mdash; I moti del basso e le formule che li accompagnano</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U5-L4-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; i moti e le formule</p>
+      <div class="testo">Quattro affermazioni sui moti del basso.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "I moti che il basso pu&ograve; fare sono sei.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: per grado, di terza, di quarta o quinta &mdash; ciascuno in due direzioni. Le altre distanze sono <strong>rivolti</strong> di questi: un salto di sesta in gi&ugrave; fa la stessa cosa di una terza in su.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Pi&ugrave; note in comune fra due accordi, pi&ugrave; energia ha il passaggio.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, il contrario. Le <strong>quinte</strong> hanno una nota in comune e spingono; le <strong>terze</strong> ne hanno due e scivolano. Sapere quale moto si sta usando vuol dire sapere quanta spinta si sta dando.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Salire di quarta e scendere di quinta portano allo stesso accordo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: cambia solo l&rsquo;ottava in cui si finisce. Ma non all&rsquo;ascolto &mdash; il basso che sale suona come una domanda, quello che scende come una risposta. &Egrave; la lezione dell&rsquo;unit&agrave;&nbsp;4 sull&rsquo;ortografia, applicata al registro.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Una formula &egrave; un moto del basso con la realizzazione gi&agrave; decisa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; la differenza con la regola dell&rsquo;ottava: la regola parla di <strong>una nota</strong>, la formula di un <strong>gruppo</strong>. E un gruppo si riconosce pi&ugrave; in fretta di una nota.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Una formula dice anche che cosa vale la pena mettere.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: dice <strong>che cosa si pu&ograve;</strong> mettere. Dove respira la frase, quale voce canta, quando la destra si muove &mdash; nessuna formula lo copre, e sono decisioni che restano da prendere.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Una catena di formule si interrompe quando arriva una cadenza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; il criterio d&rsquo;arresto. Le cadenze non si mettono in catena: chiudono. Vederle prima di cominciare divide il pezzo in pezzi maneggiabili.",
+  "da": "lezione 4"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U5-L4-01">
+      <p class="titolo-consegna"><span class="num">2</span> La stessa catena, due volte</p>
+      <div class="testo">Realizza a tre parti la catena di quinte discendenti <strong>do&ndash;fa&ndash;si&ndash;mi&ndash;la</strong> <strong>due volte</strong>: <strong>a)</strong> con le sole triadi; <strong>b)</strong> con le <strong>settime concatenate</strong>.<p class="dettaglio">Sotto ciascuna, la <strong>cifratura</strong> completa. Poi due righe: quale delle due &laquo;va avanti&raquo; di pi&ugrave;, e perch&eacute;.</p></div>
+    </div>
+    <div class="consegna" id="C5-U5-L4-02">
+      <p class="titolo-consegna"><span class="num">3</span> I moti di un basso del tuo repertorio</p>
+      <div class="testo">Prendi otto battute di un pezzo del tuo strumento in cui si veda il basso. Segna sopra ogni nota il <strong>moto</strong> che la precede: grado, terza, quinta.<p class="dettaglio">Poi cerchia i gruppi in cui lo stesso moto si ripete <strong>almeno due volte</strong>, e scrivi il <strong>numero di battuta</strong> di ciascuno. In fondo: quante note restano da decidere una per una.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="5">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 5</span>
+        <h2>Lezione 5 &mdash; Analisi: riconoscere una formula di partimento in un brano</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U5-L5-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; Corelli misurato</p>
+      <div class="testo">Quattro affermazioni su che cosa il Grave fa davvero, e sui numeri che lo dicono.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Il Grave di Corelli &egrave; stato scelto perch&eacute; illustra bene la regola dell&rsquo;ottava.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: nel corpus c&rsquo;&egrave; <strong>una sola</strong> opera di Corelli, ed &egrave; questa. Va detto, perch&eacute; quando un&rsquo;analisi comincia con &laquo;prendiamo per esempio&raquo; quasi sempre l&rsquo;esempio &egrave; stato scelto perch&eacute; funzionava.",
+  "da": "lezione 5"
+ },
+ {
+  "d": "Nel pentacordo d&rsquo;apertura tutti e cinque i gradi stanno alla regola.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: <strong>quattro su cinque</strong>. Il quarto grado porta una settima invece della sesta &mdash; ed &egrave; esattamente il grado che Ijzerman dichiara mobile (p.&nbsp;83). Il pezzo non contraddice la regola: usa la sua <strong>eccezione dichiarata</strong>.",
+  "da": "lezione 5"
+ },
+ {
+  "d": "Sedici note del pezzo non entrano nel conto perch&eacute; sono sbagliate.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: perch&eacute; la <strong>testura non si pronuncia</strong>. Con due violini sopra un continuo, un accordo di sesta esce come «6» o come «3», e con la sola terza non si pu&ograve; dire quale accordo fosse. Contarle come errori avrebbe dato un numero falso.",
+  "da": "lezione 5"
+ },
+ {
+  "d": "Il 68 % vuol dire che Corelli sbaglia un terzo delle volte.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso. La regola non &egrave; una legge che i compositori seguono: &egrave; il <strong>caso normale</strong> da cui si parte. Due terzi lo confermano, il terzo restante &egrave; dove Corelli <strong>decide qualcosa</strong>.",
+  "da": "lezione 5"
+ },
+ {
+  "d": "La prima misura del programma dava il 19 %, ed era un difetto della misura.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. Due difetti: contava le <strong>fette</strong> di <code>chordify</code> invece degli accordi, e pretendeva quattro voci da un trio. La regola che ne esce: <strong>un numero inatteso si guarda due volte, e la prima volta si guarda il misuratore.</strong>",
+  "da": "lezione 5"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U5-L5-01">
+      <p class="titolo-consegna"><span class="num">2</span> Le battute 1&ndash;5 di Corelli, misurate da te</p>
+      <div class="testo">Per ogni nota del basso delle <strong>battute 1&ndash;5</strong>: il <strong>grado</strong> in fa maggiore, la <strong>cifratura</strong> guardando i due violini, e se torna con la regola.<p class="dettaglio">⚠ Con il <strong>numero di battuta</strong> accanto a ogni affermazione. Dove non si pu&ograve; dire, scrivi <strong>&laquo;non si pu&ograve; dire&raquo;</strong> e perch&eacute;.</p></div>
+    </div>
+    <div class="consegna" id="C5-U5-L5-02">
+      <p class="titolo-consegna"><span class="num">3</span> Il quarto grado, nelle sue varianti</p>
+      <div class="testo">In <strong>fa maggiore</strong>, a tre parti: il quarto grado del basso (si&#9837;) armonizzato in <strong>tre modi</strong> &mdash; con la sesta, con la settima come fa Corelli, e con l&rsquo;accordo che preferisci.<p class="dettaglio">Sotto ciascuno, la <strong>cifratura</strong> e la nota che segue: un accordo si giudica da dove va, e il quarto grado va sempre al quinto.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="6">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 6</span>
+        <h2>Lezione 6 &mdash; Officina: realizzare un partimento breve</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U5-L6-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; l&rsquo;officina</p>
+      <div class="testo">Quattro affermazioni sul metodo di realizzazione.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "L&rsquo;analisi preliminare si fa dopo aver scritto le prime battute.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si fa <strong>prima</strong>, e il libro lo dice &mdash; &laquo;in primo luogo effettuiamo&hellip; un&rsquo;analisi preliminare della linea di basso, per <strong>individuare le cadenze e le modulazioni</strong>&raquo; (p.&nbsp;66). Cinque minuti spesi prima ne fanno risparmiare quindici dopo.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "La cifratura sotto il basso &egrave; un ornamento della consegna.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; il modo in cui si dice <strong>che cosa si &egrave; deciso</strong>. Senza, si pu&ograve; correggere il risultato ma non il ragionamento &mdash; e il ragionamento &egrave; quello che serve.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Si scrive a tre parti perch&eacute; &egrave; pi&ugrave; facile che a quattro.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: perch&eacute; &egrave; <strong>pi&ugrave; appropriato al genere</strong> e d&agrave; &laquo;una scrittura pi&ugrave; fluida ed elegante&raquo; (p.&nbsp;66). Con tre voci la parte superiore ha spazio per cantare; a quattro tende a diventare la nota che avanza.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Due realizzazioni corrette dello stesso basso valgono uguale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e la differenza si difende dicendo <strong>che cosa succede dopo</strong>: se la frase deve arrivare da qualche parte si incatena, se deve tenersi si sta sulle triadi. Chi sa dirlo sta componendo.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Rifare lo stesso basso una seconda volta &egrave; tempo perso.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: la seconda volta le decisioni facili sono gi&agrave; prese, e resta tempo per quelle che contano. A Napoli si lavorava sullo stesso partimento per settimane, e due versioni dello stesso basso insegnano pi&ugrave; di due bassi diversi &mdash; la variabile &egrave; una sola.",
+  "da": "lezione 6"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U5-L6-01">
+      <p class="titolo-consegna"><span class="num">2</span> Lo stesso basso, un&rsquo;altra volta</p>
+      <div class="testo">Realizza <strong>di nuovo</strong> il basso di otto battute di stamattina, con due vincoli: almeno <strong>tre scelte diverse</strong> da quelle fatte in classe, e sotto ciascuna una riga che dice <strong>perch&eacute;</strong>.<p class="dettaglio">⚠ Le due regole dell&rsquo;unit&agrave;: <strong>cifratura</strong> sotto ogni nota, e <strong>tre parti</strong>. Chi ne scrive quattro riscrive.</p></div>
+    </div>
+    <div class="consegna" id="C5-U5-L6-02">
+      <p class="titolo-consegna"><span class="num">3</span> Un basso tuo, di otto battute</p>
+      <div class="testo">Scrivi <strong>tu</strong> una traccia di basso di otto battute in una tonalit&agrave; a scelta, e realizzala a tre parti con la cifratura.<p class="dettaglio">Il basso deve contenere: un tratto di <strong>gradi congiunti</strong>, una <strong>catena</strong> di un moto ripetuto almeno due volte, e una <strong>cadenza</strong> finale. Segnali sopra il rigo prima di realizzare.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="99">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Tutta l&rsquo;unità insieme</span>
+        <h2>Ripasso di fine unità</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna verifica" id="C5U5V">
+      <p class="titolo-consegna"><span class="num">1</span> Verifica di fine unit&agrave; 5</p>
+      <div class="testo">1 esercizi, uno per volta. Non si torna indietro: prima di rispondere pensaci. Alla fine esce un <strong>codice</strong> che consegni su Classroom.<br><strong>&Egrave; l&rsquo;unica cosa dell&rsquo;unit&agrave; che fa voto.</strong></div>
+      <div class="online-vivo no-stampa">
+        <tac-verifica sigla="C5U5V" dove="casa" titolo="Verifica di fine unità 5">
+    <tac-quiz quante="6" scheda="C5U5U01" peso="3">
+[
+ {
+  "d": "Un partimento &egrave; una traccia di accordi, come un basso d&rsquo;armonia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il partimento &egrave; un brano scritto in una linea sola.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "I partimenti si studiavano scrivendoli, e solo dopo si suonavano.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "La parola &laquo;conservatorio&raquo; viene da un luogo di accoglienza, non da un&rsquo;accademia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Gli esercizi della Scuola Napoletana erano file di accordi da ripetere.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il Grave di Corelli &egrave; stato scelto perch&eacute; illustra bene la regola dell&rsquo;ottava.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Nel pentacordo d&rsquo;apertura tutti e cinque i gradi stanno alla regola.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Sedici note del pezzo non entrano nel conto perch&eacute; sono sbagliate.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Il 68 % vuol dire che Corelli sbaglia un terzo delle volte.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "La prima misura del programma dava il 19 %, ed era un difetto della misura.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "I moti che il basso pu&ograve; fare sono sei.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Pi&ugrave; note in comune fra due accordi, pi&ugrave; energia ha il passaggio.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Salire di quarta e scendere di quinta portano allo stesso accordo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Una formula &egrave; un moto del basso con la realizzazione gi&agrave; decisa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Una formula dice anche che cosa vale la pena mettere.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Una catena di formule si interrompe quando arriva una cadenza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "L&rsquo;analisi preliminare si fa dopo aver scritto le prime battute.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "La cifratura sotto il basso &egrave; un ornamento della consegna.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Si scrive a tre parti perch&eacute; &egrave; pi&ugrave; facile che a quattro.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Due realizzazioni corrette dello stesso basso valgono uguale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Rifare lo stesso basso una seconda volta &egrave; tempo perso.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "La regola dell&rsquo;ottava d&agrave; un accordo diverso per ogni grado della scala.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Nel pentacordo ascendente tutti i gradi prendono l&rsquo;accordo di sesta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Le seste sui gradi di mezzo servono a evitare ottave e quinte parallele.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "La regola dell&rsquo;ottava dice anche che cosa fare quando il basso salta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Chi conosce la regola pu&ograve; applicarla senza pensare, e l&rsquo;autore lo consiglia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "In minore la regola cambia struttura.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Le tre posizioni della mano destra si distinguono da quale nota sta in cima.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Fra due accordi vicini conviene muovere tutte le dita insieme.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Se la mano destra salta, quasi sempre l&rsquo;accordo prima era nella posizione sbagliata.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Dopo un errore conviene ripartire da capo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Meglio un accordo ricco fuori tempo che uno povero a tempo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ }
+]
+    </tac-quiz>
+        </tac-verifica>
+      </div>
+      <div class="esito"><span class="etichetta-esito">Codice ottenuto</span><span class="casella-codice"></span></div>
+    </div>
+    </section>
+  </div>
+
+</div>
+
+<footer class="piede no-stampa">
+  <div class="piede-interno">
+    <p><a href="../">&larr; Torna alla classe 5&ordf;</a>  &middot;  <a href="solfeggi-classe-5.html">Il quaderno di lettura · tutto l'anno</a></p>
+    <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
+  </div>
+</footer>
+
+<script>
+/* «Stampa solo questa». Il compito della settimana e una pagina: se per
+   averla si deve mandare in stampa il fascicolo intero e poi scegliere gli
+   intervalli di pagina nel pannello del browser, nessuno lo fa, e si
+   stampano undici fogli per usarne uno. Il pulsante nasconde gli altri
+   blocchi per la durata della stampa e li rimette a posto subito dopo. */
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-stampa]');
+  if (!b) return;
+  var blocco = b.closest('.lez');
+  document.body.classList.add('stampa-una');
+  blocco.classList.add('da-stampare');
+  var pulisci = function () {
+    document.body.classList.remove('stampa-una');
+    blocco.classList.remove('da-stampare');
+    window.removeEventListener('afterprint', pulisci);
+  };
+  window.addEventListener('afterprint', pulisci);
+  window.print();
+});
+</script>
+</body>
+</html>

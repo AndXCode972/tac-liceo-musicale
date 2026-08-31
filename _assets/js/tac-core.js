@@ -4743,8 +4743,50 @@
          al metronomo e al cursore della velocità. Tre modi di far suonare
          lo stesso brano sulla stessa striscia sono tre modi di distrarsi:
          resta un pulsante solo, e la barra per spostarsi nel brano. */
-      const incisa = !!this.getAttribute('inciso');
-      if (incisa) this.preparaInciso(barra);
+      /* ══ L'ESECUZIONE VERA VIENE PRIMA DELL'INCISIONE ══
+         Andrea, 30 agosto 2026: «magari si può utilizzare l'audio preso
+         da un'esecuzione di youtube, farlo scorrere con la partitura e
+         segnalare quello che succede analiticamente, con la possibilità
+         di fermarsi».
+         Dove c'è `youtube` suona quella, e l'incisione di MuseScore
+         resta come riserva se la rete non c'è. */
+      /* ⚠ IL VIDEO STA ACCANTO ALL'INCISIONE, NON AL POSTO.
+         E la ragione è la mappa. La partitura scorre perché una mappa
+         dice a che millisecondo comincia ogni battuta; quella
+         dell'incisione la scrive MuseScore da sé, quella di
+         un'esecuzione vera va **tarata a orecchio**.
+         Se il video prendesse il posto dell'incisione, mettere un
+         identificativo nel catalogo — un gesto di dieci secondi —
+         spegnerebbe lo scorrimento su tutte le lezioni che usano quel
+         brano, e non lo direbbe nessuno. Quindi: l'orologio che comanda
+         la partitura resta l'incisione, finché il video non ha la
+         **sua** mappa (`mappa-video`); il video si ascolta a parte, e
+         quando la mappa arriva prende il comando. */
+      const conMappaVideo = !!this.getAttribute('mappa-video');
+      const eseguita = !!this.getAttribute('youtube') && conMappaVideo;
+      const incisa = !eseguita && !!this.getAttribute('inciso');
+      if (eseguita) this.preparaInciso(barra, this.orologioYouTube());
+      else if (incisa) this.preparaInciso(barra);
+      else if (this.getAttribute('youtube')) this.orologioYouTube();
+
+      /* ══ I SEGNI CHE ARRIVANO MENTRE LA MUSICA VA ══
+         «segnalare quello che succede analiticamente… con la possibilità
+         di fermarsi». Gli indirizzi sono quelli di `tac-stave` — `b29`,
+         `b29-b31` — ma qui contano le **battute della partitura**, e
+         `da-battuta` dice quale numero porta la prima incisa.
+         Senza `da-battuta` il conto parte da 1, che è il caso normale;
+         il Bach dell'unità 2 di quinta comincia dalla 25 e senza quel
+         numero `b29` cadrebbe quattro battute più in là. */
+      this._segni = leggiSegni(this.getAttribute('segna'));
+      this._daBattuta = parseInt(this.getAttribute('da-battuta') || '1', 10);
+      if (this._segni.length) {
+        const n = document.createElement('div');
+        n.className = 'tac-brano-segno no-stampa';
+        n.setAttribute('aria-live', 'polite');
+        box.appendChild(n);
+        this._strisciaSegno = n;
+        this.diciSegno(-1);
+      }
 
       if (!incisa && this.hasAttribute('metronomo')) {
         this._metro = document.createElement('button');
@@ -5169,13 +5211,176 @@
        ed è giusto: l'indice è la posizione nella partitura, non
        nell'esecuzione.
        ---------------------------------------------------------- */
-    preparaInciso(barra) {
-      const url = this.getAttribute('inciso');
-      let mappa = null;
-      try { mappa = JSON.parse(this.getAttribute('mappa') || 'null'); } catch (e) {}
+    /* ----------------------------------------------------------
+       L'ESECUZIONE VERA — UN PLAYER YOUTUBE CON LA FACCIA DI UN <audio>
 
-      const au = document.createElement('audio');
-      au.preload = 'none'; au.src = url;
+       <tac-brano youtube="dQw4w9WgXcQ" da="72" a="99"
+                  mappa='{"eventi":[[0,0],[1,2380],…],"durata":27000}'
+                  segna="b29-b31=pedale di tonica">
+
+       PERCHÉ YOUTUBE E NON UN FILE. Perché il file non si può avere: le
+       incisioni buone sono protette, e scaricarle non si fa. Il player
+       incorporato è il modo previsto per ascoltarle — l'esecutore resta
+       accreditato, le visualizzazioni gli arrivano, e la scuola non
+       ospita niente che non sia suo.
+
+       ⚠ `da` e `a` DELIMITANO L'ESTRATTO, e i tempi della mappa sono
+       **relativi a `da`**, non assoluti nel video. Così i numeri si
+       leggono («la b. 29 comincia a 4,2 secondi dall'inizio») e la
+       finestra si può spostare di mezzo secondo senza rifare la mappa.
+
+       ⚠ E LA MAPPA VA MISURATA, NON CALCOLATA. Un'esecuzione vera ha il
+       rubato: dividere la durata per il numero di battute dà una mappa
+       che parte allineata e finisce mezza battuta più in là. Per
+       misurarla c'è il modo taratura — `?taratura` nell'indirizzo — che
+       registra un battito a ogni barra spaziatrice e stampa la stringa
+       da incollare qui.
+       ---------------------------------------------------------- */
+    orologioYouTube() {
+      const id = this.getAttribute('youtube');
+      const da = parseFloat(this.getAttribute('da') || '0') || 0;
+      const a = parseFloat(this.getAttribute('a') || '0') || 0;
+
+      const cassa = document.createElement('div');
+      cassa.className = 'tac-tubo no-stampa';
+      const dove = document.createElement('div');
+      dove.id = 'tubo-' + Math.random().toString(36).slice(2, 9);
+      cassa.appendChild(dove);
+      /* ⚠ CHI SUONA VA SCRITTO. Un'esecuzione è di qualcuno: mettere il
+         video senza il nome sarebbe prendere il lavoro e lasciare fuori
+         la persona. E in classe serve — «sentite come lo fa Suzuki» è
+         una frase che si può dire solo se il nome c'è. */
+      const chi = this.getAttribute('esecutore');
+      if (chi) {
+        const e = document.createElement('p');
+        e.className = 'tac-tubo-chi';
+        e.textContent = chi;
+        cassa.appendChild(e);
+      }
+      this._box.appendChild(cassa);
+
+      /* L'oggetto che il resto del codice crede un <audio>. I gestori
+         sono proprietà assegnabili come su un elemento vero, e li chiama
+         questo adattatore quando il player cambia stato. */
+      const orol = {
+        currentTime: 0,
+        duration: a > da ? a - da : 0,
+        paused: true,
+        onplay: null, onpause: null, onended: null, ontimeupdate: null,
+        play() {
+          if (!orol._p || !orol._p.playVideo) return;
+          orol._p.seekTo(da + orol.currentTime, true);
+          orol._p.playVideo();
+        },
+        pause() { if (orol._p && orol._p.pauseVideo) orol._p.pauseVideo(); },
+      };
+      /* `currentTime` in scrittura serve alla barra di scorrimento: sul
+         player si traduce in un salto. */
+      Object.defineProperty(orol, 'currentTime', {
+        get() { return orol._t || 0; },
+        set(v) {
+          orol._t = v;
+          if (orol._p && orol._p.seekTo) orol._p.seekTo(da + v, true);
+          if (orol.ontimeupdate) orol.ontimeupdate();
+        },
+      });
+
+      /* L'orologio del player non emette eventi: si guarda a ogni
+         fotogramma, come fa già `segui()` per la registrazione incisa.
+         Qui però serve anche mentre il video va, perché è da qui che
+         arrivano `paused` e la fine dell'estratto. */
+      const guarda = () => {
+        if (orol._p && orol._p.getCurrentTime) {
+          orol._t = Math.max(0, orol._p.getCurrentTime() - da);
+          /* ⚠ L'ESTRATTO FINISCE DOVE DICE `a`, NON DOVE FINISCE IL VIDEO.
+             Senza questo controllo il brano continuava dentro il movimento
+             successivo, e in classe nessuno se ne accorgeva subito — che è
+             il modo peggiore di sbagliare un ascolto. */
+          if (a > da && orol._t >= (a - da)) {
+            orol.pause();
+            orol.paused = true;
+            if (orol.onended) orol.onended();
+            return;
+          }
+          if (orol.ontimeupdate) orol.ontimeupdate();
+        }
+        orol._occhio = requestAnimationFrame(guarda);
+      };
+
+      const monta = () => {
+        orol._p = new window.YT.Player(dove.id, {
+          videoId: id,
+          playerVars: { start: Math.floor(da), rel: 0, modestbranding: 1,
+                        playsinline: 1 },
+          events: {
+            onReady: () => { orol._occhio = requestAnimationFrame(guarda); },
+            onStateChange: (ev) => {
+              const S = window.YT.PlayerState;
+              if (ev.data === S.PLAYING) {
+                orol.paused = false;
+                if (orol.onplay) orol.onplay();
+              } else if (ev.data === S.PAUSED) {
+                orol.paused = true;
+                if (orol.onpause) orol.onpause();
+              } else if (ev.data === S.ENDED) {
+                orol.paused = true;
+                if (orol.onended) orol.onended();
+              }
+            },
+          },
+        });
+      };
+
+      /* L'API si carica una volta per pagina, non una per brano: sette
+         ascolti in una lezione sono sette elementi ma un solo script. */
+      if (window.YT && window.YT.Player) monta();
+      else {
+        (window.__tacTubo = window.__tacTubo || []).push(monta);
+        if (!document.getElementById('tac-yt-api')) {
+          const s = document.createElement('script');
+          s.id = 'tac-yt-api';
+          s.src = 'https://www.youtube.com/iframe_api';
+          document.head.appendChild(s);
+          window.onYouTubeIframeAPIReady = () => {
+            (window.__tacTubo || []).forEach(f => f());
+            window.__tacTubo = [];
+          };
+        }
+      }
+      return orol;
+    }
+
+    preparaInciso(barra, sorgente) {
+      const url = this.getAttribute('inciso');
+      /* Due mappe possibili, e sono di due orologi diversi: `mappa` è
+         quella dell'incisione, `mappa-video` quella tarata a orecchio
+         sull'esecuzione. Quando c'è la seconda comanda lei, perché
+         allora la sorgente è il video. */
+      let mappa = null;
+      const quale = sorgente && this.getAttribute('mappa-video')
+                    ? 'mappa-video' : 'mappa';
+      try { mappa = JSON.parse(this.getAttribute(quale) || 'null'); } catch (e) {}
+
+      /* ⚠ `sorgente` È ARRIVATA IL 31 AGOSTO 2026, E NON HA CAMBIATO NIENTE
+         DI QUELLO CHE C'ERA.
+
+         Serviva far scorrere la partitura sotto **un'esecuzione vera**
+         invece che sotto l'incisione di MuseScore. La strada corta era
+         scrivere una seconda funzione, gemella di questa, con dentro il
+         player di YouTube: due copie dello stesso inseguimento, e fra un
+         mese una delle due riparata e l'altra no.
+
+         Invece il player si presenta con la faccia di un `<audio>` —
+         `currentTime`, `duration`, `paused`, `play()`, `pause()`, i tre
+         gestori — e questa funzione non sa e non deve sapere che dietro
+         c'è un video. Tutto quello che segue, dal cursore ai pallini
+         della pulsazione, funziona identico sulle due sorgenti perché è
+         scritto una volta sola. */
+      const au = sorgente || (() => {
+        const a = document.createElement('audio');
+        a.preload = 'none'; a.src = url;
+        return a;
+      })();
       this._audio = au;
 
       const b = document.createElement('button');
@@ -5277,6 +5482,94 @@
       };
 
       this._box.appendChild(riga);
+      this.preparaTaratura(au, barra);
+    }
+
+    /* ----------------------------------------------------------
+       LA TARATURA — IL RIGHELLO PER MISURARE LA MAPPA
+
+       ⚠ QUESTO ESISTE PERCHÉ LA MAPPA NON SI PUÒ CALCOLARE.
+
+       L'incisione di MuseScore la mappa ce l'ha già: la scrive lo stesso
+       programma che suona. Un'esecuzione vera no — e non si può ricavare
+       dividendo la durata per il numero di battute, perché un esecutore
+       fa il rubato: una mappa calcolata parte allineata e finisce mezza
+       battuta più in là, che è il modo più fastidioso di sbagliare
+       perché all'inizio sembra giusta.
+
+       Quindi si misura, e si misura ascoltando: si preme la barra
+       spaziatrice a ogni stanghetta e questo registra l'orologio. Alla
+       fine stampa la stringa da incollare nell'attributo `mappa`.
+
+       È lo stesso principio di `pagine.py` per i libri — misurare invece
+       di dedurre, ed è l'errore 66 — applicato al tempo invece che alle
+       pagine.
+
+       ⚠ NON SI VEDE IN CLASSE. Compare solo con `?taratura` nell'indirizzo:
+       è uno strumento del docente, e un pulsante in più su una slide è
+       un pulsante che qualcuno preme durante l'ascolto.
+       ---------------------------------------------------------- */
+    preparaTaratura(au, barra) {
+      let acceso = false;
+      try { acceso = /[?&]taratura\b/.test(location.search); } catch (e) {}
+      if (!acceso) return;
+
+      const b = document.createElement('button');
+      b.className = 'btn secondario';
+      b.textContent = 'Taratura';
+      barra.appendChild(b);
+
+      const cassa = document.createElement('div');
+      cassa.className = 'tac-taratura no-stampa';
+      cassa.hidden = true;
+      cassa.innerHTML =
+        '<p><strong>Barra spaziatrice</strong> a ogni stanghetta, mentre ' +
+        'suona. <strong>Esc</strong> per chiudere.</p>' +
+        '<p class="tac-tara-conto">0 battute segnate</p>' +
+        '<textarea class="tac-tara-uscita" rows="3" readonly ' +
+        'aria-label="La mappa da incollare"></textarea>';
+      this._box.appendChild(cassa);
+      const conto = cassa.querySelector('.tac-tara-conto');
+      const uscita = cassa.querySelector('.tac-tara-uscita');
+
+      let colpi = [];
+      const stampa = () => {
+        conto.textContent = colpi.length + ' battute segnate';
+        /* `eventi` è [indice della battuta nella partitura, millisecondi].
+           L'indice parte da 0 e cresce di uno: la mappa dice quando
+           comincia ciascuna, non quale numero porta — quello lo dice
+           `da-battuta`, e sono due cose diverse apposta. */
+        uscita.value = JSON.stringify({
+          eventi: colpi.map((ms, i) => [i, Math.round(ms)]),
+          durata: Math.round(au.duration * 1000) || null,
+        });
+      };
+      stampa();
+
+      const tasto = (e) => {
+        if (cassa.hidden) return;
+        if (e.key === 'Escape') { chiudi(); return; }
+        if (e.code !== 'Space' && e.key !== ' ') return;
+        e.preventDefault();
+        e.stopPropagation();
+        colpi.push(au.currentTime * 1000);
+        stampa();
+      };
+      const chiudi = () => {
+        cassa.hidden = true;
+        b.classList.remove('ambra');
+        document.removeEventListener('keydown', tasto, true);
+      };
+      b.onclick = () => {
+        if (!cassa.hidden) { chiudi(); return; }
+        colpi = [];
+        stampa();
+        cassa.hidden = false;
+        b.classList.add('ambra');
+        /* In cattura, perché la barra spaziatrice sulla slide fa altro:
+           qui deve arrivare prima, e solo mentre la taratura è aperta. */
+        document.addEventListener('keydown', tasto, true);
+      };
     }
 
     /* I pallini della pulsazione sotto il titolo, mossi dalla registrazione
@@ -5364,10 +5657,61 @@
       return f ? [...f.querySelectorAll('.measure')] : [];
     }
 
+    /* Quale segno copre la battuta all'indice `k`, e come si dice.
+
+       ⚠ SI PRENDE L'ULTIMO CHE COMINCIA, NON IL PRIMO CHE COPRE.
+       Due segni possono sovrapporsi — «b29-b31=pedale di tonica» e
+       «b30=e qui la voce alta continua da sola» — e in quella battuta
+       vanno bene tutti e due. Ma la striscia ne mostra uno solo, e deve
+       essere quello **appena entrato**: è la cosa nuova, ed è quella di
+       cui si sta parlando. Il pedale lo si è già annunciato alla 29.
+       Prendere il primo mostrerebbe per tre battute la stessa frase e
+       farebbe sparire la seconda, che è quella che si voleva dire. */
+    segnoDi(k) {
+      if (!this._segni || !this._segni.length || k < 0) return -1;
+      const b = k + (this._daBattuta || 1);
+      let scelto = -1, inizio = -Infinity;
+      this._segni.forEach((s, i) => {
+        if (!s.da || s.da.tipo !== 'b') return;
+        const d = s.da.numero;
+        const a = (s.a && s.a.tipo === 'b') ? s.a.numero : d;
+        if (b >= d && b <= a && d >= inizio) { scelto = i; inizio = d; }
+      });
+      return scelto;
+    }
+
+    diciSegno(i) {
+      if (!this._strisciaSegno) return;
+      const s = i >= 0 ? this._segni[i] : null;
+      this._strisciaSegno.textContent = s ? s.testo : '';
+      this._strisciaSegno.classList.toggle('vuota', !s || !s.testo);
+    }
+
     illumina(k) {
       const m = this.misure();
       if (!m.length) return;
       m.forEach(x => x.classList.remove('suona'));
+
+      /* La fascia del segno resta accesa su tutte le sue battute, anche
+         su quelle che la musica ha già passato: un pedale che dura tre
+         battute si capisce vedendole tutte e tre insieme, non una per
+         volta. Il cursore dice dove siamo, la fascia dice quanto dura. */
+      if (this._segni && this._segni.length) {
+        const i = this.segnoDi(k);
+        if (i !== this._segnoAcceso) {
+          m.forEach(x => x.classList.remove('in-segno'));
+          if (i >= 0) {
+            const s = this._segni[i];
+            const d = s.da.numero - (this._daBattuta || 1);
+            const a = ((s.a && s.a.tipo === 'b') ? s.a.numero : s.da.numero)
+                      - (this._daBattuta || 1);
+            for (let j = d; j <= a; j++) if (m[j]) m[j].classList.add('in-segno');
+          }
+          this.diciSegno(i);
+          this._segnoAcceso = i;
+        }
+      }
+
       if (k < 0 || !m[k]) return;
       m[k].classList.add('suona');
 

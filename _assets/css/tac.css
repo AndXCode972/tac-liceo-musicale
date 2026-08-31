@@ -1475,6 +1475,51 @@ a.btn.tac-vero { text-decoration: none; }
 .tac-part .measure.suona path,
 .tac-part .measure.suona rect,
 .tac-part .measure.suona polygon { stroke: #be185d !important; }
+
+/* ══ IL SEGNO ANALITICO SOTTO L'ESECUZIONE ══
+   La fascia dice **quanto dura** la cosa di cui si sta parlando, il
+   cursore rosa dice **dove siamo**: due informazioni diverse, e devono
+   restare distinguibili anche quando cadono sulla stessa battuta. Per
+   questo la fascia è uno sfondo giallo tenue e non colora le note —
+   se colorasse anche quelle, sulla battuta in corso una delle due
+   sparirebbe e si perderebbe proprio l'incrocio che interessa. */
+.tac-part .measure.in-segno { background: transparent; }
+.tac-part .measure.in-segno::before { content: none; }
+.tac-brano-part { position: relative; }
+.tac-part .measure.in-segno path,
+.tac-part .measure.in-segno rect,
+.tac-part .measure.in-segno polygon,
+.tac-part .measure.in-segno text { filter: drop-shadow(0 0 6px #fcd34d); }
+
+.tac-brano-segno {
+  margin: .5rem 0 0; padding: .5rem .7rem; border-radius: var(--raggio);
+  background: #fffbeb; border: 1px solid #fcd34d; color: #78350f;
+  font-size: .95rem; line-height: 1.35; min-height: 1.2em;
+}
+.tac-brano-segno.vuota { display: none; }
+
+/* Il player dell'esecuzione: piccolo, perché quello che si guarda è la
+   partitura. Resta visibile e non nascosto — un video che suona da un
+   riquadro invisibile è la cosa che i browser bloccano per prima, e in
+   classe si vede chi sta suonando. */
+.tac-tubo { margin: .6rem 0 0; }
+.tac-tubo iframe { width: 100%; max-width: 320px; aspect-ratio: 16 / 9;
+                   border: 0; border-radius: var(--raggio); display: block; }
+
+/* La taratura è uno strumento del docente e si vede solo con
+   `?taratura` nell'indirizzo. Volutamente spoglia. */
+.tac-taratura {
+  margin: .6rem 0 0; padding: .6rem .7rem; border-radius: var(--raggio);
+  background: #f1f5f9; border: 1px dashed #94a3b8; font-size: .85rem;
+}
+.tac-taratura p { margin: 0 0 .4rem; }
+.tac-tara-conto { font-weight: 700; }
+.tac-tara-uscita { width: 100%; font-family: ui-monospace, monospace;
+                   font-size: .75rem; border: 1px solid #cbd5e1;
+                   border-radius: 4px; padding: .3rem; }
+@media print {
+  .tac-brano-segno, .tac-tubo, .tac-taratura { display: none !important; }
+}
 @media print {
   .tac-tutta { display: none !important; }
   .tac-brano-part { overflow: visible !important; }
@@ -2313,3 +2358,8 @@ body.regia .corretto { box-shadow: -4px 0 0 -1px var(--viola); }
   line-height: inherit;
   vertical-align: baseline;
 }
+
+/* Chi suona, sotto il video. Piccolo ma presente: un'esecuzione è di
+   qualcuno, e il nome non è un dettaglio tipografico. */
+.tac-tubo-chi { margin: .3rem 0 0; font-size: .8rem; color: #475569;
+                font-style: italic; }

@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbook — UdA 7 · Il corale, oltre il modello semplice | TAC Classe 5&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=89b635a1">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=3ae1cb65">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
+     usa, e con `defer` i due file girano nell'ordine in cui stanno
+     scritti qui. -->
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=e894da72" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
+     fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
+                          height: auto; margin: .35rem 0; }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 5&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a href="solfeggi-classe-5.html">Il quaderno di lettura · tutto l'anno</a>
+      <a class="attiva" href="workbook-uda-07.html">Workbook · unità 7</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa tutto il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Workbook</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">UdA 7 · Il corale, oltre il modello semplice — il foglio di lavoro, una pagina per lezione</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale — Classe 5&ordf;
+    </div>
+  </div>
+
+  <!-- Niente riga per nome, classe e data: il foglio non si consegna mai.
+       Lo scritto va sul quaderno e si fotografa, l'online restituisce un
+       codice, l'ascolto e' una spunta che lo studente fa per se'. La riga
+       era un'abitudine presa dal compito in classe, e costava un centimetro
+       e mezzo in cima a ogni foglio stampato. -->
+
+  <div class="riquadro attenzione">
+    <span class="etichetta">Come si usa</span>
+    <p>I compiti sono di tre specie, e ognuna si consegna in modo suo. <strong>Da fare online</strong>: allo schermo. <strong>Da ascoltare</strong>: serve all'orecchio. <strong>Da scrivere</strong>: sul quaderno, poi una foto su Classroom.</p>
+    <p style="margin-top:.5rem">Il voto dell'unità lo dà <strong>una cosa sola</strong>: la verifica in fondo, quella che restituisce un codice. Tutto il resto si consegna e si corregge, ma non fa voto &mdash; il che non vuol dire che non conti: è lì che si impara, e la verifica misura solo quello che hai imparato facendolo.</p>
+    <p style="margin-top:.5rem">Stampa <strong>una lezione alla volta</strong>, col pulsante che trovi accanto al titolo.</p>
+  </div>
+
+  <div class="lez" data-lezione="1">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 1</span>
+        <h2>Lezione 1 &mdash; I quattro modelli del corale bachiano</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U7-L1-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; i quattro modelli</p>
+      <div class="testo">Quattro affermazioni sui modelli di Kaiser e sui numeri che li misurano.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "I modelli del corale bachiano, secondo Kaiser, sono due.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sono <strong>quattro</strong> &mdash; omoritmico, basso in ottavi, figurazione delle tre voci inferiori, episodi imitativi. Il libro dice che Kaiser &laquo;<em>supera</em>&raquo; la divisione in due, semplice e figurato (p.&nbsp;102).",
+  "da": "lezione 1"
+ },
+ {
+  "d": "I quattro modelli si distinguono guardando quali voci si muovono pi&ugrave; della melodia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero per i primi tre, e basta per riconoscerli: nessuna, il basso, le tre di sotto. Il <strong>quarto</strong> no: chiede di sentire che una figura <strong>torna</strong>, e per sentirlo serve pi&ugrave; di una battuta.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Chiedersi &laquo;di che tipo &egrave; questo corale&raquo; &egrave; quasi sempre una domanda mal posta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; misurato: <strong>326 corali su 403</strong> usano pi&ugrave; di un modello. La domanda giusta &egrave; <strong>di che tipo &egrave; questo verso</strong>.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il modello con il basso in ottavi &egrave; raro come brano intero.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e il numero &egrave; sorprendente: <strong>un corale su 403</strong>. Il libro scrive &laquo;&egrave; raro che un brano sia interamente realizzato in questa modalit&agrave;&raquo; (p.&nbsp;104); quello &egrave; quanto vale il &laquo;raro&raquo;.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Contando i versi si pu&ograve; dire con certezza quale modello Bach usi di pi&ugrave;.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e vale la pena capire perch&eacute;: il risultato dipende dalla <strong>soglia</strong> con cui si decide che una voce &laquo;si muove&raquo;. Cambiando quella cambia la risposta. Il libro infatti scrive &laquo;<em>probabilmente</em> pi&ugrave; utilizzata&raquo; (p.&nbsp;106).",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il modello cambia di solito nel passaggio da un verso al successivo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e lo dicono sia il libro (p.&nbsp;104) sia la misura. &Egrave; anche il motivo per cui i cambi non si sentono come cuciture: avvengono dove l&rsquo;orecchio &egrave; occupato dalla <strong>cadenza</strong>.",
+  "da": "lezione 1"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U7-L1-01">
+      <p class="titolo-consegna"><span class="num">2</span> Quattro versi, quattro risposte</p>
+      <div class="testo">Prendi un corale a quattro voci dal tuo repertorio o dal sito. Dividilo in <strong>versi</strong>, alle corone, e per ciascuno scrivi di che <strong>modello</strong> &egrave;.<p class="dettaglio">⚠ Un verso per riga, con il suo <strong>numero</strong> e le <strong>battute</strong> che occupa. La domanda &egrave; sul verso, non sul brano: <strong>326 corali su 403</strong> ne usano pi&ugrave; di uno.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="2">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 2</span>
+        <h2>Lezione 2 &mdash; Il corale con il basso in ottavi</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C5-U7-L2-03">
+      <p class="titolo-consegna"><span class="num">1</span> Le quattro corone del BWV 326</p>
+      <div class="testo">Ascolta il BWV 326 sul sito e segna il <strong>minuto e secondo</strong> di ciascuna delle quattro corone.<p class="dettaglio">Poi rispondi: che cosa fa il basso <strong>prima</strong> di ognuna? La risposta &egrave; la stessa tutte e quattro le volte.</p></div>
+      <p class="vai no-stampa"><a href="../uda-07/lezione-2.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U7-L2-01">
+      <p class="titolo-consegna"><span class="num">2</span> Da corale semplice a basso in ottavi</p>
+      <div class="testo">Ti do <strong>quattro battute</strong> di corale semplice in fa maggiore. Riscrivi il <strong>basso</strong> nel modello 2: crome, per gradi congiunti, senza toccare l&rsquo;armonia.<p class="dettaglio">⚠ Le note <strong>sui movimenti</strong> restano quelle. Si riempiono i salti, e la <strong>cadenza non si tocca</strong>: gli ultimi due tempi di ogni verso restano fermi. Cifratura sotto ogni movimento.</p></div>
+    </div>
+    <div class="consegna" id="C5-U7-L2-02">
+      <p class="titolo-consegna"><span class="num">3</span> Il conto delle note, su un corale tuo</p>
+      <div class="testo">Scegli un corale a quattro voci e conta due cose: quante note ha il <strong>soprano</strong> e quante il <strong>basso</strong>.<p class="dettaglio">Poi rifai il conto <strong>verso per verso</strong>, segnando per ciascuno le <strong>battute</strong> che occupa, e scrivi il <strong>rapporto</strong> fra i due numeri. Nel BWV 326 il basso ha <strong>81</strong> note contro le <strong>32</strong> del soprano.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="3">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 3</span>
+        <h2>Lezione 3 &mdash; Cantare un corale figurato, per gruppi</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C5-U7-L3-03">
+      <p class="titolo-consegna"><span class="num">1</span> Sei corone, sei respiri</p>
+      <div class="testo">Riascolta il BWV 305 seguendo <strong>una voce interna</strong> e segna dove si ferma.<p class="dettaglio">Sono sei volte, e sono le corone. Verifica che le tre voci di sotto si fermino <strong>insieme</strong>.</p></div>
+      <p class="vai no-stampa"><a href="../uda-07/lezione-3.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U7-L3-02">
+      <p class="titolo-consegna"><span class="num">2</span> Le crome simultanee, cercate</p>
+      <div class="testo">Sul BWV 305, trova i punti in cui <strong>due voci fanno crome nello stesso momento</strong> e segnali con verso e battuta.<p class="dettaglio">Il libro dice che le crome &laquo;difficilmente creano simultanei in due voci&raquo; (p.&nbsp;106). Verifica se &egrave; vero, e quante volte non lo &egrave;.</p></div>
+    </div>
+    <div class="consegna" id="C5-U7-L3-04">
+      <p class="titolo-consegna"><span class="num">3</span> La tua voce, riscritta da sola</p>
+      <div class="testo">Ricopia su un rigo <strong>la sola voce che hai cantato</strong>, senza le altre tre.<p class="dettaglio">Poi segna con una freccia il <strong>colmo</strong> di ogni verso &mdash; la nota pi&ugrave; alta &mdash; e con una barra i punti in cui la figurazione si ferma.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="4">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 4</span>
+        <h2>Lezione 4 &mdash; Il corale figurato: fiorire le tre voci inferiori</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U7-L4-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; fiorire un corale</p>
+      <div class="testo">Quattro affermazioni sul corale figurato e su come si scrive.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Per fiorire un corale conviene prima arricchire l&rsquo;armonia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed &egrave; il rovescio di quello che si crede. Dionisi: la charpente &laquo;deve essere la pi&ugrave; semplice e naturale&hellip; i troppi interessi armonici non possono lasciare spazio a quelli di linea&raquo; (p.&nbsp;62).",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Nel corale figurato si muovono tutte le voci insieme.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si muove <strong>una voce per volta</strong>, e la fioritura passa dall&rsquo;una all&rsquo;altra. Il libro nota che le crome &laquo;difficilmente creano simultanei in due voci&raquo; (p.&nbsp;106). Quattro linee in crome insieme sono una nuvola.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Il soprano si pu&ograve; fiorire come le altre voci.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; il <em>cantus firmus</em>, &laquo;una melodia &laquo;intoccabile&raquo;&raquo; (Dionisi, p.&nbsp;62). Nel BWV 305 il soprano ha <strong>5</strong> note brevi su 53; il basso ne ha 60 su 81.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "La figurazione si ferma alle corone.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e in tutte: &laquo;la figurazione si blocca <strong>solo</strong> alle corone&raquo; (Dionisi, p.&nbsp;62). Nel BWV 305 succede in sei corone su sei. Il libro dice la stessa cosa del modello 2: &laquo;il ritmo si dirada in prossimit&agrave; dei punti coronati&raquo; (p.&nbsp;104).",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Una fioritura corretta pu&ograve; essere comunque da rifare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: se non ha un <strong>profilo</strong> &mdash; una nota pi&ugrave; alta di tutte, e un prima e un dopo &mdash; &egrave; riempitivo. Dionisi chiede &laquo;una melodia ben disegnata&raquo; e non &laquo;pura ricerca di suoni di riempitivo&raquo; (p.&nbsp;62).",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Le quinte parallele si controllano su tutte le crome.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sulle <strong>accentate</strong>, la prima di ogni coppia. Sulle deboli, se sono di passaggio o di volta, non fanno parallele. &Egrave; la stessa regola della seconda specie, che sapete dalla seconda.",
+  "da": "lezione 5"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U7-L4-01">
+      <p class="titolo-consegna"><span class="num">2</span> Quattro battute figurate</p>
+      <div class="testo">Ti do <strong>quattro battute</strong> di corale semplice gi&agrave; armonizzate. Fiorisci le <strong>tre voci di sotto</strong>, in crome.<p class="dettaglio">⚠ Una voce per volta, a turno. Il soprano non si tocca. L&rsquo;armonia non si tocca: le note sui movimenti sono quelle date. Alle corone <strong>si ferma tutto</strong>.</p></div>
+    </div>
+    <div class="consegna" id="C5-U7-L4-03">
+      <p class="titolo-consegna"><span class="num">3</span> Riempitivo o linea</p>
+      <div class="testo">Ti do <strong>sei voci interne</strong> di quattro battute ciascuna. Per ognuna rispondi alle tre domande sul profilo.<p class="dettaglio"><strong>1.</strong> C&rsquo;&egrave; una nota pi&ugrave; alta di tutte? <strong>2.</strong> Ci si arriva e poi si scende? <strong>3.</strong> Si canta in un fiato?</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="5">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 5</span>
+        <h2>Lezione 5 &mdash; Officina: figurare un corale già armonizzato</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U7-L5-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; l&rsquo;officina</p>
+      <div class="testo">Quattro affermazioni su come si figura, e su che cosa si controlla.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Per fiorire un corale conviene prima arricchire l&rsquo;armonia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed &egrave; il rovescio di quello che si crede. Dionisi: la charpente &laquo;deve essere la pi&ugrave; semplice e naturale&hellip; i troppi interessi armonici non possono lasciare spazio a quelli di linea&raquo; (p.&nbsp;62).",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Nel corale figurato si muovono tutte le voci insieme.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si muove <strong>una voce per volta</strong>, e la fioritura passa dall&rsquo;una all&rsquo;altra. Il libro nota che le crome &laquo;difficilmente creano simultanei in due voci&raquo; (p.&nbsp;106). Quattro linee in crome insieme sono una nuvola.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Il soprano si pu&ograve; fiorire come le altre voci.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; il <em>cantus firmus</em>, &laquo;una melodia &laquo;intoccabile&raquo;&raquo; (Dionisi, p.&nbsp;62). Nel BWV 305 il soprano ha <strong>5</strong> note brevi su 53; il basso ne ha 60 su 81.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "La figurazione si ferma alle corone.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e in tutte: &laquo;la figurazione si blocca <strong>solo</strong> alle corone&raquo; (Dionisi, p.&nbsp;62). Nel BWV 305 succede in sei corone su sei. Il libro dice la stessa cosa del modello 2: &laquo;il ritmo si dirada in prossimit&agrave; dei punti coronati&raquo; (p.&nbsp;104).",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Una fioritura corretta pu&ograve; essere comunque da rifare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: se non ha un <strong>profilo</strong> &mdash; una nota pi&ugrave; alta di tutte, e un prima e un dopo &mdash; &egrave; riempitivo. Dionisi chiede &laquo;una melodia ben disegnata&raquo; e non &laquo;pura ricerca di suoni di riempitivo&raquo; (p.&nbsp;62).",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Le quinte parallele si controllano su tutte le crome.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sulle <strong>accentate</strong>, la prima di ogni coppia. Sulle deboli, se sono di passaggio o di volta, non fanno parallele. &Egrave; la stessa regola della seconda specie, che sapete dalla seconda.",
+  "da": "lezione 5"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U7-L5-01">
+      <p class="titolo-consegna"><span class="num">2</span> Finisci la figurazione dell&rsquo;officina</p>
+      <div class="testo">Completa a casa le quattro battute cominciate in classe, e aggiungi le <strong>quattro battute successive</strong> che trovi sul foglio.<p class="dettaglio">⚠ Prima di consegnare, fai tu il controllo 4: copri tutto tranne una voce e leggila. Se ti annoia, annoier&agrave; anche me. E segna il numero di <strong>battuta</strong> dove hai avuto un dubbio.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="6">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 6</span>
+        <h2>Lezione 6 &mdash; Dettato: il basso in ottavi di un corale</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U7-L6-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; il basso che cammina</p>
+      <div class="testo">Quattro affermazioni sul modello 2 e su come si scrive sotto dettatura.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "I modelli del corale bachiano, secondo Kaiser, sono due.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sono <strong>quattro</strong> &mdash; omoritmico, basso in ottavi, figurazione delle tre voci inferiori, episodi imitativi. Il libro dice che Kaiser &laquo;<em>supera</em>&raquo; la divisione in due, semplice e figurato (p.&nbsp;102).",
+  "da": "lezione 1"
+ },
+ {
+  "d": "I quattro modelli si distinguono guardando quali voci si muovono pi&ugrave; della melodia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero per i primi tre, e basta per riconoscerli: nessuna, il basso, le tre di sotto. Il <strong>quarto</strong> no: chiede di sentire che una figura <strong>torna</strong>, e per sentirlo serve pi&ugrave; di una battuta.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Chiedersi &laquo;di che tipo &egrave; questo corale&raquo; &egrave; quasi sempre una domanda mal posta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; misurato: <strong>326 corali su 403</strong> usano pi&ugrave; di un modello. La domanda giusta &egrave; <strong>di che tipo &egrave; questo verso</strong>.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il modello con il basso in ottavi &egrave; raro come brano intero.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e il numero &egrave; sorprendente: <strong>un corale su 403</strong>. Il libro scrive &laquo;&egrave; raro che un brano sia interamente realizzato in questa modalit&agrave;&raquo; (p.&nbsp;104); quello &egrave; quanto vale il &laquo;raro&raquo;.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Contando i versi si pu&ograve; dire con certezza quale modello Bach usi di pi&ugrave;.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e vale la pena capire perch&eacute;: il risultato dipende dalla <strong>soglia</strong> con cui si decide che una voce &laquo;si muove&raquo;. Cambiando quella cambia la risposta. Il libro infatti scrive &laquo;<em>probabilmente</em> pi&ugrave; utilizzata&raquo; (p.&nbsp;106).",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il modello cambia di solito nel passaggio da un verso al successivo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e lo dicono sia il libro (p.&nbsp;104) sia la misura. &Egrave; anche il motivo per cui i cambi non si sentono come cuciture: avvengono dove l&rsquo;orecchio &egrave; occupato dalla <strong>cadenza</strong>.",
+  "da": "lezione 1"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C5-U7-L6-01">
+      <p class="titolo-consegna"><span class="num">2</span> Cinque bassi, in due fasi</p>
+      <div class="testo">Sul sito trovi <strong>cinque frammenti</strong> di corale con il basso in crome. Scrivi ciascuno, e in <strong>due fasi</strong>.<p class="dettaglio">⚠ Fase 1: <strong>solo le note sui movimenti</strong>, quattro per battuta. Fase 2: le crome in mezzo. Chi va in ordine perde il conto entro la seconda battuta.</p></div>
+      <p class="vai no-stampa"><a href="../uda-07/lezione-6.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U7-L6-02">
+      <p class="titolo-consegna"><span class="num">3</span> Il dettato di oggi, riscritto pulito</p>
+      <div class="testo">Ricopia il dettato dell&rsquo;ora in bella, con l&rsquo;<strong>armatura</strong> e la <strong>cifratura</strong> sotto le note dei movimenti.<p class="dettaglio">E accanto, in una riga: <strong>dove</strong> hai perso il conto e <strong>che cosa</strong> c&rsquo;era in quel punto. Con il numero di battuta.</p></div>
+    </div>
+    <div class="consegna" id="C5-U7-L6-04">
+      <p class="titolo-consegna"><span class="num">4</span> Il basso del dettato, cifrato</p>
+      <div class="testo">Sotto il basso che hai scritto, metti la <strong>cifratura</strong> &mdash; una sola per movimento, non una per croma.<p class="dettaglio">⚠ Le crome di passaggio non hanno una cifra: fanno parte dell&rsquo;accordo che sta sul movimento. Se ti viene da cifrarne una, guarda se non sia invece una nota reale.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="7">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 7</span>
+        <h2>Lezione 7 &mdash; Correzione ragionata dei corali figurati della classe</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U7-L7-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; correggere una figurazione</p>
+      <div class="testo">Quattro affermazioni sull&rsquo;ordine dei controlli e su che cosa nasconde una fioritura.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Fra i quattro controlli di una realizzazione figurata l&rsquo;ordine &egrave; indifferente.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: il primo &mdash; l&rsquo;armonia &egrave; rimasta quella data? &mdash; pu&ograve; obbligare a rifare tutto, e farlo per ultimo butta via il lavoro sulle linee.",
+  "da": "lezione 7"
+ },
+ {
+  "d": "La fioritura pu&ograve; nascondere un errore di condotta delle parti.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; il rischio specifico del modello 3: quattro quinte parallele di fila si vedono a occhio in un corale semplice, e con le crome in mezzo spariscono. Si guardano le <strong>note accentate</strong> e riappaiono.",
+  "da": "lezione 7"
+ },
+ {
+  "d": "Una linea senza colmo &egrave; una questione di gusto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; un fatto che si vede sul rigo. C&rsquo;&egrave; una nota pi&ugrave; alta di tutte, s&igrave; o no? Le tre domande sul profilo hanno risposta s&igrave; o no, ed &egrave; apposta.",
+  "da": "lezione 7"
+ },
+ {
+  "d": "La corona fiorita &egrave; un errore che si fa per ignoranza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, quasi sempre &egrave; <strong>distrazione</strong>: si riempie la battuta perch&eacute; &egrave; una battuta. Si riconosce dal fatto che succede nell&rsquo;<strong>ultima</strong> corona e non nella prima.",
+  "da": "lezione 7"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U7-L7-01">
+      <p class="titolo-consegna"><span class="num">2</span> Correggi il tuo con i quattro controlli</p>
+      <div class="testo">Riprendi la tua figurazione e applicale i quattro controlli, <strong>in ordine</strong>, scrivendo per ciascuno s&igrave; o no.<p class="dettaglio">Dove la risposta &egrave; no, scrivi la <strong>battuta</strong> e la <strong>voce</strong>. Poi ripara solo quello, senza rifare il resto.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="8">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 8</span>
+        <h2>Lezione 8 &mdash; Il corale dopo Bach: la Bachschule</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U7-L8-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; dopo Bach</p>
+      <div class="testo">Quattro affermazioni sulla Bachschule e sul confronto fra due armonizzazioni.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Gli allievi di Bach armonizzano in modo molto diverso dal maestro.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: il libro dice che &laquo;dal punto di vista armonico non si riscontrano grandi differenze rispetto al Maestro&raquo; (p.&nbsp;108). Quello che cambia &egrave; il <strong>ritmo</strong>: predilezione per l&rsquo;omoritmico, decorazioni ridimensionate.",
+  "da": "lezione 8"
+ },
+ {
+  "d": "Un corale tutto omoritmico &egrave; certamente di un allievo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e il numero lo dice: fra i <strong>403</strong> corali di Bach ce ne sono <strong>settantuno</strong> interamente omoritmici. L&rsquo;indizio non si accende, e basta: non prova niente.",
+  "da": "lezione 8"
+ },
+ {
+  "d": "La differenza vera fra Bach e i suoi allievi sta nell&rsquo;alternare i modelli.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; la precisazione che la misura permette: anche in Bach l&rsquo;omoritmico &egrave; il <strong>52&nbsp;%</strong> dei versi. Quello che lo distingue &egrave; che cambia modello da un verso all&rsquo;altro nell&rsquo;<strong>81&nbsp;%</strong> dei corali.",
+  "da": "lezione 8"
+ },
+ {
+  "d": "Le due armonizzazioni della stessa melodia differiscono in tutto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: su 42 note ne differiscono <strong>sette</strong>, e i primi tre versi sono <strong>identici</strong>. Bach ha ripreso la sua armonizzazione e ha riscritto la seconda met&agrave;.",
+  "da": "lezione 9"
+ },
+ {
+  "d": "Per confrontare due brani conviene metterli nella stessa tonalit&agrave; analizzandoli.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed &egrave; una trappola vera: di due corali con la stessa identica melodia un&rsquo;analisi automatica pu&ograve; dire &laquo;re maggiore&raquo; e &laquo;si minore&raquo;. Il trasporto lo detta la <strong>melodia</strong>: un&rsquo;analisi &egrave; un&rsquo;opinione, la distanza fra due note &egrave; un numero.",
+  "da": "lezione 9"
+ },
+ {
+  "d": "In un confronto conta pi&ugrave; <em>dove</em> cadono le differenze che quante sono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: sette differenze sparse dicono &laquo;ha ritoccato&raquo;, sette raggruppate in fondo dicono &laquo;ha rifatto la chiusa&raquo;. Sono due storie diverse a parit&agrave; di numero.",
+  "da": "lezione 9"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U7-L8-01">
+      <p class="titolo-consegna"><span class="num">2</span> Bach o un allievo?</p>
+      <div class="testo">Ti do <strong>due corali</strong> senza nome. Per ciascuno applica i tre indizi dell&rsquo;ora e scrivi quale dei due &egrave; pi&ugrave; probabilmente di un allievo.<p class="dettaglio"><strong>1.</strong> I versi sono tutti dello stesso modello? <strong>2.</strong> Le voci interne stanno ferme per interi versi? <strong>3.</strong> Ci sono dissonanze non preparate?<br>⚠ Ogni indizio va sostenuto con il numero di <strong>battuta</strong> in cui lo hai visto: un indizio senza posizione non &egrave; un indizio.</p></div>
+    </div>
+    <div class="consegna" id="C5-U7-L8-02">
+      <p class="titolo-consegna"><span class="num">3</span> Lo stesso verso, due volte</p>
+      <div class="testo">Prendi quattro battute di corale semplice e armonizzale <strong>due volte</strong>: una come Bach (alternando modello) e una come un allievo (tutto omoritmico).<p class="dettaglio">L&rsquo;armonia deve essere <strong>la stessa</strong> nelle due versioni: il libro dice che &laquo;dal punto di vista armonico non si riscontrano grandi differenze&raquo; (p.&nbsp;108). Cambia solo il ritmo.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="9">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 9</span>
+        <h2>Lezione 9 &mdash; Analisi comparata: la stessa melodia armonizzata due volte</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte ascolto">
+      <h3>Da ascoltare</h3>
+      <p class="spiega ripetuta">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
+    <div class="consegna" id="C5-U7-L9-03">
+      <p class="titolo-consegna"><span class="num">1</span> Le due chiuse, a confronto</p>
+      <div class="testo">Ascolta le <strong>ultime due battute</strong> delle due versioni, una dopo l&rsquo;altra, tre volte.<p class="dettaglio">Poi scrivi in due righe quale delle due ti sembra pi&ugrave; <strong>tesa</strong>, e perch&eacute;.</p></div>
+      <p class="vai no-stampa"><a href="../uda-07/lezione-9.html">Apri l&rsquo;ascolto &rarr;</a></p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U7-L9-01">
+      <p class="titolo-consegna"><span class="num">2</span> Le sette differenze, elencate</p>
+      <div class="testo">Sul sito trovi il BWV 244/15 e il BWV 244/44. Elenca le <strong>sette differenze</strong> del basso, ciascuna con il suo <strong>verso</strong> e la sua <strong>battuta</strong>.<p class="dettaglio">⚠ Per ognuna scrivi le <strong>due note</strong> come sono <em>scritte</em> in partitura, non come suonano: alla nota 34 la seconda versione ha un <strong>re&#9839;</strong>, e un mi&#9837; direbbe un&rsquo;altra cosa.</p></div>
+    </div>
+    <div class="consegna" id="C5-U7-L9-02">
+      <p class="titolo-consegna"><span class="num">3</span> La terza chiusa</p>
+      <div class="testo">Sotto la stessa discesa del soprano <strong>sol&ndash;fa&#9839;&ndash;mi</strong>, scrivi un <strong>terzo</strong> basso, diverso dai due di Bach.<p class="dettaglio">Uno dei suoi scende parallelo (si&ndash;la&ndash;sol), l&rsquo;altro sale contro (mi&ndash;fa&#9839;&ndash;la). Trova una terza strada, e scrivi in una riga che <strong>effetto</strong> fa rispetto alle altre due.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="99">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Tutta l&rsquo;unità insieme</span>
+        <h2>Ripasso di fine unità</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna verifica" id="C5U7V">
+      <p class="titolo-consegna"><span class="num">1</span> Verifica di fine unit&agrave; 7</p>
+      <div class="testo">1 esercizi, uno per volta. Non si torna indietro: prima di rispondere pensaci. Alla fine esce un <strong>codice</strong> che consegni su Classroom.<br><strong>&Egrave; l&rsquo;unica cosa dell&rsquo;unit&agrave; che fa voto.</strong></div>
+      <div class="online-vivo no-stampa">
+        <tac-verifica sigla="C5U7V" dove="casa" titolo="Verifica di fine unità 7">
+    <tac-quiz quante="6" scheda="C5U7U01" peso="3">
+[
+ {
+  "d": "Fra i quattro controlli di una realizzazione figurata l&rsquo;ordine &egrave; indifferente.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "La fioritura pu&ograve; nascondere un errore di condotta delle parti.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "Una linea senza colmo &egrave; una questione di gusto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "La corona fiorita &egrave; un errore che si fa per ignoranza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "Gli allievi di Bach armonizzano in modo molto diverso dal maestro.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "Un corale tutto omoritmico &egrave; certamente di un allievo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "La differenza vera fra Bach e i suoi allievi sta nell&rsquo;alternare i modelli.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "Le due armonizzazioni della stessa melodia differiscono in tutto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "Per confrontare due brani conviene metterli nella stessa tonalit&agrave; analizzandoli.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "In un confronto conta pi&ugrave; <em>dove</em> cadono le differenze che quante sono.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "I modelli del corale bachiano, secondo Kaiser, sono due.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "I quattro modelli si distinguono guardando quali voci si muovono pi&ugrave; della melodia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Chiedersi &laquo;di che tipo &egrave; questo corale&raquo; &egrave; quasi sempre una domanda mal posta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il modello con il basso in ottavi &egrave; raro come brano intero.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Contando i versi si pu&ograve; dire con certezza quale modello Bach usi di pi&ugrave;.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Il modello cambia di solito nel passaggio da un verso al successivo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Per fiorire un corale conviene prima arricchire l&rsquo;armonia.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Nel corale figurato si muovono tutte le voci insieme.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Il soprano si pu&ograve; fiorire come le altre voci.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "La figurazione si ferma alle corone.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Una fioritura corretta pu&ograve; essere comunque da rifare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Le quinte parallele si controllano su tutte le crome.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ }
+]
+    </tac-quiz>
+        </tac-verifica>
+      </div>
+      <div class="esito"><span class="etichetta-esito">Codice ottenuto</span><span class="casella-codice"></span></div>
+    </div>
+    </section>
+  </div>
+
+</div>
+
+<footer class="piede no-stampa">
+  <div class="piede-interno">
+    <p><a href="../">&larr; Torna alla classe 5&ordf;</a>  &middot;  <a href="solfeggi-classe-5.html">Il quaderno di lettura · tutto l'anno</a></p>
+    <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
+  </div>
+</footer>
+
+<script>
+/* «Stampa solo questa». Il compito della settimana e una pagina: se per
+   averla si deve mandare in stampa il fascicolo intero e poi scegliere gli
+   intervalli di pagina nel pannello del browser, nessuno lo fa, e si
+   stampano undici fogli per usarne uno. Il pulsante nasconde gli altri
+   blocchi per la durata della stampa e li rimette a posto subito dopo. */
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-stampa]');
+  if (!b) return;
+  var blocco = b.closest('.lez');
+  document.body.classList.add('stampa-una');
+  blocco.classList.add('da-stampare');
+  var pulisci = function () {
+    document.body.classList.remove('stampa-una');
+    blocco.classList.remove('da-stampare');
+    window.removeEventListener('afterprint', pulisci);
+  };
+  window.addEventListener('afterprint', pulisci);
+  window.print();
+});
+</script>
+</body>
+</html>

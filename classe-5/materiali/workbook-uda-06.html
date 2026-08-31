@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbook — UdA 6 · Partimenti da realizzare | TAC Classe 5&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=89b635a1">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=3ae1cb65">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
+     usa, e con `defer` i due file girano nell'ordine in cui stanno
+     scritti qui. -->
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=e894da72" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
+     fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
+                          height: auto; margin: .35rem 0; }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 5&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a href="solfeggi-classe-5.html">Il quaderno di lettura · tutto l'anno</a>
+      <a class="attiva" href="workbook-uda-06.html">Workbook · unità 6</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa tutto il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Workbook</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">UdA 6 · Partimenti da realizzare — il foglio di lavoro, una pagina per lezione</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale — Classe 5&ordf;
+    </div>
+  </div>
+
+  <!-- Niente riga per nome, classe e data: il foglio non si consegna mai.
+       Lo scritto va sul quaderno e si fotografa, l'online restituisce un
+       codice, l'ascolto e' una spunta che lo studente fa per se'. La riga
+       era un'abitudine presa dal compito in classe, e costava un centimetro
+       e mezzo in cima a ogni foglio stampato. -->
+
+  <div class="riquadro attenzione">
+    <span class="etichetta">Come si usa</span>
+    <p>I compiti sono di tre specie, e ognuna si consegna in modo suo. <strong>Da fare online</strong>: allo schermo. <strong>Da ascoltare</strong>: serve all'orecchio. <strong>Da scrivere</strong>: sul quaderno, poi una foto su Classroom.</p>
+    <p style="margin-top:.5rem">Il voto dell'unità lo dà <strong>una cosa sola</strong>: la verifica in fondo, quella che restituisce un codice. Tutto il resto si consegna e si corregge, ma non fa voto &mdash; il che non vuol dire che non conti: è lì che si impara, e la verifica misura solo quello che hai imparato facendolo.</p>
+    <p style="margin-top:.5rem">Stampa <strong>una lezione alla volta</strong>, col pulsante che trovi accanto al titolo.</p>
+  </div>
+
+  <div class="lez" data-lezione="1">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 1</span>
+        <h2>Lezione 1 &mdash; Un partimento breve realizzato insieme, e le sequenze con le loro formule</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U6-L1-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; le sequenze</p>
+      <div class="testo">Quattro affermazioni sulle sequenze e sui motivi riproposti.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Una sequenza &egrave; un accordo ripetuto pi&ugrave; volte.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; un <strong>disegno</strong> ripetuto a un&rsquo;altezza diversa. Un accordo ripetuto &egrave; una ripetizione, e fa un altro effetto: non spinge, tiene.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Una sequenza &egrave; una formula che si sposta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; il modo pi&ugrave; utile di pensarla: tutto quello che sapete della formula vale identico. Cambia solo che va <strong>trasportata</strong>, e che si decide una volta per tutte le comparse.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Una sequenza realizzata male &egrave; sbagliata una volta sola.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; sbagliata <strong>tante volte quante sono le comparse</strong>. Le decisioni sono poche e pesano di pi&ugrave;, ed &egrave; una ragione per prenderle guardando.",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Un motivo riproposto e una sequenza fanno lo stesso effetto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e sono opposti. La <strong>sequenza</strong> torna subito e <em>spinge</em>; il <strong>motivo riproposto</strong> torna pi&ugrave; avanti, con altro in mezzo, e <em>lega</em>. Il libro descrive il secondo: &laquo;segmenti&hellip; riproposti nel corso della composizione&raquo; (p.&nbsp;66).",
+  "da": "lezione 1"
+ },
+ {
+  "d": "Quasi tutte le sequenze fanno due o tre passi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e le ragioni sono tre: l&rsquo;<strong>ambito</strong> (le voci escono dal rigo), la <strong>cadenza</strong> (il pezzo deve posarsi), e l&rsquo;<strong>orecchio</strong> (alla terza volta il meccanismo si &egrave; sentito). Quattro passi sono gi&agrave; un effetto voluto.",
+  "da": "lezione 1"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U6-L1-01">
+      <p class="titolo-consegna"><span class="num">2</span> Una sequenza, e le sue tre comparse</p>
+      <div class="testo">In <strong>do maggiore</strong>, a tre parti: realizza la sequenza <strong>do&ndash;re&ndash;mi&ndash;do</strong>, <strong>re&ndash;mi&ndash;fa&ndash;re</strong>, <strong>mi&ndash;fa&ndash;sol&ndash;mi</strong> al basso.<p class="dettaglio">⚠ Realizza la <strong>prima comparsa</strong> con cura e trasporta le altre due. Poi controlla due cose sole: che nessuna voce esca dall&rsquo;ambito, e che le alterazioni siano quelle della tonalit&agrave;. Cifratura sotto ogni nota.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="2">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 2</span>
+        <h2>Lezione 2 &mdash; Lettura a prima vista del basso</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U6-L2-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; leggere un basso</p>
+      <div class="testo">Quattro affermazioni sulla lettura a prima vista.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Leggendo un basso si comincia dalla prima nota.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si comincia dalle <strong>cadenze</strong>. Tagliano il problema in frasi, e un problema tagliato si guarda meglio. La prima nota non dice niente finch&eacute; non si sa dove va la frase.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "Un gruppo si dichiara tale quando la figura ha almeno tre note.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero. Con <strong>due</strong> si sta guardando un intervallo, e gli intervalli si ripetono da soli: in una scala qualunque coppia coincide con la successiva. &Egrave; la stessa soglia che usa il programma con cui misuro le sequenze nei brani.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "Dopo aver visto un gruppo conviene ricontrollarlo nota per nota.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: cos&igrave; si butta il vantaggio. Il senso della lettura a gruppi &egrave; che dopo <strong>non si torna indietro</strong>.",
+  "da": "lezione 2"
+ },
+ {
+  "d": "La velocit&agrave; nella lettura viene dallo sforzo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: viene dal <strong>numero di volte</strong>. Un basso al giorno, sei battute, dieci secondi &mdash; e in un mese il colpo d&rsquo;occhio c&rsquo;&egrave;. &Egrave; lo stesso percorso della prima vista sullo strumento.",
+  "da": "lezione 2"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U6-L2-01">
+      <p class="titolo-consegna"><span class="num">2</span> Sette bassi, dieci secondi ciascuno</p>
+      <div class="testo">Ogni giorno per una settimana, prendi <strong>sei battute</strong> di basso da un pezzo del tuo repertorio e guardale per dieci secondi. Poi scrivi, senza tornare a guardare.<p class="dettaglio">Quattro cose per ciascuno, e sempre in quest&rsquo;ordine: <strong>cadenze</strong> (con il numero di battuta), <strong>gruppi</strong>, <strong>alterazioni</strong>, quante note restano.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="3">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 3</span>
+        <h2>Lezione 3 &mdash; Officina: due partimenti da realizzare per iscritto</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U6-L3-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; realizzare da soli</p>
+      <div class="testo">Quattro affermazioni sul metodo di realizzazione.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Fra due realizzazioni corrette si sceglie in base al gusto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: ci sono <strong>tre criteri</strong>, e i primi due sono quasi oggettivi. Usa quello che il basso dice? La voce superiore ha una forma? Le frasi respirano dove il basso si posa?",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Il modo pi&ugrave; rapido di controllare la voce superiore &egrave; cantarla da sola.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e prende quello che nessuna regola prende. Se cantata senza il basso sembra una fila di note, lo &egrave; anche con il basso: solo che sotto c&rsquo;&egrave; qualcosa che la copre.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Ignorare un&rsquo;alterazione del basso &egrave; un errore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; uno <strong>spreco</strong>, che &egrave; una cosa diversa. Un&rsquo;alterazione, un salto, una ripetizione sono <strong>informazioni</strong>: chi non le usa scrive qualcosa di corretto che non dice niente.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Gli errori si concentrano nella prima parte del compito.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, nell&rsquo;<strong>ultima</strong>: il primo terzo di ogni foglio &egrave; curato, l&rsquo;ultimo &egrave; affrettato. Il rimedio pratico &egrave; cominciare dalla <strong>fine</strong>, cos&igrave; la parte stanca diventa quella di mezzo.",
+  "da": "lezione 4"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U6-L3-01">
+      <p class="titolo-consegna"><span class="num">2</span> Il secondo partimento, finito a casa</p>
+      <div class="testo">Finisci la realizzazione del <strong>secondo basso</strong> di stamattina, quello in re minore, a tre parti con la cifratura.<p class="dettaglio">⚠ E accanto a ogni scelta, il <strong>numero di battuta</strong> e una parola: dove hai messo una settima invece di una triade, dove hai cambiato posizione, dove hai deciso qualcosa.</p></div>
+    </div>
+    <div class="consegna" id="C5-U6-L3-02">
+      <p class="titolo-consegna"><span class="num">3</span> Lo stesso basso, cominciando dalla fine</p>
+      <div class="testo">Rifai il <strong>primo</strong> partimento di stamattina, ma partendo dalla <strong>cadenza finale</strong> e andando all&rsquo;indietro.<p class="dettaglio">Sotto, tre righe: che cosa &egrave; venuto <strong>meglio</strong> di stamattina, e che cosa peggio.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="4">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 4</span>
+        <h2>Lezione 4 &mdash; Correzione ragionata delle realizzazioni</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U6-L4-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; la correzione ragionata</p>
+      <div class="testo">Quattro affermazioni sul confronto fra due realizzazioni.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Fra due realizzazioni corrette si sceglie in base al gusto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: ci sono <strong>tre criteri</strong>, e i primi due sono quasi oggettivi. Usa quello che il basso dice? La voce superiore ha una forma? Le frasi respirano dove il basso si posa?",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Il modo pi&ugrave; rapido di controllare la voce superiore &egrave; cantarla da sola.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e prende quello che nessuna regola prende. Se cantata senza il basso sembra una fila di note, lo &egrave; anche con il basso: solo che sotto c&rsquo;&egrave; qualcosa che la copre.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Ignorare un&rsquo;alterazione del basso &egrave; un errore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: &egrave; uno <strong>spreco</strong>, che &egrave; una cosa diversa. Un&rsquo;alterazione, un salto, una ripetizione sono <strong>informazioni</strong>: chi non le usa scrive qualcosa di corretto che non dice niente.",
+  "da": "lezione 4"
+ },
+ {
+  "d": "Gli errori si concentrano nella prima parte del compito.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, nell&rsquo;<strong>ultima</strong>: il primo terzo di ogni foglio &egrave; curato, l&rsquo;ultimo &egrave; affrettato. Il rimedio pratico &egrave; cominciare dalla <strong>fine</strong>, cos&igrave; la parte stanca diventa quella di mezzo.",
+  "da": "lezione 4"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U6-L4-01">
+      <p class="titolo-consegna"><span class="num">2</span> La tua realizzazione, con i tre criteri</p>
+      <div class="testo">Riprendi il tuo foglio e applicagli i <strong>tre criteri</strong> di stamattina, uno per volta.<p class="dettaglio"><strong>1.</strong> Dove hai usato quello che il basso diceva, e dove no? <strong>2.</strong> Canta la voce superiore da sola: ha una forma? <strong>3.</strong> Le frasi respirano dove il basso si posa? Con il <strong>numero di battuta</strong> accanto a ogni risposta.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="5">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 5</span>
+        <h2>Lezione 5 &mdash; Analisi: le sequenze in un corale di Bach</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U6-L5-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; il corale misurato</p>
+      <div class="testo">Quattro affermazioni su che cosa il corale fa davvero, e su come &egrave; stato scelto.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "Il corale di Bach &egrave; stato scelto perch&eacute; contiene le sequenze giuste.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: l&rsquo;ha scelto una <strong>misura</strong>. Un programma ha cercato i disegni di basso ripetuti trasportati in centoventi partiture, e questo corale ha la proporzione pi&ugrave; alta &mdash; 28 note su 84 &mdash; e l&rsquo;unico disegno che torna tre volte.",
+  "da": "lezione 5"
+ },
+ {
+  "d": "Alle battute 3&ndash;4 la stessa figura compare tre volte, ogni volta un grado pi&ugrave; su.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: <strong>la&ndash;si&ndash;do&#9839;&ndash;la</strong>, poi <strong>si&ndash;do&#9839;&ndash;re&ndash;si</strong>, poi <strong>do&#9839;&ndash;re&ndash;mi&ndash;do&#9839;</strong>. Dodici note, <strong>una</strong> decisione.",
+  "da": "lezione 5"
+ },
+ {
+  "d": "Bach si ferma alla terza comparsa perch&eacute; tre &egrave; il numero giusto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: si ferma perch&eacute; alla terza &egrave; <strong>arrivato</strong> alla cadenza. La lunghezza di una sequenza la decide la <strong>distanza da coprire</strong>, non una regola sul numero.",
+  "da": "lezione 5"
+ },
+ {
+  "d": "Il piano prometteva Vivaldi, e Vivaldi non c&rsquo;era.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; il motivo per cui l&rsquo;ora ha un altro brano. Le tre strade erano: analizzarlo a memoria (no, sarebbe dedurre invece di misurare), sceglierne un altro a occhio (debole), oppure <strong>misurare</strong> quale ha davvero pi&ugrave; sequenze.",
+  "da": "lezione 5"
+ },
+ {
+  "d": "Lo stesso programma ha trovato un errore in una lezione gi&agrave; scritta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: la lezione dell&rsquo;ora 32 descriveva una sequenza nel Corelli che <strong>non c&rsquo;era</strong>. Era plausibile e non era stata misurata. Uno strumento fatto per misurare una cosa trova errori in un&rsquo;altra, ed &egrave; un argomento per scriverne di pi&ugrave;.",
+  "da": "lezione 5"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U6-L5-01">
+      <p class="titolo-consegna"><span class="num">2</span> La sequenza di Bach, e la tua</p>
+      <div class="testo">Metti accanto la <strong>sequenza del corale</strong> (bb.&nbsp;3&ndash;4) e quella che hai scritto tu per l&rsquo;ora 34. In cinque righe: che cosa fa Bach che tu non hai fatto.<p class="dettaglio">Guarda tre cose: la <strong>voce superiore</strong> durante la sequenza, come si <strong>esce</strong> alla fine, e quante <strong>comparse</strong> ci sono. Con il numero di battuta.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="6">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 6</span>
+        <h2>Lezione 6 &mdash; Un partimento lungo: gestire la forma</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U6-L6-03">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; la forma nel partimento lungo</p>
+      <div class="testo">Quattro affermazioni sulle cinque decisioni e sulla riserva.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "«Che accordo &egrave;» e «perch&eacute; qui» sono la stessa domanda detta in due modi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: la prima &egrave; <strong>locale</strong> e si risponde guardando le note che suonano insieme; la seconda &egrave; una <strong>relazione</strong> e si risponde guardando che cosa c&rsquo;&egrave; prima e dopo. All&rsquo;esame la seconda pesa di pi&ugrave;.",
+  "da": "lezione 7"
+ },
+ {
+  "d": "In un pezzo tonale tutto quello che sta fra due cadenze &egrave; un modo di arrivare alla seconda.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; la regola che tiene insieme l&rsquo;unit&agrave;. Sequenze, catene di settime, modulazioni: sono <strong>mezzi di trasporto</strong>. La domanda giusta &egrave; quanta strada c&rsquo;era da fare, e con che mezzo.",
+  "da": "lezione 7"
+ },
+ {
+  "d": "In un pezzo lungo conviene mettere il meglio dappertutto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: il meglio dappertutto <strong>appiattisce</strong>. &Egrave; la stessa cosa che sapete della dinamica &mdash; un forte che dura dieci minuti non &egrave; forte. Si tiene qualcosa in <strong>riserva</strong>.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Il culmine di un pezzo si fa con strumenti che la classe non ha ancora.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: bastano <strong>due su tre</strong> fra la nota pi&ugrave; acuta della voce superiore (una volta sola in tutto il pezzo), la <strong>densit&agrave;</strong> delle dissonanze e il <strong>ritmo armonico</strong>. Sono tutte cose che avete.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Quando un basso torna uguale, conviene sempre realizzarlo uguale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sono due strade e tutte e due legittime. <strong>Uguale</strong> la seconda volta fissa il materiale; <strong>diverso</strong> fa sentire che qualcosa &egrave; cambiato, ed &egrave; l&rsquo;effetto pi&ugrave; forte. La regola pratica: uguale la seconda, diverso la terza.",
+  "da": "lezione 6"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U6-L6-01">
+      <p class="titolo-consegna"><span class="num">2</span> Le prime dieci battute del partimento lungo</p>
+      <div class="testo">Realizza le <strong>battute 1&ndash;10</strong> del basso di stamattina, a tre parti con la cifratura, <strong>seguendo il progetto</strong> che hai scritto in classe.<p class="dettaglio">⚠ Il progetto va allegato. Se scrivendo lo hai cambiato, scrivi <strong>che cosa</strong> e <strong>perch&eacute;</strong>: cambiare il piano si pu&ograve;, cambiare una battuta lasciando il resto no.</p></div>
+    </div>
+    <div class="consegna" id="C5-U6-L6-02">
+      <p class="titolo-consegna"><span class="num">3</span> Il progetto di un pezzo che non hai ancora scritto</p>
+      <div class="testo">Scrivi <strong>tu</strong> un basso di sedici battute, e poi il suo <strong>progetto</strong> in cinque righe. Non realizzarlo.<p class="dettaglio">Le cinque decisioni dell&rsquo;ora 39: cadenze, frasi, culmine, riserva, sequenze. Il basso deve contenere almeno una <strong>sequenza</strong> e una <strong>modulazione</strong>.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="7">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 7</span>
+        <h2>Lezione 7 &mdash; Analisi: forma e armonia insieme</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U6-L7-02">
+      <p class="titolo-consegna"><span class="num">1</span> Vero o falso &middot; forma e armonia</p>
+      <div class="testo">Quattro affermazioni sulle due domande dell&rsquo;analisi.</div>
+      <div class="online-vivo no-stampa">
+    <tac-quiz quante="4">
+[
+ {
+  "d": "«Che accordo &egrave;» e «perch&eacute; qui» sono la stessa domanda detta in due modi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: la prima &egrave; <strong>locale</strong> e si risponde guardando le note che suonano insieme; la seconda &egrave; una <strong>relazione</strong> e si risponde guardando che cosa c&rsquo;&egrave; prima e dopo. All&rsquo;esame la seconda pesa di pi&ugrave;.",
+  "da": "lezione 7"
+ },
+ {
+  "d": "In un pezzo tonale tutto quello che sta fra due cadenze &egrave; un modo di arrivare alla seconda.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; la regola che tiene insieme l&rsquo;unit&agrave;. Sequenze, catene di settime, modulazioni: sono <strong>mezzi di trasporto</strong>. La domanda giusta &egrave; quanta strada c&rsquo;era da fare, e con che mezzo.",
+  "da": "lezione 7"
+ },
+ {
+  "d": "In un pezzo lungo conviene mettere il meglio dappertutto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: il meglio dappertutto <strong>appiattisce</strong>. &Egrave; la stessa cosa che sapete della dinamica &mdash; un forte che dura dieci minuti non &egrave; forte. Si tiene qualcosa in <strong>riserva</strong>.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Il culmine di un pezzo si fa con strumenti che la classe non ha ancora.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: bastano <strong>due su tre</strong> fra la nota pi&ugrave; acuta della voce superiore (una volta sola in tutto il pezzo), la <strong>densit&agrave;</strong> delle dissonanze e il <strong>ritmo armonico</strong>. Sono tutte cose che avete.",
+  "da": "lezione 6"
+ },
+ {
+  "d": "Quando un basso torna uguale, conviene sempre realizzarlo uguale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: sono due strade e tutte e due legittime. <strong>Uguale</strong> la seconda volta fissa il materiale; <strong>diverso</strong> fa sentire che qualcosa &egrave; cambiato, ed &egrave; l&rsquo;effetto pi&ugrave; forte. La regola pratica: uguale la seconda, diverso la terza.",
+  "da": "lezione 6"
+ }
+]
+    </tac-quiz>
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U6-L7-01">
+      <p class="titolo-consegna"><span class="num">2</span> Un pezzo del tuo repertorio, in tre righe</p>
+      <div class="testo">Prendi un pezzo che stai studiando e guardalo con le due domande di stamattina.<p class="dettaglio"><strong>1.</strong> Dove sono i <strong>punti di riposo</strong>, con i numeri di battuta. <strong>2.</strong> Per ogni tratto in mezzo, con che <strong>mezzo</strong> ci si arriva. <strong>3.</strong> Quale tratto &egrave; il pi&ugrave; lungo, e se &egrave; anche il pi&ugrave; mosso.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="99">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Tutta l&rsquo;unità insieme</span>
+        <h2>Ripasso di fine unità</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna verifica" id="C5U6V">
+      <p class="titolo-consegna"><span class="num">1</span> Verifica di fine unit&agrave; 6</p>
+      <div class="testo">1 esercizi, uno per volta. Non si torna indietro: prima di rispondere pensaci. Alla fine esce un <strong>codice</strong> che consegni su Classroom.<br><strong>&Egrave; l&rsquo;unica cosa dell&rsquo;unit&agrave; che fa voto.</strong></div>
+      <div class="online-vivo no-stampa">
+        <tac-verifica sigla="C5U6V" dove="casa" titolo="Verifica di fine unità 6">
+    <tac-quiz quante="6" scheda="C5U6U01" peso="3">
+[
+ {
+  "d": "Il corale di Bach &egrave; stato scelto perch&eacute; contiene le sequenze giuste.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Alle battute 3&ndash;4 la stessa figura compare tre volte, ogni volta un grado pi&ugrave; su.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Bach si ferma alla terza comparsa perch&eacute; tre &egrave; il numero giusto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Il piano prometteva Vivaldi, e Vivaldi non c&rsquo;era.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Lo stesso programma ha trovato un errore in una lezione gi&agrave; scritta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Fra due realizzazioni corrette si sceglie in base al gusto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Il modo pi&ugrave; rapido di controllare la voce superiore &egrave; cantarla da sola.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Ignorare un&rsquo;alterazione del basso &egrave; un errore.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Gli errori si concentrano nella prima parte del compito.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "«Che accordo &egrave;» e «perch&eacute; qui» sono la stessa domanda detta in due modi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "In un pezzo tonale tutto quello che sta fra due cadenze &egrave; un modo di arrivare alla seconda.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "In un pezzo lungo conviene mettere il meglio dappertutto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Il culmine di un pezzo si fa con strumenti che la classe non ha ancora.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Quando un basso torna uguale, conviene sempre realizzarlo uguale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 6"
+ },
+ {
+  "d": "Leggendo un basso si comincia dalla prima nota.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Un gruppo si dichiara tale quando la figura ha almeno tre note.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Dopo aver visto un gruppo conviene ricontrollarlo nota per nota.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "La velocit&agrave; nella lettura viene dallo sforzo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 2"
+ },
+ {
+  "d": "Una sequenza &egrave; un accordo ripetuto pi&ugrave; volte.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Una sequenza &egrave; una formula che si sposta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Una sequenza realizzata male &egrave; sbagliata una volta sola.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Un motivo riproposto e una sequenza fanno lo stesso effetto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ },
+ {
+  "d": "Quasi tutte le sequenze fanno due o tre passi.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 1"
+ }
+]
+    </tac-quiz>
+        </tac-verifica>
+      </div>
+      <div class="esito"><span class="etichetta-esito">Codice ottenuto</span><span class="casella-codice"></span></div>
+    </div>
+    </section>
+  </div>
+
+</div>
+
+<footer class="piede no-stampa">
+  <div class="piede-interno">
+    <p><a href="../">&larr; Torna alla classe 5&ordf;</a>  &middot;  <a href="solfeggi-classe-5.html">Il quaderno di lettura · tutto l'anno</a></p>
+    <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
+  </div>
+</footer>
+
+<script>
+/* «Stampa solo questa». Il compito della settimana e una pagina: se per
+   averla si deve mandare in stampa il fascicolo intero e poi scegliere gli
+   intervalli di pagina nel pannello del browser, nessuno lo fa, e si
+   stampano undici fogli per usarne uno. Il pulsante nasconde gli altri
+   blocchi per la durata della stampa e li rimette a posto subito dopo. */
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-stampa]');
+  if (!b) return;
+  var blocco = b.closest('.lez');
+  document.body.classList.add('stampa-una');
+  blocco.classList.add('da-stampare');
+  var pulisci = function () {
+    document.body.classList.remove('stampa-una');
+    blocco.classList.remove('da-stampare');
+    window.removeEventListener('afterprint', pulisci);
+  };
+  window.addEventListener('afterprint', pulisci);
+  window.print();
+});
+</script>
+</body>
+</html>

@@ -79,6 +79,10 @@
                            font-weight: 700; color: var(--classe);
                            font-size: .8rem; letter-spacing: .08em;
                            text-transform: uppercase; break-after: avoid; }
+  .indice-libro li.da-unita { display: block; margin: .5rem 0 .2rem;
+                              font-weight: 700; font-style: italic;
+                              color: var(--inchiostro2); font-size: .86rem;
+                              break-after: avoid; }
   .indice-libro .n { min-width: 1.9rem; text-align: right; font-weight: 700;
                      color: var(--classe); }
   .indice-libro .t { flex: 1; }
@@ -106,6 +110,16 @@
              font-weight: 700; color: var(--classe); }
   .gradino .quanti { font-weight: 400; letter-spacing: 0; text-transform: none;
                      color: var(--inchiostro2); }
+
+  /* IL NOME DELL'UNITÀ, una volta sola quando cambia. Prima stava
+     davanti al titolo di ogni pezzo — quattordici volte di fila la
+     stessa frase — e i titoli veri, che sono la metà destra, si
+     leggevano male perché tutti cominciavano allo stesso modo. Qui è
+     una divisione dentro il gradino, e infatti pesa meno di lui: niente
+     maiuscoletto, niente riga sotto. */
+  .da-unita { break-inside: avoid; break-after: avoid;
+              margin: 1.1rem 0 .5rem; font-size: .95rem; font-weight: 700;
+              color: var(--inchiostro2); font-style: italic; }
 
   /* UN SOLFEGGIO NON SI SPEZZA FRA DUE PAGINE. Un rigo tagliato a metà
      dalla piegatura non si legge: si perde proprio la battuta a cavallo,
@@ -244,26 +258,28 @@
       <li><span class="n">4</span><span class="t">Fino al la</span><span class="s">Solfeggio parlato</span></li>
       <li><span class="n">5</span><span class="t">L&rsquo;ottava intera</span><span class="s">Solfeggio parlato</span></li>
       <li><span class="n">6</span><span class="t">Una nota sola, e il battito sotto</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">7</span><span class="t">Semiminime e minime &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">8</span><span class="t">Semiminime e minime &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">9</span><span class="t">Semiminime e minime &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">10</span><span class="t">Semiminime e minime &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">11</span><span class="t">Semiminime e minime &middot; 5</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">12</span><span class="t">Semiminime e minime &middot; 6</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">13</span><span class="t">Semiminime e minime &middot; 7</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">14</span><span class="t">Semiminime e minime &middot; 8</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">15</span><span class="t">Semiminime e minime &middot; 9</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">16</span><span class="t">Semiminime e minime &middot; 10</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">17</span><span class="t">Con le pause &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">18</span><span class="t">Con le pause &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">19</span><span class="t">Con le pause &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">20</span><span class="t">Con le pause &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">21</span><span class="t">Con le pause &middot; 5</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">22</span><span class="t">Con le pause &middot; 6</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">23</span><span class="t">Con le pause &middot; 7</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">24</span><span class="t">Con le pause &middot; 8</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">25</span><span class="t">Con le pause &middot; 9</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">26</span><span class="t">Con le pause &middot; 10</span><span class="s">Solfeggio ritmico</span></li>
+      <li class="da-unita">Semiminime e minime</li>
+      <li><span class="n">7</span><span class="t">1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">8</span><span class="t">2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">9</span><span class="t">3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">10</span><span class="t">4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">11</span><span class="t">5</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">12</span><span class="t">6</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">13</span><span class="t">7</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">14</span><span class="t">8</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">15</span><span class="t">9</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">16</span><span class="t">10</span><span class="s">Solfeggio ritmico</span></li>
+      <li class="da-unita">Con le pause</li>
+      <li><span class="n">17</span><span class="t">1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">18</span><span class="t">2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">19</span><span class="t">3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">20</span><span class="t">4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">21</span><span class="t">5</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">22</span><span class="t">6</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">23</span><span class="t">7</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">24</span><span class="t">8</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">25</span><span class="t">9</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">26</span><span class="t">10</span><span class="s">Solfeggio ritmico</span></li>
       <li><span class="n">27</span><span class="t">Cinque minuti al giorno, in tre</span><span class="s">Solfeggio ritmico</span></li>
       <li><span class="n">28</span><span class="t">Un culmine solo</span><span class="s">Solfeggio cantato</span></li>
       <li><span class="n">29</span><span class="t">In tre quarti, cantabile</span><span class="s">Solfeggio cantato</span></li>
@@ -282,36 +298,39 @@
       <li><span class="n">42</span><span class="t">Il pentacordo, e una nota alterata</span><span class="s">Solfeggio cantato</span></li>
       <li><span class="n">43</span><span class="t">La scala di do, andata e ritorno</span><span class="s">Solfeggio cantato</span></li>
       <li class="salto">Secondo gradino</li>
-      <li><span class="n">44</span><span class="t">Due dentro un battito &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">45</span><span class="t">Due dentro un battito &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">46</span><span class="t">Due dentro un battito &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">47</span><span class="t">Due dentro un battito &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">48</span><span class="t">Due dentro un battito &middot; 5</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">49</span><span class="t">Due dentro un battito &middot; 6</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">50</span><span class="t">Due dentro un battito &middot; 7</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">51</span><span class="t">Due dentro un battito &middot; 8</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">52</span><span class="t">Due dentro un battito &middot; 9</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">53</span><span class="t">Due dentro un battito &middot; 10</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">54</span><span class="t">Il punto allunga di metà &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">55</span><span class="t">Il punto allunga di metà &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">56</span><span class="t">Il punto allunga di metà &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">57</span><span class="t">Il punto allunga di metà &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">58</span><span class="t">Il punto allunga di metà &middot; 5</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">59</span><span class="t">Il punto allunga di metà &middot; 6</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">60</span><span class="t">Il punto allunga di metà &middot; 7</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">61</span><span class="t">Il punto allunga di metà &middot; 8</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">62</span><span class="t">Il punto allunga di metà &middot; 9</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">63</span><span class="t">Il punto allunga di metà &middot; 10</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">64</span><span class="t">Con la legatura &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">65</span><span class="t">Con la legatura &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">66</span><span class="t">Con la legatura &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">67</span><span class="t">Con la legatura &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">68</span><span class="t">Con la legatura &middot; 5</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">69</span><span class="t">Con la legatura &middot; 6</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">70</span><span class="t">Con la legatura &middot; 7</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">71</span><span class="t">Con la legatura &middot; 8</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">72</span><span class="t">Con la legatura &middot; 9</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">73</span><span class="t">Con la legatura &middot; 10</span><span class="s">Solfeggio ritmico</span></li>
+      <li class="da-unita">Due dentro un battito</li>
+      <li><span class="n">44</span><span class="t">1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">45</span><span class="t">2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">46</span><span class="t">3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">47</span><span class="t">4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">48</span><span class="t">5</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">49</span><span class="t">6</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">50</span><span class="t">7</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">51</span><span class="t">8</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">52</span><span class="t">9</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">53</span><span class="t">10</span><span class="s">Solfeggio ritmico</span></li>
+      <li class="da-unita">Il punto allunga di metà</li>
+      <li><span class="n">54</span><span class="t">1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">55</span><span class="t">2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">56</span><span class="t">3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">57</span><span class="t">4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">58</span><span class="t">5</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">59</span><span class="t">6</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">60</span><span class="t">7</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">61</span><span class="t">8</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">62</span><span class="t">9</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">63</span><span class="t">10</span><span class="s">Solfeggio ritmico</span></li>
+      <li class="da-unita">Con la legatura</li>
+      <li><span class="n">64</span><span class="t">1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">65</span><span class="t">2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">66</span><span class="t">3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">67</span><span class="t">4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">68</span><span class="t">5</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">69</span><span class="t">6</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">70</span><span class="t">7</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">71</span><span class="t">8</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">72</span><span class="t">9</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">73</span><span class="t">10</span><span class="s">Solfeggio ritmico</span></li>
       <li><span class="n">74</span><span class="t">Otto battute in tre, a due gruppi</span><span class="s">Solfeggio ritmico</span></li>
       <li><span class="n">75</span><span class="t">I primi tagli, sotto il rigo</span><span class="s">Solfeggio parlato</span></li>
       <li><span class="n">76</span><span class="t">Con le alterazioni, e la stanghetta che azzera</span><span class="s">Solfeggio parlato</span></li>
@@ -357,42 +376,46 @@
       <li><span class="n">116</span><span class="t">L'arpeggio minore, subito dopo</span><span class="s">Solfeggio cantato</span></li>
       <li><span class="n">117</span><span class="t">Salti d'accordo dentro una melodia</span><span class="s">Solfeggio cantato</span></li>
       <li><span class="n">118</span><span class="t">In sei ottavi, e i nomi restano quelli</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">119</span><span class="t">Sei ottavi &middot; Due movimenti &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">120</span><span class="t">Sei ottavi &middot; Due movimenti &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">121</span><span class="t">Sei ottavi &middot; Due movimenti &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
+      <li class="da-unita">Sei ottavi</li>
+      <li><span class="n">119</span><span class="t">Due movimenti &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">120</span><span class="t">Due movimenti &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">121</span><span class="t">Due movimenti &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
       <li><span class="n">122</span><span class="t">In sei ottavi, cantato</span><span class="s">Solfeggio cantato</span></li>
       <li><span class="n">123</span><span class="t">Una frase che chiude, e una che non chiude</span><span class="s">Solfeggio cantato</span></li>
       <li class="salto">Terzo gradino</li>
-      <li><span class="n">124</span><span class="t">Tre quarti &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">125</span><span class="t">Tre quarti &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">126</span><span class="t">Tre quarti &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">127</span><span class="t">Tre quarti &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">128</span><span class="t">Tre quarti &middot; 5</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">129</span><span class="t">Tre quarti &middot; 6</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">130</span><span class="t">Tre quarti &middot; 7</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">131</span><span class="t">Tre quarti &middot; 8</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">132</span><span class="t">Tre quarti &middot; 9</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">133</span><span class="t">Tre quarti &middot; 10</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">134</span><span class="t">Tre quarti, con le crome &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">135</span><span class="t">Tre quarti, con le crome &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">136</span><span class="t">Tre quarti, con le crome &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">137</span><span class="t">Tre quarti, con le crome &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">138</span><span class="t">Tre quarti, con le crome &middot; 5</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">139</span><span class="t">Tre quarti, con le crome &middot; 6</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">140</span><span class="t">Tre quarti, con le crome &middot; 7</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">141</span><span class="t">Tre quarti, con le crome &middot; 8</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">142</span><span class="t">Tre quarti, con le crome &middot; 9</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">143</span><span class="t">Tre quarti, con le crome &middot; 10</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">144</span><span class="t">Tutto quello che sai &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">145</span><span class="t">Tutto quello che sai &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">146</span><span class="t">Tutto quello che sai &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">147</span><span class="t">Tutto quello che sai &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">148</span><span class="t">Tutto quello che sai &middot; 5</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">149</span><span class="t">Tutto quello che sai &middot; 6</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">150</span><span class="t">Tutto quello che sai &middot; 7</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">151</span><span class="t">Tutto quello che sai &middot; 8</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">152</span><span class="t">Tutto quello che sai &middot; 9</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">153</span><span class="t">Tutto quello che sai &middot; 10</span><span class="s">Solfeggio ritmico</span></li>
+      <li class="da-unita">Tre quarti</li>
+      <li><span class="n">124</span><span class="t">1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">125</span><span class="t">2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">126</span><span class="t">3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">127</span><span class="t">4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">128</span><span class="t">5</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">129</span><span class="t">6</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">130</span><span class="t">7</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">131</span><span class="t">8</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">132</span><span class="t">9</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">133</span><span class="t">10</span><span class="s">Solfeggio ritmico</span></li>
+      <li class="da-unita">Tre quarti, con le crome</li>
+      <li><span class="n">134</span><span class="t">1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">135</span><span class="t">2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">136</span><span class="t">3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">137</span><span class="t">4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">138</span><span class="t">5</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">139</span><span class="t">6</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">140</span><span class="t">7</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">141</span><span class="t">8</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">142</span><span class="t">9</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">143</span><span class="t">10</span><span class="s">Solfeggio ritmico</span></li>
+      <li class="da-unita">Tutto quello che sai</li>
+      <li><span class="n">144</span><span class="t">1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">145</span><span class="t">2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">146</span><span class="t">3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">147</span><span class="t">4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">148</span><span class="t">5</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">149</span><span class="t">6</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">150</span><span class="t">7</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">151</span><span class="t">8</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">152</span><span class="t">9</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">153</span><span class="t">10</span><span class="s">Solfeggio ritmico</span></li>
       <li><span class="n">154</span><span class="t">Sol maggiore, un diesis</span><span class="s">Solfeggio parlato</span></li>
       <li><span class="n">155</span><span class="t">Fa maggiore, un bemolle</span><span class="s">Solfeggio parlato</span></li>
       <li><span class="n">156</span><span class="t">Re maggiore, due diesis</span><span class="s">Solfeggio parlato</span></li>
@@ -407,13 +430,14 @@
       <li><span class="n">165</span><span class="t">Una linea che non si ferma</span><span class="s">Solfeggio cantato</span></li>
       <li><span class="n">166</span><span class="t">Le semicrome</span><span class="s">Solfeggio parlato</span></li>
       <li><span class="n">167</span><span class="t">Chiave di basso, ambito largo</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">168</span><span class="t">Sei ottavi &middot; Due terzi e un terzo &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">169</span><span class="t">Sei ottavi &middot; Due terzi e un terzo &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">170</span><span class="t">Sei ottavi &middot; Due terzi e un terzo &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">171</span><span class="t">Sei ottavi &middot; Due terzi e un terzo &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">172</span><span class="t">Sei ottavi &middot; Le pause dentro il movimento &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">173</span><span class="t">Sei ottavi &middot; Le pause dentro il movimento &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
-      <li><span class="n">174</span><span class="t">Sei ottavi &middot; Le pause dentro il movimento &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
+      <li class="da-unita">Sei ottavi</li>
+      <li><span class="n">168</span><span class="t">Due terzi e un terzo &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">169</span><span class="t">Due terzi e un terzo &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">170</span><span class="t">Due terzi e un terzo &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">171</span><span class="t">Due terzi e un terzo &middot; 4</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">172</span><span class="t">Le pause dentro il movimento &middot; 1</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">173</span><span class="t">Le pause dentro il movimento &middot; 2</span><span class="s">Solfeggio ritmico</span></li>
+      <li><span class="n">174</span><span class="t">Le pause dentro il movimento &middot; 3</span><span class="s">Solfeggio ritmico</span></li>
       <li><span class="n">175</span><span class="t">In mi bemolle maggiore</span><span class="s">Solfeggio cantato</span></li>
       <li><span class="n">176</span><span class="t">In la maggiore</span><span class="s">Solfeggio cantato</span></li>
       <li><span class="n">177</span><span class="t">In re minore</span><span class="s">Solfeggio cantato</span></li>
@@ -421,10 +445,11 @@
       <li><span class="n">179</span><span class="t">Il pezzo pi&ugrave; lungo del quaderno</span><span class="s">Solfeggio cantato</span></li>
       <li><span class="n">180</span><span class="t">Mi bemolle maggiore, tre bemolli</span><span class="s">Solfeggio parlato</span></li>
       <li><span class="n">181</span><span class="t">La maggiore, tre diesis</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">182</span><span class="t">Due voci &middot; Terze e seste &middot; cadenza autentica</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">183</span><span class="t">Due voci &middot; Moto contrario &middot; cadenza plagale</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">184</span><span class="t">Due voci &middot; La voce di sotto si muove &middot; cadenza autentica</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">185</span><span class="t">Due voci &middot; Le due voci si scambiano &middot; cadenza autentica</span><span class="s">Solfeggio cantato</span></li>
+      <li class="da-unita">Due voci</li>
+      <li><span class="n">182</span><span class="t">Terze e seste &middot; cadenza autentica</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">183</span><span class="t">Moto contrario &middot; cadenza plagale</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">184</span><span class="t">La voce di sotto si muove &middot; cadenza autentica</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">185</span><span class="t">Le due voci si scambiano &middot; cadenza autentica</span><span class="s">Solfeggio cantato</span></li>
     </ol>
   </section>
 
@@ -490,11 +515,12 @@
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/5486b1729d9a-1.svg" alt="">
     </article>
+    <div class="da-unita">Semiminime e minime</div>
     <article class="solf" id="n7">
       <div class="testa">
         <span class="numero">7</span>
         <div>
-          <h3>Semiminime e minime &middot; 1</h3>
+          <h3>1</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -504,7 +530,7 @@
       <div class="testa">
         <span class="numero">8</span>
         <div>
-          <h3>Semiminime e minime &middot; 2</h3>
+          <h3>2</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -514,7 +540,7 @@
       <div class="testa">
         <span class="numero">9</span>
         <div>
-          <h3>Semiminime e minime &middot; 3</h3>
+          <h3>3</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -524,7 +550,7 @@
       <div class="testa">
         <span class="numero">10</span>
         <div>
-          <h3>Semiminime e minime &middot; 4</h3>
+          <h3>4</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -534,7 +560,7 @@
       <div class="testa">
         <span class="numero">11</span>
         <div>
-          <h3>Semiminime e minime &middot; 5</h3>
+          <h3>5</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -544,7 +570,7 @@
       <div class="testa">
         <span class="numero">12</span>
         <div>
-          <h3>Semiminime e minime &middot; 6</h3>
+          <h3>6</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -554,7 +580,7 @@
       <div class="testa">
         <span class="numero">13</span>
         <div>
-          <h3>Semiminime e minime &middot; 7</h3>
+          <h3>7</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -564,7 +590,7 @@
       <div class="testa">
         <span class="numero">14</span>
         <div>
-          <h3>Semiminime e minime &middot; 8</h3>
+          <h3>8</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -574,7 +600,7 @@
       <div class="testa">
         <span class="numero">15</span>
         <div>
-          <h3>Semiminime e minime &middot; 9</h3>
+          <h3>9</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -584,17 +610,18 @@
       <div class="testa">
         <span class="numero">16</span>
         <div>
-          <h3>Semiminime e minime &middot; 10</h3>
+          <h3>10</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/f97b8ee73e5d-1.svg" alt="">
     </article>
+    <div class="da-unita">Con le pause</div>
     <article class="solf" id="n17">
       <div class="testa">
         <span class="numero">17</span>
         <div>
-          <h3>Con le pause &middot; 1</h3>
+          <h3>1</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -604,7 +631,7 @@
       <div class="testa">
         <span class="numero">18</span>
         <div>
-          <h3>Con le pause &middot; 2</h3>
+          <h3>2</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -614,7 +641,7 @@
       <div class="testa">
         <span class="numero">19</span>
         <div>
-          <h3>Con le pause &middot; 3</h3>
+          <h3>3</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -624,7 +651,7 @@
       <div class="testa">
         <span class="numero">20</span>
         <div>
-          <h3>Con le pause &middot; 4</h3>
+          <h3>4</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -634,7 +661,7 @@
       <div class="testa">
         <span class="numero">21</span>
         <div>
-          <h3>Con le pause &middot; 5</h3>
+          <h3>5</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -644,7 +671,7 @@
       <div class="testa">
         <span class="numero">22</span>
         <div>
-          <h3>Con le pause &middot; 6</h3>
+          <h3>6</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -654,7 +681,7 @@
       <div class="testa">
         <span class="numero">23</span>
         <div>
-          <h3>Con le pause &middot; 7</h3>
+          <h3>7</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -664,7 +691,7 @@
       <div class="testa">
         <span class="numero">24</span>
         <div>
-          <h3>Con le pause &middot; 8</h3>
+          <h3>8</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -674,7 +701,7 @@
       <div class="testa">
         <span class="numero">25</span>
         <div>
-          <h3>Con le pause &middot; 9</h3>
+          <h3>9</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -684,7 +711,7 @@
       <div class="testa">
         <span class="numero">26</span>
         <div>
-          <h3>Con le pause &middot; 10</h3>
+          <h3>10</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -861,11 +888,12 @@
       <img class="inciso" style="width:155.4mm" src="incisioni/e98a77e6c8f7-1.svg" alt="">
     </article>
     <div class="gradino"><span>Secondo gradino</span><span class="quanti">80 pezzi</span></div>
+    <div class="da-unita">Due dentro un battito</div>
     <article class="solf" id="n44">
       <div class="testa">
         <span class="numero">44</span>
         <div>
-          <h3>Due dentro un battito &middot; 1</h3>
+          <h3>1</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -875,7 +903,7 @@
       <div class="testa">
         <span class="numero">45</span>
         <div>
-          <h3>Due dentro un battito &middot; 2</h3>
+          <h3>2</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -885,7 +913,7 @@
       <div class="testa">
         <span class="numero">46</span>
         <div>
-          <h3>Due dentro un battito &middot; 3</h3>
+          <h3>3</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -895,7 +923,7 @@
       <div class="testa">
         <span class="numero">47</span>
         <div>
-          <h3>Due dentro un battito &middot; 4</h3>
+          <h3>4</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -905,7 +933,7 @@
       <div class="testa">
         <span class="numero">48</span>
         <div>
-          <h3>Due dentro un battito &middot; 5</h3>
+          <h3>5</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -915,7 +943,7 @@
       <div class="testa">
         <span class="numero">49</span>
         <div>
-          <h3>Due dentro un battito &middot; 6</h3>
+          <h3>6</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -925,7 +953,7 @@
       <div class="testa">
         <span class="numero">50</span>
         <div>
-          <h3>Due dentro un battito &middot; 7</h3>
+          <h3>7</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -935,7 +963,7 @@
       <div class="testa">
         <span class="numero">51</span>
         <div>
-          <h3>Due dentro un battito &middot; 8</h3>
+          <h3>8</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -945,7 +973,7 @@
       <div class="testa">
         <span class="numero">52</span>
         <div>
-          <h3>Due dentro un battito &middot; 9</h3>
+          <h3>9</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -955,17 +983,18 @@
       <div class="testa">
         <span class="numero">53</span>
         <div>
-          <h3>Due dentro un battito &middot; 10</h3>
+          <h3>10</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/2ccf539d6f6e-1.svg" alt="">
     </article>
+    <div class="da-unita">Il punto allunga di metà</div>
     <article class="solf" id="n54">
       <div class="testa">
         <span class="numero">54</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 1</h3>
+          <h3>1</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -975,7 +1004,7 @@
       <div class="testa">
         <span class="numero">55</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 2</h3>
+          <h3>2</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -985,7 +1014,7 @@
       <div class="testa">
         <span class="numero">56</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 3</h3>
+          <h3>3</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -995,7 +1024,7 @@
       <div class="testa">
         <span class="numero">57</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 4</h3>
+          <h3>4</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1005,7 +1034,7 @@
       <div class="testa">
         <span class="numero">58</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 5</h3>
+          <h3>5</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1015,7 +1044,7 @@
       <div class="testa">
         <span class="numero">59</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 6</h3>
+          <h3>6</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1025,7 +1054,7 @@
       <div class="testa">
         <span class="numero">60</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 7</h3>
+          <h3>7</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1035,7 +1064,7 @@
       <div class="testa">
         <span class="numero">61</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 8</h3>
+          <h3>8</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1045,7 +1074,7 @@
       <div class="testa">
         <span class="numero">62</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 9</h3>
+          <h3>9</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1055,17 +1084,18 @@
       <div class="testa">
         <span class="numero">63</span>
         <div>
-          <h3>Il punto allunga di metà &middot; 10</h3>
+          <h3>10</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/6fc1e7ad1b4f-1.svg" alt="">
     </article>
+    <div class="da-unita">Con la legatura</div>
     <article class="solf" id="n64">
       <div class="testa">
         <span class="numero">64</span>
         <div>
-          <h3>Con la legatura &middot; 1</h3>
+          <h3>1</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1075,7 +1105,7 @@
       <div class="testa">
         <span class="numero">65</span>
         <div>
-          <h3>Con la legatura &middot; 2</h3>
+          <h3>2</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1085,7 +1115,7 @@
       <div class="testa">
         <span class="numero">66</span>
         <div>
-          <h3>Con la legatura &middot; 3</h3>
+          <h3>3</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1095,7 +1125,7 @@
       <div class="testa">
         <span class="numero">67</span>
         <div>
-          <h3>Con la legatura &middot; 4</h3>
+          <h3>4</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1105,7 +1135,7 @@
       <div class="testa">
         <span class="numero">68</span>
         <div>
-          <h3>Con la legatura &middot; 5</h3>
+          <h3>5</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1115,7 +1145,7 @@
       <div class="testa">
         <span class="numero">69</span>
         <div>
-          <h3>Con la legatura &middot; 6</h3>
+          <h3>6</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1125,7 +1155,7 @@
       <div class="testa">
         <span class="numero">70</span>
         <div>
-          <h3>Con la legatura &middot; 7</h3>
+          <h3>7</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1135,7 +1165,7 @@
       <div class="testa">
         <span class="numero">71</span>
         <div>
-          <h3>Con la legatura &middot; 8</h3>
+          <h3>8</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1145,7 +1175,7 @@
       <div class="testa">
         <span class="numero">72</span>
         <div>
-          <h3>Con la legatura &middot; 9</h3>
+          <h3>9</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1155,7 +1185,7 @@
       <div class="testa">
         <span class="numero">73</span>
         <div>
-          <h3>Con la legatura &middot; 10</h3>
+          <h3>10</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1611,11 +1641,12 @@
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/9a615d6531aa-1.svg" alt="">
     </article>
+    <div class="da-unita">Sei ottavi</div>
     <article class="solf" id="n119">
       <div class="testa">
         <span class="numero">119</span>
         <div>
-          <h3>Sei ottavi &middot; Due movimenti &middot; 1</h3>
+          <h3>Due movimenti &middot; 1</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1625,7 +1656,7 @@
       <div class="testa">
         <span class="numero">120</span>
         <div>
-          <h3>Sei ottavi &middot; Due movimenti &middot; 2</h3>
+          <h3>Due movimenti &middot; 2</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1635,7 +1666,7 @@
       <div class="testa">
         <span class="numero">121</span>
         <div>
-          <h3>Sei ottavi &middot; Due movimenti &middot; 3</h3>
+          <h3>Due movimenti &middot; 3</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1662,11 +1693,12 @@
       <img class="inciso" style="width:155.4mm" src="incisioni/c76d3d6b8c87-1.svg" alt="">
     </article>
     <div class="gradino"><span>Terzo gradino</span><span class="quanti">62 pezzi</span></div>
+    <div class="da-unita">Tre quarti</div>
     <article class="solf" id="n124">
       <div class="testa">
         <span class="numero">124</span>
         <div>
-          <h3>Tre quarti &middot; 1</h3>
+          <h3>1</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1676,7 +1708,7 @@
       <div class="testa">
         <span class="numero">125</span>
         <div>
-          <h3>Tre quarti &middot; 2</h3>
+          <h3>2</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1686,7 +1718,7 @@
       <div class="testa">
         <span class="numero">126</span>
         <div>
-          <h3>Tre quarti &middot; 3</h3>
+          <h3>3</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1696,7 +1728,7 @@
       <div class="testa">
         <span class="numero">127</span>
         <div>
-          <h3>Tre quarti &middot; 4</h3>
+          <h3>4</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1706,7 +1738,7 @@
       <div class="testa">
         <span class="numero">128</span>
         <div>
-          <h3>Tre quarti &middot; 5</h3>
+          <h3>5</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1716,7 +1748,7 @@
       <div class="testa">
         <span class="numero">129</span>
         <div>
-          <h3>Tre quarti &middot; 6</h3>
+          <h3>6</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1726,7 +1758,7 @@
       <div class="testa">
         <span class="numero">130</span>
         <div>
-          <h3>Tre quarti &middot; 7</h3>
+          <h3>7</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1736,7 +1768,7 @@
       <div class="testa">
         <span class="numero">131</span>
         <div>
-          <h3>Tre quarti &middot; 8</h3>
+          <h3>8</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1746,7 +1778,7 @@
       <div class="testa">
         <span class="numero">132</span>
         <div>
-          <h3>Tre quarti &middot; 9</h3>
+          <h3>9</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1756,17 +1788,18 @@
       <div class="testa">
         <span class="numero">133</span>
         <div>
-          <h3>Tre quarti &middot; 10</h3>
+          <h3>10</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/81a78ad02d47-1.svg" alt="">
     </article>
+    <div class="da-unita">Tre quarti, con le crome</div>
     <article class="solf" id="n134">
       <div class="testa">
         <span class="numero">134</span>
         <div>
-          <h3>Tre quarti, con le crome &middot; 1</h3>
+          <h3>1</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1776,7 +1809,7 @@
       <div class="testa">
         <span class="numero">135</span>
         <div>
-          <h3>Tre quarti, con le crome &middot; 2</h3>
+          <h3>2</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1786,7 +1819,7 @@
       <div class="testa">
         <span class="numero">136</span>
         <div>
-          <h3>Tre quarti, con le crome &middot; 3</h3>
+          <h3>3</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1796,7 +1829,7 @@
       <div class="testa">
         <span class="numero">137</span>
         <div>
-          <h3>Tre quarti, con le crome &middot; 4</h3>
+          <h3>4</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1806,7 +1839,7 @@
       <div class="testa">
         <span class="numero">138</span>
         <div>
-          <h3>Tre quarti, con le crome &middot; 5</h3>
+          <h3>5</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1816,7 +1849,7 @@
       <div class="testa">
         <span class="numero">139</span>
         <div>
-          <h3>Tre quarti, con le crome &middot; 6</h3>
+          <h3>6</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1826,7 +1859,7 @@
       <div class="testa">
         <span class="numero">140</span>
         <div>
-          <h3>Tre quarti, con le crome &middot; 7</h3>
+          <h3>7</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1836,7 +1869,7 @@
       <div class="testa">
         <span class="numero">141</span>
         <div>
-          <h3>Tre quarti, con le crome &middot; 8</h3>
+          <h3>8</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1846,7 +1879,7 @@
       <div class="testa">
         <span class="numero">142</span>
         <div>
-          <h3>Tre quarti, con le crome &middot; 9</h3>
+          <h3>9</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1856,17 +1889,18 @@
       <div class="testa">
         <span class="numero">143</span>
         <div>
-          <h3>Tre quarti, con le crome &middot; 10</h3>
+          <h3>10</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/832d8dd7ac8a-1.svg" alt="">
     </article>
+    <div class="da-unita">Tutto quello che sai</div>
     <article class="solf" id="n144">
       <div class="testa">
         <span class="numero">144</span>
         <div>
-          <h3>Tutto quello che sai &middot; 1</h3>
+          <h3>1</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1876,7 +1910,7 @@
       <div class="testa">
         <span class="numero">145</span>
         <div>
-          <h3>Tutto quello che sai &middot; 2</h3>
+          <h3>2</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1886,7 +1920,7 @@
       <div class="testa">
         <span class="numero">146</span>
         <div>
-          <h3>Tutto quello che sai &middot; 3</h3>
+          <h3>3</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1896,7 +1930,7 @@
       <div class="testa">
         <span class="numero">147</span>
         <div>
-          <h3>Tutto quello che sai &middot; 4</h3>
+          <h3>4</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1906,7 +1940,7 @@
       <div class="testa">
         <span class="numero">148</span>
         <div>
-          <h3>Tutto quello che sai &middot; 5</h3>
+          <h3>5</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1916,7 +1950,7 @@
       <div class="testa">
         <span class="numero">149</span>
         <div>
-          <h3>Tutto quello che sai &middot; 6</h3>
+          <h3>6</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1926,7 +1960,7 @@
       <div class="testa">
         <span class="numero">150</span>
         <div>
-          <h3>Tutto quello che sai &middot; 7</h3>
+          <h3>7</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1936,7 +1970,7 @@
       <div class="testa">
         <span class="numero">151</span>
         <div>
-          <h3>Tutto quello che sai &middot; 8</h3>
+          <h3>8</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1946,7 +1980,7 @@
       <div class="testa">
         <span class="numero">152</span>
         <div>
-          <h3>Tutto quello che sai &middot; 9</h3>
+          <h3>9</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -1956,7 +1990,7 @@
       <div class="testa">
         <span class="numero">153</span>
         <div>
-          <h3>Tutto quello che sai &middot; 10</h3>
+          <h3>10</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -2102,11 +2136,12 @@
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/108d1a1421ee-1.svg" alt="">
     </article>
+    <div class="da-unita">Sei ottavi</div>
     <article class="solf" id="n168">
       <div class="testa">
         <span class="numero">168</span>
         <div>
-          <h3>Sei ottavi &middot; Due terzi e un terzo &middot; 1</h3>
+          <h3>Due terzi e un terzo &middot; 1</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -2116,7 +2151,7 @@
       <div class="testa">
         <span class="numero">169</span>
         <div>
-          <h3>Sei ottavi &middot; Due terzi e un terzo &middot; 2</h3>
+          <h3>Due terzi e un terzo &middot; 2</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -2126,7 +2161,7 @@
       <div class="testa">
         <span class="numero">170</span>
         <div>
-          <h3>Sei ottavi &middot; Due terzi e un terzo &middot; 3</h3>
+          <h3>Due terzi e un terzo &middot; 3</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -2136,7 +2171,7 @@
       <div class="testa">
         <span class="numero">171</span>
         <div>
-          <h3>Sei ottavi &middot; Due terzi e un terzo &middot; 4</h3>
+          <h3>Due terzi e un terzo &middot; 4</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -2146,7 +2181,7 @@
       <div class="testa">
         <span class="numero">172</span>
         <div>
-          <h3>Sei ottavi &middot; Le pause dentro il movimento &middot; 1</h3>
+          <h3>Le pause dentro il movimento &middot; 1</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -2156,7 +2191,7 @@
       <div class="testa">
         <span class="numero">173</span>
         <div>
-          <h3>Sei ottavi &middot; Le pause dentro il movimento &middot; 2</h3>
+          <h3>Le pause dentro il movimento &middot; 2</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -2166,7 +2201,7 @@
       <div class="testa">
         <span class="numero">174</span>
         <div>
-          <h3>Sei ottavi &middot; Le pause dentro il movimento &middot; 3</h3>
+          <h3>Le pause dentro il movimento &middot; 3</h3>
           <span class="quando">Solfeggio ritmico</span>
         </div>
       </div>
@@ -2242,11 +2277,12 @@
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/339a4b4b4a49-1.svg" alt="">
     </article>
+    <div class="da-unita">Due voci</div>
     <article class="solf" id="n182">
       <div class="testa">
         <span class="numero">182</span>
         <div>
-          <h3>Due voci &middot; Terze e seste &middot; cadenza autentica</h3>
+          <h3>Terze e seste &middot; cadenza autentica</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -2256,7 +2292,7 @@
       <div class="testa">
         <span class="numero">183</span>
         <div>
-          <h3>Due voci &middot; Moto contrario &middot; cadenza plagale</h3>
+          <h3>Moto contrario &middot; cadenza plagale</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -2266,7 +2302,7 @@
       <div class="testa">
         <span class="numero">184</span>
         <div>
-          <h3>Due voci &middot; La voce di sotto si muove &middot; cadenza autentica</h3>
+          <h3>La voce di sotto si muove &middot; cadenza autentica</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -2276,7 +2312,7 @@
       <div class="testa">
         <span class="numero">185</span>
         <div>
-          <h3>Due voci &middot; Le due voci si scambiano &middot; cadenza autentica</h3>
+          <h3>Le due voci si scambiano &middot; cadenza autentica</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>

@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lezione 4. Analisi: come è armonizzata questa melodia | Armonizzare una melodia per pianoforte</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=89b635a1">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script>
+try { if (window.__mod) module = window.__mod; if (window.__exp) exports = window.__exp; } catch (e) {}
+(function () {
+  var basi = ['../../_assets/lib/', './_assets/lib/', '../_assets/lib/'];
+  function recupera(nome, globale) {
+    if (window[globale]) return;
+    if (typeof require !== 'function') return;
+    for (var i = 0; i < basi.length; i++) {
+      try {
+        var m = require(basi[i] + nome);
+        if (m) { window[globale] = m[globale] || m.default || m; return; }
+      } catch (e) {}
+    }
+  }
+  recupera('tone.js', 'Tone');
+  recupera('vexflow.js', 'VexFlow');
+})();
+</script>
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=e894da72" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 4 · Analisi: come è armonizzata questa melodia
+     Unità 8, ora 55 di 90 · classe 5ª · ora intera
+
+     È l'ultima ora prima della V4, e chiude il percorso analitico
+     dell'anno prima della verifica cumulativa.
+
+     ⚠ LA COSA NUOVA È LA RIDUZIONE, cioè l'analisi fatta al contrario
+     rispetto all'ora 54: si toglie l'animazione e si rimettono le voci,
+     e quello che resta è l'armonia scritta in chiaro. È l'operazione
+     che serve per la seconda prova d'esame, e la quinta la incontra
+     qui per la prima volta con questo nome.
+
+     ⚠ I NUMERI SU CHOPIN SONO MISURATI da `testura.py`, non ripresi da
+     un libro: 349 momenti, 11 % a un suono, 25 % a due, 55 % a quattro.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<section class="slide copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c5u8-lezione-4.jpg?v=60d6b89b');
+                --cop-a:#0f766e; --cop-b:#14b8a6; --cop-c:#ccfbf1">
+  <div class="slide-interna">
+    <div class="occhiello">Armonizzare una melodia per pianoforte &middot; UdA 8 &middot; Lezione 4 di 4</div>
+    <h1>Smontare</h1>
+    <p class="sottotitolo">La scorsa ora avete costruito un pezzo in tre fasi. Oggi si percorrono al contrario, su un pezzo che non &egrave; vostro.</p>
+
+    <blockquote class="aforisma">
+      <p>2. Alleggerimento della testura. Il passo successivo consiste nell&rsquo;alleggerire la scrittura, portandola mediamente a tre voci</p>
+      <cite><em>Il linguaggio della musica 5</em>, p.&nbsp;118</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>Ora intera</span>
+      <span>Analisi</span>
+      <span>Prima della V4</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cos&rsquo;&egrave; una riduzione">
+  <div class="slide-interna">
+    <h2>La riduzione: l&rsquo;armonia scritta in chiaro</h2>
+
+    <p>Davanti a un pezzo per pianoforte, la domanda &laquo;<em>quali accordi ci sono?</em>&raquo; non ha una risposta immediata: gli accordi sono sparsi nel tempo, arpeggiati, incompleti, e qualche nota non appartiene a nessuno.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Ridurre</span>
+      <p>Riscrivere il pezzo <strong>a valori uguali</strong>, un accordo per movimento armonico, rimettendo le note che l&rsquo;arpeggio ha sparpagliato e togliendo quelle che non appartengono all&rsquo;accordo.</p>
+    </div>
+
+    <p>Quello che resta &egrave; una <strong>bozza</strong> come quella della fase 1: un corale. Se la scorsa ora siete andati dalla bozza al pezzo, oggi si va dal pezzo alla bozza.</p>
+
+    <p class="didascalia">Non &egrave; un esercizio scolastico: &egrave; il primo passo di qualunque analisi armonica di musica strumentale, ed &egrave; quello che vi si chieder&agrave; alla seconda prova.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Un esempio breve">
+  <div class="slide-interna">
+    <h2>Due battute, ridotte</h2>
+
+    <tac-stave time="3/4" keysig="F"
+               caption="Come sta scritto: la sinistra arpeggia, la destra canta"
+               soprano="a/4:q c/5:q f/5:q | e/5:h. "
+               contralto="r:q r:q r:q | r:h."
+               tenore="r:q r:q r:q | r:h."
+               basso="f/3:8 c/4:8 a/3:8 c/4:8 f/3:8 c/4:8 | g/3:8 c/4:8 bb/3:8 c/4:8 g/3:8 c/4:8"
+               segna="b1=due suoni per volta, e cambiano dodici volte"
+               width="860" tempo="66" play a-passi slow></tac-stave>
+
+    <tac-stave time="3/4" keysig="F"
+               caption="Ridotto: un accordo per battuta, e l&rsquo;armonia si legge"
+               soprano="f/5:h. | e/5:h."
+               contralto="c/5:h. | c/5:h."
+               tenore="a/4:h. | g/4:h."
+               basso="f/3:h. | c/3:h."
+               segna="b1=I - V, ed era tutto qui"
+               width="860" tempo="60" play slow></tac-stave>
+
+    <p>L&rsquo;arpeggio della sinistra non era altro che <strong>fa&ndash;la&ndash;do</strong> e poi <strong>do&ndash;sol&ndash;si&nbsp;bemolle</strong>, distribuiti nel tempo. Dodici eventi diventano due accordi.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il basso &egrave; la chiave">
+  <div class="slide-interna">
+    <h2>Si comincia sempre dal basso</h2>
+
+    <p>Nell&rsquo;esempio di prima l&rsquo;arpeggio della sinistra faceva dodici eventi, e la riduzione ne ha tenuti due. Il criterio per sapere <em>quali</em> due &egrave; il <strong>basso</strong>: la nota pi&ugrave; grave di ogni tratto dice il rivolto, e il rivolto &egrave; met&agrave; dell&rsquo;informazione.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">La nota grave di un arpeggio</span>
+      <p>Non &egrave; sempre la prima che si sente. In un arpeggio ascendente s&igrave;; in uno che gira &mdash; fa&nbsp;do&nbsp;la&nbsp;do &mdash; la nota grave &egrave; quella che <strong>torna</strong>, e le altre le girano intorno.</p>
+    </div>
+
+    <p>Cantate il basso della mano sinistra come se fosse una linea sola, saltando le note interne. Quello che esce &egrave; il basso del corale nascosto sotto il pezzo.</p>
+
+    <p class="didascalia">&Egrave; la stessa operazione dei partimenti delle unit&agrave; 5 e 6, e non &egrave; una coincidenza: il partimento &egrave; un basso a cui manca tutto il resto, la riduzione &egrave; tutto il resto da cui si ricava il basso.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="I tre passi">
+  <div class="slide-interna">
+    <h2>Come si riduce, in tre passi</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Nell&rsquo;ordine, e l&rsquo;ordine conta</span>
+      <p><strong>1. Trovare il ritmo armonico.</strong> Ogni quanto cambia l&rsquo;armonia? Una volta per battuta, due, ogni due battute?<br>
+      <strong>2. Raccogliere le note.</strong> Dentro ogni tratto, quali altezze diverse compaiono &mdash; in tutte e due le mani.<br>
+      <strong>3. Separare.</strong> Quali di quelle note formano un accordo, e quali sono di passaggio o di volta.</p>
+    </div>
+
+    <p>Il passo 1 &egrave; il pi&ugrave; difficile e va fatto <strong>a orecchio</strong>, non con gli occhi: si canta il basso e si sente dove &laquo;gira&raquo;.</p>
+
+    <p class="didascalia">Chi comincia dal passo 2 raccoglie note per tratti sbagliati e trova accordi che non esistono. &Egrave; l&rsquo;errore pi&ugrave; frequente, e si riconosce perch&eacute; l&rsquo;analisi produce una successione che non ha senso.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Segnare i tratti">
+  <div class="slide-interna">
+    <h2>Come si segnano i tratti, sulla partitura</h2>
+
+    <p>Una <strong>barretta verticale</strong> dove l&rsquo;armonia cambia, e basta. Niente colori, niente cerchi: la barretta &egrave; l&rsquo;unica cosa che non si pu&ograve; mettere &laquo;quasi&raquo; nel posto giusto, e proprio per questo obbliga a decidere.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Tre casi che mettono in dubbio</span>
+      <p><strong>Il basso resta e sopra cambia tutto.</strong> Spesso &egrave; un accordo solo con note estranee: guardate se le note nuove risolvono.<br>
+      <strong>Il basso cambia e sopra resta tutto.</strong> Quasi sempre &egrave; un rivolto dello stesso accordo: nessuna barretta.<br>
+      <strong>Cambiano tutti e due a met&agrave; battuta.</strong> Barretta, e il ritmo armonico &egrave; di due per battuta.</p>
+    </div>
+
+    <p class="didascalia">Il secondo caso &egrave; quello che si sbaglia di pi&ugrave;: un rivolto sembra un accordo nuovo perch&eacute; il basso si &egrave; mosso, e chi lo conta come nuovo raddoppia il ritmo armonico di tutto il pezzo.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il brano">
+  <div class="slide-interna">
+    <h2>La mazurka</h2>
+
+    <tac-brano organico="tastiera"
+               titolo="F. Chopin, Mazurka op. 6 n. 2 (bb. 17&ndash;24)"
+               segna="b17=dove cambia l&rsquo;armonia&#59; b23=la cadenza"
+               metronomo cerca="Chopin Mazurka op 6 no 2 C sharp minor" inciso="../../_assets/incisioni/A16_chopin_mazurka.mp3" mappa='{"durata":13583,"eventi":[[0,0],[1,1364],[2,2727],[3,4091],[4,5455],[5,6818],[6,8182],[7,9545]]}' da-battuta="17">
+<script type="application/json">{"titolo":"F. Chopin, Mazurka op. 6 n. 2, le battute alterate","metro":"3/4","bpm":132,"battute":8,"anacrusi":0.0,"voci":[[[0.0,0.5,63],[0.75,0.25,67],[1.0,1.0,68],[2.0,0.5,72],[2.5,0.5,75],[3.0,0.5,63],[3.75,0.25,67],[4.0,0.5,68],[4.5,0.5,72],[5.0,1.0,75],[6.0,0.75,74],[6.75,0.25,70],[7.0,1.0,73],[8.0,0.5,72],[8.5,0.5,68],[9.0,0.3333,74],[9.3333,0.3333,70],[9.6667,0.3333,72],[10.0,1.0,73],[11.0,0.5,72],[11.5,0.5,68],[12.0,0.5,63],[12.75,0.25,67],[13.0,1.0,68],[14.0,0.5,72],[14.5,0.5,75],[15.0,0.5,63],[15.75,0.25,67],[16.0,0.5,68],[16.5,0.5,72],[17.0,1.0,75],[18.0,0.5,74],[18.5,0.5,70],[19.0,1.0,73],[20.0,0.5,72],[20.5,0.5,68],[21.0,0.75,80],[21.75,0.25,68],[22.0,0.75,80],[22.75,0.25,68],[23.0,0.75,80],[23.75,0.25,68]],[[0.0,1.0,44],[1.0,1.0,51],[1.0,1.0,56],[1.0,1.0,60],[2.0,1.0,51],[2.0,1.0,56],[2.0,1.0,60],[3.0,1.0,44],[4.0,1.0,51],[4.0,1.0,56],[4.0,1.0,60],[5.0,1.0,51],[5.0,1.0,56],[5.0,1.0,60],[6.0,1.0,52],[6.0,1.0,56],[6.0,2.0,58],[7.0,1.0,51],[7.0,1.0,55],[8.0,1.0,44],[8.0,1.0,56],[9.0,1.0,52],[9.0,1.0,56],[9.0,2.0,58],[10.0,1.0,51],[10.0,1.0,55],[11.0,1.0,44],[11.0,1.0,56],[12.0,1.0,32],[12.0,1.0,44],[13.0,1.0,51],[13.0,1.0,56],[13.0,1.0,60],[14.0,1.0,51],[14.0,1.0,56],[14.0,1.0,60],[15.0,1.0,44],[16.0,1.0,51],[16.0,1.0,56],[16.0,1.0,60],[17.0,1.0,51],[17.0,1.0,56],[17.0,1.0,60],[18.0,1.0,52],[18.0,1.0,56],[18.0,2.0,58],[19.0,1.0,51],[19.0,1.0,55],[20.0,1.0,44],[20.0,1.0,56]]]}</script>
+<figure class="tac-part" data-quale="intera"><svg viewBox="0 0 798 324" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="visible" id="t1ydl5jm-A161t">
+   <desc>Engraved by Verovio 6.2.0-43f8060</desc>
+   <defs>
+      <g id="E050-t1ydl5jm-A161t">
+         <path transform="scale(1,-1)" d="M441 -245c-23 -4 -48 -6 -76 -6c-59 0 -102 7 -130 20c-88 42 -150 93 -187 154c-26 44 -43 103 -48 176c0 6 -1 13 -1 19c0 54 15 111 45 170c29 57 65 106 110 148s96 85 153 127c-3 16 -8 46 -13 92c-4 43 -5 73 -5 89c0 117 16 172 69 257c34 54 64 82 89 82 c21 0 43 -30 69 -92s39 -115 41 -159v-15c0 -109 -21 -162 -67 -241c-13 -20 -63 -90 -98 -118c-13 -9 -25 -19 -37 -29l31 -181c8 1 18 2 28 2c58 0 102 -12 133 -35c59 -43 92 -104 98 -184c1 -7 1 -15 1 -22c0 -123 -87 -209 -181 -248c8 -57 17 -110 25 -162 c5 -31 6 -58 6 -80c0 -30 -5 -53 -14 -70c-35 -64 -88 -99 -158 -103c-5 0 -11 -1 -16 -1c-37 0 -72 10 -108 27c-50 24 -77 59 -80 105v11c0 29 7 55 20 76c18 28 45 42 79 44h6c49 0 93 -42 97 -87v-9c0 -51 -34 -86 -105 -106c17 -24 51 -36 102 -36c62 0 116 43 140 85 c9 16 13 41 13 74c0 20 -1 42 -5 67c-8 53 -18 106 -26 159zM461 939c-95 0 -135 -175 -135 -286c0 -24 2 -48 5 -71c50 39 92 82 127 128c40 53 60 100 60 140v8c-4 53 -22 81 -55 81h-2zM406 119l54 -326c73 25 110 78 110 161c0 7 0 15 -1 23c-7 95 -57 142 -151 142h-12 zM382 117c-72 -2 -128 -47 -128 -120v-7c2 -46 43 -99 75 -115c-3 -2 -7 -5 -10 -10c-70 33 -116 88 -123 172v11c0 68 44 126 88 159c23 17 49 29 78 36l-29 170c-21 -13 -52 -37 -92 -73c-50 -44 -86 -84 -109 -119c-45 -69 -67 -130 -67 -182v-13c5 -68 35 -127 93 -176 s125 -73 203 -73c25 0 50 3 75 9c-19 111 -36 221 -54 331z" />
+      </g>
+      <g id="E262-t1ydl5jm-A161t">
+         <path transform="scale(1,-1)" d="M136 186v169h17v-164l44 14v-91l-44 -14v-165l44 12v-91l-44 -13v-155h-17v150l-76 -22v-155h-17v149l-43 -13v90l43 14v167l-43 -14v92l43 13v169h17v-163zM60 73v-167l76 22v168z" />
+      </g>
+      <g id="E083-t1ydl5jm-A161t">
+         <path transform="scale(1,-1)" d="M208 250c97 0 177 -52 177 -116c0 -69 -40 -111 -118 -125c56 -5 125 -44 125 -116c0 -31 -10 -57 -31 -78c-19 -21 -45 -38 -78 -49l-50 -11c-15 -3 -36 -7 -55 -7c-50 0 -86 16 -113 38c-16 10 -23 18 -34 34c-7 13 -11 25 -11 38c0 43 27 83 68 83l3 -2 c61 0 75 -42 75 -70c0 -19 -24 -42 -26 -57c7 -17 20 -25 37 -25c44 0 94 29 94 78c0 75 -34 125 -138 125v36c84 0 131 22 131 98c0 54 -37 88 -87 88c-26 0 -43 -7 -51 -22c15 -22 44 -16 44 -70c0 -37 -37 -62 -71 -62c-22 0 -69 15 -69 76c0 79 101 116 178 116z" />
+      </g>
+      <g id="E084-t1ydl5jm-A161t">
+         <path transform="scale(1,-1)" d="M20 -78c84 97 114 180 134 329h170c-13 -32 -82 -132 -99 -151l-84 -97c-33 -36 -59 -63 -80 -81h162v102l127 123v-225h57v-39h-57v-34c0 -43 19 -65 57 -65v-34h-244v36c48 0 60 26 60 70v27h-203v39z" />
+      </g>
+      <g id="E0A4-t1ydl5jm-A161t">
+         <path transform="scale(1,-1)" d="M0 -39c0 68 73 172 200 172c66 0 114 -37 114 -95c0 -84 -106 -171 -218 -171c-64 0 -96 30 -96 94z" />
+      </g>
+      <g id="E4E7-t1ydl5jm-A161t">
+         <path transform="scale(1,-1)" d="M133 -111c0 -33 -21 -50 -52 -55c10 -3 18 -4 25 -4c40 0 69 24 90 47l66 197c-36 -18 -64 -25 -112 -25c-23 0 -38 3 -45 8c-37 7 -55 27 -55 59c8 35 30 54 68 58c45 -6 49 -13 64 -48c0 -3 1 -5 1 -7c0 -27 -25 -46 -52 -49c6 -4 15 -6 26 -6c32 2 62 14 88 29 c32 19 44 36 59 71l7 1l10 2h4c-72 -220 -143 -439 -215 -659h-37l108 324c-20 -13 -51 -20 -82 -20c-21 0 -35 4 -43 10c-37 6 -55 26 -55 58c8 35 31 56 68 60c43 -8 48 -13 64 -51z" />
+      </g>
+      <g id="E263-t1ydl5jm-A161t">
+         <path transform="scale(1,-1)" d="M0 120h74v-54l15 -17h79l15 16v55h74v-72h-59l-25 -28v-38l25 -32h59v-70h-75v55l-14 15h-80l-14 -15v-55h-74v72h60l26 30v38l-28 29h-58v71z" />
+      </g>
+      <g id="E062-t1ydl5jm-A161t">
+         <path transform="scale(1,-1)" d="M582 -120c0 32 26 58 58 58s58 -26 58 -58s-26 -58 -58 -58s-58 26 -58 58zM582 120c0 32 26 58 58 58s58 -26 58 -58s-26 -58 -58 -58s-58 26 -58 58zM158 96c51 0 73 -14 88 -49l16 -39c0 -17 -2 -30 -7 -40c-3 -11 -10 -21 -19 -31c-17 -18 -49 -43 -84 -43 c-55 0 -77 13 -112 44c-24 21 -35 55 -35 100c0 46 14 81 32 112c30 52 71 79 137 93l36 6l26 2c154 0 235 -68 274 -182c11 -32 18 -68 18 -107c0 -103 -26 -182 -68 -250c-89 -145 -234 -230 -412 -288l-30 -5c-9 0 -14 3 -14 8c3 10 5 11 10 16c35 15 70 30 96 44l78 43 c96 57 162 136 197 258c9 33 17 60 22 100c3 22 5 35 6 39c-7 69 -16 115 -23 140s-4 22 -16 40c-8 12 -19 23 -31 34c-24 21 -62 44 -118 44c-48 0 -84 -8 -113 -28c-28 -19 -42 -44 -42 -73v-16c2 -5 3 -9 4 -11c24 22 52 39 84 39z" />
+      </g>
+      <g id="E4A3-t1ydl5jm-A161t">
+         <path transform="scale(1,-1)" d="M0 -48c0 26 22 48 48 48s48 -22 48 -48s-22 -48 -48 -48s-48 22 -48 48z" />
+      </g>
+      <g id="E4A0-t1ydl5jm-A161t">
+         <path transform="scale(1,-1)" d="M0 236l347 -119l-347 -117v33l252 84l-252 86v33z" />
+      </g>
+      <g id="E4A2-t1ydl5jm-A161t">
+         <path transform="scale(1,-1)" d="M0 48c0 26 22 48 48 48s48 -22 48 -48s-22 -48 -48 -48s-48 22 -48 48z" />
+      </g>
+      <g id="E0A3-t1ydl5jm-A161t">
+         <path transform="scale(1,-1)" d="M278 64c0 22 -17 39 -43 39c-12 0 -26 -3 -41 -10c-85 -43 -165 -94 -165 -156c5 -25 15 -32 49 -32c67 11 200 95 200 159zM0 -36c0 68 73 174 200 174c66 0 114 -39 114 -97c0 -84 -106 -173 -218 -173c-64 0 -96 32 -96 96z" />
+      </g>
+      <g id="E4E5-t1ydl5jm-A161t">
+         <path transform="scale(1,-1)" d="M107 292c-13 24 -30 49 -52 71c-1 1 0 2 0 3l-2 2c3 3 4 4 6 4c12 0 26 -7 40 -20s44 -40 89 -81c26 -24 28 -29 46 -47c4 -4 8 -9 10 -14c6 -8 8 -16 8 -27c0 -19 -12 -40 -36 -61c-28 -23 -49 -38 -61 -73c-4 -11 -7 -27 -10 -50c13 -43 34 -83 59 -121 c31 -47 59 -79 101 -129c-8 0 -26 7 -54 20l-62 29l-21 6l-23 1c-25 0 -45 -10 -60 -30l-4 -14l-1 -12c0 -33 20 -56 39 -78c8 -9 17 -18 26 -26c17 -15 27 -24 28 -30l-3 -3c-11 5 -19 10 -25 15c-9 3 -37 21 -45 26c-24 14 -45 32 -63 51c-19 21 -37 44 -37 71 c0 63 27 95 80 95c41 0 86 -18 136 -52c-19 26 -37 48 -55 66c-23 23 -48 44 -73 65c-28 23 -47 40 -58 53s-17 26 -18 39c75 64 113 125 113 183c0 27 -7 48 -18 68z" />
+      </g>
+      <g id="E883-t1ydl5jm-A161t">
+         <path transform="scale(1,-1)" d="M161 326c52 0 94 -17 94 -68c0 -50 -40 -76 -82 -94c26 -21 39 -42 39 -64c0 -52 -56 -100 -118 -100h-12c-40 0 -82 23 -82 56c0 30 12 49 37 49c17 0 31 -16 34 -31c0 -5 -4 -12 -11 -21c-7 -5 -13 -10 -13 -21l11 -9l17 -4c21 0 40 12 56 37c13 21 19 45 19 70 c-9 30 -28 35 -66 35l6 23c34 0 60 4 77 13c20 11 30 35 30 70c0 28 -12 38 -39 40l-20 -3c-8 -3 -12 -9 -12 -16c2 -7 4 -11 5 -14l4 -11l3 -10l-3 -12c-5 -6 -11 -11 -20 -13c-2 0 -4 -1 -6 -1c-16 0 -30 13 -30 28c0 39 43 71 82 71z" />
+      </g>
+      <g id="E4E3-t1ydl5jm-A161t">
+         <path transform="scale(1,-1)" d="M0 -115v105c0 9 1 10 10 10h280c9 0 10 -1 10 -10v-105c0 -9 -1 -10 -10 -10h-280c-9 0 -10 1 -10 10z" />
+      </g>
+   </defs>
+   <style type="text/css">#t1ydl5jm-A161t g.ending, #t1ydl5jm-A161t g.fing, #t1ydl5jm-A161t g.reh, #t1ydl5jm-A161t g.tempo {font-weight:bold;}#t1ydl5jm-A161t g.dir, #t1ydl5jm-A161t g.dynam, #t1ydl5jm-A161t g.mNum {font-style:italic;}#t1ydl5jm-A161t g.label {font-weight:normal;}#t1ydl5jm-A161t ellipse, #t1ydl5jm-A161t path, #t1ydl5jm-A161t polygon, #t1ydl5jm-A161t polyline, #t1ydl5jm-A161t rect {stroke:currentColor}</style>
+   <svg class="definition-scale" color="black" font-family="Times, serif" viewBox="0 0 21000 8510">
+      <g class="page-margin" transform="translate(600, 600)">
+         <g data-id="d1ajf0sf" data-class="mdiv" class="mdiv pageMilestone" />
+         <g data-id="e1l83kul" data-class="score" class="score pageMilestone" />
+         <g data-id="cyw32v" data-class="system" class="system">
+            <path d="M2064 459 L2064 2793" stroke-width="27" />
+            <g data-id="o1cti94l" data-class="grpSym" class="grpSym">
+               <path d="M1979,2775 C1619,2235 2069,1806 1799,1626 C2132,1806 1682,2235 1979,2775" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+               <path d="M1979,477 C1682,1017 2132,1446 1799,1626 C2069,1446 1619,1017 1979,477" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+            <g data-id="q1w2jreh" data-class="label" class="label">
+               <text x="1646" y="909" text-anchor="end" font-size="0px">
+                  <tspan data-id="r13xsyhb" data-class="text" class="text">
+                     <tspan font-size="405px">Pianoforte</tspan>
+                  </tspan>
+               </text>
+            </g>
+            <g data-id="gtem6yv" data-class="section" class="section systemMilestone" />
+            <g data-id="j1i26g8k" data-class="section" class="section systemMilestone" />
+            <g data-id="aydd4yc" data-class="measure" class="measure">
+               <g data-id="w1siy3d9" data-class="mNum" class="mNum autogenerated">
+                  <text x="2051" y="216" text-anchor="middle" font-size="0px">
+                     <tspan data-id="x1ndajmu" data-class="text" class="text">
+                        <tspan font-size="324px">17</tspan>
+                     </tspan>
+                  </text>
+               </g>
+               <g data-id="j18m7vvp" data-class="staff" class="staff">
+                  <path d="M2051 459 L8049 459" stroke-width="13" />
+                  <path d="M2051 639 L8049 639" stroke-width="13" />
+                  <path d="M2051 819 L8049 819" stroke-width="13" />
+                  <path d="M2051 999 L8049 999" stroke-width="13" />
+                  <path d="M2051 1179 L8049 1179" stroke-width="13" />
+                  <g data-id="a1csjv9t" data-class="clef" class="clef">
+                     <use xlink:href="#E050-t1ydl5jm-A161t" transform="translate(2168, 999) scale(0.72, 0.72)" />
+                  </g>
+                  <g data-id="bijc8y8" data-class="keySig" class="keySig">
+                     <g data-id="c1egdc2f" data-class="keyAccid" class="keyAccid">
+                        <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(2849, 459) scale(0.72, 0.72)" />
+                     </g>
+                     <g data-id="d1pg7lm6" data-class="keyAccid" class="keyAccid">
+                        <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(3027, 729) scale(0.72, 0.72)" />
+                     </g>
+                     <g data-id="e1vjzegw" data-class="keyAccid" class="keyAccid">
+                        <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(3205, 369) scale(0.72, 0.72)" />
+                     </g>
+                     <g data-id="f1ree2jc" data-class="keyAccid" class="keyAccid">
+                        <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(3383, 639) scale(0.72, 0.72)" />
+                     </g>
+                  </g>
+                  <g data-id="g12bq8qj" data-class="meterSig" class="meterSig">
+                     <use xlink:href="#E083-t1ydl5jm-A161t" transform="translate(3696, 639) scale(0.72, 0.72)" />
+                     <use xlink:href="#E084-t1ydl5jm-A161t" transform="translate(3690, 999) scale(0.72, 0.72)" />
+                  </g>
+                  <g data-id="kx01340" data-class="layer" class="layer">
+                     <g data-id="l17tpwfl" data-class="beam" class="beam">
+                        <polygon points="4654,639 5791,459 5791,549 4654,729" />
+                        <polygon points="5565,628 5791,594 5791,684 5565,718" />
+                        <g data-id="mzelyxm" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(4446, 1269) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="uq7jdt2" data-class="stem" class="stem">
+                              <path d="M4663 1241 L4663 657" stroke-width="18" />
+                           </g>
+                           <g data-id="n5ur0lb" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(4260, 1269) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="ojb5b2f" data-class="rest" class="rest">
+                           <use xlink:href="#E4E7-t1ydl5jm-A161t" transform="translate(5000, 1179) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="p1ll573h" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(5565, 1089) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="vw0ierz" data-class="stem" class="stem">
+                              <path d="M5782 1061 L5782 477" stroke-width="18" />
+                           </g>
+                           <g data-id="q5nr38r" data-class="accid" class="accid">
+                              <use xlink:href="#E263-t1ydl5jm-A161t" transform="translate(5335, 1089) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="r1p3lqo2" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(6078, 999) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="w1uqbiz8" data-class="stem" class="stem">
+                           <path d="M6295 971 L6295 369" stroke-width="18" />
+                        </g>
+                        <g data-id="s1l6o67d" data-class="accid" class="accid">
+                           <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(5892, 999) scale(0.72, 0.72)" />
+                        </g>
+                     </g>
+                     <g data-id="tf2pemq" data-class="beam" class="beam">
+                        <polygon points="6929,1404 7500,1224 7500,1134 6929,1314" />
+                        <g data-id="u44o3uz" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(6929, 819) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="x1dmnn8q" data-class="stem" class="stem">
+                              <path d="M6938 847 L6938 1386" stroke-width="18" />
+                           </g>
+                           <g data-id="v1dcaht5" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(6743, 819) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="wbpmdgw" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(7482, 639) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="y1tmvzql" data-class="stem" class="stem">
+                              <path d="M7491 667 L7491 1206" stroke-width="18" />
+                           </g>
+                           <g data-id="x2lzkrk" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(7296, 639) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="lsr3ux3" data-class="staff" class="staff">
+                  <path d="M2051 2073 L8049 2073" stroke-width="13" />
+                  <path d="M2051 2253 L8049 2253" stroke-width="13" />
+                  <path d="M2051 2433 L8049 2433" stroke-width="13" />
+                  <path d="M2051 2613 L8049 2613" stroke-width="13" />
+                  <path d="M2051 2793 L8049 2793" stroke-width="13" />
+                  <g data-id="hj0m75r" data-class="clef" class="clef">
+                     <use xlink:href="#E062-t1ydl5jm-A161t" transform="translate(2168, 2253) scale(0.72, 0.72)" />
+                  </g>
+                  <g data-id="ir0om0k" data-class="keySig" class="keySig">
+                     <g data-id="j1bpb3pa" data-class="keyAccid" class="keyAccid">
+                        <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(2849, 2253) scale(0.72, 0.72)" />
+                     </g>
+                     <g data-id="k22ft2e" data-class="keyAccid" class="keyAccid">
+                        <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(3027, 2523) scale(0.72, 0.72)" />
+                     </g>
+                     <g data-id="l1m9v5rc" data-class="keyAccid" class="keyAccid">
+                        <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(3205, 2163) scale(0.72, 0.72)" />
+                     </g>
+                     <g data-id="mssbg9h" data-class="keyAccid" class="keyAccid">
+                        <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(3383, 2433) scale(0.72, 0.72)" />
+                     </g>
+                  </g>
+                  <g data-id="n1jxhs0p" data-class="meterSig" class="meterSig">
+                     <use xlink:href="#E083-t1ydl5jm-A161t" transform="translate(3696, 2253) scale(0.72, 0.72)" />
+                     <use xlink:href="#E084-t1ydl5jm-A161t" transform="translate(3690, 2613) scale(0.72, 0.72)" />
+                  </g>
+                  <g data-id="m5s58dy" data-class="layer" class="layer">
+                     <g data-id="n1cnbb02" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(4446, 2793) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="zjj4k8n" data-class="stem" class="stem">
+                           <path d="M4663 2765 L4663 2163" stroke-width="18" />
+                        </g>
+                        <g data-id="ol6ae68" data-class="accid" class="accid">
+                           <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(4260, 2793) scale(0.72, 0.72)" />
+                        </g>
+                     </g>
+                     <g data-id="rhvbtn4" data-class="chord" class="chord">
+                        <g data-id="axmd6gg" data-class="stem" class="stem">
+                           <path d="M6087 2011 L6087 3033" stroke-width="18" />
+                        </g>
+                        <g data-id="prct9rq" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(6078, 2433) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="q1lk2kbd" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(5780, 2433) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="sl9d20f" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(6078, 2163) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="tspamgk" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(5638, 2163) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="u16npvzr" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(6078, 1983) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="v15m0sx1" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(5892, 1983) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="y1yc2pgk" data-class="chord" class="chord">
+                        <g data-id="b8ojka1" data-class="stem" class="stem">
+                           <path d="M6938 2011 L6938 3033" stroke-width="18" />
+                        </g>
+                        <g data-id="w114e74f" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(6929, 2433) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="x8grnt6" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(6573, 2433) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="z1l33i3r" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(6929, 2163) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="ad0b6in" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(6743, 2163) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="b167f9g8" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(6929, 1983) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="c9410as" data-class="accid" class="accid" />
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="iugj7jv" data-class="barLine" class="barLine">
+                  <path d="M8036 459 L8036 1179" stroke-width="27" />
+                  <path d="M8036 2073 L8036 2793" stroke-width="27" />
+                  <path d="M8036 1179 L8036 2073" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="yedj86o" data-class="measure" class="measure">
+               <g data-id="hfp3tiy" data-class="staff" class="staff">
+                  <path d="M8049 459 L12026 459" stroke-width="13" />
+                  <path d="M8049 639 L12026 639" stroke-width="13" />
+                  <path d="M8049 819 L12026 819" stroke-width="13" />
+                  <path d="M8049 999 L12026 999" stroke-width="13" />
+                  <path d="M8049 1179 L12026 1179" stroke-width="13" />
+                  <g data-id="ir7t2hl" data-class="layer" class="layer">
+                     <g data-id="jdk5ceq" data-class="beam" class="beam">
+                        <polygon points="8631,639 9768,459 9768,549 8631,729" />
+                        <polygon points="9542,628 9768,594 9768,684 9542,718" />
+                        <g data-id="ki6rlo7" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(8423, 1269) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="c7kcgi7" data-class="stem" class="stem">
+                              <path d="M8640 1241 L8640 657" stroke-width="18" />
+                           </g>
+                           <g data-id="l1w67rf1" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(8237, 1269) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="mkr4dc0" data-class="artic" class="artic">
+                              <use xlink:href="#E4A3-t1ydl5jm-A161t" transform="translate(8502, 1392) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="nm39pdn" data-class="rest" class="rest">
+                           <use xlink:href="#E4E7-t1ydl5jm-A161t" transform="translate(8977, 1179) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="o6comkd" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(9542, 1089) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="d1jywxn1" data-class="stem" class="stem">
+                              <path d="M9759 1061 L9759 477" stroke-width="18" />
+                           </g>
+                           <g data-id="p1tkybsw" data-class="accid" class="accid">
+                              <use xlink:href="#E263-t1ydl5jm-A161t" transform="translate(9312, 1089) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="q1d3397n" data-class="beam" class="beam">
+                        <polygon points="10263,414 10835,234 10835,324 10263,504" />
+                        <g data-id="rjdhqe0" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(10055, 999) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="e1x23g4e" data-class="stem" class="stem">
+                              <path d="M10272 971 L10272 432" stroke-width="18" />
+                           </g>
+                           <g data-id="s1sw3yp7" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(9869, 999) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="t1fyi3i8" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(10609, 819) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="fy1ddpr" data-class="stem" class="stem">
+                              <path d="M10826 791 L10826 252" stroke-width="18" />
+                           </g>
+                           <g data-id="u16bjxoj" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(10423, 819) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="vd91e7w" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(11163, 639) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="g13qugog" data-class="stem" class="stem">
+                           <path d="M11172 667 L11172 1269" stroke-width="18" />
+                        </g>
+                        <g data-id="w1v0ehqh" data-class="accid" class="accid">
+                           <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(10977, 639) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="xy8276r" data-class="artic" class="artic">
+                           <use xlink:href="#E4A0-t1ydl5jm-A161t" transform="translate(11152, 392) scale(0.72, 0.72)" />
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="mf9f9my" data-class="staff" class="staff">
+                  <path d="M8049 2073 L12026 2073" stroke-width="13" />
+                  <path d="M8049 2253 L12026 2253" stroke-width="13" />
+                  <path d="M8049 2433 L12026 2433" stroke-width="13" />
+                  <path d="M8049 2613 L12026 2613" stroke-width="13" />
+                  <path d="M8049 2793 L12026 2793" stroke-width="13" />
+                  <g data-id="nv9epsc" data-class="layer" class="layer">
+                     <g data-id="o10z70hl" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(8423, 2793) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="h1gf06az" data-class="stem" class="stem">
+                           <path d="M8640 2765 L8640 2163" stroke-width="18" />
+                        </g>
+                        <g data-id="p1fzg9vr" data-class="accid" class="accid">
+                           <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(8237, 2793) scale(0.72, 0.72)" />
+                        </g>
+                     </g>
+                     <g data-id="s5ufmp" data-class="chord" class="chord">
+                        <g data-id="i93ni7s" data-class="stem" class="stem">
+                           <path d="M10064 2011 L10064 3033" stroke-width="18" />
+                        </g>
+                        <g data-id="qf86une" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(10055, 2433) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="rwjmayo" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(9757, 2433) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="t18pf0l9" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(10055, 2163) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="u1yaysat" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(9615, 2163) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="v18x65ff" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(10055, 1983) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="wf7ctft" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(9869, 1983) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="z1ff2f4a" data-class="chord" class="chord">
+                        <g data-id="j1x0ejge" data-class="stem" class="stem">
+                           <path d="M11172 2011 L11172 3033" stroke-width="18" />
+                        </g>
+                        <g data-id="x12q0lxw" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(11163, 2433) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="yo8j9va" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(10807, 2433) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="as0eyd5" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(11163, 2163) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="br15242" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(10977, 2163) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="co0uf18" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(11163, 1983) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="dzjzvcw" data-class="accid" class="accid" />
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="g18vt76r" data-class="barLine" class="barLine">
+                  <path d="M12013 459 L12013 1179" stroke-width="27" />
+                  <path d="M12013 2073 L12013 2793" stroke-width="27" />
+                  <path d="M12013 1179 L12013 2073" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="y34fr7x" data-class="measure" class="measure">
+               <g data-id="h1xc3yyf" data-class="staff" class="staff">
+                  <path d="M12026 459 L15772 459" stroke-width="13" />
+                  <path d="M12026 639 L15772 639" stroke-width="13" />
+                  <path d="M12026 819 L15772 819" stroke-width="13" />
+                  <path d="M12026 999 L15772 999" stroke-width="13" />
+                  <path d="M12026 1179 L15772 1179" stroke-width="13" />
+                  <g data-id="iku2y3f" data-class="layer" class="layer">
+                     <g data-id="j1femjk6" data-class="beam" class="beam">
+                        <polygon points="12574,1359 13306,1539 13306,1449 12574,1269" />
+                        <polygon points="13080,1352 13306,1404 13306,1314 13080,1262" />
+                        <g data-id="k1alwuu" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(12574, 729) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="lurn6ov" data-class="dots" class="dots">
+                              <ellipse cx="12890" cy="729" rx="36" ry="36" />
+                           </g>
+                           <g data-id="k1en1tc" data-class="stem" class="stem">
+                              <path d="M12583 757 L12583 1341" stroke-width="18" />
+                           </g>
+                           <g data-id="l1mi440c" data-class="accid" class="accid">
+                              <use xlink:href="#E263-t1ydl5jm-A161t" transform="translate(12344, 729) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="m1jnvuog" data-class="artic" class="artic">
+                              <use xlink:href="#E4A0-t1ydl5jm-A161t" transform="translate(12563, 392) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="nzcrqfc" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(13288, 909) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="m1skkb06" data-class="stem" class="stem">
+                              <path d="M13297 937 L13297 1521" stroke-width="18" />
+                           </g>
+                           <g data-id="o1i29pvb" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(13102, 909) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="p11zya9t" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(13801, 729) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="n7321f2" data-class="stem" class="stem">
+                           <path d="M13810 757 L13810 1359" stroke-width="18" />
+                        </g>
+                        <g data-id="qicau0f" data-class="accid" class="accid">
+                           <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(13615, 729) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="r11za3dj" data-class="artic" class="artic">
+                           <use xlink:href="#E4A2-t1ydl5jm-A161t" transform="translate(13880, 583) scale(0.72, 0.72)" />
+                        </g>
+                     </g>
+                     <g data-id="sufkybj" data-class="beam" class="beam">
+                        <polygon points="14860,234 15431,414 15431,504 14860,324" />
+                        <g data-id="tvs4qhy" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(14652, 819) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="ojcft0o" data-class="stem" class="stem">
+                              <path d="M14869 791 L14869 252" stroke-width="18" />
+                           </g>
+                           <g data-id="u1pfy74v" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(14466, 819) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="vrjsa3g" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(15205, 999) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="p14ysidg" data-class="stem" class="stem">
+                              <path d="M15422 971 L15422 432" stroke-width="18" />
+                           </g>
+                           <g data-id="w1vg6fkn" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(15019, 999) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="n1hcwnpf" data-class="staff" class="staff">
+                  <path d="M12026 2073 L15772 2073" stroke-width="13" />
+                  <path d="M12026 2253 L15772 2253" stroke-width="13" />
+                  <path d="M12026 2433 L15772 2433" stroke-width="13" />
+                  <path d="M12026 2613 L15772 2613" stroke-width="13" />
+                  <path d="M12026 2793 L15772 2793" stroke-width="13" />
+                  <g data-id="o1suozw1" data-class="layer" class="layer">
+                     <g data-id="pj71ece" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-t1ydl5jm-A161t" transform="translate(12574, 2073) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="qjahx49" data-class="stem" class="stem">
+                           <path d="M12791 2045 L12791 1593" stroke-width="18" />
+                        </g>
+                        <g data-id="qj40ske" data-class="accid" class="accid">
+                           <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(12388, 2073) scale(0.72, 0.72)" />
+                        </g>
+                     </g>
+                     <g data-id="r95ng5c" data-class="rest" class="rest">
+                        <use xlink:href="#E4E5-t1ydl5jm-A161t" transform="translate(14652, 1713) scale(0.72, 0.72)" />
+                     </g>
+                  </g>
+                  <g data-id="s5ao35l" data-class="layer" class="layer">
+                     <g data-id="v3l83v3" data-class="chord" class="chord">
+                        <g data-id="r1ljcs2r" data-class="stem" class="stem">
+                           <path d="M12784 2191 L12784 2973" stroke-width="18" />
+                        </g>
+                        <g data-id="tzdpbxd" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(12775, 2343) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="uzadv4" data-class="accid" class="accid" />
+                        </g>
+                        <g data-id="w17hoaxl" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(12775, 2163) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="xzxx3fq" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(12218, 2163) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="a1oq15ap" data-class="chord" class="chord">
+                        <g data-id="sp3btol" data-class="stem" class="stem">
+                           <path d="M13810 2281 L13810 3033" stroke-width="18" />
+                        </g>
+                        <g data-id="yfb7b7a" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(13801, 2433) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="z1ihzcgs" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(13401, 2433) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="b1lzkuxz" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(13801, 2253) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="cjoifz3" data-class="accid" class="accid">
+                              <use xlink:href="#E263-t1ydl5jm-A161t" transform="translate(13571, 2253) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="fazwzq4" data-class="chord" class="chord">
+                        <g data-id="ttpvsvs" data-class="stem" class="stem">
+                           <path d="M14661 2191 L14661 3273" stroke-width="18" />
+                        </g>
+                        <g data-id="d1i3efp" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(14652, 2793) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="ef1yywq" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(14466, 2793) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="ge42nnw" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(14652, 2163) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="h17spnnn" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(14466, 2163) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="g13a8hdz" data-class="barLine" class="barLine">
+                  <path d="M15759 459 L15759 1179" stroke-width="27" />
+                  <path d="M15759 2073 L15759 2793" stroke-width="27" />
+                  <path d="M15759 1179 L15759 2073" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="x1weyhxf" data-class="measure" class="measure">
+               <g data-id="ge4s2g8" data-class="staff" class="staff">
+                  <path d="M15772 459 L19801 459" stroke-width="13" />
+                  <path d="M15772 639 L19801 639" stroke-width="13" />
+                  <path d="M15772 819 L19801 819" stroke-width="13" />
+                  <path d="M15772 999 L19801 999" stroke-width="13" />
+                  <path d="M15772 1179 L19801 1179" stroke-width="13" />
+                  <g data-id="h1yndwns" data-class="layer" class="layer">
+                     <g data-id="i1n3ibey" data-class="beam" class="beam">
+                        <polygon points="16320,1449 17336,1449 17336,1359 16320,1359" />
+                        <g data-id="j1c7qm7e" data-class="tuplet" class="tuplet">
+                           <g data-id="vt6t4qu" data-class="tupletNum" class="tupletNum">
+                              <use xlink:href="#E883-t1ydl5jm-A161t" transform="translate(16840, 234) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="u1ai0nfs" data-class="tupletBracket" class="tupletBracket">
+                              <polyline stroke-width="18" stroke-linecap="butt" stroke-linejoin="miter" fill="none" points="16329,144 16329,27 16795,97 " />
+                              <polyline stroke-width="18" stroke-linecap="butt" stroke-linejoin="miter" fill="none" points="17535,324 17535,207 17068,138 " />
+                           </g>
+                           <g data-id="k1ydjdyr" data-class="note" class="note">
+                              <g data-class="notehead" class="notehead">
+                                 <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(16320, 729) scale(0.72, 0.72)" />
+                              </g>
+                              <g data-id="wohjse4" data-class="stem" class="stem">
+                                 <path d="M16329 757 L16329 1431" stroke-width="18" />
+                              </g>
+                              <g data-id="l15ikfqw" data-class="accid" class="accid">
+                                 <use xlink:href="#E263-t1ydl5jm-A161t" transform="translate(16090, 729) scale(0.72, 0.72)" />
+                              </g>
+                              <g data-id="m1cjl7ru" data-class="artic" class="artic">
+                                 <use xlink:href="#E4A0-t1ydl5jm-A161t" transform="translate(16309, 392) scale(0.72, 0.72)" />
+                              </g>
+                           </g>
+                           <g data-id="noubzzz" data-class="note" class="note">
+                              <g data-class="notehead" class="notehead">
+                                 <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(16805, 909) scale(0.72, 0.72)" />
+                              </g>
+                              <g data-id="x6a7ai5" data-class="stem" class="stem">
+                                 <path d="M16814 937 L16814 1431" stroke-width="18" />
+                              </g>
+                              <g data-id="o7ykatc" data-class="accid" class="accid">
+                                 <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(16619, 909) scale(0.72, 0.72)" />
+                              </g>
+                           </g>
+                           <g data-id="p8hxijj" data-class="note" class="note">
+                              <g data-class="notehead" class="notehead">
+                                 <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(17318, 819) scale(0.72, 0.72)" />
+                              </g>
+                              <g data-id="y16y101c" data-class="stem" class="stem">
+                                 <path d="M17327 847 L17327 1431" stroke-width="18" />
+                              </g>
+                              <g data-id="qd6vpd6" data-class="accid" class="accid">
+                                 <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(17132, 819) scale(0.72, 0.72)" />
+                              </g>
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="rpvch57" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(17830, 729) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="z1x1mep" data-class="stem" class="stem">
+                           <path d="M17839 757 L17839 1359" stroke-width="18" />
+                        </g>
+                        <g data-id="s1dt0ot4" data-class="accid" class="accid">
+                           <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(17644, 729) scale(0.72, 0.72)" />
+                        </g>
+                     </g>
+                     <g data-id="tiem5u9" data-class="beam" class="beam">
+                        <polygon points="18889,234 19460,414 19460,504 18889,324" />
+                        <g data-id="uvjrf67" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(18681, 819) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="awx1jms" data-class="stem" class="stem">
+                              <path d="M18898 791 L18898 252" stroke-width="18" />
+                           </g>
+                           <g data-id="v1trt3ve" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(18495, 819) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="w1np8m37" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(19234, 999) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="byragen" data-class="stem" class="stem">
+                              <path d="M19451 971 L19451 432" stroke-width="18" />
+                           </g>
+                           <g data-id="x2d61kk" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(19048, 999) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="rq96mbr" data-class="staff" class="staff">
+                  <path d="M15772 2073 L19801 2073" stroke-width="13" />
+                  <path d="M15772 2253 L19801 2253" stroke-width="13" />
+                  <path d="M15772 2433 L19801 2433" stroke-width="13" />
+                  <path d="M15772 2613 L19801 2613" stroke-width="13" />
+                  <path d="M15772 2793 L19801 2793" stroke-width="13" />
+                  <g data-id="su42d50" data-class="layer" class="layer">
+                     <g data-id="tnai274" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-t1ydl5jm-A161t" transform="translate(16320, 2073) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="cy1lvbm" data-class="stem" class="stem">
+                           <path d="M16537 2045 L16537 1593" stroke-width="18" />
+                        </g>
+                        <g data-id="utujt0i" data-class="accid" class="accid">
+                           <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(16134, 2073) scale(0.72, 0.72)" />
+                        </g>
+                     </g>
+                     <g data-id="v1u2pevb" data-class="rest" class="rest">
+                        <use xlink:href="#E4E5-t1ydl5jm-A161t" transform="translate(18681, 1713) scale(0.72, 0.72)" />
+                     </g>
+                  </g>
+                  <g data-id="w1g2z9x" data-class="layer" class="layer">
+                     <g data-id="ze3qkje" data-class="chord" class="chord">
+                        <g data-id="dwvts58" data-class="stem" class="stem">
+                           <path d="M16530 2191 L16530 2973" stroke-width="18" />
+                        </g>
+                        <g data-id="x1eu0i95" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(16521, 2343) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="y1wbp1d8" data-class="accid" class="accid" />
+                        </g>
+                        <g data-id="a158mv11" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(16521, 2163) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="b1012v5h" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(15964, 2163) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="e1mp1odj" data-class="chord" class="chord">
+                        <g data-id="e2ymp0i" data-class="stem" class="stem">
+                           <path d="M17839 2281 L17839 3033" stroke-width="18" />
+                        </g>
+                        <g data-id="c1migukh" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(17830, 2433) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="d878e8w" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(17430, 2433) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="f1m1vjlf" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(17830, 2253) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="gcr0egu" data-class="accid" class="accid">
+                              <use xlink:href="#E263-t1ydl5jm-A161t" transform="translate(17600, 2253) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="jo5xlvp" data-class="chord" class="chord">
+                        <g data-id="f1uh0q1h" data-class="stem" class="stem">
+                           <path d="M18690 2191 L18690 3273" stroke-width="18" />
+                        </g>
+                        <g data-id="hvt1d1z" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(18681, 2793) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="i1ue0vp3" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(18495, 2793) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="kunx5w0" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(18681, 2163) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="l6xa2d5" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(18495, 2163) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="f1jv5by7" data-class="barLine" class="barLine">
+                  <path d="M19788 459 L19788 1179" stroke-width="27" />
+                  <path d="M19788 2073 L19788 2793" stroke-width="27" />
+                  <path d="M19788 1179 L19788 2073" stroke-width="27" />
+               </g>
+            </g>
+         </g>
+         <g data-id="f47dkar" data-class="system" class="system">
+            <path d="M836 4167 L836 6638" stroke-width="27" />
+            <g data-id="s8dkoin" data-class="grpSym" class="grpSym">
+               <path d="M751,6620 C391,6080 841,5583 571,5403 C904,5583 454,6080 751,6620" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+               <path d="M751,4185 C454,4725 904,5223 571,5403 C841,5223 391,4725 751,4185" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+            <g data-id="wiwvxsj" data-class="labelAbbr" class="labelAbbr">
+               <text x="418" y="4617" text-anchor="end" font-size="0px">
+                  <tspan data-id="x1s4gzs7" data-class="text" class="text">
+                     <tspan font-size="405px">Pf.</tspan>
+                  </tspan>
+               </text>
+            </g>
+            <g data-id="y132du7t" data-class="measure" class="measure">
+               <g data-id="e14n4q4n" data-class="mNum" class="mNum autogenerated">
+                  <text x="823" y="3924" text-anchor="middle" font-size="0px">
+                     <tspan data-id="f17nmzyv" data-class="text" class="text">
+                        <tspan font-size="324px">21</tspan>
+                     </tspan>
+                  </text>
+               </g>
+               <g data-id="huubdzg" data-class="staff" class="staff">
+                  <path d="M823 4167 L6995 4167" stroke-width="13" />
+                  <path d="M823 4347 L6995 4347" stroke-width="13" />
+                  <path d="M823 4527 L6995 4527" stroke-width="13" />
+                  <path d="M823 4707 L6995 4707" stroke-width="13" />
+                  <path d="M823 4887 L6995 4887" stroke-width="13" />
+                  <g data-id="ekeddjv" data-class="clef" class="clef">
+                     <use xlink:href="#E050-t1ydl5jm-A161t" transform="translate(940, 4707) scale(0.72, 0.72)" />
+                  </g>
+                  <g data-id="f1aekjh4" data-class="keySig" class="keySig">
+                     <g data-id="gqmyo1s" data-class="keyAccid" class="keyAccid">
+                        <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(1621, 4167) scale(0.72, 0.72)" />
+                     </g>
+                     <g data-id="h13x9siq" data-class="keyAccid" class="keyAccid">
+                        <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(1799, 4437) scale(0.72, 0.72)" />
+                     </g>
+                     <g data-id="is8hta5" data-class="keyAccid" class="keyAccid">
+                        <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(1977, 4077) scale(0.72, 0.72)" />
+                     </g>
+                     <g data-id="j1jiy3pu" data-class="keyAccid" class="keyAccid">
+                        <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(2155, 4347) scale(0.72, 0.72)" />
+                     </g>
+                  </g>
+                  <g data-id="ilg0iyq" data-class="layer" class="layer">
+                     <g data-id="jxy0o6m" data-class="beam" class="beam">
+                        <polygon points="3099,4347 4392,4167 4392,4257 3099,4437" />
+                        <polygon points="4166,4332 4392,4302 4392,4392 4166,4422" />
+                        <g data-id="kwsjvzd" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(2891, 4977) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="g152692z" data-class="stem" class="stem">
+                              <path d="M3108 4949 L3108 4365" stroke-width="18" />
+                           </g>
+                           <g data-id="lfk14r0" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(2705, 4977) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="msi2xn6" data-class="rest" class="rest">
+                           <use xlink:href="#E4E7-t1ydl5jm-A161t" transform="translate(3522, 4887) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="nrhj4n8" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(4166, 4797) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="hkdefpv" data-class="stem" class="stem">
+                              <path d="M4383 4769 L4383 4185" stroke-width="18" />
+                           </g>
+                           <g data-id="o8xuq03" data-class="accid" class="accid">
+                              <use xlink:href="#E263-t1ydl5jm-A161t" transform="translate(3936, 4797) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="p131jglp" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(4751, 4707) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="i1is1afx" data-class="stem" class="stem">
+                           <path d="M4968 4679 L4968 4077" stroke-width="18" />
+                        </g>
+                        <g data-id="q1yfja3f" data-class="accid" class="accid">
+                           <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(4565, 4707) scale(0.72, 0.72)" />
+                        </g>
+                     </g>
+                     <g data-id="rse0dlp" data-class="beam" class="beam">
+                        <polygon points="5720,5112 6369,4932 6369,4842 5720,5022" />
+                        <g data-id="s1s7o1nr" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(5720, 4527) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="jpp0zh6" data-class="stem" class="stem">
+                              <path d="M5729 4555 L5729 5094" stroke-width="18" />
+                           </g>
+                           <g data-id="t1i8k6n6" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(5534, 4527) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="u9kt8my" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(6351, 4347) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="k1i6n9m9" data-class="stem" class="stem">
+                              <path d="M6360 4375 L6360 4914" stroke-width="18" />
+                           </g>
+                           <g data-id="v1kk2ml9" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(6165, 4347) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="vbf97ps" data-class="staff" class="staff">
+                  <path d="M823 5918 L6995 5918" stroke-width="13" />
+                  <path d="M823 6098 L6995 6098" stroke-width="13" />
+                  <path d="M823 6278 L6995 6278" stroke-width="13" />
+                  <path d="M823 6458 L6995 6458" stroke-width="13" />
+                  <path d="M823 6638 L6995 6638" stroke-width="13" />
+                  <g data-id="k18m3awg" data-class="clef" class="clef">
+                     <use xlink:href="#E062-t1ydl5jm-A161t" transform="translate(940, 6098) scale(0.72, 0.72)" />
+                  </g>
+                  <g data-id="l132uig4" data-class="keySig" class="keySig">
+                     <g data-id="m1az7qio" data-class="keyAccid" class="keyAccid">
+                        <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(1621, 6098) scale(0.72, 0.72)" />
+                     </g>
+                     <g data-id="n1pje3qn" data-class="keyAccid" class="keyAccid">
+                        <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(1799, 6368) scale(0.72, 0.72)" />
+                     </g>
+                     <g data-id="o1b72ntn" data-class="keyAccid" class="keyAccid">
+                        <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(1977, 6008) scale(0.72, 0.72)" />
+                     </g>
+                     <g data-id="p1h0ak5v" data-class="keyAccid" class="keyAccid">
+                        <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(2155, 6278) scale(0.72, 0.72)" />
+                     </g>
+                  </g>
+                  <g data-class="ledgerLines" class="ledgerLines below">
+                     <g data-class="lineDash" class="lineDash" data-related="#x7yqvrq">
+                        <path d="M2801 6818 L3207 6818" stroke-width="28" />
+                     </g>
+                     <g data-class="lineDash" class="lineDash" data-related="#x7yqvrq">
+                        <path d="M2801 6998 L3207 6998" stroke-width="28" />
+                     </g>
+                     <g data-class="lineDash" class="lineDash" data-related="#x7yqvrq">
+                        <path d="M2801 7178 L3207 7178" stroke-width="28" />
+                     </g>
+                  </g>
+                  <g data-id="w11k1l3s" data-class="layer" class="layer">
+                     <g data-id="zl66dnt" data-class="chord" class="chord">
+                        <g data-id="l1c1tie2" data-class="stem" class="stem">
+                           <path d="M3108 7240 L3108 6008" stroke-width="18" />
+                        </g>
+                        <g data-id="x7yqvrq" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(2891, 7268) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="y18yu7hx" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(2638, 7268) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="ag30bb9" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(2891, 6638) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="b1ukwo6t" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(2638, 6638) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="e1o3go23" data-class="chord" class="chord">
+                        <g data-id="mrw2bse" data-class="stem" class="stem">
+                           <path d="M4760 5856 L4760 6878" stroke-width="18" />
+                        </g>
+                        <g data-id="c1n9n0ot" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(4751, 6278) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="d1jqefda" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(4453, 6278) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="fzreld4" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(4751, 6008) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="gv3v4up" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(4311, 6008) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="h1dqrxq7" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(4751, 5828) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="inge2lz" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(4565, 5828) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="l1wellgf" data-class="chord" class="chord">
+                        <g data-id="nct0l1d" data-class="stem" class="stem">
+                           <path d="M5729 5856 L5729 6878" stroke-width="18" />
+                        </g>
+                        <g data-id="j12s20r5" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(5720, 6278) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="k1bg9r2t" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(5364, 6278) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="mnh05wp" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(5720, 6008) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="nlicfkk" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(5534, 6008) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="o1vf5wxv" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(5720, 5828) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="p1lw0891" data-class="accid" class="accid" />
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="g1dhc523" data-class="barLine" class="barLine">
+                  <path d="M6982 4167 L6982 4887" stroke-width="27" />
+                  <path d="M6982 5918 L6982 6638" stroke-width="27" />
+                  <path d="M6982 4887 L6982 5918" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="w1623uow" data-class="measure" class="measure">
+               <g data-id="fsjoofv" data-class="staff" class="staff">
+                  <path d="M6995 4167 L11526 4167" stroke-width="13" />
+                  <path d="M6995 4347 L11526 4347" stroke-width="13" />
+                  <path d="M6995 4527 L11526 4527" stroke-width="13" />
+                  <path d="M6995 4707 L11526 4707" stroke-width="13" />
+                  <path d="M6995 4887 L11526 4887" stroke-width="13" />
+                  <g data-id="gltznva" data-class="layer" class="layer">
+                     <g data-id="hymw6ai" data-class="beam" class="beam">
+                        <polygon points="7630,4347 8923,4167 8923,4257 7630,4437" />
+                        <polygon points="8697,4332 8923,4302 8923,4392 8697,4422" />
+                        <g data-id="i1ftlj25" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(7422, 4977) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="onfgajt" data-class="stem" class="stem">
+                              <path d="M7639 4949 L7639 4365" stroke-width="18" />
+                           </g>
+                           <g data-id="jt2g29m" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(7236, 4977) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="k1ecqrej" data-class="rest" class="rest">
+                           <use xlink:href="#E4E7-t1ydl5jm-A161t" transform="translate(8053, 4887) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="lzbpjad" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(8697, 4797) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="p176bvh5" data-class="stem" class="stem">
+                              <path d="M8914 4769 L8914 4185" stroke-width="18" />
+                           </g>
+                           <g data-id="m1b9hj11" data-class="accid" class="accid">
+                              <use xlink:href="#E263-t1ydl5jm-A161t" transform="translate(8467, 4797) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="ngyz8ru" data-class="beam" class="beam">
+                        <polygon points="9490,4122 10139,3942 10139,4032 9490,4212" />
+                        <g data-id="o1ohk6fb" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(9282, 4707) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="q49kbfu" data-class="stem" class="stem">
+                              <path d="M9499 4679 L9499 4140" stroke-width="18" />
+                           </g>
+                           <g data-id="py91c0c" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(9096, 4707) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="q1aw5910" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(9913, 4527) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="rcz26t6" data-class="stem" class="stem">
+                              <path d="M10130 4499 L10130 3960" stroke-width="18" />
+                           </g>
+                           <g data-id="rfgskny" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(9727, 4527) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="s1pgecxj" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(10544, 4347) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="sbbjbc6" data-class="stem" class="stem">
+                           <path d="M10553 4375 L10553 4977" stroke-width="18" />
+                        </g>
+                        <g data-id="t1a2domu" data-class="accid" class="accid">
+                           <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(10358, 4347) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="u1o7ul14" data-class="artic" class="artic">
+                           <use xlink:href="#E4A0-t1ydl5jm-A161t" transform="translate(10533, 4100) scale(0.72, 0.72)" />
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="z1g20btw" data-class="staff" class="staff">
+                  <path d="M6995 5918 L11526 5918" stroke-width="13" />
+                  <path d="M6995 6098 L11526 6098" stroke-width="13" />
+                  <path d="M6995 6278 L11526 6278" stroke-width="13" />
+                  <path d="M6995 6458 L11526 6458" stroke-width="13" />
+                  <path d="M6995 6638 L11526 6638" stroke-width="13" />
+                  <g data-id="a1mau7uk" data-class="layer" class="layer">
+                     <g data-id="bhox56z" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(7422, 6638) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="t1pzjmoy" data-class="stem" class="stem">
+                           <path d="M7639 6610 L7639 6008" stroke-width="18" />
+                        </g>
+                        <g data-id="c1689s1x" data-class="accid" class="accid">
+                           <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(7236, 6638) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="d1m8jaqk" data-class="artic" class="artic">
+                           <use xlink:href="#E4A3-t1ydl5jm-A161t" transform="translate(7501, 6761) scale(0.72, 0.72)" />
+                        </g>
+                     </g>
+                     <g data-id="gvbvh5g" data-class="chord" class="chord">
+                        <g data-id="umpgu1m" data-class="stem" class="stem">
+                           <path d="M9291 5856 L9291 6878" stroke-width="18" />
+                        </g>
+                        <g data-id="e1rdu3cw" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(9282, 6278) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="frji8ey" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(8984, 6278) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="hmzf22" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(9282, 6008) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="ik2mcd8" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(8842, 6008) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="ju22e2j" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(9282, 5828) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="k1a08onj" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(9096, 5828) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="n1ab5j7v" data-class="chord" class="chord">
+                        <g data-id="vfgk2te" data-class="stem" class="stem">
+                           <path d="M10553 5856 L10553 6878" stroke-width="18" />
+                        </g>
+                        <g data-id="l1k95r3c" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(10544, 6278) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="m60au7i" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(10188, 6278) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="o1bb8ndr" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(10544, 6008) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="p13d0t7u" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(10358, 6008) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="q1b23t32" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(10544, 5828) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="r1wdn7u" data-class="accid" class="accid" />
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="e1f7hibb" data-class="barLine" class="barLine">
+                  <path d="M11513 4167 L11513 4887" stroke-width="27" />
+                  <path d="M11513 5918 L11513 6638" stroke-width="27" />
+                  <path d="M11513 4887 L11513 5918" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="v957iiq" data-class="measure" class="measure">
+               <g data-id="e12aw8iy" data-class="staff" class="staff">
+                  <path d="M11526 4167 L15658 4167" stroke-width="13" />
+                  <path d="M11526 4347 L15658 4347" stroke-width="13" />
+                  <path d="M11526 4527 L15658 4527" stroke-width="13" />
+                  <path d="M11526 4707 L15658 4707" stroke-width="13" />
+                  <path d="M11526 4887 L15658 4887" stroke-width="13" />
+                  <g data-id="f1jywulo" data-class="layer" class="layer">
+                     <g data-id="g1iy1nr8" data-class="beam" class="beam">
+                        <polygon points="12151,4977 12800,5157 12800,5067 12151,4887" />
+                        <g data-id="h1gkt2pc" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(12151, 4437) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="w1n0qydg" data-class="stem" class="stem">
+                              <path d="M12160 4465 L12160 4959" stroke-width="18" />
+                           </g>
+                           <g data-id="i13krk7z" data-class="accid" class="accid">
+                              <use xlink:href="#E263-t1ydl5jm-A161t" transform="translate(11921, 4437) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="j1lqk6wt" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(12782, 4617) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="x1x0ikw2" data-class="stem" class="stem">
+                              <path d="M12791 4645 L12791 5139" stroke-width="18" />
+                           </g>
+                           <g data-id="kemjatn" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(12596, 4617) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="l1mgnbly" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(13413, 4437) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="y161wz9a" data-class="stem" class="stem">
+                           <path d="M13422 4465 L13422 5067" stroke-width="18" />
+                        </g>
+                        <g data-id="m1p4q7f4" data-class="accid" class="accid">
+                           <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(13227, 4437) scale(0.72, 0.72)" />
+                        </g>
+                     </g>
+                     <g data-id="n16ekvnb" data-class="beam" class="beam">
+                        <polygon points="14590,3942 15240,4122 15240,4212 14590,4032" />
+                        <g data-id="oc3qqsr" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(14382, 4527) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="zcrkc8" data-class="stem" class="stem">
+                              <path d="M14599 4499 L14599 3960" stroke-width="18" />
+                           </g>
+                           <g data-id="p1uenbfs" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(14196, 4527) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="q1p4udy8" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(15014, 4707) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="a1bmumuu" data-class="stem" class="stem">
+                              <path d="M15231 4679 L15231 4140" stroke-width="18" />
+                           </g>
+                           <g data-id="r1o1wowe" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(14828, 4707) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="b1cl0zhp" data-class="staff" class="staff">
+                  <path d="M11526 5918 L15658 5918" stroke-width="13" />
+                  <path d="M11526 6098 L15658 6098" stroke-width="13" />
+                  <path d="M11526 6278 L15658 6278" stroke-width="13" />
+                  <path d="M11526 6458 L15658 6458" stroke-width="13" />
+                  <path d="M11526 6638 L15658 6638" stroke-width="13" />
+                  <g data-id="c1rufvo1" data-class="layer" class="layer">
+                     <g data-id="d1bb6oj0" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-t1ydl5jm-A161t" transform="translate(12151, 5918) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="bzvcizi" data-class="stem" class="stem">
+                           <path d="M12368 5890 L12368 5438" stroke-width="18" />
+                        </g>
+                        <g data-id="e62s6ni" data-class="accid" class="accid">
+                           <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(11965, 5918) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="f16p415q" data-class="artic" class="artic">
+                           <use xlink:href="#E4A0-t1ydl5jm-A161t" transform="translate(12140, 5371) scale(0.72, 0.72)" />
+                        </g>
+                     </g>
+                     <g data-id="g92m8b8" data-class="rest" class="rest">
+                        <use xlink:href="#E4E5-t1ydl5jm-A161t" transform="translate(14382, 5558) scale(0.72, 0.72)" />
+                     </g>
+                  </g>
+                  <g data-id="hhlyl5f" data-class="layer" class="layer">
+                     <g data-id="k1dardfl" data-class="chord" class="chord">
+                        <g data-id="c1yf4igl" data-class="stem" class="stem">
+                           <path d="M12361 6036 L12361 6818" stroke-width="18" />
+                        </g>
+                        <g data-id="ifom2p0" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(12352, 6188) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="j1jn02al" data-class="accid" class="accid" />
+                        </g>
+                        <g data-id="ldn59py" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(12352, 6008) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="m1gc8y0p" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(11795, 6008) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="pvltllu" data-class="chord" class="chord">
+                        <g data-id="dnnruyy" data-class="stem" class="stem">
+                           <path d="M13422 6126 L13422 6878" stroke-width="18" />
+                        </g>
+                        <g data-id="n15zwj1j" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(13413, 6278) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="o1uul8jl" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(13013, 6278) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="q9k5mzv" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(13413, 6098) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="r15pakta" data-class="accid" class="accid">
+                              <use xlink:href="#E263-t1ydl5jm-A161t" transform="translate(13183, 6098) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                     <g data-id="uo1d49h" data-class="chord" class="chord">
+                        <g data-id="eewlnib" data-class="stem" class="stem">
+                           <path d="M14391 6036 L14391 7118" stroke-width="18" />
+                        </g>
+                        <g data-id="s1bii22j" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(14382, 6638) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="t63pkzy" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(14196, 6638) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="v1qm43xs" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(14382, 6008) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="w1neu9d4" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(14196, 6008) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="d6zbc06" data-class="barLine" class="barLine">
+                  <path d="M15645 4167 L15645 4887" stroke-width="27" />
+                  <path d="M15645 5918 L15645 6638" stroke-width="27" />
+                  <path d="M15645 4887 L15645 5918" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="s7utpzq" data-class="measure" class="measure">
+               <g data-id="b1dv8mpl" data-class="staff" class="staff">
+                  <path d="M15658 4167 L19801 4167" stroke-width="13" />
+                  <path d="M15658 4347 L19801 4347" stroke-width="13" />
+                  <path d="M15658 4527 L19801 4527" stroke-width="13" />
+                  <path d="M15658 4707 L19801 4707" stroke-width="13" />
+                  <path d="M15658 4887 L19801 4887" stroke-width="13" />
+                  <g data-id="c1u6zlcl" data-class="layer" class="layer">
+                     <g data-id="d9z3sbb" data-class="beam" class="beam">
+                        <polygon points="16085,5292 19386,5292 19386,5202 16085,5202" />
+                        <polygon points="16682,5157 16908,5157 16908,5067 16682,5067" />
+                        <polygon points="17916,5157 18142,5157 18142,5067 17916,5067" />
+                        <polygon points="19160,5157 19386,5157 19386,5067 19160,5067" />
+                        <g data-id="e42smw1" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(16085, 4077) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="gc6y0fu" data-class="dots" class="dots">
+                              <ellipse cx="16401" cy="4077" rx="36" ry="36" />
+                           </g>
+                           <g data-id="f1hr8oi2" data-class="stem" class="stem">
+                              <path d="M16094 4105 L16094 5274" stroke-width="18" />
+                           </g>
+                           <g data-id="f1m7yis6" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(15899, 4077) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="gpjagz8" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(16899, 4707) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="h1qzfp5g" data-class="stem" class="stem">
+                              <path d="M16908 4735 L16908 5274" stroke-width="18" />
+                           </g>
+                           <g data-id="h1lelt8e" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(16713, 4707) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="i1ak6ezm" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(17319, 4077) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="jjw18lv" data-class="dots" class="dots">
+                              <ellipse cx="17635" cy="4077" rx="36" ry="36" />
+                           </g>
+                           <g data-id="iji2y6t" data-class="stem" class="stem">
+                              <path d="M17328 4105 L17328 5274" stroke-width="18" />
+                           </g>
+                           <g data-id="jx6a9ed" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(17133, 4077) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="k13ldjv4" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(18133, 4707) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="kt7wrhh" data-class="stem" class="stem">
+                              <path d="M18142 4735 L18142 5274" stroke-width="18" />
+                           </g>
+                           <g data-id="lupbraz" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(17947, 4707) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="mos26sq" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(18554, 4077) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="m8c6wkp" data-class="dots" class="dots">
+                              <ellipse cx="18870" cy="4077" rx="36" ry="36" />
+                           </g>
+                           <g data-id="lhaprh8" data-class="stem" class="stem">
+                              <path d="M18563 4105 L18563 5274" stroke-width="18" />
+                           </g>
+                           <g data-id="nihcmz" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(18368, 4077) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                        <g data-id="o1ypw4yt" data-class="note" class="note">
+                           <g data-class="notehead" class="notehead">
+                              <use xlink:href="#E0A4-t1ydl5jm-A161t" transform="translate(19368, 4707) scale(0.72, 0.72)" />
+                           </g>
+                           <g data-id="nw0qdh8" data-class="stem" class="stem">
+                              <path d="M19377 4735 L19377 5274" stroke-width="18" />
+                           </g>
+                           <g data-id="p113gbo3" data-class="accid" class="accid">
+                              <use xlink:href="#E262-t1ydl5jm-A161t" transform="translate(19182, 4707) scale(0.72, 0.72)" />
+                           </g>
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="g90t9cp" data-class="staff" class="staff">
+                  <path d="M15658 5918 L19801 5918" stroke-width="13" />
+                  <path d="M15658 6098 L19801 6098" stroke-width="13" />
+                  <path d="M15658 6278 L19801 6278" stroke-width="13" />
+                  <path d="M15658 6458 L19801 6458" stroke-width="13" />
+                  <path d="M15658 6638 L19801 6638" stroke-width="13" />
+                  <g data-id="h1uuwuae" data-class="layer" class="layer">
+                     <g data-id="ik9zs37" data-class="mRest" class="mRest">
+                        <use xlink:href="#E4E3-t1ydl5jm-A161t" transform="translate(17608, 6098) scale(0.72, 0.72)" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="a1c70zm9" data-class="barLine" class="barLine">
+                  <path d="M19788 4167 L19788 4887" stroke-width="27" />
+                  <path d="M19788 5918 L19788 6638" stroke-width="27" />
+                  <path d="M19788 4887 L19788 5918" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="sqxlis" data-class="systemMilestoneEnd" class="systemMilestoneEnd j1i26g8k" />
+            <g data-id="tek0uki" data-class="systemMilestoneEnd" class="systemMilestoneEnd gtem6yv" />
+         </g>
+         <g data-id="udu3bri" data-class="pageMilestoneEnd" class="pageMilestoneEnd e1l83kul" />
+         <g data-id="vtevt7p" data-class="pageMilestoneEnd" class="pageMilestoneEnd d1ajf0sf" />
+      </g>
+   </svg>
+</svg>
+</figure>
+</tac-brano>
+
+    <p>Ascoltatela una volta senza guardare niente, e chiedetevi solo: <strong>dove la musica si fa sottile?</strong></p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="I numeri">
+  <div class="slide-interna">
+    <h2>Quello che il conto dice, e quello che non dice</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Mazurka op. 6 n. 2 &mdash; 349 momenti</span>
+      <p>1 suono: <strong>11&nbsp;%</strong> &middot; 2 suoni: <strong>25&nbsp;%</strong> &middot; 3 suoni: <strong>6&nbsp;%</strong> &middot; 4 suoni: <strong>55&nbsp;%</strong> &middot; 5 suoni: <strong>2&nbsp;%</strong></p>
+    </div>
+
+    <p>Il numero pi&ugrave; frequente &egrave; quattro, e ci sta per poco pi&ugrave; della met&agrave; del tempo. Nei corali di Bach il numero pi&ugrave; frequente &mdash; sempre quattro &mdash; ci sta per il <strong>91&nbsp;%</strong>.</p>
+
+    <div class="riquadro attenzione">
+      <p><strong>E il conto non dice che cosa si sente.</strong> Col pedale abbassato i suoni restano, e un momento &laquo;a due&raquo; sulla carta pu&ograve; suonare a cinque. Il numero misura la <em>scrittura</em>: dice quante cose il compositore ha deciso di scrivere in quel momento, non quante ne arrivano all&rsquo;orecchio.</p>
+    </div>
+
+    <p class="didascalia">Un dato che misura una cosa e viene letto come se ne misurasse un&rsquo;altra &egrave; peggio di nessun dato. Quando ne incontrate uno, la prima domanda &egrave; sempre: <strong>che cosa ha contato, esattamente?</strong></p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il lavoro">
+  <div class="slide-interna">
+    <h2>Al lavoro &mdash; le battute 17&ndash;24</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">A coppie, venticinque minuti</span>
+      <p><strong>1.</strong> Segnate sulla partitura dove cambia l&rsquo;armonia. Una barretta verticale, e basta.<br>
+      <strong>2.</strong> Sotto ogni tratto, scrivete le altezze diverse che ci trovate.<br>
+      <strong>3.</strong> Cerchiate quelle che <em>non</em> stanno nell&rsquo;accordo, e dite che cosa sono.<br>
+      <strong>4.</strong> Scrivete la riduzione a quattro parti, un accordo per tratto, e sotto i gradi.</p>
+    </div>
+
+    <p class="didascalia">Le barrette del passo 1 sono la parte che si confronta fra le coppie: se due coppie le hanno messe in punti diversi, una delle due ha sentito qualcosa che l&rsquo;altra non ha sentito, e vale la pena scoprire quale.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="La mazurka, e l&rsquo;anno">
+  <div class="slide-interna">
+    <h2>Che cos&rsquo;&egrave; una mazurka, e da dove viene</h2>
+
+    <p>L&rsquo;opera&nbsp;6 di Chopin esce nel <strong>1832</strong>, l&rsquo;anno dopo il suo arrivo a Parigi. Sono quattro mazurke, e la mazurka &egrave; una danza polacca in tre tempi: l&rsquo;accento non sta sul primo movimento come nel valzer, ma spesso sul <strong>secondo o sul terzo</strong>.</p>
+
+    <div class="riquadro studio">
+      <p>Per la riduzione questo conta pi&ugrave; di quanto sembri: l&rsquo;accento spostato fa venire il cambio d&rsquo;armonia in punti che l&rsquo;orecchio abituato al valzer non si aspetta. Chi cerca la barretta solo sul primo movimento ne perde met&agrave;.</p>
+    </div>
+
+    <p>Chopin ne scrisse una <strong>cinquantina</strong> in tutta la vita, dalla prima raccolta fino alle ultime dell&rsquo;op.&nbsp;63: sono il genere a cui torn&ograve; pi&ugrave; a lungo, e quello in cui la scrittura pianistica resta pi&ugrave; sottile.</p>
+
+    <p class="didascalia">L&rsquo;<strong>Ottocento</strong> &egrave; il secolo in cui le danze nazionali diventano musica da concerto e da salotto. La mazurka, la polonaise, la czarda: la forma della danza resta, il ballo no.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Le note che non sono accordo">
+  <div class="slide-interna">
+    <h2>Le note che non appartengono all&rsquo;accordo</h2>
+
+    <p>Le conoscete tutte dalla quarta, e qui tornano perch&eacute; in una scrittura pianistica sono <strong>molte di pi&ugrave;</strong> che in un corale: la mano scorre, e scorrendo tocca note che non contano.</p>
+
+    <div class="riquadro studio">
+      <p><strong>di passaggio</strong> &mdash; fra due note d&rsquo;accordo, per grado congiunto<br>
+      <strong>di volta</strong> &mdash; esce e rientra sulla stessa nota<br>
+      <strong>appoggiatura</strong> &mdash; sul tempo forte, e risolve scendendo<br>
+      <strong>anticipazione</strong> &mdash; la nota dell&rsquo;accordo dopo, arrivata prima</p>
+    </div>
+
+    <p>La differenza che conta per la riduzione &egrave; una sola: <strong>l&rsquo;appoggiatura sta sul battere</strong>, e nella riduzione va scritta, perch&eacute; fa parte di come quell&rsquo;accordo si presenta. Le altre no.</p>
+
+    <p class="didascalia">Ridurre non vuol dire cancellare tutto quello che non &egrave; triade: vuol dire tenere quello che l&rsquo;armonia ha davvero deciso.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Un secondo esempio">
+  <div class="slide-interna">
+    <h2>Una riduzione con le note estranee</h2>
+
+    <tac-stave time="3/4" keysig="G"
+               caption="Come sta scritto: la melodia gira intorno alle note dell&rsquo;accordo"
+               soprano="d/5:8 e/5:8 d/5:8 c/5:8 b/4:8 d/5:8 | c/5:8 b/4:8 a/4:8 b/4:8 c/5:8 a/4:8"
+               contralto="r:h. | r:h."
+               tenore="r:h. | r:h."
+               basso="g/3:q d/4:q b/3:q | c/4:q d/4:q d/3:q"
+               segna="b1=mi e do sono di volta&#59; b2=il la del terzo tempo anticipa"
+               width="860" tempo="66" play a-passi slow></tac-stave>
+
+    <tac-stave time="3/4" keysig="G"
+               caption="Ridotto: due accordi, e le note estranee sono sparite"
+               soprano="d/5:h. | c/5:h."
+               contralto="b/4:h. | a/4:h."
+               tenore="g/4:h. | f#/4:h."
+               basso="g/3:h. | d/3:h."
+               segna="b1=I - V, e il ritmo armonico e' uno per battuta"
+               width="860" tempo="60" play slow></tac-stave>
+
+    <p>Delle dodici note della melodia ne restano due. Le altre dieci sono <strong>di volta</strong> o <strong>di passaggio</strong>: girano intorno alle note dell&rsquo;accordo o le collegano.</p>
+
+    <p class="didascalia">Il basso invece si riduce da sei note a due, e le quattro che spariscono non sono estranee: sono <strong>rivolti dello stesso accordo</strong>. Sparisce la loro posizione, non la loro armonia.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Dove la scrittura si assottiglia">
+  <div class="slide-interna">
+    <h2>E adesso la domanda dell&rsquo;inizio</h2>
+
+    <p>Dove la mazurka si fa sottile? Guardando il conto e la partitura insieme, i momenti a <strong>uno o due suoni</strong> &mdash; il 36&nbsp;% del pezzo &mdash; non sono sparsi a caso.</p>
+
+    <div class="riquadro studio">
+      <p>Cadono agli <strong>attacchi di frase</strong> e nelle <strong>riprese</strong>: dove la musica riparte. Uno spessore che si riduce &egrave; un modo di dire &laquo;<em>si ricomincia</em>&raquo;, come una cadenza dice &laquo;<em>si chiude</em>&raquo;.</p>
+    </div>
+
+    <p>&Egrave; la cosa da portare via da quest&rsquo;ora: <strong>lo spessore della scrittura &egrave; un elemento della forma</strong>, e si analizza come si analizzano le cadenze.</p>
+
+    <p class="didascalia">Nell&rsquo;unit&agrave; 10 farete questa analisi su un brano intero, dove i cambi di spessore segnano le sezioni.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="La cadenza, ridotta">
+  <div class="slide-interna">
+    <h2>La cadenza si vede solo dopo aver ridotto</h2>
+
+    <tac-stave time="3/4" keysig="G"
+               caption="Come sta scritto: la chiusa, con la melodia che fiorisce"
+               soprano="a/4:8 b/4:8 c/5:8 b/4:8 a/4:8 g/4:8 | g/4:h."
+               contralto="r:h. | r:h."
+               tenore="r:h. | r:h."
+               basso="d/3:q a/3:q f#/3:q | g/3:h."
+               segna="b2=la chiusa, e prima non si capiva dove fosse"
+               width="860" tempo="60" play a-passi slow></tac-stave>
+
+    <tac-stave time="3/4" keysig="G"
+               caption="Ridotto: V &mdash; I, cadenza perfetta, e si legge subito"
+               soprano="a/4:h. | g/4:h."
+               contralto="f#/4:h. | d/4:h."
+               tenore="d/4:h. | b/3:h."
+               basso="d/3:h. | g/3:h."
+               segna="b1=V&#59; b2=I"
+               width="860" tempo="56" play slow></tac-stave>
+
+    <p>Nella scrittura originale le sei crome della melodia nascondono la cadenza: sembra che succedano molte cose, e ne succede <strong>una sola</strong>. Nella riduzione la cadenza &egrave; l&rsquo;unica cosa che resta.</p>
+
+    <p class="didascalia">&Egrave; il motivo per cui alla domanda &laquo;dove sono le cadenze&raquo; non si risponde guardando la partitura: si risponde guardando la riduzione.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Due riduzioni diverse">
+  <div class="slide-interna">
+    <h2>Quando due riduzioni non coincidono</h2>
+
+    <p>Succede spesso, e non vuol dire che una sia sbagliata. Le differenze legittime sono <strong>due</strong>, e vale la pena riconoscerle:</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Le due divergenze che ci stanno</span>
+      <p><strong>Il ritmo armonico pi&ugrave; fitto o pi&ugrave; largo.</strong> Chi conta due accordi per battuta e chi ne conta uno leggono lo stesso pezzo a due profondit&agrave;: la lettura larga &egrave; una riduzione della riduzione.<br>
+      <strong>La nota estranea presa per accordo.</strong> Un&rsquo;appoggiatura lunga si pu&ograve; leggere come un accordo suo, e in certi casi &egrave; anche pi&ugrave; utile.</p>
+    </div>
+
+    <p>Quello che <strong>non</strong> ci sta &egrave; una divergenza sul basso: se due riduzioni danno bassi diversi, una delle due ha letto male il rivolto, e si guarda la partitura.</p>
+
+    <p class="didascalia">Confrontate a coppie prima di consegnare. Dieci minuti di confronto trovano pi&ugrave; errori di mezz&rsquo;ora di ricontrollo da soli, perch&eacute; ognuno rilegge le proprie scelte come se fossero ovvie.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="A che cosa serve">
+  <div class="slide-interna">
+    <h2>Perch&eacute; questa &egrave; l&rsquo;operazione dell&rsquo;esame</h2>
+
+    <p>Alla seconda prova vi si d&agrave; un brano e vi si chiede di analizzarlo. Nessuno vi chieder&agrave; &laquo;fai una riduzione&raquo;: vi chiederanno <strong>quali accordi</strong>, <strong>dove sono le cadenze</strong>, <strong>come si articola la forma</strong>. Sono tre domande a cui non si risponde senza aver ridotto.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Che cosa la riduzione mette in mano</span>
+      <p>Gli <strong>accordi</strong>, uno per tratto, con i gradi.<br>
+      Le <strong>cadenze</strong>, che nella riduzione si vedono a colpo d&rsquo;occhio.<br>
+      Il <strong>ritmo armonico</strong>, che dove cambia segna quasi sempre un confine di sezione.</p>
+    </div>
+
+    <p>La riduzione non &egrave; il risultato dell&rsquo;analisi: &egrave; <strong>il foglio su cui l&rsquo;analisi si scrive</strong>. Nella brutta copia di una prova d&rsquo;esame ben fatta c&rsquo;&egrave; sempre.</p>
+
+    <p class="didascalia">E si fa in fretta, con l&rsquo;abitudine: sedici battute in dieci minuti, dopo un anno di esercizio. Oggi ne avete impiegati venticinque per otto, e va bene cos&igrave;.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Verso la V4">
+  <div class="slide-interna">
+    <h2>La prossima ora c&rsquo;&egrave; la V4</h2>
+
+    <p>Verifica cumulativa da due ore, sulle unit&agrave; <strong>5, 6, 7 e 8</strong>: il partimento, le sequenze, il corale oltre il modello semplice, e la testura pianistica.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Che cosa conviene ripassare</span>
+      <p>La realizzazione di un partimento (u.&nbsp;5&ndash;6) &middot; i quattro modelli del corale, e il fatto che cambiano da un verso al successivo (u.&nbsp;7) &middot; le tre fasi della realizzazione pianistica, e l&rsquo;ordine in cui si tolgono le note (u.&nbsp;8)</p>
+    </div>
+
+    <p class="didascalia">Una cosa che torna in tutte e quattro le unit&agrave;: <strong>alleggerire</strong>. Il partimento si alleggerisce, il corale figurato &egrave; un corale semplice animato, e la testura pianistica nasce da una bozza a quattro parti. Se doveste ripassare una cosa sola, ripassate quella.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Da scrivere, per la prossima volta" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti</p>
+    <h2>Da scrivere, per la prossima volta</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta</span>
+      <ol class="compiti" start="1">
+      <li>
+        <p class="testo-compito"><strong>1. La riduzione delle prime sedici battute.</strong> Finisci a casa la riduzione della mazurka: <strong>un accordo per tratto</strong>, a quattro parti, con i <strong>gradi</strong> sotto e il numero di <strong>battuta</strong> sopra ogni cambio.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-08.html#C5-U8-L4-01"><strong>Workbook</strong></a>, scheda C5-U8-L4-01.</p>
+      </li>
+      <li>
+        <p class="testo-compito"><strong>2. Dalla riduzione al pezzo, di nuovo.</strong> Prendi <strong>quattro battute</strong> della riduzione che hai appena scritto e rifanne un pezzo per pianoforte, <em>diverso</em> dall&rsquo;originale di Chopin.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-08.html#C5-U8-L4-02"><strong>Workbook</strong></a>, scheda C5-U8-L4-02.</p>
+      </li>
+      <li>
+        <p class="testo-compito"><strong>3. Le note che non sono accordo.</strong> Nelle sedici battute ridotte, conta quante note <strong>non</strong> appartengono all&rsquo;accordo e dividile per specie: passaggio, volta, appoggiatura, anticipazione.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-08.html#C5-U8-L4-03"><strong>Workbook</strong></a>, scheda C5-U8-L4-03.</p>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"pronta","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Maggiore e minore all’ascolto: il primo colore","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"pronta","lezioni":[{"n":1,"titolo":"Diesis, bemolle, bequadro: che cosa alterano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Segni di ottava e loro lettura","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato con alterazioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La suddivisione e i tempi composti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Bicordi: terze e seste all’ascolto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"pronta","lezioni":[{"n":1,"titolo":"Il tetracordo, mattone della scala","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La scala diatonica maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione della scala di Do","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il circolo delle quinte con i diesis","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La scala armonizzata: tonica e dominante","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in Do","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Prima analisi all’ascolto: tonica e dominante in un brano","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: scrivere una scala su qualunque nota","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico entro la quinta","file":"lezione-9.html","stato":"pronta"}],"via":"uda-04"},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"pronta","lezioni":[{"n":1,"titolo":"Il circolo con i bemolli","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le armature di chiave: come si leggono","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato melodico in Do e in Sol","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Trovare la tonica dall’armatura","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Solfeggio cantato con armatura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V2 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-05"},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"pronta","lezioni":[{"n":1,"titolo":"Il modo minore naturale, e le tonalità relative","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La minore armonica e il grado di sensibile","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione nel modo minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Perché la settima si alza","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La minore melodica, e perché cambia salendo e scendendo","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in modo minore","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Le tre minori a confronto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: le tre minori scritte su una nota data","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico in modo minore","file":"lezione-9.html","stato":"pronta"}],"via":"uda-06"},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"pronta","lezioni":[{"n":1,"titolo":"Quantità dell’intervallo: contare i gradi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Qualità: giusti, maggiori, minori","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione degli intervalli entro la quinta","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Aumentati, diminuiti, enarmonia","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"L’inversione degli intervalli","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato a salti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Consonanti e dissonanti: che cosa vuol dire davvero","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Intonazione degli intervalli oltre la quinta","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V3 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-07"},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"pronta","lezioni":[{"n":1,"titolo":"La triade come due terze sovrapposte","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le quattro specie: maggiore, minore, diminuita, aumentata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Riconoscimento uditivo di maggiore e minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Le triadi sui gradi della scala","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"I rivolti e la cifratura. La scala cromatica","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Arpeggi cantati sulle triadi","file":"lezione-6.html","stato":"pronta"}],"via":"uda-08"},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"pronta","lezioni":[{"n":1,"titolo":"Struttura della quadriade","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La settima di dominante","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ear training sugli intervalli","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La risoluzione della settima","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Riconoscere la dominante in partitura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico con salti d’accordo","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Esercitazione: cifrare e realizzare","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Solfeggio cantato con accompagnamento","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V4 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-09"},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"pronta","lezioni":[{"n":1,"titolo":"Tonica, dominante, sottodominante","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La progressione I–IV–V–I","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato ritmico-melodico","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La condotta delle parti: moti e divieti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Esercitazione: trovare e correggere gli errori di condotta","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura in tempi composti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Riconoscere le funzioni all’ascolto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: armonizzare un basso dato","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Solfeggio ritmico in 6/8","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Analisi all’ascolto: le funzioni in un brano vero","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Dettato armonico: due funzioni","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V5 · verifica scritta cumulativa","file":"lezione-12.html","stato":"pronta"}],"via":"uda-10"},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"pronta","lezioni":[{"n":1,"titolo":"La cadenza autentica","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Plagale, sospesa, d’inganno","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio a due voci","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Riconoscere le cadenze all’ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le cadenze come punteggiatura della frase","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Intonazione di arpeggi","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Prima armonizzazione di una melodia","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Armonizzazione: la seconda prova","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico con cadenza finale","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Analisi: le cadenze dentro un brano del repertorio","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Solfeggio: ripasso dell’anno","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V6 · verifica scritta cumulativa","file":"lezione-12.html","stato":"pronta"}],"via":"uda-11"}],"materiali":[{"file":"partiture-uda-01.html","titolo":"partiture-uda-01","breve":"partiture-ud","stato":"pronta"},{"file":"scheda-lavoro-autonomo-1.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"solfeggi-classe-1.html","titolo":"Il quaderno di lettura","breve":"Letture","stato":"pronta"},{"file":"workbook-uda-01.html","titolo":"Workbook · unità 1","breve":"Workbook","unita":1,"stato":"pronta"},{"file":"workbook-uda-02.html","titolo":"Workbook · unità 2","breve":"Workbook","unita":2,"stato":"pronta"},{"file":"workbook-uda-03.html","titolo":"Workbook · unità 3","breve":"Workbook","unita":3,"stato":"pronta"},{"file":"workbook-uda-04.html","titolo":"Workbook · unità 4","breve":"Workbook","unita":4,"stato":"pronta"},{"file":"workbook-uda-05.html","titolo":"Workbook · unità 5","breve":"Workbook","unita":5,"stato":"pronta"},{"file":"workbook-uda-06.html","titolo":"Workbook · unità 6","breve":"Workbook","unita":6,"stato":"pronta"},{"file":"workbook-uda-07.html","titolo":"Workbook · unità 7","breve":"Workbook","unita":7,"stato":"pronta"},{"file":"workbook-uda-08.html","titolo":"Workbook · unità 8","breve":"Workbook","unita":8,"stato":"pronta"},{"file":"workbook-uda-09.html","titolo":"Workbook · unità 9","breve":"Workbook","unita":9,"stato":"pronta"},{"file":"workbook-uda-10.html","titolo":"Workbook · unità 10","breve":"Workbook","unita":10,"stato":"pronta"},{"file":"workbook-uda-11.html","titolo":"Workbook · unità 11","breve":"Workbook","unita":11,"stato":"pronta"}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cos’è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I tre moti: retto, obliquo, contrario","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"pronta","lezioni":[{"n":1,"titolo":"Il cantus firmus: una linea che non si tocca","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Come cominciano e come finiscono: tre contrappunti veri a confronto","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Cantare il cantus firmus, tutti insieme","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Quinte e ottave parallele: ascoltiamo che cosa succede","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La regola scritta, dopo averla sentita","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico su due battute","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Officina: otto note contro otto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Intonazione: la voce aggiunta sopra il canto dato","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V1 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"pronta","lezioni":[{"n":1,"titolo":"La chiave di do: una regola sola per tre posizioni","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Contralto: dove sta il do, e come si conta","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato in chiave di contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il profilo di una linea, misurato su melodie vere: culmine, ambito, direzione","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"I salti si compensano: la regola del ritorno","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura alternata: violino, basso, contralto","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"pronta","lezioni":[{"n":1,"titolo":"Le clausole in partitura: come finiscono i contrappunti del Cinquecento","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sensibile che non c’era: musica ficta","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione nei modi ecclesiastici","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I modi: dorico, frigio, lidio, misolidio","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Lo stesso canto dato in due modi diversi","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico modale","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Officina: contrappunto di prima specie, intero","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Canone alla mente a due voci","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V2 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-04"},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"pronta","lezioni":[{"n":1,"titolo":"Due note contro una: il tempo debole si libera","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La nota di passaggio: una dissonanza che non pesa","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio cantato con note di passaggio","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La nota di volta, e passaggio e volta cercati in un brano vero","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Officina: seconda specie sul canto dato","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico di due battute","file":"lezione-6.html","stato":"pronta"}],"via":"uda-05"},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"pronta","lezioni":[{"n":1,"titolo":"Il motivo: la cellula che si riconosce","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Analisi della frase: antecedente e conseguente","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Bicinia: cantare a due voci per gruppi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La testura, e il primo accompagnamento: basso e accordi sotto una melodia","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Comporre otto battute su un metro dato","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio a due parti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Dare una seconda voce alla propria melodia","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Canone: la forma più semplice di imitazione","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V3 · verifica scritta cumulativa","file":"lezione-9.html","stato":"pronta"}],"via":"uda-06"},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"pronta","lezioni":[{"n":1,"titolo":"Quattro note contro una: la linea si muove davvero","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Dove sta la dissonanza in una pagina vera: guardare prima di regolare","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Chiave di tenore: leggere e trasportare","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La nota cambiata e la doppia volta","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Il profilo su quattro note: non tutto può salire","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"La terzina: la suddivisione irregolare","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Officina: terza specie sul canto dato","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Correggere il contrappunto di un compagno","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico con salti d’accordo","file":"lezione-9.html","stato":"pronta"}],"via":"uda-07"},{"n":8,"titolo":"Le funzioni, all’orecchio e alla tastiera","quando":"settimane 19–20","stato":"pronta","lezioni":[{"n":1,"titolo":"Tre funzioni, tre effetti: sentirli prima di nominarli","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il giro T–S–D–T alla tastiera, con una melodia sopra","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato armonico: riconoscere le tre funzioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Analisi: le cadenze in un brano vero, e la posizione melodica","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Intonazione dei giri armonici","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V4 · verifica scritta cumulativa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-08"},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"pronta","lezioni":[{"n":1,"titolo":"Due voci diventano quattro: che cosa resta e che cosa cambia","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le quattro estensioni, e la disposizione stretta","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato: trascrivere il basso di un frammento","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il primo collegamento scritto: I–V–I","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le parallele in un corale vero: cercarle in una pagina di Bach","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Cantare il basso di un corale","file":"lezione-6.html","stato":"pronta"}],"via":"uda-09"},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"pronta","lezioni":[{"n":1,"titolo":"Il quarto grado, e il giro completo a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sensibile sale, e non si raddoppia","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato armonico con le tre funzioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Lo stesso accordo con tre bassi diversi: il rivolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La cifratura: leggere e scrivere un basso numerato","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Metri con l’unità di tempo sull’ottavo","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"La settima di dominante: forma completa, incompleta e risoluzioni","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Officina breve: in che ordine si applicano le regole","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico modulante","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"I toni vicini: che cosa vuol dire che una tonalità è vicina","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Intonazione fino a quattro alterazioni, e il temperamento","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V5 · verifica scritta cumulativa","file":"lezione-12.html","stato":"pronta"}],"via":"uda-10"},{"n":11,"titolo":"Le forme, e la modulazione che le fa muovere","quando":"settimane 27–30","stato":"pronta","lezioni":[{"n":1,"titolo":"Quando la simmetria si rompe: motivi e periodi in musica vera","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il II e il VI: lo schema dei collegamenti si chiude","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ornamentazione: appoggiatura, mordente, gruppetto, trillo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La modulazione scritta: l’accordo perno","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Analisi della forma: il lied binario","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato a due parti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Analisi della forma: il lied ternario","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Analisi: riassumere un brano in uno schema","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Cantare in due: bicinia e canoni dell’anno","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Officina: analisi di un brano scelto dalla classe","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Ripasso: il solfeggio dell’anno","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V6 · verifica scritta cumulativa","file":"lezione-12.html","stato":"pronta"}],"via":"uda-11"}],"materiali":[{"file":"scheda-lavoro-autonomo-1.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"solfeggi-classe-2.html","titolo":"Il quaderno di lettura","breve":"Letture","stato":"pronta"},{"file":"workbook-uda-01.html","titolo":"Workbook · unità 1","breve":"Workbook","unita":1,"stato":"pronta"},{"file":"workbook-uda-02.html","titolo":"Workbook · unità 2","breve":"Workbook","unita":2,"stato":"pronta"},{"file":"workbook-uda-03.html","titolo":"Workbook · unità 3","breve":"Workbook","unita":3,"stato":"pronta"},{"file":"workbook-uda-04.html","titolo":"Workbook · unità 4","breve":"Workbook","unita":4,"stato":"pronta"},{"file":"workbook-uda-05.html","titolo":"Workbook · unità 5","breve":"Workbook","unita":5,"stato":"pronta"},{"file":"workbook-uda-06.html","titolo":"Workbook · unità 6","breve":"Workbook","unita":6,"stato":"pronta"},{"file":"workbook-uda-07.html","titolo":"Workbook · unità 7","breve":"Workbook","unita":7,"stato":"pronta"},{"file":"workbook-uda-08.html","titolo":"Workbook · unità 8","breve":"Workbook","unita":8,"stato":"pronta"},{"file":"workbook-uda-09.html","titolo":"Workbook · unità 9","breve":"Workbook","unita":9,"stato":"pronta"},{"file":"workbook-uda-10.html","titolo":"Workbook · unità 10","breve":"Workbook","unita":10,"stato":"pronta"},{"file":"workbook-uda-11.html","titolo":"Workbook · unità 11","breve":"Workbook","unita":11,"stato":"pronta"}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"pronta","lezioni":[{"n":1,"titolo":"Le stesse regole di prima con due voci in più: collegamento armonico e collegamento melodico","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Dettato melodico diatonico non modulante","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Quinte e ottave nascoste: perché sono un caso diverso","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Incroci e sorpassi","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Intonare una voce mentre le altre suonano","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Trovare gli errori di condotta in un compito, e la condotta vera in un corale","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Solfeggio cantato con cromatismi di passaggio","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"V1 · verifica scritta cumulativa · prima ora","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V1 · verifica scritta cumulativa · seconda ora","file":"lezione-9.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"pronta","lezioni":[{"n":1,"titolo":"Collegare I e V: le due strade","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il quarto grado, e il giro completo","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato armonico con le tre funzioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sensibile sale, e non si raddoppia","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dieci collegamenti di seguito, e le stesse triadi cercate dentro un brano","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura in chiave di tenore","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"pronta","lezioni":[{"n":1,"titolo":"Il primo rivolto a quattro parti, su tonica e su dominante: che cosa si raddoppia","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Dettato: il basso di un frammento a tre parti","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"I rivolti della sottodominante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il 6/4: cadenzale, di passaggio, di volta","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Cantare il basso di un corale","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Il basso è una linea, non una fila di fondamentali: seguirlo in partitura","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Solfeggio a due parti","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"V2 · verifica scritta cumulativa · prima ora","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V2 · verifica scritta cumulativa · seconda ora","file":"lezione-9.html","stato":"pronta"}],"via":"uda-04"},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"pronta","lezioni":[{"n":1,"titolo":"Quarta specie: la nota che resta","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Preparazione, percussione, risoluzione","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato ritmico con sincope oltre l’unità di tempo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il ritardo in armonia è questo, scritto a quattro parti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Officina: la quarta specie sul canto dato, e il ritardo cercato in un brano vero","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Canone alla mente a due voci","file":"lezione-6.html","stato":"pronta"}],"via":"uda-05"},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"pronta","lezioni":[{"n":1,"titolo":"Il secondo grado, ponte verso la dominante","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il sesto grado, la cadenza evitata e le altre varianti della successione cadenzale","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato melodico con salti d’accordo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il terzo grado e le sue cautele","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le condotte particolari, cercate dove un autore piega davvero la regola","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio a due parti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Dettato armonico con II e VI","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"V3 · verifica scritta cumulativa · prima ora","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V3 · verifica scritta cumulativa · seconda ora","file":"lezione-9.html","stato":"pronta"}],"via":"uda-06"},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"pronta","lezioni":[{"n":1,"titolo":"Sotto ogni nota, quali accordi sono possibili","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il ritmo armonico: quanto dura un accordo","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato a due voci","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Armonizzare una melodia di otto battute","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La stessa melodia armonizzata due volte, e una terza volta dal suo autore: confronto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Intonazione con sensibili secondarie","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Officina: armonizzare un corale semplice","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Correggere il lavoro di un compagno","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Solfeggio ritmico a due parti","file":"lezione-9.html","stato":"pronta"}],"via":"uda-07"},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"pronta","lezioni":[{"n":1,"titolo":"Quinta specie: mescolare le altre quattro, e dove la linea respira","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Dettato modale a due voci","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Officina: un fiorito intero sul canto dato, guardato prima in una pagina del Cinquecento","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Intonazione a due voci del proprio contrappunto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"V4 · verifica scritta cumulativa · prima ora","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V4 · verifica scritta cumulativa · seconda ora","file":"lezione-6.html","stato":"pronta"}],"via":"uda-08"},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"pronta","lezioni":[{"n":1,"titolo":"Una dominante che non porta alla tonica","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La dominante della dominante: come si scrive","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato melodico con sensibili secondarie","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Riconoscerla in partitura: la dominante della dominante dentro un brano vero","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Esercitazione: inserirla in un giro cadenzale","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cromatico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-09"},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"pronta","lezioni":[{"n":1,"titolo":"Il iii nel maggiore e il VI nel minore","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Altre dominanti secondarie nel maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato armonico con una dominante secondaria","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Altre dominanti secondarie nel minore","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La progressione: il modello, le sue copie, e le discendenti per quinte","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Il trasporto: leggere un tono sopra","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Officina: scrivere una progressione di quattro modelli","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Dettato melodico modulante","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Riconoscere una progressione in partitura","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Solfeggio: lettura a prima vista","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"V5 · verifica scritta cumulativa · prima ora","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V5 · verifica scritta cumulativa · seconda ora","file":"lezione-12.html","stato":"pronta"}],"via":"uda-10"},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"pronta","lezioni":[{"n":1,"titolo":"Analisi formale: gli elementi di base","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Frase standard, estensioni ed espansioni","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Polimetria: due metri sovrapposti","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Varianti ai modelli base","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Analisi della forma: il Lied binario","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico con emiolia","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Analisi della forma: il Lied ternario","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Il Barocco: le forme di danza, il ritmo e il contrappunto","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Solfeggio: lettura a prima vista","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Verifica orale di solfeggio","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"V6 · verifica scritta cumulativa · prima ora","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V6 · verifica scritta cumulativa · seconda ora","file":"lezione-12.html","stato":"pronta"}],"via":"uda-11"}],"materiali":[{"file":"scheda-lavoro-autonomo-10.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-11.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-2.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-3.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-4.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-5.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-6.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-7.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-8.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-9.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"solfeggi-classe-3.html","titolo":"Il quaderno di lettura","breve":"Letture","stato":"pronta"},{"file":"workbook-uda-01.html","titolo":"Workbook · unità 1","breve":"Workbook","unita":1,"stato":"pronta"},{"file":"workbook-uda-02.html","titolo":"Workbook · unità 2","breve":"Workbook","unita":2,"stato":"pronta"},{"file":"workbook-uda-03.html","titolo":"Workbook · unità 3","breve":"Workbook","unita":3,"stato":"pronta"},{"file":"workbook-uda-04.html","titolo":"Workbook · unità 4","breve":"Workbook","unita":4,"stato":"pronta"},{"file":"workbook-uda-05.html","titolo":"Workbook · unità 5","breve":"Workbook","unita":5,"stato":"pronta"},{"file":"workbook-uda-06.html","titolo":"Workbook · unità 6","breve":"Workbook","unita":6,"stato":"pronta"},{"file":"workbook-uda-07.html","titolo":"Workbook · unità 7","breve":"Workbook","unita":7,"stato":"pronta"},{"file":"workbook-uda-08.html","titolo":"Workbook · unità 8","breve":"Workbook","unita":8,"stato":"pronta"},{"file":"workbook-uda-09.html","titolo":"Workbook · unità 9","breve":"Workbook","unita":9,"stato":"pronta"},{"file":"workbook-uda-10.html","titolo":"Workbook · unità 10","breve":"Workbook","unita":10,"stato":"pronta"},{"file":"workbook-uda-11.html","titolo":"Workbook · unità 11","breve":"Workbook","unita":11,"stato":"pronta"}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Da dove arriva la settima","quando":"settimane 3–5","stato":"pronta","lezioni":[{"n":1,"titolo":"Ripresa attiva: la settima si scrive, non si rispiega","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La provenienza 8°–7°: la settima che arriva da sopra","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato armonico con la settima di dominante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La settima preparata: il IV che precede il V⁷","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La settima di passaggio, e la figurazione V⁸⁻⁷","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: da dove arriva la settima, in un brano vero","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Ascolto: riconoscere da dove arriva la settima","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"V1 · verifica scritta cumulativa · prima ora","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V1 · verifica scritta cumulativa · seconda ora","file":"lezione-9.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"I tre rivolti, e i loro tre mestieri","quando":"settimane 6–7","stato":"pronta","lezioni":[{"n":1,"titolo":"Il primo rivolto, e una promessa fatta in prima","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il secondo rivolto: l’accordo che congiunge","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato: il basso dice il rivolto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il terzo rivolto, e l’unica risoluzione obbligata","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le stesse armonie, per tastiera e per voci","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: che mestiere fa ogni rivolto","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"Dall’alto: i profili melodici cadenzali","quando":"settimane 8–10","stato":"pronta","lezioni":[{"n":1,"titolo":"Guardare dall’alto: che cos’è un profilo cadenzale","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le due clausole: di soprano e di tenore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato a due voci","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La cadenza doppia","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La losanga, il napoletano, e i profili sulle espansioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: i profili cadenzali di un corale","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Ascolto: riconoscere il profilo in un corale","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"V2 · verifica scritta cumulativa · prima ora","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V2 · verifica scritta cumulativa · seconda ora","file":"lezione-9.html","stato":"pronta"}],"via":"uda-04"},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"pronta","lezioni":[{"n":1,"titolo":"Il settimo grado con la settima","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Semidiminuita nel maggiore, diminuita nel minore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato armonico con il VII7","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I rivolti della settima di sensibile","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Esercitazione: sostituire la dominante con il VII7","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Intonazione: la settima diminuita","file":"lezione-6.html","stato":"pronta"}],"via":"uda-05"},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"pronta","lezioni":[{"n":1,"titolo":"Una settima su ogni grado, e la catena discendente per quinte","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Dettato armonico con una catena di settime","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"La preparazione della settima","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Armonizzare una melodia con accordi di settima","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Analisi: una catena di settime in un brano romantico","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Officina: sedici battute con settime secondarie","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Ascolto: le settime in un brano romantico","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"V3 · verifica scritta cumulativa · prima ora","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V3 · verifica scritta cumulativa · seconda ora","file":"lezione-9.html","stato":"pronta"}],"via":"uda-06"},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"pronta","lezioni":[{"n":1,"titolo":"La figurazione melodica dentro le quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Contrappunto a tre voci: che cosa cambia","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Canone a tre voci","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"L’imitazione: la stessa idea che ritorna spostata","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Imitazione all’ottava, alla quinta, alla quarta","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: l’imitazione in un mottetto","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"L’invenzione a due voci di Bach, letta da vicino","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Officina: scrivere l’inizio di un’invenzione","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Intonazione a tre voci","file":"lezione-9.html","stato":"pronta"}],"via":"uda-07"},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"pronta","lezioni":[{"n":1,"titolo":"Quattro linee che cantano: gli accordi, la corona, il respiro, la cadenza","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Cantare un corale a quattro parti, per gruppi","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Officina: armonizzare una melodia di corale","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dettato: il basso di un corale","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"V4 · verifica scritta cumulativa · prima ora","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V4 · verifica scritta cumulativa · seconda ora","file":"lezione-6.html","stato":"pronta"}],"via":"uda-08"},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"pronta","lezioni":[{"n":1,"titolo":"Modulazione alla dominante del maggiore","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Modulazione alla dominante e alla mediante del minore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato melodico modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I toni lontani: quando il pivot non basta","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Gli accordi di sesta aumentata (libro A11, lezione 51)","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Intonazione di una melodia che modula due volte","file":"lezione-6.html","stato":"pronta"}],"via":"uda-09"},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"pronta","lezioni":[{"n":1,"titolo":"Ripasso delle forme tematiche classiche, e la forma sonata: le tre parti e le due tonalità","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Dettato: trascrivere un tema","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Il ponte, e che cosa deve fare","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Lo sviluppo: elaborazione motivica","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Analisi: il ponte di tre sonate a confronto","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"La ripresa, e perché il secondo tema cambia tonalità","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Laboratorio: il primo movimento della Sonata op. 31 n. 2","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Ascolto guidato di una sonata intera","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Sintesi grafica della forma: tre pezzi a confronto","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Dettato ritmico complesso","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"V5 · verifica scritta cumulativa · prima ora","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V5 · verifica scritta cumulativa · seconda ora","file":"lezione-12.html","stato":"pronta"}],"via":"uda-10"},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"pronta","lezioni":[{"n":1,"titolo":"Le forme ternarie e le forme barocche a due ritornelli","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Dettato polifonico","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"La fuga: il soggetto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La risposta, tonale e reale","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Cantare l’esposizione di una fuga, per gruppi","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Il controsoggetto e l’esposizione","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Laboratorio: analisi di una fuga del Clavicembalo","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Analisi: il piano tonale di una fuga intera","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Analisi: la fuga dopo Bach — Beethoven, Grande Fuga op. 133","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Verifica orale di solfeggio","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"V6 · verifica scritta cumulativa · prima ora","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V6 · verifica scritta cumulativa · seconda ora","file":"lezione-12.html","stato":"pronta"}],"via":"uda-11"}],"materiali":[{"file":"solfeggi-classe-4.html","titolo":"Il quaderno di lettura","breve":"Letture","stato":"pronta"},{"file":"workbook-uda-01.html","titolo":"Workbook · unità 1","breve":"Workbook","unita":1,"stato":"pronta"},{"file":"workbook-uda-02.html","titolo":"Workbook · unità 2","breve":"Workbook","unita":2,"stato":"pronta"},{"file":"workbook-uda-03.html","titolo":"Workbook · unità 3","breve":"Workbook","unita":3,"stato":"pronta"},{"file":"workbook-uda-04.html","titolo":"Workbook · unità 4","breve":"Workbook","unita":4,"stato":"pronta"},{"file":"workbook-uda-05.html","titolo":"Workbook · unità 5","breve":"Workbook","unita":5,"stato":"pronta"},{"file":"workbook-uda-06.html","titolo":"Workbook · unità 6","breve":"Workbook","unita":6,"stato":"pronta"},{"file":"workbook-uda-07.html","titolo":"Workbook · unità 7","breve":"Workbook","unita":7,"stato":"pronta"},{"file":"workbook-uda-08.html","titolo":"Workbook · unità 8","breve":"Workbook","unita":8,"stato":"pronta"},{"file":"workbook-uda-09.html","titolo":"Workbook · unità 9","breve":"Workbook","unita":9,"stato":"pronta"},{"file":"workbook-uda-10.html","titolo":"Workbook · unità 10","breve":"Workbook","unita":10,"stato":"pronta"},{"file":"workbook-uda-11.html","titolo":"Workbook · unità 11","breve":"Workbook","unita":11,"stato":"pronta"}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Ripresa: le modulazioni ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia tonale modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La sottodominante dei due modi, e gli altri toni vicini","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Progressioni di quinta con tonicizzazioni","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un brano intero","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Laboratorio sulla modulazione","quando":"settimane 3–4","stato":"pronta","lezioni":[{"n":1,"titolo":"Riconoscere una modulazione, anche multipla: gli indizi in partitura","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Dettato armonico con una modulazione","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Il pedale, e che cosa regge","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Analisi: il pedale in tre brani di epoche diverse","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"V1 · verifica scritta cumulativa · prima ora","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta cumulativa · seconda ora","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Melodie modulanti","quando":"settimane 5–6","stato":"pronta","lezioni":[{"n":1,"titolo":"La modulazione nella melodia: come si vede","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Modulazione alla dominante e ritorno al tono","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione di una melodia che modula e torna","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Modulazioni alle tonalità relative","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Modulazioni al ii, al VI e al VII","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Analisi: le modulazioni di un Lied di Schubert","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"Altre armonie dissonanti","quando":"settimane 7–9","stato":"pronta","lezioni":[{"n":1,"titolo":"La nona di dominante, e l’accordo che si allarga a undicesima e tredicesima","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Ear training: riconoscere una nona","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Usi particolari degli accordi di settima","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Gli accordi alterati: napoletana e seste aumentate","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Analisi: gli alterati in un brano di Chopin","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Riconoscerli in partitura, a colpo d’occhio","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Analisi: lo stesso accordo in due contesti diversi","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"V2 · verifica scritta cumulativa · prima ora","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V2 · verifica scritta cumulativa · seconda ora","file":"lezione-9.html","stato":"pronta"}],"via":"uda-04"},{"n":5,"titolo":"Il partimento: leggere un basso e realizzarlo","quando":"settimane 10–11","stato":"pronta","lezioni":[{"n":1,"titolo":"Il partimento: un basso che contiene tutto il resto","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La regola dell’ottava","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Realizzazione estemporanea alla tastiera","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I moti del basso e le formule che li accompagnano","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Analisi: riconoscere una formula di partimento in un brano","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Officina: realizzare un partimento breve","file":"lezione-6.html","stato":"pronta"}],"via":"uda-05"},{"n":6,"titolo":"Partimenti da realizzare","quando":"settimane 12–14","stato":"pronta","lezioni":[{"n":1,"titolo":"Un partimento breve realizzato insieme, e le sequenze con le loro formule","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Lettura a prima vista del basso","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Officina: due partimenti da realizzare per iscritto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Correzione ragionata delle realizzazioni","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Analisi: le sequenze in un corale di Bach","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Un partimento lungo: gestire la forma","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Analisi: forma e armonia insieme","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"V3 · verifica scritta cumulativa · prima ora","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V3 · verifica scritta cumulativa · seconda ora","file":"lezione-9.html","stato":"pronta"}],"via":"uda-06"},{"n":7,"titolo":"Il corale, oltre il modello semplice","quando":"settimane 15–17","stato":"pronta","lezioni":[{"n":1,"titolo":"I quattro modelli del corale bachiano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il corale con il basso in ottavi","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Cantare un corale figurato, per gruppi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il corale figurato: fiorire le tre voci inferiori","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Officina: figurare un corale già armonizzato","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato: il basso in ottavi di un corale","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Correzione ragionata dei corali figurati della classe","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Il corale dopo Bach: la Bachschule","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Analisi comparata: la stessa melodia armonizzata due volte","file":"lezione-9.html","stato":"pronta"}],"via":"uda-07"},{"n":8,"titolo":"Armonizzare una melodia per pianoforte","quando":"settimane 18–19","stato":"da preparare","lezioni":[{"n":1,"titolo":"La testura pianistica non è quella corale: disposizione, raddoppi, pedale","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Lettura a prima vista alla tastiera","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Officina: armonizzare una melodia per pianoforte","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Analisi: come è armonizzata questa melodia","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"V4 · verifica scritta cumulativa · prima ora","file":"lezione-5.html","stato":"in preparazione"},{"n":6,"titolo":"V4 · verifica scritta cumulativa · seconda ora","file":"lezione-6.html","stato":"in preparazione"}],"via":"uda-08"},{"n":9,"titolo":"La melodia con accompagnamento pianistico","quando":"settimane 20–21","stato":"da preparare","lezioni":[{"n":1,"titolo":"Le formule di accompagnamento, dal basso albertino in poi","file":"lezione-1.html","stato":"in preparazione"},{"n":2,"titolo":"Scrivere melodia e accompagnamento insieme","file":"lezione-2.html","stato":"in preparazione"},{"n":3,"titolo":"Dettato melodico con accompagnamento","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"Il rondò e il rondò-sonata","file":"lezione-4.html","stato":"in preparazione"},{"n":5,"titolo":"Analisi: un rondò intero, con lo schema alla mano","file":"lezione-5.html","stato":"in preparazione"},{"n":6,"titolo":"Trascrivere e arrangiare: piccoli gruppi, piccoli organici","file":"lezione-6.html","stato":"in preparazione"}]},{"n":10,"titolo":"Oltre la tonalità","quando":"settimane 22–26","stato":"da preparare","lezioni":[{"n":1,"titolo":"Quando la dominante smette di risolvere: lo scambio modale e la modulazione cromatica che ne nasce","file":"lezione-1.html","stato":"in preparazione"},{"n":2,"titolo":"Ear training: accordi senza funzione","file":"lezione-2.html","stato":"in preparazione"},{"n":3,"titolo":"Simmetria e rete di altezze: Wagner, Liszt, Franck","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"Debussy: esatonale, pentatonica, modi ritrovati","file":"lezione-4.html","stato":"in preparazione"},{"n":5,"titolo":"Analisi: «Voiles», il secondo preludio di Debussy","file":"lezione-5.html","stato":"in preparazione"},{"n":6,"titolo":"Analisi: Messiaen, «Quatuor pour la fin du temps» — modi a trasposizione limitata e ritmo non misurato","file":"lezione-6.html","stato":"in preparazione"},{"n":7,"titolo":"Politonalità e ritmo: Stravinskij","file":"lezione-7.html","stato":"in preparazione"},{"n":8,"titolo":"Schönberg: dall’atonalità alla serie di dodici suoni","file":"lezione-8.html","stato":"in preparazione"},{"n":9,"titolo":"Analisi: Ligeti, «Lux Aeterna» — quando il canone diventa massa","file":"lezione-9.html","stato":"in preparazione"},{"n":10,"titolo":"Trascrivere un frammento per organico misto","file":"lezione-10.html","stato":"in preparazione"},{"n":11,"titolo":"Analisi per insiemi: Schönberg, Klavierstücke op. 33a","file":"lezione-11.html","stato":"in preparazione"},{"n":12,"titolo":"Analisi: un ascolto extraeuropeo, con quali strumenti","file":"lezione-12.html","stato":"in preparazione"},{"n":13,"titolo":"Che cos’è l’analisi, e perché non ce n’è una sola","file":"lezione-13.html","stato":"in preparazione"},{"n":14,"titolo":"V5 · verifica scritta cumulativa · prima ora","file":"lezione-14.html","stato":"in preparazione"},{"n":15,"titolo":"V5 · verifica scritta cumulativa · seconda ora","file":"lezione-15.html","stato":"in preparazione"}]},{"n":11,"titolo":"La seconda prova dell’Esame di Stato","quando":"settimane 27–30","stato":"da preparare","lezioni":[{"n":1,"titolo":"La seconda prova: che cosa chiede, per esteso","file":"lezione-1.html","stato":"in preparazione"},{"n":2,"titolo":"Le tre tipologie A, B1 e B2, su un tema svolto per ciascuna","file":"lezione-2.html","stato":"in preparazione"},{"n":3,"titolo":"Preparazione della prova orale","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"Simulazione, prima parte: analisi","file":"lezione-4.html","stato":"in preparazione"},{"n":5,"titolo":"Simulazione, seconda parte: composizione","file":"lezione-5.html","stato":"in preparazione"},{"n":6,"titolo":"Lettura a prima vista","file":"lezione-6.html","stato":"in preparazione"},{"n":7,"titolo":"Correzione ragionata della simulazione","file":"lezione-7.html","stato":"in preparazione"},{"n":8,"titolo":"Il progetto compositivo: istanze di partenza e scopi","file":"lezione-8.html","stato":"in preparazione"},{"n":9,"titolo":"Officina di composizione, e revisione finale delle partiture","file":"lezione-9.html","stato":"in preparazione"},{"n":10,"titolo":"Prove di esecuzione dei progetti","file":"lezione-10.html","stato":"in preparazione"},{"n":11,"titolo":"V6 · verifica finale · presentazione del progetto · prima ora","file":"lezione-11.html","stato":"in preparazione"},{"n":12,"titolo":"V6 · verifica finale · presentazione del progetto · seconda ora","file":"lezione-12.html","stato":"in preparazione"}]}],"materiali":[{"file":"solfeggi-classe-5.html","titolo":"Il quaderno di lettura","breve":"Letture","stato":"pronta"},{"file":"workbook-uda-01.html","titolo":"Workbook · unità 1","breve":"Workbook","unita":1,"stato":"pronta"},{"file":"workbook-uda-02.html","titolo":"Workbook · unità 2","breve":"Workbook","unita":2,"stato":"pronta"},{"file":"workbook-uda-03.html","titolo":"Workbook · unità 3","breve":"Workbook","unita":3,"stato":"pronta"},{"file":"workbook-uda-04.html","titolo":"Workbook · unità 4","breve":"Workbook","unita":4,"stato":"pronta"},{"file":"workbook-uda-05.html","titolo":"Workbook · unità 5","breve":"Workbook","unita":5,"stato":"pronta"},{"file":"workbook-uda-06.html","titolo":"Workbook · unità 6","breve":"Workbook","unita":6,"stato":"pronta"},{"file":"workbook-uda-07.html","titolo":"Workbook · unità 7","breve":"Workbook","unita":7,"stato":"pronta"}]}],"qui":{"classe":5,"unita":8,"lezione":4}}</script>
+</body>
+</html>

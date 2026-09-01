@@ -79,6 +79,10 @@
                            font-weight: 700; color: var(--classe);
                            font-size: .8rem; letter-spacing: .08em;
                            text-transform: uppercase; break-after: avoid; }
+  .indice-libro li.da-unita { display: block; margin: .5rem 0 .2rem;
+                              font-weight: 700; font-style: italic;
+                              color: var(--inchiostro2); font-size: .86rem;
+                              break-after: avoid; }
   .indice-libro .n { min-width: 1.9rem; text-align: right; font-weight: 700;
                      color: var(--classe); }
   .indice-libro .t { flex: 1; }
@@ -106,6 +110,16 @@
              font-weight: 700; color: var(--classe); }
   .gradino .quanti { font-weight: 400; letter-spacing: 0; text-transform: none;
                      color: var(--inchiostro2); }
+
+  /* IL NOME DELL'UNITÀ, una volta sola quando cambia. Prima stava
+     davanti al titolo di ogni pezzo — quattordici volte di fila la
+     stessa frase — e i titoli veri, che sono la metà destra, si
+     leggevano male perché tutti cominciavano allo stesso modo. Qui è
+     una divisione dentro il gradino, e infatti pesa meno di lui: niente
+     maiuscoletto, niente riga sotto. */
+  .da-unita { break-inside: avoid; break-after: avoid;
+              margin: 1.1rem 0 .5rem; font-size: .95rem; font-weight: 700;
+              color: var(--inchiostro2); font-style: italic; }
 
   /* UN SOLFEGGIO NON SI SPEZZA FRA DUE PAGINE. Un rigo tagliato a metà
      dalla piegatura non si legge: si perde proprio la battuta a cavallo,
@@ -237,172 +251,184 @@
     </p>
     <ol>
       <li class="salto">Primo gradino</li>
-      <li><span class="n">1</span><span class="t">Ripasso: la linea a quattro parti &middot; Per cominciare</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">2</span><span class="t">Ripasso: la linea a quattro parti &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">3</span><span class="t">Ripasso: la linea a quattro parti &middot; Due frasi</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">4</span><span class="t">Ripasso: la linea a quattro parti &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">5</span><span class="t">Ripasso: la linea a quattro parti &middot; Con la pausa a metà</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">6</span><span class="t">Ripasso: la linea a quattro parti &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">7</span><span class="t">Ripasso: la linea a quattro parti &middot; Il profilo</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">8</span><span class="t">Ripasso: la linea a quattro parti &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">9</span><span class="t">Ripasso: la linea a quattro parti &middot; Andando in su</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">10</span><span class="t">Ripasso: la linea a quattro parti &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">11</span><span class="t">Ripasso: la linea a quattro parti &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">12</span><span class="t">Ripasso: la linea a quattro parti &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">13</span><span class="t">Ripasso: la linea a quattro parti &middot; Tutto quello che sai</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">14</span><span class="t">Ripasso: la linea a quattro parti &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">15</span><span class="t">La condotta delle parti &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">16</span><span class="t">La condotta delle parti &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">17</span><span class="t">La condotta delle parti &middot; Due frasi</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">18</span><span class="t">La condotta delle parti &middot; Il salto in mezzo</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">19</span><span class="t">La condotta delle parti &middot; Con la pausa a metà</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">20</span><span class="t">La condotta delle parti &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">21</span><span class="t">La condotta delle parti &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">22</span><span class="t">La condotta delle parti &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">23</span><span class="t">La condotta delle parti &middot; Andando in su</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">24</span><span class="t">La condotta delle parti &middot; Andando in giù</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">25</span><span class="t">La condotta delle parti &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">26</span><span class="t">La condotta delle parti &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">27</span><span class="t">La condotta delle parti &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">28</span><span class="t">La condotta delle parti &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">29</span><span class="t">Le triadi primarie &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">30</span><span class="t">Le triadi primarie &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">31</span><span class="t">Le triadi primarie &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">32</span><span class="t">Le triadi primarie &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">33</span><span class="t">Le triadi primarie &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">34</span><span class="t">Le triadi primarie &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">35</span><span class="t">Le triadi primarie &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">36</span><span class="t">Le triadi primarie &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">37</span><span class="t">Le triadi primarie &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">38</span><span class="t">Le triadi primarie &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">39</span><span class="t">Le triadi primarie &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">40</span><span class="t">Le triadi primarie &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">41</span><span class="t">Le triadi primarie &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">42</span><span class="t">Le triadi primarie &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">43</span><span class="t">I rivolti &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">44</span><span class="t">I rivolti &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">45</span><span class="t">I rivolti &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">46</span><span class="t">I rivolti &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">47</span><span class="t">I rivolti &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">48</span><span class="t">I rivolti &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">49</span><span class="t">I rivolti &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">50</span><span class="t">I rivolti &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">51</span><span class="t">I rivolti &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">52</span><span class="t">I rivolti &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">53</span><span class="t">I rivolti &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">54</span><span class="t">I rivolti &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">55</span><span class="t">I rivolti &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">56</span><span class="t">I rivolti &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li class="da-unita">Ripasso: la linea a quattro parti</li>
+      <li><span class="n">1</span><span class="t">Per cominciare</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">2</span><span class="t">La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">3</span><span class="t">Due frasi</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">4</span><span class="t">Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">5</span><span class="t">Con la pausa a metà</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">6</span><span class="t">La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">7</span><span class="t">Il profilo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">8</span><span class="t">Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">9</span><span class="t">Andando in su</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">10</span><span class="t">Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">11</span><span class="t">La stessa cosa, più stretta</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">12</span><span class="t">L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">13</span><span class="t">Tutto quello che sai</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">14</span><span class="t">La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li class="da-unita">La condotta delle parti</li>
+      <li><span class="n">15</span><span class="t">Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">16</span><span class="t">La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">17</span><span class="t">Due frasi</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">18</span><span class="t">Il salto in mezzo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">19</span><span class="t">Con la pausa a metà</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">20</span><span class="t">La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">21</span><span class="t">Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">22</span><span class="t">Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">23</span><span class="t">Andando in su</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">24</span><span class="t">Andando in giù</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">25</span><span class="t">La stessa cosa, più stretta</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">26</span><span class="t">L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">27</span><span class="t">Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">28</span><span class="t">La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li class="da-unita">Le triadi primarie</li>
+      <li><span class="n">29</span><span class="t">Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">30</span><span class="t">La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">31</span><span class="t">Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">32</span><span class="t">Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">33</span><span class="t">Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">34</span><span class="t">La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">35</span><span class="t">Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">36</span><span class="t">Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">37</span><span class="t">Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">38</span><span class="t">Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">39</span><span class="t">La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">40</span><span class="t">L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">41</span><span class="t">Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">42</span><span class="t">La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li class="da-unita">I rivolti</li>
+      <li><span class="n">43</span><span class="t">Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">44</span><span class="t">La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">45</span><span class="t">Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">46</span><span class="t">Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">47</span><span class="t">Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">48</span><span class="t">La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">49</span><span class="t">Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">50</span><span class="t">Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">51</span><span class="t">Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">52</span><span class="t">Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">53</span><span class="t">La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">54</span><span class="t">L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">55</span><span class="t">Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">56</span><span class="t">La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
       <li class="salto">Secondo gradino</li>
-      <li><span class="n">57</span><span class="t">Quarta specie &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">58</span><span class="t">Quarta specie &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">59</span><span class="t">Quarta specie &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">60</span><span class="t">Quarta specie &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">61</span><span class="t">Quarta specie &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">62</span><span class="t">Quarta specie &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">63</span><span class="t">Quarta specie &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">64</span><span class="t">Quarta specie &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">65</span><span class="t">Quarta specie &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">66</span><span class="t">Quarta specie &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">67</span><span class="t">Quarta specie &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">68</span><span class="t">Quarta specie &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">69</span><span class="t">Quarta specie &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">70</span><span class="t">Quarta specie &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">71</span><span class="t">Secondo, sesto e terzo grado &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">72</span><span class="t">Secondo, sesto e terzo grado &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">73</span><span class="t">Secondo, sesto e terzo grado &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">74</span><span class="t">Secondo, sesto e terzo grado &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">75</span><span class="t">Secondo, sesto e terzo grado &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">76</span><span class="t">Secondo, sesto e terzo grado &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">77</span><span class="t">Secondo, sesto e terzo grado &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">78</span><span class="t">Secondo, sesto e terzo grado &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">79</span><span class="t">Secondo, sesto e terzo grado &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">80</span><span class="t">Secondo, sesto e terzo grado &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">81</span><span class="t">Secondo, sesto e terzo grado &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">82</span><span class="t">Secondo, sesto e terzo grado &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">83</span><span class="t">Secondo, sesto e terzo grado &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">84</span><span class="t">Secondo, sesto e terzo grado &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">85</span><span class="t">Armonizzare una melodia &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">86</span><span class="t">Armonizzare una melodia &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">87</span><span class="t">Armonizzare una melodia &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">88</span><span class="t">Armonizzare una melodia &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">89</span><span class="t">Armonizzare una melodia &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">90</span><span class="t">Armonizzare una melodia &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">91</span><span class="t">Armonizzare una melodia &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">92</span><span class="t">Armonizzare una melodia &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">93</span><span class="t">Armonizzare una melodia &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">94</span><span class="t">Armonizzare una melodia &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">95</span><span class="t">Armonizzare una melodia &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">96</span><span class="t">Armonizzare una melodia &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">97</span><span class="t">Armonizzare una melodia &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">98</span><span class="t">Armonizzare una melodia &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">99</span><span class="t">Quinta specie: il fiorito &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">100</span><span class="t">Quinta specie: il fiorito &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">101</span><span class="t">Quinta specie: il fiorito &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">102</span><span class="t">Quinta specie: il fiorito &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">103</span><span class="t">Quinta specie: il fiorito &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">104</span><span class="t">Quinta specie: il fiorito &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">105</span><span class="t">Quinta specie: il fiorito &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">106</span><span class="t">Quinta specie: il fiorito &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">107</span><span class="t">Quinta specie: il fiorito &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">108</span><span class="t">Quinta specie: il fiorito &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">109</span><span class="t">Quinta specie: il fiorito &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">110</span><span class="t">Quinta specie: il fiorito &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">111</span><span class="t">Quinta specie: il fiorito &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">112</span><span class="t">Quinta specie: il fiorito &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li class="da-unita">Quarta specie</li>
+      <li><span class="n">57</span><span class="t">Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">58</span><span class="t">La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">59</span><span class="t">Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">60</span><span class="t">Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">61</span><span class="t">Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">62</span><span class="t">La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">63</span><span class="t">Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">64</span><span class="t">Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">65</span><span class="t">Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">66</span><span class="t">Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">67</span><span class="t">La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">68</span><span class="t">L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">69</span><span class="t">Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">70</span><span class="t">La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li class="da-unita">Secondo, sesto e terzo grado</li>
+      <li><span class="n">71</span><span class="t">Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">72</span><span class="t">La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">73</span><span class="t">Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">74</span><span class="t">Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">75</span><span class="t">Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">76</span><span class="t">La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">77</span><span class="t">Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">78</span><span class="t">Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">79</span><span class="t">Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">80</span><span class="t">Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">81</span><span class="t">La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">82</span><span class="t">L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">83</span><span class="t">Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">84</span><span class="t">La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li class="da-unita">Armonizzare una melodia</li>
+      <li><span class="n">85</span><span class="t">Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">86</span><span class="t">La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">87</span><span class="t">Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">88</span><span class="t">Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">89</span><span class="t">Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">90</span><span class="t">La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">91</span><span class="t">Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">92</span><span class="t">Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">93</span><span class="t">Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">94</span><span class="t">Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">95</span><span class="t">La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">96</span><span class="t">L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">97</span><span class="t">Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">98</span><span class="t">La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li class="da-unita">Quinta specie: il fiorito</li>
+      <li><span class="n">99</span><span class="t">Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">100</span><span class="t">La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">101</span><span class="t">Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">102</span><span class="t">Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">103</span><span class="t">Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">104</span><span class="t">La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">105</span><span class="t">Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">106</span><span class="t">Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">107</span><span class="t">Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">108</span><span class="t">Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">109</span><span class="t">La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">110</span><span class="t">L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">111</span><span class="t">Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">112</span><span class="t">La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
       <li class="salto">Terzo gradino</li>
-      <li><span class="n">113</span><span class="t">La dominante della dominante &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">114</span><span class="t">La dominante della dominante &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">115</span><span class="t">La dominante della dominante &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">116</span><span class="t">La dominante della dominante &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">117</span><span class="t">La dominante della dominante &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">118</span><span class="t">La dominante della dominante &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">119</span><span class="t">La dominante della dominante &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">120</span><span class="t">La dominante della dominante &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">121</span><span class="t">La dominante della dominante &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">122</span><span class="t">La dominante della dominante &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">123</span><span class="t">La dominante della dominante &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">124</span><span class="t">La dominante della dominante &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">125</span><span class="t">La dominante della dominante &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">126</span><span class="t">La dominante della dominante &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">127</span><span class="t">Le dominanti secondarie &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">128</span><span class="t">Le dominanti secondarie &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">129</span><span class="t">Le dominanti secondarie &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">130</span><span class="t">Le dominanti secondarie &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">131</span><span class="t">Le dominanti secondarie &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">132</span><span class="t">Le dominanti secondarie &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">133</span><span class="t">Le dominanti secondarie &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">134</span><span class="t">Le dominanti secondarie &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">135</span><span class="t">Le dominanti secondarie &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">136</span><span class="t">Le dominanti secondarie &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">137</span><span class="t">Le dominanti secondarie &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">138</span><span class="t">Le dominanti secondarie &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">139</span><span class="t">Le dominanti secondarie &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">140</span><span class="t">Le dominanti secondarie &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">141</span><span class="t">Dal periodo alla forma &middot; Per cominciare</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">142</span><span class="t">Dal periodo alla forma &middot; La linea si apre</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">143</span><span class="t">Dal periodo alla forma &middot; Due frasi</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">144</span><span class="t">Dal periodo alla forma &middot; Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">145</span><span class="t">Dal periodo alla forma &middot; Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">146</span><span class="t">Dal periodo alla forma &middot; La cesura</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">147</span><span class="t">Dal periodo alla forma &middot; Il profilo</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">148</span><span class="t">Dal periodo alla forma &middot; Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">149</span><span class="t">Dal periodo alla forma &middot; Andando in su</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">150</span><span class="t">Dal periodo alla forma &middot; Andando in giù</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">151</span><span class="t">Dal periodo alla forma &middot; La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">152</span><span class="t">Dal periodo alla forma &middot; L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
-      <li><span class="n">153</span><span class="t">Dal periodo alla forma &middot; Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
-      <li><span class="n">154</span><span class="t">Dal periodo alla forma &middot; La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li class="da-unita">La dominante della dominante</li>
+      <li><span class="n">113</span><span class="t">Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">114</span><span class="t">La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">115</span><span class="t">Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">116</span><span class="t">Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">117</span><span class="t">Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">118</span><span class="t">La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">119</span><span class="t">Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">120</span><span class="t">Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">121</span><span class="t">Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">122</span><span class="t">Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">123</span><span class="t">La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">124</span><span class="t">L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">125</span><span class="t">Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">126</span><span class="t">La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li class="da-unita">Le dominanti secondarie</li>
+      <li><span class="n">127</span><span class="t">Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">128</span><span class="t">La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">129</span><span class="t">Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">130</span><span class="t">Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">131</span><span class="t">Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">132</span><span class="t">La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">133</span><span class="t">Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">134</span><span class="t">Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">135</span><span class="t">Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">136</span><span class="t">Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">137</span><span class="t">La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">138</span><span class="t">L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">139</span><span class="t">Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">140</span><span class="t">La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
+      <li class="da-unita">Dal periodo alla forma</li>
+      <li><span class="n">141</span><span class="t">Per cominciare</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">142</span><span class="t">La linea si apre</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">143</span><span class="t">Due frasi</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">144</span><span class="t">Il salto in mezzo</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">145</span><span class="t">Con la pausa a metà</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">146</span><span class="t">La cesura</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">147</span><span class="t">Il profilo</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">148</span><span class="t">Verso la chiusa</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">149</span><span class="t">Andando in su</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">150</span><span class="t">Andando in giù</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">151</span><span class="t">La stessa cosa, più stretta</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">152</span><span class="t">L'ultimo respiro</span><span class="s">Solfeggio cantato</span></li>
+      <li><span class="n">153</span><span class="t">Tutto quello che sai</span><span class="s">Solfeggio parlato</span></li>
+      <li><span class="n">154</span><span class="t">La prova dell'unità</span><span class="s">Solfeggio cantato</span></li>
     </ol>
   </section>
 
   <div class="pezzi">
     <div class="gradino"><span>Primo gradino</span><span class="quanti">56 pezzi</span></div>
+    <div class="da-unita">Ripasso: la linea a quattro parti</div>
     <article class="solf" id="n1">
       <div class="testa">
         <span class="numero">1</span>
         <div>
-          <h3>Ripasso: la linea a quattro parti &middot; Per cominciare</h3>
+          <h3>Per cominciare</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -412,7 +438,7 @@
       <div class="testa">
         <span class="numero">2</span>
         <div>
-          <h3>Ripasso: la linea a quattro parti &middot; La linea si apre</h3>
+          <h3>La linea si apre</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -422,7 +448,7 @@
       <div class="testa">
         <span class="numero">3</span>
         <div>
-          <h3>Ripasso: la linea a quattro parti &middot; Due frasi</h3>
+          <h3>Due frasi</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -432,7 +458,7 @@
       <div class="testa">
         <span class="numero">4</span>
         <div>
-          <h3>Ripasso: la linea a quattro parti &middot; Il salto in mezzo</h3>
+          <h3>Il salto in mezzo</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -442,7 +468,7 @@
       <div class="testa">
         <span class="numero">5</span>
         <div>
-          <h3>Ripasso: la linea a quattro parti &middot; Con la pausa a metà</h3>
+          <h3>Con la pausa a metà</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -452,7 +478,7 @@
       <div class="testa">
         <span class="numero">6</span>
         <div>
-          <h3>Ripasso: la linea a quattro parti &middot; La cesura</h3>
+          <h3>La cesura</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -462,7 +488,7 @@
       <div class="testa">
         <span class="numero">7</span>
         <div>
-          <h3>Ripasso: la linea a quattro parti &middot; Il profilo</h3>
+          <h3>Il profilo</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -472,7 +498,7 @@
       <div class="testa">
         <span class="numero">8</span>
         <div>
-          <h3>Ripasso: la linea a quattro parti &middot; Verso la chiusa</h3>
+          <h3>Verso la chiusa</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -482,7 +508,7 @@
       <div class="testa">
         <span class="numero">9</span>
         <div>
-          <h3>Ripasso: la linea a quattro parti &middot; Andando in su</h3>
+          <h3>Andando in su</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -492,7 +518,7 @@
       <div class="testa">
         <span class="numero">10</span>
         <div>
-          <h3>Ripasso: la linea a quattro parti &middot; Andando in giù</h3>
+          <h3>Andando in giù</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -502,7 +528,7 @@
       <div class="testa">
         <span class="numero">11</span>
         <div>
-          <h3>Ripasso: la linea a quattro parti &middot; La stessa cosa, più stretta</h3>
+          <h3>La stessa cosa, più stretta</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -512,7 +538,7 @@
       <div class="testa">
         <span class="numero">12</span>
         <div>
-          <h3>Ripasso: la linea a quattro parti &middot; L'ultimo respiro</h3>
+          <h3>L'ultimo respiro</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -522,7 +548,7 @@
       <div class="testa">
         <span class="numero">13</span>
         <div>
-          <h3>Ripasso: la linea a quattro parti &middot; Tutto quello che sai</h3>
+          <h3>Tutto quello che sai</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -532,17 +558,18 @@
       <div class="testa">
         <span class="numero">14</span>
         <div>
-          <h3>Ripasso: la linea a quattro parti &middot; La prova dell'unità</h3>
+          <h3>La prova dell'unità</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/52617542bf2d-1.svg" alt="">
     </article>
+    <div class="da-unita">La condotta delle parti</div>
     <article class="solf" id="n15">
       <div class="testa">
         <span class="numero">15</span>
         <div>
-          <h3>La condotta delle parti &middot; Per cominciare</h3>
+          <h3>Per cominciare</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -552,7 +579,7 @@
       <div class="testa">
         <span class="numero">16</span>
         <div>
-          <h3>La condotta delle parti &middot; La linea si apre</h3>
+          <h3>La linea si apre</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -562,7 +589,7 @@
       <div class="testa">
         <span class="numero">17</span>
         <div>
-          <h3>La condotta delle parti &middot; Due frasi</h3>
+          <h3>Due frasi</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -572,7 +599,7 @@
       <div class="testa">
         <span class="numero">18</span>
         <div>
-          <h3>La condotta delle parti &middot; Il salto in mezzo</h3>
+          <h3>Il salto in mezzo</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -582,7 +609,7 @@
       <div class="testa">
         <span class="numero">19</span>
         <div>
-          <h3>La condotta delle parti &middot; Con la pausa a metà</h3>
+          <h3>Con la pausa a metà</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -592,7 +619,7 @@
       <div class="testa">
         <span class="numero">20</span>
         <div>
-          <h3>La condotta delle parti &middot; La cesura</h3>
+          <h3>La cesura</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -602,7 +629,7 @@
       <div class="testa">
         <span class="numero">21</span>
         <div>
-          <h3>La condotta delle parti &middot; Il profilo</h3>
+          <h3>Il profilo</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -612,7 +639,7 @@
       <div class="testa">
         <span class="numero">22</span>
         <div>
-          <h3>La condotta delle parti &middot; Verso la chiusa</h3>
+          <h3>Verso la chiusa</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -622,7 +649,7 @@
       <div class="testa">
         <span class="numero">23</span>
         <div>
-          <h3>La condotta delle parti &middot; Andando in su</h3>
+          <h3>Andando in su</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -632,7 +659,7 @@
       <div class="testa">
         <span class="numero">24</span>
         <div>
-          <h3>La condotta delle parti &middot; Andando in giù</h3>
+          <h3>Andando in giù</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -642,7 +669,7 @@
       <div class="testa">
         <span class="numero">25</span>
         <div>
-          <h3>La condotta delle parti &middot; La stessa cosa, più stretta</h3>
+          <h3>La stessa cosa, più stretta</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -652,7 +679,7 @@
       <div class="testa">
         <span class="numero">26</span>
         <div>
-          <h3>La condotta delle parti &middot; L'ultimo respiro</h3>
+          <h3>L'ultimo respiro</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -662,7 +689,7 @@
       <div class="testa">
         <span class="numero">27</span>
         <div>
-          <h3>La condotta delle parti &middot; Tutto quello che sai</h3>
+          <h3>Tutto quello che sai</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -672,17 +699,18 @@
       <div class="testa">
         <span class="numero">28</span>
         <div>
-          <h3>La condotta delle parti &middot; La prova dell'unità</h3>
+          <h3>La prova dell'unità</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/b1a8159c5c71-1.svg" alt="">
     </article>
+    <div class="da-unita">Le triadi primarie</div>
     <article class="solf" id="n29">
       <div class="testa">
         <span class="numero">29</span>
         <div>
-          <h3>Le triadi primarie &middot; Per cominciare</h3>
+          <h3>Per cominciare</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -692,7 +720,7 @@
       <div class="testa">
         <span class="numero">30</span>
         <div>
-          <h3>Le triadi primarie &middot; La linea si apre</h3>
+          <h3>La linea si apre</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -702,7 +730,7 @@
       <div class="testa">
         <span class="numero">31</span>
         <div>
-          <h3>Le triadi primarie &middot; Due frasi</h3>
+          <h3>Due frasi</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -712,7 +740,7 @@
       <div class="testa">
         <span class="numero">32</span>
         <div>
-          <h3>Le triadi primarie &middot; Il salto in mezzo</h3>
+          <h3>Il salto in mezzo</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -722,7 +750,7 @@
       <div class="testa">
         <span class="numero">33</span>
         <div>
-          <h3>Le triadi primarie &middot; Con la pausa a metà</h3>
+          <h3>Con la pausa a metà</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -732,7 +760,7 @@
       <div class="testa">
         <span class="numero">34</span>
         <div>
-          <h3>Le triadi primarie &middot; La cesura</h3>
+          <h3>La cesura</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -742,7 +770,7 @@
       <div class="testa">
         <span class="numero">35</span>
         <div>
-          <h3>Le triadi primarie &middot; Il profilo</h3>
+          <h3>Il profilo</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -752,7 +780,7 @@
       <div class="testa">
         <span class="numero">36</span>
         <div>
-          <h3>Le triadi primarie &middot; Verso la chiusa</h3>
+          <h3>Verso la chiusa</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -762,7 +790,7 @@
       <div class="testa">
         <span class="numero">37</span>
         <div>
-          <h3>Le triadi primarie &middot; Andando in su</h3>
+          <h3>Andando in su</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -772,7 +800,7 @@
       <div class="testa">
         <span class="numero">38</span>
         <div>
-          <h3>Le triadi primarie &middot; Andando in giù</h3>
+          <h3>Andando in giù</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -782,7 +810,7 @@
       <div class="testa">
         <span class="numero">39</span>
         <div>
-          <h3>Le triadi primarie &middot; La stessa cosa, più stretta</h3>
+          <h3>La stessa cosa, più stretta</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -792,7 +820,7 @@
       <div class="testa">
         <span class="numero">40</span>
         <div>
-          <h3>Le triadi primarie &middot; L'ultimo respiro</h3>
+          <h3>L'ultimo respiro</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -802,7 +830,7 @@
       <div class="testa">
         <span class="numero">41</span>
         <div>
-          <h3>Le triadi primarie &middot; Tutto quello che sai</h3>
+          <h3>Tutto quello che sai</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -812,17 +840,18 @@
       <div class="testa">
         <span class="numero">42</span>
         <div>
-          <h3>Le triadi primarie &middot; La prova dell'unità</h3>
+          <h3>La prova dell'unità</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/7da6a4d02dee-1.svg" alt="">
     </article>
+    <div class="da-unita">I rivolti</div>
     <article class="solf" id="n43">
       <div class="testa">
         <span class="numero">43</span>
         <div>
-          <h3>I rivolti &middot; Per cominciare</h3>
+          <h3>Per cominciare</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -832,7 +861,7 @@
       <div class="testa">
         <span class="numero">44</span>
         <div>
-          <h3>I rivolti &middot; La linea si apre</h3>
+          <h3>La linea si apre</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -842,7 +871,7 @@
       <div class="testa">
         <span class="numero">45</span>
         <div>
-          <h3>I rivolti &middot; Due frasi</h3>
+          <h3>Due frasi</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -852,7 +881,7 @@
       <div class="testa">
         <span class="numero">46</span>
         <div>
-          <h3>I rivolti &middot; Il salto in mezzo</h3>
+          <h3>Il salto in mezzo</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -862,7 +891,7 @@
       <div class="testa">
         <span class="numero">47</span>
         <div>
-          <h3>I rivolti &middot; Con la pausa a metà</h3>
+          <h3>Con la pausa a metà</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -872,7 +901,7 @@
       <div class="testa">
         <span class="numero">48</span>
         <div>
-          <h3>I rivolti &middot; La cesura</h3>
+          <h3>La cesura</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -882,7 +911,7 @@
       <div class="testa">
         <span class="numero">49</span>
         <div>
-          <h3>I rivolti &middot; Il profilo</h3>
+          <h3>Il profilo</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -892,7 +921,7 @@
       <div class="testa">
         <span class="numero">50</span>
         <div>
-          <h3>I rivolti &middot; Verso la chiusa</h3>
+          <h3>Verso la chiusa</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -902,7 +931,7 @@
       <div class="testa">
         <span class="numero">51</span>
         <div>
-          <h3>I rivolti &middot; Andando in su</h3>
+          <h3>Andando in su</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -912,7 +941,7 @@
       <div class="testa">
         <span class="numero">52</span>
         <div>
-          <h3>I rivolti &middot; Andando in giù</h3>
+          <h3>Andando in giù</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -922,7 +951,7 @@
       <div class="testa">
         <span class="numero">53</span>
         <div>
-          <h3>I rivolti &middot; La stessa cosa, più stretta</h3>
+          <h3>La stessa cosa, più stretta</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -932,7 +961,7 @@
       <div class="testa">
         <span class="numero">54</span>
         <div>
-          <h3>I rivolti &middot; L'ultimo respiro</h3>
+          <h3>L'ultimo respiro</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -942,7 +971,7 @@
       <div class="testa">
         <span class="numero">55</span>
         <div>
-          <h3>I rivolti &middot; Tutto quello che sai</h3>
+          <h3>Tutto quello che sai</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -952,18 +981,19 @@
       <div class="testa">
         <span class="numero">56</span>
         <div>
-          <h3>I rivolti &middot; La prova dell'unità</h3>
+          <h3>La prova dell'unità</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/fd62f5b58fa6-1.svg" alt="">
     </article>
     <div class="gradino"><span>Secondo gradino</span><span class="quanti">56 pezzi</span></div>
+    <div class="da-unita">Quarta specie</div>
     <article class="solf" id="n57">
       <div class="testa">
         <span class="numero">57</span>
         <div>
-          <h3>Quarta specie &middot; Per cominciare</h3>
+          <h3>Per cominciare</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -973,7 +1003,7 @@
       <div class="testa">
         <span class="numero">58</span>
         <div>
-          <h3>Quarta specie &middot; La linea si apre</h3>
+          <h3>La linea si apre</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -983,7 +1013,7 @@
       <div class="testa">
         <span class="numero">59</span>
         <div>
-          <h3>Quarta specie &middot; Due frasi</h3>
+          <h3>Due frasi</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -993,7 +1023,7 @@
       <div class="testa">
         <span class="numero">60</span>
         <div>
-          <h3>Quarta specie &middot; Il salto in mezzo</h3>
+          <h3>Il salto in mezzo</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1003,7 +1033,7 @@
       <div class="testa">
         <span class="numero">61</span>
         <div>
-          <h3>Quarta specie &middot; Con la pausa a metà</h3>
+          <h3>Con la pausa a metà</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1013,7 +1043,7 @@
       <div class="testa">
         <span class="numero">62</span>
         <div>
-          <h3>Quarta specie &middot; La cesura</h3>
+          <h3>La cesura</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1023,7 +1053,7 @@
       <div class="testa">
         <span class="numero">63</span>
         <div>
-          <h3>Quarta specie &middot; Il profilo</h3>
+          <h3>Il profilo</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1033,7 +1063,7 @@
       <div class="testa">
         <span class="numero">64</span>
         <div>
-          <h3>Quarta specie &middot; Verso la chiusa</h3>
+          <h3>Verso la chiusa</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1043,7 +1073,7 @@
       <div class="testa">
         <span class="numero">65</span>
         <div>
-          <h3>Quarta specie &middot; Andando in su</h3>
+          <h3>Andando in su</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1053,7 +1083,7 @@
       <div class="testa">
         <span class="numero">66</span>
         <div>
-          <h3>Quarta specie &middot; Andando in giù</h3>
+          <h3>Andando in giù</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1063,7 +1093,7 @@
       <div class="testa">
         <span class="numero">67</span>
         <div>
-          <h3>Quarta specie &middot; La stessa cosa, più stretta</h3>
+          <h3>La stessa cosa, più stretta</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1073,7 +1103,7 @@
       <div class="testa">
         <span class="numero">68</span>
         <div>
-          <h3>Quarta specie &middot; L'ultimo respiro</h3>
+          <h3>L'ultimo respiro</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1083,7 +1113,7 @@
       <div class="testa">
         <span class="numero">69</span>
         <div>
-          <h3>Quarta specie &middot; Tutto quello che sai</h3>
+          <h3>Tutto quello che sai</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1093,17 +1123,18 @@
       <div class="testa">
         <span class="numero">70</span>
         <div>
-          <h3>Quarta specie &middot; La prova dell'unità</h3>
+          <h3>La prova dell'unità</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/051ffe076f6a-1.svg" alt="">
     </article>
+    <div class="da-unita">Secondo, sesto e terzo grado</div>
     <article class="solf" id="n71">
       <div class="testa">
         <span class="numero">71</span>
         <div>
-          <h3>Secondo, sesto e terzo grado &middot; Per cominciare</h3>
+          <h3>Per cominciare</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1113,7 +1144,7 @@
       <div class="testa">
         <span class="numero">72</span>
         <div>
-          <h3>Secondo, sesto e terzo grado &middot; La linea si apre</h3>
+          <h3>La linea si apre</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1123,7 +1154,7 @@
       <div class="testa">
         <span class="numero">73</span>
         <div>
-          <h3>Secondo, sesto e terzo grado &middot; Due frasi</h3>
+          <h3>Due frasi</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1133,7 +1164,7 @@
       <div class="testa">
         <span class="numero">74</span>
         <div>
-          <h3>Secondo, sesto e terzo grado &middot; Il salto in mezzo</h3>
+          <h3>Il salto in mezzo</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1143,7 +1174,7 @@
       <div class="testa">
         <span class="numero">75</span>
         <div>
-          <h3>Secondo, sesto e terzo grado &middot; Con la pausa a metà</h3>
+          <h3>Con la pausa a metà</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1153,7 +1184,7 @@
       <div class="testa">
         <span class="numero">76</span>
         <div>
-          <h3>Secondo, sesto e terzo grado &middot; La cesura</h3>
+          <h3>La cesura</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1163,7 +1194,7 @@
       <div class="testa">
         <span class="numero">77</span>
         <div>
-          <h3>Secondo, sesto e terzo grado &middot; Il profilo</h3>
+          <h3>Il profilo</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1173,7 +1204,7 @@
       <div class="testa">
         <span class="numero">78</span>
         <div>
-          <h3>Secondo, sesto e terzo grado &middot; Verso la chiusa</h3>
+          <h3>Verso la chiusa</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1183,7 +1214,7 @@
       <div class="testa">
         <span class="numero">79</span>
         <div>
-          <h3>Secondo, sesto e terzo grado &middot; Andando in su</h3>
+          <h3>Andando in su</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1193,7 +1224,7 @@
       <div class="testa">
         <span class="numero">80</span>
         <div>
-          <h3>Secondo, sesto e terzo grado &middot; Andando in giù</h3>
+          <h3>Andando in giù</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1203,7 +1234,7 @@
       <div class="testa">
         <span class="numero">81</span>
         <div>
-          <h3>Secondo, sesto e terzo grado &middot; La stessa cosa, più stretta</h3>
+          <h3>La stessa cosa, più stretta</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1213,7 +1244,7 @@
       <div class="testa">
         <span class="numero">82</span>
         <div>
-          <h3>Secondo, sesto e terzo grado &middot; L'ultimo respiro</h3>
+          <h3>L'ultimo respiro</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1223,7 +1254,7 @@
       <div class="testa">
         <span class="numero">83</span>
         <div>
-          <h3>Secondo, sesto e terzo grado &middot; Tutto quello che sai</h3>
+          <h3>Tutto quello che sai</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1233,17 +1264,18 @@
       <div class="testa">
         <span class="numero">84</span>
         <div>
-          <h3>Secondo, sesto e terzo grado &middot; La prova dell'unità</h3>
+          <h3>La prova dell'unità</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/57b4ea0556cd-1.svg" alt="">
     </article>
+    <div class="da-unita">Armonizzare una melodia</div>
     <article class="solf" id="n85">
       <div class="testa">
         <span class="numero">85</span>
         <div>
-          <h3>Armonizzare una melodia &middot; Per cominciare</h3>
+          <h3>Per cominciare</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1253,7 +1285,7 @@
       <div class="testa">
         <span class="numero">86</span>
         <div>
-          <h3>Armonizzare una melodia &middot; La linea si apre</h3>
+          <h3>La linea si apre</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1263,7 +1295,7 @@
       <div class="testa">
         <span class="numero">87</span>
         <div>
-          <h3>Armonizzare una melodia &middot; Due frasi</h3>
+          <h3>Due frasi</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1273,7 +1305,7 @@
       <div class="testa">
         <span class="numero">88</span>
         <div>
-          <h3>Armonizzare una melodia &middot; Il salto in mezzo</h3>
+          <h3>Il salto in mezzo</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1283,7 +1315,7 @@
       <div class="testa">
         <span class="numero">89</span>
         <div>
-          <h3>Armonizzare una melodia &middot; Con la pausa a metà</h3>
+          <h3>Con la pausa a metà</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1293,7 +1325,7 @@
       <div class="testa">
         <span class="numero">90</span>
         <div>
-          <h3>Armonizzare una melodia &middot; La cesura</h3>
+          <h3>La cesura</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1303,7 +1335,7 @@
       <div class="testa">
         <span class="numero">91</span>
         <div>
-          <h3>Armonizzare una melodia &middot; Il profilo</h3>
+          <h3>Il profilo</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1313,7 +1345,7 @@
       <div class="testa">
         <span class="numero">92</span>
         <div>
-          <h3>Armonizzare una melodia &middot; Verso la chiusa</h3>
+          <h3>Verso la chiusa</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1323,7 +1355,7 @@
       <div class="testa">
         <span class="numero">93</span>
         <div>
-          <h3>Armonizzare una melodia &middot; Andando in su</h3>
+          <h3>Andando in su</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1333,7 +1365,7 @@
       <div class="testa">
         <span class="numero">94</span>
         <div>
-          <h3>Armonizzare una melodia &middot; Andando in giù</h3>
+          <h3>Andando in giù</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1343,7 +1375,7 @@
       <div class="testa">
         <span class="numero">95</span>
         <div>
-          <h3>Armonizzare una melodia &middot; La stessa cosa, più stretta</h3>
+          <h3>La stessa cosa, più stretta</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1353,7 +1385,7 @@
       <div class="testa">
         <span class="numero">96</span>
         <div>
-          <h3>Armonizzare una melodia &middot; L'ultimo respiro</h3>
+          <h3>L'ultimo respiro</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1363,7 +1395,7 @@
       <div class="testa">
         <span class="numero">97</span>
         <div>
-          <h3>Armonizzare una melodia &middot; Tutto quello che sai</h3>
+          <h3>Tutto quello che sai</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1373,17 +1405,18 @@
       <div class="testa">
         <span class="numero">98</span>
         <div>
-          <h3>Armonizzare una melodia &middot; La prova dell'unità</h3>
+          <h3>La prova dell'unità</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/310f98ea6c14-1.svg" alt="">
     </article>
+    <div class="da-unita">Quinta specie: il fiorito</div>
     <article class="solf" id="n99">
       <div class="testa">
         <span class="numero">99</span>
         <div>
-          <h3>Quinta specie: il fiorito &middot; Per cominciare</h3>
+          <h3>Per cominciare</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1393,7 +1426,7 @@
       <div class="testa">
         <span class="numero">100</span>
         <div>
-          <h3>Quinta specie: il fiorito &middot; La linea si apre</h3>
+          <h3>La linea si apre</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1403,7 +1436,7 @@
       <div class="testa">
         <span class="numero">101</span>
         <div>
-          <h3>Quinta specie: il fiorito &middot; Due frasi</h3>
+          <h3>Due frasi</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1413,7 +1446,7 @@
       <div class="testa">
         <span class="numero">102</span>
         <div>
-          <h3>Quinta specie: il fiorito &middot; Il salto in mezzo</h3>
+          <h3>Il salto in mezzo</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1423,7 +1456,7 @@
       <div class="testa">
         <span class="numero">103</span>
         <div>
-          <h3>Quinta specie: il fiorito &middot; Con la pausa a metà</h3>
+          <h3>Con la pausa a metà</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1433,7 +1466,7 @@
       <div class="testa">
         <span class="numero">104</span>
         <div>
-          <h3>Quinta specie: il fiorito &middot; La cesura</h3>
+          <h3>La cesura</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1443,7 +1476,7 @@
       <div class="testa">
         <span class="numero">105</span>
         <div>
-          <h3>Quinta specie: il fiorito &middot; Il profilo</h3>
+          <h3>Il profilo</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1453,7 +1486,7 @@
       <div class="testa">
         <span class="numero">106</span>
         <div>
-          <h3>Quinta specie: il fiorito &middot; Verso la chiusa</h3>
+          <h3>Verso la chiusa</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1463,7 +1496,7 @@
       <div class="testa">
         <span class="numero">107</span>
         <div>
-          <h3>Quinta specie: il fiorito &middot; Andando in su</h3>
+          <h3>Andando in su</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1473,7 +1506,7 @@
       <div class="testa">
         <span class="numero">108</span>
         <div>
-          <h3>Quinta specie: il fiorito &middot; Andando in giù</h3>
+          <h3>Andando in giù</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1483,7 +1516,7 @@
       <div class="testa">
         <span class="numero">109</span>
         <div>
-          <h3>Quinta specie: il fiorito &middot; La stessa cosa, più stretta</h3>
+          <h3>La stessa cosa, più stretta</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1493,7 +1526,7 @@
       <div class="testa">
         <span class="numero">110</span>
         <div>
-          <h3>Quinta specie: il fiorito &middot; L'ultimo respiro</h3>
+          <h3>L'ultimo respiro</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1503,7 +1536,7 @@
       <div class="testa">
         <span class="numero">111</span>
         <div>
-          <h3>Quinta specie: il fiorito &middot; Tutto quello che sai</h3>
+          <h3>Tutto quello che sai</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1513,18 +1546,19 @@
       <div class="testa">
         <span class="numero">112</span>
         <div>
-          <h3>Quinta specie: il fiorito &middot; La prova dell'unità</h3>
+          <h3>La prova dell'unità</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/37f337ab517d-1.svg" alt="">
     </article>
     <div class="gradino"><span>Terzo gradino</span><span class="quanti">42 pezzi</span></div>
+    <div class="da-unita">La dominante della dominante</div>
     <article class="solf" id="n113">
       <div class="testa">
         <span class="numero">113</span>
         <div>
-          <h3>La dominante della dominante &middot; Per cominciare</h3>
+          <h3>Per cominciare</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1534,7 +1568,7 @@
       <div class="testa">
         <span class="numero">114</span>
         <div>
-          <h3>La dominante della dominante &middot; La linea si apre</h3>
+          <h3>La linea si apre</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1544,7 +1578,7 @@
       <div class="testa">
         <span class="numero">115</span>
         <div>
-          <h3>La dominante della dominante &middot; Due frasi</h3>
+          <h3>Due frasi</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1554,7 +1588,7 @@
       <div class="testa">
         <span class="numero">116</span>
         <div>
-          <h3>La dominante della dominante &middot; Il salto in mezzo</h3>
+          <h3>Il salto in mezzo</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1564,7 +1598,7 @@
       <div class="testa">
         <span class="numero">117</span>
         <div>
-          <h3>La dominante della dominante &middot; Con la pausa a metà</h3>
+          <h3>Con la pausa a metà</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1574,7 +1608,7 @@
       <div class="testa">
         <span class="numero">118</span>
         <div>
-          <h3>La dominante della dominante &middot; La cesura</h3>
+          <h3>La cesura</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1584,7 +1618,7 @@
       <div class="testa">
         <span class="numero">119</span>
         <div>
-          <h3>La dominante della dominante &middot; Il profilo</h3>
+          <h3>Il profilo</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1594,7 +1628,7 @@
       <div class="testa">
         <span class="numero">120</span>
         <div>
-          <h3>La dominante della dominante &middot; Verso la chiusa</h3>
+          <h3>Verso la chiusa</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1604,7 +1638,7 @@
       <div class="testa">
         <span class="numero">121</span>
         <div>
-          <h3>La dominante della dominante &middot; Andando in su</h3>
+          <h3>Andando in su</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1614,7 +1648,7 @@
       <div class="testa">
         <span class="numero">122</span>
         <div>
-          <h3>La dominante della dominante &middot; Andando in giù</h3>
+          <h3>Andando in giù</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1624,7 +1658,7 @@
       <div class="testa">
         <span class="numero">123</span>
         <div>
-          <h3>La dominante della dominante &middot; La stessa cosa, più stretta</h3>
+          <h3>La stessa cosa, più stretta</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1634,7 +1668,7 @@
       <div class="testa">
         <span class="numero">124</span>
         <div>
-          <h3>La dominante della dominante &middot; L'ultimo respiro</h3>
+          <h3>L'ultimo respiro</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1644,7 +1678,7 @@
       <div class="testa">
         <span class="numero">125</span>
         <div>
-          <h3>La dominante della dominante &middot; Tutto quello che sai</h3>
+          <h3>Tutto quello che sai</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1654,17 +1688,18 @@
       <div class="testa">
         <span class="numero">126</span>
         <div>
-          <h3>La dominante della dominante &middot; La prova dell'unità</h3>
+          <h3>La prova dell'unità</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/fb201276b009-1.svg" alt="">
     </article>
+    <div class="da-unita">Le dominanti secondarie</div>
     <article class="solf" id="n127">
       <div class="testa">
         <span class="numero">127</span>
         <div>
-          <h3>Le dominanti secondarie &middot; Per cominciare</h3>
+          <h3>Per cominciare</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1674,7 +1709,7 @@
       <div class="testa">
         <span class="numero">128</span>
         <div>
-          <h3>Le dominanti secondarie &middot; La linea si apre</h3>
+          <h3>La linea si apre</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1684,7 +1719,7 @@
       <div class="testa">
         <span class="numero">129</span>
         <div>
-          <h3>Le dominanti secondarie &middot; Due frasi</h3>
+          <h3>Due frasi</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1694,7 +1729,7 @@
       <div class="testa">
         <span class="numero">130</span>
         <div>
-          <h3>Le dominanti secondarie &middot; Il salto in mezzo</h3>
+          <h3>Il salto in mezzo</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1704,7 +1739,7 @@
       <div class="testa">
         <span class="numero">131</span>
         <div>
-          <h3>Le dominanti secondarie &middot; Con la pausa a metà</h3>
+          <h3>Con la pausa a metà</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1714,7 +1749,7 @@
       <div class="testa">
         <span class="numero">132</span>
         <div>
-          <h3>Le dominanti secondarie &middot; La cesura</h3>
+          <h3>La cesura</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1724,7 +1759,7 @@
       <div class="testa">
         <span class="numero">133</span>
         <div>
-          <h3>Le dominanti secondarie &middot; Il profilo</h3>
+          <h3>Il profilo</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1734,7 +1769,7 @@
       <div class="testa">
         <span class="numero">134</span>
         <div>
-          <h3>Le dominanti secondarie &middot; Verso la chiusa</h3>
+          <h3>Verso la chiusa</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1744,7 +1779,7 @@
       <div class="testa">
         <span class="numero">135</span>
         <div>
-          <h3>Le dominanti secondarie &middot; Andando in su</h3>
+          <h3>Andando in su</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1754,7 +1789,7 @@
       <div class="testa">
         <span class="numero">136</span>
         <div>
-          <h3>Le dominanti secondarie &middot; Andando in giù</h3>
+          <h3>Andando in giù</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1764,7 +1799,7 @@
       <div class="testa">
         <span class="numero">137</span>
         <div>
-          <h3>Le dominanti secondarie &middot; La stessa cosa, più stretta</h3>
+          <h3>La stessa cosa, più stretta</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1774,7 +1809,7 @@
       <div class="testa">
         <span class="numero">138</span>
         <div>
-          <h3>Le dominanti secondarie &middot; L'ultimo respiro</h3>
+          <h3>L'ultimo respiro</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1784,7 +1819,7 @@
       <div class="testa">
         <span class="numero">139</span>
         <div>
-          <h3>Le dominanti secondarie &middot; Tutto quello che sai</h3>
+          <h3>Tutto quello che sai</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1794,17 +1829,18 @@
       <div class="testa">
         <span class="numero">140</span>
         <div>
-          <h3>Le dominanti secondarie &middot; La prova dell'unità</h3>
+          <h3>La prova dell'unità</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
       <img class="inciso" style="width:155.4mm" src="incisioni/ca47ccbff225-1.svg" alt="">
     </article>
+    <div class="da-unita">Dal periodo alla forma</div>
     <article class="solf" id="n141">
       <div class="testa">
         <span class="numero">141</span>
         <div>
-          <h3>Dal periodo alla forma &middot; Per cominciare</h3>
+          <h3>Per cominciare</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1814,7 +1850,7 @@
       <div class="testa">
         <span class="numero">142</span>
         <div>
-          <h3>Dal periodo alla forma &middot; La linea si apre</h3>
+          <h3>La linea si apre</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1824,7 +1860,7 @@
       <div class="testa">
         <span class="numero">143</span>
         <div>
-          <h3>Dal periodo alla forma &middot; Due frasi</h3>
+          <h3>Due frasi</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1834,7 +1870,7 @@
       <div class="testa">
         <span class="numero">144</span>
         <div>
-          <h3>Dal periodo alla forma &middot; Il salto in mezzo</h3>
+          <h3>Il salto in mezzo</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1844,7 +1880,7 @@
       <div class="testa">
         <span class="numero">145</span>
         <div>
-          <h3>Dal periodo alla forma &middot; Con la pausa a metà</h3>
+          <h3>Con la pausa a metà</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1854,7 +1890,7 @@
       <div class="testa">
         <span class="numero">146</span>
         <div>
-          <h3>Dal periodo alla forma &middot; La cesura</h3>
+          <h3>La cesura</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1864,7 +1900,7 @@
       <div class="testa">
         <span class="numero">147</span>
         <div>
-          <h3>Dal periodo alla forma &middot; Il profilo</h3>
+          <h3>Il profilo</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1874,7 +1910,7 @@
       <div class="testa">
         <span class="numero">148</span>
         <div>
-          <h3>Dal periodo alla forma &middot; Verso la chiusa</h3>
+          <h3>Verso la chiusa</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1884,7 +1920,7 @@
       <div class="testa">
         <span class="numero">149</span>
         <div>
-          <h3>Dal periodo alla forma &middot; Andando in su</h3>
+          <h3>Andando in su</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1894,7 +1930,7 @@
       <div class="testa">
         <span class="numero">150</span>
         <div>
-          <h3>Dal periodo alla forma &middot; Andando in giù</h3>
+          <h3>Andando in giù</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1904,7 +1940,7 @@
       <div class="testa">
         <span class="numero">151</span>
         <div>
-          <h3>Dal periodo alla forma &middot; La stessa cosa, più stretta</h3>
+          <h3>La stessa cosa, più stretta</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1914,7 +1950,7 @@
       <div class="testa">
         <span class="numero">152</span>
         <div>
-          <h3>Dal periodo alla forma &middot; L'ultimo respiro</h3>
+          <h3>L'ultimo respiro</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>
@@ -1924,7 +1960,7 @@
       <div class="testa">
         <span class="numero">153</span>
         <div>
-          <h3>Dal periodo alla forma &middot; Tutto quello che sai</h3>
+          <h3>Tutto quello che sai</h3>
           <span class="quando">Solfeggio parlato</span>
         </div>
       </div>
@@ -1934,7 +1970,7 @@
       <div class="testa">
         <span class="numero">154</span>
         <div>
-          <h3>Dal periodo alla forma &middot; La prova dell'unità</h3>
+          <h3>La prova dell'unità</h3>
           <span class="quando">Solfeggio cantato</span>
         </div>
       </div>

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbook — UdA 10 · Oltre la tonalità | TAC Classe 5&ordf;</title>
+<!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
+     Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=89b635a1">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=3ae1cb65">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
+     usa, e con `defer` i due file girano nell'ordine in cui stanno
+     scritti qui. -->
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=e894da72" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  /* .lez, .consegna e .quando stanno in tac.css: sono uguali per tutti i
+     fascicoli, e le regole di stampa devono valere una volta sola. */
+
+  /* IL RIGO INCISO. Dal 20 agosto il materiale del Workbook lo incide
+     MuseScore, perché questo è un foglio che si stampa. La misura è
+     quella presa dal Pozzoli — «Corso facile di Solfeggio» parte I,
+     p. 8: linee a 1,65 mm, pentagramma alto 6,6 mm — e si ottiene
+     tenendo l'immagine sotto i 175 mm. Il `max-width` in millimetri è la
+     parte che conta: senza, su uno schermo largo l'immagine si ingrandisce
+     oltre la sua misura di stampa. */
+  /* La larghezza la porta ogni immagine, in millimetri. Qui solo il
+     tetto, per gli schermi stretti. */
+  .materiale img.inciso { display: block; max-width: 100%;
+                          height: auto; margin: .35rem 0; }
+</style>
+</head>
+<body class="documento">
+
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 5&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <a href="solfeggi-classe-5.html">Il quaderno di lettura · tutto l'anno</a>
+      <a class="attiva" href="workbook-uda-10.html">Workbook · unità 10</a>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">&#128424; Stampa tutto il fascicolo</button>
+</div>
+
+<div class="foglio">
+
+  <div class="intestazione-scheda">
+    <div>
+      <h1>Workbook</h1>
+      <p style="margin:.3rem 0 0; color:var(--inchiostro2)">UdA 10 · Oltre la tonalità — il foglio di lavoro, una pagina per lezione</p>
+    </div>
+    <div class="dati">
+      Teoria, Analisi e Composizione<br>
+      Liceo Musicale — Classe 5&ordf;
+    </div>
+  </div>
+
+  <!-- Niente riga per nome, classe e data: il foglio non si consegna mai.
+       Lo scritto va sul quaderno e si fotografa, l'online restituisce un
+       codice, l'ascolto e' una spunta che lo studente fa per se'. La riga
+       era un'abitudine presa dal compito in classe, e costava un centimetro
+       e mezzo in cima a ogni foglio stampato. -->
+
+  <div class="riquadro attenzione">
+    <span class="etichetta">Come si usa</span>
+    <p>I compiti sono di tre specie, e ognuna si consegna in modo suo. <strong>Da fare online</strong>: allo schermo. <strong>Da ascoltare</strong>: serve all'orecchio. <strong>Da scrivere</strong>: sul quaderno, poi una foto su Classroom.</p>
+    <p style="margin-top:.5rem">Il voto dell'unità lo dà <strong>una cosa sola</strong>: la verifica in fondo, quella che restituisce un codice. Tutto il resto si consegna e si corregge, ma non fa voto &mdash; il che non vuol dire che non conti: è lì che si impara, e la verifica misura solo quello che hai imparato facendolo.</p>
+    <p style="margin-top:.5rem">Stampa <strong>una lezione alla volta</strong>, col pulsante che trovi accanto al titolo.</p>
+  </div>
+
+  <div class="lez" data-lezione="1">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 1</span>
+        <h2>Lezione 1 &mdash; Quando la dominante smette di risolvere: lo scambio modale e la modulazione cromatica che ne nasce</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U10-L1-02">
+      <p class="titolo-consegna"><span class="num">1</span> Colore, tonicizzazione o modulazione</p>
+      <div class="testo">Per ognuna delle tre situazioni del libro dì a quale delle tre profondit&agrave; corrisponde: si prende e si torna, si prende e ci si cadenza sopra, si prende e ci si resta.<p class="dettaglio">E per ciascuna scrivi <strong>che cosa cercheresti in partitura</strong> per esserne sicuro.</p></div>
+      <div class="online-vivo no-stampa">
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U10-L1-01">
+      <p class="titolo-consegna"><span class="num">2</span> Quattro prestiti, e da dove vengono</p>
+      <div class="testo">Scrivi <strong>quattro battute</strong> in do maggiore a quattro parti, e infila in ciascuna un accordo preso dal modo minore: iv, &#9837;VI, ii&deg; e i.<p class="dettaglio">Sotto ogni accordo preso scrivi <strong>da dove viene</strong> — quale grado &egrave; e in che modo lo trovi. Il prestito si riconosce cos&igrave;, non a orecchio.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="2">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 2</span>
+        <h2>Lezione 2 &mdash; Ear training: accordi senza funzione</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U10-L2-01">
+      <p class="titolo-consegna"><span class="num">1</span> Tre domande, dieci accordi</p>
+      <div class="testo">Fatti suonare dieci accordi qualunque, sui tasti bianchi e neri senza pensare a una tonalit&agrave;, e per ognuno scrivi solo le tre risposte: <strong>quanti suoni, come sono disposti, c&rsquo;&egrave; una seconda dentro</strong>.<p class="dettaglio">Nessuna delle tre chiede il nome dell&rsquo;accordo. Se ti viene da scriverlo, resisti: &egrave; l&rsquo;abitudine che quest&rsquo;ora serve a togliere.</p></div>
+      <div class="online-vivo no-stampa">
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U10-L2-02">
+      <p class="titolo-consegna"><span class="num">2</span> Lo stesso accordo, tre disposizioni</p>
+      <div class="testo">Prendi quattro suoni qualunque e scrivili <strong>tre volte</strong>: a grappolo, per quarte, e larghi.<p class="dettaglio">Poi suonali e scrivi in una riga che cosa cambia. Le note sono le stesse in tutti e tre i casi.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="3">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 3</span>
+        <h2>Lezione 3 &mdash; Simmetria e rete di altezze: Wagner, Liszt, Franck</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U10-L3-03">
+      <p class="titolo-consegna"><span class="num">1</span> Quattro segni di una rete</p>
+      <div class="testo">Su un brano che hai in mano cerca i quattro segni della rete di altezze: triadi senza settime, nota comune tenuta, fondamentali che si muovono per terze, molte alterazioni fuori armatura.<p class="dettaglio">Scrivi quali trovi e a che <strong>battuta</strong>. Bastano due dei quattro per dire che c&rsquo;&egrave;.</p></div>
+      <div class="online-vivo no-stampa">
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U10-L3-01">
+      <p class="titolo-consegna"><span class="num">2</span> Un giro per terze, e la nota che resta</p>
+      <div class="testo">Scrivi <strong>quattro triadi maggiori</strong> a distanza di terza maggiore, disposte a quattro parti, tenendo ferma la nota comune in una voce sola.<p class="dettaglio">Sopra ogni collegamento segna <strong>quale nota resta</strong> e quali si muovono. Poi rifallo per terze minori: sono quattro accordi invece di tre.</p></div>
+    </div>
+    <div class="consegna" id="C5-U10-L3-02">
+      <p class="titolo-consegna"><span class="num">3</span> Il conto delle trasposizioni, fatto a mano</p>
+      <div class="testo">Per la triade aumentata, la settima diminuita e la scala esatonale, trasporta di semitono in semitono e <strong>fermati quando ricompaiono le note di partenza</strong>. Scrivi quante trasposizioni diverse hai trovato.<p class="dettaglio">Poi fai lo stesso con la scala maggiore, e confronta i quattro numeri.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="4">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 4</span>
+        <h2>Lezione 4 &mdash; Debussy: esatonale, pentatonica, modi ritrovati</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U10-L4-03">
+      <p class="titolo-consegna"><span class="num">1</span> Il colore, con il grado accanto</p>
+      <div class="testo">Per lidio, frigio, misolidio e dorico scrivi la parola di colore che ti viene, e <strong>accanto il grado</strong> da cui dipende.<p class="dettaglio">&laquo;Luminoso&raquo; da solo non vale; «luminoso per il quarto grado alzato» s&igrave; (p.&nbsp;244).</p></div>
+      <div class="online-vivo no-stampa">
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U10-L4-01">
+      <p class="titolo-consegna"><span class="num">2</span> Le tre ottatoniche, e la quarta che non c&rsquo;&egrave;</p>
+      <div class="testo">Scrivi le <strong>tre</strong> scale ottatoniche e fermati quando la quarta ripete la prima. Poi scrivi le due esatonali.<p class="dettaglio">Accanto a ciascuna segna quanti semitoni contiene e quante trasposizioni ha: sono le due colonne della tavola dei sistemi (pp.&nbsp;248 e 250).</p></div>
+    </div>
+    <div class="consegna" id="C5-U10-L4-02">
+      <p class="titolo-consegna"><span class="num">3</span> Otto battute sui soli tasti neri</p>
+      <div class="testo">Scrivi <strong>otto battute</strong> usando solo la pentatonica dei tasti neri, per pianoforte.<p class="dettaglio">La difficolt&agrave; non &egrave; evitare le note brutte &mdash; non ce ne sono &mdash; ma <strong>far succedere qualcosa</strong>. Segna dove cambia il registro, la densit&agrave; o il ritmo.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="5">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 5</span>
+        <h2>Lezione 5 &mdash; Analisi: «Voiles», il secondo preludio di Debussy</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U10-L5-02">
+      <p class="titolo-consegna"><span class="num">1</span> Perch&eacute; non pu&ograve; cadenzare</p>
+      <div class="testo">Prova a costruire una cadenza perfetta dentro la scala esatonale e spiega in tre righe perch&eacute; non si pu&ograve;.<p class="dettaglio">Parti da quali intervalli la scala contiene e quali no.</p></div>
+      <div class="online-vivo no-stampa">
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U10-L5-01">
+      <p class="titolo-consegna"><span class="num">2</span> «Voiles», una pagina sola</p>
+      <div class="testo">Sulla partitura del libro (p.&nbsp;258) scrivi: la scala della prima sezione per esteso, la nota del pedale, e le <strong>battute</strong> in cui il materiale cambia.<p class="dettaglio">Chiudi con lo schema in lettere, con le battute di ogni sezione. Uno schema senza battute &egrave; un disegno.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="6">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 6</span>
+        <h2>Lezione 6 &mdash; Analisi: Messiaen, «Quatuor pour la fin du temps» — modi a trasposizione limitata e ritmo non misurato</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U10-L6-02">
+      <p class="titolo-consegna"><span class="num">1</span> Un modo costruito da te</p>
+      <div class="testo">Scegli un gruppetto di tre o quattro intervalli, ripetilo finch&eacute; chiude l&rsquo;ottava, e conta quante trasposizioni diverse produce.<p class="dettaglio">Se non chiude l&rsquo;ottava esattamente, il gruppetto non va bene: provane un altro.</p></div>
+      <div class="online-vivo no-stampa">
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U10-L6-01">
+      <p class="titolo-consegna"><span class="num">2</span> Un ritmo che letto al contrario &egrave; uguale</p>
+      <div class="testo">Scrivi un <strong>ritmo non retrogradabile</strong> di sette valori, e verificalo leggendolo da destra a sinistra.<p class="dettaglio">Poi scrivine uno di cinque e uno di nove. Il controllo si fa da s&eacute;: o &egrave; palindromo o non lo &egrave;.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="7">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 7</span>
+        <h2>Lezione 7 &mdash; Politonalità e ritmo: Stravinskij</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U10-L7-03">
+      <p class="titolo-consegna"><span class="num">1</span> I tre separatori</p>
+      <div class="testo">Elenca i tre mezzi che tengono separati due strati sovrapposti, e per ciascuno scrivi che cosa succede se lo togli.<p class="dettaglio">Poi dì quale dei tre &egrave; il pi&ugrave; forte, e perch&eacute; lo sai gi&agrave; dall&rsquo;unit&agrave;&nbsp;9.</p></div>
+      <div class="online-vivo no-stampa">
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U10-L7-01">
+      <p class="titolo-consegna"><span class="num">2</span> Due triadi, e la scala che le contiene</p>
+      <div class="testo">Prendi <strong>re maggiore</strong> e <strong>sol&#9839; maggiore</strong>: scrivi le sei note e cerca se stanno tutte dentro una delle tre ottatoniche.<p class="dettaglio">Poi rifallo con do maggiore e re maggiore. La risposta cambia, e la differenza va spiegata in due righe.</p></div>
+    </div>
+    <div class="consegna" id="C5-U10-L7-02">
+      <p class="titolo-consegna"><span class="num">3</span> Una cellula di cinque, dentro una battuta di otto</p>
+      <div class="testo">Scrivi otto battute in 4/4 con una cellula di <strong>cinque crome</strong> ripetuta senza cambiare, e segna dove il ciclo torna a coincidere con la battuta.<p class="dettaglio">Calcola prima di scrivere dopo quante battute si riallinea: fa risparmiare met&agrave; della fatica.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="8">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 8</span>
+        <h2>Lezione 8 &mdash; Schönberg: dall’atonalità alla serie di dodici suoni</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U10-L8-03">
+      <p class="titolo-consegna"><span class="num">1</span> Dieci battute, quanti accordi</p>
+      <div class="testo">Riascolta l&rsquo;op.&nbsp;19 n.&nbsp;6 due volte e conta quante <strong>sonorit&agrave; diverse</strong> senti in tutto il pezzo.<p class="dettaglio">Poi scrivi in due righe che cosa questo dice sul luogo comune che l&rsquo;atonalit&agrave; sia musica senza regole.</p></div>
+      <div class="online-vivo no-stampa">
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U10-L8-01">
+      <p class="titolo-consegna"><span class="num">2</span> Una serie, e le sue quattro forme</p>
+      <div class="testo">Scrivi una serie di <strong>dodici suoni</strong> controllando che nessuno si ripeta, e ricavane il retrogrado e l&rsquo;inverso.<p class="dettaglio">L&rsquo;inverso si verifica <strong>sugli intervalli, uno per uno</strong>: dove l&rsquo;originale sale di tre semitoni, l&rsquo;inverso scende di tre.</p></div>
+    </div>
+    <div class="consegna" id="C5-U10-L8-02">
+      <p class="titolo-consegna"><span class="num">3</span> Le stesse dodici note, due volte</p>
+      <div class="testo">Scrivi <strong>quattro battute</strong> usando la tua serie, distribuendola come vuoi fra due mani. Poi riscrivile una seconda volta, stesso ordine di note e ritmi diversi.<p class="dettaglio">Confronta i due risultati e scrivi in due righe che cosa li rende diversi, visto che le note sono le stesse e nello stesso ordine.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="9">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 9</span>
+        <h2>Lezione 9 &mdash; Analisi: Ligeti, «Lux Aeterna» — quando il canone diventa massa</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U10-L9-03">
+      <p class="titolo-consegna"><span class="num">1</span> Tre cose che non sono micropolifonia</p>
+      <div class="testo">Spiega in una riga a testa perch&eacute; un accordo tenuto, un cluster suonato col braccio e un&rsquo;improvvisazione collettiva non sono micropolifonia.<p class="dettaglio">La differenza sta nella scrittura, non nel suono che ne esce.</p></div>
+      <div class="online-vivo no-stampa">
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U10-L9-01">
+      <p class="titolo-consegna"><span class="num">2</span> Il profilo di una massa</p>
+      <div class="testo">Ascoltando il brano tre volte, disegna il suo profilo: tempo in orizzontale, registro in verticale, spessore della linea per l&rsquo;ampiezza della fascia.<p class="dettaglio">Segna <strong>tre punti</strong> in cui cambia qualcosa, con il <strong>minuto</strong> e quale dei quattro parametri cambia.</p></div>
+    </div>
+    <div class="consegna" id="C5-U10-L9-02">
+      <p class="titolo-consegna"><span class="num">3</span> Lo stesso canone, due distanze</p>
+      <div class="testo">Prendi una figura di quattro note e scrivila come canone a due voci: prima a <strong>una battuta</strong> di distanza, poi a <strong>una nota</strong>.<p class="dettaglio">Suona i due risultati e scrivi in due righe che cosa cambia: sono le stesse note e la stessa regola.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="10">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 10</span>
+        <h2>Lezione 10 &mdash; Trascrivere un frammento per organico misto</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U10-L10-02">
+      <p class="titolo-consegna"><span class="num">1</span> Contare due movimenti disuguali</p>
+      <div class="testo">Batti il 5/8 con due colpi disuguali, corto&ndash;lungo e poi lungo&ndash;corto, su una traccia a tuo piacere, per due minuti a testa.<p class="dettaglio">Serve a fare l&rsquo;orecchio prima del dettato: chi non ha deciso il raggruppamento al primo ascolto scrive tutto sfalsato.</p></div>
+      <div class="online-vivo no-stampa">
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U10-L10-01">
+      <p class="titolo-consegna"><span class="num">2</span> Cinque ottavi, contati con la mano</p>
+      <div class="testo">Scrivi <strong>otto battute</strong> in 5/8 a due parti, con almeno una sincope e un salto di nona.<p class="dettaglio">In cima segna se le hai pensate in <strong>2+3</strong> o in <strong>3+2</strong>, e mantieni lo stesso raggruppamento per tutte e otto.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="11">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 11</span>
+        <h2>Lezione 11 &mdash; Analisi per insiemi: Schönberg, Klavierstücke op. 33a</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U10-L11-02">
+      <p class="titolo-consegna"><span class="num">1</span> Che cosa vede, e che cosa no</p>
+      <div class="testo">Scrivi due elenchi: quello che l&rsquo;analisi per insiemi vede, e quello che non vede.<p class="dettaglio">Chiudi con una riga: su quale musica conviene usarla, e <strong>perch&eacute;</strong>.</p></div>
+      <div class="online-vivo no-stampa">
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U10-L11-01">
+      <p class="titolo-consegna"><span class="num">2</span> Quattro accordi, quattro forme prime</p>
+      <div class="testo">Scrivi in classi di altezza e riduci alla forma pi&ugrave; stretta: una triade maggiore, una minore, l&rsquo;accordo la&ndash;fa&#9839;&ndash;si e l&rsquo;accordo sol&ndash;do&ndash;fa.<p class="dettaglio">Poi scrivi in due righe che cosa noti confrontando le prime due forme prime con le altre due.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="12">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 12</span>
+        <h2>Lezione 12 &mdash; Analisi: un ascolto extraeuropeo, con quali strumenti</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U10-L12-03">
+      <p class="titolo-consegna"><span class="num">1</span> I due errori opposti</p>
+      <div class="testo">Descrivi i due errori opposti davanti a una musica di un&rsquo;altra tradizione, e scrivi che cosa hanno in comune.<p class="dettaglio">Sembrano contrari e vengono dallo stesso posto.</p></div>
+      <div class="online-vivo no-stampa">
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U10-L12-01">
+      <p class="titolo-consegna"><span class="num">2</span> Strati, ciclo, cambiamenti</p>
+      <div class="testo">Sull&rsquo;ascolto dell&rsquo;ora scrivi una pagina: quanti <strong>strati</strong> ci sono e che cosa fa ciascuno; la durata del <strong>ciclo</strong>, misurata col cronometro su almeno due ritorni; tre punti in cui cambia qualcosa, col <strong>minuto</strong>.<p class="dettaglio">Chiudi con una riga su che cosa dei tuoi strumenti <strong>non</strong> hai potuto usare, e perch&eacute;.</p></div>
+    </div>
+    <div class="consegna" id="C5-U10-L12-02">
+      <p class="titolo-consegna"><span class="num">3</span> Le quattro assunzioni del pentagramma</p>
+      <div class="testo">Elenca le quattro cose che la nostra notazione d&agrave; per scontate, e per ciascuna scrivi un esempio di musica in cui non vale.<p class="dettaglio">La quarta &egrave; la pi&ugrave; difficile da vedere perch&eacute; &egrave; il presupposto di tutto quello che facciamo.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="13">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 13</span>
+        <h2>Lezione 13 &mdash; Che cos’è l’analisi, e perché non ce n’è una sola</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna" id="C5-U10-L13-03">
+      <p class="titolo-consegna"><span class="num">1</span> Sette metodi, e dove li hai usati</p>
+      <div class="testo">Elenca i sette metodi di analisi del corso e accanto a ciascuno scrivi <strong>in quale ora</strong> lo hai usato per la prima volta.<p class="dettaglio">Poi segna, per ognuno, che cosa mette in primo piano.</p></div>
+      <div class="online-vivo no-stampa">
+      </div>
+      <p class="tac-allenamento">Questo non fa voto: rifallo quante volte vuoi.</p>
+    </div>
+    </section>
+    <section class="parte scritto">
+      <h3>Da scrivere sul quaderno</h3>
+      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
+    <div class="consegna" id="C5-U10-L13-01">
+      <p class="titolo-consegna"><span class="num">2</span> Un brano mai visto, e il metodo scelto da te</p>
+      <div class="testo">Analizza un brano che non hai mai visto, una pagina, nell&rsquo;ordine dell&rsquo;ora: che cos&rsquo;&egrave; il pezzo, lo schema con le <strong>battute</strong>, due o tre osservazioni, e una riga su quello che non hai potuto stabilire.<p class="dettaglio">Prima di cominciare scrivi <strong>quale metodo</strong> usi e <strong>perch&eacute;</strong>: che cosa cambia, in questo pezzo, mentre va avanti?</p></div>
+    </div>
+    <div class="consegna" id="C5-U10-L13-02">
+      <p class="titolo-consegna"><span class="num">3</span> Lo stesso brano, un altro metodo</p>
+      <div class="testo">Riprendi il brano del compito precedente e rifai l&rsquo;analisi con un <strong>secondo metodo</strong>, mezza pagina.<p class="dettaglio">Poi scrivi due righe: che cosa dice il secondo che il primo non diceva, e viceversa.</p></div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="99">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Tutta l&rsquo;unità insieme</span>
+        <h2>Ripasso di fine unità</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte online">
+      <h3>Da fare online</h3>
+      <p class="spiega ripetuta">Si fa allo schermo e si corregge da sé: sbagliare qui non costa niente, e rifarlo finché non viene è esattamente il modo in cui va usato.</p>
+    <div class="consegna verifica" id="C5U10V">
+      <p class="titolo-consegna"><span class="num">1</span> Verifica di fine unit&agrave; 10</p>
+      <div class="testo">1 esercizi, uno per volta. Non si torna indietro: prima di rispondere pensaci. Alla fine esce un <strong>codice</strong> che consegni su Classroom.<br><strong>&Egrave; l&rsquo;unica cosa dell&rsquo;unit&agrave; che fa voto.</strong></div>
+      <div class="online-vivo no-stampa">
+        <tac-verifica sigla="C5U10V" dove="casa" titolo="Verifica di fine unità 10">
+    <tac-quiz quante="6" scheda="C5U10U01" peso="3">
+[
+ {
+  "d": "Nella micropolifonia le voci sono scritte una per una.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "Sopra la soglia si sente di meno.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 9"
+ },
+ {
+  "d": "Per l&rsquo;analisi per insiemi maggiore e minore sono lo stesso oggetto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 11"
+ },
+ {
+  "d": "I due accordi dell&rsquo;op.&nbsp;19 n.&nbsp;6 differiscono per una nota sola, ridotti alla forma pi&ugrave; stretta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 11"
+ },
+ {
+  "d": "Il rigo musicale &egrave; uno strumento neutro.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 12"
+ },
+ {
+  "d": "L&rsquo;analisi &egrave; una procedura sola, e si applica sempre uguale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 13"
+ },
+ {
+  "d": "Un numero esatto risponde sempre alla domanda che gli si fa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 13"
+ },
+ {
+  "d": "Il libro collega l&rsquo;ottatonica a Rimskij-Korsakov e a Stravinskij.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "Do maggiore e fa&#9839; maggiore sovrapposti sono due tonalit&agrave; insieme.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "La politonalit&agrave; sta nella disposizione, non nel materiale.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "Il metro dispari &egrave; un&rsquo;invenzione del Novecento.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 7"
+ },
+ {
+  "d": "Atonalit&agrave; e dodecafonia sono la stessa cosa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "La serie si riconosce all&rsquo;ascolto.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "Da una serie si ricavano quarantotto forme.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "Togliere la tonalit&agrave; lascia al compositore meno vincoli.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 8"
+ },
+ {
+  "d": "Una figura simmetrica, trasportata, d&agrave; s&eacute; stessa.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "La scala maggiore &egrave; simmetrica.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "La triade aumentata ha quattro trasposizioni diverse.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Le settime diminuite diverse sono quattro.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Nella scala esatonale non c&rsquo;&egrave; nessuna quinta giusta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Due accordi lontani si legano solo con una dominante.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 3"
+ },
+ {
+  "d": "Nella pentatonica non ci sono semitoni.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "L&rsquo;ottatonica contiene quattro triadi maggiori.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "I modi diatonici sono tornati con Debussy.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "Un modo artificiale porta con s&eacute; un repertorio.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 4"
+ },
+ {
+  "d": "In un pezzo i sistemi si alternano, e i cambi segnano le sezioni.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ },
+ {
+  "d": "Un pedale d&agrave; una tonalit&agrave;.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "da": "lezione 5"
+ }
+]
+    </tac-quiz>
+        </tac-verifica>
+      </div>
+      <div class="esito"><span class="etichetta-esito">Codice ottenuto</span><span class="casella-codice"></span></div>
+    </div>
+    </section>
+  </div>
+
+</div>
+
+<footer class="piede no-stampa">
+  <div class="piede-interno">
+    <p><a href="../">&larr; Torna alla classe 5&ordf;</a>  &middot;  <a href="solfeggi-classe-5.html">Il quaderno di lettura · tutto l'anno</a></p>
+    <p>Teoria, Analisi e Composizione &middot; Liceo Musicale &middot; prof. Andrea Gorini</p>
+  </div>
+</footer>
+
+<script>
+/* «Stampa solo questa». Il compito della settimana e una pagina: se per
+   averla si deve mandare in stampa il fascicolo intero e poi scegliere gli
+   intervalli di pagina nel pannello del browser, nessuno lo fa, e si
+   stampano undici fogli per usarne uno. Il pulsante nasconde gli altri
+   blocchi per la durata della stampa e li rimette a posto subito dopo. */
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-stampa]');
+  if (!b) return;
+  var blocco = b.closest('.lez');
+  document.body.classList.add('stampa-una');
+  blocco.classList.add('da-stampare');
+  var pulisci = function () {
+    document.body.classList.remove('stampa-una');
+    blocco.classList.remove('da-stampare');
+    window.removeEventListener('afterprint', pulisci);
+  };
+  window.addEventListener('afterprint', pulisci);
+  window.print();
+});
+</script>
+</body>
+</html>

@@ -256,6 +256,14 @@ em.termine { font-style: normal; font-weight: 700; color: var(--viola); }
 .affianca > * { margin-top: 0; }
 @media (max-width: 800px) { .affianca { grid-template-columns: 1fr; } }
 
+/* Tre righe ritmiche impilate che devono INCOLONNARSI: stessa durata
+   totale, stessa larghezza, e nessuno spazio in mezzo che sfasi l'occhio.
+   Serve alla slide dei tre livelli (1ª, u1, l1), dove il punto è proprio
+   che il primo colpo di ogni riga cade insieme agli altri. */
+.tre-livelli { margin: 1rem 0; }
+.tre-livelli tac-stave { display: block; margin: 0; }
+.tre-livelli .tac-didascalia { margin-top: .1rem; margin-bottom: .35rem; }
+
 .colonne  { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; align-items: start; }
 .colonne3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; align-items: start; }
 @media (max-width: 800px) { .colonne, .colonne3 { grid-template-columns: 1fr; } }

@@ -1393,6 +1393,9 @@ body.stampa-una .da-stampare .parte .spiega.ripetuta { display: block; }
 .tac-brano-str[data-org="voci"]     { --ico: url('../icone/lira.png'); }
 
 .tac-brano-part {
+  /* `relative` serve alla cornice della battuta in corso, che si
+     posiziona in percentuale dentro questo riquadro (vedi in fondo). */
+  position: relative;
   margin: .8rem 0 0; padding: .7rem .8rem 0;
   background: #fff; border-top: 1px solid var(--bordo); border-radius: 0 0 8px 8px;
 }
@@ -2363,3 +2366,41 @@ body.regia .corretto { box-shadow: -4px 0 0 -1px var(--viola); }
    qualcuno, e il nome non è un dettaglio tipografico. */
 .tac-tubo-chi { margin: .3rem 0 0; font-size: .8rem; color: #475569;
                 font-style: italic; }
+
+/* ══ IL RIQUADRO SULLA PARTITURA VERA ══════════════════════════════
+   Andrea, 4 settembre 2026, scegliendo fra tre modi di segnare la
+   battuta in corso: «un riquadro sottile intorno».
+
+   Non una velatura e non una barra sotto il rigo. Le ragioni sono
+   pratiche e vengono dall'aula: la velatura abbassa il resto della
+   pagina, e su una scansione già grigia — con il proiettore della LIM
+   che schiarisce tutto — quello che resta fuori diventa illeggibile;
+   la barra sotto il sistema, su una partitura a più pentagrammi,
+   costringe a decidere sotto quale metterla, e la decisione cambia da
+   una pagina all'altra.
+
+   La cornice non copre niente e si vede da lontano. */
+.tac-brano-cornice {
+  position: absolute;
+  border: 2px solid var(--accento, #2563eb);
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .65);
+  pointer-events: none;
+  /* Lo spostamento è breve e non lineare: parte subito e si posa. Se
+     fosse istantaneo l'occhio perderebbe il salto e dovrebbe ricercare
+     la battuta ogni volta; se fosse lento arriverebbe dopo la musica. */
+  transition: left .12s ease-out, top .12s ease-out,
+              width .12s ease-out, height .12s ease-out;
+}
+.tac-brano-cornice[hidden] { display: none; }
+
+/* Sulla carta il riquadro non ha senso: la battuta in corso esiste solo
+   mentre la musica va. */
+@media print { .tac-brano-cornice { display: none !important; } }
+
+/* Il conto della taratura: verde quando i colpi sono quelli attesi,
+   ambra quando sono troppi. Serve a decidere senza contare — mentre si
+   ascolta non si conta. */
+.tac-tara-conto.giusto  { color: #15803d; }
+.tac-tara-conto.troppi  { color: #b45309; }
+.tac-tara-conto.copiato::after { content: ' — copiata'; color: #15803d; }

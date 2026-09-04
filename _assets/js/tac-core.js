@@ -4928,7 +4928,44 @@
         });
       }
 
-      /* Compatibilità: partitura come immagine esterna */
+      /* ─────────────────────────────────────────────────────────────
+         LA PARTITURA VERA: un'immagine, e sopra il riquadro che avanza
+
+         Andrea, 2 settembre 2026: «i brani in analisi vorrei la
+         partitura vera e l'esecuzione vera, su quella appaiono le
+         indicazioni e scorre il cursore». Sono trentaquattro ore di
+         analisi, ed è il livello 3 del documento 38.
+
+         ⚠ FIN QUI ERA IMPOSSIBILE, E LA RAGIONE STA A RIGA 4708: «le
+         partiture arrivano incorporate: così si possono illuminare
+         battuta per battuta, cosa impossibile con un'immagine esterna».
+         Vero: dentro un SVG ogni battuta è un gruppo di elementi che si
+         può accendere; dentro un JPEG c'è solo una griglia di pixel.
+
+         Quello che mancava era **dove sta ogni battuta dentro
+         l'immagine**, e adesso c'è: `battute_su_scansione.py` legge la
+         scansione e restituisce il rettangolo di ciascuna, misurato
+         contro quello che MuseScore dichiara sulla propria incisione.
+
+         ⚠ E IL CURSORE SALTA, NON SCORRE. Andrea, 4 settembre: «possiamo
+         far battere il cursore solo a inizio battuta». Non è un ripiego:
+         è quello che toglie di mezzo il problema. Un cursore continuo
+         deve sapere dove si trova **dentro** la battuta, e su
+         un'esecuzione vera quel dato lo darebbe `tara.py`, che sbaglia
+         quattordici brani su quindici. Un riquadro che si sposta a ogni
+         stanghetta ha bisogno di un dato solo — l'istante di ogni
+         battuta — e quello si misura battendo la barra spaziatrice in
+         modo `?taratura`: mezzo minuto, ed è esatto anche col rubato.
+
+         I rettangoli si dichiarano in **percentuale** dell'immagine, non
+         in pixel: così la stessa mappa vale alla LIM, sul portatile e
+         stampata, e non si rompe se un giorno la scansione si rifà a una
+         risoluzione diversa.
+
+             <tac-brano partitura="voiles-p1.jpg"
+                        riquadri='[[1,4.2,11.0,9.1,7.4],[2,13.5,11.0,8.8,7.4],…]'
+                        registrazione="…" esecutore="…" mappa='…'>
+         ───────────────────────────────────────────────────────────── */
       const part = this._parti.length ? null : this.getAttribute('partitura');
       if (part) {
         const fig = document.createElement('figure');
@@ -4937,6 +4974,31 @@
         im.src = part; im.alt = 'Partitura di ' + (this.getAttribute('titolo') || 'questo brano');
         im.loading = 'lazy';
         fig.appendChild(im);
+
+        const rq = this.getAttribute('riquadri');
+        if (rq) {
+          try {
+            const lista = JSON.parse(rq);
+            /* La chiave è il numero di battuta scritto in partitura, non
+               la posizione nell'elenco: un'anacrusi si chiama 0, e dopo
+               un ritornello la stessa battuta torna. */
+            this._riquadri = {};
+            lista.forEach(r => { this._riquadri[r[0]] = r.slice(1); });
+            const cor = document.createElement('div');
+            cor.className = 'tac-brano-cornice';
+            cor.hidden = true;
+            fig.appendChild(cor);
+            this._cornice = cor;
+          } catch (e) {
+            /* ⚠ Un JSON storto non deve far sparire la partitura: senza
+               riquadri la pagina si vede lo stesso, e in classe si legge
+               a occhio come si è sempre fatto. Ma va detto, perché un
+               guasto silenzioso qui somiglia a «questo brano non ha il
+               cursore» — che è una cosa diversa. */
+            console.warn('tac-brano: riquadri illeggibili in «' +
+                         (this.getAttribute('titolo') || '') + '»', e);
+          }
+        }
         box.appendChild(fig);
       }
 
@@ -5519,22 +5581,53 @@
       b.textContent = 'Taratura';
       barra.appendChild(b);
 
+      /* ⚠ SI PUÒ SBAGLIARE UN COLPO, E PRIMA NON SI POTEVA.
+         Andrea, 4 settembre 2026: «costruiamo per bene il meccanismo
+         della taratura manuale».
+
+         La prima versione registrava e basta: un colpo in ritardo su
+         sessantaquattro battute voleva dire ricominciare da capo, e uno
+         strumento che punisce così un errore di mezzo secondo non lo si
+         usa la seconda volta. Adesso il **←** cancella l'ultimo colpo e
+         l'ascolto si può riportare indietro: si ritara solo la coda.
+
+         E il conto dice **quante ne mancano**, non quante ne hai fatte.
+         Sono la stessa informazione, ma la seconda si legge senza fare
+         una sottrazione mentre si ascolta — e mentre si ascolta non si
+         fanno sottrazioni. */
+      const attese = parseInt(this.getAttribute('battute') || '0', 10) ||
+        (this._riquadri ? Object.keys(this._riquadri).length : 0);
+
       const cassa = document.createElement('div');
       cassa.className = 'tac-taratura no-stampa';
       cassa.hidden = true;
       cassa.innerHTML =
         '<p><strong>Barra spaziatrice</strong> a ogni stanghetta, mentre ' +
-        'suona. <strong>Esc</strong> per chiudere.</p>' +
+        'suona. <strong>&larr;</strong> cancella l&rsquo;ultimo colpo, ' +
+        '<strong>Esc</strong> chiude.</p>' +
         '<p class="tac-tara-conto">0 battute segnate</p>' +
         '<textarea class="tac-tara-uscita" rows="3" readonly ' +
-        'aria-label="La mappa da incollare"></textarea>';
+        'aria-label="La mappa da incollare"></textarea>' +
+        '<p><button type="button" class="btn secondario tac-tara-copia">' +
+        'Copia la mappa</button></p>';
       this._box.appendChild(cassa);
       const conto = cassa.querySelector('.tac-tara-conto');
       const uscita = cassa.querySelector('.tac-tara-uscita');
 
       let colpi = [];
       const stampa = () => {
-        conto.textContent = colpi.length + ' battute segnate';
+        let t = colpi.length + ' battute segnate';
+        if (attese) {
+          const restano = attese - colpi.length;
+          t += restano > 0 ? ' &middot; ne mancano ' + restano
+             : (restano === 0 ? ' &middot; <strong>ci siamo: ' + attese +
+                                ' su ' + attese + '</strong>'
+                              : ' &middot; <strong>' + (-restano) +
+                                ' di troppo</strong>');
+        }
+        conto.innerHTML = t;
+        conto.classList.toggle('giusto', attese && colpi.length === attese);
+        conto.classList.toggle('troppi', attese && colpi.length > attese);
         /* `eventi` è [indice della battuta nella partitura, millisecondi].
            L'indice parte da 0 e cresce di uno: la mappa dice quando
            comincia ciascuna, non quale numero porta — quello lo dice
@@ -5546,9 +5639,38 @@
       };
       stampa();
 
+      cassa.querySelector('.tac-tara-copia').onclick = () => {
+        uscita.select();
+        /* `execCommand` è deprecato ma funziona ovunque e non chiede
+           permessi; `navigator.clipboard` sulla LIM, dove la pagina non
+           sempre è servita in https, non c'è. Si prova il moderno e si
+           ripiega sul vecchio, invece del contrario. */
+        const fatto = () => { conto.classList.add('copiato');
+                              setTimeout(() => conto.classList.remove('copiato'), 900); };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(uscita.value).then(fatto,
+            () => { try { document.execCommand('copy'); fatto(); } catch (e) {} });
+        } else {
+          try { document.execCommand('copy'); fatto(); } catch (e) {}
+        }
+      };
+
       const tasto = (e) => {
         if (cassa.hidden) return;
         if (e.key === 'Escape') { chiudi(); return; }
+        /* ⚠ Il ← cancella l'ultimo colpo E riporta l'ascolto lì: senza il
+           salto indietro si cancella un colpo mentre la musica è già due
+           battute più avanti, e il colpo dopo va nel posto sbagliato. */
+        if (e.key === 'Backspace' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          e.stopPropagation();
+          if (!colpi.length) return;
+          colpi.pop();
+          const dove = colpi.length ? colpi[colpi.length - 1] : 0;
+          try { au.currentTime = dove / 1000; } catch (err) {}
+          stampa();
+          return;
+        }
         if (e.code !== 'Space' && e.key !== ' ') return;
         e.preventDefault();
         e.stopPropagation();
@@ -5688,6 +5810,26 @@
     }
 
     illumina(k) {
+      /* ⚠ PRIMA L'IMMAGINE, POI L'SVG, e in quest'ordine per una ragione:
+         su una partitura vera `misure()` è vuoto — dentro un JPEG non ci
+         sono elementi da accendere — e la riga dopo uscirebbe subito,
+         lasciando il riquadro fermo sulla prima battuta per tutto il
+         brano. Un cursore che non si muove non sembra rotto: sembra un
+         brano senza cursore. */
+      if (this._riquadri && this._cornice) {
+        const r = this._riquadri[k];
+        if (!r) {
+          this._cornice.hidden = true;
+        } else {
+          const c = this._cornice;
+          c.style.left = r[0] + '%';
+          c.style.top = r[1] + '%';
+          c.style.width = r[2] + '%';
+          c.style.height = r[3] + '%';
+          c.hidden = false;
+        }
+      }
+
       const m = this.misure();
       if (!m.length) return;
       m.forEach(x => x.classList.remove('suona'));

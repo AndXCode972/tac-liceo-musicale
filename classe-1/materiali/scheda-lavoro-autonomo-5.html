@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scheda di lavoro autonomo &mdash; tornata 5 | TAC classe 1ª</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=89b635a1">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=3ae1cb65">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script src="../../_assets/js/tac-core.js?v=e894da72" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 0; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  .giro { border-collapse: collapse; margin: 1.2rem 0; }
+  .giro th, .giro td { border: 1px solid var(--bordo); padding: .45rem .9rem;
+                       text-align: center; }
+  .giro th { background: var(--carta2); }
+  .giro td.salta { color: var(--inchiostro2); font-style: italic; }
+  .posto { border-top: 4px solid #5b4bc4; padding-top: 1rem; margin: 2.4rem 0;
+           page-break-inside: avoid; }
+  .posto > .testa { display: flex; align-items: baseline; gap: 1rem;
+                    margin-bottom: .8rem; flex-wrap: wrap; }
+  .posto > .testa h2 { border: 0; margin: 0; font-size: 1.45rem; }
+  .posto > .testa .durata { margin-left: auto; background: #5b4bc4; color: #fff;
+                            padding: .25rem .9rem; border-radius: 999px;
+                            font-size: .85rem; font-weight: 800; }
+  .lettera { display: inline-flex; align-items: center; justify-content: center;
+             width: 2.1rem; height: 2.1rem; border-radius: 50%;
+             background: #5b4bc4; color: #fff; font-weight: 800; }
+  .minimo, .extra { border-left: 4px solid var(--bordo); padding: .1rem 0 .1rem .9rem;
+                    margin: .8rem 0; }
+  .minimo { border-left-color: #5b4bc4; }
+  .etichetta-riga { font-size: .78rem; letter-spacing: .06em; text-transform: uppercase;
+                    color: var(--inchiostro2); font-weight: 800; }
+
+  /* LA MISURA DEL RIGO STA DENTRO L'SVG, dal 20 agosto: ogni incisione
+     dichiara la propria larghezza in millimetri sulla radice. Qui basta
+     non contraddirla — `width: 100%` la sovrascriveva e ingrandiva i
+     pezzi corti, pentagramma compreso. */
+  img.inciso { display: block; max-width: 100%; height: auto; margin: .4rem 0; }
+  .didascalia-rigo { font-size: .85rem; color: var(--inchiostro2);
+                     margin: .6rem 0 .1rem; font-weight: 600; }
+</style>
+</head>
+<body class="documento">
+
+<!-- ══ DA QUI SI TORNA INDIETRO, E PER UN ANNO NON SI POTEVA ══════════
+     Andrea, 3 settembre 2026: «quando si entra nel foglio di lavoro
+     autonomo non c'è menu per tornare indietro».
+
+     Era vero, ed era l'unica pagina del sito in quello stato. Le
+     lezioni la barra ce l'hanno — la costruisce `tac-core.js` a
+     runtime, con «← Classe» e «Corso» — e il Workbook e il quaderno di
+     lettura hanno questa `barra-sito`, scritta nell'HTML. La scheda no:
+     aveva soltanto il pulsante «Stampa», e chi ci entrava usciva col
+     tasto indietro del browser o non usciva.
+
+     Il difetto è invisibile a chi genera la pagina e ovvio a chi la
+     apre: da dentro il generatore la scheda è un documento da stampare,
+     e su carta un menu non serve. Ma la scheda si apre in classe, alla
+     LIM, e da lì si deve poter tornare all'unità. -->
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 1&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <span class="attiva">Lavoro autonomo &middot; tornata 5</span>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">Stampa</button>
+</div>
+
+<h1>La scala maggiore, e i suoi due tetracordi</h1>
+<p class="sottotitolo">Classe 1&ordf; &middot; tornata 5</p>
+<p>Unit&agrave; 5 &mdash; si lavora sull&rsquo;unit&agrave; 4: tetracordi, scala maggiore, circolo dei diesis, tonica e dominante.</p>
+
+<div class="riquadro attenzione">
+  <span class="etichetta">Come funziona</span>
+  <p>Ogni postazione ha <strong>il minimo</strong> e <strong>se avanza
+  tempo</strong>. Il minimo lo fanno tutti; il resto &egrave; per chi
+  finisce prima. Non arrivare in fondo al secondo <strong>non</strong>
+  vuol dire aver lavorato male.</p>
+  <p>Al segnale ci si sposta, anche a met&agrave; di una cosa. Il tempo
+  &egrave; parte dell&rsquo;esercizio.</p>
+</div>
+
+<h2>Il giro delle postazioni</h2>
+<p>Quattro postazioni, quattro gruppi, tre giri da 10 minuti. Ogni
+gruppo ne salta una &mdash; ed &egrave; sempre una diversa: quella saltata
+&egrave; il compito di stasera per quel gruppo.</p>
+
+<table class="giro">
+<tr><th></th><th>1&ordm; giro</th><th>2&ordm; giro</th><th>3&ordm; giro</th><th>salta</th></tr>
+<tr><th>Gruppo 1</th><td><strong>A</strong></td><td><strong>B</strong></td><td><strong>C</strong></td><td class="salta">D</td></tr>
+<tr><th>Gruppo 2</th><td><strong>B</strong></td><td><strong>C</strong></td><td><strong>D</strong></td><td class="salta">A</td></tr>
+<tr><th>Gruppo 3</th><td><strong>C</strong></td><td><strong>D</strong></td><td><strong>A</strong></td><td class="salta">B</td></tr>
+<tr><th>Gruppo 4</th><td><strong>D</strong></td><td><strong>A</strong></td><td><strong>B</strong></td><td class="salta">C</td></tr>
+</table>
+
+<section class="posto">
+  <div class="testa">
+    <span class="lettera">A</span>
+    <h2>Costruire una scala, a voce</h2>
+    <span class="durata">10 minuti</span>
+  </div>
+  <p>A coppie. Uno dice una nota, l&rsquo;altro costruisce la scala maggiore da l&igrave;, a voce, dicendo dove cadono i semitoni. Poi ci si scambia.</p>
+  <div class="minimo">
+    <div class="etichetta-riga">Il minimo</div>
+    <p>Quattro scale per ciascuno: <em>Do, Sol, Re, La</em>. Ogni volta si dicono tutti e otto i nomi e poi si dice &laquo;semitono fra terzo e quarto, semitono fra settimo e ottavo&raquo;.</p>
+  </div>
+  <div class="extra">
+    <div class="etichetta-riga">Se avanza tempo</div>
+    <p>Continuate con <em>Mi</em> e <em>Si</em>. Chi ascolta controlla che il numero dei diesis salga di uno ogni volta.</p>
+  </div>
+</section>
+<section class="posto">
+  <div class="testa">
+    <span class="lettera">B</span>
+    <h2>La scala scritta, con l&rsquo;armatura giusta</h2>
+    <span class="durata">10 minuti</span>
+  </div>
+  <p>Da soli, in silenzio.</p>
+  <tac-stave clef="treble" time="4/4" caption="Sol maggiore, ascendente" notes="g/4:q a/4:q b/4:q c/5:q | d/5:q e/5:q f#/5:q g/5:q" width="700" tempo="60" play slow></tac-stave>
+  <div class="minimo">
+    <div class="etichetta-riga">Il minimo</div>
+    <p>Scrivete la scala di <strong>Sol maggiore</strong> in chiave di violino, in semiminime, ascendente e discendente, <strong>con il diesis davanti alla nota</strong> e non in armatura.</p>
+  </div>
+  <div class="extra">
+    <div class="etichetta-riga">Se avanza tempo</div>
+    <p>Riscrivetela mettendo il fa&sharp; <strong>in armatura</strong>. Poi fate lo stesso con <em>Re maggiore</em>.</p>
+  </div>
+</section>
+<section class="posto">
+  <div class="testa">
+    <span class="lettera">C</span>
+    <h2>Tonica o dominante?</h2>
+    <span class="durata">10 minuti</span>
+  </div>
+  <p>A coppie, discutendo. Una risposta sola, scritta.</p>
+  <tac-stave clef="treble" time="4/4" caption="La scala di Do: T, D, o nessuna delle due" notes="c/4:q d/4:q e/4:q f/4:q | g/4:q a/4:q b/4:q c/5:q" width="700" tempo="60" play slow></tac-stave>
+  <div class="minimo">
+    <div class="etichetta-riga">Il minimo</div>
+    <p>Sotto ognuna delle otto note del rigo, scrivete <strong>T</strong> se pu&ograve; stare sulla tonica, <strong>D</strong> se pu&ograve; stare sulla dominante. Tre note possono stare su tutte e due: segnatele con <strong>T/D</strong>.</p>
+  </div>
+  <div class="extra">
+    <div class="etichetta-riga">Se avanza tempo</div>
+    <p>Per ognuna scrivete anche <em>perch&eacute;</em>: quale nota dell&rsquo;accordo &egrave;.</p>
+  </div>
+</section>
+<section class="posto">
+  <div class="testa">
+    <span class="lettera">D</span>
+    <h2>Il circolo, ricostruito</h2>
+    <span class="durata">10 minuti</span>
+  </div>
+  <p>A coppie. Un foglio solo, scritto in due.</p>
+  <div class="minimo">
+    <div class="etichetta-riga">Il minimo</div>
+    <p>Disegnate il circolo delle quinte con i <strong>diesis</strong>, da Do fino a Si. Per ogni tonalit&agrave; scrivete quanti diesis ha e <strong>quali</strong>.</p>
+  </div>
+  <div class="extra">
+    <div class="etichetta-riga">Se avanza tempo</div>
+    <p>Scrivete accanto a ciascuna la sua <em>dominante</em>: &egrave; sempre quella dopo, ed &egrave; il motivo per cui il circolo &egrave; fatto di quinte.</p>
+  </div>
+</section>
+
+</body>
+</html>

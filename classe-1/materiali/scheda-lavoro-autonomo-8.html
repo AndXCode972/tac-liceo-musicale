@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scheda di lavoro autonomo &mdash; tornata 8 | TAC classe 1ª</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=89b635a1">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=3ae1cb65">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script src="../../_assets/js/tac-core.js?v=e894da72" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 0; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  .giro { border-collapse: collapse; margin: 1.2rem 0; }
+  .giro th, .giro td { border: 1px solid var(--bordo); padding: .45rem .9rem;
+                       text-align: center; }
+  .giro th { background: var(--carta2); }
+  .giro td.salta { color: var(--inchiostro2); font-style: italic; }
+  .posto { border-top: 4px solid #5b4bc4; padding-top: 1rem; margin: 2.4rem 0;
+           page-break-inside: avoid; }
+  .posto > .testa { display: flex; align-items: baseline; gap: 1rem;
+                    margin-bottom: .8rem; flex-wrap: wrap; }
+  .posto > .testa h2 { border: 0; margin: 0; font-size: 1.45rem; }
+  .posto > .testa .durata { margin-left: auto; background: #5b4bc4; color: #fff;
+                            padding: .25rem .9rem; border-radius: 999px;
+                            font-size: .85rem; font-weight: 800; }
+  .lettera { display: inline-flex; align-items: center; justify-content: center;
+             width: 2.1rem; height: 2.1rem; border-radius: 50%;
+             background: #5b4bc4; color: #fff; font-weight: 800; }
+  .minimo, .extra { border-left: 4px solid var(--bordo); padding: .1rem 0 .1rem .9rem;
+                    margin: .8rem 0; }
+  .minimo { border-left-color: #5b4bc4; }
+  .etichetta-riga { font-size: .78rem; letter-spacing: .06em; text-transform: uppercase;
+                    color: var(--inchiostro2); font-weight: 800; }
+
+  /* LA MISURA DEL RIGO STA DENTRO L'SVG, dal 20 agosto: ogni incisione
+     dichiara la propria larghezza in millimetri sulla radice. Qui basta
+     non contraddirla — `width: 100%` la sovrascriveva e ingrandiva i
+     pezzi corti, pentagramma compreso. */
+  img.inciso { display: block; max-width: 100%; height: auto; margin: .4rem 0; }
+  .didascalia-rigo { font-size: .85rem; color: var(--inchiostro2);
+                     margin: .6rem 0 .1rem; font-weight: 600; }
+</style>
+</head>
+<body class="documento">
+
+<!-- ══ DA QUI SI TORNA INDIETRO, E PER UN ANNO NON SI POTEVA ══════════
+     Andrea, 3 settembre 2026: «quando si entra nel foglio di lavoro
+     autonomo non c'è menu per tornare indietro».
+
+     Era vero, ed era l'unica pagina del sito in quello stato. Le
+     lezioni la barra ce l'hanno — la costruisce `tac-core.js` a
+     runtime, con «← Classe» e «Corso» — e il Workbook e il quaderno di
+     lettura hanno questa `barra-sito`, scritta nell'HTML. La scheda no:
+     aveva soltanto il pulsante «Stampa», e chi ci entrava usciva col
+     tasto indietro del browser o non usciva.
+
+     Il difetto è invisibile a chi genera la pagina e ovvio a chi la
+     apre: da dentro il generatore la scheda è un documento da stampare,
+     e su carta un menu non serve. Ma la scheda si apre in classe, alla
+     LIM, e da lì si deve poter tornare all'unità. -->
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 1&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <span class="attiva">Lavoro autonomo &middot; tornata 8</span>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">Stampa</button>
+</div>
+
+<h1>Gli intervalli: contarli, qualificarli, rivoltarli</h1>
+<p class="sottotitolo">Classe 1&ordf; &middot; tornata 8</p>
+<p>Unit&agrave; 8 &mdash; si lavora sull&rsquo;unit&agrave; 7: quantit&agrave; e qualit&agrave;, inversione, consonanti e dissonanti.</p>
+
+<div class="riquadro attenzione">
+  <span class="etichetta">Come funziona</span>
+  <p>Ogni postazione ha <strong>il minimo</strong> e <strong>se avanza
+  tempo</strong>. Il minimo lo fanno tutti; il resto &egrave; per chi
+  finisce prima. Non arrivare in fondo al secondo <strong>non</strong>
+  vuol dire aver lavorato male.</p>
+  <p>Al segnale ci si sposta, anche a met&agrave; di una cosa. Il tempo
+  &egrave; parte dell&rsquo;esercizio.</p>
+</div>
+
+<h2>Il giro delle postazioni</h2>
+<p>Quattro postazioni, quattro gruppi, tre giri da 10 minuti. Ogni
+gruppo ne salta una &mdash; ed &egrave; sempre una diversa: quella saltata
+&egrave; il compito di stasera per quel gruppo.</p>
+
+<table class="giro">
+<tr><th></th><th>1&ordm; giro</th><th>2&ordm; giro</th><th>3&ordm; giro</th><th>salta</th></tr>
+<tr><th>Gruppo 1</th><td><strong>A</strong></td><td><strong>B</strong></td><td><strong>C</strong></td><td class="salta">D</td></tr>
+<tr><th>Gruppo 2</th><td><strong>B</strong></td><td><strong>C</strong></td><td><strong>D</strong></td><td class="salta">A</td></tr>
+<tr><th>Gruppo 3</th><td><strong>C</strong></td><td><strong>D</strong></td><td><strong>A</strong></td><td class="salta">B</td></tr>
+<tr><th>Gruppo 4</th><td><strong>D</strong></td><td><strong>A</strong></td><td><strong>B</strong></td><td class="salta">C</td></tr>
+</table>
+
+<section class="posto">
+  <div class="testa">
+    <span class="lettera">A</span>
+    <h2>Nomina l&rsquo;intervallo, a raffica</h2>
+    <span class="durata">10 minuti</span>
+  </div>
+  <p>A coppie, con l&rsquo;orologio. Uno indica un intervallo sul foglio, l&rsquo;altro lo nomina per intero. Dieci a testa.</p>
+  <tac-stave clef="treble" time="4/4" caption="Otto intervalli" notes="c/4+e/4:h c/4+g/4:h | e/4+c/5:h c/4+b/4:h | c/4+f/4:h a/4+c/5:h | c/4+a/4:h c/4+c/5:h" width="700" tempo="52" play slow></tac-stave>
+  <div class="minimo">
+    <div class="etichetta-riga">Il minimo</div>
+    <p>Il nome per intero vuol dire <strong>due parole</strong>: terza maggiore, quinta giusta, sesta minore. Non &laquo;una terza&raquo;.</p>
+  </div>
+  <div class="extra">
+    <div class="etichetta-riga">Se avanza tempo</div>
+    <p>Chi risponde dice anche quanti <strong>semitoni</strong> sono. &Egrave; la prova che non sta indovinando dal disegno.</p>
+  </div>
+</section>
+<section class="posto">
+  <div class="testa">
+    <span class="lettera">B</span>
+    <h2>Rivoltare, e verificare</h2>
+    <span class="durata">10 minuti</span>
+  </div>
+  <p>Da soli, in silenzio.</p>
+  <div class="minimo">
+    <div class="etichetta-riga">Il minimo</div>
+    <p>Per ognuno degli otto intervalli della postazione A, scrivete il suo <strong>rivolto</strong> e nominatelo. Verificate ogni volta le due regole: i numeri fanno nove, e maggiore diventa minore.</p>
+  </div>
+  <div class="extra">
+    <div class="etichetta-riga">Se avanza tempo</div>
+    <p>Trovate i due intervalli che, rivoltati, restano dello stesso <strong>tipo</strong>. Scrivete perch&eacute;.</p>
+  </div>
+</section>
+<section class="posto">
+  <div class="testa">
+    <span class="lettera">C</span>
+    <h2>Consonante o dissonante?</h2>
+    <span class="durata">10 minuti</span>
+  </div>
+  <p>A coppie, discutendo. Una risposta sola per intervallo, scritta, con il motivo.</p>
+  <tac-stave clef="treble" time="4/4" caption="Sei intervalli da classificare" notes="c/4+g/4:h c/4+e/4:h | c/4+d/4:h c/4+f/4:h | c/4+b/4:h c/4+a/4:h" width="700" tempo="52" play slow></tac-stave>
+  <div class="minimo">
+    <div class="etichetta-riga">Il minimo</div>
+    <p>Dei sei intervalli qui sotto, scrivete quali sono <strong>consonanti</strong> e quali <strong>dissonanti</strong>. Poi separate le consonanti in <em>perfette</em> e <em>imperfette</em>.</p>
+  </div>
+  <div class="extra">
+    <div class="etichetta-riga">Se avanza tempo</div>
+    <p>La quarta &egrave; il caso difficile. Scrivete in che senso lo &egrave;, e perch&eacute; i libri non vanno d&rsquo;accordo.</p>
+  </div>
+</section>
+<section class="posto">
+  <div class="testa">
+    <span class="lettera">D</span>
+    <h2>Trova l&rsquo;intervallo sbagliato</h2>
+    <span class="durata">10 minuti</span>
+  </div>
+  <p>A coppie, discutendo. Una risposta sola per coppia.</p>
+  <tac-stave clef="treble" time="4/4" caption="I nomi sono sul foglio: due non tornano" notes="c/4+e/4:h c/4+f/4:h | c/4+g/4:h d/4+f/4:h | e/4+c/5:h c/4+b/4:h" width="700" tempo="52" play slow></tac-stave>
+  <div class="minimo">
+    <div class="etichetta-riga">Il minimo</div>
+    <p>Sotto ognuno dei sei intervalli c&rsquo;&egrave; un nome scritto sul foglio. <strong>Due sono sbagliati.</strong> Trovateli e scrivete il nome giusto.</p>
+  </div>
+  <div class="extra">
+    <div class="etichetta-riga">Se avanza tempo</div>
+    <p>Per i due sbagliati, dite anche <em>che tipo</em> di errore &egrave;: numero o qualit&agrave;.</p>
+  </div>
+</section>
+
+</body>
+</html>

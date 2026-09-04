@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Scheda di lavoro autonomo &mdash; tornata 7 | TAC classe 3ª</title>
 <link rel="stylesheet" href="../../_assets/css/tac.css?v=89b635a1">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=3ae1cb65">
 <script src="../../_assets/lib/vexflow.js"></script>
 <script src="../../_assets/lib/tone.js"></script>
 <script src="../../_assets/js/tac-core.js?v=e894da72" defer></script>
@@ -46,6 +47,34 @@
 </style>
 </head>
 <body class="documento">
+
+<!-- ══ DA QUI SI TORNA INDIETRO, E PER UN ANNO NON SI POTEVA ══════════
+     Andrea, 3 settembre 2026: «quando si entra nel foglio di lavoro
+     autonomo non c'è menu per tornare indietro».
+
+     Era vero, ed era l'unica pagina del sito in quello stato. Le
+     lezioni la barra ce l'hanno — la costruisce `tac-core.js` a
+     runtime, con «← Classe» e «Corso» — e il Workbook e il quaderno di
+     lettura hanno questa `barra-sito`, scritta nell'HTML. La scheda no:
+     aveva soltanto il pulsante «Stampa», e chi ci entrava usciva col
+     tasto indietro del browser o non usciva.
+
+     Il difetto è invisibile a chi genera la pagina e ovvio a chi la
+     apre: da dentro il generatore la scheda è un documento da stampare,
+     e su carta un menu non serve. Ma la scheda si apre in classe, alla
+     LIM, e da lì si deve poter tornare all'unità. -->
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 3&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <span class="attiva">Lavoro autonomo &middot; tornata 7</span>
+    </span>
+  </div>
+</nav>
 
 <div class="barra-alto no-stampa">
   <button class="btn secondario" onclick="window.print()">Stampa</button>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scheda di lavoro autonomo &mdash; tornata 4 | TAC classe 4ª</title>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=d7ac3834">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=3ae1cb65">
+<script src="../../_assets/lib/vexflow.js"></script>
+<script src="../../_assets/lib/tone.js"></script>
+<script src="../../_assets/js/tac-core.js?v=0da98eb1" defer></script>
+<style>
+  .barra-alto { position: sticky; top: 0; z-index: 10; background: var(--carta2);
+                border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
+                display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  @media print { .barra-alto { display: none; } }
+  .giro { border-collapse: collapse; margin: 1.2rem 0; }
+  .giro th, .giro td { border: 1px solid var(--bordo); padding: .45rem .9rem;
+                       text-align: center; }
+  .giro th { background: var(--carta2); }
+  .giro td.salta { color: var(--inchiostro2); font-style: italic; }
+  .posto { border-top: 4px solid #15803d; padding-top: 1rem; margin: 2.4rem 0;
+           page-break-inside: avoid; }
+  .posto > .testa { display: flex; align-items: baseline; gap: 1rem;
+                    margin-bottom: .8rem; flex-wrap: wrap; }
+  .posto > .testa h2 { border: 0; margin: 0; font-size: 1.45rem; }
+  .posto > .testa .durata { margin-left: auto; background: #15803d; color: #fff;
+                            padding: .25rem .9rem; border-radius: 999px;
+                            font-size: .85rem; font-weight: 800; }
+  .lettera { display: inline-flex; align-items: center; justify-content: center;
+             width: 2.1rem; height: 2.1rem; border-radius: 50%;
+             background: #15803d; color: #fff; font-weight: 800; }
+  .minimo, .extra { border-left: 4px solid var(--bordo); padding: .1rem 0 .1rem .9rem;
+                    margin: .8rem 0; }
+  .minimo { border-left-color: #15803d; }
+  .etichetta-riga { font-size: .78rem; letter-spacing: .06em; text-transform: uppercase;
+                    color: var(--inchiostro2); font-weight: 800; }
+
+  /* LA MISURA DEL RIGO STA DENTRO L'SVG, dal 20 agosto: ogni incisione
+     dichiara la propria larghezza in millimetri sulla radice. Qui basta
+     non contraddirla — `width: 100%` la sovrascriveva e ingrandiva i
+     pezzi corti, pentagramma compreso. */
+  img.inciso { display: block; max-width: 100%; height: auto; margin: .4rem 0; }
+  .didascalia-rigo { font-size: .85rem; color: var(--inchiostro2);
+                     margin: .6rem 0 .1rem; font-weight: 600; }
+</style>
+</head>
+<body class="documento">
+
+<!-- ══ DA QUI SI TORNA INDIETRO, E PER UN ANNO NON SI POTEVA ══════════
+     Andrea, 3 settembre 2026: «quando si entra nel foglio di lavoro
+     autonomo non c'è menu per tornare indietro».
+
+     Era vero, ed era l'unica pagina del sito in quello stato. Le
+     lezioni la barra ce l'hanno — la costruisce `tac-core.js` a
+     runtime, con «← Classe» e «Corso» — e il Workbook e il quaderno di
+     lettura hanno questa `barra-sito`, scritta nell'HTML. La scheda no:
+     aveva soltanto il pulsante «Stampa», e chi ci entrava usciva col
+     tasto indietro del browser o non usciva.
+
+     Il difetto è invisibile a chi genera la pagina e ovvio a chi la
+     apre: da dentro il generatore la scheda è un documento da stampare,
+     e su carta un menu non serve. Ma la scheda si apre in classe, alla
+     LIM, e da lì si deve poter tornare all'unità. -->
+<nav class="barra-sito no-stampa">
+  <div class="barra-sito-interna">
+    <a href="../../">Corso</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="../">Classe 4&ordf;</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="qui">Materiali</span>
+    <span class="voci">
+      <span class="attiva">Lavoro autonomo &middot; tornata 4</span>
+    </span>
+  </div>
+</nav>
+
+<div class="barra-alto no-stampa">
+  <button class="btn secondario" onclick="window.print()">Stampa</button>
+</div>
+
+<h1>Le due clausole</h1>
+<p class="sottotitolo">Classe 4&ordf; &middot; tornata 4</p>
+<p>Unit&agrave; 4 &mdash; servono il profilo cadenzale e le due clausole.</p>
+
+<div class="riquadro attenzione">
+  <span class="etichetta">Come funziona</span>
+  <p>Ogni postazione ha <strong>il minimo</strong> e <strong>se avanza
+  tempo</strong>. Il minimo lo fanno tutti; il resto &egrave; per chi
+  finisce prima. Non arrivare in fondo al secondo <strong>non</strong>
+  vuol dire aver lavorato male.</p>
+  <p>Al segnale ci si sposta, anche a met&agrave; di una cosa. Il tempo
+  &egrave; parte dell&rsquo;esercizio.</p>
+</div>
+
+<h2>Il giro delle postazioni</h2>
+<p>Quattro postazioni, quattro gruppi, tre giri da 10 minuti. Ogni
+gruppo ne salta una &mdash; ed &egrave; sempre una diversa: quella saltata
+&egrave; il compito di stasera per quel gruppo.</p>
+
+<table class="giro">
+<tr><th></th><th>1&ordm; giro</th><th>2&ordm; giro</th><th>3&ordm; giro</th><th>salta</th></tr>
+<tr><th>Gruppo 1</th><td><strong>A</strong></td><td><strong>B</strong></td><td><strong>C</strong></td><td class="salta">D</td></tr>
+<tr><th>Gruppo 2</th><td><strong>B</strong></td><td><strong>C</strong></td><td><strong>D</strong></td><td class="salta">A</td></tr>
+<tr><th>Gruppo 3</th><td><strong>C</strong></td><td><strong>D</strong></td><td><strong>A</strong></td><td class="salta">B</td></tr>
+<tr><th>Gruppo 4</th><td><strong>D</strong></td><td><strong>A</strong></td><td><strong>B</strong></td><td class="salta">C</td></tr>
+</table>
+
+<section class="posto">
+  <div class="testa">
+    <span class="lettera">A</span>
+    <h2>Lettura a coppie, dal quaderno</h2>
+    <span class="durata">10 minuti</span>
+  </div>
+  <p>Uno legge a nomi, l&rsquo;altro segue e segna dove il compagno si ferma. Poi ci si scambia.</p>
+  <div class="minimo">
+    <div class="etichetta-riga">Il minimo</div>
+    <p>Dal <strong>quaderno di lettura</strong>, <strong>n. 29&ndash;42</strong>: sceglietene <strong>2</strong> e portateli a termine.</p>
+  </div>
+  <div class="extra">
+    <div class="etichetta-riga">Se avanza tempo</div>
+    <p>Il secondo dei due <strong>al doppio</strong>, e si confrontano i punti segnati.</p>
+  </div>
+</section>
+<section class="posto">
+  <div class="testa">
+    <span class="lettera">B</span>
+    <h2>Le due clausole, sul foglio</h2>
+    <span class="durata">10 minuti</span>
+  </div>
+  <p>Da soli, in silenzio. Ognuno il suo foglio.</p>
+  <tac-stave clef="treble" time="4/4" caption="La voce di sopra" notes="e/4:w | d/4:w | b/3:w | c/4:w" width="700" tempo="44" play slow></tac-stave><tac-stave clef="bass" time="4/4" caption="Il basso" notes="c/3:w | g/2:w | g/2:w | c/3:w" width="700" tempo="44" play slow></tac-stave>
+  <div class="minimo">
+    <div class="etichetta-riga">Il minimo</div>
+    <p>Le quattro battute qui sotto sono la voce di sopra e il basso di una cadenza in do. Scrivete <strong>quale nota fa la clausola di soprano</strong> e <strong>in quale battuta</strong> la fa.</p>
+  </div>
+  <div class="extra">
+    <div class="etichetta-riga">Se avanza tempo</div>
+    <p>Scrivete la stessa cadenza in <strong>sol maggiore</strong>, con le stesse due voci. La clausola cambia nota, non mestiere.</p>
+  </div>
+</section>
+<section class="posto">
+  <div class="testa">
+    <span class="lettera">C</span>
+    <h2>Cantare le due clausole</h2>
+    <span class="durata">10 minuti</span>
+  </div>
+  <p>A gruppi di due, cantando. Non serve la tastiera.</p>
+  <div class="minimo">
+    <div class="etichetta-riga">Il minimo</div>
+    <p>Uno canta il <strong>basso</strong> della cadenza (sol&ndash;do), l&rsquo;altro la <strong>clausola di soprano</strong> (si&ndash;do). Tenete l&rsquo;ultimo suono finch&eacute; non sta fermo. Otto volte, poi ci si scambia.</p>
+  </div>
+  <div class="extra">
+    <div class="etichetta-riga">Se avanza tempo</div>
+    <p>Rifatelo con la clausola di <strong>tenore</strong> al posto di quella di soprano: <strong>re&ndash;do</strong>, che scende di tono. Provate a sentire quale delle due chiude di pi&ugrave;.</p>
+  </div>
+</section>
+<section class="posto">
+  <div class="testa">
+    <span class="lettera">D</span>
+    <h2>Trova l&rsquo;errore</h2>
+    <span class="durata">10 minuti</span>
+  </div>
+  <p>A coppie, discutendo. Una risposta sola per coppia, scritta.</p>
+  <tac-stave clef="treble" time="4/4" caption="La voce di sopra" notes="e/4:w | d/4:w | b/3:w | g/3:w" width="700" tempo="44" play slow sbagliato></tac-stave><tac-stave clef="bass" time="4/4" caption="Il basso" notes="c/3:w | g/2:w | g/2:w | c/3:w" width="700" tempo="44" play slow></tac-stave>
+  <div class="minimo">
+    <div class="etichetta-riga">Il minimo</div>
+    <p>Nelle quattro battute qui sotto la clausola di soprano <strong>non arriva dove deve</strong>. Trovatela, e scrivete <strong>che cosa fa la sensibile</strong>.</p>
+  </div>
+  <div class="extra">
+    <div class="etichetta-riga">Se avanza tempo</div>
+    <p>Correggetela cambiando <strong>una nota sola</strong>, e dite se il basso deve cambiare.</p>
+  </div>
+</section>
+
+</body>
+</html>

@@ -6126,11 +6126,19 @@
       if (!cl) return;
       const mat = cl.materiali || [];
 
-      const wb = mat.find(m => m.unita === qui.unita);
+      const wb = mat.find(m => m.unita === qui.unita && m.tipo !== 'libro');
       const let_ = mat.find(m => /^solfeggi-/.test(m.file));
+      /* E il capitolo del libro di questa unità, quando c'è: la lezione
+         distesa in prosa, da stampare e da scriverci sopra. Compare solo
+         dove il capitolo esiste — i capitoli si scrivono uno per volta,
+         e un pulsante che porta a un file che non c'è è peggio che
+         nessun pulsante. */
+      const lib = mat.find(m => m.tipo === 'libro' && m.unita === qui.unita);
       let h = '';
       if (wb) h += '<a class="uscita materiale" href="../materiali/' + wb.file +
                    '" title="' + wb.titolo + ': i compiti di questa unità">Workbook</a>';
+      if (lib) h += '<a class="uscita materiale" href="../materiali/' + lib.file +
+                    '" title="' + lib.titolo + ': la lezione distesa, da stampare">Libro</a>';
       if (let_) h += '<a class="uscita materiale" href="../materiali/' + let_.file +
                      '" title="' + let_.titolo + ': i pezzi di lettura dell\'anno">Letture</a>';
       posto.innerHTML = h;

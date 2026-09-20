@@ -4905,27 +4905,7 @@
         this._parti.forEach(x => { x.hidden = true; cont.appendChild(x); });
         box.appendChild(cont);
 
-        box.classList.add('apribile');
-        box.tabIndex = 0;
-        box.setAttribute('role', 'button');
-        box.title = 'Apre la partitura completa con i comandi d\'ascolto';
-        /* Un clic su un comando non deve aprire la pagina piena. Ma il
-           comando è il pulsante, non la striscia che lo contiene: la barra
-           attraversa tutta la cornice, e prendendo per comando anche lei si
-           rendeva morta una fascia larga quanto il lettore. Chi cliccava lì
-           — che è il centro della cornice, cioè il punto più naturale dove
-           cliccare — non otteneva niente, e doveva riprovare più in alto.
-           Si guarda quindi solo agli elementi che reagiscono davvero. */
-        const suComandi = e => !!(e.target.closest &&
-          e.target.closest('button, a, input, select, label, audio, .tac-tubo'));
-        box.addEventListener('click', e => {
-          if (suComandi(e)) return;
-          this.schermoIntero(box);
-        });
-        box.addEventListener('keydown', e => {
-          if (suComandi(e)) return;
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.schermoIntero(box); }
-        });
+        this.rendiApribile(box);
       }
 
       /* ─────────────────────────────────────────────────────────────
@@ -5000,6 +4980,7 @@
           }
         }
         box.appendChild(fig);
+        this.rendiApribile(box);
       }
 
       /* Il cursore della velocità serve solo all'esecuzione dal vivo. Dove
@@ -5158,9 +5139,48 @@
 
     /* La partitura intera a tutta pagina: sulla slide non si leggerebbe.
        Il brano si può avviare da dentro, così si segue mentre suona. */
+    /* La scheda del brano è il pulsante che apre la pagina piena.
+
+       ⚠ VALE ANCHE PER LA PARTITURA VERA, e fino al 20 settembre 2026
+       no. Questo blocco stava dentro il ramo delle partiture
+       incorporate, quindi un brano con la scansione esterna
+       (`partitura=`) restava una scheda morta: l'immagine c'era, il
+       CSS la nasconde sulla slide come nasconde tutte le partiture, e
+       non c'era modo di aprirla. Il Mozart del K 155 è stato il primo
+       a passare di lì. Ora il metodo è uno solo e lo chiamano tutti e
+       due i rami. */
+    rendiApribile(box) {
+        box.classList.add('apribile');
+      box.tabIndex = 0;
+      box.setAttribute('role', 'button');
+      box.title = 'Apre la partitura completa con i comandi d\'ascolto';
+      /* Un clic su un comando non deve aprire la pagina piena. Ma il
+         comando è il pulsante, non la striscia che lo contiene: la barra
+         attraversa tutta la cornice, e prendendo per comando anche lei si
+         rendeva morta una fascia larga quanto il lettore. Chi cliccava lì
+         — che è il centro della cornice, cioè il punto più naturale dove
+         cliccare — non otteneva niente, e doveva riprovare più in alto.
+         Si guarda quindi solo agli elementi che reagiscono davvero. */
+      const suComandi = e => !!(e.target.closest &&
+        e.target.closest('button, a, input, select, label, audio, .tac-tubo'));
+      box.addEventListener('click', e => {
+        if (suComandi(e)) return;
+        this.schermoIntero(box);
+      });
+      box.addEventListener('keydown', e => {
+        if (suComandi(e)) return;
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.schermoIntero(box); }
+      });
+    }
+
     schermoIntero(bottone) {
       if (this._schermo) { this.chiudiSchermo(); return; }
-      const fig = this._parti[this._parti.length - 1];   /* la partitura intera */
+      /* la partitura intera: quella incorporata se c'è, altrimenti
+         l'immagine esterna del livello 3 */
+      const fig = this._parti.length
+        ? this._parti[this._parti.length - 1]
+        : this._box.querySelector('.tac-brano-part');
+      if (!fig) return;
 
       const ov = document.createElement('div');
       ov.className = 'tac-schermo no-stampa';

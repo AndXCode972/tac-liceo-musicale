@@ -2501,14 +2501,14 @@ body.regia .corretto { box-shadow: -4px 0 0 -1px var(--viola); }
 .slide h1, .slide h2, .slide h3 { font-family: var(--sans); color: var(--inch); }
 .slide h2 {
   display: block; font-size: 2.1rem; font-weight: 800; letter-spacing: -.015em;
-  line-height: 1.1; border: 0; padding: 0; margin: 0 0 .85rem;
+  line-height: 1.08; border: 0; padding: 0; margin: 0 0 .6rem;
 }
 .slide h2::after {
   content: ''; display: block; width: 4.2rem; height: 4px;
-  background: var(--accento); margin-top: .45rem; border-radius: 2px;
+  background: var(--accento); margin-top: .35rem; border-radius: 2px;
 }
-.slide h3 { font-size: 1.22rem; font-weight: 800; margin: 1.2rem 0 .5rem; }
-.slide p, .slide li { font-size: 1.1rem; line-height: 1.52; }
+.slide h3 { font-size: 1.22rem; font-weight: 800; margin: .85rem 0 .4rem; }
+.slide p, .slide li { font-size: 1.1rem; line-height: 1.45; }
 .slide strong { color: var(--inch); font-weight: 800; }
 .slide em.termine { color: var(--accento); font-style: normal; font-weight: 800; }
 .slide .tac-area {
@@ -2519,7 +2519,7 @@ body.regia .corretto { box-shadow: -4px 0 0 -1px var(--viola); }
 /* i pannelli: piatti, un filetto a sinistra nell'accento */
 .slide .riquadro {
   background: var(--carta2-b); border: 0; border-left: 4px solid var(--accento);
-  border-radius: 0 6px 6px 0; box-shadow: none; padding: .85rem 1.2rem; margin: .6rem 0;
+  border-radius: 0 6px 6px 0; box-shadow: none; padding: .75rem 1.15rem; margin: .5rem 0;
 }
 .slide .riquadro .etichetta { color: var(--accento); opacity: 1; font-size: .72rem; letter-spacing: .16em; }
 .slide .riquadro.definizione, .slide .riquadro.curiosita { background: var(--carta2-b); border-left-color: var(--accento); }
@@ -2553,7 +2553,7 @@ body.regia .corretto { box-shadow: -4px 0 0 -1px var(--viola); }
 .slide tac-stave {
   background: #fff; border: 1px solid var(--bordo-b); border-left: 4px solid var(--accento);
   border-radius: 0 6px 6px 0; box-shadow: none;
-  padding: .5rem .9rem .55rem; margin: .8rem 0;
+  padding: .45rem .9rem .5rem; margin: .6rem 0;
 }
 /* in proiezione il rigo non può prendersi 270 pixel: tre righi in una
    slide sono la norma in quest'unità, e devono starci. L'altezza è
@@ -2741,3 +2741,26 @@ body.modalita-studio .slide.tela.editoriale::after { display: none; }
   margin: .7rem 0 .1rem; font-size: .9rem; font-weight: 700;
   color: var(--inchiostro2);
 }
+
+/* ── LA STRETTA DEL 20 SETTEMBRE ──────────────────────────────────────
+   Misurando tutte e novanta le lezioni di prima con Chromium: 223 slide
+   su 1532 sforavano, e 107 di quelle sforavano di meno di 60 px. Prima
+   di spezzare in due centinaia di slide conviene guardare se lo spazio
+   si trova dov'e' gia': interlinea da 1,52 a 1,45, titoli e riquadri un
+   po' piu' vicini, il rigo con meno aria intorno. Il corpo del testo non
+   si tocca — in proiezione 1,1rem e' il minimo leggibile dall'ultimo
+   banco — e quello che resta fuori si spezza sul serio.
+
+   Chi cambia questi numeri rimisuri: `_cita.py` e gli sdoppiamenti sono
+   tarati su queste misure.
+
+   ── LE TRE AREE, LA SLIDE CHE LE PRESENTA ────────────────────────────
+   Unica slide del corso in cui le tre aree convivono: l'accento si
+   imposta sulla singola scheda invece che sulla slide, e il titolino
+   deve seguirlo invece di prendere il colore dell'area della slide
+   (che qui sarebbe azzurro per tutte e tre). Sta in fondo al foglio
+   apposta: vince per ordine su `.slide.perc h3`, a parita' di peso. */
+.slide .aree-corso { margin: 1.3rem 0; }
+.slide .aree-corso h3 { color: var(--accento); margin: .15rem 0 .45rem; font-size: 1.1rem; }
+.slide .aree-corso .riquadro { margin: 0; padding: 1.15rem 1.3rem; }
+.slide .aree-corso .riquadro p { font-size: .97rem; margin: 0; }

@@ -297,11 +297,20 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
          controllati a vista uno per uno: il numero di battuta stampato a
          ogni sistema dalla NMA serve proprio a questo.
 
-         ⚠ MANCA `mappa-video`, e finché manca il cursore non si muove
-         sull'esecuzione vera. Si tara a orecchio: pagina piena, pulsante
-         Taratura (con `?taratura` nell'indirizzo), barra spaziatrice a
-         ogni stanghetta. Quando la mappa arriva, il video prende il
-         comando da solo: lo fa `tac-core.js`, non serve toccare qui. -->
+         `mappa-video` è stata tarata a orecchio da Andrea il 20 settembre
+         2026, battendo la barra spaziatrice a ogni stanghetta: sedici
+         colpi, da 1,303 s a 10,903 s: sono le battute 1-16, perché il
+         primo colpo cade sulla prima battuta piena — «impossibile
+         beccare proprio l'anacrusi», ed è vero, è una croma sola. Da quel dato il video prende il
+         comando della partitura — lo fa `tac-core.js` — e l'incisione di
+         MuseScore resta come riserva quando la rete non c'è.
+
+         ⚠ Sta scritta qui e non nel catalogo di proposito. Il passaggio
+         normale sarebbe `esecuzioni.py --scrivi`, ma quel programma
+         svuota dal catalogo `youtube`, `da`, `a` ed `esecutore` per ogni
+         brano la cui voce è vuota — e sono vuote tutte: lanciarlo oggi
+         spegnerebbe i collegamenti alle esecuzioni vere su tutto il
+         sito. Va sistemato lì prima di usarlo. -->
 
     <div class="riquadro compito">
       <span class="etichetta">Tutti insieme, 6 minuti</span>
@@ -316,6 +325,7 @@ try { if (window.__mod) module = window.__mod; if (window.__exp) exports = windo
                partitura="../../_assets/spartiti/k155-mvt3-p1.png"
                riquadri='[[0, 13.06, 11.28, 4.61, 34.86], [1, 17.67, 11.28, 9.28, 34.86], [2, 26.94, 11.28, 9.39, 34.86], [3, 36.33, 11.28, 9.39, 34.86], [4, 45.72, 11.28, 9.33, 34.86], [5, 55.06, 11.28, 11.28, 34.86], [6, 66.33, 11.28, 8.89, 34.86], [7, 75.22, 11.28, 8.72, 34.86], [8, 83.94, 11.28, 8.89, 34.86], [9, 9.72, 59.37, 10.06, 35.32], [10, 19.78, 59.37, 10.39, 35.32], [11, 30.17, 59.37, 10.28, 35.32], [12, 40.44, 59.37, 10.33, 35.32], [13, 50.78, 59.37, 11.61, 35.32], [14, 62.39, 59.37, 10.61, 35.32], [15, 73.0, 59.37, 11.28, 35.32], [16, 84.28, 59.37, 8.94, 35.32]]'
                inciso="../../_assets/incisioni/A01_mozart_k155.mp3"
+               mappa-video='{"eventi":[[1,1303],[2,1903],[3,2520],[4,3121],[5,3753],[6,4420],[7,5069],[8,5720],[9,6336],[10,7020],[11,7670],[12,8287],[13,8970],[14,9603],[15,10253],[16,10903]],"durata":74000}'
                metronomo></tac-brano>
 
 

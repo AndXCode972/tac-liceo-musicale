@@ -4982,7 +4982,20 @@
         const im = document.createElement('img');
         im.src = part; im.alt = 'Partitura di ' + (this.getAttribute('titolo') || 'questo brano');
         im.loading = 'lazy';
-        fig.appendChild(im);
+        /* ⚠ LA CORNICE SI MISURA SULL'IMMAGINE, NON SULLA FIGURA.
+           I riquadri sono percentuali dell'immagine — è la scelta che li
+           rende validi alla LIM, sul portatile e stampati — ma un
+           elemento in posizione assoluta si misura sul primo antenato
+           posizionato, e quello era la `figure`, che ha i suoi margini
+           interni: 26 px più larga e 12 più alta della scansione. Il
+           riquadro cadeva spostato di una decina di pixel, abbastanza da
+           vedersi su una battuta stretta. Una tela che combacia esatta
+           con l'immagine toglie il problema alla radice invece di
+           compensarlo con un numero. */
+        const tela = document.createElement('div');
+        tela.className = 'tac-brano-tela';
+        tela.appendChild(im);
+        fig.appendChild(tela);
 
         const rq = this.getAttribute('riquadri');
         if (rq) {
@@ -4996,7 +5009,7 @@
             const cor = document.createElement('div');
             cor.className = 'tac-brano-cornice';
             cor.hidden = true;
-            fig.appendChild(cor);
+            tela.appendChild(cor);
             this._cornice = cor;
           } catch (e) {
             /* ⚠ Un JSON storto non deve far sparire la partitura: senza

@@ -2780,3 +2780,11 @@ body.modalita-studio .slide.tela.editoriale::after { display: none; }
    fuori dal ritaglio e resta visibile: un'esecuzione e' di qualcuno. */
 .tac-tubo-voce { height: 0; overflow: hidden; }
 .tac-tubo-voce iframe { pointer-events: none; }
+
+/* La tela combacia esatta con la scansione: e' il riferimento su cui si
+   misurano i riquadri delle battute, che sono percentuali dell'immagine.
+   `font-size: 0` toglie la riga di base che l'immagine si porta dietro
+   come elemento in linea, e che rendeva la tela qualche pixel piu' alta
+   della scansione. */
+.tac-brano-tela { position: relative; display: block; font-size: 0; line-height: 0; }
+.tac-brano-tela img { display: block; width: 100%; height: auto; }

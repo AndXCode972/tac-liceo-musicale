@@ -4981,7 +4981,13 @@
         fig.className = 'tac-brano-part';
         const im = document.createElement('img');
         im.src = part; im.alt = 'Partitura di ' + (this.getAttribute('titolo') || 'questo brano');
-        im.loading = 'lazy';
+        /* ⚠ NON PIGRA. Il caricamento pigro non parte su un elemento
+           alto zero, e da quando la tela combacia esatta con
+           l'immagine l'altezza è zero finché l'immagine non è
+           caricata: si morde la coda e la scansione non arriva mai.
+           E comunque una partitura non è un'immagine accessoria: è il
+           contenuto del brano, si carica e basta. */
+        im.loading = 'eager';
         /* ⚠ LA CORNICE SI MISURA SULL'IMMAGINE, NON SULLA FIGURA.
            I riquadri sono percentuali dell'immagine — è la scelta che li
            rende validi alla LIM, sul portatile e stampati — ma un

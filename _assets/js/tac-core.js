@@ -5451,6 +5451,13 @@
          arrivano `paused` e la fine dell'estratto. */
       const guarda = () => {
         if (orol._p && orol._p.getCurrentTime) {
+          /* La durata può non essere ancora nota quando il player dice
+             di essere pronto: si richiede finché non arriva, costa una
+             chiamata per fotogramma e solo all'inizio. */
+          if (!orol.duration && orol._p.getDuration) {
+            const d = orol._p.getDuration() || 0;
+            if (d > 0) orol.duration = Math.max(0, d - da);
+          }
           orol._t = Math.max(0, orol._p.getCurrentTime() - da);
           /* ⚠ L'ESTRATTO FINISCE DOVE DICE `a`, NON DOVE FINISCE IL VIDEO.
              Senza questo controllo il brano continuava dentro il movimento
@@ -5473,7 +5480,22 @@
           playerVars: { start: Math.floor(da), rel: 0, modestbranding: 1,
                         playsinline: 1 },
           events: {
-            onReady: () => { orol._occhio = requestAnimationFrame(guarda); },
+            onReady: () => {
+              /* ⚠ SENZA QUESTA RIGA LA BARRA DI SCORRIMENTO È MORTA.
+                 `duration` si calcolava come `a - da`, cioè solo per gli
+                 estratti che dichiarano dove finiscono; un brano intero
+                 restava a zero, e chi trascina una barra lunga zero non
+                 si muove di un millimetro — né si vede avanzare il
+                 pallino. Andrea, 20 settembre 2026: «non c'è il tasto per
+                 riniziare, nemmeno per muoversi nel brano». La durata
+                 vera la sa il player: basta chiedergliela quando è
+                 pronto. */
+              if (!orol.duration && orol._p && orol._p.getDuration) {
+                const d = orol._p.getDuration() || 0;
+                if (d > 0) orol.duration = Math.max(0, d - da);
+              }
+              orol._occhio = requestAnimationFrame(guarda);
+            },
             onStateChange: (ev) => {
               const S = window.YT.PlayerState;
               if (ev.data === S.PLAYING) {
@@ -5547,6 +5569,22 @@
       b.className = 'btn tac-play';
       b.innerHTML = '&#9654; Ascolta';
       b.title = 'Registrazione incisa, non serve la rete';
+
+      /* ⚠ TORNARE DA CAPO È IL GESTO PIÙ FREQUENTE DI TUTTI, e non
+         c'era. In classe un ascolto si rifà tre volte — «risentiamo
+         l'inizio» — e senza un comando bisognava trascinare una barra
+         fino in fondo a sinistra, che con la sorgente video per giunta
+         non funzionava. Alla taratura serve ancora di più: si sbaglia un
+         colpo, si ricomincia. */
+      const capo = document.createElement('button');
+      capo.className = 'btn secondario tac-capo';
+      capo.innerHTML = '&#8635; Da capo';
+      capo.title = 'Riporta l\'ascolto all\'inizio';
+      capo.onclick = () => {
+        try { au.currentTime = 0; } catch (e) {}
+        if (this._scorri) this._scorri.value = 0;
+        this.illumina(-1); this.cursore(null);
+      };
       /* L'esecuzione dal vivo esce di scena dove c'è la registrazione.
          Va tolta dal documento, non nascosta con l'attributo hidden: i
          pulsanti hanno un display esplicito nel foglio di stile, e un
@@ -5641,6 +5679,7 @@
         if (au.duration) au.currentTime = au.duration * this._scorri.value / 1000;
       };
 
+      barra.appendChild(capo);
       this._box.appendChild(riga);
       this.preparaTaratura(au, barra);
     }

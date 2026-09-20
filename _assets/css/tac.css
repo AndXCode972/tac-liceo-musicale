@@ -2788,3 +2788,16 @@ body.modalita-studio .slide.tela.editoriale::after { display: none; }
    della scansione. */
 .tac-brano-tela { position: relative; display: block; font-size: 0; line-height: 0; }
 .tac-brano-tela img { display: block; width: 100%; height: auto; }
+
+/* ── SOTTO L'ULTIMO BLOCCO NON SERVE SPAZIO ───────────────────────────
+   Il margine inferiore dell'ultimo blocco di una slide non si vede —
+   sotto non c'e' niente — ma conta nell'altezza, e quindi fa sforare.
+   Il 21 settembre 2026, misurando la prima lezione della quinta: «Lo
+   stesso accordo, due strade» usciva di 25 px con il contenuto che
+   finiva due pixel dentro il palco. I ventitre pixel erano il margine
+   della didascalia. Si era gia' accorciato il testo per niente, che e'
+   il modo peggiore di rimediare: si toglie parola a una lezione per
+   fare spazio a del vuoto.
+   Vale per tutte le slide del corso, e nessuna ci perde: quello che
+   toglie e' spazio che non si vedeva. */
+.slide .slide-interna > *:last-child { margin-bottom: 0; }

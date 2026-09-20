@@ -5177,6 +5177,7 @@
       const barra = this._box.querySelector('.tac-barra');
       const tempo = this._box.querySelector('.tac-metro');
       const puls  = this._box.querySelector('.tac-pulsazioni');
+      const tara  = this._box.querySelector('.tac-taratura');
       this._tornano = [];
       [barra, tempo].forEach(el => {
         if (el) { this._tornano.push([el, el.parentNode]); testa.appendChild(el); }
@@ -5188,6 +5189,22 @@
       const cima = document.createElement('div');
       cima.className = 'tac-schermo-conta';
       if (puls) { this._tornano.push([puls, puls.parentNode]); cima.appendChild(puls); }
+
+      /* ⚠ ANCHE IL PANNELLO DELLA TARATURA DEVE TRASLOCARE.
+
+         Il pulsante «Taratura» sale nella testata insieme alla barra, ma
+         fino al 20 settembre 2026 il pannello che apre restava attaccato
+         alla scheda sulla slide — cioè **sotto** l'overlay, che copre
+         tutto. Premere Taratura apriva un pannello invisibile: il conto
+         delle battute e la casella con la mappa c'erano, nessuno li
+         vedeva. Andrea, provandolo: «taratura non fa niente».
+
+         Non era un guasto della taratura: era un guasto di trasloco. Il
+         pannello sale qui, sotto la testata, dove il conto resta davanti
+         agli occhi mentre si batte la barra spaziatrice — che è l'unico
+         posto in cui serve. Alla chiusura torna al suo posto come tutto
+         il resto, perché sta in `_tornano`. */
+      if (tara) { this._tornano.push([tara, tara.parentNode]); cima.appendChild(tara); }
 
       const corpo = document.createElement('div');
       corpo.className = 'tac-schermo-corpo';

@@ -2764,3 +2764,19 @@ body.modalita-studio .slide.tela.editoriale::after { display: none; }
 .slide .aree-corso h3 { color: var(--accento); margin: .15rem 0 .45rem; font-size: 1.1rem; }
 .slide .aree-corso .riquadro { margin: 0; padding: 1.15rem 1.3rem; }
 .slide .aree-corso .riquadro p { font-size: .97rem; margin: 0; }
+
+/* ── IL VIDEO CHE SUONA E NON SI GUARDA ───────────────────────────────
+   Dove il brano ha la sua partitura vera, il video di YouTube serve
+   solo come suono: l'occhio sta sulla partitura, e un riquadro con
+   quattro archi ripresi di lato e' una seconda cosa da guardare nello
+   stesso momento. Andrea, 20 settembre: «io vorrei comunque solo
+   l'audio senza video».
+
+   Si ritaglia via, non si stacca: `display: none` su un player lo fa
+   smettere di suonare in piu' di un browser. Altezza zero, overflow
+   nascosto, e nessun evento del mouse — quest'ultimo e' anche quello
+   che restituisce la barra spaziatrice alla pagina, perche' dentro
+   l'iframe la barra appartiene a YouTube. Il nome dell'esecutore sta
+   fuori dal ritaglio e resta visibile: un'esecuzione e' di qualcuno. */
+.tac-tubo-voce { height: 0; overflow: hidden; }
+.tac-tubo-voce iframe { pointer-events: none; }

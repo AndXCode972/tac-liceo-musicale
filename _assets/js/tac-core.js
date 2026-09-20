@@ -4763,7 +4763,19 @@
          **sua** mappa (`mappa-video`); il video si ascolta a parte, e
          quando la mappa arriva prende il comando. */
       const conMappaVideo = !!this.getAttribute('mappa-video');
-      const eseguita = !!this.getAttribute('youtube') && conMappaVideo;
+      /* ⚠ IN MODO TARATURA LA SORGENTE È IL VIDEO, ANCHE SENZA MAPPA.
+         Altrimenti il serpente si morde la coda: per misurare la mappa
+         del video bisogna ascoltare il video, ma il video diventa la
+         sorgente solo quando la mappa c'è. Il 20 settembre 2026 Andrea
+         ha tarato premendo «Esecuzione reale» mentre l'orologio che
+         registrava i colpi era quello dell'incisione di MuseScore: la
+         mappa che ne usciva descriveva il sintetizzato.
+         `?taratura` è già il modo del docente e non si vede in classe:
+         è il posto giusto per questa eccezione. */
+      let inTaratura = false;
+      try { inTaratura = /[?&]taratura\b/.test(location.search); } catch (e) {}
+      const eseguita = !!this.getAttribute('youtube')
+                       && (conMappaVideo || inTaratura);
       const incisa = !eseguita && !!this.getAttribute('inciso');
       if (eseguita) this.preparaInciso(barra, this.orologioYouTube());
       else if (incisa) this.preparaInciso(barra);
@@ -5344,7 +5356,30 @@
       cassa.className = 'tac-tubo no-stampa';
       const dove = document.createElement('div');
       dove.id = 'tubo-' + Math.random().toString(36).slice(2, 9);
-      cassa.appendChild(dove);
+
+      /* ⚠ QUANDO IL VIDEO È LA SORGENTE, DEL VIDEO NON SI GUARDA NIENTE.
+         Andrea, 20 settembre 2026: «io vorrei comunque solo l'audio
+         senza video». Ha ragione, e non è una preferenza estetica: se il
+         brano ha la sua partitura, l'occhio deve stare sulla partitura,
+         e un riquadro con quattro archi ripresi di lato è una seconda
+         cosa da guardare nello stesso momento.
+         Il player resta montato e suona: si ritaglia via, non si stacca.
+         Altezza zero e `overflow: hidden` invece di `display: none`,
+         perché un player staccato dal disegno della pagina in certi
+         browser smette di suonare. E `pointer-events: none`, che è
+         quello che restituisce la barra spaziatrice alla pagina: dentro
+         l'iframe la barra è la pausa di YouTube, e i colpi della
+         taratura non arrivavano. */
+      const soloVoce = !!(this.getAttribute('partitura')
+                          || this.getAttribute('mappa-video'));
+      if (soloVoce) {
+        const ritaglio = document.createElement('div');
+        ritaglio.className = 'tac-tubo-voce';
+        ritaglio.appendChild(dove);
+        cassa.appendChild(ritaglio);
+      } else {
+        cassa.appendChild(dove);
+      }
       /* ⚠ CHI SUONA VA SCRITTO. Un'esecuzione è di qualcuno: mettere il
          video senza il nome sarebbe prendere il lavoro e lasciare fuori
          la persona. E in classe serve — «sentite come lo fa Suzuki» è
@@ -5725,6 +5760,14 @@
         stampa();
         cassa.hidden = false;
         b.classList.add('ambra');
+        /* Se il fuoco è dentro il player, la barra spaziatrice non
+           arriva qui: è di YouTube, e mette in pausa. */
+        try {
+          const f = document.activeElement;
+          if (f && f.tagName === 'IFRAME') f.blur();
+          cassa.tabIndex = -1;
+          cassa.focus({ preventScroll: true });
+        } catch (e) {}
         /* In cattura, perché la barra spaziatrice sulla slide fa altro:
            qui deve arrivare prima, e solo mentre la taratura è aperta. */
         document.addEventListener('keydown', tasto, true);

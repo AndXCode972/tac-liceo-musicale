@@ -2564,7 +2564,10 @@ body.regia .corretto { box-shadow: -4px 0 0 -1px var(--viola); }
    resta alla sua misura invece di rimpicciolirsi. */
 .slide tac-stave svg { max-height: 150px; width: auto; max-width: 100%; }
 .slide tac-stave > div:not(.tac-didascalia):not(.tac-barra) { overflow: hidden; }
-.slide tac-stave > div:not(.tac-didascalia):not(.tac-barra) > svg { margin: -30px 0 -34px; }
+/* Solo la tela da un rigo (alta 150): il doppio pentagramma è alto 260
+   e il ritaglio gli tagliava il basso — visto online il 20 settembre
+   sera, classe 3 unità 5 lezione 2. */
+.slide tac-stave > div:not(.tac-didascalia):not(.tac-barra) > svg[height="150"] { margin: -28px 0 -32px; }
 /* la didascalia e i pulsanti sulla stessa riga, sopra il rigo: sono
    quaranta pixel per rigo, e in questa unità i righi vanno a tre */
 .slide tac-stave {

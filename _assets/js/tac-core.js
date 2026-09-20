@@ -4836,6 +4836,23 @@
            non il brano intero. Alcuni canali vietano l'incorporamento e
            restituiscono l'errore 153: accanto c'è sempre il collegamento
            diretto, che funziona comunque. */
+        /* ⚠ SE IL VIDEO È GIÀ IL SUONO DEL BRANO, QUI NON SERVE PIÙ NIENTE.
+           Andrea, 20 settembre 2026: «toglierei il pulsante esecuzione
+           reale, dato che anche l'altra lo è», e «toglierei brano intero
+           da restringere». Ha ragione su tutti e due.
+           Il pulsante nasce per **aggiungere** l'esecuzione vera accanto
+           all'incisione; dove la sorgente è già il video aprirebbe un
+           secondo player dello stesso brano, e ci si ritroverebbe due
+           esecuzioni sovrapposte. E l'avviso ambra è un promemoria per
+           chi monta — dice che il video non è ristretto all'estratto —
+           ma quando il video è la sorgente non c'è nessun estratto da
+           restringere: c'è il brano, e si ascolta. */
+        let giaSorgente = false;
+        try {
+          giaSorgente = !!this.getAttribute('mappa-video')
+                        || /[?&]taratura\b/.test(location.search);
+        } catch (e) {}
+
         const b = document.createElement('button');
         b.className = 'btn secondario tac-vero';
         b.innerHTML = '&#9673; Esecuzione reale';
@@ -4873,12 +4890,12 @@
           this._tubo = c;
           b.innerHTML = '&#10005; Chiudi il video';
         };
-        barra.appendChild(b);
+        if (!giaSorgente) barra.appendChild(b);
 
         /* Nessuna etichetta quando la sezione è già decisa: l'informazione
            serve a me che monto, non a chi guarda. Resta solo il promemoria
            ambra sui brani ancora da restringere. */
-        if (da === null) {
+        if (da === null && !giaSorgente) {
           const e = document.createElement('span');
           e.className = 'tac-passo aperto';
           e.textContent = 'brano intero — da restringere';
@@ -5210,8 +5227,17 @@
       const tempo = this._box.querySelector('.tac-metro');
       const puls  = this._box.querySelector('.tac-pulsazioni');
       const tara  = this._box.querySelector('.tac-taratura');
+      /* ⚠ E LA STRISCIA DEL TEMPO, che è dove si comanda l'ascolto.
+         Andrea, 20 settembre 2026: «mancano i tasti per comandare
+         l'esecuzione». Giusto: l'orologio e la barra di scorrimento
+         stanno in `.tac-riga-tempo`, che restava nella scheda sotto
+         l'overlay come ci restava il pannello della taratura. Finché il
+         video si vedeva, i suoi comandi rimediavano; ritagliato via il
+         video, a pagina piena non restava niente per far partire,
+         fermare o tornare indietro. */
+      const riga  = this._box.querySelector('.tac-riga-tempo');
       this._tornano = [];
-      [barra, tempo].forEach(el => {
+      [riga, barra, tempo].forEach(el => {
         if (el) { this._tornano.push([el, el.parentNode]); testa.appendChild(el); }
       });
 

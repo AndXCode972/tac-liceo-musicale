@@ -2858,3 +2858,25 @@ body.modalita-studio .slide.tela.editoriale::after { display: none; }
 .slide.tela.lavagna .didascalia,
 .slide.tela.lavagna .tac-didascalia { color: #ded8ca; font-size: 1rem; }
 .slide.tela.lavagna tac-stave .tac-didascalia { font-weight: 700; }
+
+/* ── IL GRASSETTO SULLA COPERTINA È BIANCO ────────────────────────────
+   `.slide strong` prende `--inch`, l'inchiostro scuro della carta:
+   giusto ovunque, sbagliato sulla copertina, che e' una fotografia con
+   il testo in bianco sopra. La parola in grassetto — quella su cui
+   cade l'accento della frase, «e' se la nuova tonica e' stata
+   **confermata**» — diventava scura su una foto scura e spariva
+   proprio lei. Andrea, 21 settembre 2026: «confermata si legge
+   pochissimo». Sulla copertina il grassetto e' bianco pieno, e l'ombra
+   lo stacca dallo sfondo qualunque cosa ci sia sotto. */
+.slide.copertina strong,
+.slide.copertina b { color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,.55); }
+.slide.copertina em { color: inherit; }
+
+
+/* ── ESEMPI A QUATTRO PARTI PIU' GRANDI ─────────────────────────────
+   Andrea, 21 settembre: «vorrei ingrandire l'esempio». Un sistema di
+   due righi nasce alto il doppio di uno solo, e il tetto di 150 px
+   valido per tutti lo rimpicciolisce. Con `grande` il tetto si alza:
+   serve dove l'esempio E' la slide — una condotta delle parti va
+   letta nota per nota dall'ultimo banco. */
+.slide tac-stave[grande] svg { max-height: 232px; }

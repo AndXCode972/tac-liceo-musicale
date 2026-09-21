@@ -1414,6 +1414,16 @@
          l'altezza su quello. `getBBox` su un elemento non visibile risponde
          zero: in quel caso non si tocca niente e resta l'altezza di prima,
          che e' il caso dei pentagrammi dentro le slide non attive. */
+      /* Il ritaglio si fa a richiesta, non una volta sola. `getBBox`
+         risponde zero su un elemento non visibile: al primo giro, sulle
+         slide che non sono ancora state aperte, non ritagliava niente e
+         il sistema restava alto quanto il caso peggiore — sessanta pixel
+         di bianco che il tetto di 150 px della slide fa pagare come se
+         fossero musica, e le note escono piccole del quaranta per cento.
+         `vai()` lo richiama sulla slide che apre, quando l'SVG c'e' ed e'
+         misurabile; `_ritagliato` fa in modo che valga una volta sola. */
+      this.ritaglia = function () {
+      if (this._ritagliato) return;
       const disegno = tela.querySelector('svg');
       if (disegno) {
         /* Non si puo' chiedere la misura all'SVG intero: dentro c'e' un
@@ -1438,8 +1448,11 @@
           disegno.setAttribute('viewBox', '0 ' + cima + ' ' + larghezza + ' ' + alta);
           disegno.setAttribute('height', alta);
           disegno.style.height = 'auto';
+          this._ritagliato = true;
         }
       }
+      };
+      this.ritaglia();
 
       if (this.hasAttribute('play') && dati.some(d => !d.pausa && !d.stanghetta)) {
         const barra = document.createElement('div');
@@ -6919,6 +6932,12 @@
          un'altra schermata senza vedere da dove arrivano. */
       document.querySelectorAll('tac-metro, tac-livelli, tac-rhythm, tac-brano, tac-gesto')
         .forEach(c => { if (typeof c.ferma === 'function') { try { c.ferma(); } catch (e) {} } });
+
+      /* I pentagrammi della slide che si apre adesso sono misurabili:
+         e' il momento di togliergli il bianco di troppo (v. `ritaglia`). */
+      cur.querySelectorAll('tac-stave').forEach(s => {
+        if (typeof s.ritaglia === 'function') { try { s.ritaglia(); } catch (e) {} }
+      });
 
       this.adatta();
       /* i pentagrammi e le partiture arrivano dopo: si rimisura */

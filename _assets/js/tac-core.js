@@ -1152,12 +1152,22 @@
          Il ritaglio poi toglie il bianco che avanza, quindi crescere qui
          non costa niente in pagina. */
       const cifrato = String(this.getAttribute('cifre') || '');
-      /* Venti pixel, misurati: la cifratura su una riga sta dentro i 260
-         che c'erano gia', la seconda riga della doppia cifratura finisce
-         a 273. Crescere piu' del necessario non e' gratis: la slide tiene
-         il rigo entro un'altezza massima, e una tela piu' alta vuol dire
-         note piu' piccole a parita' di spazio. */
-      const extra = (cifrato.indexOf('=') >= 0) ? 26 : 4;
+      /* Misurato: la cifratura su una riga sta dentro i 260 che c'erano
+         gia', la seconda riga finisce a 273. Crescere piu' del necessario
+         non e' gratis: la slide tiene il rigo entro un'altezza massima, e
+         una tela piu' alta vuol dire note piu' piccole a parita' di spazio.
+
+         Le righe si contano: le cifre impilate di un basso cifrato
+         (« 6:4 ») e la doppia cifratura (« vi=ii ») ne aggiungono una
+         ciascuna. */
+      let righeCifre = 0;
+      cifrato.split(/\s*[\u00b7|\uff5c]\s*/).forEach(function (c) {
+        if (c === '' || c.trim() === '-') return;
+        let n = 0;
+        c.split('=').forEach(function (p) { n += p.split(':').length; });
+        if (n > righeCifre) righeCifre = n;
+      });
+      const extra = cifrato ? (righeCifre - 1) * 19 + 8 : 0;
       this._tesa = (doppio ? 260 : 150) + extra;
       if (extra) renderer.resize(larghezza, this._tesa);
 
@@ -1573,7 +1583,12 @@
       /* ── la cifratura ── */
       const grezze = String(this.getAttribute('cifre') || '').trim();
       if (!grezze) return;
-      const cifre = grezze.split(/\s*[·|｜]\s*/).filter(x => x !== '');
+      /* ⚠ LE CIFRE VUOTE NON SI BUTTANO. Un basso cifrato ha una cifra
+         su un accordo e niente sugli altri, e la posizione conta: se le
+         caselle vuote si scartano, tutte le cifre scalano di un posto e
+         l'esercizio diventa sbagliato in silenzio. Il posto senza cifra
+         si scrive « - ». */
+      const cifre = grezze.split(/\s*[·|｜]\s*/);
       if (!cifre.length) return;
 
       const giu = this._vociGiu;
@@ -1589,14 +1604,22 @@
       quali.forEach((d, i) => {
         if (d.stanghetta || d.pausa) return;
         const c = cifre[k++];
-        if (c === undefined) return;
+        if (c === undefined || c === '' || c.trim() === '-') return;
         const x = ics(dove[i]);
         if (x === null) return;
-        /* La doppia cifratura sta su due righe, con il trattino in mezzo:
-           e' la forma con cui si segna un accordo comune. */
-        const parti = String(c).split('=');
-        riga(x, base, parti[0].trim(), 'tac-cifra', 18);
-        if (parti[1]) riga(x, base + 20, parti[1].trim(), 'tac-cifra tac-cifra-due', 18);
+        /* Due modi di andare a capo, e vogliono dire due cose diverse:
+           « 6:4 » sono le cifre impilate di un basso cifrato, e stanno
+           tutte nello stesso inchiostro; « vi=ii » e' la doppia cifratura
+           di un accordo comune, e la seconda riga e' la tonalita' nuova. */
+        let y = base;
+        String(c).split('=').forEach(function (parte, n) {
+          parte.split(':').forEach(function (pezzo) {
+            if (!pezzo.trim()) return;
+            riga(x, y, pezzo.trim(),
+                 n ? 'tac-cifra tac-cifra-due' : 'tac-cifra', 18);
+            y += 19;
+          });
+        });
       });
     }
 

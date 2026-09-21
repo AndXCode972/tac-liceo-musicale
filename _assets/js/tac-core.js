@@ -2130,8 +2130,21 @@
                Il conto si azzera a ogni stanghetta e va in quarti:
                `perGruppo` crome fanno perGruppo/2 di quarto. Senza
                `travatura` non si accenta niente, come prima. */
-            const capo = this._perGruppo &&
-                         Math.abs(prima % (this._perGruppo / 2)) < 1e-6;
+            /* ⚠ E L'ACCENTO CADE ANCHE SUL PRIMO DI OGNI BATTUTA.
+               Andrea, 21 settembre 2026, sulla slide «Diamo un nome al
+               raggruppamento»: «se si deve sentire l'accento sul primo
+               facciamolo». La didascalia diceva «l'accento cade sempre
+               sul primo» e l'esempio suonava sei colpi tutti uguali —
+               il modo peggiore di sbagliare, perché suona e quindi
+               sembra funzionare.
+               La ragione stava qui: si accentava solo il capo di una
+               travatura, e un esempio di quarti la travatura non ce
+               l'ha. Ma il battere non e' un fatto di travature, e'
+               un fatto di battute: `prima` e' gia' la posizione dentro
+               la battuta, e a zero siamo sul battere. */
+            const capo = prima < 1e-6 ||
+                         (this._perGruppo &&
+                          Math.abs(prima % (this._perGruppo / 2)) < 1e-6);
             const liv = capo ? Audio.LIVELLI.metro : Audio.LIVELLI.ritmo;
             Audio.tick.triggerAttackRelease(liv.altezza, '64n', t, liv.forza);
           } else {

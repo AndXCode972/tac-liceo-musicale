@@ -2880,3 +2880,69 @@ body.modalita-studio .slide.tela.editoriale::after { display: none; }
    serve dove l'esempio E' la slide — una condotta delle parti va
    letta nota per nota dall'ultimo banco. */
 .slide tac-stave[grande] svg { max-height: 232px; }
+
+/* ── IL PANNELLO CHIARO DENTRO LA SLIDE SCURA ──────────────────────
+   Andrea, 21 settembre: «il metro indicato a destra non si vede».
+
+   `tac-livelli` ha carta chiara sempre, anche sulla lavagna — ma il
+   colore del testo lo ereditava dalla slide, e sulla lavagna
+   l'inchiostro e' chiaro. Risultato: il 4/4 a destra e i «80 bpm»
+   scritti in crema su fondo bianco. I pulsanti si salvavano solo
+   perche' il loro colore se lo dichiarano da soli.
+
+   Il rimedio e' che il pannello dichiari il proprio inchiostro invece
+   di accettare quello di chi lo contiene: le due variabili di slide
+   (`--inch`, `--inch2`) si riportano dentro ai valori della carta. */
+.tac-livelli {
+  color: var(--inchiostro);
+  --inch:  var(--inchiostro);
+  --inch2: var(--inchiostro2);
+}
+
+/* E il segno di metro va visto dall'ultimo banco: e' il pezzo che lega
+   quello che si sente a quello che si scrive. */
+.liv-segno {
+  font-size: 2.2rem; line-height: .95; color: var(--indaco);
+  flex: 0 0 auto; padding: 0 .2rem 0 .5rem; margin-left: auto;
+}
+.tac-livelli .tac-barra { flex-wrap: wrap; row-gap: .45rem; }
+
+/* ── LA CIFRATURA ARMONICA SOTTO IL BASSO ──────────────────────────
+   Andrea, 21 settembre: «gli esempi di armonia devono riportare la
+   cifratura armonica». Il grado si legge come il testo, non come il
+   disegno: colore d'inchiostro, non il nero della notazione. */
+.tac-cifra { fill: var(--inchiostro); font-weight: 700;
+             font-family: Georgia, 'Times New Roman', serif; }
+.tac-cifra-due { fill: var(--indaco); }
+.tac-numero-battuta { fill: var(--inchiostro2); font-weight: 700;
+                      font-family: Georgia, 'Times New Roman', serif; }
+/* Sulla lavagna la notazione si inverte: le cifre seguono, altrimenti
+   restano scure su fondo scuro. */
+.slide.tela.lavagna tac-stave .tac-cifra,
+.slide.tela.lavagna tac-stave .tac-numero-battuta { fill: #111; }
+
+/* ── L'ASCOLTO ALLA CIECA STA SU UNA RIGA ──────────────────────────
+   Con `nascondi` il rigo si disegna e non si vede: di quel componente
+   restano il nome e il pulsante. Impaginati come un esempio musicale
+   — didascalia sopra, tela in mezzo, barra sotto — otto frasi da
+   ascoltare diventano otto riquadri alti novanta pixel, e la slide dei
+   compiti ne conteneva sei. Su una riga sola ce ne stanno otto e
+   avanza spazio. */
+.slide tac-stave[nascondi],
+tac-stave[nascondi] {
+  display: flex; align-items: center; gap: .7rem;
+  padding: .18rem .7rem; margin: .16rem 0;
+}
+.slide tac-stave[nascondi] > .tac-didascalia,
+tac-stave[nascondi] > .tac-didascalia { margin: 0; font-weight: 700; }
+.slide tac-stave[nascondi] > .tac-barra,
+tac-stave[nascondi] > .tac-barra { margin: 0 0 0 auto; }
+
+/* Otto frasi in colonna non ci stanno in una slide, e non c'è ragione
+   che ci stiano: una riga con un nome e un pulsante è larga un quarto
+   di schermo. Due per riga, e la slide respira. Sul Workbook stampato
+   restano una per riga, dove la larghezza non è un problema. */
+.slide tac-stave[nascondi] {
+  display: inline-flex; width: 48%; vertical-align: top;
+  margin: .16rem 1% .16rem 0;
+}

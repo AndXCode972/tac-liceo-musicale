@@ -1144,6 +1144,22 @@
                                  : this.getAttribute('bass');
       const doppio = testoBasso !== null;
       if (doppio) renderer.resize(larghezza, 260);
+      /* ⚠ LA CIFRATURA VUOLE POSTO. La tela nasce alta 260 col doppio
+         rigo, e le cifre cadono sotto l'ultima riga del basso: la prima
+         riga ci sta per un pelo, la seconda — la doppia cifratura di un
+         accordo comune — finiva a 274 su una tela di 260, cioe' fuori.
+         Si vedeva mezza «ii» e si pensava a un difetto del disegno.
+         Il ritaglio poi toglie il bianco che avanza, quindi crescere qui
+         non costa niente in pagina. */
+      const cifrato = String(this.getAttribute('cifre') || '');
+      /* Venti pixel, misurati: la cifratura su una riga sta dentro i 260
+         che c'erano gia', la seconda riga della doppia cifratura finisce
+         a 273. Crescere piu' del necessario non e' gratis: la slide tiene
+         il rigo entro un'altezza massima, e una tela piu' alta vuol dire
+         note piu' piccole a parita' di spazio. */
+      const extra = (cifrato.indexOf('=') >= 0) ? 26 : 4;
+      this._tesa = (doppio ? 260 : 150) + extra;
+      if (extra) renderer.resize(larghezza, this._tesa);
 
       const stave = new VF.Stave(10, 22, larghezza - 24);
       stave.addClef(clef);
@@ -1217,7 +1233,7 @@
              partitura in cui la terza battuta della voce acuta stava sopra
              la seconda della grave. Su una lezione che chiede di seguire
              due linee simultanee, è il disegno che smentisce il contenuto. */
-          this._vociGiu = { voce: vB, trav: travB };
+          this._vociGiu = { voce: vB, trav: travB, note: noteB };
         }
       }
 
@@ -1392,6 +1408,8 @@
         if (this._segni.length) {
           this.disegnaSegni(tela, stave, dati, note);
         }
+        /* ══ E LA CIFRATURA, che si incolonna sotto il basso ══ */
+        this.disegnaCifre(tela, stave, staveB, dati, note);
       } else if (this._vociGiu) {
         /* rigo acuto vuoto e grave pieno: caso raro ma possibile, e senza
            questo il grave non verrebbe disegnato affatto — la formattazione
@@ -1432,7 +1450,7 @@
            il difetto restava intatto pur essendo «corretto». Si guardano
            invece i pezzi disegnati uno per uno, scartando quelli alti quanto
            la tela, e si prende l'inviluppo. */
-        const tesa = doppio ? 260 : 150;
+        const tesa = this._tesa || (doppio ? 260 : 150);
         let su = Infinity, giu = -Infinity;
         disegno.querySelectorAll('path, rect, text, line, polygon, ellipse, circle')
           .forEach(function (el) {
@@ -1472,6 +1490,114 @@
         }
         this.appendChild(barra);
       }
+    }
+
+    /* ══ LA CIFRATURA ARMONICA, E I NUMERI DI BATTUTA ════════════════
+
+       Andrea, 21 settembre: «in generale gli esempi di armonia devono
+       riportare la cifratura armonica». Prima non si poteva: un esempio a
+       quattro parti mostrava le note e basta, e il grado bisognava dirlo a
+       voce. Su una slide di analisi — e la quinta è analisi da capo a
+       fondo — vuol dire che la partitura non dice quello che dice la
+       lezione.
+
+           cifre="I · vi · V7/V · V · I"
+           numeri
+
+       · le cifre si separano con `·`, una per accordo, nell'ordine in cui
+         suonano: le stanghette e le pause non contano;
+       · le doppie cifrature — l'accordo comune di una modulazione, che è
+         un grado nella tonalità vecchia e un altro nella nuova — si
+         scrivono con `=`, e vanno su due righe:  `vi=ii`;
+       · le cifre arabe dentro una cifratura si disegnano più piccole e
+         un po' alzate, come si scrivono a mano;
+       · `numeri` mette il numero di battuta sopra il rigo acuto.
+
+       Le cifre si incolonnano sulle note del **basso**, non su quelle del
+       soprano: la cifratura dice che cosa succede sotto, e sotto ci sono
+       gli attacchi che contano. Con un rigo solo si incolonnano su quelle
+       che ci sono. */
+    disegnaCifre(tela, stave, staveB, dati, note) {
+      const svg = tela.querySelector('svg');
+      if (!svg) return;
+      const NS = 'http://www.w3.org/2000/svg';
+
+      function ics(n) {
+        if (!n) return null;
+        try { if (typeof n.getAbsoluteX === 'function') {
+                const v = n.getAbsoluteX(); if (isFinite(v)) return v; } } catch (e) {}
+        try { const b = n.getBoundingBox();
+              if (b && isFinite(b.x)) return b.x + (b.w || 0) / 2; } catch (e) {}
+        return null;
+      }
+
+      function riga(x, y, testo, classe, corpo) {
+        const t = document.createElementNS(NS, 'text');
+        t.setAttribute('class', classe);
+        t.setAttribute('x', x); t.setAttribute('y', y);
+        t.setAttribute('text-anchor', 'middle');
+        t.setAttribute('font-size', corpo);
+        /* Le cifre arabe piu' piccole e alzate: e' come si scrivono a
+           mano sotto il basso, e distinguono il grado dal rivolto. */
+        String(testo).split(/(\d+)/).forEach(pezzo => {
+          if (!pezzo) return;
+          const p = document.createElementNS(NS, 'tspan');
+          p.textContent = pezzo;
+          if (/^\d+$/.test(pezzo)) {
+            p.setAttribute('font-size', Math.round(corpo * .74));
+            p.setAttribute('dy', '-' + Math.round(corpo * .28));
+            p.setAttribute('dx', '.5');
+          }
+          t.appendChild(p);
+        });
+        svg.appendChild(t);
+        return t;
+      }
+
+      /* ── i numeri di battuta ── */
+      if (this.hasAttribute('numeri')) {
+        let cima = 30;
+        try { cima = stave.getYForLine(0); } catch (e) {}
+        let battuta = 1, prima = true;
+        dati.forEach((d, i) => {
+          if (d.stanghetta) { battuta++; prima = true; return; }
+          if (d.pausa) return;
+          if (!prima) return;
+          prima = false;
+          const x = ics(note[i]);
+          if (x !== null) riga(x, cima - 14, String(battuta),
+                               'tac-numero-battuta', 13);
+        });
+      }
+
+      /* ── la cifratura ── */
+      const grezze = String(this.getAttribute('cifre') || '').trim();
+      if (!grezze) return;
+      const cifre = grezze.split(/\s*[·|｜]\s*/).filter(x => x !== '');
+      if (!cifre.length) return;
+
+      const giu = this._vociGiu;
+      const rigo = (giu && staveB) ? staveB : stave;
+      const dove = (giu && giu.note) ? giu.note : note;
+      const quali = (giu && this._datiB) ? this._datiB : dati;
+
+      let fondo = 100;
+      try { fondo = rigo.getYForLine(4); } catch (e) {}
+      const base = fondo + 40;   /* sotto i gambi del basso, che vanno in giu' */
+
+      let k = 0;
+      quali.forEach((d, i) => {
+        if (d.stanghetta || d.pausa) return;
+        const c = cifre[k++];
+        if (c === undefined) return;
+        const x = ics(dove[i]);
+        if (x === null) return;
+        /* La doppia cifratura sta su due righe, con il trattino in mezzo:
+           e' la forma con cui si segna un accordo comune. */
+        const parti = String(c).split('=');
+        riga(x, base, parti[0].trim(), 'tac-cifra', 18);
+        if (parti[1]) riga(x, base + 20, parti[1].trim(), 'tac-cifra tac-cifra-due', 18);
+      });
     }
 
     /* ══ DISEGNA I SEGNI SOPRA IL RIGO ═══════════════════════════════

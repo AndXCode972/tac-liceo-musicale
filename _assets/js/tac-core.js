@@ -4800,7 +4800,18 @@
         this.diciSegno(-1);
       }
 
-      if (!incisa && this.hasAttribute('metronomo')) {
+      /* ⚠ NIENTE METRONOMO SOPRA UN'ESECUZIONE VERA, e non è una scelta
+         di gusto: è che non c'è meccanismo. Il metronomo viene
+         programmato dentro la riproduzione sintetica — la nostra
+         incisione suonata nota per nota da Tone — e con una sorgente
+         vera quella riproduzione non parte mai. Il pulsante diceva
+         «Metronomo: sì» e non succedeva niente. Andrea, 21 settembre
+         2026: «non funziona», e poi «sulle partiture ed esecuzioni
+         reali non serve». Ha ragione due volte: sopra un'esecuzione
+         vera un click combatte con il rubato, e il riquadro che avanza
+         dice già dove siamo. I pallini della pulsazione restano: quelli
+         seguono la mappa, cioè la musica. */
+      if (!incisa && !eseguita && this.hasAttribute('metronomo')) {
         this._metro = document.createElement('button');
         this._metro.className = 'btn secondario';
         this._metro.textContent = 'Metronomo: no';

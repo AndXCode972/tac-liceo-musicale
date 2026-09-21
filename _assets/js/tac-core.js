@@ -1083,6 +1083,45 @@
      funziona.
      ========================================================== */
 
+  /* ══ LO SCRIPT DI YOUTUBE, CHIESTO TARDI ═════════════════════════
+     Si chiede una volta per pagina, e non prima che la pagina sia
+     caricata: v. il commento lungo dentro `orologioYouTube`. Al primo
+     gesto di chi guarda si chiede subito, perché a quel punto la
+     rotellina ha già finito di girare e l'attesa non la vede nessuno.
+
+     Se dopo dodici secondi l'API non è arrivata — rete che filtra, o
+     giù — si smette di aspettarla: `window.__tacTuboMorto` lo dice a
+     chi vuole ripiegare, e le funzioni in coda non restano appese. */
+  function chiediApiYouTube() {
+    if (window.__tacTuboChiesto) return;
+    const chiedi = () => {
+      if (window.__tacTuboChiesto) return;
+      window.__tacTuboChiesto = true;
+      const s = document.createElement('script');
+      s.id = 'tac-yt-api';
+      s.src = 'https://www.youtube.com/iframe_api';
+      s.onerror = () => { window.__tacTuboMorto = true; };
+      document.head.appendChild(s);
+      window.onYouTubeIframeAPIReady = () => {
+        (window.__tacTubo || []).forEach(f => { try { f(); } catch (e) {} });
+        window.__tacTubo = [];
+      };
+      setTimeout(() => {
+        if (!(window.YT && window.YT.Player)) window.__tacTuboMorto = true;
+      }, 12000);
+    };
+    const subito = () => { pulisci(); chiedi(); };
+    const pulisci = () => {
+      document.removeEventListener('pointerdown', subito, true);
+      document.removeEventListener('keydown', subito, true);
+    };
+    document.addEventListener('pointerdown', subito, true);
+    document.addEventListener('keydown', subito, true);
+    if (document.readyState === 'complete') setTimeout(subito, 1200);
+    else window.addEventListener('load', () => setTimeout(subito, 1200),
+                                 { once: true });
+  }
+
   class TacStave extends HTMLElement {
     connectedCallback() {
       if (this._fatto) return;
@@ -5716,21 +5755,36 @@
         });
       };
 
-      /* L'API si carica una volta per pagina, non una per brano: sette
-         ascolti in una lezione sono sette elementi ma un solo script. */
+      /* ⚠ L'API DI YOUTUBE NON SI CHIEDE MENTRE LA PAGINA CARICA.
+         ═══════════════════════════════════════════════════════════════
+         21 settembre 2026, Andrea: «i ragazzi arrivano fino al momento
+         di accedere alla lezione e poi il caricamento procede
+         all'infinito, senza possibilità di entrare».
+
+         Questo script è **l'unica cosa che la lezione chiede a un
+         server che non è il nostro**. Su una rete scolastica YouTube è
+         quasi sempre filtrato, e un filtro non risponde «no»: lascia
+         cadere la richiesta. Il browser aspetta, e finché aspetta la
+         pagina non è «caricata» — la rotellina gira, e su un telefono
+         gira sopra una pagina bianca.
+
+         Il guasto non si vede da nessuna rete normale: qui la pagina si
+         apre in quattro secondi. Si vede solo di là, e di là non c'è la
+         console.
+
+         Il rimedio è che il caricamento della pagina non dipenda da
+         nessun terzo: lo script si chiede **dopo**, quando la pagina è
+         già caricata, o al primo gesto di chi guarda — quello che viene
+         prima. Se YouTube non arriva, la lezione resta tutta usabile e
+         il brano ripiega sull'incisione nostra.
+
+         È anche una regola generale, e vale la pena scriverla qui: una
+         pagina di lezione deve caricarsi per intero **senza rete
+         esterna**. Tutto quello che serve sta sul nostro dominio. */
       if (window.YT && window.YT.Player) monta();
       else {
         (window.__tacTubo = window.__tacTubo || []).push(monta);
-        if (!document.getElementById('tac-yt-api')) {
-          const s = document.createElement('script');
-          s.id = 'tac-yt-api';
-          s.src = 'https://www.youtube.com/iframe_api';
-          document.head.appendChild(s);
-          window.onYouTubeIframeAPIReady = () => {
-            (window.__tacTubo || []).forEach(f => f());
-            window.__tacTubo = [];
-          };
-        }
+        chiediApiYouTube();
       }
       return orol;
     }

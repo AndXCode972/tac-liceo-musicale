@@ -4912,15 +4912,15 @@
           e.textContent = 'brano intero — da restringere';
           barra.appendChild(e);
         }
-      } else if (cerca) {
-        const b = document.createElement('a');
-        b.className = 'btn secondario tac-vero';
-        b.target = '_blank'; b.rel = 'noopener';
-        b.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(cerca);
-        b.innerHTML = '&#9673; Cerca un\'esecuzione';
-        b.title = 'Apre la ricerca: nessun video ancora fissato per questo brano';
-        barra.appendChild(b);
       }
+      /* ⚠ IL PULSANTE DELLA RICERCA NON STA IN CLASSE.
+         Apriva YouTube sui brani che non hanno ancora un video fissato:
+         è un promemoria per chi monta il corso, non un comando per chi
+         fa lezione — e proiettato invita a cliccarlo davanti a
+         venticinque ragazzi, che è l'ultimo posto dove si vuole aprire
+         YouTube alla cieca. Andrea, 21 settembre 2026: «togliamo cerca
+         un'esecuzione». L'attributo `cerca` resta nel documento e nel
+         catalogo: la ricerca si fa da lì, dove si lavora. */
 
       /* Registrazione vera e propria, se ne abbiamo una di libera */
       const reg = this.getAttribute('registrazione');
@@ -5358,9 +5358,20 @@
         this._tubo.remove(); this._tubo = null;
         if (p) p.classList.remove('con-video');
       }
-      const fig = this._parti[this._parti.length - 1];
-      fig.hidden = true;
-      this._box.querySelector('.tac-brano-part').appendChild(fig);
+      /* ⚠ ANCHE QUI LA PARTITURA PUÒ NON ESSERE INCORPORATA.
+         Con una scansione esterna `_parti` è vuoto: `fig` veniva
+         `undefined` e la riga dopo sollevava un'eccezione che
+         interrompeva tutta la chiusura — l'overlay restava aperto e Esc
+         sembrava non funzionare. Andrea, 21 settembre 2026: «se premo
+         esc non esce». Non era Esc: era la chiusura che moriva a metà.
+         Con la scansione non c'è niente da rimettere a posto, perché la
+         figura non era stata spostata: sta già dentro la scheda. */
+      if (this._parti.length) {
+        const fig = this._parti[this._parti.length - 1];
+        fig.hidden = true;
+        const casa = this._box.querySelector('.tac-brano-part');
+        if (casa) casa.appendChild(fig);
+      }
       (this._tornano || []).forEach(([el, casa]) => { if (casa) casa.appendChild(el); });
       this._tornano = [];
       this._schermo.remove(); this._schermo = null;

@@ -2388,11 +2388,30 @@ body.regia .corretto { box-shadow: -4px 0 0 -1px var(--viola); }
    una pagina all'altra.
 
    La cornice non copre niente e si vede da lontano. */
+/* ── DAL RETTANGOLO AL VELO ───────────────────────────────────────────
+   Andrea, 21 settembre 2026: «invece di un rettangolo cursore si
+   potrebbe avere un'evidenziazione leggera?». Si', ed e' meglio: la
+   cornice e' una gabbia intorno alla battuta e l'occhio la legge come
+   un bordo, cioe' come una cosa in piu' sulla pagina; una velatura la
+   legge come «questa qui», e sparisce appena passa.
+
+   Non e' la velatura scartata piu' su: quella abbassava tutto il resto
+   della pagina e alla LIM rendeva illeggibile quello che restava fuori.
+   Questa accende **solo** la battuta in corso e non tocca niente altro.
+
+   `mix-blend-mode: multiply` e' quello che la rende utilizzabile: senza,
+   un fondo semitrasparente si posa sopra le note e le sbiadisce; con,
+   l'inchiostro resta nero e si colora solo la carta. Il colore e'
+   l'accento dell'area, cosi' la battuta accesa dice anche in che
+   materia siamo. */
 .tac-brano-cornice {
   position: absolute;
-  border: 2px solid var(--accento, #2563eb);
-  border-radius: 3px;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, .65);
+  border: 0;
+  border-radius: 4px;
+  background: rgba(37, 99, 235, .16);   /* per i browser vecchi della LIM */
+  background: color-mix(in srgb, var(--accento, #2563eb) 18%, transparent);
+  mix-blend-mode: multiply;
+  box-shadow: none;
   pointer-events: none;
   /* Lo spostamento è breve e non lineare: parte subito e si posa. Se
      fosse istantaneo l'occhio perderebbe il salto e dovrebbe ricercare
@@ -2801,3 +2820,41 @@ body.modalita-studio .slide.tela.editoriale::after { display: none; }
    Vale per tutte le slide del corso, e nessuna ci perde: quello che
    toglie e' spazio che non si vedeva. */
 .slide .slide-interna > *:last-child { margin-bottom: 0; }
+
+/* ── IL METRO SI DEVE LEGGERE ─────────────────────────────────────────
+   «2/4 · 16 battute» stava in un pallino grigio da .85rem, con il
+   colore del testo secondario: a pagina piena, sopra una partitura che
+   occupa tutto lo schermo, spariva. Ma e' la prima cosa che si chiede
+   alla classe davanti a un brano nuovo — in che metro siamo — e deve
+   essere leggibile dall'ultimo banco come il titolo. Andrea, 21
+   settembre 2026: «l'indicazione di metro meglio se si vede di piu'».
+   Nell'intestazione della pagina piena prende il colore dell'accento e
+   il corpo dei comandi; sulla scheda, dove convive con altre cose
+   piccole, resta com'era. */
+.tac-schermo-testa .tac-brano-metro {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: .01em;
+  color: var(--accento, #4338ca);
+  background: color-mix(in srgb, var(--accento, #4338ca) 12%, #fff);
+  border: 1.5px solid color-mix(in srgb, var(--accento, #4338ca) 35%, #fff);
+  padding: .3rem 1rem;
+}
+
+/* ── LE DIDASCALIE SEGUONO L'INCHIOSTRO DELLA SLIDE ───────────────────
+   `.didascalia` e `.tac-didascalia` prendevano `--inchiostro2`, che e'
+   il grigio secondario pensato per la **carta**: giusto su fondo
+   chiaro, sbagliato sulla lavagna, dove diventa un grigio spento su
+   fondo scuro. Nella slide «Tre livelli sovrapposti» le tre didascalie
+   dei righi e il commento finale erano al limite della leggibilita'.
+   Andrea, 21 settembre 2026: «forse non si legge bene, aumenterei la
+   leggibilita' del testo».
+   Ogni tela ha gia' il suo `--inch2`: basta usarlo. E quello della
+   lavagna sale, perche' su fondo scuro un secondario troppo basso non
+   e' sobrio, e' illeggibile dall'ultimo banco. */
+.slide .didascalia,
+.slide .tac-didascalia { color: var(--inch2); }
+.slide.tela.lavagna { --inch2: #cfc9bd; }
+.slide.tela.lavagna .didascalia,
+.slide.tela.lavagna .tac-didascalia { color: #ded8ca; font-size: 1rem; }
+.slide.tela.lavagna tac-stave .tac-didascalia { font-weight: 700; }

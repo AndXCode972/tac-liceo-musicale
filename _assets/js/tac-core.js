@@ -485,7 +485,7 @@
         noise: { type: 'white' },
         envelope: { attack: 0.001, decay: 0.02, sustain: 0 }
       }).connect(new Tone.Filter(2800, 'highpass').toDestination());
-      this.click.volume.value = -13;
+      this.click.volume.value = -6;   /* stessa ragione del tick: in aula -13 non arrivava */
 
       /* Il colpo dei battiti.
 
@@ -501,11 +501,36 @@
          quanto misurino, perché l'orecchio ha bisogno di qualche decina
          di millesimi per valutare l'intensità di un suono breve. Resta
          comunque un colpo secco, non una nota. */
+      /* ⚠ SECONDA ALZATA, 21 settembre, e questa volta misurata.
+
+         Andrea, dopo la lezione: «in classe non si sentiva». La macchina
+         andava — il contatore scorreva, i colpi partivano davvero — ma
+         all'uscita dello strumento il picco era −14,5 dB su un colpo di
+         quarantasette millesimi. In cuffia si sente benissimo; in aula,
+         col proiettore che ronza e ventiquattro ragazzi, no.
+
+         Il guasto non era nel meccanismo, ed è la ragione per cui da qui
+         sembrava tutto a posto: si misura l'esistenza del suono, non la
+         sua udibilità. Un colpo che esiste a −15 dB e un colpo che si
+         sente in fondo all'aula sono due cose diverse.
+
+         Alzato di otto decibel, e il decadimento portato da cinquanta a
+         settanta millesimi: sotto i cinquanta l'orecchio sottostima
+         l'intensità, perché gli serve qualche decina di millesimi per
+         valutarla. Resta un colpo secco, non diventa una nota.
+
+         E ci va il limitatore. Con i tre livelli accesi insieme il
+         battere somma metro, pulsazione e suddivisione nello stesso
+         istante: a questo livello la somma passerebbe lo zero e
+         distorcerebbe proprio sul colpo che deve essere il più chiaro.
+         Il limitatore a −1 dB tiene il tetto senza toccare i colpi
+         singoli, e il rapporto 0,45 · 0,70 · 1,00 fra i livelli resta
+         intatto — è quello che insegna dove cade il battere. */
       this.tick = new Tone.Synth({
         oscillator: { type: 'square' },
-        envelope: { attack: 0.001, decay: 0.05, sustain: 0, release: 0.01 }
-      }).toDestination();
-      this.tick.volume.value = -11;
+        envelope: { attack: 0.001, decay: 0.07, sustain: 0, release: 0.01 }
+      }).connect(new Tone.Limiter(-1).toDestination());
+      this.tick.volume.value = -3;
 
       this.pronto = true;
     },
@@ -1426,12 +1451,57 @@
            `joinVoices` che le fa cadere sulla stessa colonna — e poi tutto
            il sistema si formatta in una volta sola. */
         const suRigo = (r) => vociInterne.filter(v => v.rigo === r).map(v => v.voce);
-        const F = new VF.Formatter();
+        /* ══ BATTUTE DI LARGHEZZA UGUALE, quando le righe si confrontano ══
+
+           Andrea, 21 settembre, sui tre livelli sovrapposti: «mettiamo le
+           stanghette in linea». Le tre righe — metro, pulsazione,
+           suddivisione — sono tre righi separati larghi uguali, ma le
+           stanghette scivolavano: VexFlow dà a ogni nota uno spazio che
+           dipende anche da quante note le stanno intorno, così una battuta
+           di quattro crome si prende più spazio di una di una minima. Su
+           un rigo solo è il comportamento giusto, ed è quello che rende
+           leggibile la musica vera. Qui è il contrario di quello che la
+           slide deve insegnare: la frase scritta sotto dice «il primo
+           colpo di ogni riga cade sempre insieme», e il disegno diceva
+           di no.
+
+           Il rimedio non è incollare le stanghette a mano: è chiedere al
+           formattatore una spaziatura **strettamente proporzionale alla
+           durata**. `softmaxFactor: 1` fa esattamente questo — di serie
+           vale 100, cioè «distribuisci in modo più uniforme, guardando
+           poco le durate». A uno, ogni battuta occupa lo spazio della sua
+           durata: e siccome le tre righe hanno le stesse battute, le
+           stanghette cadono alla stessa ascissa su tutt'e tre.
+
+           Vale dove serve e non altrove: con l'attributo `battute-uguali`,
+           oppure da sé dentro un `.tre-livelli`, che è il posto dove il
+           confronto fra righe è il contenuto della slide. */
+        const eguali = this.hasAttribute('battute-uguali')
+                       || !!(this.closest && this.closest('.tre-livelli'));
+        const F = new VF.Formatter(eguali ? { softmaxFactor: 1 } : undefined);
         F.joinVoices([voce].concat(suRigo(stave)));
         if (giu) F.joinVoices([giu.voce].concat(suRigo(staveB)));
         const tutte = [voce].concat(giu ? [giu.voce] : [])
                             .concat(vociInterne.map(v => v.voce));
         F.format(tutte, larghezza - 90);
+
+        /* ⚠ LE STANGHETTE NON SONO ANCORA IN LINEA, e va detto qui.
+
+           Andrea: «mettiamo le stanghette in linea». `softmaxFactor: 1`
+           avvicina — dentro il disegno le note finiscono incolonnate
+           esattamente: misurate a 196, 345, 493, 642 su tutt'e tre le
+           righe — ma le stanghette no, e il motivo e' che una `BarNote`
+           non si lascia spostare con `setXShift`: ignora lo scostamento e
+           resta dove il formattatore l'ha messa. Provato: le note si
+           muovono, le stanghette restano, e le battute sembrano sbagliate.
+           Rimesso a posto.
+
+           La via giusta non e' spostare i singoli elementi ma il
+           `TickContext` di ogni istante, che le tiene insieme — oppure
+           disegnare ogni battuta su un rigo suo di larghezza fissa. E' un
+           lavoro sul disegnatore, non una riga: va fatto con calma e con
+           la prova davanti, non la sera prima di una lezione. */
+
         voce.draw(ctx, stave);
         travature.forEach(b => b.setContext(ctx).draw());
         /* La parentesi col « 3 » si disegna dopo la voce: come le

@@ -2946,3 +2946,38 @@ tac-stave[nascondi] > .tac-barra { margin: 0 0 0 auto; }
   display: inline-flex; width: 48%; vertical-align: top;
   margin: .16rem 1% .16rem 0;
 }
+
+/* ============================================================
+   RETE DI SICUREZZA — la lezione si legge comunque
+   ============================================================
+   21 settembre 2026. I ragazzi, da casa: si arriva al momento di
+   aprire la lezione e il caricamento va avanti all'infinito.
+
+   La causa non è una sola: è che qui ogni intoppo ha la stessa
+   faccia. Le slide stanno nascoste (`.slide { display: none }`) e le
+   accende il JavaScript, quindi finché il JavaScript non gira la
+   pagina non è bianca per un attimo — è bianca e basta. E la
+   rotellina è quella del browser, che gira finché una richiesta
+   qualsiasi resta in sospeso.
+
+   `tac-soccorso` la mette la rete di sicurezza scritta nella testa
+   della pagina (vedi `pagina_robusta` in monta.py): dopo otto
+   secondi senza che il mazzo sia partito, le slide si mostrano
+   tutte di fila, come in modalità studio. Si perde la proiezione,
+   si tiene la lezione.
+   ============================================================ */
+html.tac-soccorso #tac-deck { position: static; display: block; overflow: visible;
+                              background: var(--carta); }
+html.tac-soccorso .slide { display: block !important; width: auto; height: auto;
+                           min-height: 0; padding: 2.5rem 5vw; overflow: visible;
+                           border-radius: 0; box-shadow: none; transform: none;
+                           border-bottom: 2px solid var(--bordo); }
+html.tac-soccorso .slide.copertina { display: block !important; min-height: 0; }
+html.tac-soccorso .slide-interna { transform: none; }
+html.tac-soccorso #tac-nav,
+html.tac-soccorso #tac-conta,
+html.tac-soccorso .solo-proiezione { display: none; }
+
+#tac-soccorso-avviso { margin: 0; padding: 1rem 5vw; background: #fff4d6;
+                       border-bottom: 2px solid #e0b84c; color: #4a3a12;
+                       font: 500 1rem/1.55 Georgia, 'Times New Roman', serif; }

@@ -266,7 +266,10 @@ em.termine { font-style: normal; font-weight: 700; color: var(--viola); }
 
 .colonne  { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; align-items: start; }
 .colonne3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; align-items: start; }
-@media (max-width: 800px) { .colonne, .colonne3 { grid-template-columns: 1fr; } }
+/* quattro colonne: serve dal 21 settembre, da quando i moti sono quattro */
+.colonne4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; align-items: start; }
+@media (max-width: 800px) { .colonne, .colonne3, .colonne4 { grid-template-columns: 1fr; } }
+@media (max-width: 1100px) { .colonne4 { grid-template-columns: 1fr 1fr; } }
 
 /* --- Schede --- */
 .scheda {
@@ -2103,6 +2106,7 @@ body.modalita-dispensa figure.figura .fonte { display: block; }
 .slide .trafiletto { margin: 1.1rem 0; padding: 1rem 1.3rem 1rem 3.6rem; }
 .slide .trafiletto p { margin: .5rem 0; line-height: 1.55; }
 .slide .colonne, .slide .colonne3 { gap: 1.5rem; }
+.slide .colonne4 { gap: 1.1rem; }
 .slide ol.spaziato > li { margin-bottom: .55rem; line-height: 1.5; }
 .slide .scheda { padding: 1rem 1.2rem; }
 .con-figura-grande, .con-ritratto { gap: 1.6rem; }
@@ -2581,7 +2585,26 @@ body.regia .corretto { box-shadow: -4px 0 0 -1px var(--viola); }
    trenta pixel di bianco sopra e sotto: in proiezione quel bianco si
    ritaglia (margini negativi, la tela nasconde l'eccesso), e il rigo
    resta alla sua misura invece di rimpicciolirsi. */
-.slide tac-stave svg { max-height: 150px; width: auto; max-width: 100%; }
+/* ⚠ LA MISURA STANDARD DI UN ESEMPIO, 21 settembre 2026.
+
+   Andrea, dopo aver guardato l'ennesimo esempio in proiezione: «è molto
+   piccolo, vorrei una misura standard della grandezza degli esempi».
+
+   Stava a 150 pixel, con `grande` a 232 come eccezione — e infatti ogni
+   esempio finiva per avere la sua larghezza scelta a mano, 680, 740,
+   980, 1120, decisa guardando quella slide e non le altre. Una misura
+   scelta caso per caso non è una misura: è un'abitudine.
+
+   Adesso lo standard è 200. Su un palco da 900 pixel è un ventidue per
+   cento dell'altezza: si legge dall'ultimo banco, e lascia spazio al
+   testo che sta sotto. `grande` resta per i sistemi a due righi che
+   chiedono davvero di più; `piccolo` c'è per il caso raro in cui
+   l'esempio è un dettaglio dentro un discorso, non il discorso.
+
+   ⚠ Alzare questa riga può far sforare slide che prima stavano: dopo
+   averla toccata si misura con `_sfora.py`, che è lì per questo. */
+.slide tac-stave svg { max-height: 200px; width: auto; max-width: 100%; }
+.slide tac-stave[piccolo] svg { max-height: 150px; }
 .slide tac-stave > div:not(.tac-didascalia):not(.tac-barra) { overflow: hidden; }
 /* Solo la tela da un rigo (alta 150): il doppio pentagramma è alto 260
    e il ritaglio gli tagliava il basso — visto online il 20 settembre

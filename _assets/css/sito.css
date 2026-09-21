@@ -477,6 +477,22 @@ a.ris:hover { border-color: var(--viola); background: #f7f4ff; transform: transl
   .quaderni .quaderno .miniatura { width: 3.4rem; height: 2.4rem; }
   .quaderni .quaderno .nota { display: none; }
 
+}
+/* ⚠ QUESTA GRAFFA MANCAVA, e mancava da prima del 21 settembre 2026.
+
+   Il blocco `@media (max-width: 480px)` qui sopra non era mai stato
+   chiuso. Un foglio di stile non si lamenta: il browser continua a
+   leggere e considera **dentro la media query** tutto quello che viene
+   dopo. Fino a ieri non si vedeva, perché dopo non veniva niente; il
+   giorno in cui si aggiunge una regola in fondo, quella regola vale solo
+   sotto i 480 pixel — e sembra che il foglio non sia arrivato.
+
+   È successo esattamente così con la striscia per sfogliare le unità:
+   servita, presente nel file, e senza effetto. Il conto delle graffe lo
+   dice in un istante — 107 aperte contro 106 chiuse — e vale la pena
+   farlo ogni volta che una regola nuova «non prende».
+   ============================================================ */
+
 /* ============================================================
    SI SFOGLIA FRA LE UNITÀ — la striscia in cima al Workbook
    ============================================================

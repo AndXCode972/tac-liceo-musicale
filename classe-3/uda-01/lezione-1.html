@@ -171,30 +171,36 @@ try { module = undefined; exports = undefined; } catch (e) {}
          E adesso ogni voce ha anche il suo «Ascolta»: gli estremi si
          sentono uno per volta, che è il modo in cui si capisce che in
          alto la voce fatica. -->
+    <!-- ⚠ L'ESTENSIONE STA DENTRO IL RIQUADRO, NON SOTTO.
+         Con la riga `minuta` sotto ogni rigo le quattro didascalie non si
+         allineavano: il tenore ha una nota sopra il rigo, il suo riquadro
+         e' undici pixel piu' alto, e «Tenore do3-la4» scendeva sotto le
+         altre tre. Si sistemava con una regola nel foglio di stile, ma la
+         regola servirebbe a tenere insieme due cose che non hanno ragione
+         di stare separate: il nome della voce era gia' scritto nel
+         riquadro, e sotto si ripeteva. Adesso il riquadro dice tutto —
+         nome, estremi, e il suo «Ascolta» — e non c'e' piu' niente da
+         allineare. -->
     <div class="colonne4">
       <div>
-        <tac-stave clef="treble" time="4/4" caption="Soprano"
+        <tac-stave clef="treble" time="4/4" caption="Soprano · do₄–la₅"
                    notes="c/4:w | a/5:w"
                    width="230" tempo="52" play></tac-stave>
-        <p class="minuta"><strong>Soprano</strong> do&#8324;&ndash;la&#8325;</p>
       </div>
       <div>
-        <tac-stave clef="treble" time="4/4" caption="Contralto"
+        <tac-stave clef="treble" time="4/4" caption="Contralto · sol₃–re₅"
                    notes="g/3:w | d/5:w"
                    width="230" tempo="52" play></tac-stave>
-        <p class="minuta"><strong>Contralto</strong> sol&#8323;&ndash;re&#8325;</p>
       </div>
       <div>
-        <tac-stave clef="bass" time="4/4" caption="Tenore"
+        <tac-stave clef="bass" time="4/4" caption="Tenore · do₃–la₄"
                    notes="c/3:w | a/4:w"
                    width="230" tempo="52" play></tac-stave>
-        <p class="minuta"><strong>Tenore</strong> do&#8323;&ndash;la&#8324;</p>
       </div>
       <div>
-        <tac-stave clef="bass" time="4/4" caption="Basso"
+        <tac-stave clef="bass" time="4/4" caption="Basso · mi₂–do₄"
                    notes="e/2:w | c/4:w"
                    width="230" tempo="52" play></tac-stave>
-        <p class="minuta"><strong>Basso</strong> mi&#8322;&ndash;do&#8324;</p>
       </div>
     </div>
 

@@ -140,7 +140,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
                contralto="e/4:h d/4:h"
                tenore="g/3:h g/3:h"
                basso="c/3:h g/2:h"
-               width="740" tempo="52" play numeri cifre="I · V"></tac-stave>
+               width="740" tempo="52" play cifre="I · V"></tac-stave>
 
     <div class="riquadro studio">
       <span class="etichetta">La prova del nove</span>
@@ -3335,7 +3335,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
                contralto="c/4:q c/4:q d/4:q e/4:q"
                tenore="e/3:q e/3:q g/3:q g/3:q"
                basso="c/3:q a/2:q g/2:q c/3:q"
-               width="980" tempo="54" play numeri cifre="I · vi · V · I"></tac-stave>
+               width="980" tempo="54" play cifre="I · vi · V · I"></tac-stave>
 
     <div class="colonne">
       <div class="riquadro definizione">
@@ -3364,14 +3364,14 @@ try { module = undefined; exports = undefined; } catch (e) {}
                contralto="g/4:q c/4:q b/4:q e/4:q"
                tenore="c/4:q g/3:q g/3:q g/3:q"
                basso="c/3:q e/3:q g/2:q c/3:q"
-               width="740" tempo="54" play numeri cifre="I · I6 · V · I"></tac-stave>
+               width="740" tempo="54" play cifre="I · I6 · V · I"></tac-stave>
 
     <div class="riquadro attenzione">
       <span class="etichetta">Il conto</span>
       <p>Quattro note e tre salti: gi&ugrave; di quinta, su di settima, gi&ugrave; di quinta. Nessuno canta cos&igrave; senza il pianoforte sotto &mdash; e nessuno lo canta <em>due volte uguale</em>.</p>
     </div>
 
-    <p class="didascalia">Non c&rsquo;&egrave; nessuna regola infranta: le note dell&rsquo;accordo ci sono tutte e nel posto giusto. &Egrave; l&rsquo;esempio di che cosa vuol dire <strong>il residuo di un accordo</strong> invece di una voce, e di perch&eacute; un programma che cerca le quinte parallele qui non troverebbe niente da dire.</p>
+    <p class="didascalia">Non c&rsquo;&egrave; nessuna regola infranta: le note dell&rsquo;accordo ci sono tutte e nel posto giusto. &Egrave; l&rsquo;esempio di che cosa vuol dire <strong>il residuo di un accordo</strong> invece di una voce, e di quello che nessun elenco di regole pu&ograve; dire al posto tuo: qui le regole sono tutte rispettate.</p>
   </div>
 </section>
 
@@ -10296,7 +10296,17 @@ try { module = undefined; exports = undefined; } catch (e) {}
   <div class="slide-interna">
     <h2>Quello che a giugno sapevate, in numeri</h2>
 
-    <tac-stave clef="treble" time="4/4" caption="Quattro voci, sei coppie: basso-soprano è quella che si sente" notes="c/5+g/4+e/4+c/3:h b/4+g/4+d/4+g/2:h | c/5+g/4+e/4+c/3:w" width="520" tempo="44" play slow></tac-stave>
+    <!-- Andrea, 22 settembre: «questa scrittura è sbagliata, doppio
+         pentagramma». Quattro voci impilate su un rigo solo, col basso a
+         cinque tagli addizionali sotto la chiave di violino. Un accordo a
+         quattro parti si scrive su due righi, e ogni voce ha il suo gambo. -->
+    <tac-stave clef="treble" time="4/4"
+               caption="Quattro voci, sei coppie: basso-soprano è quella che si sente"
+               soprano="c/5:h b/4:h | c/5:w"
+               contralto="g/4:h g/4:h | g/4:w"
+               tenore="e/4:h d/4:h | e/4:w"
+               basso="c/3:h g/2:h | c/3:w"
+               width="520" tempo="44" play slow></tac-stave>
 
     <div class="riquadro definizione">
       <span class="etichetta">Il ripasso in tre righe</span>
@@ -10333,7 +10343,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
                contralto="g/4:h f/4:h | e/4:h f/4:h | g/4:h g/4:h | f/4:w"
                tenore="c/4:h b/3:h | a/3:h g/3:h | c/4:h b/3:h | b/3:w"
                basso="c/3:h g/2:h | a/2:h b/2:h | c/3:h g/2:h | g/2:w"
-               width="740" tempo="54" play numeri cifre="I · V7 · vi · V65 · I · iii6 · V7"></tac-stave>
+               width="740" tempo="54" play cifre="I · V7 · vi · V65 · I · iii6 · V7"></tac-stave>
 
     <div class="riquadro compito">
       <span class="etichetta">Tutti insieme, 10 minuti</span>
@@ -10349,7 +10359,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <div class="colonne">
       <div class="riquadro definizione">
         <span class="etichetta">Si scrive a mano, si corregge a mano</span>
-        <p>Gli esercizi di armonia <strong>non si autocorreggono</strong>. Il libro presenta un software che segnala le quinte parallele, e lo vedrete: sa dire quella cosa l&igrave;, che imparerete a controllare da soli in un mese.</p>
+        <p>Gli esercizi di armonia <strong>non si autocorreggono</strong>, e non li corregge nessuna macchina: li correggo io, uno per uno. Un controllo automatico sa dire se due quinte sono parallele &mdash; che &egrave; la cosa che imparerete a vedere da soli in un mese &mdash; e non sa dire niente di tutto il resto: se una voce si canta, se una conduzione ha senso, se quel passaggio è quello che serviva l&igrave;.</p>
         <p>Non sa dire che il vostro basso &egrave; diventato una fila di salti, che il soprano ha perso il suo culmine, o che una soluzione &egrave; corretta e brutta. Correggere non &egrave; il momento in cui vi misuro: &egrave; il momento in cui si insegna.</p>
       </div>
       <div class="riquadro studio">
@@ -10592,8 +10602,12 @@ try { module = undefined; exports = undefined; } catch (e) {}
         <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-01.html#C3-U1-L1-02"><strong>Workbook</strong></a>, scheda C3-U1-L1-02.</p>
       </li>
       <li>
-        <p class="testo-compito"><strong>3. Quattro battute, che cosa ci vedi.</strong> Sul Workbook trovi le quattro battute guardate in classe. Scrivi sotto ogni accordo <strong>la funzione</strong> che riconosci, e segna con una freccia i punti in cui una voce fa un salto.</p>
+        <p class="testo-compito"><strong>3. Quattro battute, che cosa ci vedi.</strong> Qui sotto ci sono le quattro battute guardate in classe. Scrivi sotto ogni accordo <strong>la funzione</strong> che riconosci, e segna con una freccia i punti in cui una voce fa un salto.</p>
         <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-01.html#C3-U1-L1-04"><strong>Workbook</strong></a>, scheda C3-U1-L1-04.</p>
+      </li>
+      <li>
+        <p class="testo-compito"><strong>4. Armonizza questo basso, con quello che sai già.</strong> Armonizza a <strong>quattro voci</strong> il basso qui sotto, nota contro nota. Servono soltanto le tre funzioni che hai dalla seconda: <strong>I, IV, V</strong>. Scrivi soprano e contralto sul rigo di violino, tenore e basso su quello di basso, con i gambi come li abbiamo visti oggi.</p>
+        <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-01.html#C3-U1-L1-06"><strong>Workbook</strong></a>, scheda C3-U1-L1-06.</p>
       </li>
       </ol>
     </div>

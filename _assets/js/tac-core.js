@@ -5572,6 +5572,20 @@
       } else {
         guasto('nessun dato');
       }
+
+      /* ══ UN PULSANTE CHE NON SUONA È PEGGIO DI UN PULSANTE CHE MANCA ══
+         Dal 22 settembre 2026 una slide può ospitare un brano di cui non
+         abbiamo inciso niente: tutto il Novecento è così, perché
+         l'incisione nasce da una fonte nei corpus e per Debussy o
+         Messiaen quella fonte non c'è (e non potrebbe esserci: sono
+         ancora protetti). Di quei brani abbiamo l'esecuzione vera, che è
+         poi la cosa che conta in classe.
+         Ma «▶ Ascolta» qui non può fare niente — `avvia()` esce subito
+         perché non ci sono voci da suonare — e un pulsante che si preme
+         senza che succeda nulla insegna a diffidare della pagina. Se ne
+         va: resta il lettore dell'esecuzione vera, con i suoi comandi e
+         il nome di chi suona. */
+      if (!this._dati && !this._src) this._play.remove();
     }
 
     async avvia() {

@@ -42,7 +42,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=a5ab0b6c" defer></script>
+<script src="../../_assets/js/tac-core.js?v=bded7b60" defer></script>
 </head>
 <body>
 <div id="tac-deck" style="--banda: url('../../_assets/banda/pieno-armonia.jpg')">
@@ -180,27 +180,38 @@ try { module = undefined; exports = undefined; } catch (e) {}
          di stare separate: il nome della voce era gia' scritto nel
          riquadro, e sotto si ripeteva. Adesso il riquadro dice tutto —
          nome, estremi, e il suo «Ascolta» — e non c'e' piu' niente da
-         allineare. -->
-    <div class="colonne4">
+         allineare.
+
+         ⚠ E DUE PER RIGA, NON QUATTRO. Andrea, subito dopo: «i righi
+         vanno allineati, magari 2 a 2, non tagliare la musica». In quattro
+         colonne il rigo stava in 230 pixel e il titolo andava a capo; in
+         due ce ne stanno 330, la musica e' piu' grande e il titolo sta su
+         una riga. Ma l'allineamento vero non lo fa la griglia: lo fa
+         `finestra="16 124"`, la stessa su tutti e quattro, che toglie a
+         ciascun rigo la liberta' di ritagliarsi addosso. I quattro numeri
+         che uscivano dal ritaglio automatico erano 41, 56, 16 e 41: 16 e'
+         il piu' alto di tutti (il la4 del tenore, con tre tagli) e 124
+         arriva fino al piu' basso (il re5 del contralto). -->
+    <div class="colonne">
       <div>
         <tac-stave clef="treble" time="4/4" caption="Soprano · do₄–la₅"
-                   notes="c/4:w | a/5:w"
-                   width="230" tempo="52" play></tac-stave>
+                   notes="c/4:w | a/5:w" finestra="16 124"
+                   width="330" tempo="52" play></tac-stave>
       </div>
       <div>
         <tac-stave clef="treble" time="4/4" caption="Contralto · sol₃–re₅"
-                   notes="g/3:w | d/5:w"
-                   width="230" tempo="52" play></tac-stave>
+                   notes="g/3:w | d/5:w" finestra="16 124"
+                   width="330" tempo="52" play></tac-stave>
       </div>
       <div>
         <tac-stave clef="bass" time="4/4" caption="Tenore · do₃–la₄"
-                   notes="c/3:w | a/4:w"
-                   width="230" tempo="52" play></tac-stave>
+                   notes="c/3:w | a/4:w" finestra="16 124"
+                   width="330" tempo="52" play></tac-stave>
       </div>
       <div>
         <tac-stave clef="bass" time="4/4" caption="Basso · mi₂–do₄"
-                   notes="e/2:w | c/4:w"
-                   width="230" tempo="52" play></tac-stave>
+                   notes="e/2:w | c/4:w" finestra="16 124"
+                   width="330" tempo="52" play></tac-stave>
       </div>
     </div>
 

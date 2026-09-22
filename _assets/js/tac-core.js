@@ -1608,6 +1608,31 @@
       if (this._ritagliato) return;
       const disegno = tela.querySelector('svg');
       if (disegno) {
+        /* ══ QUATTRO RIGHI ACCANTO DEVONO AVERE LO STESSO ORIZZONTE ══
+
+           Il ritaglio qui sotto segue l'inchiostro: ogni rigo si stringe
+           su quello che ha disegnato davvero. È giusto per un esempio
+           solo — niente bianco di troppo — ed è sbagliato quando i righi
+           stanno in fila. Le quattro estensioni delle voci, nell'unità 1
+           di terza, uscivano ciascuna con la sua finestra: 41, 56, 16,
+           41. Quattro pentagrammi a quattro altezze diverse, e l'occhio
+           che deve confrontarli non ha un orizzonte comune. Andrea, 22
+           settembre 2026: «i righi vanno allineati, magari 2 a 2, non
+           tagliare la musica».
+
+           `finestra="cima altezza"` dice al rigo di **non** misurarsi e
+           di usare quella finestra, in coordinate della tela. Si scrive
+           la stessa su tutti i righi che devono allinearsi, larga quanto
+           il caso peggiore del gruppo, e allora le cinque righe cadono
+           allo stesso pixel in tutti — senza tagliare niente, che è
+           l'altra metà della richiesta. */
+        const fissa = (this.getAttribute('finestra') || '').trim().split(/\s+/);
+        if (fissa.length === 2 && fissa.every(function (n) { return n !== '' && isFinite(+n); })) {
+          disegno.setAttribute('viewBox', '0 ' + (+fissa[0]) + ' ' + larghezza + ' ' + (+fissa[1]));
+          disegno.setAttribute('height', +fissa[1]);
+          disegno.style.height = 'auto';
+          this._ritagliato = true;
+        }
         /* Non si puo' chiedere la misura all'SVG intero: dentro c'e' un
            elemento grande quanto la tela, e la risposta e' sempre l'altezza
            di partenza. Misurato cosi' il ritaglio non ritagliava niente, e
@@ -1623,6 +1648,7 @@
            Si legge quindi l'altezza che l'SVG ha davvero in quel momento
            — `disegnaCifre` la allarga quando serve — e la costante resta
            solo come ripiego. */
+        if (!this._ritagliato) {
         const tesa = parseFloat(disegno.getAttribute('height')) ||
                      this._tesa || (doppio ? 260 : 150);
         let su = Infinity, giu = -Infinity;
@@ -1654,6 +1680,7 @@
           disegno.setAttribute('height', alta);
           disegno.style.height = 'auto';
           this._ritagliato = true;
+        }
         }
 
         /* ⚠ E POI LA MUSICA DEVE RIEMPIRE IL SUO RIQUADRO.
@@ -3160,10 +3187,49 @@
       });
       this._box.appendChild(opz);
 
+      /* ══ LO SPAZIO DELLA RISPOSTA SI PRENOTA SUBITO ══
+
+         Andrea, 22 settembre 2026, davanti alla domanda 4 di un quiz:
+         «la risposta fa sforare». E sforava davvero: «Domanda
+         successiva» restava tagliato dal bordo della slide.
+
+         La causa e' che la scheda cresceva **dopo**. La spiegazione e il
+         pulsante nascevano al momento della risposta, e la slide ha
+         altezza fissa con quello che avanza ritagliato via — una scelta
+         voluta, perche' rimpicciolire il testo slide per slide fa
+         ballare il corpo davanti alla classe. Ma qui non c'e' nessun
+         autore che possa accorgersene scrivendo: la domanda sta nella
+         pagina, la risposta no, e l'altezza vera si vede solo quando
+         qualcuno risponde, cioe' in aula.
+
+         Quindi la spiegazione e il pulsante si costruiscono insieme alla
+         domanda, con il loro testo definitivo, e restano **invisibili
+         ma ingombranti** (`visibility: hidden` tiene il posto,
+         `display: none` no). La scheda nasce alta quanto sara', non si
+         muove piu' quando si risponde, e chi prepara la lezione vede
+         l'ingombro vero. */
+      const q0 = this._dom[this._i];
       const fb = document.createElement('div');
-      fb.className = 'tac-feedback';
+      fb.className = 'tac-feedback mostra prenotato';
+      fb.innerHTML = this.raccoglie ? 'Risposta registrata.'
+        : ('<strong>Non ci siamo. </strong>' +
+           (q0.spiega || ('La risposta corretta è ' + LETTERE[q0.c] + '.')));
       this._box.appendChild(fb);
       this._fb = fb;
+
+      const avanti = document.createElement('button');
+      avanti.className = 'btn prenotato';
+      avanti.style.marginTop = '1.1rem';
+      avanti.textContent = (this._i < this._dom.length - 1) ? 'Domanda successiva'
+                         : (this.raccoglie ? 'Ho finito' : 'Vedi il risultato');
+      avanti.disabled = true;
+      avanti.onclick = () => {
+        if (this._fermaSuono) this._fermaSuono();
+        if (this._i < this._dom.length - 1) { this._i++; this.mostra(); }
+        else this.risultato();
+      };
+      this._box.appendChild(avanti);
+      this._avanti = avanti;
     }
 
     rispondi(scelta, contenitore) {
@@ -3203,17 +3269,12 @@
           (q.spiega || ('La risposta corretta è ' + LETTERE[q.c] + '.'));
       }
 
-      const avanti = document.createElement('button');
-      avanti.className = 'btn';
-      avanti.style.marginTop = '1.1rem';
-      avanti.textContent = (this._i < this._dom.length - 1) ? 'Domanda successiva'
-                         : (this.raccoglie ? 'Ho finito' : 'Vedi il risultato');
-      avanti.onclick = () => {
-        if (this._fermaSuono) this._fermaSuono();
-        if (this._i < this._dom.length - 1) { this._i++; this.mostra(); }
-        else this.risultato();
-      };
-      this._box.appendChild(avanti);
+      /* Il pulsante c'era gia', spento e invisibile: v. `mostra`. Qui si
+         accende, e la scheda non cambia altezza di un pixel. */
+      if (this._avanti) {
+        this._avanti.classList.remove('prenotato');
+        this._avanti.disabled = false;
+      }
     }
 
     risultato() {
@@ -5248,9 +5309,28 @@
       const eseguita = !!this.getAttribute('youtube')
                        && (conMappaVideo || inTaratura);
       const incisa = !eseguita && !!this.getAttribute('inciso');
-      if (eseguita) this.preparaInciso(barra, this.orologioYouTube());
-      else if (incisa) this.preparaInciso(barra);
-      else if (this.getAttribute('youtube')) this.orologioYouTube();
+      /* ⚠ «A PARTE» VUOL DIRE ACCANTO, NON AL POSTO — E NON VOLEVA DIRE
+         «MAI». Il commento qui sopra lo dice da sempre: finche' il video
+         non ha la sua mappa, l'orologio della partitura resta
+         l'incisione e **il video si ascolta a parte**. Ma la catena di
+         `else if` diceva un'altra cosa: se il brano aveva l'incisione,
+         il ramo del video non veniva nemmeno raggiunto, e il lettore
+         dell'esecuzione vera non nasceva. Cioe' proprio i brani meglio
+         forniti — quelli con l'incisione **e** l'esecuzione scelta a
+         mano — erano gli unici a farla sparire.
+         Andrea, 22 settembre 2026, davanti al corale di Bach della
+         lezione 1 di terza: «manca l'esecuzione reale». C'era, nel
+         catalogo e nell'attributo: non arrivava in pagina.
+         Adesso i due casi non si escludono: l'incisione comanda la
+         partitura, il video si ascolta accanto, con il nome di chi
+         suona. Quando la mappa del video arriva, `eseguita` diventa
+         vera e il comando passa al video, com'era gia' scritto. */
+      if (eseguita) {
+        this.preparaInciso(barra, this.orologioYouTube());
+      } else {
+        if (incisa) this.preparaInciso(barra);
+        if (this.getAttribute('youtube')) this.orologioYouTube();
+      }
 
       /* ══ I SEGNI CHE ARRIVANO MENTRE LA MUSICA VA ══
          «segnalare quello che succede analiticamente… con la possibilità

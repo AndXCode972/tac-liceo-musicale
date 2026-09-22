@@ -5258,6 +5258,27 @@
         '<span class="tac-brano-str"></span>';
       box.appendChild(testa);
 
+      /* ══ L'EDIZIONE VERA, A UN CLIC ══
+         Per settanta brani su centodieci il catalogo sa da quale
+         edizione viene la partitura: il PDF lo abbiamo scaricato e sta
+         nei materiali, non sul sito. Qui va il collegamento alla pagina
+         di IMSLP da cui viene — costa una riga e in classe cambia una
+         cosa: «apriamo l'edizione» si puo' dire solo se il collegamento
+         c'e'. Non e' ancora il livello 3, che mette la scansione dentro
+         la slide con i riquadri delle battute e va misurato brano per
+         brano; e' il gradino prima, e vale subito per tutte le slide. */
+      const ediz = this.getAttribute('edizione');
+      if (ediz) {
+        const e = document.createElement('p');
+        e.className = 'tac-brano-edizione no-stampa';
+        const a2 = document.createElement('a');
+        a2.href = ediz; a2.target = '_blank'; a2.rel = 'noopener';
+        a2.textContent = 'l\u2019edizione \u2197';
+        e.appendChild(document.createTextNode('Partitura: '));
+        e.appendChild(a2);
+        box.appendChild(e);
+      }
+
       const barra = document.createElement('div');
       barra.className = 'tac-barra no-stampa';
       this._play = document.createElement('button');

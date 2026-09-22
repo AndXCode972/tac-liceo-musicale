@@ -1614,7 +1614,17 @@
            il difetto restava intatto pur essendo «corretto». Si guardano
            invece i pezzi disegnati uno per uno, scartando quelli alti quanto
            la tela, e si prende l'inviluppo. */
-        const tesa = this._tesa || (doppio ? 260 : 150);
+        /* ⚠ L'ALTEZZA DI PARTENZA NON E' PIU' UNA COSTANTE. Era 150, o
+           260 col doppio rigo, e il ritaglio non andava mai oltre
+           (`Math.min(tesa, ...)`). Ma la cifratura adesso si piazza sotto
+           i gambi, e su un esempio con gambi lunghi finisce **oltre** i
+           260: il ritaglio la tagliava via. Andrea, 22 settembre: «il
+           riquadro mangia la numerica».
+           Si legge quindi l'altezza che l'SVG ha davvero in quel momento
+           — `disegnaCifre` la allarga quando serve — e la costante resta
+           solo come ripiego. */
+        const tesa = parseFloat(disegno.getAttribute('height')) ||
+                     this._tesa || (doppio ? 260 : 150);
         let su = Infinity, giu = -Infinity;
         disegno.querySelectorAll('path, rect, text, line, polygon, ellipse, circle')
           .forEach(function (el) {
@@ -1625,12 +1635,51 @@
             if (b.y + b.height > giu) giu = b.y + b.height;
           });
         if (giu > su && giu - su > 10) {
-          const cima = Math.max(0, Math.floor(su - 6));
-          const alta = Math.min(tesa, Math.ceil(giu + 8)) - cima;
+          /* ⚠ LA FINESTRA SEGUE L'INCHIOSTRO, NON LA TELA.
+             Qui c'erano due limiti che sembravano prudenti e tagliavano
+             musica. `Math.max(0, ...)` in alto: una nota molto acuta, coi
+             tagli addizionali, sta **sopra** lo zero della tela e restava
+             fuori — ed e' anche il motivo per cui la chiave di violino
+             appariva mozzata in fondo. `Math.min(tesa, ...)` in basso: il
+             ritaglio non andava mai oltre l'altezza di partenza, cosi' una
+             nota molto grave, o la cifratura sotto i gambi, sparivano.
+             Andrea, 22 settembre: «il riquadro mangia la numerica», e
+             prima «ne mancano 2» sulle estensioni delle voci.
+             La finestra ora prende quello che c'e', sopra e sotto. Il
+             disegno e' vettoriale: allargare la finestra non sgrana
+             niente, fa solo vedere quello che era gia' disegnato. */
+          const cima = Math.floor(su - 6);
+          const alta = Math.ceil(giu + 8) - cima;
           disegno.setAttribute('viewBox', '0 ' + cima + ' ' + larghezza + ' ' + alta);
           disegno.setAttribute('height', alta);
           disegno.style.height = 'auto';
           this._ritagliato = true;
+        }
+
+        /* ⚠ E POI LA MUSICA DEVE RIEMPIRE IL SUO RIQUADRO.
+           Andrea, 22 settembre, tre volte in mezz'ora: «ingrandisci la
+           musica, è troppo piccola», «va ingrandito il riquadro», «anche
+           qui va ingrandita la musica». Sempre lo stesso difetto, e non
+           era la taglia dell'esempio: era che l'esempio usciva **largo
+           740 pixel e basta**. In una slide larga il doppio restava una
+           strisciolina in mezzo al bianco; in una colonna stretta veniva
+           rimpicciolito per starci.
+
+           Il rimedio non è alzare un numero: è togliere il numero. Con il
+           `viewBox` che c'è già, l'SVG si lascia dire «larga quanto lo
+           spazio che hai» e si ridisegna alla scala giusta, senza perdere
+           nitidezza — è grafica vettoriale, non una fotografia.
+
+           Il tetto serve lo stesso: su una slide molto larga un rigo di
+           due battute diventerebbe enorme e ridicolo. Un terzo in più
+           della misura naturale è quanto basta perché si veda dal fondo
+           dell'aula. */
+        const finestra = disegno.getAttribute('viewBox');
+        if (finestra) {
+          disegno.style.width = '100%';
+          disegno.style.height = 'auto';
+          disegno.style.maxWidth = Math.round(larghezza * 1.35) + 'px';
+          disegno.removeAttribute('width');
         }
       }
       };
@@ -5325,14 +5374,16 @@
         };
         if (!giaSorgente) barra.appendChild(b);
 
-        /* Nessuna etichetta quando la sezione è già decisa: l'informazione
-           serve a me che monto, non a chi guarda. Resta solo il promemoria
-           ambra sui brani ancora da restringere. */
-        if (da === null && !giaSorgente) {
-          const e = document.createElement('span');
-          e.className = 'tac-passo aperto';
-          e.textContent = 'brano intero — da restringere';
-          barra.appendChild(e);
+        /* ⚠ NESSUNA ETICHETTA DI SERVIZIO IN PAGINA. Qui compariva
+           «brano intero — da restringere», promemoria per chi monta il
+           corso. Andrea, 22 settembre: «togli le etichette da restringere
+           e dati non validi». Ha ragione: uno studente che apre il
+           Workbook la sera legge un avviso che riguarda il mio lavoro,
+           non il suo, e non sa che farsene. Il promemoria resta dove
+           serve — nella console e nei controlli del progetto. */
+        if (da === null && !giaSorgente && window.console && console.info) {
+          console.info('[tac] brano intero, da restringere:',
+                       this.getAttribute('titolo') || '');
         }
       }
       /* ⚠ IL PULSANTE DELLA RICERCA NON STA IN CLASSE.
@@ -5498,14 +5549,28 @@
 
       /* I dati stanno dentro l'elemento: così la lezione funziona anche
          aperta da disco, dove il browser blocca il caricamento dei file. */
+      /* ⚠ E NEANCHE LE DIAGNOSI. «dati non validi», «audio non trovato»,
+         «nessun dato» dicevano la verità — nel Workbook il corpo del tag
+         conteneva ancora `{{A05}}`, che JSON non è — ma la dicevano alla
+         persona sbagliata. La causa è sistemata nel montaggio
+         (`monta.incorpora_brani`, chiamata adesso anche dal Workbook);
+         qui il guasto si scrive in console, dove lo leggo io. In pagina
+         resta il riquadro muto, che almeno non spiega allo studente un
+         problema che non è suo. */
+      const guasto = (che) => {
+        if (window.console && console.warn) {
+          console.warn('[tac-brano] ' + che + ':',
+                       this.getAttribute('titolo') || '');
+        }
+      };
       if (this._grezzo) {
         try { prepara(JSON.parse(this._grezzo)); }
-        catch (e) { testa.querySelector('.tac-brano-metro').textContent = 'dati non validi'; }
+        catch (e) { guasto('dati non validi'); }
       } else if (this._src && typeof fetch === 'function') {
         fetch(this._src).then(r => r.json()).then(prepara)
-          .catch(() => testa.querySelector('.tac-brano-metro').textContent = 'audio non trovato');
+          .catch(() => guasto('audio non trovato'));
       } else {
-        testa.querySelector('.tac-brano-metro').textContent = 'nessun dato';
+        guasto('nessun dato');
       }
     }
 

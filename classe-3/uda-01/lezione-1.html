@@ -30,7 +30,7 @@
 })();
 </script>
 <noscript><style>.slide { display: block !important; }</style></noscript>
-<link rel="stylesheet" href="../../_assets/css/tac.css?v=754d44b1">
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=ebd6ecd8">
 <script>
 window.__mod = (typeof module !== 'undefined') ? module : null;
 window.__exp = (typeof exports !== 'undefined') ? exports : null;
@@ -42,7 +42,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=7682c285" defer></script>
+<script src="../../_assets/js/tac-core.js?v=5f04dedd" defer></script>
 </head>
 <body>
 <div id="tac-deck" style="--banda: url('../../_assets/banda/pieno-armonia.jpg')">
@@ -157,16 +157,23 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
     <div class="colonne">
       <div>
+        <!-- Andrea, 22 settembre: «non ci sono le estensioni visualizzate di
+             tutte le voci, ne mancano 2». Vero: il rigo disegnava due note
+             sole — gli estremi del soprano — mentre la didascalia sotto ne
+             dichiarava quattro. Adesso ogni voce ha la sua coppia e il suo
+             gambo: soprano in su, contralto in giu', come si scrivono. -->
         <tac-stave clef="treble" time="4/4"
-                   caption="Soprano e contralto"
-                   notes="c/4:w | a/5:w"
+                   caption="Soprano e contralto: le note estreme di ciascuna"
+                   soprano="c/4:w | a/5:w"
+                   contralto="g/3:w | d/5:w"
                    width="330" tempo="52" play></tac-stave>
         <p class="minuta"><strong>Soprano</strong> do&#8324;&ndash;la&#8325; &middot; <strong>Contralto</strong> sol&#8323;&ndash;re&#8325;</p>
       </div>
       <div>
         <tac-stave clef="bass" time="4/4"
-                   caption="Tenore e basso"
-                   notes="e/2:w | a/3:w"
+                   caption="Tenore e basso: le note estreme di ciascuna"
+                   soprano="c/3:w | a/4:w"
+                   contralto="e/2:w | c/4:w"
                    width="330" tempo="52" play></tac-stave>
         <p class="minuta"><strong>Tenore</strong> do&#8323;&ndash;la&#8324; &middot; <strong>Basso</strong> mi&#8322;&ndash;do&#8324;</p>
       </div>

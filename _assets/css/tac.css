@@ -2603,7 +2603,13 @@ body.regia .corretto { box-shadow: -4px 0 0 -1px var(--viola); }
 
    ⚠ Alzare questa riga può far sforare slide che prima stavano: dopo
    averla toccata si misura con `_sfora.py`, che è lì per questo. */
-.slide tac-stave svg { max-height: 200px; width: auto; max-width: 100%; }
+/* ⚠ IL TETTO D'ALTEZZA NON DEVE STROZZARE LA LARGHEZZA. L'esempio adesso
+   si allarga fino a riempire il riquadro (v. `ritaglia` in tac-core.js) e
+   l'altezza segue in proporzione. Con un tetto stretto il disegno, invece
+   di allargarsi, veniva rimpicciolito per rientrare nell'altezza: il
+   contrario di quello che serve. Resta un tetto, ma largo, perché un
+   sistema a due righi non prenda mezza slide. */
+.slide tac-stave svg { max-height: 300px; width: auto; max-width: 100%; }
 .slide tac-stave[piccolo] svg { max-height: 150px; }
 .slide tac-stave > div:not(.tac-didascalia):not(.tac-barra) { overflow: hidden; }
 /* Solo la tela da un rigo (alta 150): il doppio pentagramma è alto 260

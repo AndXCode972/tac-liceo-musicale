@@ -1147,11 +1147,56 @@
                                  { once: true });
   }
 
+  /* ══ IL CARATTERE MUSICALE DEVE ESSERE ARRIVATO PRIMA DI DISEGNARE ══
+
+     Andrea, 22 settembre: «vedo le gambe delle note del tenore e del
+     soprano staccate dalla testa, lo avevo visto anche in un esempio in
+     quinta ieri». Staccate davvero, e sempre e solo i gambi **in su**.
+
+     La causa non e' il disegno, e' la **misura**. VexFlow 5 non disegna
+     piu' le teste come tracciati: le scrive come testo nel carattere
+     Bravura, e per sapere quanto sono larghe le misura nel documento.
+     Un gambo in giu' parte dal bordo sinistro della testa — a sinistra
+     c'e' lo zero, e sbagliare la larghezza non si vede. Un gambo in su
+     parte dal bordo **destro**, cioe' da «testa + larghezza»: li' la
+     misura sbagliata si vede tutta.
+
+     E la misura era sbagliata perche' arrivava prima del carattere: una
+     testa di nota misurata a Bravura non ancora caricato risultava larga
+     **31 pixel** invece di 12, e il gambo in su finiva diciotto pixel
+     piu' in la'. Misurata dopo, torna 12. (Provato in pagina: una nota
+     creata a mano dopo il caricamento dava 12, le nostre 31.)
+
+     Quindi si aspetta. Ma si aspetta **con un tetto**: una risorsa che
+     non arriva mai, prima del primo `Deck.vai`, lascia la lezione in
+     bianco — e' successo, ed e' la cosa peggiore che possa capitare in
+     classe. Tre secondi, poi si disegna comunque: meglio un gambo
+     staccato che una slide vuota. */
+  let _attesaCarattere = null;
+  function caratterePronto() {
+    if (_attesaCarattere) return _attesaCarattere;
+    _attesaCarattere = new Promise(function (arrivato) {
+      let fatto = false;
+      const fine = function () { if (!fatto) { fatto = true; arrivato(); } };
+      setTimeout(fine, 3000);
+      try {
+        if (document.fonts && document.fonts.load) {
+          Promise.all([document.fonts.load('30pt Bravura'),
+                       document.fonts.load('40px Bravura'),
+                       document.fonts.ready]).then(fine, fine);
+        } else {
+          fine();
+        }
+      } catch (e) { fine(); }
+    });
+    return _attesaCarattere;
+  }
+
   class TacStave extends HTMLElement {
     connectedCallback() {
       if (this._fatto) return;
       this._fatto = true;
-      this.render();
+      caratterePronto().then(() => this.render());
     }
 
     render() {
@@ -1656,25 +1701,37 @@
         t.setAttribute('x', x); t.setAttribute('y', y);
         t.setAttribute('text-anchor', 'middle');
         t.setAttribute('font-size', corpo);
-        /* Le cifre arabe piu' piccole e alzate: e' come si scrivono a
-           mano sotto il basso, e distinguono il grado dal rivolto. */
-        String(testo).split(/(\d+)/).forEach(pezzo => {
-          if (!pezzo) return;
-          const p = document.createElementNS(NS, 'tspan');
-          p.textContent = pezzo;
-          if (/^\d+$/.test(pezzo)) {
-            p.setAttribute('font-size', Math.round(corpo * .74));
-            p.setAttribute('dy', '-' + Math.round(corpo * .28));
-            p.setAttribute('dx', '.5');
-          }
-          t.appendChild(p);
-        });
+        /* ⚠ LE CIFRE NON SI RIMPICCIOLISCONO A MANO. Prima ogni gruppo di
+           cifre arabe finiva in un `tspan` ridotto al 74% e alzato del
+           28%: un'imitazione del basso numerato fatta con la tipografia
+           del testo. Due guasti in uno. Il primo: con «V65» le due cifre
+           restavano **in fila**, e un sesta-quinta scritto di seguito
+           non e' un sesta-quinta. Il secondo: da questa funzione passa
+           anche il **numero di battuta**, che cifra armonica non e', e
+           si ritrovava rimpicciolito e alzato uguale — cosi' l'1 della
+           prima battuta sembrava una cifratura. Andrea, 22 settembre:
+           «cosa vuol dire 1?».
+           Adesso il testo si scrive come si legge — `V65`, `ii65`, `I6`
+           — e a impilarlo e' **MusAnalysis**, il carattere di Dan Kreider
+           che sta gia' in `_assets/font` e che il foglio di stile applica
+           a `.tac-cifra`. E' fatto per questo: numeri romani con il basso
+           numerato impilato, come nelle edizioni. Il numero di battuta
+           resta un numero normale, e non si confonde piu'. */
+        t.textContent = String(testo);
         svg.appendChild(t);
         return t;
       }
 
-      /* ── i numeri di battuta ── */
-      if (this.hasAttribute('numeri')) {
+      /* ── i numeri di battuta ──
+         Si numera solo se c'e' qualcosa da ritrovare. Andrea, 22
+         settembre: «il numero di battuta negli esempi da poche battute
+         non e' importante». E' vero, e costa: su un esempio di due
+         battute l'unico numero che compare e' l'1 sulla prima nota, che
+         non serve a nessuno e — stando sopra il primo accordo — si legge
+         come una cifratura. Da quattro battute in su il numero serve
+         davvero, perche' in classe si dice «guardate la terza». */
+      if (this.hasAttribute('numeri') &&
+          dati.filter(d => d.stanghetta).length + 1 >= 4) {
         let cima = 30;
         try { cima = stave.getYForLine(0); } catch (e) {}
         let battuta = 1, prima = true;
@@ -1707,9 +1764,71 @@
 
       let fondo = 100;
       try { fondo = rigo.getYForLine(4); } catch (e) {}
-      const base = fondo + 40;   /* sotto i gambi del basso, che vanno in giu' */
+
+      /* ⚠ LA CIFRATURA NON DEVE TOCCARE LE GAMBE. Prima la base era
+         `fondo + 40`, cioe' quaranta pixel sotto l'ultima riga, sperando
+         che i gambi del basso non arrivassero piu' in giu'. Ci arrivano:
+         basta una nota sotto il rigo, con i tagli addizionali, e il
+         gambo attraversa il numero. Andrea, 22 settembre, davanti a un V
+         infilzato dal gambo: «non deve sovrapporsi alla gamba della
+         nota».
+         Quindi il fondo non si indovina, si **misura**: si chiede a ogni
+         nota del basso dove finisce il suo inchiostro e si scende sotto
+         la piu' bassa. I quaranta pixel restano come minimo, cosi' una
+         battuta senza gambi lunghi non alza la cifratura contro il rigo,
+         e la base resta **una sola per tutto l'esempio**: le cifre di un
+         basso cifrato stanno su una riga, non a scalini. */
+      /* ⚠ QUANTO SCENDE IL BASSO NON SI LEGGE DAL FOGLIO.
+         Primo tentativo: misurare l'inchiostro gia' disegnato, con
+         `getBBox` su ogni tratto dell'SVG. Non funziona, e la ragione e'
+         che una slide non attiva sta a `display:none` — e su un elemento
+         nascosto `getBBox` risponde **zero**. Tutti gli esempi si
+         disegnano da nascosti: la misura tornava sempre «niente scende
+         sotto il rigo», la cifratura si piazzava quaranta pixel sotto la
+         quinta riga, e il gambo del basso le passava attraverso. E' il V
+         infilzato che Andrea ha visto il 22 settembre: «non deve
+         sovrapporsi alla gamba della nota».
+
+         Si chiede invece a **VexFlow**, che le sue ordinate le calcola
+         dal rigo e non dal layout: `getYs()` da' le teste, e
+         `getStemExtents()` dove arriva il gambo. Sono le stesse
+         coordinate in cui disegniamo, e valgono anche a slide chiusa.
+
+         E l'ordinata di un testo SVG e' la **linea di base**: l'occhio
+         del carattere sta tutto sopra. Quindi si scende sotto il gambo
+         **piu'** l'altezza della cifra, sennò il numero risale dentro il
+         rigo. Infine l'SVG si allarga se la cifratura non ci sta: e'
+         alto quanto la musica, e la musica non sapeva che ci sarebbero
+         state le cifre sotto. */
+      let inchiostro = fondo;
+      (dove || []).forEach(function (n) {
+        if (!n) return;
+        let giu = null;
+        try {
+          const ys = n.getYs && n.getYs();
+          if (ys && ys.length) {
+            ys.forEach(function (y) {
+              if (isFinite(y) && (giu === null || y > giu)) giu = y;
+            });
+          }
+        } catch (e) {}
+        try {
+          const se = n.getStemExtents && n.getStemExtents();
+          if (se) {
+            [se.baseY, se.topY].forEach(function (y) {
+              if (isFinite(y) && (giu === null || y > giu)) giu = y;
+            });
+          }
+        } catch (e) {}
+        if (giu !== null && giu > inchiostro) inchiostro = giu;
+      });
+
+      const corpo = 18;
+      const occhio = corpo * .8;      /* quanto sale il segno sopra la base */
+      const base = Math.max(fondo + 40, inchiostro + 10 + occhio);
 
       let k = 0;
+      let piuGiu = base;
       quali.forEach((d, i) => {
         if (d.stanghetta || d.pausa) return;
         const c = cifre[k++];
@@ -1725,11 +1844,26 @@
           parte.split(':').forEach(function (pezzo) {
             if (!pezzo.trim()) return;
             riga(x, y, pezzo.trim(),
-                 n ? 'tac-cifra tac-cifra-due' : 'tac-cifra', 18);
+                 n ? 'tac-cifra tac-cifra-due' : 'tac-cifra', corpo);
             y += 19;
+            if (y > piuGiu) piuGiu = y;
           });
         });
       });
+
+      /* l'SVG si allarga quanto basta, altrimenti la cifratura esce */
+      try {
+        const serve = Math.ceil(piuGiu + corpo * .3);
+        const alto = parseFloat(svg.getAttribute('height')) || 0;
+        if (serve > alto) {
+          svg.setAttribute('height', String(serve));
+          const vb = svg.getAttribute('viewBox');
+          if (vb) {
+            const q = vb.trim().split(/[\s,]+/).map(Number);
+            if (q.length === 4) { q[3] = serve; svg.setAttribute('viewBox', q.join(' ')); }
+          }
+        }
+      } catch (e) {}
     }
 
     /* ══ DISEGNA I SEGNI SOPRA IL RIGO ═══════════════════════════════
@@ -4872,6 +5006,10 @@
     connectedCallback() {
       if (this._fatto) return;
       this._fatto = true;
+      caratterePronto().then(() => this._disegna());
+    }
+
+    _disegna() {
       const VF = window.VexFlow;
       const n      = parseInt(this.getAttribute('sistemi') || '4', 10);
       const tipo   = this.getAttribute('tipo') || 'singolo';

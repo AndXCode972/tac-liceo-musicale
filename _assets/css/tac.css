@@ -2934,8 +2934,12 @@ body.modalita-studio .slide.tela.editoriale::after { display: none; }
    Andrea, 21 settembre: «gli esempi di armonia devono riportare la
    cifratura armonica». Il grado si legge come il testo, non come il
    disegno: colore d'inchiostro, non il nero della notazione. */
-.tac-cifra { fill: var(--inchiostro); font-weight: 700;
-             font-family: Georgia, 'Times New Roman', serif; }
+/* La cifratura si scrive con MusAnalysis, che impila il basso numerato
+   da se': si scrive «V65» e si vede il 6 sopra il 5. Georgia resta come
+   ripiego se il carattere non arriva. Il grassetto no: MusAnalysis ha un
+   peso solo, e simulato viene impastato. */
+.tac-cifra { fill: var(--inchiostro);
+             font-family: 'MusAnalysis', Georgia, 'Times New Roman', serif; }
 .tac-cifra-due { fill: var(--indaco); }
 .tac-numero-battuta { fill: var(--inchiostro2); font-weight: 700;
                       font-family: Georgia, 'Times New Roman', serif; }

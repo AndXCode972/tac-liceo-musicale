@@ -5258,26 +5258,20 @@
         '<span class="tac-brano-str"></span>';
       box.appendChild(testa);
 
-      /* ══ L'EDIZIONE VERA, A UN CLIC ══
-         Per settanta brani su centodieci il catalogo sa da quale
-         edizione viene la partitura: il PDF lo abbiamo scaricato e sta
-         nei materiali, non sul sito. Qui va il collegamento alla pagina
-         di IMSLP da cui viene — costa una riga e in classe cambia una
-         cosa: «apriamo l'edizione» si puo' dire solo se il collegamento
-         c'e'. Non e' ancora il livello 3, che mette la scansione dentro
-         la slide con i riquadri delle battute e va misurato brano per
-         brano; e' il gradino prima, e vale subito per tutte le slide. */
-      const ediz = this.getAttribute('edizione');
-      if (ediz) {
-        const e = document.createElement('p');
-        e.className = 'tac-brano-edizione no-stampa';
-        const a2 = document.createElement('a');
-        a2.href = ediz; a2.target = '_blank'; a2.rel = 'noopener';
-        a2.textContent = 'l\u2019edizione \u2197';
-        e.appendChild(document.createTextNode('Partitura: '));
-        e.appendChild(a2);
-        box.appendChild(e);
-      }
+      /* ⚠ NIENTE COLLEGAMENTO ALL'EDIZIONE, ED E' UNA CORREZIONE DI ROTTA.
+         Stanotte avevo messo qui, sotto il titolo, il collegamento alla
+         pagina IMSLP da cui viene la scansione: ragionavo che i PDF non
+         possono stare sul sito e che un collegamento era meglio di
+         niente. Andrea, la mattina dopo: «non voglio "l'edizione".
+         Vorrei invece la partitura reale quando apro e l'esecuzione
+         reale che scorre non appena fatta la taratura».
+         Ha ragione, e l'errore non era il collegamento: era aver
+         scambiato un gradino per un traguardo. Quello che serve e' il
+         livello 3 — la scansione dentro la pagina che si apre, con i
+         riquadri delle battute — e un collegamento in piu' nella scheda
+         non ci avvicina, occupa solo una riga. Il campo `edizione` resta
+         nel catalogo, che e' il posto giusto per sapere da dove viene
+         una partitura; in pagina non ci va. */
 
       const barra = document.createElement('div');
       barra.className = 'tac-barra no-stampa';
@@ -6039,8 +6033,19 @@
          quello che restituisce la barra spaziatrice alla pagina: dentro
          l'iframe la barra è la pausa di YouTube, e i colpi della
          taratura non arrivavano. */
-      const soloVoce = !!(this.getAttribute('partitura')
-                          || this.getAttribute('mappa-video'));
+      /* ⚠ SEMPRE SOLO L'AUDIO, SENZA ECCEZIONI.
+         Qui il ritaglio si applicava solo ai brani che avevano gia' una
+         partitura o una mappa: negli altri il riquadro di YouTube
+         restava in mezzo alla slide. Finche' il video non entrava mai in
+         pagina il difetto non si vedeva; da quando l'incisione e il
+         video convivono si e' visto subito, sul corale della lezione 1
+         di terza. Andrea, 23 settembre: «non voglio il video».
+         Ed e' la stessa cosa che aveva detto il 20 settembre — «io
+         vorrei comunque solo l'audio senza video» — che era stata scritta
+         come una condizione invece che come una regola. Adesso e' una
+         regola: del video non si guarda niente, mai. Resta il nome di
+         chi suona, e i comandi stanno nella pagina che si apre. */
+      const soloVoce = true;
       if (soloVoce) {
         const ritaglio = document.createElement('div');
         ritaglio.className = 'tac-tubo-voce';

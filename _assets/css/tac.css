@@ -492,6 +492,23 @@ tac-quiz { display: block; margin: 1.6rem 0; }
 .tac-feedback.mostra { display: block; }
 .tac-feedback.ok { background: #ecfdf5; border-left: 5px solid var(--verde); }
 .tac-feedback.no { background: #fef2f2; border-left: 5px solid var(--rosso); }
+
+/* ══ PRENOTATO: TIENE IL POSTO E NON SI LEGGE ═════════════════════════
+   Il 22 settembre la spiegazione e il pulsante hanno cominciato a
+   nascere insieme alla domanda, per non far crescere la scheda quando si
+   risponde (v. `mostra` in tac-core.js). Nel JavaScript la classe c'era;
+   qui **no**, e una classe che nel foglio di stile non esiste non
+   nasconde niente: dal 22 settembre ogni quiz del sito mostrava la
+   risposta sotto la domanda, prima che qualcuno rispondesse.
+
+   Andrea, 23 settembre: «tutte le domande in tutte le slides hanno gia'
+   la risposta sotto». Ecco perche'.
+
+   `visibility: hidden` e non `display: none`: il posto deve restare
+   occupato — e' tutto il motivo per cui l'elemento nasce prima — e i
+   lettori di schermo non leggono quello che e' nascosto cosi', che qui
+   e' esattamente quello che serve. */
+.prenotato { visibility: hidden; }
 .tac-punteggio {
   margin-top: 1.2rem; padding: 1.2rem; border-radius: 12px; text-align: center;
   background: linear-gradient(135deg, var(--indaco), var(--viola)); color: #fff; display: none;
@@ -2828,6 +2845,16 @@ body.modalita-studio .slide.tela.editoriale::after { display: none; }
    fuori dal ritaglio e resta visibile: un'esecuzione e' di qualcuno. */
 .tac-tubo-voce { height: 0; overflow: hidden; }
 .tac-tubo-voce iframe { pointer-events: none; }
+
+/* Il fondo nero e' del video. Quando il video e' alto zero — e con
+   `soloVoce` lo e' sempre — di quel fondo resta una striscia nera alta
+   quanto la riga dell'esecutore, e il nome, che e' grigio, sopra non si
+   legge. Andrea, 23 settembre 2026: «si legge male l'esecutore».
+   Niente video, niente scatola. */
+.tac-tubo.tac-tubo-sola-voce {
+  background: none; border-radius: 0; margin-top: .35rem;
+}
+.tac-tubo.tac-tubo-sola-voce .tac-tubo-chi { margin-top: 0; }
 
 /* La tela combacia esatta con la scansione: e' il riferimento su cui si
    misurano i riquadri delle battute, che sono percentuali dell'immagine.

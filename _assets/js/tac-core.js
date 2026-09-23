@@ -1530,6 +1530,57 @@
                             .concat(vociInterne.map(v => v.voce));
         F.format(tutte, larghezza - 90);
 
+        /* ══ E POI LE COLONNE SI METTONO PER DURATA ══
+           (solo quando `eguali`: e' la slide dei tre livelli)
+
+           `softmaxFactor: 1` avvicina e non basta. Misurato il 23
+           settembre 2026 in un browser, sulle tre righe vere: le teste
+           della riga delle crome cadevano a 239 dove le altre due erano
+           a 245,5, e le stanghette a 161, 190 e 207 — una diversa per
+           riga. Il formattatore tiene conto anche di quanto una nota e'
+           larga, e quattro crome travate sono piu' larghe di una minima:
+           per quanto lo si pieghi verso le durate, un residuo resta.
+
+           Qui la durata non e' un'indicazione, e' il contenuto della
+           slide: «le tre righe durano esattamente lo stesso tempo». Si
+           puo' quindi **dire** l'ascissa invece di chiederla. Ogni
+           istante va dove lo mette la sua durata; e siccome le tre righe
+           hanno le stesse durate, cadono tutte sulla stessa colonna.
+
+           Non si sposta la nota — `setXShift` sulle stanghette non
+           funziona, provato — ma il `TickContext` dell'istante, che e'
+           quello che tiene insieme tutto cio' che suona in quel momento.
+
+           Le ascisse qui sono quelle del `TickContext`, che partono da
+           zero: sul disegno ci si aggiunge `getNoteStartX()` piu' lo
+           scarto della testa. Per questo la campata si ferma prima del
+           bordo: senza quei 26 pixel l'ultima croma usciva dal rigo, e
+           si vedeva — misurato, 708 contro un rigo che finisce a 687.
+
+           La stanghetta sta un po' prima del confine, se no toccherebbe
+           la nota dopo: un decimo di battuta. */
+        if (eguali && note.length) {
+          const totale = dati.reduce((a, d) => a + d.battiti, 0);
+          const battute = dati.filter(d => d.stanghetta).length + 1;
+          const campata = Math.max(
+            60, stave.getNoteEndX() - stave.getNoteStartX() - 26);
+          const passo = campata / (totale || 1);
+          const scarto = 0.11 * campata / battute;
+          const gruppi = [{ dati: dati, note: note }]
+            .concat(giu ? [{ dati: giu.dati, note: giu.note }] : [])
+            .concat(vociInterne.map(v => ({ dati: v.dati, note: v.note })));
+          gruppi.forEach(g => {
+            if (!g || !g.note || !g.note.length) return;
+            let t = 0;
+            g.note.forEach((n, i) => {
+              const d = g.dati[i];
+              const voluta = t * passo - (d && d.stanghetta ? scarto : 0);
+              try { n.getTickContext().setX(voluta); } catch (e) {}
+              t += (d ? d.battiti : 0);
+            });
+          });
+        }
+
         /* ⚠ LE STANGHETTE NON SONO ANCORA IN LINEA, e va detto qui.
 
            Andrea: «mettiamo le stanghette in linea». `softmaxFactor: 1`
@@ -6051,6 +6102,16 @@
         ritaglio.className = 'tac-tubo-voce';
         ritaglio.appendChild(dove);
         cassa.appendChild(ritaglio);
+        /* ⚠ SE NON C'È NIENTE DA GUARDARE, NON CI VA UNA SCATOLA NERA.
+           Andrea, 23 settembre 2026, davanti alla scheda del K 155: «si
+           legge male l'esecutore». Non era il colore del nome: era il
+           fondo. `.tac-tubo` è nero perché di solito ci sta dentro un
+           video; qui il video è alto zero (si ascolta e basta), e allora
+           del riquadro resta solo una striscia nera alta quanto la riga
+           del nome, con sopra il grigio del testo. Nero su grigio.
+           La scatola nera serve al video, non al nome: quando il video
+           non si vede, non serve. */
+        cassa.classList.add('tac-tubo-sola-voce');
       } else {
         cassa.appendChild(dove);
       }
@@ -6395,8 +6456,24 @@
          Sono la stessa informazione, ma la seconda si legge senza fare
          una sottrazione mentre si ascolta — e mentre si ascolta non si
          fanno sottrazioni. */
+      /* ⚠ LA PRIMA BATTUTA NON SI BATTE MAI.
+         Andrea, 23 settembre 2026, ritarando il K 155: «la prima battuta
+         non la batto mai». E' vero e non e' una svista: quando la musica
+         parte, la prima stanghetta e' gia' passata — si comincia a
+         battere dalla seconda, che e' la prima che si sente arrivare.
+
+         Prima il pannello numerava i colpi da zero, e la mappa usciva
+         spostata di uno: il cursore accendeva il levare mentre suonava
+         la prima battuta, e cosi' fino in fondo. Lo spostamento lo
+         facevo a mano dopo, il che vuol dire che prima o poi lo si
+         dimentica. Adesso lo fa il pannello: il primo colpo prende il
+         numero del **secondo** riquadro, e il conto chiede una battuta in
+         meno. Quello che copi e' gia' giusto da incollare nel catalogo. */
+      const chiavi = this._riquadri
+        ? Object.keys(this._riquadri).map(Number).sort((a, b) => a - b) : [];
+      const numeri = chiavi.slice(1);
       const attese = parseInt(this.getAttribute('battute') || '0', 10) ||
-        (this._riquadri ? Object.keys(this._riquadri).length : 0);
+        numeri.length;
 
       const cassa = document.createElement('div');
       cassa.className = 'tac-taratura no-stampa';
@@ -6432,8 +6509,15 @@
            L'indice parte da 0 e cresce di uno: la mappa dice quando
            comincia ciascuna, non quale numero porta — quello lo dice
            `da-battuta`, e sono due cose diverse apposta. */
+        /* Se si batte piu' del previsto si continua a numerare: meglio
+           una mappa lunga da accorciare che una troncata di nascosto. */
+        const numero = (i) => {
+          if (!numeri.length) return i + 1;
+          if (i < numeri.length) return numeri[i];
+          return numeri[numeri.length - 1] + (i - numeri.length + 1);
+        };
         uscita.value = JSON.stringify({
-          eventi: colpi.map((ms, i) => [i, Math.round(ms)]),
+          eventi: colpi.map((ms, i) => [numero(i), Math.round(ms)]),
           durata: Math.round(au.duration * 1000) || null,
         });
       };

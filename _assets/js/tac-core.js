@@ -6478,7 +6478,18 @@
       const cassa = document.createElement('div');
       cassa.className = 'tac-taratura no-stampa';
       cassa.hidden = true;
+      /* ⚠ SENZA RIQUADRI LA MAPPA ESCE NUMERATA MALE, E NON SI VEDE.
+         Il 23 settembre il Corelli e' stato tarato su una pagina che i
+         riquadri non li aveva ancora (era rimasta aperta da prima): il
+         pannello e' ricaduto sul conteggio semplice, ha numerato 1-18
+         invece di 2-19, e la mappa sembrava buona. Un errore che non si
+         vede e' peggio di uno che si vede: qui si dice. */
+      const senzaRiquadri = !numeri.length;
       cassa.innerHTML =
+        (senzaRiquadri ? '<p class="tac-tara-attenzione"><strong>Attenzione:</strong> ' +
+          'questa pagina non ha ancora le battute misurate. I colpi ' +
+          'usciranno numerati da 1, e chi incolla la mappa dovr\u00e0 ' +
+          'spostarli. Meglio far misurare prima le battute.</p>' : '') +
         '<p><strong>Barra spaziatrice</strong> a ogni stanghetta, mentre ' +
         'suona. <strong>&larr;</strong> cancella l&rsquo;ultimo colpo, ' +
         '<strong>Esc</strong> chiude.</p>' +

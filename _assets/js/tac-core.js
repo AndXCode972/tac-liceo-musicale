@@ -1316,7 +1316,7 @@
              così. */
           const noteB = this._datiB.map(d => {
             if (d.stanghetta) return stanghettaVF(VF, d.stanghetta);
-            const sn = new VF.StaveNote({ keys: d.keys, duration: d.dur + (d.pausa ? 'r' : ''), clef: 'bass' });
+            const sn = new VF.StaveNote({ keys: d.keys, duration: d.dur + (d.puntata ? 'd' : '') + (d.pausa ? 'r' : ''), clef: 'bass' });
             if (quattro) sn.setStemDirection(VF.Stem.DOWN);
             if (!d.pausa) d.keys.forEach((k, i) => {
               const p = N.scomponi(k);
@@ -1404,7 +1404,7 @@
           const noteV = dV.map(d => {
             if (d.stanghetta) return stanghettaVF(VF, d.stanghetta);
             const sn = new VF.StaveNote({ keys: d.keys,
-                                          duration: d.dur + (d.pausa ? 'r' : ''),
+                                          duration: d.dur + (d.puntata ? 'd' : '') + (d.pausa ? 'r' : ''),
                                           clef: ch });
             sn.setStemDirection(verso);
             if (!d.pausa) d.keys.forEach((k, i) => {
@@ -1428,7 +1428,7 @@
           if (d.stanghetta) return stanghettaVF(VF, d.stanghetta);
           const sn = new VF.StaveNote({
             keys: d.keys,
-            duration: d.dur + (d.pausa ? 'r' : ''),
+            duration: d.dur + (d.puntata ? 'd' : '') + (d.pausa ? 'r' : ''),
             clef: clef
           });
           /* il soprano ha il gambo in su: sotto di lui c'è il contralto */
@@ -1528,7 +1528,15 @@
         if (giu) F.joinVoices([giu.voce].concat(suRigo(staveB)));
         const tutte = [voce].concat(giu ? [giu.voce] : [])
                             .concat(vociInterne.map(v => v.voce));
-        F.format(tutte, larghezza - 90);
+        /* ⚠ NOVANTA NON BASTAVANO PER L'ULTIMA BATTUTA.
+           Andrea, 23 settembre, sull'esempio a quattro voci della quarta:
+           «l'ultima battuta sfora». Misurato in un browser: l'ultima testa
+           finiva cinque pixel oltre la stanghetta di chiusura — e a 740,
+           860, 940 e 1020 pixel di larghezza sempre gli stessi cinque,
+           quindi non era la larghezza, era questo margine. Con 104 rientra
+           con nove pixel d'aria, e le stanghette dei tre livelli restano
+           dove le abbiamo incolonnate. */
+        F.format(tutte, larghezza - 104);
 
         /* ══ E POI LE COLONNE SI METTONO PER DURATA ══
            (solo quando `eguali`: e' la slide dei tre livelli)
@@ -5217,7 +5225,7 @@
         if (mel) {
           const dati = leggiNote(mel);
           const note = dati.map(d => {
-            const sn = new VF.StaveNote({ keys: d.keys, duration: d.dur + (d.pausa ? 'r' : ''), clef: clef });
+            const sn = new VF.StaveNote({ keys: d.keys, duration: d.dur + (d.puntata ? 'd' : '') + (d.pausa ? 'r' : ''), clef: clef });
             if (!d.pausa) d.keys.forEach((k, j) => {
               const p = N.scomponi(k);
               if (p.alt) sn.addModifier(new VF.Accidental(p.alt), j);

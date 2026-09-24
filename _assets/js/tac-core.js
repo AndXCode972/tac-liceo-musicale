@@ -389,6 +389,58 @@
     voci: [],         /* una per parte, con timbro e posizione distinti */
     click: null,
     tick: null,
+
+    /* ══ LA CODA DEI COLPI, UNA PER TUTTA LA PAGINA ═════════════════
+
+       ⚠ `Audio.tick` E' UNO SOLO E LO USANO TUTTI. Ed e' qui che nasceva
+       il guasto peggiore trovato finora: chi voleva fermarsi chiamava
+       `Audio.tick.envelope.cancel(...)`, che non spegne il proprio
+       esercizio — spegne **il sintetizzatore condiviso**, cioe' tutti gli
+       esempi di ritmo della pagina, per sempre, fino al ricaricamento.
+       Andrea, 24 settembre, su quattro slide diverse: «non si sente»,
+       «anche qui non si sente», «anche questa non suona», «continua a non
+       suonare». Erano tutte la stessa cosa: bastava che un componente si
+       fosse fermato una volta — anche solo cambiando slide — e da li' in
+       poi non suonava piu' niente.
+
+       Misurato sul sito: con l'audio in funzione e dieci colpi consegnati
+       il livello all'uscita restava a meno infinito, mentre un
+       sintetizzatore creato li' per li' dava -5,7 dB.
+
+       Il rimedio toglie la ragione di cancellare: i colpi non si
+       consegnano piu' tutti in anticipo al sintetizzatore, si mettono in
+       una coda con il nome di chi li ha chiesti, e un orologio solo li
+       passa al tick poco prima che suonino. Fermarsi vuol dire togliere
+       dalla coda i propri, e il sintetizzatore non si tocca. */
+    _coda: [],
+    _orologio: null,
+
+    programma(chi, quando, altezza, forza) {
+      if (!this.tick) return;
+      this._coda.push({ chi: chi, t: quando, altezza: altezza, forza: forza });
+      if (this._orologio) return;
+      const passo = () => {
+        if (!this._coda.length) {
+          clearInterval(this._orologio); this._orologio = null; return;
+        }
+        this._coda.sort((a, b) => a.t - b.t);
+        const ora = Tone.now();
+        while (this._coda.length && this._coda[0].t <= ora + 0.12) {
+          const c = this._coda.shift();
+          try { this.tick.triggerAttackRelease(c.altezza, '64n', c.t, c.forza); }
+          catch (e) { /* due colpi nello stesso istante: se ne perde uno */ }
+        }
+      };
+      this._orologio = setInterval(passo, 40);
+      passo();
+    },
+
+    disdici(chi) {
+      this._coda = this._coda.filter(c => c.chi !== chi);
+      if (!this._coda.length && this._orologio) {
+        clearInterval(this._orologio); this._orologio = null;
+      }
+    },
     sampler: null,
     campionato: false,
 
@@ -4607,12 +4659,8 @@
             FORZA   = [L.metro.forza,   L.puls.forza,   L.sudd.forza];
       this._suona = true;
       this.aggiornaTasto(true);
-      colpi.forEach(c => {
-        try {
-          Audio.tick.triggerAttackRelease(ALTEZZA[c.liv], '64n',
-                                          inizio + c.t, FORZA[c.liv]);
-        } catch (e) { /* due colpi nello stesso istante: se ne perde uno */ }
-      });
+      colpi.forEach(c => Audio.programma(this, inizio + c.t,
+                                         ALTEZZA[c.liv], FORZA[c.liv]));
 
       clearTimeout(this._pulizia);
       this._pulizia = setTimeout(() => { this._suona = false; this.aggiornaTasto(false); },
@@ -4634,11 +4682,11 @@
          sito: dopo il Ferma l'uscita batteva ancora nove volte in due
          secondi e mezzo. Con la disdetta sull'inviluppo resta solo il
          colpo che stava già suonando, che dura trenta millesimi. */
-      try {
-        const ora = Tone.now();
-        Audio.tick.envelope.cancel(ora);
-        Audio.tick.triggerRelease(ora);
-      } catch (e) {}
+      /* Si tolgono dalla coda i colpi di QUESTO esercizio. Il
+         sintetizzatore non si tocca: e' di tutti, e cancellargli
+         l'inviluppo lo spegneva per l'intera pagina. Resta solo il colpo
+         gia' partito, che dura trenta millesimi. */
+      Audio.disdici(this);
       this.aggiornaTasto(false);
     }
 

@@ -1772,22 +1772,110 @@
       this.ritaglia();
 
       if (this.hasAttribute('play') && dati.some(d => !d.pausa && !d.stanghetta)) {
+        /* ══ I COMANDI DI RIPRODUZIONE ═══════════════════════════════
+
+           Andrea, 23 settembre 2026: «i tasti ascolta degli esempi devono
+           avere anche tutti gli altri controlli di riproduzione, ferma,
+           avanti indietro».
+
+           C'era un pulsante solo, e una volta premuto non si poteva piu'
+           fare niente: in classe, se il passaggio da far risentire e' la
+           battuta sei, si riascoltavano le cinque prima. Adesso la barra
+           e' un trasporto vero, e il passo e' la BATTUTA, che e' l'unita'
+           con cui si parla a lezione — non il secondo, che non vuol dire
+           niente su un esempio d'armonia.
+
+           Il tasto grande fa e disfa, come gia' in `tac-rhythm`: due
+           pulsanti separati «Ascolta» e «Ferma» lasciano sempre uno dei
+           due inutile sullo schermo. */
+
+        /* Dove comincia ogni battuta. Le stanghette stanno in `dati` come
+           voci a se', e la battuta nuova e' la prima nota vera dopo una
+           di quelle. */
+        const capi = [];
+        let apri = true;
+        dati.forEach((d, i) => {
+          if (d.stanghetta) { apri = true; return; }
+          if (d.pausa && apri) { capi.push(i); apri = false; return; }
+          if (apri) { capi.push(i); apri = false; }
+        });
+        this._capi = capi;
+        this._battuta = 0;
+
         const barra = document.createElement('div');
         barra.className = 'tac-barra no-stampa';
-        const bt = document.createElement('button');
-        bt.className = 'btn';
-        bt.innerHTML = '&#9654; Ascolta';
-        bt.onclick = () => this.suona(bt);
-        barra.appendChild(bt);
 
+        const capo = document.createElement('button');
+        capo.className = 'btn secondario';
+        capo.innerHTML = '&#9198;';
+        capo.title = 'Da capo';
+
+        const giu = document.createElement('button');
+        giu.className = 'btn secondario tac-indietro';
+        giu.innerHTML = '&#9664;';
+        giu.title = 'Una battuta indietro';
+
+        const bt = document.createElement('button');
+        /* un nome proprio al tasto grande: `.btn` da solo ne prende
+           quattro, e chi cerca «il pulsante Ascolta» trovava il primo,
+           che e' «da capo» ed e' spento in partenza */
+        bt.className = 'btn tac-suona';
+
+        const su = document.createElement('button');
+        su.className = 'btn secondario tac-avanti';
+        su.innerHTML = '&#9654;';
+        su.title = 'Una battuta avanti';
+
+        const dove = document.createElement('span');
+        dove.className = 'tac-barra-battuta';
+
+        let bl = null;
         if (this.hasAttribute('slow')) {
-          const bl = document.createElement('button');
+          bl = document.createElement('button');
           bl.className = 'btn secondario';
           bl.innerHTML = '&#9654; Lento';
-          bl.onclick = () => this.suona(bl, 0.55);
-          barra.appendChild(bl);
         }
+
+        /* Un solo posto che decide che cosa si vede: se lo stato lo
+           scrivessero i quattro gestori ognuno per conto suo, prima o poi
+           uno si dimenticherebbe di aggiornare gli altri. */
+        this._mostraComandi = () => {
+          bt.innerHTML = this._inCorso ? '&#9632; Ferma' : '&#9654; Ascolta';
+          giu.disabled = this._battuta <= 0;
+          su.disabled = this._battuta >= capi.length - 1;
+          capo.disabled = this._battuta <= 0 && !this._inCorso;
+          if (bl) bl.disabled = this._inCorso;
+          dove.textContent = capi.length > 1
+            ? 'da batt. ' + (this._battuta + 1) : '';
+        };
+
+        /* Spostarsi mentre suona vuol dire saltare li' e continuare: e'
+           quello che ci si aspetta da un trasporto, e a lezione e' proprio
+           il gesto che serve. Da fermo, invece, si sposta e basta: si parte
+           quando lo si chiede. */
+        const vai = (n) => {
+          this._battuta = Math.max(0, Math.min(capi.length - 1, n));
+          const suonava = this._inCorso;
+          if (suonava) this.ferma();
+          this._mostraComandi();
+          if (suonava) this.suona(null, 1, this._battuta ? capi[this._battuta] : null, null);
+        };
+
+        bt.onclick = () => {
+          if (this._inCorso) { this.ferma(); return; }
+          this.suona(null, 1, this._battuta ? capi[this._battuta] : null, null);
+        };
+        capo.onclick = () => vai(0);
+        giu.onclick  = () => vai(this._battuta - 1);
+        su.onclick   = () => vai(this._battuta + 1);
+        if (bl) bl.onclick = () => this.suona(null, 0.55,
+                                   this._battuta ? capi[this._battuta] : null, null);
+
+        [capo, giu, bt, su].forEach(b => barra.appendChild(b));
+        if (bl) barra.appendChild(bl);
+        if (capi.length > 1) barra.appendChild(dove);
         this.appendChild(barra);
+        this._mostraComandi();
       }
     }
 
@@ -2218,9 +2306,50 @@
        `da` e `a` limitano l'ascolto a un tratto: servono ai segni a
        passi, dove ogni clic fa sentire solo quello che ha appena
        segnato. Senza, si sente tutto, ed è il comportamento di sempre. */
+    /* ⚠ SI DEVE POTER FERMARE, e prima non si poteva.
+       Andrea, 23 settembre 2026: «i tasti ascolta degli esempi devono
+       avere anche tutti gli altri controlli di riproduzione, ferma,
+       avanti indietro».
+
+       L'ostacolo era il modo di programmare le note: si chiamava
+       `triggerAttackRelease(..., t)` per tutte insieme, con `t` nel
+       futuro. Web Audio le suona all'istante giusto — ed e' per questo
+       che gli esempi vanno a tempo — ma una volta consegnate non si
+       richiamano indietro.
+
+       Il rimedio tiene tutti e due i pregi: la chiamata parte da un
+       `setTimeout` una sessantina di millisecondi prima, e passa
+       comunque l'istante esatto. L'audio resta preciso al campione, e
+       cancellando il timeout la nota non parte. L'unica che non si puo'
+       piu' fermare e' quella dei sessanta millisecondi in corso, che non
+       si sente come difetto. */
+    orologio(f, ms) {
+      const id = setTimeout(f, Math.max(0, ms));
+      (this._orologi = this._orologi || []).push(id);
+      return id;
+    }
+
+    ferma() {
+      (this._orologi || []).forEach(clearTimeout);
+      this._orologi = [];
+      try {
+        if (this._voceInUso && this._voceInUso.releaseAll) this._voceInUso.releaseAll();
+      } catch (e) { /* una voce che non sa rilasciare: pazienza */ }
+      if (this._note) {
+        this._note.forEach(n => {
+          const el = n && n.getSVGElement && n.getSVGElement();
+          if (el) { el.style.fill = ''; el.style.stroke = ''; }
+        });
+      }
+      this._inCorso = false;
+      if (this._mostraComandi) this._mostraComandi();
+    }
+
     async suona(bottone, fattore = 1, da = null, a = null) {
       if (this._inCorso) return;
+      this._orologi = [];
       this._inCorso = true;
+      if (this._mostraComandi) this._mostraComandi();
       if (bottone) bottone.disabled = true;
 
       await Audio.avvia();
@@ -2257,6 +2386,7 @@
         } catch (e) { /* resta il ripiego sintetico */ }
       }
 
+      this._voceInUso = voce;
       const durBattito = (60 / (this._tempo * fattore));
 
       /* ══ ASCOLTARE SOLO IL TRATTO SEGNATO ══
@@ -2415,22 +2545,22 @@
                          (this._perGruppo &&
                           Math.abs(prima % (this._perGruppo / 2)) < 1e-6);
             const liv = capo ? Audio.LIVELLI.metro : Audio.LIVELLI.ritmo;
-            Audio.tick.triggerAttackRelease(liv.altezza, '64n', t, liv.forza);
+            this.orologio(() => Audio.tick.triggerAttackRelease(
+              liv.altezza, '64n', t, liv.forza), (t - Tone.now()) * 1000 - 60);
           } else {
-            voce.triggerAttackRelease(
-              d.keys.map(k => N.aTone(N.conArmatura(k, this._armatura))),
-              suonati * 0.92, t
-            );
+            const chiavi = d.keys.map(k => N.aTone(N.conArmatura(k, this._armatura)));
+            this.orologio(() => voce.triggerAttackRelease(chiavi, suonati * 0.92, t),
+                          (t - Tone.now()) * 1000 - 60);
           }
           const teste = catena[i]
             .map(k => this._note && this._note[k] && this._note[k].getSVGElement())
             .filter(Boolean);
           if (teste.length) {
             const ms = (t - Tone.now()) * 1000;
-            setTimeout(() => teste.forEach(el => {
+            this.orologio(() => teste.forEach(el => {
               el.style.fill = '#f59e0b'; el.style.stroke = '#f59e0b';
             }), ms);
-            setTimeout(() => teste.forEach(el => {
+            this.orologio(() => teste.forEach(el => {
               el.style.fill = ''; el.style.stroke = '';
             }), ms + suonati * 1000);
           }
@@ -2438,9 +2568,11 @@
       });
 
       const attesa = (ultimo - Tone.now()) * 1000 + 200;
-      setTimeout(() => {
+      this.orologio(() => {
         this._inCorso = false;
+        this._battuta = 0;
         if (bottone) bottone.disabled = false;
+        if (this._mostraComandi) this._mostraComandi();
       }, attesa);
     }
   }

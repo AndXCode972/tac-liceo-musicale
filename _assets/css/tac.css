@@ -65,7 +65,20 @@ html, body {
   width: var(--palco-l); height: var(--palco-h);
   padding: 2.6rem 3rem 3.2rem;
   background: var(--carta);
-  overflow: hidden;
+  /* ⚠ LA SLIDE SCORRE, e prima tagliava.
+     Andrea, 23 settembre 2026, davanti all'esempio a quattro voci diviso
+     in due sistemi: «la slide deve poter scorrere». Fino a qui l'altezza
+     era fissa e quello che avanzava spariva — una scelta voluta, perche'
+     rimpicciolire il corpo slide per slide fa ballare il testo davanti
+     alla classe (v. `adatta`, che infatti misura e non rimpicciolisce).
+     Ma fra rimpicciolire e tagliare c'e' una terza strada, ed e' questa:
+     il corpo resta uguale su tutte le slide, e quando il contenuto non
+     ci sta lo si raggiunge scorrendo. La diagnosi in regia resta: una
+     slide che si deve scorrere e' comunque una slide da sdoppiare. */
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
   border-radius: 8px;
   box-shadow: 0 14px 50px rgba(15, 23, 42, .22);
   transform: scale(var(--k, 1));
@@ -3046,3 +3059,18 @@ html.tac-soccorso .solo-proiezione { display: none; }
 #tac-soccorso-avviso { margin: 0; padding: 1rem 5vw; background: #fff4d6;
                        border-bottom: 2px solid #e0b84c; color: #4a3a12;
                        font: 500 1rem/1.55 Georgia, 'Times New Roman', serif; }
+
+/* ══ I COMANDI DI RIPRODUZIONE DEGLI ESEMPI ══════════════════════════
+   Andrea, 23 settembre 2026: «i tasti ascolta degli esempi devono avere
+   anche tutti gli altri controlli di riproduzione, ferma, avanti
+   indietro». I tre tasti di trasporto stanno stretti e senza parole: la
+   parola e' sul tasto grande, che e' quello che si cerca. */
+.tac-barra .btn.secondario { padding: .28rem .55rem; min-width: 2.1rem; }
+.tac-barra-battuta {
+  font-size: .82rem;
+  color: #6b7280;
+  align-self: center;
+  margin-left: .35rem;
+  white-space: nowrap;
+}
+.tac-barra .btn[disabled] { opacity: .38; cursor: default; }

@@ -30,7 +30,7 @@
 })();
 </script>
 <noscript><style>.slide { display: block !important; }</style></noscript>
-<link rel="stylesheet" href="../../_assets/css/tac.css?v=68669ca2">
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=fa0a46fb">
 <script>
 window.__mod = (typeof module !== 'undefined') ? module : null;
 window.__exp = (typeof exports !== 'undefined') ? exports : null;
@@ -42,7 +42,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=61c9ae7e" defer></script>
+<script src="../../_assets/js/tac-core.js?v=044405d8" defer></script>
 </head>
 <body>
 <div id="tac-deck">
@@ -65,13 +65,13 @@ try { module = undefined; exports = undefined; } catch (e) {}
      LA COSA DA NON FARE È PRESENTARLE COME UN ELENCO NUOVO. Il II, il
      III, il VI e il VII non sono quattro accordi in più da imparare:
      sono **quattro modi di rendere meno prevedibile** una successione
-     che con le sole primarie diventa una filastrocca. Questa è l'ora in
+     che con i soli gradi principali diventa una filastrocca. Questa è l'ora in
      cui si fa sentire il problema, e le soluzioni arrivano nelle
      cinque ore successive.
 
      IL METODO DELL'ORA È IL CONFRONTO ALL'ASCOLTO: si armonizza la
-     stessa melodia due volte, prima con le sole primarie e poi con le
-     secondarie, e si ascolta la differenza prima di spiegarla. È lo
+     stessa melodia due volte, prima con i soli gradi principali e poi
+     con quelli secondari, e si ascolta la differenza prima di spiegarla. È lo
      stesso impianto della lezione 5 della seconda — «si scrive, si
      ascolta, si riscrive cambiando una cosa sola» — che in quella
      classe ha funzionato.
@@ -123,7 +123,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <div class="riquadro attenzione"><p><strong>Non avete</strong><br>le altre quattro triadi: II, III, VI, VII</p></div>
     </div>
 
-    <p class="didascalia">Longo mette le due che contano subito dopo le primarie, e ne d&agrave; la ragione in una riga: il VI &laquo;di solito segue quello del V., come cadenza d&rsquo;inganno&hellip; appunto per evitare i frequenti ritorni alla tonica&raquo;, il II &laquo;invece di solito precede quello del V.&raquo; <cite>Achille Longo, <em>32 lezioni pratiche sull&rsquo;armonizzazione del canto dato</em>, lez. III&ndash;IV, p. 7</cite>. Non sono due accordi in pi&ugrave;: sono due modi di non arrivare sempre allo stesso posto.</p>
+    <p class="didascalia">Longo mette le due che contano subito dopo le tre principali, e ne d&agrave; la ragione in una riga: il VI &laquo;di solito segue quello del V., come cadenza d&rsquo;inganno&hellip; appunto per evitare i frequenti ritorni alla tonica&raquo;, il II &laquo;invece di solito precede quello del V.&raquo; <cite>Achille Longo, <em>32 lezioni pratiche sull&rsquo;armonizzazione del canto dato</em>, lez. III&ndash;IV, p. 7</cite>. Non sono due accordi in pi&ugrave;: sono due modi di non arrivare sempre allo stesso posto.</p>
 
   </div>
 </section>
@@ -132,7 +132,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
   <div class="slide-interna">
     <h2>Ascoltate questa, armonizzata come sapete</h2>
 
-    <p>Otto battute, armonizzate con le sole primarie. &Egrave; corretta: nessun parallelo, condotta pulita, cadenza autentica in fondo.</p>
+    <p>Otto battute, armonizzate con i soli gradi principali &mdash; I, IV e V. &Egrave; corretta: nessun parallelo, condotta pulita, cadenza autentica in fondo.</p>
 
     <tac-stave clef="treble" time="4/4"
                caption="Solo I, IV e V — la prima frase, fino alla semicadenza"
@@ -142,6 +142,14 @@ try { module = undefined; exports = undefined; } catch (e) {}
                basso="c/3:h b/2:h | c/3:h f/3:h | g/3:h c/3:h | f/3:h g/3:h"
                cifre="I · V6 · I · IV · V · I · IV · V"
                width="740" tempo="54" play></tac-stave>
+  </div>
+</section>
+
+<!-- Sdoppiata il 23 settembre 2026: due pentagrammi in una
+     slide sola finivano sotto la barra (`_sfora.py`). -->
+<section class="slide" data-titolo="Il problema, ascoltato (segue)">
+  <div class="slide-interna">
+    <h2>La seconda frase, e la cadenza</h2>
 
     <tac-stave clef="treble" time="4/4"
                caption="… e la seconda, che chiude con il sesta-quarta e il V7"
@@ -158,21 +166,47 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide" data-titolo="La stessa, con le secondarie">
+<section class="slide" data-titolo="La stessa, con le triadi secondarie">
   <div class="slide-interna">
     <h2>Adesso la stessa melodia, con quattro accordi in pi&ugrave;</h2>
 
     <p>Identica sopra. Cambia solo che cosa c&rsquo;&egrave; sotto.</p>
 
+    <!-- Rifatto il 23 settembre 2026. Andrea: «e' la stessa? correggi i
+         soliti errori, metti la numerica, dividi in due righi».
+         Non era la stessa: il soprano era un'altra melodia, e la slide
+         diceva «identica sopra». Adesso e' nota per nota quello del primo
+         esempio; cambia solo che cosa c'e' sotto, che era la tesi.
+         L'armonizzazione non e' scritta a orecchio: l'ha cercata
+         `quarta2.py` sopra `cerca.py`, enumerando tutti i piani d'accordi
+         che il soprano regge e scartando quelli che violano le regole. -->
     <tac-stave clef="treble" time="4/4"
-               caption="Con II, III e VI"
-               soprano="e/5:h f/5:h | g/5:h e/5:h | f/5:h e/5:h | d/5:h d/5:h | e/5:h f/5:h | g/5:h f/5:h | e/5:h d/5:h | d/5:h c/5:h"
-               contralto="c/5:h a/4:h | g/4:h a/4:h | a/4:h g/4:h | g/4:h g/4:h | g/4:h f/4:h | b/4:h a/4:h | a/4:h f/4:h | d/4:h e/4:h"
-               tenore="g/4:h d/4:h | b/3:h c/4:h | c/4:h c/4:h | b/3:h b/3:h | c/4:h a/3:h | e/4:h c/4:h | c/4:h a/3:h | b/3:h g/3:h"
-               basso="c/3:h d/3:h | e/3:h a/3:h | f/3:h c/3:h | g/3:h g/3:h | c/3:h d/3:h | e/3:h f/3:h | a/3:h d/3:h | g/3:h c/3:h"
+               caption="Gli stessi sei suoni sopra, altri accordi sotto &mdash; fino alla semicadenza"
+               soprano="e/5:h d/5:h | e/5:h f/5:h | d/5:h c/5:h | c/5:h. b/4:q"
+               contralto="g/4:h f/4:h | a/4:h a/4:h | a/4:h g/4:h | g/4:w"
+               tenore="c/4:h b/3:h | c/4:h c/4:h | f/4:h e/4:h | d/4:w"
+               basso="c/3:h d/3:h | c/3:h a/2:h | d/3:h e/3:h | g/3:w"
+               cifre="I &middot; VII6 &middot; VI6 &middot; IV6 &middot; II &middot; I6 &middot; V"
+               width="740" tempo="54" play></tac-stave>
+  </div>
+</section>
+
+<!-- Sdoppiata il 23 settembre 2026: due pentagrammi in una
+     slide sola finivano sotto la barra (`_sfora.py`). -->
+<section class="slide" data-titolo="La stessa, con le triadi secondarie (segue)">
+  <div class="slide-interna">
+    <h2>Adesso la stessa melodia, con quattro accordi in pi&ugrave;</h2>
+
+    <tac-stave clef="treble" time="4/4"
+               caption="&hellip; e la seconda frase, che non parte piu&#768; dalla tonica"
+               soprano="c/5:h c/5:h | g/5:h f/5:h | e/5:h d/5:h | c/5:w"
+               contralto="e/4:h e/4:h | b/4:h a/4:h | g/4:h f/4:h | e/4:w"
+               tenore="a/3:h g/3:h | e/4:h c/4:h | c/4:h b/3:h | c/4:w"
+               basso="a/2:h c/3:h | e/3:h f/3:h | g/3:h g/3:h | c/3:w"
+               cifre="VI &middot; I &middot; III &middot; IV &middot; I64 &middot; V7 &middot; I"
                width="740" tempo="54" play></tac-stave>
 
-    <p class="didascalia">Il basso adesso <strong>cammina</strong> invece di rimbalzare, e la frase arriva alla cadenza da un&rsquo;altra parte.</p>
+    <p class="didascalia">Stesse note sopra, stesse otto battute, stessa cadenza in fondo. Sotto, dei tre accordi di prima ne restano pochi: il basso <strong>cammina</strong> invece di rimbalzare, e la seconda frase non riparte nemmeno dalla tonica.</p>
   </div>
 </section>
 
@@ -183,7 +217,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p>Sui sette gradi della scala maggiore stanno sette triadi. Tre le conoscete; queste sono le altre.</p>
 
     <div class="colonne">
-      <div class="riquadro"><p><strong>II &middot; III &middot; VI</strong><br>triadi <em>minori</em> nel modo maggiore. Sono quelle che useremo: hanno un colore diverso dalle primarie, e per questo si sentono</p></div>
+      <div class="riquadro"><p><strong>II &middot; III &middot; VI</strong><br>triadi <em>minori</em> nel modo maggiore. Sono quelle che useremo: hanno un colore diverso dalle tre principali, e per questo si sentono</p></div>
       <div class="riquadro attenzione"><p><strong>VII</strong><br>triade <em>diminuita</em>: ha una quinta che non sta ferma. La trattiamo a parte, e non in questa unit&agrave;</p></div>
     </div>
 
@@ -389,7 +423,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
 </tac-brano>
 
 
-    <p class="didascalia">Circa met&agrave; e met&agrave;. Le primarie reggono i punti di appoggio &mdash; inizio, cadenze &mdash; e le secondarie stanno in mezzo. Non &egrave; una scelta di ornamento: senza di loro le otto verticali sarebbero tre accordi che si alternano.</p>
+    <p class="didascalia">Circa met&agrave; e met&agrave;. I gradi principali reggono i punti di appoggio &mdash; inizio, cadenze &mdash; e quelli secondari stanno in mezzo. Non &egrave; una scelta di ornamento: senza di loro le otto verticali sarebbero tre accordi che si alternano.</p>
   </div>
 </section>
 
@@ -400,10 +434,20 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p>L&rsquo;esperimento di poco fa lo ha fatto sentire. Vale la pena capire il meccanismo, perch&eacute; poi si sa dove intervenire.</p>
 
     <tac-stave time="4/4"
-               caption="Sole primarie: la stessa coppia che torna, e l&rsquo;orecchio prevede tutto"
+               caption="Soli gradi principali: la stessa coppia che torna, e l&rsquo;orecchio prevede tutto"
                soprano="e/5:w | f/5:w | e/5:w | d/5:w"
                basso="c/4:w | f/3:w | c/4:w | g/3:w"
                width="780" tempo="46" play slow></tac-stave>
+
+  </div>
+</section>
+
+<!-- Sdoppiata il 23 settembre 2026. Andrea, su questa slide: «sfora».
+     Il pentagramma con le semibrevi e' alto, e sotto restavano un
+     riquadro e una didascalia: l'ultima riga finiva dietro la barra. -->
+<section class="slide" data-titolo="Perch&eacute; suona come una filastrocca (segue)">
+  <div class="slide-interna">
+    <h2>Perch&eacute; con tre accordi diventa una filastrocca</h2>
 
     <div class="riquadro definizione">
       <span class="etichetta">Che cosa succede all&rsquo;orecchio</span>
@@ -424,14 +468,14 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
     <div class="riquadro definizione">
       <span class="etichetta">Che cosa sono davvero</span>
-      <p>Quattro modi di <strong>sostituire</strong> una primaria, in punti in cui la primaria si sentirebbe troppo.<br>
+      <p>Quattro modi di <strong>sostituire</strong> un grado principale, nei punti in cui il grado principale si sentirebbe troppo.<br>
       Il <strong>II</strong> sostituisce il IV: apre come lui, con un colore diverso.<br>
       Il <strong>VI</strong> sostituisce il I: si posa senza chiudere.<br>
       Il <strong>III</strong> sta fra I e V, e non sostituisce nessuno &mdash; &egrave; il pi&ugrave; raro.<br>
       Il <strong>VII</strong> sostituisce il V: tira come lui, con meno peso.</p>
     </div>
 
-    <p class="didascalia">Da qui viene una regola pratica che vale tutto l&rsquo;anno: quando una secondaria non si sa dove mettere, ci si chiede <strong>quale primaria sta prendendo il posto di</strong>. Se non risponde a nessuna, quasi sempre &egrave; l&igrave; per sbaglio.</p>
+    <p class="didascalia">Da qui viene una regola pratica che vale tutto l&rsquo;anno: quando un accordo secondario non si sa dove mettere, ci si chiede <strong>quale grado principale sta prendendo il posto di</strong>. Se non risponde a nessuna, quasi sempre &egrave; l&igrave; per sbaglio.</p>
   </div>
 </section>
 
@@ -440,10 +484,10 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <h2>Perch&eacute; possono sostituirsi</h2>
 
     <tac-stave time="4/4"
-               caption="I e VI: do&ndash;mi&ndash;sol e la&ndash;do&ndash;mi. Il do e il mi sono gli stessi"
-               soprano="e/5:w | e/5:w"
-               contralto="c/5:w | c/5:w"
-               tenore="g/4:w | a/4:w"
+               caption="I e VI: do&ndash;mi&ndash;sol e la&ndash;do&ndash;mi. Il do e il mi restano fermi, si muovono solo il sol e il basso"
+               soprano="c/5:w | c/5:w"
+               contralto="e/4:w | e/4:w"
+               tenore="g/3:w | a/3:w"
                basso="c/3:w | a/2:w"
                width="780" tempo="46" play slow></tac-stave>
 
@@ -460,10 +504,10 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
     <tac-stave time="4/4"
-               caption="IV e II: fa&ndash;la&ndash;do e re&ndash;fa&ndash;la. Il fa e il la sono gli stessi"
-               soprano="f/5:w | f/5:w"
-               contralto="c/5:w | d/5:w"
-               tenore="a/4:w | a/4:w"
+               caption="IV e II: fa&ndash;la&ndash;do e re&ndash;fa&ndash;la. Il fa e il la restano fermi, si muovono solo il do e il basso"
+               soprano="c/5:w | d/5:w"
+               contralto="f/4:w | f/4:w"
+               tenore="a/3:w | a/3:w"
                basso="f/3:w | d/3:w"
                width="780" tempo="46" play slow></tac-stave>
 
@@ -506,7 +550,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
       Il <strong>re</strong> sta dentro: V (sol&ndash;si&ndash;re), II (re&ndash;fa&ndash;la) e VII (si&ndash;re&ndash;fa).</p>
     </div>
 
-    <p>Ogni nota della scala appartiene a <strong>tre</strong> triadi. Con le sole primarie ne erano disponibili una o due; adesso sono tre, e la scelta diventa una scelta vera.</p>
+    <p>Ogni nota della scala appartiene a <strong>tre</strong> triadi. Con i soli gradi principali ne erano disponibili una o due; adesso sono tre, e la scelta diventa una scelta vera.</p>
 
     <p class="didascalia">&Egrave; una buona notizia e un problema nuovo: pi&ugrave; possibilit&agrave; vuol dire anche pi&ugrave; modi di sbagliare. Le cinque ore che vengono servono a imparare <strong>quando</strong> conviene ciascuna.</p>
   </div>
@@ -520,7 +564,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
     <div class="riquadro procedura">
       <span class="etichetta">In quest&rsquo;ordine</span>
-      <p><strong>1.</strong> <em>Dove sono nella frase?</em> Nei punti di appoggio &mdash; inizio, met&agrave;, fine &mdash; si usano le <strong>primarie</strong>. Le secondarie stanno in mezzo.<br>
+      <p><strong>1.</strong> <em>Dove sono nella frase?</em> Nei punti di appoggio &mdash; inizio, met&agrave;, fine &mdash; si usano i <strong>gradi principali</strong>. Quelli secondari stanno in mezzo.<br>
       <strong>2.</strong> <em>Che cosa c&rsquo;era prima?</em> Si evita di ripetere lo stesso accordo, e si preferisce quello che cambia di pi&ugrave;.<br>
       <strong>3.</strong> <em>Che cosa fa il basso?</em> La scelta dell&rsquo;accordo decide la nota del basso: si guarda se ne viene una linea che si canta.</p>
     </div>
@@ -533,7 +577,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
   <div class="slide-interna">
     <h2>Le sei ore di quest&rsquo;unit&agrave;</h2>
 
-    <p>Un&rsquo;ultima cosa sull&rsquo;ordine: le secondarie arrivano <strong>prima</strong> delle settime, che sono l&rsquo;argomento dell&rsquo;unit&agrave; 2. Non &egrave; un dettaglio di calendario &mdash; una settima si costruisce su un grado, e per usarla bisogna prima sapere che cosa fa quel grado. Chi impara la settima di dominante senza avere in mano le funzioni la usa come un colore, e la mette dove suona bene.</p>
+    <p>Un&rsquo;ultima cosa sull&rsquo;ordine: le triadi secondarie arrivano <strong>prima</strong> delle settime, che sono l&rsquo;argomento dell&rsquo;unit&agrave; 2. Non &egrave; un dettaglio di calendario &mdash; una settima si costruisce su un grado, e per usarla bisogna prima sapere che cosa fa quel grado. Chi impara la settima di dominante senza avere in mano le funzioni la usa come un colore, e la mette dove suona bene.</p>
 
     <p>Oggi si &egrave; sentito il problema. Le soluzioni arrivano una per volta.</p>
 
@@ -562,7 +606,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
       </div>
       <div class="riquadro studio">
         <span class="etichetta">La cosa da ricordare</span>
-        <p>Le secondarie non servono a scrivere <em>di pi&ugrave;</em>: servono a <strong>non essere prevedibili</strong>. Con tre accordi tutto torna e niente sorprende.</p>
+        <p>Le triadi secondarie non servono a scrivere <em>di pi&ugrave;</em>: servono a <strong>non essere prevedibili</strong>. Con tre accordi tutto torna e niente sorprende.</p>
       </div>
     </div>
 
@@ -585,7 +629,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
      cui quelle armonie sono il colore principale, cioè il Lied, e
      mancava il caso in cui una secondaria non colora ma MODULA.
      ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="Le secondarie come colore">
+<section class="slide perc" data-titolo="Le dominanti secondarie come colore">
   <div class="slide-interna">
     <h2>Dove servono a dire una parola</h2>
 
@@ -603,7 +647,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
 </section>
 
 <!-- Sdoppiata il 20 settembre 2026 (`_sdoppia.py`): non stava nel palco. -->
-<section class="slide perc" data-titolo="Le secondarie come colore (segue)">
+<section class="slide perc" data-titolo="Le dominanti secondarie come colore (segue)">
   <div class="slide-interna">
     <h2>Dove servono a dire una parola</h2>
 
@@ -624,7 +668,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide perc" data-titolo="E le secondarie che portano via">
+<section class="slide perc" data-titolo="E le dominanti secondarie che portano via">
   <div class="slide-interna">
     <h2>Quando invece la tonalità cambia</h2>
 
@@ -642,7 +686,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
 </section>
 
 <!-- Sdoppiata il 20 settembre 2026 (`_sdoppia.py`): non stava nel palco. -->
-<section class="slide perc" data-titolo="E le secondarie che portano via (segue)">
+<section class="slide perc" data-titolo="E le dominanti secondarie che portano via (segue)">
   <div class="slide-interna">
     <h2>Quando invece la tonalità cambia</h2>
 
@@ -667,11 +711,15 @@ try { module = undefined; exports = undefined; } catch (e) {}
   <div class="slide-interna">
     <h2>Il conto, rifatto in un minuto</h2>
 
-    <tac-stave clef="treble" time="4/4" caption="V/V, V/vi, V/IV: tre accordi maggiori dove la tonalità ne dava altri" notes="d/4+f#/4+a/4:h e/4+g#/4+b/4:h c/4+e/4+g/4+bb/4:w" width="500" tempo="46" play></tac-stave>
+    <tac-stave clef="treble" time="4/4"
+               caption="Tre coppie. A sinistra l&rsquo;accordo che d&agrave; la tonalit&agrave;, a destra la dominante secondaria: in ogni coppia cambia una nota sola"
+               notes="f/4+a/4+d/5:h f#/4+a/4+d/5:h | g/4+b/4+e/5:h g#/4+b/4+e/5:h | e/4+g/4+c/5:h e/4+g/4+bb/4+c/5:h"
+               width="640" tempo="46" play></tac-stave>
 
     <div class="riquadro studio">
       <span class="etichetta">Il conto, e viene sempre corto</span>
-      <p><strong>V/V</strong> &middot; in do: re maggiore, serve il fa diesis.<br>
+      <p>Non sono accordi nuovi: sono accordi che <strong>c&rsquo;erano gi&agrave;</strong>, con una nota alzata o abbassata.<br>
+      <strong>V/V</strong> &middot; in do: re maggiore, serve il fa diesis.<br>
       <strong>V/vi</strong> &middot; mi maggiore, serve il sol diesis.<br>
       <strong>V/IV</strong> &middot; do con la settima abbassata, serve il si bemolle.<br>
       <strong>V/ii</strong> &middot; la maggiore, serve il do diesis.</p>
@@ -697,16 +745,23 @@ try { module = undefined; exports = undefined; } catch (e) {}
   <div class="slide-interna">
     <h2>Tre criteri, in ordine di peso</h2>
 
-    <tac-stave clef="treble" time="4/4" caption="Un sol nella melodia: regge la V/V, la V/vi e il I. Tre strade, e vanno confrontate" notes="g/4:w" width="200" tempo="46" play></tac-stave>
+    <tac-stave time="4/4"
+               caption="Lo stesso do sopra, e sotto tre accordi diversi: il I, il IV e il VI. Tre strade, e vanno confrontate"
+               soprano="c/5:h c/5:h | c/5:w"
+               contralto="e/4:h f/4:h | e/4:w"
+               tenore="g/3:h a/3:h | a/3:w"
+               basso="c/3:h f/3:h | a/2:w"
+               cifre="I &middot; IV &middot; VI"
+               width="520" tempo="46" play></tac-stave>
 
     <div class="riquadro studio">
       <span class="etichetta">Primo &middot; dove sta nella frase</span>
-      <p>Le secondarie stanno prima di una cadenza o di una semicadenza. In mezzo a una frase quasi mai. Questo criterio da solo elimina la maggior parte delle possibilità.</p>
+      <p>Le dominanti secondarie stanno prima di una cadenza o di una semicadenza. In mezzo a una frase quasi mai. Questo criterio da solo elimina la maggior parte delle possibilità.</p>
     </div>
 
     <div class="riquadro studio">
       <span class="etichetta">Secondo &middot; che cosa fa il basso</span>
-      <p>La linea del basso deve restare cantabile. Una secondaria che costringe il basso a un salto di settima è tecnicamente corretta e va scartata.</p>
+      <p>La linea del basso deve restare cantabile. Una dominante secondaria che costringe il basso a un salto di settima è tecnicamente corretta e va scartata.</p>
     </div>
 
     <div class="riquadro studio">
@@ -716,7 +771,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
     <div class="riquadro attenzione">
       <span class="etichetta">Il difetto del compito di chi ha appena imparato</span>
-      <p>Metterle dappertutto. Un tema d&rsquo;armonia con una secondaria per battuta è <strong>corretto e illeggibile</strong>: non si capisce più in che tonalità si è.</p>
+      <p>Metterle dappertutto. Un tema d&rsquo;armonia con una dominante secondaria per battuta è <strong>corretto e illeggibile</strong>: non si capisce più in che tonalità si è.</p>
     </div>
 
     <p class="didascalia">Vale per ogni tecnica nuova: la si usa troppo per un mese, e poi si impara a dosarla. Sapere in anticipo che succederà <strong>accorcia il mese</strong>.</p>
@@ -733,7 +788,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <span class="etichetta">Per la prossima volta</span>
       <ol class="compiti" start="1">
       <li>
-        <p class="testo-compito"><strong>1. Due armonizzazioni della stessa melodia.</strong> Riascolta i due esempi della lezione, quello con le sole primarie e quello con le secondarie.</p>
+        <p class="testo-compito"><strong>1. Due armonizzazioni della stessa melodia.</strong> Qui sotto ci sono le due versioni: la stessa melodia armonizzata con i soli gradi principali, e poi con i gradi secondari. Riascoltale quante volte vuoi.</p>
       </li>
       </ol>
     </div>
@@ -753,7 +808,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
         <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-01.html#C4-U1-L1-02"><strong>Workbook</strong></a>, scheda C4-U1-L1-02.</p>
       </li>
       <li>
-        <p class="testo-compito"><strong>3. Cercare una secondaria in un corale.</strong> Sul Workbook trovi otto battute di un corale col cifrato tolto. Ricostruisci il cifrato dei gradi.</p>
+        <p class="testo-compito"><strong>3. Cercare un accordo secondario in un corale.</strong> Sul Workbook trovi otto battute di un corale col cifrato tolto. Ricostruisci il cifrato dei gradi.</p>
         <p class="rimando">Si scrive sul <strong>tuo quaderno</strong>, e la foto va su Classroom; lo ritrovi nel <a href="../materiali/workbook-uda-01.html#C4-U1-L1-04"><strong>Workbook</strong></a>, scheda C4-U1-L1-04.</p>
       </li>
       <li>

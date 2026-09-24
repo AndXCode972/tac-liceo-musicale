@@ -2678,8 +2678,18 @@
                          (this._perGruppo &&
                           Math.abs(prima % (this._perGruppo / 2)) < 1e-6);
             const liv = capo ? Audio.LIVELLI.metro : Audio.LIVELLI.ritmo;
-            this.inCoda(t, () => Audio.tick.triggerAttackRelease(
-              liv.altezza, '64n', t, liv.forza));
+            /* ⚠ QUI SI PROGRAMMA DIRETTO, E NON E' UNA SVISTA.
+               Il 24 settembre ho provato a far passare anche i colpi dalla
+               coda, per poterli fermare. Misurato sul sito: le note
+               uscivano dalla coda con anticipi di sei secondi e in ordine
+               DECRESCENTE, e il sintetizzatore monofonico rifiutava tutto
+               dopo il primo — cioe' silenzio. Non ho ancora capito perche'
+               la coda si comporti cosi' solo su questo ramo, e finche' non
+               lo capisco qui sta la consegna diretta, che ha sempre
+               funzionato. Il prezzo e' che il «Ferma» non zittisce i colpi
+               gia' programmati: si preferisce un pulsante imperfetto a una
+               lezione muta. */
+            Audio.tick.triggerAttackRelease(liv.altezza, '64n', t, liv.forza);
           } else {
             const chiavi = d.keys.map(k => N.aTone(N.conArmatura(k, this._armatura)));
             this.inCoda(t, () => voce.triggerAttackRelease(chiavi, suonati * 0.92, t));
@@ -4659,8 +4669,14 @@
             FORZA   = [L.metro.forza,   L.puls.forza,   L.sudd.forza];
       this._suona = true;
       this.aggiornaTasto(true);
-      colpi.forEach(c => Audio.programma(this, inizio + c.t,
-                                         ALTEZZA[c.liv], FORZA[c.liv]));
+      /* Diretto, per la stessa ragione scritta piu' sopra sul ramo della
+         percussione: la coda, provata sul sito, consegnava fuori ordine. */
+      colpi.forEach(c => {
+        try {
+          Audio.tick.triggerAttackRelease(ALTEZZA[c.liv], '64n',
+                                          inizio + c.t, FORZA[c.liv]);
+        } catch (e) { /* due colpi nello stesso istante: se ne perde uno */ }
+      });
 
       clearTimeout(this._pulizia);
       this._pulizia = setTimeout(() => { this._suona = false; this.aggiornaTasto(false); },
@@ -4682,10 +4698,16 @@
          sito: dopo il Ferma l'uscita batteva ancora nove volte in due
          secondi e mezzo. Con la disdetta sull'inviluppo resta solo il
          colpo che stava già suonando, che dura trenta millesimi. */
-      /* Si tolgono dalla coda i colpi di QUESTO esercizio. Il
-         sintetizzatore non si tocca: e' di tutti, e cancellargli
-         l'inviluppo lo spegneva per l'intera pagina. Resta solo il colpo
-         gia' partito, che dura trenta millesimi. */
+      /* ⚠ IL SINTETIZZATORE NON SI TOCCA. Qui prima c'era
+         `Audio.tick.envelope.cancel(...)`, che non spegneva questo
+         esercizio: spegneva `Audio.tick`, che e' di TUTTA la pagina, e da
+         quel momento nessun esempio di ritmo suonava piu' fino al
+         ricaricamento. Andrea, 24 settembre, su quattro slide diverse:
+         «non si sente». Misurato sul sito: colpi consegnati, nessun
+         errore, e il livello all'uscita a meno infinito.
+         Finche' i colpi si programmano diretti, fermarsi non li richiama
+         indietro: il tasto torna «Ascolta» e l'esercizio finisce il giro.
+         E' il difetto minore, e si toglie quando la coda funzionera'. */
       Audio.disdici(this);
       this.aggiornaTasto(false);
     }

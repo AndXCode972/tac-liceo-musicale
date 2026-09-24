@@ -1213,8 +1213,39 @@
       const testo   = quattro ? (this.getAttribute('soprano') || '')
                               : (this.getAttribute('notes') || '');
       this._tempo   = parseFloat(this.getAttribute('tempo') || '84');
-      const larghezza = parseInt(this.getAttribute('width') || '0', 10) ||
-                        Math.min(880, Math.max(340, (this.clientWidth || 700) - 40));
+      let larghezza = parseInt(this.getAttribute('width') || '0', 10) ||
+                      Math.min(880, Math.max(340, (this.clientWidth || 700) - 40));
+
+      /* ══ `grande`: LA MUSICA GRANDE SI OTTIENE SCRIVENDO UN NUMERO PICCOLO
+
+         Andrea, 24 settembre, su un esempio di ritmo della prima:
+         «ingrandire, l'avevo già richiesto altre volte». Aveva ragione a
+         insistere, e l'attributo `grande` c'era già — ma non faceva
+         niente: in JavaScript non era letto da nessuna parte, e in CSS
+         `.grande` è una classe di testo, che su un attributo non attacca.
+
+         Il motivo per cui l'esempio era minuscolo è controintuitivo, ed è
+         la trappola che ha fatto scrivere `width="980"` pensando di
+         ingrandirlo. `width` non è la misura sullo schermo: è la
+         **larghezza del disegno**, e l'SVG poi si allarga fino a riempire
+         il riquadro. Sei note stese su 980 unità e poi schiacciate in 864
+         pixel danno un rigo alto 61 px; le stesse sei note disegnate su
+         440 unità e allargate a 864 danno un rigo alto 135. Misurato:
+         980 → 61 px, 600 → 99, 440 → 135, 340 → 175.
+
+         Quindi `grande` non alza un numero: lo **abbassa**, e lo calcola
+         dal contenuto — una cinquantina di unità a nota più lo spazio di
+         chiave e tempo. Su un esempio fitto la formula non stringe niente
+         e l'esempio resta come è scritto, che è giusto: lì lo spazio
+         serve davvero. */
+      if (this.hasAttribute('grande')) {
+        const testo = this.getAttribute('notes') || this.getAttribute('soprano') || '';
+        const eventi = testo.split(/\s+/).filter(t => t && t !== '|' && t !== '｜').length;
+        if (eventi) {
+          this._senzaTetto = true;
+          larghezza = Math.max(300, Math.min(larghezza, 150 + 50 * eventi));
+        }
+      }
 
       if (caption) {
         const d = document.createElement('div');
@@ -1764,7 +1795,14 @@
         if (finestra) {
           disegno.style.width = '100%';
           disegno.style.height = 'auto';
-          disegno.style.maxWidth = Math.round(larghezza * 1.35) + 'px';
+          /* Il tetto serve a non far diventare enorme un rigo di due
+             battute su una slide larghissima. Ma si misura sulla
+             larghezza del DISEGNO, e `grande` quella l'ha appena
+             abbassata: lasciarlo avrebbe rimpicciolito proprio l'esempio
+             che si voleva ingrandire. Con `grande` il riquadro se lo
+             prende tutto. */
+          disegno.style.maxWidth = this._senzaTetto
+            ? 'none' : Math.round(larghezza * 1.35) + 'px';
           disegno.removeAttribute('width');
         }
       }
@@ -2329,9 +2367,50 @@
       return id;
     }
 
+    /* ⚠ I SUONI NON POSSONO PARTIRE DA OROLOGI SEPARATI.
+       Andrea, 24 settembre, su due esempi di ritmo della prima: «non si
+       sente». Era una regressione del giorno prima, e la causa non si
+       vedeva a occhio: nel banco di prova usciva
+       «Start time must be strictly greater than previous start time».
+
+       Rimandando ogni nota con un `setTimeout` suo, l'ORDINE di arrivo non
+       e' piu' garantito: due timeout che scadono nello stesso giro possono
+       consegnare i loro istanti al contrario. Su un esempio melodico non
+       succede niente, perche' il PolySynth accetta tutto; ma la
+       percussione suona su `Audio.tick`, che e' un sintetizzatore
+       MONOFONICO condiviso, e quello pretende istanti crescenti: al primo
+       fuori ordine rifiuta, e da li' in poi non si sente piu' niente.
+
+       Il rimedio e' il modo in cui si scrive un sequencer per Web Audio:
+       una coda sola, tenuta in ordine di tempo, e un orologio solo che
+       ogni quaranta millesimi consegna quello che scade entro i prossimi
+       centoventi. L'audio resta preciso al campione — l'istante esatto
+       viaggia dentro la chiamata — le note restano annullabili (si ferma
+       l'orologio e si svuota la coda) e l'ordine non puo' invertirsi,
+       perche' a consegnarle e' un ciclo solo. */
+    inCoda(quando, fare) {
+      (this._coda = this._coda || []).push({ t: quando, fare: fare });
+      if (this._codaOrologio) return;
+      const passo = () => {
+        if (!this._coda || !this._coda.length) {
+          clearInterval(this._codaOrologio); this._codaOrologio = null; return;
+        }
+        this._coda.sort((a, b) => a.t - b.t);
+        const ora = Tone.now();
+        while (this._coda.length && this._coda[0].t <= ora + 0.12) {
+          const v = this._coda.shift();
+          try { v.fare(); } catch (e) { /* una nota persa non ferma le altre */ }
+        }
+      };
+      this._codaOrologio = setInterval(passo, 40);
+      passo();
+    }
+
     ferma() {
       (this._orologi || []).forEach(clearTimeout);
       this._orologi = [];
+      if (this._codaOrologio) { clearInterval(this._codaOrologio); this._codaOrologio = null; }
+      this._coda = [];
       try {
         if (this._voceInUso && this._voceInUso.releaseAll) this._voceInUso.releaseAll();
       } catch (e) { /* una voce che non sa rilasciare: pazienza */ }
@@ -2348,6 +2427,8 @@
     async suona(bottone, fattore = 1, da = null, a = null) {
       if (this._inCorso) return;
       this._orologi = [];
+      this._coda = [];
+      if (this._codaOrologio) { clearInterval(this._codaOrologio); this._codaOrologio = null; }
       this._inCorso = true;
       if (this._mostraComandi) this._mostraComandi();
       if (bottone) bottone.disabled = true;
@@ -2545,12 +2626,11 @@
                          (this._perGruppo &&
                           Math.abs(prima % (this._perGruppo / 2)) < 1e-6);
             const liv = capo ? Audio.LIVELLI.metro : Audio.LIVELLI.ritmo;
-            this.orologio(() => Audio.tick.triggerAttackRelease(
-              liv.altezza, '64n', t, liv.forza), (t - Tone.now()) * 1000 - 60);
+            this.inCoda(t, () => Audio.tick.triggerAttackRelease(
+              liv.altezza, '64n', t, liv.forza));
           } else {
             const chiavi = d.keys.map(k => N.aTone(N.conArmatura(k, this._armatura)));
-            this.orologio(() => voce.triggerAttackRelease(chiavi, suonati * 0.92, t),
-                          (t - Tone.now()) * 1000 - 60);
+            this.inCoda(t, () => voce.triggerAttackRelease(chiavi, suonati * 0.92, t));
           }
           const teste = catena[i]
             .map(k => this._note && this._note[k] && this._note[k].getSVGElement())

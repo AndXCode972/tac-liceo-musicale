@@ -1794,13 +1794,38 @@
         const tesa = parseFloat(disegno.getAttribute('height')) ||
                      this._tesa || (doppio ? 260 : 150);
         let su = Infinity, giu = -Infinity;
+        /* ⚠ UN GLIFO NON E' ALTO QUANTO DICE. E' il difetto che stava
+           sotto a tutti gli «sfora» del 25 settembre 2026.
+           `getBBox()` su un <text> non restituisce l'inchiostro del segno:
+           restituisce la **scatola di riga del font**. Misurata in pagina,
+           ogni testa di nota, ogni chiave e ogni alterazione dichiarava
+           161 px di altezza — piu' di tre pentagrammi — e il ritaglio,
+           che segue l'inviluppo, ci credeva. Su un esempio a due righi i
+           pentagrammi stavano fra y=63 e y=213, e la finestra usciva
+           `-31 .. 308`: 94 px di bianco sopra e 95 sotto, su ogni esempio
+           del corso. Da li' le slide che sforavano pur avendo dentro tre
+           accordi.
+           Le linee dei righi, i gambi, le travature, i tagli addizionali e
+           le stanghette sono `path`/`rect`/`line`: quelli sono inchiostro
+           vero e si misurano come prima. Per i glifi si usa invece la
+           **linea di base** — che e' l'attributo `y` che VexFlow scrive —
+           con una fascia sopra e sotto abbastanza larga da contenere la
+           chiave di violino, che e' il glifo che sporge di piu'. Cosi' la
+           numerica sotto i gambi continua a starci (era il difetto «il
+           riquadro mangia la numerica») senza pagare il bianco del font. */
+        const SOPRA_GLIFO = 46, SOTTO_GLIFO = 36;
         disegno.querySelectorAll('path, rect, text, line, polygon, ellipse, circle')
           .forEach(function (el) {
             let b = null;
             try { b = el.getBBox(); } catch (e) { return; }
             if (!b || !b.height || b.height >= tesa - 2) return;
-            if (b.y < su) su = b.y;
-            if (b.y + b.height > giu) giu = b.y + b.height;
+            let y0 = b.y, y1 = b.y + b.height;
+            if (el.tagName === 'text' || el.tagName === 'TEXT') {
+              const base = parseFloat(el.getAttribute('y'));
+              if (isFinite(base)) { y0 = base - SOPRA_GLIFO; y1 = base + SOTTO_GLIFO; }
+            }
+            if (y0 < su) su = y0;
+            if (y1 > giu) giu = y1;
           });
         if (giu > su && giu - su > 10) {
           /* ⚠ LA FINESTRA SEGUE L'INCHIOSTRO, NON LA TELA.
@@ -1855,6 +1880,18 @@
              prende tutto. */
           disegno.style.maxWidth = this._senzaTetto
             ? 'none' : Math.round(larghezza * 1.35) + 'px';
+          /* ⚠ E IL TETTO IN ALTEZZA SEGUE IL RITAGLIO.
+             Nel foglio di stile c'era `max-height: 300px`, uguale per
+             tutti. Su un esempio a due righi il disegno ritagliato ne
+             chiede 259: i 41 che restano diventano bordo bianco dentro
+             la scheda, perche' l'SVG ci si incornicia dentro. Il tetto
+             serve ancora — su una slide larghissima un rigo non deve
+             diventare gigantesco — ma la misura giusta e' quella del
+             disegno, non un numero fisso. */
+          const vb = (finestra || '').split(/\s+/);
+          if (vb.length === 4 && isFinite(+vb[3])) {
+            disegno.style.maxHeight = Math.round(+vb[3]) + 'px';
+          }
           disegno.removeAttribute('width');
         }
       }
@@ -7883,6 +7920,32 @@
       this.i = Math.max(0, Math.min(n, this.slides.length - 1));
       this.slides.forEach((s, k) => s.classList.toggle('attiva', k === this.i));
       const cur = this.slides[this.i];
+
+      /* ══ UNA SLIDE CHE SCORRE DEVE DIRLO ═══════════════════════════
+         Andrea, 25 settembre 2026, cinque volte in un'ora: «sfora».
+         Non sforava: scorreva. Ma una frase tagliata a meta' dal bordo
+         inferiore, senza nessun segno che sotto ci sia dell'altro, si
+         legge come un guasto — e in classe, davanti a trenta ragazzi,
+         nessuno prova a trascinare una slide.
+         Qui la slide aperta si misura e, se continua sotto, prende la
+         classe `continua`: il foglio di stile ci mette la sfumatura sul
+         bordo e la freccia. Si rimisura a ogni apertura perche' i righi
+         si ritagliano quando la slide diventa visibile, cioe' subito
+         dopo: la seconda misura, differita, e' quella buona. */
+      const guardaSeContinua = () => {
+        this.slides.forEach(s => {
+          if (s !== cur) { s.classList.remove('continua'); return; }
+          s.classList.toggle('continua',
+            s.scrollHeight > s.clientHeight + 4 &&
+            s.scrollTop + s.clientHeight < s.scrollHeight - 4);
+        });
+      };
+      guardaSeContinua();
+      setTimeout(guardaSeContinua, 400);
+      if (!cur._ascoltaScorrimento) {
+        cur._ascoltaScorrimento = true;
+        cur.addEventListener('scroll', guardaSeContinua, { passive: true });
+      }
       const titolo =
         cur.dataset.titolo || (cur.querySelector('h1,h2') || {}).textContent || '';
 

@@ -3074,3 +3074,24 @@ html.tac-soccorso .solo-proiezione { display: none; }
   white-space: nowrap;
 }
 .tac-barra .btn[disabled] { opacity: .38; cursor: default; }
+
+
+/* ── QUANDO LA SLIDE CONTINUA SOTTO ────────────────────────────────
+   La classe la mette `vai()` misurando la slide aperta. Serve perche'
+   una slide che scorre, senza segno, si legge come una slide tagliata:
+   e' la differenza fra «sfora» e «continua». La sfumatura non copre il
+   testo, lo sfuma; la freccia sta nell'angolo e non si stampa. */
+.slide.continua::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+  height: 68px; pointer-events: none;
+  background: linear-gradient(to bottom, transparent, var(--sfondo-slide, #fff));
+  opacity: .92;
+}
+.slide.continua::before {
+  content: '\2193'; position: absolute; right: 18px; bottom: 10px;
+  z-index: 2; pointer-events: none;
+  font-size: 1.15rem; line-height: 1; opacity: .55;
+  animation: tac-giu 1.8s ease-in-out infinite;
+}
+@keyframes tac-giu { 0%,100% { transform: translateY(0) } 50% { transform: translateY(4px) } }
+@media print { .slide.continua::after, .slide.continua::before { display: none } }

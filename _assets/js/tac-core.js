@@ -5194,6 +5194,77 @@
 
       ictus.forEach((ic, k) => { ic.giro = k; });
 
+      /* ⚠ IL DUE CON LA SUDDIVISIONE HA STAZIONI, NON PALLINI SU UN OVALE.
+         Andrea, 27 e 28 settembre 2026, davanti a «Due dentro» e «Tre
+         dentro»: «questa suddivisione dovrebbe essere giù-su (centro),
+         destra-su (levare che prepara la discesa sul battere)» e
+         «giù-mezzo-su (centro), destra-mezzo verso sinistra-su (levare per
+         ritornare)».
+         Prima i pallini si mettevano a metà — o a un terzo — dell'arco
+         che va da un ictus all'altro, e nel due quell'arco è una
+         diagonale: la suddivisione cadeva in diagonale, dove nessuna mano
+         la fa. La suddivisione del gesto non è un punto qualunque del
+         tragitto, è un posto preciso: dopo l'uno la mano risale al centro,
+         dopo il due va verso sinistra e sale, e da lassù ridiscende sul
+         battere.
+         Qui ogni battuta diventa una catena di pezzi che passano per quelle
+         stazioni, con pesi uguali: i pallini — che cadono a k/sudd della
+         battuta — finiscono esattamente sulle stazioni, e la mano che si
+         anima ci passa a tempo di suddivisione. Ogni pezzo è una cubica
+         con la tangente imposta a entrambi i capi, quindi la catena resta
+         morbida anche dove i pezzi si incontrano. */
+      let pezziDi = null;
+      /* Anche senza suddivisione: il gesto in due è lo stesso, con o
+         senza pallini. Lasciato all'ovale, «Senza suddivisione» e «Due
+         dentro» stavano uno accanto all'altro nella stessa slide con due
+         forme diverse per lo stesso movimento. */
+      if (N === 2) {
+        ictus[1].p = [196, 118];                     // il levare, a destra
+        const P1 = ictus[0].p, P2 = ictus[1].p;
+        const T = (x, y) => { const l = Math.hypot(x, y) || 1; return [x / l, y / l]; };
+        const nodo = (p, t, k) => ({ p, t: T(t[0], t[1]), k: k || 0.42 });
+        const tre = sudd >= 3;
+        /* le stazioni: per ogni battuta, dall'ictus di partenza a quello
+           d'arrivo. Tangenti: sul battere la mano rimbalza (U), in cima
+           alla risalita e prima della discesa è orizzontale (la cima). */
+        /* L'ICTUS È UN RIMBALZO, NON UNA CURVA. La mano ci arriva
+           scendendo e ne riparte salendo: le due tangenti sono diverse, e
+           per questo ogni ictus compare due volte — in fondo alla catena
+           che arriva e in testa a quella che parte. Con una tangente sola,
+           orizzontale, la mano sbandava di lato prima di salire, e «su al
+           centro» diventava «a sinistra e poi su». */
+        /* LA DISCESA E IL RIMBALZO NON STANNO SULLA STESSA LINEA. Nel gesto
+           vero quasi coincidono, ma disegnati sovrapposti non si legge più
+           chi va giù e chi va su. Il levare ricade sull'uno arrivando da
+           destra, ed è il punto più alto del giro — prepara la discesa; il
+           rimbalzo dopo l'uno esce verso sinistra, ed è più corto. */
+        const andata = tre
+          ? [nodo(P1, [-.3, -1], .30), nodo([109, 110], [-.12, -1], .30), nodo([106, 70], [1, 0], .42), nodo(P2, [.35, 1], .30)]
+          : [nodo(P1, [-.3, -1], .40), nodo([106, 72], [1, 0], .42), nodo(P2, [.35, 1], .30)];
+        const ritorno = tre
+          ? [nodo(P2, [-.45, -1], .30), nodo([176, 76], [-.6, -.8], .30), nodo([146, 30], [-1, 0], .30), nodo(P1, [-.15, 1], .34)]
+          : [nodo(P2, [-.2, -1], .40), nodo([150, 30], [-1, 0], .34), nodo(P1, [-.15, 1], .34)];
+        const catena = (nodi) => {
+          const out = [];
+          for (let i = 0; i < nodi.length - 1; i++) {
+            const a = nodi[i], b = nodi[i + 1];
+            const L = Math.hypot(b.p[0] - a.p[0], b.p[1] - a.p[1]);
+            const ha = a.k * L, hb = b.k * L;
+            out.push({ b: [a.p,
+                           [a.p[0] + a.t[0] * ha, a.p[1] + a.t[1] * ha],
+                           [b.p[0] - b.t[0] * hb, b.p[1] - b.t[1] * hb],
+                           b.p] });
+          }
+          return out;
+        };
+        const verso2 = catena(andata), verso1 = catena(ritorno);
+        seg.length = 0;
+        verso2.concat(verso1).forEach(x => seg.push(x));
+        /* la battuta 0 è quella che ARRIVA sul battere, la 1 quella che
+           arriva sul levare — la stessa convenzione di prima */
+        pezziDi = [verso1, verso2];
+      }
+
       /* IL RIQUADRO SI PRENDE DALLA CURVA, non dagli ictus, e va calcolato
          qui perché prima la curva non esiste. Guardando i soli punti
          numerati il giro veniva tagliato in basso e di lato: con le
@@ -5260,8 +5331,8 @@
          punti di passaggio; tolti quelli, la corrispondenza è esatta e la
          mano non può più correre su un pezzo e strisciare sull'altro. */
       this._battute = ictus.map((ic, b) => {
-        const pezzi = [seg[(b - 1 + N) % N]];
-        return { pezzi, pesi: [1], accento: b === 0 };
+        const pezzi = pezziDi ? pezziDi[b] : [seg[(b - 1 + N) % N]];
+        return { pezzi, pesi: pezzi.map(() => 1 / pezzi.length), accento: b === 0 };
       });
       /* posizione dentro la battuta `b`, con f da 0 (partenza) a 1 (ictus) */
       const dentroBattuta = (b, f) => {
@@ -5312,8 +5383,23 @@
         const primo = spez(b, t1).sx;
         return spez(primo, t0 / t1).dx;
       };
-      seg.forEach(s => {
-        const c = taglia(s.b, DA, A_);
+      /* Con le stazioni una battuta è fatta di più pezzi: si accorcia solo
+         il primo in partenza e l'ultimo in arrivo, altrimenti il tratto si
+         interromperebbe a ogni pallino — e il pallino dice proprio che lì
+         la mano passa senza fermarsi. */
+      const tratti = [];
+      this._battute.forEach(B => B.pezzi.forEach((pz, k) => {
+        const primo = k === 0, ultimo = k === B.pezzi.length - 1;
+        tratti.push({ b: pz.b, t0: primo ? DA * (B.pezzi.length > 1 ? 1.6 : 1) : 0,
+                      t1: ultimo ? (B.pezzi.length > 1 ? 1 - (1 - A_) * 1.6 : A_) : 1 });
+      }));
+      this._fineTratto = this._battute.map(B => {
+        const u = B.pezzi[B.pezzi.length - 1];
+        return { b: u.b, t: B.pezzi.length > 1 ? 1 - (1 - A_) * 1.6 : A_ };
+      });
+      tratti.forEach(s => {
+        const c = (s.t0 === 0 && s.t1 === 1) ? s.b
+                : (s.t0 === 0 ? taglia(s.b, 0.0001, s.t1) : taglia(s.b, s.t0, s.t1));
         svg.appendChild(el('path', {
           d: 'M' + c[0][0] + ',' + c[0][1] +
              ' C' + c[1][0] + ',' + c[1][1] + ' ' + c[2][0] + ',' + c[2][1] +
@@ -5332,7 +5418,8 @@
            quando il percorso era un giro unico e la punta cadeva in mezzo
            al nulla; adesso che i movimenti sono separati, la punta è la
            fine del movimento. */
-        const q = suBattuta(b, A_), a = tangBattuta(b, A_);
+        const ft = this._fineTratto[b];
+        const q = cub(ft.b, ft.t), a = cubTang(ft.b, ft.t);
         const L = 9, W = 5.5;
         const pta = (dx, dy) => (q[0] + dx * Math.cos(a) - dy * Math.sin(a)) + ',' +
                                 (q[1] + dx * Math.sin(a) + dy * Math.cos(a));

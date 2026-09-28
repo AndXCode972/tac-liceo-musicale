@@ -927,6 +927,32 @@
     });
   }
 
+  /* ══ LA PAUSA DI SEMIBREVE CHE VALE LA BATTUTA ══
+     Quando una battuta e' tutta silenzio si scrive una pausa di semibreve,
+     in qualunque metro: in 3/4 vale tre movimenti, in 2/4 due. Prima il
+     lettore contava la figura (quattro) e la riproduzione slittava; qui
+     la pausa sola in una battuta prende la durata della battuta.
+     Andrea, 28 settembre 2026: «la pausa di semibreve dovrebbe essere
+     appesa al quarto rigo» — e lo e' ogni pausa di semibreve: `intera`
+     serve anche a disegnarla al centro della battuta. */
+  function battuteVuote(dati, metro) {
+    const m = /^(\d+)\/(\d+)$/.exec(String(metro || '').trim());
+    if (!m) return;
+    const lung = parseInt(m[1], 10) * 4 / parseInt(m[2], 10);
+    let inizio = 0;
+    for (let i = 0; i <= dati.length; i++) {
+      if (i < dati.length && !dati[i].stanghetta) continue;
+      const pezzo = dati.slice(inizio, i);
+      if (pezzo.length === 1 && pezzo[0].pausa && pezzo[0].dur === 'w' && !pezzo[0].puntata) {
+        pezzo[0].battiti = lung;
+        pezzo[0].intera = true;
+      }
+      inizio = i + 1;
+    }
+  }
+  /* dove pende la pausa di semibreve: sotto la quarta linea, chiave per chiave */
+  const QUARTA_LINEA = { treble: 'd/5', percussion: 'd/5', bass: 'f/3', alto: 'e/4', tenor: 'c/4' };
+
   /* Il segno di battuta, nella forma che VexFlow si aspetta. Se questa
      versione della libreria non avesse BarNote si ripiega su una pausa
      invisibile: meglio una stanghetta mancante che un pentagramma vuoto. */
@@ -1326,6 +1352,7 @@
 
       const dati = leggiNote(testo);
       this._dati = dati;
+      battuteVuote(dati, this.getAttribute('time'));
 
       const renderer = new VF.Renderer(tela, VF.Renderer.Backends.SVG);
       const altezza = clef === 'bass' ? 150 : 150;
@@ -1367,6 +1394,12 @@
       stave.addClef(clef);
       if (keysig) stave.addKeySignature(keysig);
       if (time)   stave.addTimeSignature(time);
+      /* `fine`: il pezzo finisce qui, con la doppia stanghetta.
+         Andrea, 28 settembre 2026: «gli esercizi finiscono con la doppia
+         stanghetta». */
+      if (this.hasAttribute('fine') && VF.Barline) {
+        try { stave.setEndBarType(VF.Barline.type.END); } catch (e) { /* resta la semplice */ }
+      }
       stave.setContext(ctx).draw();
 
       let staveB = null;
@@ -1476,11 +1509,34 @@
          decidere all'altezza: un contralto che sale sopra il soprano
          avrebbe altrimenti il gambo in su e le due linee si
          scambierebbero sotto gli occhi di chi legge. */
+      /* ══ LA SCRITTURA PER TASTIERA ══
+         Andrea, 28 settembre 2026: «la scrittura per tastiera ha l'accordo
+         interamente in chiave di violino, il basso è solo in chiave di
+         basso». Con `tastiera` il tenore sale sul rigo acuto: se ha lo
+         stesso ritmo del contralto i due diventano un accordo solo (la mano
+         destra suona tre note con un gambo), altrimenti il tenore resta
+         una voce a sé, sempre sul rigo acuto. Il basso resta solo sotto. */
+      const tastiera = quattro && this.hasAttribute('tastiera');
+      const insieme = (a, b) => {
+        const A = String(a || '').trim().split(/\s+/), B = String(b || '').trim().split(/\s+/);
+        if (!a || !b || A.length !== B.length) return null;
+        const out = [];
+        for (let i = 0; i < A.length; i++) {
+          if (A[i] === '|' || B[i] === '|') { if (A[i] !== B[i]) return null; out.push('|'); continue; }
+          const [ka, da] = A[i].split(':'), [kb, db] = B[i].split(':');
+          if (da !== db || ka === 'r' || kb === 'r') return null;
+          out.push(kb + '+' + ka + ':' + da);
+        }
+        return out.join(' ');
+      };
+      const accordoDestra = tastiera ? insieme(this.getAttribute('contralto'), this.getAttribute('tenore')) : null;
       const vociInterne = [];
       if (quattro) {
         [['contralto', clef, VF.Stem.DOWN, stave],
-         ['tenore',    'bass', VF.Stem.UP,  staveB]].forEach(([nome, ch, verso, rigo]) => {
-          const testoV = this.getAttribute(nome);
+         ['tenore',    tastiera ? clef : 'bass', tastiera ? VF.Stem.DOWN : VF.Stem.UP,
+                       tastiera ? stave : staveB]].forEach(([nome, ch, verso, rigo]) => {
+          if (accordoDestra && nome === 'tenore') return;
+          const testoV = (accordoDestra && nome === 'contralto') ? accordoDestra : this.getAttribute(nome);
           if (testoV === null || !rigo) return;
           const dV = leggiNote(testoV);
           if (!dV.length) return;
@@ -1509,10 +1565,15 @@
       if (dati.length) {
         const note = dati.map(d => {
           if (d.stanghetta) return stanghettaVF(VF, d.stanghetta);
+          const semibreve = d.pausa && d.dur === 'w' && !d.puntata;
           const sn = new VF.StaveNote({
-            keys: d.keys,
+            keys: semibreve ? [QUARTA_LINEA[clef] || 'd/5'] : d.keys,
             duration: d.dur + (d.puntata ? 'd' : '') + (d.pausa ? 'r' : ''),
             clef: clef
+            /* niente `alignCenter`: con le stanghette scritte come note a
+               se' (BarNote) VexFlow centrava la pausa nella battuta dopo.
+               Misurato il 28 settembre 2026: la pausa finiva a destra della
+               stanghetta. Resta all'inizio della battuta, dov'e' leggibile. */
           });
           /* il soprano ha il gambo in su: sotto di lui c'è il contralto */
           if (quattro) sn.setStemDirection(VF.Stem.UP);
@@ -1979,7 +2040,8 @@
            scrivessero i quattro gestori ognuno per conto suo, prima o poi
            uno si dimenticherebbe di aggiornare gli altri. */
         this._mostraComandi = () => {
-          bt.innerHTML = this._inCorso ? '&#9632; Ferma' : '&#9654; Ascolta';
+          const occupato = this._inCorso || this._gruppo().some(s => s._inCorso);
+          bt.innerHTML = occupato ? '&#9632; Ferma' : '&#9654; Ascolta';
           giu.disabled = this._battuta <= 0;
           su.disabled = this._battuta >= capi.length - 1;
           capo.disabled = this._battuta <= 0 && !this._inCorso;
@@ -2001,7 +2063,12 @@
         };
 
         bt.onclick = () => {
-          if (this._inCorso) { this.ferma(); return; }
+          const altri = this._gruppo().filter(s => s._inCorso);
+          if (this._inCorso || altri.length) {
+            altri.forEach(s => s.ferma());
+            this.ferma();
+            return;
+          }
           this.suona(null, 1, this._battuta ? capi[this._battuta] : null, null);
         };
         capo.onclick = () => vai(0);
@@ -2507,6 +2574,15 @@
       passo();
     }
 
+    /* Gli altri righi dello stesso pezzo, quando il pezzo va a capo
+       (`<div class="righe">`, scritto da `esercizi.a_righe`). Il primo ha
+       i comandi e suona tutto: finito un rigo parte il seguente, e le
+       note si accendono rigo per rigo, dove si stanno leggendo. */
+    _gruppo() {
+      const g = this.closest && this.closest('.righe');
+      return g ? [...g.querySelectorAll('tac-stave')].filter(s => s !== this) : [];
+    }
+
     ferma() {
       (this._orologi || []).forEach(clearTimeout);
       this._orologi = [];
@@ -2768,10 +2844,30 @@
          comincia esattamente dove finisce questo, senza buco: il battito
          non si interrompe. «Ferma» lo spegne, perche' cancella gli
          orologi — anche quello che farebbe ripartire il giro. */
+      /* il rigo dopo, se il pezzo va a capo */
+      const righe = this.closest && this.closest('.righe');
+      if (righe && da === null && a === null) {
+        const tutti = [...righe.querySelectorAll('tac-stave')];
+        const dopo = tutti[tutti.indexOf(this) + 1];
+        if (dopo) {
+          const riparti = (ultimo - Tone.now()) * 1000 - 150;
+          this.orologio(() => {
+            this._inCorso = false;
+            if (bottone) bottone.disabled = false;
+            dopo.suona(null, fattore, null, null);
+            if (tutti[0]._mostraComandi) tutti[0]._mostraComandi();
+          }, Math.max(0, riparti));
+          return;
+        }
+      }
+      /* ⚠ E IL LOOP VALE DOVUNQUE, non solo nelle slide `perc`.
+         Andrea, stesso giorno: «in loop, tutti questi esempi dovunque
+         nelle slides». Un esempio ritmico breve in una slide gira finche'
+         non lo si ferma. Nei fascicoli e nel Workbook no: li' si legge. */
       const battute = this._dati.filter(d => d.stanghetta).length + 1;
       const inLoop = this.hasAttribute('loop') ||
-        (soloRitmo && battute <= 4 && !this.hasAttribute('nascondi') &&
-         !!this.closest && !!this.closest('.slide.perc'));
+        (soloRitmo && battute <= 4 && !this.hasAttribute('nascondi') && !righe &&
+         !!this.closest && !!this.closest('.slide'));
       if (inLoop) {
         const riparti = (ultimo - Tone.now()) * 1000 - 150;
         this.orologio(() => {
@@ -2787,6 +2883,10 @@
         this._battuta = 0;
         if (bottone) bottone.disabled = false;
         if (this._mostraComandi) this._mostraComandi();
+        if (righe) {
+          const primo = righe.querySelector('tac-stave');
+          if (primo && primo._mostraComandi) primo._mostraComandi();
+        }
       }, attesa);
     }
   }

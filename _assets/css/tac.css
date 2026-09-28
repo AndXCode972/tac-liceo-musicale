@@ -3095,3 +3095,33 @@ html.tac-soccorso .solo-proiezione { display: none; }
 }
 @keyframes tac-giu { 0%,100% { transform: translateY(0) } 50% { transform: translateY(4px) } }
 @media print { .slide.continua::after, .slide.continua::before { display: none } }
+
+/* ══ UN PEZZO SU PIÙ RIGHI, IN UN RIQUADRO SOLO ══
+   `esercizi.a_righe` spezza un pezzo in righi di quattro battute. Ogni
+   rigo è un `tac-stave`, ma il pezzo è uno: un riquadro solo intorno a
+   tutti, e i righi dentro senza bordo. Andrea, 28 settembre 2026: con un
+   riquadro per rigo i bordi tagliavano la chiave e il pezzo sembrava
+   fatto di esercizi diversi.
+   La larghezza di ciascun rigo la scrive `a_righe` (proporzionale alle
+   battute): qui non si tocca, così la notazione resta della stessa
+   grandezza in tutti i righi. */
+.righe {
+  background: #fff; border: 1px solid var(--bordo-b, #e5e7eb);
+  border-left: 4px solid var(--accento, #0f766e); border-radius: 0 6px 6px 0;
+  padding: .5rem .9rem .6rem; margin: .6rem 0;
+}
+.righe tac-stave, .slide .righe tac-stave {
+  background: transparent; border: 0; border-radius: 0; box-shadow: none;
+  margin: 0; padding: 0; overflow: visible;
+}
+.righe tac-stave svg, .slide .righe tac-stave svg { max-height: none; width: 100%; max-width: 100%; }
+/* il ritaglio del bianco sopra e sotto, più leggero: la chiave di
+   violino scende sotto il rigo e il margine pieno la tagliava */
+.slide .righe tac-stave > div:not(.tac-didascalia):not(.tac-barra) { overflow: visible; }
+.slide .righe tac-stave > div:not(.tac-didascalia):not(.tac-barra) > svg[height="150"] { margin: -16px 0 -18px; }
+body.documento .righe tac-stave svg { margin: -10px 0 -14px; }
+
+/* I segni di pausa scritti dentro una riga di testo sono minuscoli nel
+   carattere musicale: una pausa di croma è alta come un trattino.
+   Andrea, 28 settembre 2026: «più grande». */
+.mus-grandi .mus { font-size: 2.1em; vertical-align: -.18em; }

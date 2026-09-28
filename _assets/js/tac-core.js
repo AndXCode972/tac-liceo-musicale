@@ -1619,7 +1619,19 @@
            quindi non era la larghezza, era questo margine. Con 104 rientra
            con nove pixel d'aria, e le stanghette dei tre livelli restano
            dove le abbiamo incolonnate. */
-        F.format(tutte, larghezza - 104);
+        /* ⚠ E NON BASTAVANO NEMMENO I 104, CON UN'ARMATURA LUNGA.
+           28 settembre 2026, sui pezzi di quarta in mi maggiore in chiave
+           di contralto: l'ultima battuta di ogni rigo usciva oltre la
+           stanghetta di chiusura. Il margine era misurato in do maggiore;
+           quattro diesis spostano l'inizio delle note di una quarantina di
+           pixel, e il formattatore non lo sapeva. Adesso lo spazio si
+           chiede al rigo — da dove cominciano le note a dove finiscono —
+           e si prende il piu' stretto dei due: in do non cambia niente. */
+        const inizio = Math.max(stave.getNoteStartX(),
+                                staveB ? staveB.getNoteStartX() : 0);
+        const utile = Math.min(larghezza - 104,
+                               stave.getNoteEndX() - inizio - 14);
+        F.format(tutte, Math.max(60, utile));
 
         /* ══ E POI LE COLONNE SI METTONO PER DURATA ══
            (solo quando `eguali`: e' la slide dei tre livelli)
@@ -2745,6 +2757,29 @@
           }
         }
       });
+
+      /* ══ IN LOOP ══
+         Andrea, 28 settembre 2026, sugli esempi ritmici delle slide di
+         esperienza percettiva: «questi esempi dovrebbero andare in loop».
+         Un ritmo di una o due battute sentito una volta sola e' finito
+         prima che la mano abbia trovato il battito; ripetuto, ci si entra.
+         Vale con l'attributo `loop`, e da se' per i righi ritmici brevi
+         (fino a quattro battute) dentro una slide `perc`. Il giro dopo
+         comincia esattamente dove finisce questo, senza buco: il battito
+         non si interrompe. «Ferma» lo spegne, perche' cancella gli
+         orologi — anche quello che farebbe ripartire il giro. */
+      const battute = this._dati.filter(d => d.stanghetta).length + 1;
+      const inLoop = this.hasAttribute('loop') ||
+        (soloRitmo && battute <= 4 && !this.hasAttribute('nascondi') &&
+         !!this.closest && !!this.closest('.slide.perc'));
+      if (inLoop) {
+        const riparti = (ultimo - Tone.now()) * 1000 - 150;
+        this.orologio(() => {
+          this._inCorso = false;
+          this.suona(bottone, fattore, da, a);
+        }, Math.max(0, riparti));
+        return;
+      }
 
       const attesa = (ultimo - Tone.now()) * 1000 + 200;
       this.orologio(() => {

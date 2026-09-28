@@ -3125,3 +3125,7 @@ body.documento .righe tac-stave svg { margin: -10px 0 -14px; }
    carattere musicale: una pausa di croma è alta come un trattino.
    Andrea, 28 settembre 2026: «più grande». */
 .mus-grandi .mus { font-size: 2.1em; vertical-align: -.18em; }
+/* i righi di un pezzo cominciano tutti dallo stesso margine: centrati,
+   con lunghezze diverse, sembravano pezzi diversi */
+.righe tac-stave > div:not(.tac-didascalia):not(.tac-barra) { justify-self: start; text-align: left; }
+.righe tac-stave svg { margin-left: 0 !important; margin-right: auto !important; }

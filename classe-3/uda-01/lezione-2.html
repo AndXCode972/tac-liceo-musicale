@@ -30,7 +30,7 @@
 })();
 </script>
 <noscript><style>.slide { display: block !important; }</style></noscript>
-<link rel="stylesheet" href="../../_assets/css/tac.css?v=52d140c7">
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=4b28be61">
 <script>
 window.__mod = (typeof module !== 'undefined') ? module : null;
 window.__exp = (typeof exports !== 'undefined') ? exports : null;
@@ -42,7 +42,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=a08c4fd1" defer></script>
+<script src="../../_assets/js/tac-core.js?v=eeb102df" defer></script>
 </head>
 <body>
 <div id="tac-deck">
@@ -188,24 +188,6 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide" data-titolo="Quanto lontane">
-  <div class="slide-interna">
-    <h2>Quanto possono stare lontane</h2>
-
-    <p>La regola pratica &egrave; di De Ninno, e viene con la sua ragione &mdash; che &egrave; un giudizio d&rsquo;orecchio, non un divieto.</p>
-
-    <div class="colonne">
-      <div class="riquadro"><p><strong>Fra le tre voci superiori</strong><br>non pi&ugrave; di una <strong>sesta</strong> fra l&rsquo;una e l&rsquo;altra. Oltre, l&rsquo;accordo si sfilaccia</p></div>
-      <div class="riquadro"><p><strong>Fra basso e tenore</strong><br>si pu&ograve; andare anche a una <strong>decima</strong>: il basso ha una vita sua</p></div>
-    </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Il perch&eacute;, in una frase</span>
-      <p>&laquo;Se troppo lontane l&rsquo;armonia manca di efficacia, se troppo vicine risultano poco chiare.&raquo; Sono due difetti opposti, e tutti e due si <strong>sentono</strong>: non c&rsquo;&egrave; niente da imparare a memoria, c&rsquo;&egrave; da ascoltare finch&eacute; non li riconoscete.</p>
-    </div>
-  </div>
-</section>
-
 <section class="slide" data-titolo="Il numero da guardare">
   <div class="slide-interna">
     <h2>Un solo numero decide, e si conta in tre secondi</h2>
@@ -223,180 +205,41 @@ try { module = undefined; exports = undefined; } catch (e) {}
       </div>
     </div>
 
-    <p class="didascalia">&Egrave; lo stesso criterio detto in un altro modo, e non &egrave; una scorciatoia sospetta: <strong>tre note dell&rsquo;accordo dentro un&rsquo;ottava</strong> non lasciano buchi per definizione. Il conto veloce e la definizione danno sempre la stessa risposta.</p>
+    <div class="affianca">
+      <div>
+        <tac-stave clef="treble" time="4/4" caption="Stretta: fra soprano e tenore ci sta meno di un'ottava" notes="g/4+e/4+c/4+c/3:w" width="290" tempo="42" play></tac-stave>
+      </div>
+      <div>
+        <tac-stave clef="treble" time="4/4" caption="Lata: fra soprano e tenore c'è più di un'ottava" notes="e/5+g/4+c/4+c/3:w" width="290" tempo="42" play></tac-stave>
+      </div>
+    </div>
+
+    <p class="didascalia">Il basso non entra nel conto: sta sempre lontano. Non c&rsquo;&egrave; niente da contare, si vede. &Egrave; lo stesso criterio detto in un altro modo, e non &egrave; una scorciatoia sospetta: <strong>tre note dell&rsquo;accordo dentro un&rsquo;ottava</strong> non lasciano buchi per definizione. Il conto veloce e la definizione danno sempre la stessa risposta.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Da una all&rsquo;altra">
+<section class="slide" data-titolo="Quanto lontane">
   <div class="slide-interna">
-    <h2>Trasformare l&rsquo;una nell&rsquo;altra</h2>
+    <h2>Quanto possono stare lontane</h2>
 
-    <p>&Egrave; un&rsquo;operazione meccanica, e conviene saperla fare a mente: capita continuamente di avere un accordo che sta stretto dove servirebbe largo.</p>
+    <p>Due cose diverse, da non confondere: un <strong>limite</strong>, che vale sempre, e un <strong>consiglio</strong> d&rsquo;orecchio, che viene da De Ninno.</p>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Il limite che vale sempre, in tutte e due</span>
+      <p>Fra due voci <strong>vicine</strong> — soprano-contralto, contralto-tenore — non si supera l&rsquo;<strong>ottava</strong>. Fra tenore e basso si può, e spesso si deve.</p>
+      <p>È l&rsquo;unico vincolo di distanza che vi chiedo di controllare, e prende due secondi per accordo.</p>
+    </div>
 
     <div class="colonne">
-      <div>
-        <p><strong>Di partenza: stretta</strong></p>
-        <tac-stave clef="treble" time="4/4"
-                   caption="Soprano&ndash;tenore: una quinta"
-                   soprano="g/4:w" contralto="e/4:w" tenore="c/4:w" basso="c/3:w"
-                   width="330" tempo="50" play></tac-stave>
-      </div>
-      <div>
-        <p><strong>Diventa lata</strong></p>
-        <tac-stave clef="treble" time="4/4"
-                   caption="Il contralto &egrave; sceso di un&rsquo;ottava: adesso una decima"
-                   soprano="g/4:w" contralto="c/4:w" tenore="e/3:w" basso="c/3:w"
-                   width="330" tempo="50" play></tac-stave>
-      </div>
+      <div class="riquadro"><p><strong>Il consiglio, fra le tre voci superiori</strong><br>meglio non pi&ugrave; di una <strong>sesta</strong> fra l&rsquo;una e l&rsquo;altra. Oltre, l&rsquo;accordo si sfilaccia</p></div>
+      <div class="riquadro"><p><strong>Fra basso e tenore</strong><br>si pu&ograve; andare anche a una <strong>decima</strong>: il basso ha una vita sua</p></div>
     </div>
 
     <div class="riquadro studio">
-      <span class="etichetta">La ricetta</span>
-      <p>Si prende la <strong>voce di mezzo</strong> &mdash; il contralto &mdash; e la si porta <strong>un&rsquo;ottava sotto</strong>. Le altre restano dove sono, e le parti si ridistribuiscono di conseguenza. L&rsquo;armonia non cambia di una nota: cambia chi canta cosa.</p>
+      <span class="etichetta">Il perch&eacute;, in una frase</span>
+      <p>&laquo;Se troppo lontane l&rsquo;armonia manca di efficacia, se troppo vicine risultano poco chiare.&raquo; Sono due difetti opposti, e tutti e due si <strong>sentono</strong>: non c&rsquo;&egrave; niente da imparare a memoria, c&rsquo;&egrave; da ascoltare finch&eacute; non li riconoscete.</p>
     </div>
-
-    <p class="didascalia">Al contrario funziona uguale: per stringere una lata si porta il tenore un&rsquo;ottava sopra. Provatelo su carta prima di provarlo in un compito.</p>
-  </div>
-</section>
-
-<section class="slide perc" data-titolo="Nel corale">
-  <div class="slide-interna">
-    <h2>E in una partitura vera, quale delle due?</h2>
-
-    <p>Riascoltiamo il corale di ieri, ma adesso con una domanda precisa: <strong>guardate la distanza fra le voci</strong>.</p>
-
-    <div class="riquadro compito">
-      <span class="etichetta">A coppie, 8 minuti</span>
-      <p>Prendete le <strong>prime quattro battute</strong> e per ciascun accordo scrivete <strong>S</strong> o <strong>L</strong>. Ricordate: si contano soprano, contralto e tenore, e il corno non &egrave; una voce.</p>
-    </div>
-
-    <tac-brano youtube="bvoAsedF2cE" mappa-video='{"eventi":[[1,1443],[2,3926],[3,7009],[4,9743],[5,12993],[6,15726],[7,19459],[8,22309],[9,25376],[10,28277],[11,31459],[12,34393]],"durata":78000}' organico="voci" titolo="J. S. Bach, corale &laquo;Wie sch&ouml;n leuchtet der Morgenstern&raquo; BWV 1/6" metronomo esecutore="Holland Boys Choir · Netherlands Bach Collegium · Pieter Jan Leusink" partitura="../../_assets/spartiti/A03_bach_bwv1-corale_bga.png" riquadri='[[1,29.62,6.25,10.31,38.63],[2,39.93,6.25,11.54,38.63],[3,51.47,6.25,11.81,38.63],[4,63.28,6.25,11.13,38.63],[5,74.4,6.25,9.42,38.63],[6,83.82,6.25,9.42,38.63],[7,29.62,6.25,10.31,38.63],[8,39.93,6.25,11.54,38.63],[9,51.47,6.25,11.81,38.63],[10,63.28,6.25,11.13,38.63],[11,74.4,6.25,9.42,38.63],[12,83.82,6.25,9.42,38.63],[13,13.11,54.97,9.35,39.94],[14,22.46,54.97,7.99,39.94],[15,30.44,54.97,13.79,39.94],[16,44.23,54.97,9.76,39.94],[17,53.99,54.97,12.63,39.94],[18,66.62,54.97,8.46,39.94],[19,75.09,54.97,9.83,39.94],[20,84.91,54.97,8.6,39.94]]' inciso="../../_assets/incisioni/A03_bach_corale.mp3" mappa='{"durata":33358,"eventi":[[0,0],[1,938],[2,4688],[3,8438],[4,12188],[5,15938],[6,19688],[7,23438],[8,27188]]}'>
-<script type="application/json">{"titolo":"J. S. Bach, Corale «Wie schön leuchtet der Morgenstern» BWV 1/6","metro":"4/4","bpm":64,"battute":9,"anacrusi":1.0,"voci":[[[0.0,1.0,65],[1.0,0.5,67],[1.5,0.5,60],[2.0,0.5,65],[2.5,0.5,53],[3.0,0.5,57],[3.5,0.5,53],[4.0,0.5,57],[4.5,0.5,60],[5.0,0.25,65],[5.25,0.25,70],[5.5,0.25,69],[5.75,0.25,67],[6.0,0.5,65],[6.5,0.5,67],[7.0,1.0,69],[8.0,1.0,69],[9.0,0.5,65],[9.5,0.25,67],[9.75,0.25,69],[10.0,0.5,70],[10.5,0.25,72],[10.75,0.25,70],[11.0,0.5,69],[11.5,0.5,67],[12.0,0.5,67],[12.5,0.5,72],[13.0,0.5,72],[13.5,0.25,71],[13.75,0.25,69],[14.0,1.0,71],[15.0,1.0,72],[16.0,1.0,65],[17.0,0.5,65],[17.5,0.5,70],[18.0,0.5,69],[18.5,0.5,67],[19.0,0.5,65],[19.5,0.5,60],[20.0,0.5,65],[20.5,0.5,60],[21.0,0.5,60],[21.5,0.25,57],[21.75,0.25,53],[22.0,0.5,60],[22.5,0.25,60],[22.75,0.25,60],[23.0,1.0,57],[24.0,1.0,65],[25.0,0.5,67],[25.5,0.5,60],[26.0,0.5,65],[26.5,0.5,53],[27.0,0.5,57],[27.5,0.5,53],[28.0,0.5,57],[28.5,0.5,60],[29.0,0.25,65],[29.25,0.25,70],[29.5,0.25,69],[29.75,0.25,67],[30.0,0.5,65],[30.5,0.5,67],[31.0,1.0,69],[32.0,1.0,69]],[[0.0,1.0,65],[1.0,1.0,72],[2.0,1.0,69],[3.0,1.0,65],[4.0,1.0,72],[5.0,1.0,74],[6.0,1.0,74],[7.0,1.0,72],[8.0,1.0,72],[9.0,1.0,74],[10.0,1.0,76],[11.0,1.0,77],[12.0,1.0,76],[13.0,1.0,74],[14.0,1.0,74],[15.0,1.0,72],[16.0,1.0,69],[17.0,1.0,74],[18.0,1.0,72],[19.0,1.0,70],[20.0,1.0,69],[21.0,2.0,67],[23.0,1.0,65],[24.0,1.0,65],[25.0,1.0,72],[26.0,1.0,69],[27.0,1.0,65],[28.0,1.0,72],[29.0,1.0,74],[30.0,1.0,74],[31.0,1.0,72],[32.0,1.0,72]],[[0.0,1.0,60],[1.0,1.0,60],[2.0,1.0,60],[3.0,1.0,62],[4.0,1.0,65],[5.0,1.0,70],[6.0,1.0,70],[7.0,1.0,69],[8.0,1.0,69],[9.0,1.0,70],[10.0,1.0,70],[11.0,0.5,72],[11.5,0.5,74],[12.0,0.5,72],[12.5,0.5,67],[13.0,1.0,69],[14.0,1.0,67],[15.0,1.0,67],[16.0,1.0,65],[17.0,1.0,65],[18.0,1.0,64],[19.0,0.5,65],[19.5,0.5,67],[20.0,0.5,60],[20.5,0.5,65],[21.0,1.0,65],[22.0,1.0,64],[23.0,1.0,60],[24.0,1.0,60],[25.0,1.0,60],[26.0,1.0,60],[27.0,1.0,62],[28.0,1.0,65],[29.0,1.0,70],[30.0,1.0,70],[31.0,1.0,69],[32.0,1.0,69]],[[0.0,1.0,57],[1.0,1.0,55],[2.0,1.0,57],[3.0,1.0,57],[4.0,1.0,57],[5.0,1.0,53],[6.0,1.0,65],[7.0,1.0,65],[8.0,1.0,65],[9.0,1.0,65],[10.0,1.0,67],[11.0,0.5,65],[11.5,0.5,62],[12.0,1.0,64],[13.0,0.5,65],[13.5,0.5,64],[14.0,1.0,62],[15.0,1.0,64],[16.0,0.5,60],[16.5,0.5,57],[17.0,0.5,53],[17.5,0.5,55],[18.0,1.0,57],[19.0,0.5,57],[19.5,0.5,55],[20.0,0.5,57],[20.5,0.5,53],[21.0,0.5,55],[21.5,0.5,57],[22.0,1.0,58],[23.0,1.0,57],[24.0,1.0,57],[25.0,1.0,55],[26.0,1.0,57],[27.0,1.0,57],[28.0,1.0,57],[29.0,1.0,53],[30.0,1.0,65],[31.0,1.0,65],[32.0,1.0,65]],[[0.0,1.0,53],[1.0,1.0,52],[2.0,1.0,53],[3.0,1.0,50],[4.0,1.0,45],[5.0,0.5,46],[5.5,0.5,48],[6.0,0.5,50],[6.5,0.5,52],[7.0,1.0,53],[8.0,1.0,53],[9.0,1.0,58],[10.0,0.5,57],[10.5,0.5,55],[11.0,0.5,57],[11.5,0.5,59],[12.0,1.0,60],[13.0,1.0,53],[14.0,1.0,55],[15.0,1.0,48],[16.0,1.0,53],[17.0,1.0,46],[18.0,1.0,48],[19.0,0.5,50],[19.5,0.5,52],[20.0,1.0,53],[21.0,2.0,48],[23.0,1.0,41],[24.0,1.0,53],[25.0,1.0,52],[26.0,1.0,53],[27.0,1.0,50],[28.0,1.0,45],[29.0,0.5,46],[29.5,0.5,48],[30.0,0.5,50],[30.5,0.5,52],[31.0,1.0,53],[32.0,1.0,53]]]}</script>
-</tac-brano>
-
-
-    <p class="didascalia">Quello che troverete &mdash; e che vale pi&ugrave; della conta &mdash; &egrave; che Bach <strong>non sceglie una volta per tutte</strong>. Passa dall&rsquo;una all&rsquo;altra dentro la stessa frase, perch&eacute; a decidere non &egrave; una preferenza ma dove sono arrivate le voci.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il caso brutto">
-  <div class="slide-interna">
-    <h2>Un caso che si sente subito: la stretta nel grave</h2>
-
-    <p>Prendete un accordo in disposizione stretta e portatelo <strong>in basso</strong>, sotto il rigo. Succede una cosa che non &egrave; una questione di regole.</p>
-
-    <div class="colonne">
-      <div>
-        <p><strong>Stretta, in zona comoda</strong></p>
-        <tac-stave clef="bass" time="4/4"
-                   caption="Suona pieno" soprano="e/3:w"
-               contralto="c/3:w" tenore="g/2:w"
-               basso="c/2:w"
-                   width="330" tempo="50" play></tac-stave>
-      </div>
-      <div>
-        <p><strong>Stretta, troppo in basso</strong></p>
-        <tac-stave clef="bass" time="4/4"
-                   caption="Suona confuso" soprano="g/2:w"
-               contralto="e/2:w" tenore="c/2:w"
-               basso="c/2:w"
-                   width="330" tempo="50" play></tac-stave>
-      </div>
-    </div>
-
-    <p class="didascalia">Nel grave le frequenze delle note sono vicinissime e <strong>si impastano</strong>: si sta larghi.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Perch&eacute; nel grave si sta larghi">
-  <div class="slide-interna">
-    <h2>E adesso perch&eacute;, che non &egrave; una questione di gusto</h2>
-
-    <p>Un intervallo &egrave; sempre lo stesso rapporto fra due frequenze. Ma la <strong>differenza</strong> fra le due frequenze, in vibrazioni al secondo, cambia moltissimo con il registro &mdash; ed &egrave; quella che l&rsquo;orecchio sente.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Il fatto, in numeri</span>
-      <p>La stessa terza maggiore, do&ndash;mi, in tre registri:</p>
-      <p>do<sub>2</sub> 65&nbsp;Hz &mdash; mi<sub>2</sub> 82&nbsp;Hz: <strong>17 vibrazioni</strong> di differenza<br>
-         do<sub>4</sub> 262&nbsp;Hz &mdash; mi<sub>4</sub> 330&nbsp;Hz: <strong>68</strong><br>
-         do<sub>5</sub> 523&nbsp;Hz &mdash; mi<sub>5</sub> 659&nbsp;Hz: <strong>136</strong></p>
-      <p>Nel grave le due frequenze sono <strong>molto vicine</strong>: l&rsquo;orecchio non riesce a tenerle separate, le due note battono l&rsquo;una contro l&rsquo;altra e <strong>si impastano</strong> in un suono solo, ruvido. In alto la distanza &egrave; grande e le due note restano distinte.</p>
-    </div>
-
-    <p>Ecco perch&eacute; una terza suona limpida in alto e fangosa in basso: non &egrave; la terza che cambia, &egrave; quanto sono vicine le sue frequenze. E per questo un&rsquo;orchestrazione mette le parti larghe in fondo e strette in cima &mdash; la stessa regola dell&rsquo;armonia scritta.</p>
-
-    <p class="didascalia">Longo lo scrive senza mezzi termini: una disposizione stretta nel registro grave &egrave; &laquo;pesante, assai cattiva&raquo; <cite><em>32 lezioni pratiche sull&rsquo;armonizzazione del canto dato</em>, lez. XIX bis, p. 44</cite>. Il giudizio &egrave; suo; l&rsquo;orecchio, dopo l&rsquo;esempio di prima, glielo d&agrave; ragione da solo.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Quale si sceglie">
-  <div class="slide-interna">
-    <h2>Allora quale si usa?</h2>
-
-    <p>La domanda &egrave; legittima e la risposta onesta &egrave; che non si sceglie <em>una</em>: si sceglie <strong>accordo per accordo</strong>, e quasi sempre la scelta &egrave; gi&agrave; fatta da dove sono arrivate le voci.</p>
-
-    <div class="colonne3">
-      <div class="scheda"><h3>Decide il soprano</h3><p>La melodia &egrave; data. Se il soprano sta alto e il basso basso, in mezzo resta molto spazio: viene lata da s&eacute;.</p></div>
-      <div class="scheda"><h3>Decide il registro</h3><p>Accordi gravi: larghi. Accordi acuti: si pu&ograve; stringere senza che si impastino.</p></div>
-      <div class="scheda"><h3>Decide la voce precedente</h3><p>Ogni parte deve arrivare dove sta <strong>muovendosi poco</strong>. Questo pesa pi&ugrave; della disposizione.</p></div>
-    </div>
-
-    <p class="didascalia">Il terzo criterio &egrave; il pi&ugrave; forte dei tre, e sar&agrave; il lavoro dell&rsquo;unit&agrave; 2: la disposizione non &egrave; qualcosa che si decide <em>prima</em> e si impone alle voci. &Egrave; il <strong>risultato</strong> di quattro linee che si sono mosse ciascuna per conto proprio.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="L&rsquo;errore da aspettarsi">
-  <div class="slide-interna">
-    <h2>L&rsquo;errore che farete: l&rsquo;incrocio delle parti</h2>
-
-    <p>Cambiare disposizione si pu&ograve;, anche su un accordo che sta fermo, e spesso &egrave; <strong>molto utile</strong>: d&agrave; respiro a una voce, prepara il movimento che viene dopo. L&rsquo;errore &egrave; un altro: nel cambiare, una voce <strong>scavalca</strong> quella accanto.</p>
-
-    <div class="colonne">
-      <div>
-        <p><strong>Cos&igrave; no</strong></p>
-        <tac-stave clef="treble" time="4/4"
-                   caption="Il contralto scende di un&rsquo;ottava e finisce sotto il tenore"
-                   soprano="g/4:h g/4:h"
-                   contralto="e/4:h e/3:h"
-                   tenore="c/4:h c/4:h"
-                   basso="c/3:h c/3:h"
-                   width="400" tempo="50" play></tac-stave>
-      </div>
-      <div>
-        <p><strong>Cos&igrave; s&igrave;</strong></p>
-        <tac-stave clef="treble" time="4/4"
-                   caption="Scende il tenore: la disposizione si allarga e nessuno scavalca nessuno"
-                   soprano="g/4:h g/4:h"
-                   contralto="e/4:h e/4:h"
-                   tenore="c/4:h e/3:h"
-                   basso="c/3:h c/3:h"
-                   width="400" tempo="50" play></tac-stave>
-      </div>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Che cosa &egrave; successo, a sinistra</span>
-      <p>L&rsquo;accordo &egrave; lo stesso, e allargarlo sarebbe legittimo. Ma il contralto &egrave; sceso <strong>sotto il tenore</strong> (mi<sub>3</sub> sotto do<sub>4</sub>): le due linee si sono scambiate di posto, e chi ascolta segue quella sbagliata. A destra la disposizione cambia allo stesso modo, ma a muoversi &egrave; la voce giusta.</p>
-    </div>
-
-    <p class="didascalia">La regola che vale per tutto l&rsquo;anno: la disposizione <strong>si pu&ograve; cambiare</strong>, ma <strong>le voci non si incrociano</strong> &mdash; il contralto resta sotto il soprano, il tenore sotto il contralto, il basso sotto a tutti.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="I nomi delle parti">
-  <div class="slide-interna">
-    <h2>Una parola sui nomi, e poi non ci torniamo</h2>
-
-    <p>Nei nostri esercizi le quattro parti si chiamano <strong>soprano, contralto, tenore, basso</strong>. Sono nomi di <em>cantanti</em>, e vengono dallo stile vocale &mdash; quello da cui nasce la disposizione lata.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">La finezza di Marenco</span>
-      <p>Per la scrittura stretta, che nasce alla tastiera, sarebbe pi&ugrave; proprio dire <strong>prima, seconda, terza e quarta parte</strong>: alla tastiera non c&rsquo;&egrave; nessun contralto, c&rsquo;&egrave; un dito.</p>
-    </div>
-
-    <p>Serve saperlo per una ragione pratica: aprendo un altro manuale troverete l&rsquo;una o l&rsquo;altra terminologia, e non sono due sistemi diversi &mdash; sono lo stesso, chiamato col nome del mestiere da cui viene. Noi useremo i nomi delle voci, perch&eacute; il nostro modello &egrave; il corale.</p>
-
-    <p class="didascalia">E c&rsquo;&egrave; un vantaggio nascosto in quei nomi: obbligano a ricordare che dall&rsquo;altra parte c&rsquo;&egrave; qualcuno che deve respirare. &laquo;Terza parte&raquo; non protesta se le fate fare un&rsquo;undicesima; un tenore s&igrave;.</p>
+  <p class="didascalia">Vale la pena notare la simmetria con il controllo delle parallele: <strong>anche lì si guardano prima le coppie che contano</strong>. In una scrittura a quattro parti, quasi ogni controllo si riduce a due o tre coppie su sei.</p>
   </div>
 </section>
 
@@ -584,6 +427,252 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
+<section class="slide perc" data-titolo="Nel corale">
+  <div class="slide-interna">
+    <h2>E in una partitura vera, quale delle due?</h2>
+
+    <p>Riascoltiamo il corale di ieri, ma adesso con una domanda precisa: <strong>guardate la distanza fra le voci</strong>.</p>
+
+    <div class="riquadro compito">
+      <span class="etichetta">A coppie, 8 minuti</span>
+      <p>Prendete le <strong>prime quattro battute</strong> e per ciascun accordo scrivete <strong>S</strong> o <strong>L</strong>. Ricordate: si contano soprano, contralto e tenore, e il corno non &egrave; una voce.</p>
+    </div>
+
+    <tac-brano youtube="bvoAsedF2cE" mappa-video='{"eventi":[[1,1443],[2,3926],[3,7009],[4,9743],[5,12993],[6,15726],[7,19459],[8,22309],[9,25376],[10,28277],[11,31459],[12,34393]],"durata":78000}' organico="voci" titolo="J. S. Bach, corale &laquo;Wie sch&ouml;n leuchtet der Morgenstern&raquo; BWV 1/6" metronomo esecutore="Holland Boys Choir · Netherlands Bach Collegium · Pieter Jan Leusink" partitura="../../_assets/spartiti/A03_bach_bwv1-corale_bga.png" riquadri='[[1,29.62,6.25,10.31,38.63],[2,39.93,6.25,11.54,38.63],[3,51.47,6.25,11.81,38.63],[4,63.28,6.25,11.13,38.63],[5,74.4,6.25,9.42,38.63],[6,83.82,6.25,9.42,38.63],[7,29.62,6.25,10.31,38.63],[8,39.93,6.25,11.54,38.63],[9,51.47,6.25,11.81,38.63],[10,63.28,6.25,11.13,38.63],[11,74.4,6.25,9.42,38.63],[12,83.82,6.25,9.42,38.63],[13,13.11,54.97,9.35,39.94],[14,22.46,54.97,7.99,39.94],[15,30.44,54.97,13.79,39.94],[16,44.23,54.97,9.76,39.94],[17,53.99,54.97,12.63,39.94],[18,66.62,54.97,8.46,39.94],[19,75.09,54.97,9.83,39.94],[20,84.91,54.97,8.6,39.94]]' inciso="../../_assets/incisioni/A03_bach_corale.mp3" mappa='{"durata":33358,"eventi":[[0,0],[1,938],[2,4688],[3,8438],[4,12188],[5,15938],[6,19688],[7,23438],[8,27188]]}'>
+<script type="application/json">{"titolo":"J. S. Bach, Corale «Wie schön leuchtet der Morgenstern» BWV 1/6","metro":"4/4","bpm":64,"battute":9,"anacrusi":1.0,"voci":[[[0.0,1.0,65],[1.0,0.5,67],[1.5,0.5,60],[2.0,0.5,65],[2.5,0.5,53],[3.0,0.5,57],[3.5,0.5,53],[4.0,0.5,57],[4.5,0.5,60],[5.0,0.25,65],[5.25,0.25,70],[5.5,0.25,69],[5.75,0.25,67],[6.0,0.5,65],[6.5,0.5,67],[7.0,1.0,69],[8.0,1.0,69],[9.0,0.5,65],[9.5,0.25,67],[9.75,0.25,69],[10.0,0.5,70],[10.5,0.25,72],[10.75,0.25,70],[11.0,0.5,69],[11.5,0.5,67],[12.0,0.5,67],[12.5,0.5,72],[13.0,0.5,72],[13.5,0.25,71],[13.75,0.25,69],[14.0,1.0,71],[15.0,1.0,72],[16.0,1.0,65],[17.0,0.5,65],[17.5,0.5,70],[18.0,0.5,69],[18.5,0.5,67],[19.0,0.5,65],[19.5,0.5,60],[20.0,0.5,65],[20.5,0.5,60],[21.0,0.5,60],[21.5,0.25,57],[21.75,0.25,53],[22.0,0.5,60],[22.5,0.25,60],[22.75,0.25,60],[23.0,1.0,57],[24.0,1.0,65],[25.0,0.5,67],[25.5,0.5,60],[26.0,0.5,65],[26.5,0.5,53],[27.0,0.5,57],[27.5,0.5,53],[28.0,0.5,57],[28.5,0.5,60],[29.0,0.25,65],[29.25,0.25,70],[29.5,0.25,69],[29.75,0.25,67],[30.0,0.5,65],[30.5,0.5,67],[31.0,1.0,69],[32.0,1.0,69]],[[0.0,1.0,65],[1.0,1.0,72],[2.0,1.0,69],[3.0,1.0,65],[4.0,1.0,72],[5.0,1.0,74],[6.0,1.0,74],[7.0,1.0,72],[8.0,1.0,72],[9.0,1.0,74],[10.0,1.0,76],[11.0,1.0,77],[12.0,1.0,76],[13.0,1.0,74],[14.0,1.0,74],[15.0,1.0,72],[16.0,1.0,69],[17.0,1.0,74],[18.0,1.0,72],[19.0,1.0,70],[20.0,1.0,69],[21.0,2.0,67],[23.0,1.0,65],[24.0,1.0,65],[25.0,1.0,72],[26.0,1.0,69],[27.0,1.0,65],[28.0,1.0,72],[29.0,1.0,74],[30.0,1.0,74],[31.0,1.0,72],[32.0,1.0,72]],[[0.0,1.0,60],[1.0,1.0,60],[2.0,1.0,60],[3.0,1.0,62],[4.0,1.0,65],[5.0,1.0,70],[6.0,1.0,70],[7.0,1.0,69],[8.0,1.0,69],[9.0,1.0,70],[10.0,1.0,70],[11.0,0.5,72],[11.5,0.5,74],[12.0,0.5,72],[12.5,0.5,67],[13.0,1.0,69],[14.0,1.0,67],[15.0,1.0,67],[16.0,1.0,65],[17.0,1.0,65],[18.0,1.0,64],[19.0,0.5,65],[19.5,0.5,67],[20.0,0.5,60],[20.5,0.5,65],[21.0,1.0,65],[22.0,1.0,64],[23.0,1.0,60],[24.0,1.0,60],[25.0,1.0,60],[26.0,1.0,60],[27.0,1.0,62],[28.0,1.0,65],[29.0,1.0,70],[30.0,1.0,70],[31.0,1.0,69],[32.0,1.0,69]],[[0.0,1.0,57],[1.0,1.0,55],[2.0,1.0,57],[3.0,1.0,57],[4.0,1.0,57],[5.0,1.0,53],[6.0,1.0,65],[7.0,1.0,65],[8.0,1.0,65],[9.0,1.0,65],[10.0,1.0,67],[11.0,0.5,65],[11.5,0.5,62],[12.0,1.0,64],[13.0,0.5,65],[13.5,0.5,64],[14.0,1.0,62],[15.0,1.0,64],[16.0,0.5,60],[16.5,0.5,57],[17.0,0.5,53],[17.5,0.5,55],[18.0,1.0,57],[19.0,0.5,57],[19.5,0.5,55],[20.0,0.5,57],[20.5,0.5,53],[21.0,0.5,55],[21.5,0.5,57],[22.0,1.0,58],[23.0,1.0,57],[24.0,1.0,57],[25.0,1.0,55],[26.0,1.0,57],[27.0,1.0,57],[28.0,1.0,57],[29.0,1.0,53],[30.0,1.0,65],[31.0,1.0,65],[32.0,1.0,65]],[[0.0,1.0,53],[1.0,1.0,52],[2.0,1.0,53],[3.0,1.0,50],[4.0,1.0,45],[5.0,0.5,46],[5.5,0.5,48],[6.0,0.5,50],[6.5,0.5,52],[7.0,1.0,53],[8.0,1.0,53],[9.0,1.0,58],[10.0,0.5,57],[10.5,0.5,55],[11.0,0.5,57],[11.5,0.5,59],[12.0,1.0,60],[13.0,1.0,53],[14.0,1.0,55],[15.0,1.0,48],[16.0,1.0,53],[17.0,1.0,46],[18.0,1.0,48],[19.0,0.5,50],[19.5,0.5,52],[20.0,1.0,53],[21.0,2.0,48],[23.0,1.0,41],[24.0,1.0,53],[25.0,1.0,52],[26.0,1.0,53],[27.0,1.0,50],[28.0,1.0,45],[29.0,0.5,46],[29.5,0.5,48],[30.0,0.5,50],[30.5,0.5,52],[31.0,1.0,53],[32.0,1.0,53]]]}</script>
+</tac-brano>
+
+
+    <p class="didascalia">Quello che troverete &mdash; e che vale pi&ugrave; della conta &mdash; &egrave; che Bach <strong>non sceglie una volta per tutte</strong>. Passa dall&rsquo;una all&rsquo;altra dentro la stessa frase, perch&eacute; a decidere non &egrave; una preferenza ma dove sono arrivate le voci.</p>
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────────────────────────
+     Due slide con due musiche vere. L'ora sulla disposizione stretta e
+     lata ha un corale solo. Servivano due casi in cui la differenza si
+     sente: A19 è figurato e sta stretto, A43 è in minore e ha zone late.
+     ─────────────────────────────────────────────────────────────── -->
+<section class="slide perc" data-titolo="Stretta, in una pagina">
+  <div class="slide-interna">
+    <h2>Dove le tre voci alte stanno dentro un&rsquo;ottava</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">A tre gruppi &middot; 6 minuti</span>
+      <p>Soprano, contralto e tenore: ciascun gruppo segue la sua voce. Alla fine, <strong>la distanza fra la vostra e quella accanto</strong>: più o meno di un&rsquo;ottava?</p>
+    </div>
+
+    <tac-brano youtube="saItUjybJAg" mappa-video='{"eventi":[[1,2190],[2,5624],[3,9356],[4,12806],[5,17824],[6,21174],[7,24807],[8,28306],[9,33557],[10,36756],[11,40673],[12,43924],[13,49557],[14,53139],[15,57057],[16,60673],[17,64124]],"durata":80000}' organico="voci" titolo="Bach, corale BWV 305 — figurato in tutti e sei i versi"
+               metronomo esecutore="Chamber Choir of Europe · Nicol Matt" partitura="../../_assets/spartiti/A19_bach-figurato.png" inciso="../../_assets/incisioni/A19_bach_figurato.mp3" mappa='{"durata":75415,"eventi":[[0,0],[1,1071],[2,5357],[3,9643],[4,13929],[0,17143],[1,18214],[2,22500],[3,26786],[4,31071],[5,34286],[6,35357],[7,39643],[8,43929],[9,48214],[10,51429],[11,52500],[12,56786],[13,61071],[14,65357],[15,69643]]}'>
+<script type="application/json">{"titolo":"J. S. Bach, Corale BWV 305, figurato in tutti e sei i versi","metro":"4/4","bpm":56,"battute":14,"anacrusi":1.0,"voci":[[[0.0,1.0,64],[1.0,1.0,67],[2.0,1.0,67],[3.0,1.0,69],[4.0,1.0,71],[5.0,1.0,72],[6.0,1.0,71],[7.0,1.0,69],[8.0,1.0,67],[9.0,1.0,72],[10.0,1.0,71],[11.0,1.0,72],[12.0,1.0,69],[13.0,1.0,64],[13.0,1.0,67],[14.0,1.0,65],[15.0,1.0,64],[17.0,1.0,69],[18.0,1.0,69],[19.0,1.0,67],[20.0,1.0,72],[21.0,1.0,71],[22.0,1.0,69],[23.0,1.0,67],[24.0,1.0,67],[25.0,1.0,72],[26.0,1.0,67],[27.0,1.0,69],[28.0,1.0,64],[29.0,0.5,69],[29.0,1.0,64],[29.5,0.5,67],[30.0,1.0,65],[31.0,1.0,64],[33.0,1.0,69],[34.0,1.0,69],[35.0,0.5,67],[35.5,0.5,65],[36.0,1.0,64],[37.0,1.0,65],[38.0,1.0,62],[39.0,1.0,60],[40.0,1.0,60],[41.0,2.0,67],[43.0,1.0,69],[44.0,1.0,71],[45.0,1.0,72],[46.0,1.0,67],[47.0,1.0,69],[48.0,1.0,67],[49.0,1.5,65],[50.5,0.5,65],[51.0,1.0,64]],[[0.0,1.0,59],[1.0,1.0,64],[2.0,1.0,64],[3.0,1.0,64],[4.0,0.5,65],[4.5,0.5,64],[5.0,0.5,64],[5.5,1.0,69],[6.5,0.5,68],[7.0,1.0,64],[8.0,0.5,64],[8.5,0.5,65],[9.0,0.5,67],[9.5,0.5,69],[10.0,0.5,69],[10.5,0.25,67],[10.75,0.25,65],[11.0,1.5,67],[12.5,0.5,65],[13.0,0.5,65],[13.0,1.0,60],[13.5,1.0,64],[14.5,0.25,62],[14.75,0.25,60],[15.0,1.0,59],[17.0,1.0,65],[18.0,1.0,65],[19.0,0.5,65],[19.5,0.25,64],[19.75,0.25,62],[20.0,0.5,64],[20.5,0.5,66],[21.0,0.25,67],[21.25,0.25,62],[21.5,1.0,67],[22.5,0.5,66],[23.0,1.0,62],[24.0,1.0,64],[25.0,1.0,64],[26.0,0.5,64],[26.5,0.5,62],[27.0,0.5,60],[27.5,0.5,59],[28.0,0.5,61],[28.5,0.5,62],[29.0,1.0,60],[29.0,1.5,64],[30.5,1.0,62],[31.5,0.5,61],[33.0,0.5,60],[33.5,1.0,63],[34.5,0.5,62],[35.0,1.0,62],[36.0,1.0,60],[37.0,1.5,60],[38.5,0.5,59],[39.0,1.0,55],[40.0,1.0,55],[41.0,1.0,62],[42.0,0.5,64],[42.5,0.5,62],[43.0,1.0,60],[44.0,1.0,62],[45.0,0.5,64],[45.5,0.5,65],[46.0,0.5,67],[46.5,0.5,64],[47.0,1.5,65],[48.5,0.5,64],[49.0,0.5,64],[49.5,1.0,62],[50.5,0.5,60],[51.0,1.0,59]],[[0.0,1.0,55],[1.0,1.0,59],[2.0,1.0,59],[3.0,1.0,60],[4.0,1.0,62],[5.0,0.5,60],[5.5,0.5,64],[6.0,0.5,65],[6.5,0.25,64],[6.75,0.25,62],[7.0,1.0,60],[8.0,1.0,59],[9.0,1.0,64],[10.0,0.5,65],[10.5,0.25,64],[10.75,0.25,62],[11.0,1.0,60],[12.0,1.0,60],[13.0,0.75,60],[13.0,1.0,57],[13.75,0.25,58],[14.0,0.5,57],[14.5,0.25,59],[14.75,0.25,57],[15.0,1.0,56],[17.0,1.0,60],[18.0,1.5,62],[19.5,0.5,60],[20.0,0.5,55],[20.5,0.5,57],[21.0,0.5,50],[21.5,0.5,62],[22.0,0.5,64],[22.5,0.25,62],[22.75,0.25,60],[23.0,1.0,59],[24.0,1.0,60],[25.0,1.0,60],[26.0,0.5,60],[26.5,0.5,58],[27.0,1.0,57],[28.0,1.0,57],[29.0,1.0,57],[29.0,1.0,57],[30.0,1.0,57],[31.0,1.0,57],[33.0,0.5,57],[33.5,1.0,60],[34.5,0.25,59],[34.75,0.25,57],[35.0,1.0,59],[36.0,0.5,60],[36.5,0.5,59],[37.0,1.0,57],[38.0,0.75,55],[38.75,0.25,53],[39.0,1.0,52],[40.0,1.0,52],[41.0,1.0,55],[42.0,0.5,60],[42.5,0.5,62],[43.0,0.5,64],[43.5,0.5,65],[44.0,1.0,67],[45.0,1.0,55],[46.0,1.0,60],[47.0,1.0,60],[48.0,0.75,60],[48.75,0.25,58],[49.0,0.5,57],[49.5,0.25,59],[49.75,0.25,60],[50.0,0.5,59],[50.5,0.5,57],[51.0,1.0,56]],[[0.0,1.0,52],[1.0,0.5,52],[1.5,0.5,53],[2.0,0.5,52],[2.5,0.5,50],[3.0,0.5,48],[3.5,1.0,57],[4.5,0.5,56],[5.0,0.5,57],[5.5,0.5,48],[6.0,0.5,50],[6.5,0.5,52],[7.0,1.0,45],[8.0,0.5,52],[8.5,0.5,50],[9.0,1.0,48],[10.0,0.5,50],[10.5,0.5,55],[11.0,0.5,52],[11.5,0.5,48],[12.0,1.0,53],[13.0,0.5,57],[13.0,1.0,48],[13.5,0.5,55],[14.0,1.0,50],[15.0,1.0,52],[17.0,0.5,53],[17.5,0.5,52],[18.0,0.5,50],[18.5,0.5,48],[19.0,0.5,47],[19.5,0.5,48],[20.0,0.5,47],[20.5,0.5,45],[21.0,0.5,43],[21.5,0.5,47],[22.0,0.5,48],[22.5,0.5,50],[23.0,1.0,43],[24.0,0.5,48],[24.5,0.5,47],[25.0,0.5,45],[25.5,0.5,47],[26.0,0.5,48],[26.5,0.5,40],[27.0,0.5,41],[27.5,0.5,43],[28.0,0.5,45],[28.5,0.5,47],[29.0,0.5,49],[29.0,0.5,57],[29.5,0.5,45],[29.5,0.5,55],[30.0,1.0,50],[31.0,1.0,45],[33.0,1.0,53],[34.0,1.0,54],[35.0,1.0,55],[36.0,0.5,57],[36.5,0.5,55],[37.0,0.5,53],[37.5,0.5,50],[38.0,0.5,55],[38.5,0.5,43],[39.0,1.0,48],[40.0,1.0,48],[41.0,1.0,47],[42.0,0.5,48],[42.5,0.5,47],[43.0,1.0,45],[44.0,0.5,43],[44.5,0.5,41],[45.0,0.5,40],[45.5,0.5,38],[46.0,0.5,40],[46.5,0.5,36],[47.0,0.5,41],[47.5,0.5,45],[48.0,1.0,48],[49.0,2.0,50],[51.0,1.0,52]]]}</script>
+</tac-brano>
+
+
+    <p class="didascalia">Il criterio &egrave; quello di prima: <strong>soprano e tenore</strong>, dentro o fuori l&rsquo;ottava.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il caso brutto">
+  <div class="slide-interna">
+    <h2>Un caso che si sente subito: la stretta nel grave</h2>
+
+    <p>Prendete un accordo in disposizione stretta e portatelo <strong>in basso</strong>, sotto il rigo. Succede una cosa che non &egrave; una questione di regole.</p>
+
+    <div class="colonne">
+      <div>
+        <p><strong>Stretta, in zona comoda</strong></p>
+        <tac-stave clef="treble" time="4/4"
+                   caption="Suona pieno" soprano="g/4:w"
+               contralto="e/4:w" tenore="c/4:w"
+               basso="c/3:w"
+                   width="330" tempo="50" play></tac-stave>
+      </div>
+      <div>
+        <p><strong>Stretta, troppo in basso</strong></p>
+        <tac-stave clef="treble" time="4/4"
+                   caption="Suona confuso" soprano="g/3:w"
+               contralto="e/3:w" tenore="c/3:w"
+               basso="c/2:w"
+                   width="330" tempo="50" play></tac-stave>
+      </div>
+    </div>
+
+    <p class="didascalia">Nel grave le frequenze delle note sono vicinissime e <strong>si impastano</strong>: si sta larghi.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Perch&eacute; nel grave si sta larghi">
+  <div class="slide-interna">
+    <h2>E adesso perch&eacute;, che non &egrave; una questione di gusto</h2>
+
+    <p>Un intervallo &egrave; sempre lo stesso rapporto fra due frequenze. Ma la <strong>differenza</strong> fra le due frequenze, in vibrazioni al secondo, cambia moltissimo con il registro &mdash; ed &egrave; quella che l&rsquo;orecchio sente.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Il fatto, in numeri</span>
+      <p>La stessa terza maggiore, do&ndash;mi, in tre registri:</p>
+      <p>do<sub>2</sub> 65&nbsp;Hz &mdash; mi<sub>2</sub> 82&nbsp;Hz: <strong>17 vibrazioni</strong> di differenza<br>
+         do<sub>4</sub> 262&nbsp;Hz &mdash; mi<sub>4</sub> 330&nbsp;Hz: <strong>68</strong><br>
+         do<sub>5</sub> 523&nbsp;Hz &mdash; mi<sub>5</sub> 659&nbsp;Hz: <strong>136</strong></p>
+      <p>Nel grave le due frequenze sono <strong>molto vicine</strong>: l&rsquo;orecchio non riesce a tenerle separate, le due note battono l&rsquo;una contro l&rsquo;altra e <strong>si impastano</strong> in un suono solo, ruvido. In alto la distanza &egrave; grande e le due note restano distinte.</p>
+    </div>
+
+    <p>Ecco perch&eacute; una terza suona limpida in alto e fangosa in basso: non &egrave; la terza che cambia, &egrave; quanto sono vicine le sue frequenze. E per questo un&rsquo;orchestrazione mette le parti larghe in fondo e strette in cima &mdash; la stessa regola dell&rsquo;armonia scritta.</p>
+
+    <p class="didascalia">Longo lo scrive senza mezzi termini: una disposizione stretta nel registro grave &egrave; &laquo;pesante, assai cattiva&raquo; <cite><em>32 lezioni pratiche sull&rsquo;armonizzazione del canto dato</em>, lez. XIX bis, p. 44</cite>. Il giudizio &egrave; suo; l&rsquo;orecchio, dopo l&rsquo;esempio di prima, glielo d&agrave; ragione da solo.</p>
+  </div>
+</section>
+
+<section class="slide perc" data-titolo="E dove si allarga">
+  <div class="slide-interna">
+    <h2>Un corale che cambia disposizione in mezzo</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Ascolto guidato &middot; 6 minuti</span>
+      <p>Ascoltate cercando i punti in cui il suono si <strong>apre</strong> — diventa più arioso, meno compatto. Segnate il verso.</p>
+    </div>
+
+    <tac-brano organico="voci" titolo="Bach, corale BWV 114/7 in sol minore"
+               metronomo youtube="5LTG5Y-A1bA" esecutore="Frankfurter Kantorei · Helmuth Rilling" partitura="../../_assets/spartiti/A43_bach-114-7.png" inciso="../../_assets/incisioni/A43_bach_114_7.mp3" mappa='{"durata":64417,"eventi":[[0,0],[1,1111],[2,5556],[3,10000],[4,14444],[0,17778],[1,18889],[2,23333],[3,27778],[4,32222],[5,35556],[6,36667],[7,41111],[8,45556],[9,50000],[10,54444],[11,58889]]}'>
+<script type="application/json">{"titolo":"J. S. Bach, Corale BWV 114/7 in sol minore","metro":"4/4","bpm":54,"battute":11,"anacrusi":1.0,"voci":[[[0.0,1.0,70],[1.0,1.0,70],[2.0,0.5,67],[2.5,0.5,69],[3.0,0.5,70],[3.5,0.5,72],[4.0,1.0,74],[5.0,1.0,72],[6.0,1.0,72],[7.0,1.0,70],[8.0,1.0,70],[9.0,1.0,69],[10.0,0.5,67],[10.5,0.5,69],[11.0,1.0,70],[12.0,0.5,72],[12.5,0.5,70],[13.0,1.0,72],[13.0,2.0,69],[15.0,1.0,67],[17.0,1.0,74],[18.0,1.0,74],[19.0,0.5,69],[19.5,0.5,70],[20.0,1.0,72],[21.0,1.0,70],[22.0,1.0,70],[23.0,1.0,69],[24.0,1.0,70],[25.0,1.0,72],[26.0,0.5,67],[26.5,0.5,69],[27.0,1.0,70],[28.0,1.0,69],[29.0,1.0,67],[30.0,1.0,67],[31.0,1.0,65],[32.0,1.0,70],[33.0,1.0,69],[34.0,0.5,67],[34.5,0.5,69],[35.0,1.0,70],[36.0,0.5,72],[36.5,0.5,70],[37.0,2.0,69],[39.0,1.0,67]],[[0.0,1.0,67],[1.0,1.0,65],[2.0,1.0,63],[3.0,1.0,62],[4.0,1.0,62],[5.0,1.0,63],[6.0,0.25,63],[6.25,0.25,62],[6.5,0.5,63],[7.0,1.0,62],[8.0,1.0,62],[9.0,0.5,62],[9.5,0.5,72],[10.0,0.5,70],[10.5,0.5,69],[11.0,1.0,67],[12.0,0.5,67],[12.5,0.5,65],[13.0,1.0,63],[13.0,1.0,65],[14.0,0.5,62],[14.5,0.5,60],[15.0,1.0,58],[17.0,1.0,65],[18.0,1.0,65],[19.0,1.5,60],[20.5,0.5,69],[21.0,0.5,69],[21.5,0.25,67],[21.75,0.25,66],[22.0,1.0,67],[23.0,1.0,66],[24.0,1.0,67],[25.0,0.5,67],[25.5,0.5,65],[26.0,1.0,63],[27.0,0.5,62],[27.5,0.5,64],[28.0,1.0,65],[29.0,1.0,65],[30.0,1.0,64],[31.0,1.0,60],[32.0,1.0,62],[33.0,0.5,60],[33.5,0.5,62],[34.0,0.5,64],[34.5,0.5,66],[35.0,1.0,67],[36.0,1.0,67],[37.0,1.0,67],[38.0,1.0,66],[39.0,1.0,62]],[[0.0,1.0,62],[1.0,0.5,62],[1.5,0.5,60],[2.0,1.0,58],[3.0,1.0,58],[4.0,1.0,53],[5.0,1.0,55],[6.0,1.0,57],[7.0,1.0,53],[8.0,1.0,55],[9.0,0.5,54],[9.5,0.5,63],[10.0,0.5,62],[10.5,0.5,60],[11.0,0.5,58],[11.5,0.5,57],[12.0,1.0,55],[13.0,1.0,53],[13.0,1.0,55],[14.0,1.0,54],[15.0,1.0,55],[17.0,1.0,58],[18.0,1.0,58],[19.0,1.0,65],[20.0,0.5,66],[20.5,0.5,57],[21.0,0.5,58],[21.5,0.5,60],[22.0,1.0,62],[23.0,1.0,62],[24.0,1.0,62],[25.0,1.0,55],[26.0,1.0,60],[27.0,1.0,58],[28.0,1.0,60],[29.0,0.5,60],[29.5,0.5,55],[30.0,0.5,60],[30.5,0.5,58],[31.0,1.0,57],[32.0,0.5,53],[32.5,0.5,55],[33.0,0.5,57],[33.5,0.5,58],[34.0,1.0,60],[35.0,1.0,62],[36.0,0.5,60],[36.5,0.5,62],[37.0,0.5,63],[37.5,0.5,57],[38.0,0.5,62],[38.5,0.5,60],[39.0,1.0,59]],[[0.0,1.0,55],[1.0,1.0,50],[2.0,0.5,51],[2.5,0.5,53],[3.0,0.5,55],[3.5,0.5,57],[4.0,1.0,58],[5.0,1.0,51],[6.0,1.0,53],[7.0,1.0,46],[8.0,1.0,43],[9.0,1.0,50],[10.0,0.5,52],[10.5,0.5,54],[11.0,0.5,55],[11.5,0.5,53],[12.0,0.5,51],[12.5,0.5,50],[13.0,1.0,45],[13.0,1.0,48],[14.0,1.0,50],[15.0,1.0,43],[17.0,0.5,46],[17.5,0.5,48],[18.0,0.5,50],[18.5,0.5,51],[19.0,0.5,53],[19.5,0.5,55],[20.0,0.5,57],[20.5,0.5,54],[21.0,0.5,55],[21.5,0.5,57],[22.0,0.5,58],[22.5,0.5,60],[23.0,1.0,62],[24.0,0.5,55],[24.5,0.5,53],[25.0,0.5,51],[25.5,0.5,50],[26.0,1.0,48],[27.0,1.0,43],[28.0,0.5,45],[28.5,0.5,46],[29.0,0.5,48],[29.5,0.5,46],[30.0,1.0,48],[31.0,1.0,41],[32.0,0.5,50],[32.5,0.5,52],[33.0,1.0,53],[34.0,1.0,48],[35.0,0.5,55],[35.5,0.5,53],[36.0,0.5,51],[36.5,0.5,50],[37.0,1.0,48],[38.0,1.0,50],[39.0,1.0,43]]]}</script>
+</tac-brano>
+
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Che cosa succede in quei punti</span>
+      <p>Le tre voci alte si <strong>allontanano</strong>. Non è un caso e non è una necessità armonica: è una scelta di colore, e quasi sempre serve a dare peso a una parola del testo o a una chiusa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Quale si sceglie">
+  <div class="slide-interna">
+    <h2>Allora quale si usa?</h2>
+
+    <p>La domanda &egrave; legittima e la risposta onesta &egrave; che non si sceglie <em>una</em>: si sceglie <strong>accordo per accordo</strong>, e quasi sempre la scelta &egrave; gi&agrave; fatta da dove sono arrivate le voci.</p>
+
+    <div class="colonne3">
+      <div class="scheda"><h3>Decide il soprano</h3><p>La melodia &egrave; data. Se il soprano sta alto e il basso basso, in mezzo resta molto spazio: viene lata da s&eacute;.</p></div>
+      <div class="scheda"><h3>Decide il registro</h3><p>Accordi gravi: larghi. Accordi acuti: si pu&ograve; stringere senza che si impastino.</p></div>
+      <div class="scheda"><h3>Decide la voce precedente</h3><p>Ogni parte deve arrivare dove sta <strong>muovendosi poco</strong>. Questo pesa pi&ugrave; della disposizione.</p></div>
+    </div>
+
+    <p class="didascalia">Il terzo criterio &egrave; il pi&ugrave; forte dei tre, e sar&agrave; il lavoro dell&rsquo;unit&agrave; 2: la disposizione non &egrave; qualcosa che si decide <em>prima</em> e si impone alle voci. &Egrave; il <strong>risultato</strong> di quattro linee che si sono mosse ciascuna per conto proprio.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Da una all&rsquo;altra">
+  <div class="slide-interna">
+    <h2>Sulla carta: riscrivere lo stesso accordo</h2>
+
+    <p>&Egrave; un&rsquo;operazione meccanica, e conviene saperla fare a mente: capita continuamente di avere un accordo che sta stretto dove servirebbe largo.</p>
+
+    <div class="colonne">
+      <div>
+        <p><strong>Di partenza: stretta</strong></p>
+        <tac-stave clef="treble" time="4/4"
+                   caption="Soprano&ndash;tenore: una quinta"
+                   soprano="g/4:w" contralto="e/4:w" tenore="c/4:w" basso="c/3:w"
+                   width="330" tempo="50" play></tac-stave>
+      </div>
+      <div>
+        <p><strong>Diventa lata</strong></p>
+        <tac-stave clef="treble" time="4/4"
+                   caption="Il mi &egrave; sceso di un&rsquo;ottava ed &egrave; passato al tenore: fra soprano e tenore adesso una decima"
+                   soprano="g/4:w" contralto="c/4:w" tenore="e/3:w" basso="c/3:w"
+                   width="330" tempo="50" play></tac-stave>
+      </div>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">La ricetta</span>
+      <p>Si prende la nota della <strong>voce di mezzo</strong> e la si porta <strong>un&rsquo;ottava sotto</strong>; poi le parti si <strong>rinominano</strong> dall&rsquo;alto in basso, e quella nota diventa del tenore. L&rsquo;armonia non cambia di una nota: cambia chi canta cosa.</p>
+    </div>
+
+    <p class="didascalia">Al contrario funziona uguale: per stringere una lata si porta il tenore un&rsquo;ottava sopra. Attenzione: &egrave; il modo di <strong>riscrivere un accordo fermo</strong>. Da un accordo al successivo, invece, una voce interna non salta d&rsquo;ottava: lo vediamo subito.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Da una disposizione all&rsquo;altra">
+  <div class="slide-interna">
+    <h2>Da un accordo al successivo: per gradi</h2>
+
+    <tac-stave clef="treble" time="4/4" caption="Da stretta a lata in due accordi: il contralto scende gradualmente, non salta" notes="g/4+e/4+c/4+c/3:h g/4+d/4+b/3+g/2:h | e/5+g/4+e/4+c/3:w" width="520" tempo="44" play slow></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">La regola, in una riga</span>
+      <p>Si cambia disposizione <strong>gradualmente</strong>, spostando una voce per volta e di poco. Mai tutte e tre insieme, e mai con un salto d&rsquo;ottava.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Perché un salto d&rsquo;ottava in una voce interna non funziona</span>
+      <p>Perché <strong>si sente come un buco</strong>: quella voce sparisce da dov&rsquo;era e ricompare altrove, e l&rsquo;orecchio la perde. Nelle voci interne, che nessuno segue attivamente, il salto d&rsquo;ottava è il modo più sicuro di rompere la testura.</p>
+      <p>Nel <strong>basso</strong> invece si fa, e spesso: il basso è seguito, e il salto si sente come una scelta.</p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Quando conviene cambiare</span>
+      <p>Quando la <strong>melodia sale o scende molto</strong>: se il soprano si allontana, le voci interne devono seguirlo o restano indietro e la distanza supera l&rsquo;ottava.</p>
+      <p>Cioè il cambio di disposizione quasi mai è una scelta di colore: è una <strong>conseguenza</strong> di dove va la voce acuta.</p>
+    </div>
+
+    <p class="didascalia">Ed è il motivo per cui si scrive il soprano prima delle voci interne: <strong>il soprano decide lo spazio, le voci interne lo occupano</strong>. Chi scrive le interne prima si trova a doverle spostare tutte.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="L&rsquo;errore da aspettarsi">
+  <div class="slide-interna">
+    <h2>L&rsquo;errore che farete: l&rsquo;incrocio delle parti</h2>
+
+    <p>Cambiare disposizione si pu&ograve;, anche su un accordo che sta fermo, e spesso &egrave; <strong>molto utile</strong>: d&agrave; respiro a una voce, prepara il movimento che viene dopo. L&rsquo;errore &egrave; un altro: nel cambiare, una voce <strong>scavalca</strong> quella accanto.</p>
+
+    <div class="colonne">
+      <div>
+        <p><strong>Cos&igrave; no</strong></p>
+        <tac-stave clef="treble" time="4/4"
+                   caption="Il contralto scende di un&rsquo;ottava e finisce sotto il tenore"
+                   soprano="g/4:h g/4:h"
+                   contralto="e/4:h e/3:h"
+                   tenore="c/4:h c/4:h"
+                   basso="c/3:h c/3:h"
+                   width="400" tempo="50" play></tac-stave>
+      </div>
+      <div>
+        <p><strong>Cos&igrave; s&igrave;</strong></p>
+        <tac-stave clef="treble" time="4/4"
+                   caption="Scende il tenore: la disposizione si allarga e nessuno scavalca nessuno"
+                   soprano="g/4:h g/4:h"
+                   contralto="e/4:h e/4:h"
+                   tenore="c/4:h e/3:h"
+                   basso="c/3:h c/3:h"
+                   width="400" tempo="50" play></tac-stave>
+      </div>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Che cosa &egrave; successo, a sinistra</span>
+      <p>L&rsquo;accordo &egrave; lo stesso, e allargarlo sarebbe legittimo. Ma il contralto &egrave; sceso <strong>sotto il tenore</strong> (mi<sub>3</sub> sotto do<sub>4</sub>): le due linee si sono scambiate di posto, e chi ascolta segue quella sbagliata. A destra la disposizione cambia allo stesso modo, ma a muoversi &egrave; la voce giusta.</p>
+    </div>
+
+    <p class="didascalia">La regola che vale per tutto l&rsquo;anno: la disposizione <strong>si pu&ograve; cambiare</strong>, ma <strong>le voci non si incrociano</strong> &mdash; il contralto resta sotto il soprano, il tenore sotto il contralto, il basso sotto a tutti.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="I nomi delle parti">
+  <div class="slide-interna">
+    <h2>Una parola sui nomi, e poi non ci torniamo</h2>
+
+    <p>Nei nostri esercizi le quattro parti si chiamano <strong>soprano, contralto, tenore, basso</strong>. Sono nomi di <em>cantanti</em>, e vengono dallo stile vocale &mdash; quello da cui nasce la disposizione lata.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">La finezza di Marenco</span>
+      <p>Per la scrittura stretta, che nasce alla tastiera, sarebbe pi&ugrave; proprio dire <strong>prima, seconda, terza e quarta parte</strong>: alla tastiera non c&rsquo;&egrave; nessun contralto, c&rsquo;&egrave; un dito.</p>
+    </div>
+
+    <p>Serve saperlo per una ragione pratica: aprendo un altro manuale troverete l&rsquo;una o l&rsquo;altra terminologia, e non sono due sistemi diversi &mdash; sono lo stesso, chiamato col nome del mestiere da cui viene. Noi useremo i nomi delle voci, perch&eacute; il nostro modello &egrave; il corale.</p>
+
+    <p class="didascalia">E c&rsquo;&egrave; un vantaggio nascosto in quei nomi: obbligano a ricordare che dall&rsquo;altra parte c&rsquo;&egrave; qualcuno che deve respirare. &laquo;Terza parte&raquo; non protesta se le fate fare un&rsquo;undicesima; un tenore s&igrave;.</p>
+  </div>
+</section>
+
 <section class="slide" data-titolo="Che cosa portiamo a casa">
   <div class="slide-interna">
     <h2>Che cosa portiamo a casa</h2>
@@ -612,112 +701,6 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<!-- ───────────────────────────────────────────────────────────────────
-     Due slide con due musiche vere. L'ora sulla disposizione stretta e
-     lata ha un corale solo. Servivano due casi in cui la differenza si
-     sente: A19 è figurato e sta stretto, A43 è in minore e ha zone late.
-     ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="Stretta, in una pagina">
-  <div class="slide-interna">
-    <h2>Dove le tre voci alte stanno dentro un&rsquo;ottava</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">A tre gruppi &middot; 6 minuti</span>
-      <p>Soprano, contralto e tenore: ciascun gruppo segue la sua voce. Alla fine, <strong>la distanza fra la vostra e quella accanto</strong>: più o meno di un&rsquo;ottava?</p>
-
-<div class="riquadro definizione">
-      <span class="etichetta">Il numero da guardare, e non è la disposizione</span>
-      <p>La <strong>distanza fra soprano e tenore</strong>. Se sta dentro un&rsquo;ottava è stretta; se la supera è lata. Il basso non c&rsquo;entra: sta sempre lontano dalle altre tre.</p>
-      <p>È il criterio più rapido, e si legge a colpo d&rsquo;occhio senza contare le note.</p>
-    </div>
-
-    <tac-brano youtube="saItUjybJAg" mappa-video='{"eventi":[[1,2190],[2,5624],[3,9356],[4,12806],[5,17824],[6,21174],[7,24807],[8,28306],[9,33557],[10,36756],[11,40673],[12,43924],[13,49557],[14,53139],[15,57057],[16,60673],[17,64124]],"durata":80000}' organico="voci" titolo="Bach, corale BWV 305 — figurato in tutti e sei i versi"
-               metronomo esecutore="Chamber Choir of Europe · Nicol Matt" partitura="../../_assets/spartiti/A19_bach-figurato.png" inciso="../../_assets/incisioni/A19_bach_figurato.mp3" mappa='{"durata":75415,"eventi":[[0,0],[1,1071],[2,5357],[3,9643],[4,13929],[0,17143],[1,18214],[2,22500],[3,26786],[4,31071],[5,34286],[6,35357],[7,39643],[8,43929],[9,48214],[10,51429],[11,52500],[12,56786],[13,61071],[14,65357],[15,69643]]}'>
-<script type="application/json">{"titolo":"J. S. Bach, Corale BWV 305, figurato in tutti e sei i versi","metro":"4/4","bpm":56,"battute":14,"anacrusi":1.0,"voci":[[[0.0,1.0,64],[1.0,1.0,67],[2.0,1.0,67],[3.0,1.0,69],[4.0,1.0,71],[5.0,1.0,72],[6.0,1.0,71],[7.0,1.0,69],[8.0,1.0,67],[9.0,1.0,72],[10.0,1.0,71],[11.0,1.0,72],[12.0,1.0,69],[13.0,1.0,64],[13.0,1.0,67],[14.0,1.0,65],[15.0,1.0,64],[17.0,1.0,69],[18.0,1.0,69],[19.0,1.0,67],[20.0,1.0,72],[21.0,1.0,71],[22.0,1.0,69],[23.0,1.0,67],[24.0,1.0,67],[25.0,1.0,72],[26.0,1.0,67],[27.0,1.0,69],[28.0,1.0,64],[29.0,0.5,69],[29.0,1.0,64],[29.5,0.5,67],[30.0,1.0,65],[31.0,1.0,64],[33.0,1.0,69],[34.0,1.0,69],[35.0,0.5,67],[35.5,0.5,65],[36.0,1.0,64],[37.0,1.0,65],[38.0,1.0,62],[39.0,1.0,60],[40.0,1.0,60],[41.0,2.0,67],[43.0,1.0,69],[44.0,1.0,71],[45.0,1.0,72],[46.0,1.0,67],[47.0,1.0,69],[48.0,1.0,67],[49.0,1.5,65],[50.5,0.5,65],[51.0,1.0,64]],[[0.0,1.0,59],[1.0,1.0,64],[2.0,1.0,64],[3.0,1.0,64],[4.0,0.5,65],[4.5,0.5,64],[5.0,0.5,64],[5.5,1.0,69],[6.5,0.5,68],[7.0,1.0,64],[8.0,0.5,64],[8.5,0.5,65],[9.0,0.5,67],[9.5,0.5,69],[10.0,0.5,69],[10.5,0.25,67],[10.75,0.25,65],[11.0,1.5,67],[12.5,0.5,65],[13.0,0.5,65],[13.0,1.0,60],[13.5,1.0,64],[14.5,0.25,62],[14.75,0.25,60],[15.0,1.0,59],[17.0,1.0,65],[18.0,1.0,65],[19.0,0.5,65],[19.5,0.25,64],[19.75,0.25,62],[20.0,0.5,64],[20.5,0.5,66],[21.0,0.25,67],[21.25,0.25,62],[21.5,1.0,67],[22.5,0.5,66],[23.0,1.0,62],[24.0,1.0,64],[25.0,1.0,64],[26.0,0.5,64],[26.5,0.5,62],[27.0,0.5,60],[27.5,0.5,59],[28.0,0.5,61],[28.5,0.5,62],[29.0,1.0,60],[29.0,1.5,64],[30.5,1.0,62],[31.5,0.5,61],[33.0,0.5,60],[33.5,1.0,63],[34.5,0.5,62],[35.0,1.0,62],[36.0,1.0,60],[37.0,1.5,60],[38.5,0.5,59],[39.0,1.0,55],[40.0,1.0,55],[41.0,1.0,62],[42.0,0.5,64],[42.5,0.5,62],[43.0,1.0,60],[44.0,1.0,62],[45.0,0.5,64],[45.5,0.5,65],[46.0,0.5,67],[46.5,0.5,64],[47.0,1.5,65],[48.5,0.5,64],[49.0,0.5,64],[49.5,1.0,62],[50.5,0.5,60],[51.0,1.0,59]],[[0.0,1.0,55],[1.0,1.0,59],[2.0,1.0,59],[3.0,1.0,60],[4.0,1.0,62],[5.0,0.5,60],[5.5,0.5,64],[6.0,0.5,65],[6.5,0.25,64],[6.75,0.25,62],[7.0,1.0,60],[8.0,1.0,59],[9.0,1.0,64],[10.0,0.5,65],[10.5,0.25,64],[10.75,0.25,62],[11.0,1.0,60],[12.0,1.0,60],[13.0,0.75,60],[13.0,1.0,57],[13.75,0.25,58],[14.0,0.5,57],[14.5,0.25,59],[14.75,0.25,57],[15.0,1.0,56],[17.0,1.0,60],[18.0,1.5,62],[19.5,0.5,60],[20.0,0.5,55],[20.5,0.5,57],[21.0,0.5,50],[21.5,0.5,62],[22.0,0.5,64],[22.5,0.25,62],[22.75,0.25,60],[23.0,1.0,59],[24.0,1.0,60],[25.0,1.0,60],[26.0,0.5,60],[26.5,0.5,58],[27.0,1.0,57],[28.0,1.0,57],[29.0,1.0,57],[29.0,1.0,57],[30.0,1.0,57],[31.0,1.0,57],[33.0,0.5,57],[33.5,1.0,60],[34.5,0.25,59],[34.75,0.25,57],[35.0,1.0,59],[36.0,0.5,60],[36.5,0.5,59],[37.0,1.0,57],[38.0,0.75,55],[38.75,0.25,53],[39.0,1.0,52],[40.0,1.0,52],[41.0,1.0,55],[42.0,0.5,60],[42.5,0.5,62],[43.0,0.5,64],[43.5,0.5,65],[44.0,1.0,67],[45.0,1.0,55],[46.0,1.0,60],[47.0,1.0,60],[48.0,0.75,60],[48.75,0.25,58],[49.0,0.5,57],[49.5,0.25,59],[49.75,0.25,60],[50.0,0.5,59],[50.5,0.5,57],[51.0,1.0,56]],[[0.0,1.0,52],[1.0,0.5,52],[1.5,0.5,53],[2.0,0.5,52],[2.5,0.5,50],[3.0,0.5,48],[3.5,1.0,57],[4.5,0.5,56],[5.0,0.5,57],[5.5,0.5,48],[6.0,0.5,50],[6.5,0.5,52],[7.0,1.0,45],[8.0,0.5,52],[8.5,0.5,50],[9.0,1.0,48],[10.0,0.5,50],[10.5,0.5,55],[11.0,0.5,52],[11.5,0.5,48],[12.0,1.0,53],[13.0,0.5,57],[13.0,1.0,48],[13.5,0.5,55],[14.0,1.0,50],[15.0,1.0,52],[17.0,0.5,53],[17.5,0.5,52],[18.0,0.5,50],[18.5,0.5,48],[19.0,0.5,47],[19.5,0.5,48],[20.0,0.5,47],[20.5,0.5,45],[21.0,0.5,43],[21.5,0.5,47],[22.0,0.5,48],[22.5,0.5,50],[23.0,1.0,43],[24.0,0.5,48],[24.5,0.5,47],[25.0,0.5,45],[25.5,0.5,47],[26.0,0.5,48],[26.5,0.5,40],[27.0,0.5,41],[27.5,0.5,43],[28.0,0.5,45],[28.5,0.5,47],[29.0,0.5,49],[29.0,0.5,57],[29.5,0.5,45],[29.5,0.5,55],[30.0,1.0,50],[31.0,1.0,45],[33.0,1.0,53],[34.0,1.0,54],[35.0,1.0,55],[36.0,0.5,57],[36.5,0.5,55],[37.0,0.5,53],[37.5,0.5,50],[38.0,0.5,55],[38.5,0.5,43],[39.0,1.0,48],[40.0,1.0,48],[41.0,1.0,47],[42.0,0.5,48],[42.5,0.5,47],[43.0,1.0,45],[44.0,0.5,43],[44.5,0.5,41],[45.0,0.5,40],[45.5,0.5,38],[46.0,0.5,40],[46.5,0.5,36],[47.0,0.5,41],[47.5,0.5,45],[48.0,1.0,48],[49.0,2.0,50],[51.0,1.0,52]]]}</script>
-</tac-brano>
-
-  </div>
-</section>
-
-<section class="slide perc" data-titolo="E dove si allarga">
-  <div class="slide-interna">
-    <h2>Un corale che cambia disposizione in mezzo</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Ascolto guidato &middot; 6 minuti</span>
-      <p>Ascoltate cercando i punti in cui il suono si <strong>apre</strong> — diventa più arioso, meno compatto. Segnate il verso.</p>
-
-<div class="riquadro definizione">
-      <span class="etichetta">Che cosa succede in quei punti</span>
-      <p>Le tre voci alte si <strong>allontanano</strong>. Non è un caso e non è una necessità armonica: è una scelta di colore, e quasi sempre serve a dare peso a una parola del testo o a una chiusa.</p>
-    </div>
-
-    <tac-brano organico="voci" titolo="Bach, corale BWV 114/7 in sol minore"
-               metronomo youtube="5LTG5Y-A1bA" esecutore="Frankfurter Kantorei · Helmuth Rilling" partitura="../../_assets/spartiti/A43_bach-114-7.png" inciso="../../_assets/incisioni/A43_bach_114_7.mp3" mappa='{"durata":64417,"eventi":[[0,0],[1,1111],[2,5556],[3,10000],[4,14444],[0,17778],[1,18889],[2,23333],[3,27778],[4,32222],[5,35556],[6,36667],[7,41111],[8,45556],[9,50000],[10,54444],[11,58889]]}'>
-<script type="application/json">{"titolo":"J. S. Bach, Corale BWV 114/7 in sol minore","metro":"4/4","bpm":54,"battute":11,"anacrusi":1.0,"voci":[[[0.0,1.0,70],[1.0,1.0,70],[2.0,0.5,67],[2.5,0.5,69],[3.0,0.5,70],[3.5,0.5,72],[4.0,1.0,74],[5.0,1.0,72],[6.0,1.0,72],[7.0,1.0,70],[8.0,1.0,70],[9.0,1.0,69],[10.0,0.5,67],[10.5,0.5,69],[11.0,1.0,70],[12.0,0.5,72],[12.5,0.5,70],[13.0,1.0,72],[13.0,2.0,69],[15.0,1.0,67],[17.0,1.0,74],[18.0,1.0,74],[19.0,0.5,69],[19.5,0.5,70],[20.0,1.0,72],[21.0,1.0,70],[22.0,1.0,70],[23.0,1.0,69],[24.0,1.0,70],[25.0,1.0,72],[26.0,0.5,67],[26.5,0.5,69],[27.0,1.0,70],[28.0,1.0,69],[29.0,1.0,67],[30.0,1.0,67],[31.0,1.0,65],[32.0,1.0,70],[33.0,1.0,69],[34.0,0.5,67],[34.5,0.5,69],[35.0,1.0,70],[36.0,0.5,72],[36.5,0.5,70],[37.0,2.0,69],[39.0,1.0,67]],[[0.0,1.0,67],[1.0,1.0,65],[2.0,1.0,63],[3.0,1.0,62],[4.0,1.0,62],[5.0,1.0,63],[6.0,0.25,63],[6.25,0.25,62],[6.5,0.5,63],[7.0,1.0,62],[8.0,1.0,62],[9.0,0.5,62],[9.5,0.5,72],[10.0,0.5,70],[10.5,0.5,69],[11.0,1.0,67],[12.0,0.5,67],[12.5,0.5,65],[13.0,1.0,63],[13.0,1.0,65],[14.0,0.5,62],[14.5,0.5,60],[15.0,1.0,58],[17.0,1.0,65],[18.0,1.0,65],[19.0,1.5,60],[20.5,0.5,69],[21.0,0.5,69],[21.5,0.25,67],[21.75,0.25,66],[22.0,1.0,67],[23.0,1.0,66],[24.0,1.0,67],[25.0,0.5,67],[25.5,0.5,65],[26.0,1.0,63],[27.0,0.5,62],[27.5,0.5,64],[28.0,1.0,65],[29.0,1.0,65],[30.0,1.0,64],[31.0,1.0,60],[32.0,1.0,62],[33.0,0.5,60],[33.5,0.5,62],[34.0,0.5,64],[34.5,0.5,66],[35.0,1.0,67],[36.0,1.0,67],[37.0,1.0,67],[38.0,1.0,66],[39.0,1.0,62]],[[0.0,1.0,62],[1.0,0.5,62],[1.5,0.5,60],[2.0,1.0,58],[3.0,1.0,58],[4.0,1.0,53],[5.0,1.0,55],[6.0,1.0,57],[7.0,1.0,53],[8.0,1.0,55],[9.0,0.5,54],[9.5,0.5,63],[10.0,0.5,62],[10.5,0.5,60],[11.0,0.5,58],[11.5,0.5,57],[12.0,1.0,55],[13.0,1.0,53],[13.0,1.0,55],[14.0,1.0,54],[15.0,1.0,55],[17.0,1.0,58],[18.0,1.0,58],[19.0,1.0,65],[20.0,0.5,66],[20.5,0.5,57],[21.0,0.5,58],[21.5,0.5,60],[22.0,1.0,62],[23.0,1.0,62],[24.0,1.0,62],[25.0,1.0,55],[26.0,1.0,60],[27.0,1.0,58],[28.0,1.0,60],[29.0,0.5,60],[29.5,0.5,55],[30.0,0.5,60],[30.5,0.5,58],[31.0,1.0,57],[32.0,0.5,53],[32.5,0.5,55],[33.0,0.5,57],[33.5,0.5,58],[34.0,1.0,60],[35.0,1.0,62],[36.0,0.5,60],[36.5,0.5,62],[37.0,0.5,63],[37.5,0.5,57],[38.0,0.5,62],[38.5,0.5,60],[39.0,1.0,59]],[[0.0,1.0,55],[1.0,1.0,50],[2.0,0.5,51],[2.5,0.5,53],[3.0,0.5,55],[3.5,0.5,57],[4.0,1.0,58],[5.0,1.0,51],[6.0,1.0,53],[7.0,1.0,46],[8.0,1.0,43],[9.0,1.0,50],[10.0,0.5,52],[10.5,0.5,54],[11.0,0.5,55],[11.5,0.5,53],[12.0,0.5,51],[12.5,0.5,50],[13.0,1.0,45],[13.0,1.0,48],[14.0,1.0,50],[15.0,1.0,43],[17.0,0.5,46],[17.5,0.5,48],[18.0,0.5,50],[18.5,0.5,51],[19.0,0.5,53],[19.5,0.5,55],[20.0,0.5,57],[20.5,0.5,54],[21.0,0.5,55],[21.5,0.5,57],[22.0,0.5,58],[22.5,0.5,60],[23.0,1.0,62],[24.0,0.5,55],[24.5,0.5,53],[25.0,0.5,51],[25.5,0.5,50],[26.0,1.0,48],[27.0,1.0,43],[28.0,0.5,45],[28.5,0.5,46],[29.0,0.5,48],[29.5,0.5,46],[30.0,1.0,48],[31.0,1.0,41],[32.0,0.5,50],[32.5,0.5,52],[33.0,1.0,53],[34.0,1.0,48],[35.0,0.5,55],[35.5,0.5,53],[36.0,0.5,51],[36.5,0.5,50],[37.0,1.0,48],[38.0,1.0,50],[39.0,1.0,43]]]}</script>
-</tac-brano>
-
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il numero da guardare, e come si legge">
-  <div class="slide-interna">
-    <h2>Un colpo d&rsquo;occhio invece di un conteggio</h2>
-
-    <div class="affianca">
-      <div>
-        <tac-stave clef="treble" time="4/4" caption="Stretta: fra soprano e tenore ci sta meno di un'ottava" notes="g/4+e/4+c/4+c/3:w" width="290" tempo="42" play></tac-stave>
-      </div>
-      <div>
-        <tac-stave clef="treble" time="4/4" caption="Lata: fra soprano e tenore c'è più di un'ottava" notes="e/5+g/4+e/4+c/3:w" width="290" tempo="42" play></tac-stave>
-      </div>
-    </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">La regola dell&rsquo;occhio</span>
-      <p>Si guarda <strong>soprano e tenore</strong>, cioè la prima e la terza voce dall&rsquo;alto. Il basso non entra nel conto: sta sempre lontano.</p>
-      <p>Meno di un&rsquo;ottava fra quelle due &rarr; <strong>stretta</strong>. Più di un&rsquo;ottava &rarr; <strong>lata</strong>. Non c&rsquo;è niente da contare: si vede.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Il limite che vale sempre, in tutte e due</span>
-      <p>Fra due voci <strong>vicine</strong> — soprano-contralto, contralto-tenore — non si supera l&rsquo;<strong>ottava</strong>. Fra tenore e basso si può, e spesso si deve.</p>
-      <p>È l&rsquo;unico vincolo di distanza che vi chiedo di controllare, e prende due secondi per accordo.</p>
-    </div>
-
-    <p class="didascalia">Vale la pena notare la simmetria con il controllo delle parallele: <strong>anche lì si guardano prima le coppie che contano</strong>. In una scrittura a quattro parti, quasi ogni controllo si riduce a due o tre coppie su sei.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Da una disposizione all&rsquo;altra">
-  <div class="slide-interna">
-    <h2>Come si passa, e quando non si può</h2>
-
-    <tac-stave clef="treble" time="4/4" caption="Da stretta a lata in due accordi: il contralto scende gradualmente, non salta" notes="g/4+e/4+c/4+c/3:h g/4+d/4+b/3+g/2:h | e/5+g/4+e/4+c/3:w" width="520" tempo="44" play slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">La regola, in una riga</span>
-      <p>Si cambia disposizione <strong>gradualmente</strong>, spostando una voce per volta e di poco. Mai tutte e tre insieme, e mai con un salto d&rsquo;ottava.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Perché un salto d&rsquo;ottava in una voce interna non funziona</span>
-      <p>Perché <strong>si sente come un buco</strong>: quella voce sparisce da dov&rsquo;era e ricompare altrove, e l&rsquo;orecchio la perde. Nelle voci interne, che nessuno segue attivamente, il salto d&rsquo;ottava è il modo più sicuro di rompere la testura.</p>
-      <p>Nel <strong>basso</strong> invece si fa, e spesso: il basso è seguito, e il salto si sente come una scelta.</p>
-    </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Quando conviene cambiare</span>
-      <p>Quando la <strong>melodia sale o scende molto</strong>: se il soprano si allontana, le voci interne devono seguirlo o restano indietro e la distanza supera l&rsquo;ottava.</p>
-      <p>Cioè il cambio di disposizione quasi mai è una scelta di colore: è una <strong>conseguenza</strong> di dove va la voce acuta.</p>
-    </div>
-
-    <p class="didascalia">Ed è il motivo per cui si scrive il soprano prima delle voci interne: <strong>il soprano decide lo spazio, le voci interne lo occupano</strong>. Chi scrive le interne prima si trova a doverle spostare tutte.</p>
-  </div>
-</section>
-
-
-
 <section class="slide esercizio insieme-slide" data-titolo="In classe · parlato">
   <div class="slide-interna">
     <p class="compiti-occhiello">In classe</p>
@@ -734,9 +717,9 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: cantato</h2>
     <p class="rimando">Si prende il tono dalla tastiera, si canta insieme; poi a gruppi. <a href="../materiali/solfeggi-classe-3.html#n11">Quaderno, n.&nbsp;11</a></p>
-    <div class="righe"><tac-stave clef="treble" time="3/4" keysig="G" caption="" notes="e/4:8 g/4:8 a/4:q f#/4:8t d/4:8t c/4:8t | c/4:q. e/4:8 c/4:q | e/4:8t c/4:8t e/4:8t c/4:8t d/4:8t c/4:8t a/4:8 b/4:8 | a/4:8 f#/4:8 d/4:8 f#/4:8 d/4:8 c#/4:8" width="760" tempo="60" play slow style="width:100.0%"></tac-stave>
-<tac-stave clef="treble" time="3/4" keysig="G" notes="d#/4:h e/4:q | d#/4:q. e/4:8 e/4:8t f#/4:8t a/4:8t | b/4:8 b/4:8 c/5:8t d/5:8t b/4:8t r:q | c/5:8t b/4:8t b/4:8t c/5:q a/4:8 f#/4:8" width="760" tempo="60" style="width:100.0%"></tac-stave>
-<tac-stave clef="treble" time="3/4" keysig="G" notes="d/4:8 f#/4:8 g/4:q a/4:8t c/5:8t e/5:8t | e/5:h." width="440" tempo="60" fine style="width:57.9%"></tac-stave></div>
+    <div class="righe"><tac-stave clef="treble" time="3/4" keysig="G" caption="" notes="g/4:8 a/4:8 b/4:q g/4:8t f#/4:8t g/4:8t | a/4:q. b/4:8 c/5:q | g/4:8t a/4:8t b/4:8t g/4:8t f#/4:8t f#/4:8t e/4:8 g/4:8 | a/4:8 b/4:8 c/5:8 b/4:8 a/4:8 b/4:8" width="760" tempo="60" play slow style="width:100.0%"></tac-stave>
+<tac-stave clef="treble" time="3/4" keysig="G" notes="d#/5:h d#/4:q | e/4:q. f#/4:8 g/4:8t f#/4:8t f#/4:8t | e/4:8 d#/4:8 e/4:8t f#/4:8t g/4:8t r:q | a/4:8t b/4:8t c/5:8t a/4:q c/5:8 b/4:8" width="760" tempo="60" style="width:100.0%"></tac-stave>
+<tac-stave clef="treble" time="3/4" keysig="G" notes="d#/5:8 e/5:8 d#/5:q d#/4:8t e/4:8t f#/4:8t | e/4:h." width="440" tempo="60" fine style="width:57.9%"></tac-stave></div>
   </div>
 </section>
 
@@ -754,41 +737,45 @@ try { module = undefined; exports = undefined; } catch (e) {}
 <section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
   <div class="slide-interna">
     <p class="compiti-occhiello">In classe</p>
-    <h2>Scriviamo adesso: Lo stesso accordo, sei volte</h2>
-    <p>Do maggiore, basso dato al do₃. Scrivi <strong>tre disposizioni strette</strong> e <strong>tre late</strong> dello stesso accordo, tutte con le voci nella loro estensione.</p>
-    <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna. Quello che resta si finisce a casa.</p>
+    <h2>Scriviamo adesso: Nel corale, come sono disposte?</h2>
+    <p>Prendi le prime quattro battute del corale di Bach dalla lezione 1. Per ogni accordo scrivi <strong>S</strong> o <strong>L</strong>: stretta o lata.</p>
+    <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna.</p>
   </div>
 </section>
 
-<section class="slide compiti-slide" data-titolo="Da scrivere e da solfeggiare, per la prossima volta" data-segno
+<section class="slide compiti-slide" data-titolo="Compiti · lo scritto" data-segno
          style="--segno: url('../../_assets/segni/segno-24.png')">
   <div class="slide-interna">
-    <p class="compiti-occhiello">Compiti</p>
-    <h2>Da scrivere e da solfeggiare, per la prossima volta</h2>
+    <p class="compiti-occhiello">Compiti per la prossima volta</p>
+    <h2>1 &middot; Scritto: Lo stesso accordo, sei volte</h2>
     <div class="riquadro compito">
-      <span class="etichetta">Per la prossima volta</span>
-      <ol class="compiti" start="1">
-      <li>
-        <p class="testo-compito"><strong>1. Lo stesso accordo, sei volte.</strong> Do maggiore, basso dato al do₃. Scrivi <strong>tre disposizioni strette</strong> e <strong>tre late</strong> dello stesso accordo, tutte con le voci nella loro estensione.</p>
-        <p class="rimando">&rarr; <a href="../materiali/workbook-uda-01.html#C3-U1-L2-02">Workbook C3-U1-L2-02</a></p>
-      </li>
-      <li>
-        <p class="testo-compito"><strong>2. Nel corale, come sono disposte?</strong> Prendi le prime quattro battute del corale di Bach dalla lezione 1. Per ogni accordo scrivi <strong>S</strong> o <strong>L</strong>: stretta o lata.</p>
-        <p class="rimando">&rarr; <a href="../materiali/workbook-uda-01.html#C3-U1-L2-04">Workbook C3-U1-L2-04</a></p>
-      </li>
-      </ol>
+      <p>Do maggiore, basso dato al do₃. Scrivi <strong>tre disposizioni strette</strong> e <strong>tre late</strong> dello stesso accordo, tutte con le voci nella loro estensione.</p>
+      <p>Sotto ciascuna scrivi le distanze fra le tre voci superiori. È la verifica che rende la definizione una cosa che si controlla invece che si indovina.</p>
     </div>
-    <p class="rimando">Si scrive sul <strong>quaderno</strong>; la foto del lavoro finito va su <strong>Classroom</strong>.</p>
+    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C3-U1-L2-02</strong>.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Compiti · solfeggio e dettato" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti per la prossima volta</p>
+    <h2>2 &middot; Solfeggio e 3 &middot; dettato</h2>
     <div class="riquadro compito">
-      <span class="etichetta">Dal quaderno di lettura</span>
-      <ul class="compiti">
-        <li><a href="../materiali/solfeggi-classe-3.html#n13"><strong>n.&nbsp;13</strong></a> &middot; parlato</li>
-        <li><a href="../materiali/solfeggi-classe-3.html#n14"><strong>n.&nbsp;14</strong></a> &middot; parlato</li>
-        <li><a href="../materiali/solfeggi-classe-3.html#n15"><strong>n.&nbsp;15</strong></a> &middot; cantato</li>
-        <li><a href="../materiali/solfeggi-classe-3.html#n16"><strong>n.&nbsp;16</strong></a> &middot; cantato</li>
-        <li><a href="../materiali/solfeggi-classe-3.html#n17"><strong>n.&nbsp;17</strong></a> &middot; ritmico</li>
-        <li><a href="../materiali/solfeggi-classe-3.html#n18"><strong>n.&nbsp;18</strong></a> &middot; ritmico</li>
-      </ul>
+      <span class="etichetta">2 &middot; Solfeggio, dal quaderno di lettura</span>
+      <p><a href="../materiali/solfeggi-classe-3.html#n13"><strong>n.&nbsp;13</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n14"><strong>n.&nbsp;14</strong></a> <em>parlato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-3.html#n15"><strong>n.&nbsp;15</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n16"><strong>n.&nbsp;16</strong></a> <em>cantato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-3.html#n17"><strong>n.&nbsp;17</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n18"><strong>n.&nbsp;18</strong></a> <em>ritmico</em></p>
+      <p class="rimando">Ogni pezzo a tempo, senza fermarti: il parlato a nomi, il cantato prendendo il primo suono dalla tastiera, il ritmico battendo la pulsazione.</p>
+    </div>
+    <div class="riquadro compito">
+      <span class="etichetta">3 &middot; Dettato</span>
+      <p>Scrivi <strong>la linea del basso</strong> sul quaderno, in chiave di basso: quattro battute in 4/4, mi minore. Il primo suono è <strong>si</strong>. Prima il riferimento, poi tutto due volte, due battute per volta, e tutto per controllare.</p>
+      <div class="dettato-ascolti">
+        <div><p class="didascalia">Il riferimento: accordo di tonica e primo suono</p>
+          <tac-stave nascondi clef="bass" time="4/4" keysig="G" notes="e/3:q g/3:q b/3:q e/4:q | b/3:w" tempo="80" play></tac-stave></div>
+        <div><p class="didascalia">Il dettato &middot; quattro battute</p>
+          <tac-stave nascondi cifrato clef="bass" time="4/4" keysig="G" notes="dzozL2UgfCBxOjMvI2YgODozL2cgODozLyNmIHE6My8jZiBxOjMvI2QgfCBxOjMvI2YgcTozL2EgcTozL2EgcTo0L2MgfCBxOjMvYiBxOjMvZyBxOjMvYiA4OjMvYSA4OjMvYg==" tempo="60" play></tac-stave></div>
+      </div>
+      <p class="rimando">Al massimo otto ascolti in tutto. Si corregge all&rsquo;inizio della prossima lezione.</p>
     </div>
   </div>
 </section>

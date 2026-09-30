@@ -1279,6 +1279,21 @@
 
     render() {
       const VF = window.VexFlow;
+      /* ══ `cifrato`: IL DETTATO NON SI LEGGE NEL SORGENTE ══
+         Andrea: «mai soluzioni in chiaro sul sito». Il dettato breve di
+         fine lezione suona da un rigo nascosto, e le sue note stavano
+         nell'HTML: chi apriva il sorgente aveva la soluzione. Con
+         `cifrato` l'attributo `notes` è la stringa rovesciata e codificata
+         in base64 (la scrive `dettati_lezione.py`): si decifra qui, una
+         volta, e resta in memoria. */
+      if (this.hasAttribute('cifrato') && this._chiaro === undefined) {
+        let chiaro = '';
+        try { chiaro = atob(Element.prototype.getAttribute.call(this, 'notes') || '')
+                       .split('').reverse().join(''); } catch (e) { chiaro = ''; }
+        this._chiaro = chiaro;
+        const originale = Element.prototype.getAttribute;
+        this.getAttribute = (n) => (n === 'notes' ? this._chiaro : originale.call(this, n));
+      }
       const clef    = this.getAttribute('clef')   || 'treble';
       const time    = this.getAttribute('time')   || '';
       const keysig  = this.getAttribute('keysig') || '';
@@ -5727,7 +5742,7 @@
       const keysig = this.getAttribute('keysig') || '';
       const numera = this.hasAttribute('numera');
       const larghezza = parseInt(this.getAttribute('width') || '0', 10) || 680;
-      const clef = tipo === 'ritmico' ? 'percussion' : 'treble';
+      const clef = this.getAttribute('clef') || (tipo === 'ritmico' ? 'percussion' : 'treble');
       const altezza = tipo === 'triplo' ? 320 : (tipo === 'doppio' ? 210 : 120);
       /* melodie date, una per sistema, separate da punto e virgola */
       const melodie = (this.getAttribute('melodia') || '').split(';').map(x => x.trim());

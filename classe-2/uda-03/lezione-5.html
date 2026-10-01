@@ -85,6 +85,8 @@ try { module = undefined; exports = undefined; } catch (e) {}
      peggiore che possa succedere a una regola.
      ══════════════════════════════════════════════════════════════════ -->
 
+<!-- Riordinata il 30/09/2026: «Perché si torna» unita a «La regola»; «Le due volte in cui non si torna» e «I tre casi» unite in un elenco solo di tre casi (e il controllo sui salti rimanda ai tre casi). -->
+
 <section class="slide attiva copertina foto" data-titolo="Copertina"
          style="--foto: url('../../_assets/copertine/c2u3-lezione-5.jpg?v=201bab7e');
                 --cop-a:#0b1220; --cop-b:#0d9488; --cop-c:#ccfbf1">
@@ -145,11 +147,18 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Un salto va <strong>compensato</strong>: la linea riprende in direzione contraria, e per <strong>grado congiunto</strong>.</p>
     </div>
 
-    <p>Il perch&eacute; si sente, e l&rsquo;avete appena sentito. Un salto <strong>scavalca</strong> delle note: nel primo esempio, saltando dal <em>mi</em> al <em>do</em> acuto restano scoperti fa, sol, la, si. L&rsquo;orecchio se ne accorge e le aspetta. Scendendo per gradi la linea gliele restituisce una per una, e la figura si chiude.</p>
+    <p>La regola &egrave; un fatto osservato, non un divieto, e il perch&eacute; si sente: l&rsquo;avete appena sentito. Un salto <strong>scavalca</strong> delle note: nel primo esempio, saltando dal <em>mi</em> al <em>do</em> acuto restano scoperti fa, sol, la, si. L&rsquo;orecchio se ne accorge e le aspetta. Scendendo per gradi la linea gliele restituisce una per una, e la figura si chiude.</p>
 
     <p>Nel secondo esempio il salto lascia lo stesso vuoto, e la linea <strong>se ne va</strong>. Il vuoto resta aperto: si arriva in cima senza essere passati di l&igrave;, e la fine non chiude niente.</p>
 
-    <p class="didascalia">Non &egrave; una questione di gusto: &egrave; una questione di che cosa &egrave; stato saltato e non &egrave; tornato.</p>
+    <tac-stave clef="alto" time="4/4"
+               caption="Il salto lascia un vuoto, e il grado congiunto lo riempie"
+               notes="c/4:h a/4:h | g/4:h f/4:h | e/4:h d/4:h | c/4:w"
+               width="720" tempo="56" play slow></tac-stave>
+
+    <p>Lo stesso in chiave di contralto: un salto di sesta scavalca quattro note, e tornando indietro per grado la melodia gliele restituisce una alla volta &mdash; il salto smette di essere un buco e diventa un gesto.</p>
+
+    <p class="didascalia">Non &egrave; una questione di gusto: &egrave; una questione di che cosa &egrave; stato saltato e non &egrave; tornato. Chi salta e poi salta ancora nella stessa direzione lascia due vuoti aperti, e a quel punto l&rsquo;orecchio smette di seguire: sente tre frammenti invece di una linea.</p>
   </div>
 </section>
 
@@ -176,39 +185,28 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide" data-titolo="Perch&eacute; si torna">
-  <div class="slide-interna">
-    <h2>Perch&eacute; dopo un salto si torna indietro</h2>
-
-    <p>La regola dell&rsquo;ora &egrave; un fatto osservato, non un divieto. Ma vale la pena capire da dove viene, perch&eacute; allora si ricorda da sola.</p>
-
-    <tac-stave clef="alto" time="4/4"
-               caption="Il salto lascia un vuoto, e il grado congiunto lo riempie"
-               notes="c/4:h a/4:h | g/4:h f/4:h | e/4:h d/4:h | c/4:w"
-               width="720" tempo="56" play slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa succede all&rsquo;orecchio</span>
-      <p>Un salto di sesta scavalca quattro note. L&rsquo;orecchio le <strong>aspetta</strong>: le ha saltate, e vuole sapere che cosa c&rsquo;era in mezzo. Tornando indietro per grado, la melodia gliele restituisce una alla volta &mdash; e il salto smette di essere un buco e diventa un gesto.</p>
-    </div>
-
-    <p class="didascalia">Chi salta e poi salta ancora nella stessa direzione lascia due vuoti aperti, e a quel punto l&rsquo;orecchio smette di seguire: sente tre frammenti invece di una linea.</p>
-  </div>
-</section>
-
 <section class="slide" data-titolo="Quando non si torna">
   <div class="slide-interna">
-    <h2>Le due volte in cui non si torna</h2>
+    <h2>Le eccezioni vere, e sono poche</h2>
 
-    <p>Come tutte le regole ricavate, ha le sue eccezioni, e non sono casuali: sono due, e si riconoscono.</p>
+    <p>Come tutte le regole ricavate, ha le sue eccezioni, e non sono casuali: si riconoscono. Ci sono <strong>tre casi</strong> in cui non si torna e la linea sta in piedi lo stesso: vale la pena conoscerli, perch&eacute; altrimenti si correggono cose che vanno bene.</p>
+
+    <tac-stave clef="alto" time="4/4" caption="Un arpeggio: tre salti nella stessa direzione, e nessun ritorno" notes="c/4:q e/4:q g/4:q c/5:q | b/4:h c/5:h" width="520" tempo="56" play slow></tac-stave>
 
     <div class="riquadro definizione">
-      <span class="etichetta">Le due</span>
-      <p><strong>Il salto dentro l&rsquo;accordo</strong> &mdash; do&ndash;mi&ndash;sol&ndash;do: si salta tre volte nella stessa direzione e non si torna indietro. Funziona perch&eacute; le note appartengono tutte allo stesso accordo, e l&rsquo;orecchio le sente come una cosa sola.<br>
-      <strong>Il salto all&rsquo;inizio di una frase</strong> &mdash; l&rsquo;attacco pu&ograve; essere largo, perch&eacute; prima non c&rsquo;era niente: non si sta scavalcando nulla.</p>
+      <span class="etichetta">I tre</span>
+      <p><strong>1 &middot; l&rsquo;arpeggio, il salto dentro l&rsquo;accordo</strong> &mdash; do&ndash;mi&ndash;sol&ndash;do: pi&ugrave; salti di seguito nella stessa direzione, e non si torna indietro. Funziona perch&eacute; le note appartengono tutte allo stesso accordo: l&rsquo;orecchio le sente come <em>una figura sola</em>, non come tre buchi.<br>
+      <strong>2 &middot; il salto piccolo</strong> &mdash; una terza non lascia buco, e pu&ograve; continuare nella stessa direzione senza problemi.<br>
+      <strong>3 &middot; l&rsquo;inizio di frase</strong> &mdash; dopo una pausa o su un attacco, un salto sta in piedi da solo: l&rsquo;attacco pu&ograve; essere largo, perch&eacute; prima non c&rsquo;era niente e non si sta scavalcando nulla.</p>
     </div>
 
-    <p class="didascalia">La regola vera, allora, &egrave; questa: si torna indietro quando il salto ha lasciato un vuoto. Se le note saltate erano dentro l&rsquo;accordo, il vuoto non c&rsquo;&egrave;.</p>
+    <div class="riquadro attenzione">
+      <span class="etichetta">Che cosa hanno in comune</span>
+      <p>Che in tutti e tre <strong>non c&rsquo;è un buco</strong> — o perché le note in mezzo appartengono allo stesso accordo, o perché la distanza è piccola, o perché prima non c&rsquo;era niente.</p>
+      <p>La regola vera non è «dopo un salto si torna»: è <strong>«un buco si riempie»</strong>. Le tre eccezioni non sono eccezioni: sono casi in cui il buco non c&rsquo;è.</p>
+    </div>
+
+    <p class="didascalia">Vale la pena tenerne conto perché è il modo in cui quasi tutte le regole di questo corso funzionano: <strong>una formulazione facile da ricordare, e sotto una ragione che spiega anche i casi che la formulazione sbaglia</strong>. Chi tiene la ragione non ha bisogno dell&rsquo;elenco delle eccezioni.</p>
   </div>
 </section>
 
@@ -222,33 +220,10 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <span class="etichetta">Tre passi</span>
       <p><strong>1.</strong> Si <strong>cerchiano i salti</strong> pi&ugrave; larghi di una terza. In una melodia di otto battute ce ne saranno due o tre.<br>
       <strong>2.</strong> Per ciascuno si guarda la nota <strong>dopo</strong>: va nella direzione opposta, e per grado?<br>
-      <strong>3.</strong> Se non lo fa, ci si chiede se siamo in una delle due eccezioni. Se non ci siamo, si cambia la nota dopo &mdash; non il salto.</p>
+      <strong>3.</strong> Se non lo fa, ci si chiede se siamo in uno dei tre casi in cui non si torna. Se non ci siamo, si cambia la nota dopo &mdash; non il salto.</p>
     </div>
 
     <p class="didascalia">Il passo 3 dice una cosa che vale in generale: quando una scelta e la successiva non stanno insieme, quasi sempre &egrave; pi&ugrave; economico cambiare la <strong>seconda</strong>. La prima aveva un motivo, la seconda &egrave; venuta da s&eacute;.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa portiamo a casa">
-  <div class="slide-interna">
-    <h2>Che cosa portiamo a casa</h2>
-
-    <div class="colonne">
-      <div class="riquadro definizione">
-        <span class="etichetta">La regola</span>
-        <p>Salto dentro una linea &rarr; si torna indietro, per grado.</p>
-      </div>
-      <div class="riquadro definizione">
-        <span class="etichetta">Il perch&eacute;</span>
-        <p>Il salto scavalca delle note. Chi le restituisce chiude la figura.</p>
-      </div>
-      <div class="riquadro attenzione">
-        <span class="etichetta">Il limite</span>
-        <p>Un salto <strong>d&rsquo;attacco</strong> non compensa niente: non c&rsquo;era ancora niente da compensare.</p>
-      </div>
-    </div>
-
-    <p class="didascalia">All&rsquo;unit&agrave; 5 scriverete un canto dato, e questa regola sar&agrave; una delle quattro che dovr&agrave; rispettare. Oggi vi serve per <strong>riconoscerla</strong>; fra due unit&agrave; vi servir&agrave; per usarla.</p>
   </div>
 </section>
 
@@ -1267,31 +1242,28 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide" data-titolo="I tre casi in cui non si torna">
+<section class="slide" data-titolo="Che cosa portiamo a casa">
   <div class="slide-interna">
-    <h2>Le eccezioni vere, e sono poche</h2>
+    <h2>Che cosa portiamo a casa</h2>
 
-    <p>La regola dice «dopo un salto si torna». Ci sono tre casi in cui non si torna e la linea sta in piedi lo stesso: vale la pena conoscerli, perché altrimenti si correggono cose che vanno bene.</p>
-
-    <tac-stave clef="alto" time="4/4" caption="Un arpeggio: tre salti nella stessa direzione, e nessun ritorno" notes="c/4:q e/4:q g/4:q c/5:q | b/4:h c/5:h" width="520" tempo="56" play slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">I tre</span>
-      <p><strong>1 &middot; l&rsquo;arpeggio</strong> — più salti di seguito che disegnano un accordo. L&rsquo;orecchio li sente come <em>una figura sola</em>, non come tre buchi.<br>
-      <strong>2 &middot; il salto piccolo</strong> — una terza non lascia buco, e può continuare nella stessa direzione senza problemi.<br>
-      <strong>3 &middot; l&rsquo;inizio di frase</strong> — dopo una pausa o su un attacco, un salto sta in piedi da solo perché non c&rsquo;è niente da compensare.</p>
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">La regola</span>
+        <p>Salto dentro una linea &rarr; si torna indietro, per grado.</p>
+      </div>
+      <div class="riquadro definizione">
+        <span class="etichetta">Il perch&eacute;</span>
+        <p>Il salto scavalca delle note. Chi le restituisce chiude la figura.</p>
+      </div>
+      <div class="riquadro attenzione">
+        <span class="etichetta">Il limite</span>
+        <p>Un salto <strong>d&rsquo;attacco</strong> non compensa niente: non c&rsquo;era ancora niente da compensare.</p>
+      </div>
     </div>
 
-    <div class="riquadro attenzione">
-      <span class="etichetta">Che cosa hanno in comune</span>
-      <p>Che in tutti e tre <strong>non c&rsquo;è un buco</strong> — o perché le note in mezzo appartengono allo stesso accordo, o perché la distanza è piccola, o perché prima non c&rsquo;era niente.</p>
-      <p>La regola vera non è «dopo un salto si torna»: è <strong>«un buco si riempie»</strong>. Le tre eccezioni non sono eccezioni: sono casi in cui il buco non c&rsquo;è.</p>
-    </div>
-
-    <p class="didascalia">Vale la pena tenerne conto perché è il modo in cui quasi tutte le regole di questo corso funzionano: <strong>una formulazione facile da ricordare, e sotto una ragione che spiega anche i casi che la formulazione sbaglia</strong>. Chi tiene la ragione non ha bisogno dell&rsquo;elenco delle eccezioni.</p>
+    <p class="didascalia">All&rsquo;unit&agrave; 5 scriverete un canto dato, e questa regola sar&agrave; una delle quattro che dovr&agrave; rispettare. Oggi vi serve per <strong>riconoscerla</strong>; fra due unit&agrave; vi servir&agrave; per usarla.</p>
   </div>
 </section>
-
 
 <section class="slide esercizio insieme-slide" data-titolo="In classe · parlato">
   <div class="slide-interna">

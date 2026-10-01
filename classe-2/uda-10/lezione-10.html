@@ -87,6 +87,8 @@ try { module = undefined; exports = undefined; } catch (e) {}
      apre un manuale nuovo deve saperlo.
      ══════════════════════════════════════════════════════════════════ -->
 
+<!-- Riordinata il 30/09/2026: ordine già buono, nessun doppione; sistemati tre righi con le note in notazione= (non si vedevano) e il rigo di do minore scritto con ef/af (il componente legge solo eb/ab: il rigo dava errore) e il si naturale della minore armonica scritto senza bequadro. -->
+
 <section class="slide attiva copertina foto" data-titolo="Copertina"
          style="--foto: url('../../_assets/copertine/c2u10-lezione-10.jpg?v=3ced3d24');
                 --cop-a:#0b1020; --cop-b:#7c2d12; --cop-c:#fed7aa">
@@ -154,17 +156,17 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <h2>Si contano le note che hanno in comune</h2>
 
     <tac-stave clef="treble" time="4/4" keysig="C"
-               notazione="c/4:q d/4:q e/4:q f/4:q | g/4:q a/4:q b/4:q c/5:q"
+               notes="c/4:q d/4:q e/4:q f/4:q | g/4:q a/4:q b/4:q c/5:q"
                caption="Do maggiore"
                width="600" tempo="96" play></tac-stave>
 
     <tac-stave clef="treble" time="4/4" keysig="G"
-               notazione="g/4:q a/4:q b/4:q c/5:q | d/5:q e/5:q f#/5:q g/5:q"
+               notes="g/4:q a/4:q b/4:q c/5:q | d/5:q e/5:q f#/5:q g/5:q"
                caption="Sol maggiore &mdash; differisce per una nota sola: il fa"
                width="600" tempo="96" play></tac-stave>
 
     <tac-stave clef="treble" time="4/4" keysig="Eb"
-               notazione="eb/4:q f/4:q g/4:q ab/4:q | bb/4:q c/5:q d/5:q eb/5:q"
+               notes="eb/4:q f/4:q g/4:q ab/4:q | bb/4:q c/5:q d/5:q eb/5:q"
                caption="Mi bemolle maggiore &mdash; differisce per tre: mi, la, si"
                width="600" tempo="96" play></tac-stave>
 
@@ -281,29 +283,6 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide" data-titolo="Che cosa portiamo a casa">
-  <div class="slide-interna">
-    <h2>Che cosa portiamo a casa</h2>
-
-    <div class="colonne">
-      <div class="riquadro definizione">
-        <span class="etichetta">Vicina si conta</span>
-        <p>Sono vicine le tonalit&agrave; che hanno <strong>molte note in comune</strong>: al massimo un&rsquo;alterazione di differenza in chiave.</p>
-      </div>
-      <div class="riquadro definizione">
-        <span class="etichetta">Sono cinque</span>
-        <p>Dominante, sottodominante, le loro relative, e la propria relativa. <strong>Sempre cinque</strong>, da qualunque tonalit&agrave;.</p>
-      </div>
-      <div class="riquadro definizione">
-        <span class="etichetta">Ed &egrave; il conto dell&rsquo;unit&agrave;</span>
-        <p>Lo stesso che decide come si collegano due accordi, applicato alle <strong>tonalit&agrave;</strong> invece che alle triadi.</p>
-      </div>
-    </div>
-
-    <p class="didascalia">La prossima ora si canta: intonazione in tonalit&agrave; fino a quattro alterazioni. E adesso sapete perch&eacute; quattro alterazioni sono <strong>tante</strong>.</p>
-  </div>
-</section>
-
 <!-- ───────────────────────────────────────────────────────────────────
      Due slide con una musica vera. La coda sui toni vicini conta le
      tonalità e non ha musica. A12 dà il caso: una fuga in do minore che
@@ -331,7 +310,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Da do minore sono cinque, e il conto l&rsquo;avete fatto voi. Non è una convenzione: è quante tonalità stanno a una alterazione di distanza, e la risposta è la stessa per tutte.</p>
     </div>
 
-    <tac-stave clef="treble" time="4/4" keysig="Cm" caption="Do minore e i suoi vicini: una alterazione di differenza, non di più" notes="c/4:q d/4:q ef/4:q f/4:q | g/4:q af/4:q b/4:q c/5:q" width="520" tempo="58" play slow></tac-stave>
+    <tac-stave clef="treble" time="4/4" keysig="Cm" caption="Do minore e i suoi vicini: una alterazione di differenza, non di più" notes="c/4:q d/4:q eb/4:q f/4:q | g/4:q ab/4:q bn/4:q c/5:q" width="520" tempo="58" play slow></tac-stave>
 
     <div class="riquadro attenzione">
       <span class="etichetta">Perché conta che siano pochi</span>
@@ -343,6 +322,28 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Vicina si conta</span>
+        <p>Sono vicine le tonalit&agrave; che hanno <strong>molte note in comune</strong>: al massimo un&rsquo;alterazione di differenza in chiave.</p>
+      </div>
+      <div class="riquadro definizione">
+        <span class="etichetta">Sono cinque</span>
+        <p>Dominante, sottodominante, le loro relative, e la propria relativa. <strong>Sempre cinque</strong>, da qualunque tonalit&agrave;.</p>
+      </div>
+      <div class="riquadro definizione">
+        <span class="etichetta">Ed &egrave; il conto dell&rsquo;unit&agrave;</span>
+        <p>Lo stesso che decide come si collegano due accordi, applicato alle <strong>tonalit&agrave;</strong> invece che alle triadi.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">La prossima ora si canta: intonazione in tonalit&agrave; fino a quattro alterazioni. E adesso sapete perch&eacute; quattro alterazioni sono <strong>tante</strong>.</p>
+  </div>
+</section>
 
 <section class="slide esercizio insieme-slide" data-titolo="In classe · parlato">
   <div class="slide-interna">
@@ -359,8 +360,8 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: cantato</h2>
     <p class="rimando">Si prende il tono dalla tastiera, si canta insieme; poi a gruppi. <a href="../materiali/solfeggi-classe-2.html#n641">Quaderno, n.&nbsp;641</a></p>
-    <div class="righe"><tac-stave clef="treble" time="4/4" caption="" notes="e/5:16 d/5:16 c/5:16 b/4:16 c/5:q d/5:8 e/5:8 d/5:q | c/5:16 b/4:16 a/4:16 b/4:16 c/5:q b/4:q a/4:8 g/4:8 | a/4:8 b/4:8 a/4:q g/4:h | f/4:q e/4:q d/4:h" width="760" tempo="66" play slow style="width:100.0%"></tac-stave>
-<tac-stave clef="treble" time="4/4" notes="e/4:q f/4:q g/4:8 f/4:8 e/4:8 f/4:8 | g/4:q f/4:q e/4:8 f/4:16 g/4:16 f/4:8 e/4:8 | f/4:h g/4:8 r:8 b/4:q | c/5:w" width="760" tempo="66" fine style="width:100.0%"></tac-stave></div>
+    <div class="righe"><tac-stave clef="treble" time="4/4" caption="" notes="c/4:8 d/4:8 e/4:q c/4:q g/4:q | f/4:q a/4:q f/4:q f/4:q | a/4:h f/4:q f/4:q | g/4:h b/4:q g/4:8 f/4:8" width="760" tempo="66" play slow style="width:100.0%"></tac-stave>
+<tac-stave clef="treble" time="4/4" notes="e/4:q g/4:8 a/4:8 g/4:h | e/4:q c/4:q e/4:q e/4:q | d/4:h d/4:h | c/4:w" width="760" tempo="66" fine style="width:100.0%"></tac-stave></div>
   </div>
 </section>
 

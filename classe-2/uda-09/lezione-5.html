@@ -115,6 +115,8 @@ try { module = undefined; exports = undefined; } catch (e) {}
      dire.
      ══════════════════════════════════════════════════════════════════ -->
 
+<!-- Riordinata il 30/09/2026: «Come si cerca, in pratica» fusa in «Come si cerca» (chiarito che le coppie interne si controllano per ultime, non si saltano); ordine: oggetto → metodo → caccia → risultato → che cosa fa Bach → seconda caccia su A43. -->
+
 <section class="slide attiva copertina foto" data-titolo="Copertina"
          style="--foto: url('../../_assets/copertine/c2u9-lezione-5.jpg?v=2221b56a');
                 --cop-a:#0b1020; --cop-b:#1e40af; --cop-c:#bfdbfe">
@@ -163,6 +165,76 @@ try { module = undefined; exports = undefined; } catch (e) {}
     </div>
 
     <p class="didascalia">Attenzione a una cosa, e vale per tutta l&rsquo;ora: il <strong>tenore</strong> nei corali si scrive in chiave di violino ma suona <strong>un&rsquo;ottava sotto</strong>. Chi legge le sue note dove sono scritte trova ottave parallele che non ci sono.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa si cerca">
+  <div class="slide-interna">
+    <h2>Che cosa stiamo cercando, esattamente</h2>
+
+    <p>Prima di aprire la pagina, mettiamo a fuoco l&rsquo;oggetto della caccia: due voci che si muovono nella stessa direzione arrivando su una quinta o un&rsquo;ottava.</p>
+
+    <tac-stave time="4/4"
+               caption="Quinte parallele: le due voci salgono insieme mantenendo la distanza"
+               soprano="g/4:w | a/4:w"
+               basso="c/4:w | d/4:w"
+               width="740" tempo="46" play slow></tac-stave>
+
+    <tac-stave time="4/4"
+               caption="Non sono parallele: la distanza cambia da quinta a sesta"
+               soprano="g/4:w | a/4:w"
+               basso="c/4:w | c/4:w"
+               width="740" tempo="46" play slow></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Le due condizioni</span>
+      <p><strong>Stessa direzione</strong>, e <strong>stesso intervallo perfetto</strong> prima e dopo. Se ne manca una, non sono parallele.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Come si cerca">
+  <div class="slide-interna">
+    <h2>Come si cerca, senza impazzire</h2>
+
+    <p>Sei coppie di voci per ogni cambio d&rsquo;accordo: cercarle tutte a occhio &egrave; impossibile in venti minuti. Serve un ordine.</p>
+
+    <tac-stave time="4/4"
+               caption="Il posto in cui guardare per primo: soprano e basso"
+               soprano="e/5:w | f/5:w"
+               contralto="g/4:w | a/4:w"
+               tenore="c/4:w | c/4:w"
+               basso="a/3:w | b/3:w"
+               width="760" tempo="46" play slow></tac-stave>
+
+    <div class="riquadro procedura">
+      <span class="etichetta">Tre passi</span>
+      <p><strong>1.</strong> Si guardano le <strong>voci che si sono mosse</strong> in quel cambio: quelle ferme non fanno parallele con nessuno.<br>
+      <strong>2.</strong> Fra quelle, si tengono solo le coppie che vanno nella <strong>stessa direzione</strong>.<br>
+      <strong>3.</strong> Su quelle si contano gli intervalli, prima e dopo.</p>
+    </div>
+
+    <p class="didascalia">Il passo 1 taglia met&agrave; del lavoro: in un cambio d&rsquo;accordo tipico due voci si muovono e due stanno quasi ferme. E il posto pi&ugrave; probabile &egrave; sempre lo stesso, <strong>soprano e basso</strong>, perch&eacute; sono le due che si muovono di pi&ugrave;.</p>
+
+<tac-stave clef="treble" time="4/4" caption="Basso e soprano: la coppia che si sente. Qui si muovono in senso opposto, quindi si salta" notes="c/5+g/4+e/4+c/4:h b/4+g/4+d/4+d/4:h" width="460" tempo="44" play slow></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Le tre mosse, in ordine</span>
+      <p><strong>1</strong> &middot; si guarda <strong>una coppia di voci per volta</strong>, mai tutte e quattro insieme.<br>
+      <strong>2</strong> &middot; per ogni coppia si guarda <strong>la direzione</strong>: se si muovono in senso opposto, si salta e si passa alla coppia dopo.<br>
+      <strong>3</strong> &middot; solo dove vanno nella stessa direzione si guarda <strong>l&rsquo;intervallo</strong>, e solo se è una quinta o un&rsquo;ottava.</p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">L&rsquo;ordine delle coppie, e non è indifferente</span>
+      <p><strong>Basso-soprano</strong> per prima: è quella che si sente di più.<br>
+      Poi <strong>basso-tenore</strong> e <strong>basso-contralto</strong>.<br>
+      Le coppie fra voci interne per ultime: &egrave; raro che ci sia un guaio, ma in un esercizio si controllano anche loro.</p>
+      <p>Con questo ordine, in un esercizio normale si controlla <strong>tutto quello che conta in due minuti</strong>.</p>
+    </div>
+
+    <p class="didascalia">Vale la pena scriverlo sul quaderno una volta e non ripensarci più. <strong>Un controllo senza un ordine diventa una rilettura</strong>, e una rilettura trova quello che salta all&rsquo;occhio invece di quello che si sta cercando.</p>
+  
   </div>
 </section>
 
@@ -229,79 +301,6 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide" data-titolo="Che cosa si cerca">
-  <div class="slide-interna">
-    <h2>Che cosa stiamo cercando, esattamente</h2>
-
-    <p>Prima di aprire la pagina, mettiamo a fuoco l&rsquo;oggetto della caccia: due voci che si muovono nella stessa direzione arrivando su una quinta o un&rsquo;ottava.</p>
-
-    <tac-stave time="4/4"
-               caption="Quinte parallele: le due voci salgono insieme mantenendo la distanza"
-               soprano="g/4:w | a/4:w"
-               basso="c/4:w | d/4:w"
-               width="740" tempo="46" play slow></tac-stave>
-
-    <tac-stave time="4/4"
-               caption="Non sono parallele: la distanza cambia da quinta a sesta"
-               soprano="g/4:w | a/4:w"
-               basso="c/4:w | c/4:w"
-               width="740" tempo="46" play slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le due condizioni</span>
-      <p><strong>Stessa direzione</strong>, e <strong>stesso intervallo perfetto</strong> prima e dopo. Se ne manca una, non sono parallele.</p>
-    </div>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Come si cerca">
-  <div class="slide-interna">
-    <h2>Come si cerca, senza impazzire</h2>
-
-    <p>Sei coppie di voci per ogni cambio d&rsquo;accordo: cercarle tutte a occhio &egrave; impossibile in venti minuti. Serve un ordine.</p>
-
-    <tac-stave time="4/4"
-               caption="Il posto in cui guardare per primo: soprano e basso"
-               soprano="e/5:w | f/5:w"
-               contralto="g/4:w | a/4:w"
-               tenore="c/4:w | c/4:w"
-               basso="a/3:w | b/3:w"
-               width="760" tempo="46" play slow></tac-stave>
-
-    <div class="riquadro procedura">
-      <span class="etichetta">Tre passi</span>
-      <p><strong>1.</strong> Si guardano le <strong>voci che si sono mosse</strong> in quel cambio: quelle ferme non fanno parallele con nessuno.<br>
-      <strong>2.</strong> Fra quelle, si tengono solo le coppie che vanno nella <strong>stessa direzione</strong>.<br>
-      <strong>3.</strong> Su quelle si contano gli intervalli, prima e dopo.</p>
-    </div>
-
-    <p class="didascalia">Il passo 1 taglia met&agrave; del lavoro: in un cambio d&rsquo;accordo tipico due voci si muovono e due stanno quasi ferme. E il posto pi&ugrave; probabile &egrave; sempre lo stesso, <strong>soprano e basso</strong>, perch&eacute; sono le due che si muovono di pi&ugrave;.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa portiamo a casa">
-  <div class="slide-interna">
-    <h2>Che cosa portiamo a casa</h2>
-
-    <div class="colonne">
-      <div class="riquadro definizione">
-        <span class="etichetta">Il divieto non &egrave; scolastico</span>
-        <p>Una pagina intera di Bach, zero parallele. La regola descrive una pratica, non la comanda.</p>
-      </div>
-      <div class="riquadro definizione">
-        <span class="etichetta">Non si evitano: non si incontrano</span>
-        <p>Chi tiene le note comuni e muove per gradi non ci arriva nemmeno.</p>
-      </div>
-      <div class="riquadro definizione">
-        <span class="etichetta">Il metodo</span>
-        <p>Due voci per volta, e si <strong>guarda</strong>. Sono sei coppie.</p>
-      </div>
-    </div>
-
-    <p class="didascalia">La prossima ora &egrave; l&rsquo;ultima dell&rsquo;unit&agrave;, ed &egrave; di percezione: cantiamo il basso di questo corale, tutti insieme, mentre il pianoforte tiene le altre tre.</p>
-  </div>
-</section>
-
 <!-- ───────────────────────────────────────────────────────────────────
      Due slide con una musica vera. L'ora si chiama «le parallele in un
      corale vero: cercarle in una pagina di Bach» e la pagina di Bach
@@ -340,31 +339,28 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide" data-titolo="Come si cerca, in pratica">
+<section class="slide" data-titolo="Che cosa portiamo a casa">
   <div class="slide-interna">
-    <h2>Il gesto, e riduce sei coppie a due</h2>
+    <h2>Che cosa portiamo a casa</h2>
 
-    <tac-stave clef="treble" time="4/4" caption="Basso e soprano: la coppia che si sente. Qui si muovono in senso opposto, quindi si salta" notes="c/5+g/4+e/4+c/4:h b/4+g/4+d/4+d/4:h" width="460" tempo="44" play slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le tre mosse, in ordine</span>
-      <p><strong>1</strong> &middot; si guarda <strong>una coppia di voci per volta</strong>, mai tutte e quattro insieme.<br>
-      <strong>2</strong> &middot; per ogni coppia si guarda <strong>la direzione</strong>: se si muovono in senso opposto, si salta e si passa alla coppia dopo.<br>
-      <strong>3</strong> &middot; solo dove vanno nella stessa direzione si guarda <strong>l&rsquo;intervallo</strong>, e solo se è una quinta o un&rsquo;ottava.</p>
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Il divieto non &egrave; scolastico</span>
+        <p>Una pagina intera di Bach, zero parallele. La regola descrive una pratica, non la comanda.</p>
+      </div>
+      <div class="riquadro definizione">
+        <span class="etichetta">Non si evitano: non si incontrano</span>
+        <p>Chi tiene le note comuni e muove per gradi non ci arriva nemmeno.</p>
+      </div>
+      <div class="riquadro definizione">
+        <span class="etichetta">Il metodo</span>
+        <p>Due voci per volta, e si <strong>guarda</strong>. Sono sei coppie.</p>
+      </div>
     </div>
 
-    <div class="riquadro studio">
-      <span class="etichetta">L&rsquo;ordine delle coppie, e non è indifferente</span>
-      <p><strong>Basso-soprano</strong> per prima: è quella che si sente di più.<br>
-      Poi <strong>basso-tenore</strong> e <strong>basso-contralto</strong>.<br>
-      Le coppie fra voci interne per ultime, e quasi sempre non serve.</p>
-      <p>Con questo ordine, in un esercizio normale si controlla <strong>tutto quello che conta in due minuti</strong>.</p>
-    </div>
-
-    <p class="didascalia">Vale la pena scriverlo sul quaderno una volta e non ripensarci più. <strong>Un controllo senza un ordine diventa una rilettura</strong>, e una rilettura trova quello che salta all&rsquo;occhio invece di quello che si sta cercando.</p>
+    <p class="didascalia">La prossima ora &egrave; l&rsquo;ultima dell&rsquo;unit&agrave;, ed &egrave; di percezione: cantiamo il basso di questo corale, tutti insieme, mentre il pianoforte tiene le altre tre.</p>
   </div>
 </section>
-
 
 <section class="slide esercizio insieme-slide" data-titolo="In classe · parlato">
   <div class="slide-interna">

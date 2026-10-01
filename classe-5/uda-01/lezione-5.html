@@ -80,6 +80,8 @@ try { module = undefined; exports = undefined; } catch (e) {}
      sezioni stabili invece che per stabilirne una.
      ══════════════════════════════════════════════════════════════════ -->
 
+<!-- Riordinata il 30/09/2026: da 19 a 15 slide: fusi i doppioni (che cos'è 2+8, dominante secondaria 3+9, perché non si modula 4+10 col riquadro della slide BWV 154, dove si trovano 5+11 col riquadro della slide Haydn, uscita 13 col pentagramma e il riquadro della slide Haydn, «come si scrive in pratica» in «Come si scrive»); ordine: ascolto → definizione → dominante secondaria → perché non modula → catalogo → dove → come si scrive → come si esce → esercizi → ascolti. -->
+
 <section class="slide attiva copertina foto" data-titolo="Copertina"
          style="--foto: url('../../_assets/copertine/c5u1-lezione-5.jpg?v=d7e05105');
                 --cop-a:#052e16; --cop-b:#15803d; --cop-c:#86efac">
@@ -128,37 +130,60 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide" data-titolo="Che cos’è una progressione &middot; prima parte">
+<section class="slide" data-titolo="Che cos&rsquo;&egrave; una progressione">
   <div class="slide-interna">
-    <h2>Che cos&rsquo;&egrave; una progressione</h2>
+    <h2>Che cos&rsquo;&egrave; una progressione: modello e imitazione</h2>
+
+    <p>Il meccanismo &egrave; semplicissimo, e una volta visto si riconosce dappertutto. Nell&rsquo;esempio d&rsquo;apertura il modello scendeva di una quinta ogni volta; qui di una seconda. Quello che si ripete non &egrave; il suono: &egrave; il <em>rapporto</em>.</p>
+
+    <tac-stave time="4/4"
+               caption="Un modello di due accordi, ripetuto una seconda sotto"
+               soprano="e/5:w | d/5:w | d/5:w | c/5:w"
+               basso="c/4:w | g/3:w | b/3:w | f/3:w"
+               width="780" tempo="46" play slow></tac-stave>
 
     <div class="riquadro definizione">
-      <span class="etichetta">Progressione</span>
-      <p>Un <strong>modello</strong> di due o tre accordi, ripetuto a una distanza costante &mdash; qui una quinta pi&ugrave; in basso ogni volta. Quello che si ripete non &egrave; il suono: &egrave; il <em>rapporto</em>.</p>
+      <span class="etichetta">Farina, <em>Trattato di Armonia</em>, vol. 2, pp. 69&ndash;71</span>
+      <p>Una progressione &egrave; un <strong>modello</strong> &mdash; un frammento di uno o due accordi &mdash; e la sua <strong>ripetizione a distanza costante</strong>. La progressione pu&ograve; essere <em>tonale</em>, se il modello resta dentro la scala, o <em>modulante</em>, se viene trasportato letteralmente.</p>
     </div>
 
-    <div class="colonne">
-      <div class="riquadro"><p><strong>Tonale</strong><br>il modello resta dentro la scala: gli accordi cambiano qualit&agrave; a seconda del grado</p></div>
-      <div class="riquadro"><p><strong>Modulante</strong><br>il modello viene trasportato di peso, con le sue alterazioni: e allora si esce davvero</p></div>
-    </div>
+    <p class="didascalia">La distinzione &egrave; utile e va tenuta: nella progressione tonale le qualit&agrave; degli accordi cambiano man mano &mdash; alcuni diventano minori &mdash; perch&eacute; si resta nella scala. In quella modulante restano identiche, perch&eacute; si trasporta tutto il modello di peso, con le sue alterazioni: e allora si esce davvero.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Il pezzo che rende tutto questo possibile">
+<section class="slide" data-titolo="La dominante secondaria">
   <div class="slide-interna">
-    <h2>Il pezzo che rende tutto questo possibile</h2>
+    <h2>Ogni grado pu&ograve; avere la sua dominante</h2>
 
-    <p>Ogni grado della scala pu&ograve; fare <strong>da dominante</strong> del grado che sta una quinta sotto. Basta dargli la terza maggiore e la settima.</p>
+    <p>Il nome dice esattamente che cosa fa: &egrave; una dominante <strong>secondaria</strong> perch&eacute; &egrave; la dominante di qualcosa che non &egrave; la tonica. La tonalit&agrave; non cambia, e al suo interno si crea un piccolo rapporto locale fra due gradi &mdash; uno che tira e uno che riceve. Fuori da quel rapporto, tutto resta com&rsquo;era.</p>
 
-    <tac-stave clef="treble" time="4/4"
+    <p>&Egrave; il pezzo che rende possibili le progressioni pi&ugrave; usate del repertorio. Nel secondo esempio, quel do diesis <strong>non</strong> vuol dire che siamo in re minore: vuol dire che il re &egrave; stato illuminato per un momento. &Egrave; una <strong>tonicizzazione</strong>, e nella progressione ne arriva subito un&rsquo;altra.</p>
+
+    <div class="affianca">
+      <div>
+        <tac-stave time="4/4"
+               caption="Il re maggiore &egrave; la dominante del sol: V del V"
+               soprano="a/4:w | b/4:w | b/4:w"
+               basso="d/4:w | g/3:w | g/3:w"
+               width="380" tempo="46" play slow></tac-stave>
+      </div>
+      <div>
+        <tac-stave clef="treble" time="4/4"
                caption="V del II: la settima su la, che risolve su re minore"
                soprano="c#/5:h d/5:h"
                contralto="e/4:h f/4:h"
                tenore="g/3:h a/3:h"
                basso="a/2:h d/3:h"
-               width="700" tempo="50" play></tac-stave>
+               width="380" tempo="50" play></tac-stave>
+      </div>
+    </div>
 
-    <p class="didascalia">Quel do diesis <strong>non</strong> vuol dire che siamo in re minore: vuol dire che il re &egrave; stato illuminato per un momento. &Egrave; una <strong>tonicizzazione</strong>, e nella progressione ne arriva subito un&rsquo;altra.</p>
+    <div class="riquadro definizione">
+      <span class="etichetta">Marenco, &sect; 6.4 e p. 193</span>
+      <p>Ogni grado-accordo della scala pu&ograve; fungere da <strong>dominante del grado posto alla quinta inferiore</strong>. Basta renderlo maggiore e aggiungergli la settima, e diventa la dominante di qualcun altro.</p>
+    </div>
+
+    <p class="didascalia">C&rsquo;&egrave; un limite, e Marenco lo segna a p. 195: il collegamento con la <strong>triade diminuita del VII</strong> &laquo;non esprime alcun processo di tonicizzazione&raquo;. Cio&egrave;: si pu&ograve; fare la dominante di quasi tutti i gradi, non di quello la cui triade &egrave; diminuita &mdash; perch&eacute; non pu&ograve; fare da meta.</p>
   </div>
 </section>
 
@@ -174,439 +199,15 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <div class="scheda"><h3>Riparto</h3><p>e cos&igrave; via, finch&eacute; decido di fermarmi</p></div>
     </div>
 
-    <p class="didascalia">Ecco perch&eacute; una progressione <strong>collega</strong> due sezioni stabili invece di stabilirne una: la sua natura &egrave; il transito.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Dove si trova">
-  <div class="slide-interna">
-    <h2>Dove la trovate, e perch&eacute; conviene saperla riconoscere</h2>
-
-    <div class="colonne">
-      <div class="riquadro"><p><strong>In analisi</strong><br>nei ponti della forma sonata, nei divertimenti della fuga, in mezzo alle arie</p></div>
-      <div class="riquadro"><p><strong>Nella seconda prova</strong><br>una traccia di basso che scende per quinte va realizzata come progressione, non accordo per accordo</p></div>
-    </div>
-
-    <div class="riquadro studio">
-      <p>In analisi la risposta giusta non &egrave; elencare sei tonicizzazioni: &egrave; scrivere <strong>&laquo;progressione di quinte discendenti, batt. 12&ndash;16, do maggiore&raquo;</strong>. Una riga, e dice tutto.</p>
-    </div>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Scrivetene una">
-  <div class="slide-interna">
-    <h2>Scrivetene una voi</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Sul quaderno, 15 minuti</span>
-      <p>In <strong>si bemolle maggiore</strong>, otto accordi che scendono per quinte, ciascuno con la settima. Quattro parti, condotta pulita: nella progressione le voci si muovono poco e sempre allo stesso modo.</p>
-      <p>Poi <strong>fermatela</strong>: aggiungete due accordi che confermino con una cadenza il punto in cui siete arrivati. Da quel momento avete modulato per davvero, e va scritto dove.</p>
-    </div>
-
-    <p class="didascalia">La seconda parte &egrave; quella che conta: sapere <strong>dove si esce</strong> da una progressione &egrave; l&rsquo;abilit&agrave; vera.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="In musica vera">
-  <div class="slide-interna">
-    <h2>Cinque accordi alterati, e nessuna modulazione</h2>
-
-    <p>&Egrave; il caso in cui il criterio della prima ora si vede a occhio nudo: una progressione con dominanti secondarie.</p>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Insieme, 8 minuti</span>
-      <p>Ascoltate e provate a rispondere a una domanda sola: alla fine del passaggio, siete <strong>nella stessa tonalit&agrave;</strong> di quando &egrave; cominciato?</p>
-    </div>
-
-    <tac-brano organico="archi" titolo="F. J. Haydn, Quartetto op. 1 n. 1, III movimento" metronomo youtube="JQibAYdVgO8" mappa-video='{"eventi":[[1,597],[2,7613],[3,15263],[4,23356],[5,29956],[6,37807],[7,45489],[8,53139],[9,60723],[10,68389],[11,76113],[12,83580],[13,91229],[14,98830],[15,106997]],"durata":331000}' esecutore="Aeolian String Quartet" partitura="../../_assets/spartiti/A05_haydn-4-4.png" riquadri='[[1,29.1,5.23,21.67,15.95],[2,50.77,5.23,14.6,15.95],[3,65.37,5.23,16.23,15.95],[4,81.6,5.23,14.42,15.95],[5,11.51,22.95,46.24,15.79],[6,57.75,22.95,23.66,15.79],[7,81.41,22.95,14.6,15.79],[8,11.42,40.89,31.55,15.62],[9,42.97,40.89,21.31,15.62],[10,64.28,40.89,31.73,15.62],[11,11.51,58.78,46.78,15.95],[12,58.3,58.78,37.81,15.95],[13,10.7,76.62,44.33,15.36],[14,55.03,76.62,21.76,15.36],[15,76.79,76.62,19.04,15.36]]' inciso="../../_assets/incisioni/A05_haydn_4-4.mp3" mappa='{"durata":37642,"eventi":[[0,0],[1,3333],[2,6667],[3,10000],[4,14167],[5,17500],[6,20833],[7,24167],[8,27500],[9,31667]]}' da-battuta="1">
-<script type="application/json">{"titolo":"F. J. Haydn, Quartetto op. 1 n. 1, III movimento","metro":"4/4","bpm":72,"battute":10,"anacrusi":0.0,"voci":[[[2.0,2.0,68],[4.0,1.0,68],[5.0,1.0,67],[6.0,2.0,72],[8.0,2.0,70],[10.0,1.0,70],[11.0,0.125,68],[11.0,0.2083,68],[11.125,0.125,70],[11.2083,0.125,70],[11.25,0.125,68],[11.3333,0.125,68],[11.375,0.125,70],[11.4583,0.125,70],[11.5,0.125,68],[11.5833,0.125,68],[11.625,0.125,70],[11.7083,0.125,70],[11.75,0.125,68],[11.8333,0.125,68],[11.875,0.125,70],[12.0,2.0,67],[16.0,1.0,82],[17.0,0.225,80],[17.25,0.25,79],[17.5,0.225,77],[17.75,0.25,75],[18.0,0.75,74],[18.75,0.125,75],[18.875,0.125,77],[19.0,1.0,75],[20.0,1.0,84],[21.0,0.25,82],[21.25,0.25,80],[21.5,0.25,79],[21.75,0.25,77],[22.0,1.0,82],[23.0,0.5,87],[23.5,0.5,67],[24.0,1.0,70],[25.0,0.125,68],[25.0,0.2083,68],[25.125,0.125,70],[25.2083,0.125,70],[25.25,0.125,68],[25.3333,0.125,68],[25.375,0.125,70],[25.4583,0.125,70],[25.5,0.125,68],[25.5833,0.125,68],[25.625,0.125,70],[25.7083,0.125,70],[25.75,0.125,68],[25.8333,0.125,68],[25.875,0.125,70],[26.0,1.0,67],[28.0,1.0,75],[29.0,0.5,79],[29.5,0.5,82],[30.0,0.5,82],[30.5,0.125,84],[30.625,0.125,81],[30.75,0.125,82],[30.875,0.125,84],[31.0,0.5,86],[32.0,1.0,75],[33.0,0.25,87],[33.25,0.25,84],[33.5,0.25,81],[33.75,0.2083,75],[33.75,0.25,75],[33.9583,0.125,77],[34.0,0.125,75],[34.0833,0.125,75],[34.125,0.125,77],[34.2083,0.125,77],[34.25,0.125,75],[34.3333,0.125,75],[34.375,0.125,77],[34.4583,0.125,77],[34.5,0.125,75],[34.5833,0.125,75],[34.625,0.125,77],[34.75,0.125,75],[34.875,0.125,77],[35.0,1.0,74],[36.0,1.0,77],[37.0,0.5,82],[37.5,0.5,80],[38.0,0.25,79],[38.25,0.25,79],[38.5,0.25,78],[38.75,0.25,79],[39.25,0.25,84],[39.5,0.25,81],[39.75,0.25,82]],[[2.0,2.0,60],[4.0,3.0,58],[7.0,1.0,56],[8.0,1.0,56],[9.0,1.0,55],[10.0,1.0,60],[11.0,1.0,62],[12.0,2.0,63],[16.0,0.25,67],[16.25,0.25,67],[16.5,0.25,67],[16.75,0.25,67],[17.0,0.25,67],[17.0,1.0,67],[17.25,0.25,67],[17.5,0.25,67],[17.75,0.25,67],[18.0,0.25,68],[18.0,1.0,68],[18.25,0.25,68],[18.5,0.25,68],[18.75,0.25,68],[19.0,0.25,67],[19.0,1.0,67],[19.25,0.25,67],[19.5,0.25,67],[19.75,0.25,67],[20.0,0.25,72],[20.0,2.0,72],[20.25,0.25,72],[20.5,0.25,72],[20.75,0.25,72],[21.0,0.25,72],[21.25,0.25,72],[21.5,0.25,72],[21.75,0.25,72],[22.0,0.25,70],[22.0,2.0,70],[22.25,0.25,70],[22.5,0.25,70],[22.75,0.25,70],[23.0,0.25,70],[23.25,0.25,70],[23.5,0.25,70],[23.75,0.25,70],[24.0,1.0,67],[25.0,0.25,65],[25.0,1.0,65],[25.25,0.25,65],[25.5,0.25,65],[25.75,0.25,65],[26.0,0.25,63],[26.0,1.0,63],[26.25,0.25,63],[26.5,0.25,63],[26.75,0.25,63],[27.0,0.25,67],[27.0,1.0,67],[27.25,0.25,67],[27.5,0.25,67],[27.75,0.25,67],[28.0,0.25,70],[28.0,2.0,70],[28.25,0.25,70],[28.5,0.25,70],[28.75,0.25,70],[29.0,0.25,70],[29.25,0.25,70],[29.5,0.25,70],[29.75,0.25,70],[30.0,0.25,70],[30.0,2.0,70],[30.25,0.25,70],[30.5,0.25,70],[30.75,0.25,70],[31.0,0.25,70],[31.25,0.25,70],[31.5,0.25,70],[31.75,0.25,70],[32.0,0.25,70],[32.0,1.0,70],[32.25,0.25,70],[32.5,0.25,70],[32.75,0.25,70],[33.0,0.25,69],[33.25,0.25,69],[33.5,0.25,60],[33.75,0.25,60],[34.0,0.25,60],[34.0,1.0,60],[34.25,0.25,60],[34.5,0.25,60],[34.75,0.25,60],[35.0,0.25,58],[35.0,1.0,58],[35.25,0.25,58],[35.5,0.25,58],[35.75,0.25,58],[36.0,0.25,70],[36.0,2.0,70],[36.25,0.25,70],[36.5,0.25,70],[36.75,0.25,70],[37.0,0.25,70],[37.25,0.25,70],[37.5,0.25,70],[37.75,0.25,70],[38.0,0.25,70],[38.0,2.0,70],[38.25,0.25,70],[38.5,0.25,70],[38.75,0.25,70],[39.0,0.25,70],[39.25,0.25,70],[39.5,0.25,70],[39.75,0.25,70]],[[6.0,2.0,63],[8.0,3.0,63],[11.0,1.0,65],[12.0,2.0,58],[16.0,0.25,63],[16.25,0.25,63],[16.5,0.25,63],[16.75,0.25,63],[17.0,0.25,63],[17.25,0.25,63],[17.5,0.25,63],[17.75,0.25,63],[18.0,0.25,65],[18.25,0.25,65],[18.5,0.25,65],[18.75,0.25,62],[19.0,0.25,63],[19.25,0.25,63],[19.5,0.25,63],[19.75,0.25,63],[20.0,0.25,63],[20.25,0.25,63],[20.5,0.25,63],[20.75,0.25,63],[21.0,0.25,65],[21.25,0.25,65],[21.5,0.25,65],[21.75,0.25,65],[22.0,0.25,65],[22.0,1.0,65],[22.25,0.25,65],[22.5,0.25,65],[22.75,0.25,65],[23.0,0.25,63],[23.0,1.0,63],[23.25,0.25,63],[23.5,0.25,63],[23.75,0.25,63],[24.0,0.25,58],[24.0,2.0,58],[24.25,0.25,58],[24.5,0.25,58],[24.75,0.25,58],[25.0,0.25,58],[25.25,0.25,58],[25.5,0.25,58],[25.75,0.25,58],[26.0,0.25,63],[26.0,2.0,63],[26.25,0.25,63],[26.5,0.25,63],[26.75,0.25,63],[27.0,0.25,63],[27.25,0.25,63],[27.5,0.25,63],[27.75,0.25,63],[28.0,0.25,67],[28.0,2.0,67],[28.25,0.25,67],[28.5,0.25,67],[28.75,0.25,67],[29.0,0.25,67],[29.25,0.25,67],[29.5,0.25,67],[29.75,0.25,67],[30.0,0.25,65],[30.0,2.0,65],[30.25,0.25,65],[30.5,0.25,65],[30.75,0.25,65],[31.0,0.25,65],[31.25,0.25,65],[31.5,0.25,65],[31.75,0.25,65],[32.0,0.25,63],[32.0,1.0,63],[32.25,0.25,63],[32.5,0.25,63],[32.75,0.25,63],[33.0,0.25,63],[33.25,0.25,63],[33.5,0.25,63],[33.75,0.25,69],[34.0,0.25,70],[34.0,1.0,70],[34.25,0.25,70],[34.5,0.25,70],[34.75,0.25,70],[35.0,0.25,58],[35.0,1.0,58],[35.25,0.25,58],[35.5,0.25,58],[35.75,0.25,58],[36.0,0.25,65],[36.0,2.0,65],[36.25,0.25,65],[36.5,0.25,65],[36.75,0.25,65],[37.0,0.25,65],[37.25,0.25,65],[37.5,0.25,65],[37.75,0.25,65],[38.0,0.25,67],[38.0,2.0,67],[38.25,0.25,67],[38.5,0.25,67],[38.75,0.25,67],[39.0,0.25,67],[39.25,0.25,67],[39.5,0.25,67],[39.75,0.25,67]],[[0.0,4.0,51],[4.0,4.0,51],[8.0,4.0,51],[12.0,2.0,51],[16.0,0.25,51],[16.25,0.25,51],[16.5,0.25,51],[16.75,0.25,51],[17.0,0.25,51],[17.25,0.25,51],[17.5,0.25,51],[17.75,0.25,51],[18.0,0.25,46],[18.0,1.0,46],[18.25,0.25,46],[18.5,0.25,46],[18.75,0.25,46],[19.0,0.25,51],[19.0,1.0,51],[19.25,0.25,51],[19.5,0.25,51],[19.75,0.25,51],[20.0,0.25,56],[20.0,2.0,56],[20.25,0.25,56],[20.5,0.25,56],[20.75,0.25,56],[21.0,0.25,56],[21.25,0.25,56],[21.5,0.25,56],[21.75,0.25,56],[22.0,1.0,55],[23.0,0.25,55],[23.25,0.25,55],[23.5,0.25,51],[23.75,0.25,51],[24.0,0.25,46],[24.0,2.0,46],[24.25,0.25,46],[24.5,0.25,46],[24.75,0.25,46],[25.0,0.25,46],[25.25,0.25,46],[25.5,0.25,46],[25.75,0.25,46],[26.0,0.25,51],[26.0,2.0,51],[26.25,0.25,51],[26.5,0.25,51],[26.75,0.25,51],[27.0,0.25,51],[27.25,0.25,51],[27.5,0.25,51],[27.75,0.25,51],[28.0,0.25,51],[28.0,2.0,51],[28.25,0.25,51],[28.5,0.25,51],[28.75,0.25,51],[29.0,0.25,51],[29.25,0.25,51],[29.5,0.25,51],[29.75,0.25,51],[30.0,0.25,50],[30.0,2.0,50],[30.25,0.25,50],[30.5,0.25,50],[30.75,0.25,50],[31.0,0.25,50],[31.25,0.25,50],[31.5,0.25,50],[31.75,0.25,50],[32.0,0.25,48],[32.25,0.25,48],[32.5,0.25,48],[32.75,0.25,48],[33.0,0.25,53],[33.25,0.25,53],[33.5,0.25,53],[33.75,0.25,53],[34.0,0.25,58],[34.25,0.25,58],[34.5,0.25,58],[34.75,0.25,58],[35.0,0.25,46],[35.25,0.25,46],[35.5,0.25,46],[35.75,0.25,46],[36.0,0.25,50],[36.0,2.0,50],[36.25,0.25,50],[36.5,0.25,50],[36.75,0.25,50],[37.0,0.25,50],[37.25,0.25,50],[37.5,0.25,50],[37.75,0.25,50],[38.0,0.25,51],[38.0,2.0,51],[38.25,0.25,51],[38.5,0.25,51],[38.75,0.25,51],[39.0,0.25,51],[39.25,0.25,51],[39.5,0.25,51],[39.75,0.25,51]]]}</script>
-</tac-brano>
-
-
-    <p class="didascalia">S&igrave;, quasi sempre. E nel frattempo sono passate tre o quattro sensibili di altre tonalit&agrave;. Chi conta le alterazioni conta quattro modulazioni; chi cerca le <strong>conferme</strong> ne conta zero &mdash; ed &egrave; quello che &egrave; successo davvero.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cos&rsquo;&egrave; una progressione">
-  <div class="slide-interna">
-    <h2>Modello e imitazione</h2>
-
-    <p>Il meccanismo &egrave; semplicissimo, e una volta visto si riconosce dappertutto.</p>
-
-    <tac-stave time="4/4"
-               caption="Un modello di due accordi, ripetuto una seconda sotto"
-               soprano="e/5:w | d/5:w | d/5:w | c/5:w"
-               basso="c/4:w | g/3:w | b/3:w | f/3:w"
-               width="780" tempo="46" play slow></tac-stave>
-
     <div class="riquadro definizione">
-      <span class="etichetta">Farina, <em>Trattato di Armonia</em>, vol. 2, pp. 69&ndash;71</span>
-      <p>Una progressione &egrave; un <strong>modello</strong> &mdash; un frammento di uno o due accordi &mdash; e la sua <strong>ripetizione a distanza costante</strong>. La progressione pu&ograve; essere <em>tonale</em>, se il modello resta dentro la scala, o <em>modulante</em>, se viene trasportato letteralmente.</p>
+      <span class="etichetta">Il motivo</span>
+      <p>In una progressione ogni meta viene <strong>raggiunta e subito lasciata</strong>: ogni passo ripete lo schema del precedente, e nessuno ha una cadenza che si chiuda sulla sua meta. Senza conferma non c&rsquo;&egrave; modulazione: il centro non si sposta mai, si &egrave; sempre nella tonalit&agrave; di partenza, che sta semplicemente attraversando i propri gradi con un procedimento regolare. &Egrave; il criterio della prima lezione applicato alla lettera.</p>
+      <p>Le dominanti secondarie che si sentono lungo la strada sono <strong>tonicizzazioni</strong>: durano un accordo ciascuna.</p>
     </div>
-
-    <p class="didascalia">La distinzione &egrave; utile e va tenuta: nella progressione tonale le qualit&agrave; degli accordi cambiano man mano &mdash; alcuni diventano minori &mdash; perch&eacute; si resta nella scala. In quella modulante restano identiche, perch&eacute; si trasporta tutto.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La dominante secondaria">
-  <div class="slide-interna">
-    <h2>Ogni grado pu&ograve; avere la sua dominante</h2>
-
-    <p>Il nome dice esattamente che cosa fa: &egrave; una dominante <strong>secondaria</strong> perch&eacute; &egrave; la dominante di qualcosa che non &egrave; la tonica. La tonalit&agrave; non cambia, e al suo interno si crea un piccolo rapporto locale fra due gradi &mdash; uno che tira e uno che riceve. Fuori da quel rapporto, tutto resta com&rsquo;era.</p>
-
-    <p>&Egrave; il principio che rende possibili le progressioni pi&ugrave; usate del repertorio.</p>
-
-    <tac-stave time="4/4"
-               caption="Il re maggiore &egrave; la dominante del sol: V del V"
-               soprano="a/4:w | b/4:w | b/4:w"
-               basso="d/4:w | g/3:w | g/3:w"
-               width="780" tempo="46" play slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Marenco, &sect; 6.4 e p. 193</span>
-      <p>Ogni grado-accordo della scala pu&ograve; fungere da <strong>dominante del grado posto alla quinta inferiore</strong>. Basta renderlo maggiore e aggiungergli la settima, e diventa la dominante di qualcun altro.</p>
-    </div>
-
-    <p class="didascalia">C&rsquo;&egrave; un limite, e Marenco lo segna a p. 195: il collegamento con la <strong>triade diminuita del VII</strong> &laquo;non esprime alcun processo di tonicizzazione&raquo;. Cio&egrave;: si pu&ograve; fare la dominante di quasi tutti i gradi, non di quello la cui triade &egrave; diminuita &mdash; perch&eacute; non pu&ograve; fare da meta.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Perch&eacute; non si modula mai">
-  <div class="slide-interna">
-    <h2>Perch&eacute; una progressione non modula</h2>
 
     <p>C&rsquo;&egrave; anche una conferma pratica, e si sente: al termine di una progressione ci si ritrova quasi sempre a casa, oppure su una dominante di casa. Se davvero si fosse modulato quattro volte, non ci sarebbe modo di essere tornati indietro senza altre quattro modulazioni. Il fatto che il ritorno non costi niente &egrave; la prova che non ci si era mai spostati.</p>
 
-    <p>&Egrave; la domanda dell&rsquo;ora, e la risposta &egrave; il criterio della prima lezione applicato alla lettera.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Il motivo</span>
-      <p>In una progressione ogni meta viene <strong>raggiunta e subito lasciata</strong>: appena si arriva su un grado, quel grado diventa la dominante del successivo. Nessuna meta viene mai <strong>confermata</strong> da una cadenza che si chiude su di lei.</p>
-    </div>
-
-    <p>E siccome senza conferma non c&rsquo;&egrave; modulazione, il centro non si sposta mai: si &egrave; sempre nella tonalit&agrave; di partenza, che sta semplicemente attraversando i propri gradi con un procedimento regolare.</p>
-
-    <p class="didascalia">&Egrave; anche il motivo per cui una progressione si sente come un <strong>movimento continuo</strong> e non come una serie di arrivi: nessuno degli accordi &egrave; una meta, e l&rsquo;orecchio lo capisce dal fatto che ogni volta si riparte.</p>
-  </div>
-</section>
-
-<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; progressioni e tonicizzazioni" data-segno
-         style="--segno: url('../../_assets/segni/segno-18.png')">
-  <div class="slide-interna">
-    <h2>Vero o falso &middot; progressioni e tonicizzazioni</h2>
-    <div class="riquadro compito">
-      <span class="etichetta">Proviamo · 8 minuti</span>
-      <p>Cinque affermazioni sulle progressioni. Si risponde insieme.</p>
-    </div>
-    <tac-quiz quante="5">
-[
- {
-  "d": "In una progressione di quinte con dominanti secondarie si modula a ogni accordo.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 1,
-  "spiega": "Falso: non si modula <strong>mai</strong>, perché nessuna meta viene confermata.",
-  "da": "Perché non si modula mai"
- },
- {
-  "d": "Una progressione ripete un modello a distanza costante.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero: quello che si ripete non è il suono, è il rapporto.",
-  "da": "Che cos’è una progressione"
- },
- {
-  "d": "Ogni grado della scala può fungere da dominante del grado posto alla quinta inferiore.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero: basta dargli la terza maggiore e la settima.",
-  "da": "La dominante secondaria"
- },
- {
-  "d": "In una progressione ogni tonica raggiunta diventa subito la dominante della successiva.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero, ed è per questo che non fa in tempo a essere una tonica.",
-  "da": "Perché non si modula mai"
- },
- {
-  "d": "Una progressione serve a stabilire una tonalità.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 1,
-  "spiega": "Falso: serve a <strong>collegare</strong> due sezioni stabili. La sua natura è il transito.",
-  "da": "Perché non si modula mai"
- },
- {
-  "d": "In una progressione tonale il modello resta dentro la scala.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero: gli accordi cambiano qualità a seconda del grado su cui cadono.",
-  "da": "Che cos’è una progressione"
- },
- {
-  "d": "In una progressione modulante il modello viene trasportato di peso.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero, con le sue alterazioni — e allora si esce davvero.",
-  "da": "Che cos’è una progressione"
- },
- {
-  "d": "In analisi conviene elencare una per una le tonicizzazioni di una progressione.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 1,
-  "spiega": "Falso: si scrive una riga — «progressione di quinte discendenti, batt. 12–16, do maggiore» — e dice tutto.",
-  "da": "Dove si trova"
- },
- {
-  "d": "Una traccia di basso che scende per quinte va realizzata accordo per accordo.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 1,
-  "spiega": "Falso: va letta <strong>come progressione</strong>, e realizzata di conseguenza.",
-  "da": "Dove si trova"
- },
- {
-  "d": "Le progressioni si trovano nei ponti della forma sonata e nei divertimenti della fuga.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero: sono i punti in cui la musica deve andare da qualche parte senza fermarsi.",
-  "da": "Dove si trova"
- },
- {
-  "d": "Si modula nel momento in cui si decide di uscire dalla progressione con una cadenza.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero, e sapere dove uscirne è l’abilità vera.",
-  "da": "Perché non si modula mai"
- },
- {
-  "d": "In una progressione le voci si muovono molto e ogni volta in modo diverso.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 1,
-  "spiega": "Falso: si muovono poco e <strong>sempre allo stesso modo</strong>. È quello che la rende una progressione.",
-  "da": "Che cos’è una progressione"
- },
- {
-  "d": "Una sensibile estranea alla tonalità è sempre segno di modulazione.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 1,
-  "spiega": "Falso, e la progressione è la prova: quattro battute, tre sensibili estranee, nessuna modulazione.",
-  "da": "Prima si ascolta"
- },
- {
-  "d": "La dominante secondaria produce una tonicizzazione, non una modulazione.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero, salvo che la nuova tonica venga confermata da una cadenza.",
-  "da": "La dominante secondaria"
- },
- {
-  "d": "Il modello di una progressione può essere di due o tre accordi.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero: quello che conta è che si ripeta a distanza costante.",
-  "da": "Che cos’è una progressione"
- }
-]
-    </tac-quiz>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Dove si trovano">
-  <div class="slide-interna">
-    <h2>Dove si trovano, e a che cosa servono</h2>
-
-    <tac-stave time="4/4"
-               caption="Una progressione di quinte discendenti: il modello si ripete e non arriva mai"
-               soprano="e/5:w | d/5:w | c/5:w | b/4:w | a/4:w"
-               basso="a/3:w | d/4:w | g/3:w | c/4:w | f/3:w"
-               width="780" tempo="52" play slow></tac-stave>
-
-    <p>Le progressioni non stanno dappertutto in un pezzo: stanno in punti precisi, e questo &egrave; un fatto di <strong>forma</strong>.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">I due posti tipici</span>
-      <p>Nei <strong>ponti</strong> &mdash; i passaggi che collegano due temi: servono a spostarsi senza dire niente di nuovo.<br>
-      Negli <strong>sviluppi</strong> &mdash; dove il materiale gi&agrave; esposto viene rimaneggiato: una progressione permette di far durare la tensione senza aggiungere idee.</p>
-    </div>
-
-    <p class="didascalia">In tutti e due i casi la funzione &egrave; la stessa: <strong>occupare il tempo muovendosi</strong>. E questo spiega perch&eacute; una progressione non moduli &mdash; se modulasse, sarebbe un arrivo, e un ponte non deve arrivare da nessuna parte finch&eacute; non arriva.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Come si scrive">
-  <div class="slide-interna">
-    <h2>Come si scrive una progressione</h2>
-
-    <tac-stave time="4/4"
-               caption="Il modello: due accordi, con la loro condotta"
-               soprano="e/5:w | d/5:w"
-               basso="a/3:w | d/4:w"
-               width="740" tempo="46" play slow></tac-stave>
-
-    <p>&Egrave; la parte pratica dell&rsquo;ora, e la procedura &egrave; corta perch&eacute; il meccanismo &egrave; meccanico.</p>
-
-    <div class="riquadro procedura">
-      <span class="etichetta">Quattro passi</span>
-      <p><strong>1.</strong> Si scrive il <strong>modello</strong>: uno o due accordi, con la loro condotta delle parti.<br>
-      <strong>2.</strong> Si sceglie la <strong>distanza</strong> di trasporto: una seconda sotto &egrave; la pi&ugrave; comune.<br>
-      <strong>3.</strong> Si <strong>ricopia</strong> il modello a quella distanza, tre o quattro volte.<br>
-      <strong>4.</strong> Si decide se resta <strong>tonale</strong> &mdash; e allora si adattano le note alla scala &mdash; o <strong>modulante</strong>, e si trasporta tutto letteralmente.</p>
-    </div>
-
-    <p class="didascalia">Il passo 3 &egrave; quello che rende la progressione lo strumento pi&ugrave; economico dell&rsquo;armonia: si scrive una cosa e se ne ottengono quattro. Ed &egrave; anche il motivo per cui, ascoltandone una, si capisce subito dove finir&agrave;.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Quando si ferma">
-  <div class="slide-interna">
-    <h2>Come si esce da una progressione</h2>
-
-    <p>C&rsquo;&egrave; anche un motivo per cui tre o quattro ripetizioni sono il numero giusto, e non &egrave; arbitrario: alla prima si sente un accordo, alla seconda si riconosce che qualcosa si ripete, alla terza si <strong>prevede</strong> la quarta. Da l&igrave; in poi ogni ripetizione in pi&ugrave; non aggiunge informazione &mdash; conferma soltanto. Ed &egrave; esattamente quando conviene uscire: nel momento in cui chi ascolta sa gi&agrave; che cosa sta per arrivare.</p>
-
-    <p>&Egrave; la parte che si trascura scrivendo, ed &egrave; quella che si sente di pi&ugrave;.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le due cose da decidere</span>
-      <p><strong>Quante volte</strong> ripetere: tre o quattro. Due sono poche perch&eacute; il modello non si riconosce; cinque o pi&ugrave; diventano una macchina.<br>
-      <strong>Dove uscire</strong>: si esce su un accordo che <em>non</em> continua la sequenza &mdash; di solito una dominante della tonalit&agrave; d&rsquo;impianto, o della nuova tonalit&agrave; se il ponte doveva portare da qualche parte.</p>
-    </div>
-
-    <p class="didascalia">L&rsquo;uscita &egrave; il momento in cui la progressione smette di essere un meccanismo e torna a essere musica. Chi la interrompe senza preparare l&rsquo;uscita ottiene l&rsquo;effetto di una macchina spenta a met&agrave;: si sente che manca l&rsquo;ultimo giro.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa portiamo a casa">
-  <div class="slide-interna">
-    <h2>Che cosa portiamo a casa</h2>
-
-    <div class="colonne">
-      <div class="riquadro definizione">
-        <span class="etichetta">In tre righe</span>
-        <p>Una <strong>progressione</strong> ripete un modello a distanza costante.</p>
-        <p>Ogni grado pu&ograve; fare da <strong>dominante secondaria</strong> di quello alla quinta inferiore.</p>
-        <p>Nessuna meta &egrave; confermata: sono <strong>tonicizzazioni</strong>, non modulazioni.</p>
-      </div>
-      <div class="riquadro studio">
-        <span class="etichetta">La cosa da ricordare</span>
-        <p>Una progressione <strong>collega</strong>, non stabilisce. Si modula nel momento in cui si decide di <em>uscirne</em> con una cadenza.</p>
-      </div>
-    </div>
-
-    <p class="didascalia">L&rsquo;ultima ora dell&rsquo;unit&agrave;: un brano intero, e tutte le sue modulazioni &mdash; con la matita in mano.</p>
-  </div>
-</section>
-
-<!-- ───────────────────────────────────────────────────────────────────
-     Due slide, due brani. L'ora è sulla progressione, e la tesi è che
-     in una progressione NON si modula. Una tesi negativa ha bisogno di
-     due esempi: uno dove la progressione gira e non porta da nessuna
-     parte, e uno dove una sequenza somigliante porta invece davvero
-     altrove. Con un brano solo la tesi resta un'affermazione.
-     ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="Una progressione che gira e non porta">
-  <div class="slide-interna">
-    <h2>Il basso che scende per quinte, e resta a casa</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Ascolto &middot; 6 minuti</span>
-      <p>Due ascolti seguendo il basso. Alla fine della sequenza: siamo in un tono <strong>nuovo</strong> o nello stesso di prima?</p>
-    </div>
-
-    <tac-brano organico="voci" titolo="Bach, Corale BWV 154/8 — la sequenza del basso"
-               metronomo youtube="HFjROKbHsLc" esecutore="Gächinger Kantorei Stuttgart · Helmuth Rilling" partitura="../../_assets/spartiti/A17_bach-sequenze.png" inciso="../../_assets/incisioni/A17_bach_sequenze.mp3" mappa='{"durata":20009,"eventi":[[0,0],[1,4000],[2,8000],[3,12000],[4,16000]]}' da-battuta="1">
-<script type="application/json">{"titolo":"J. S. Bach, Corale BWV 154/8, la sequenza del basso (bb. 1–5)","metro":"4/4","bpm":60,"battute":5,"anacrusi":0.0,"voci":[[[0.0,1.0,69],[1.0,1.0,69],[2.0,1.0,71],[3.0,1.0,71],[4.0,1.0,73],[5.0,1.0,73],[6.0,2.0,74],[8.0,1.0,76],[9.0,1.0,76],[10.0,1.0,74],[11.0,1.0,74],[12.0,1.0,73],[13.0,0.5,71],[13.5,0.25,73],[13.75,0.25,74],[14.0,2.0,71],[16.0,2.0,69]],[[0.0,0.5,66],[0.5,0.5,67],[1.0,1.0,69],[2.0,1.0,69],[3.0,1.0,67],[4.0,0.5,67],[4.5,0.5,64],[5.0,0.5,69],[5.5,0.5,67],[6.0,2.0,66],[8.0,1.0,69],[9.0,1.0,69],[10.0,1.0,69],[11.0,0.5,68],[11.5,0.5,66],[12.0,1.0,64],[13.0,1.0,64],[14.0,1.0,66],[15.0,1.0,64],[16.0,2.0,64]],[[0.0,1.0,62],[1.0,1.0,62],[2.0,1.0,62],[3.0,1.0,64],[4.0,1.0,64],[5.0,1.0,57],[6.0,2.0,57],[8.0,1.0,61],[9.0,1.0,61],[10.0,1.0,61],[11.0,1.0,59],[12.0,0.5,59],[12.5,0.5,57],[13.0,1.0,57],[14.0,1.0,57],[15.0,1.0,56],[16.0,2.0,61]],[[0.0,0.5,50],[0.5,0.5,52],[1.0,0.5,54],[1.5,0.5,50],[2.0,0.5,55],[2.5,0.5,54],[3.0,0.5,55],[3.5,0.5,52],[4.0,0.5,57],[4.5,0.5,55],[5.0,0.5,54],[5.5,0.5,52],[6.0,2.0,50],[8.0,0.5,45],[8.5,0.5,47],[9.0,0.5,49],[9.5,0.5,45],[10.0,0.5,47],[10.5,0.5,49],[11.0,0.5,50],[11.5,0.5,47],[12.0,0.5,49],[12.5,0.5,50],[13.0,0.5,52],[13.5,0.5,49],[14.0,0.5,50],[14.5,0.5,47],[15.0,0.5,52],[15.5,0.5,40],[16.0,2.0,45]]]}</script>
-</tac-brano>
-
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Perché in una progressione non si modula</span>
-      <p>Perché ogni passo <strong>ripete lo schema del precedente</strong>, e nessuno dei passi ha una cadenza. Senza cadenza non c&rsquo;è conferma, e senza conferma non c&rsquo;è modulazione.</p>
-      <p>Le dominanti secondarie che si sentono lungo la strada sono tonicizzazioni: durano un accordo ciascuna.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Come si scrive, in analisi</span>
-      <p>Una <strong>parentesi sola</strong> sopra tutta la progressione, con «prog. di quinte discendenti» e i due gradi fra cui va. Non si cifra accordo per accordo: sarebbe corretto e illeggibile.</p>
-    </div>
-
-    <p class="didascalia">L&rsquo;analisi ha una <strong>scala di risoluzione</strong> da scegliere. Cifrare ogni accordo di una progressione nasconde la progressione dietro i suoi dettagli, e il dettaglio corretto può essere l&rsquo;informazione sbagliata.</p>
-  </div>
-</section>
-
-<section class="slide perc" data-titolo="E una sequenza che invece porta">
-  <div class="slide-interna">
-    <h2>Quando la ripetizione si ferma e cade una cadenza</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Confronto &middot; 6 minuti</span>
-      <p>Questo e il precedente. In quale dei due la ripetizione <strong>si interrompe</strong>? E che cosa succede subito dopo l&rsquo;interruzione?</p>
-    </div>
-
-    <tac-brano organico="archi" titolo="Haydn, Quartetto op. 1 n. 1, III movimento"
-               metronomo youtube="JQibAYdVgO8" mappa-video='{"eventi":[[1,597],[2,7613],[3,15263],[4,23356],[5,29956],[6,37807],[7,45489],[8,53139],[9,60723],[10,68389],[11,76113],[12,83580],[13,91229],[14,98830],[15,106997]],"durata":331000}' esecutore="Aeolian String Quartet" partitura="../../_assets/spartiti/A05_haydn-4-4.png" riquadri='[[1,29.1,5.23,21.67,15.95],[2,50.77,5.23,14.6,15.95],[3,65.37,5.23,16.23,15.95],[4,81.6,5.23,14.42,15.95],[5,11.51,22.95,46.24,15.79],[6,57.75,22.95,23.66,15.79],[7,81.41,22.95,14.6,15.79],[8,11.42,40.89,31.55,15.62],[9,42.97,40.89,21.31,15.62],[10,64.28,40.89,31.73,15.62],[11,11.51,58.78,46.78,15.95],[12,58.3,58.78,37.81,15.95],[13,10.7,76.62,44.33,15.36],[14,55.03,76.62,21.76,15.36],[15,76.79,76.62,19.04,15.36]]' inciso="../../_assets/incisioni/A05_haydn_4-4.mp3" mappa='{"durata":37642,"eventi":[[0,0],[1,3333],[2,6667],[3,10000],[4,14167],[5,17500],[6,20833],[7,24167],[8,27500],[9,31667]]}' da-battuta="1">
-<script type="application/json">{"titolo":"F. J. Haydn, Quartetto op. 1 n. 1, III movimento","metro":"4/4","bpm":72,"battute":10,"anacrusi":0.0,"voci":[[[2.0,2.0,68],[4.0,1.0,68],[5.0,1.0,67],[6.0,2.0,72],[8.0,2.0,70],[10.0,1.0,70],[11.0,0.125,68],[11.0,0.2083,68],[11.125,0.125,70],[11.2083,0.125,70],[11.25,0.125,68],[11.3333,0.125,68],[11.375,0.125,70],[11.4583,0.125,70],[11.5,0.125,68],[11.5833,0.125,68],[11.625,0.125,70],[11.7083,0.125,70],[11.75,0.125,68],[11.8333,0.125,68],[11.875,0.125,70],[12.0,2.0,67],[16.0,1.0,82],[17.0,0.225,80],[17.25,0.25,79],[17.5,0.225,77],[17.75,0.25,75],[18.0,0.75,74],[18.75,0.125,75],[18.875,0.125,77],[19.0,1.0,75],[20.0,1.0,84],[21.0,0.25,82],[21.25,0.25,80],[21.5,0.25,79],[21.75,0.25,77],[22.0,1.0,82],[23.0,0.5,87],[23.5,0.5,67],[24.0,1.0,70],[25.0,0.125,68],[25.0,0.2083,68],[25.125,0.125,70],[25.2083,0.125,70],[25.25,0.125,68],[25.3333,0.125,68],[25.375,0.125,70],[25.4583,0.125,70],[25.5,0.125,68],[25.5833,0.125,68],[25.625,0.125,70],[25.7083,0.125,70],[25.75,0.125,68],[25.8333,0.125,68],[25.875,0.125,70],[26.0,1.0,67],[28.0,1.0,75],[29.0,0.5,79],[29.5,0.5,82],[30.0,0.5,82],[30.5,0.125,84],[30.625,0.125,81],[30.75,0.125,82],[30.875,0.125,84],[31.0,0.5,86],[32.0,1.0,75],[33.0,0.25,87],[33.25,0.25,84],[33.5,0.25,81],[33.75,0.2083,75],[33.75,0.25,75],[33.9583,0.125,77],[34.0,0.125,75],[34.0833,0.125,75],[34.125,0.125,77],[34.2083,0.125,77],[34.25,0.125,75],[34.3333,0.125,75],[34.375,0.125,77],[34.4583,0.125,77],[34.5,0.125,75],[34.5833,0.125,75],[34.625,0.125,77],[34.75,0.125,75],[34.875,0.125,77],[35.0,1.0,74],[36.0,1.0,77],[37.0,0.5,82],[37.5,0.5,80],[38.0,0.25,79],[38.25,0.25,79],[38.5,0.25,78],[38.75,0.25,79],[39.25,0.25,84],[39.5,0.25,81],[39.75,0.25,82]],[[2.0,2.0,60],[4.0,3.0,58],[7.0,1.0,56],[8.0,1.0,56],[9.0,1.0,55],[10.0,1.0,60],[11.0,1.0,62],[12.0,2.0,63],[16.0,0.25,67],[16.25,0.25,67],[16.5,0.25,67],[16.75,0.25,67],[17.0,0.25,67],[17.0,1.0,67],[17.25,0.25,67],[17.5,0.25,67],[17.75,0.25,67],[18.0,0.25,68],[18.0,1.0,68],[18.25,0.25,68],[18.5,0.25,68],[18.75,0.25,68],[19.0,0.25,67],[19.0,1.0,67],[19.25,0.25,67],[19.5,0.25,67],[19.75,0.25,67],[20.0,0.25,72],[20.0,2.0,72],[20.25,0.25,72],[20.5,0.25,72],[20.75,0.25,72],[21.0,0.25,72],[21.25,0.25,72],[21.5,0.25,72],[21.75,0.25,72],[22.0,0.25,70],[22.0,2.0,70],[22.25,0.25,70],[22.5,0.25,70],[22.75,0.25,70],[23.0,0.25,70],[23.25,0.25,70],[23.5,0.25,70],[23.75,0.25,70],[24.0,1.0,67],[25.0,0.25,65],[25.0,1.0,65],[25.25,0.25,65],[25.5,0.25,65],[25.75,0.25,65],[26.0,0.25,63],[26.0,1.0,63],[26.25,0.25,63],[26.5,0.25,63],[26.75,0.25,63],[27.0,0.25,67],[27.0,1.0,67],[27.25,0.25,67],[27.5,0.25,67],[27.75,0.25,67],[28.0,0.25,70],[28.0,2.0,70],[28.25,0.25,70],[28.5,0.25,70],[28.75,0.25,70],[29.0,0.25,70],[29.25,0.25,70],[29.5,0.25,70],[29.75,0.25,70],[30.0,0.25,70],[30.0,2.0,70],[30.25,0.25,70],[30.5,0.25,70],[30.75,0.25,70],[31.0,0.25,70],[31.25,0.25,70],[31.5,0.25,70],[31.75,0.25,70],[32.0,0.25,70],[32.0,1.0,70],[32.25,0.25,70],[32.5,0.25,70],[32.75,0.25,70],[33.0,0.25,69],[33.25,0.25,69],[33.5,0.25,60],[33.75,0.25,60],[34.0,0.25,60],[34.0,1.0,60],[34.25,0.25,60],[34.5,0.25,60],[34.75,0.25,60],[35.0,0.25,58],[35.0,1.0,58],[35.25,0.25,58],[35.5,0.25,58],[35.75,0.25,58],[36.0,0.25,70],[36.0,2.0,70],[36.25,0.25,70],[36.5,0.25,70],[36.75,0.25,70],[37.0,0.25,70],[37.25,0.25,70],[37.5,0.25,70],[37.75,0.25,70],[38.0,0.25,70],[38.0,2.0,70],[38.25,0.25,70],[38.5,0.25,70],[38.75,0.25,70],[39.0,0.25,70],[39.25,0.25,70],[39.5,0.25,70],[39.75,0.25,70]],[[6.0,2.0,63],[8.0,3.0,63],[11.0,1.0,65],[12.0,2.0,58],[16.0,0.25,63],[16.25,0.25,63],[16.5,0.25,63],[16.75,0.25,63],[17.0,0.25,63],[17.25,0.25,63],[17.5,0.25,63],[17.75,0.25,63],[18.0,0.25,65],[18.25,0.25,65],[18.5,0.25,65],[18.75,0.25,62],[19.0,0.25,63],[19.25,0.25,63],[19.5,0.25,63],[19.75,0.25,63],[20.0,0.25,63],[20.25,0.25,63],[20.5,0.25,63],[20.75,0.25,63],[21.0,0.25,65],[21.25,0.25,65],[21.5,0.25,65],[21.75,0.25,65],[22.0,0.25,65],[22.0,1.0,65],[22.25,0.25,65],[22.5,0.25,65],[22.75,0.25,65],[23.0,0.25,63],[23.0,1.0,63],[23.25,0.25,63],[23.5,0.25,63],[23.75,0.25,63],[24.0,0.25,58],[24.0,2.0,58],[24.25,0.25,58],[24.5,0.25,58],[24.75,0.25,58],[25.0,0.25,58],[25.25,0.25,58],[25.5,0.25,58],[25.75,0.25,58],[26.0,0.25,63],[26.0,2.0,63],[26.25,0.25,63],[26.5,0.25,63],[26.75,0.25,63],[27.0,0.25,63],[27.25,0.25,63],[27.5,0.25,63],[27.75,0.25,63],[28.0,0.25,67],[28.0,2.0,67],[28.25,0.25,67],[28.5,0.25,67],[28.75,0.25,67],[29.0,0.25,67],[29.25,0.25,67],[29.5,0.25,67],[29.75,0.25,67],[30.0,0.25,65],[30.0,2.0,65],[30.25,0.25,65],[30.5,0.25,65],[30.75,0.25,65],[31.0,0.25,65],[31.25,0.25,65],[31.5,0.25,65],[31.75,0.25,65],[32.0,0.25,63],[32.0,1.0,63],[32.25,0.25,63],[32.5,0.25,63],[32.75,0.25,63],[33.0,0.25,63],[33.25,0.25,63],[33.5,0.25,63],[33.75,0.25,69],[34.0,0.25,70],[34.0,1.0,70],[34.25,0.25,70],[34.5,0.25,70],[34.75,0.25,70],[35.0,0.25,58],[35.0,1.0,58],[35.25,0.25,58],[35.5,0.25,58],[35.75,0.25,58],[36.0,0.25,65],[36.0,2.0,65],[36.25,0.25,65],[36.5,0.25,65],[36.75,0.25,65],[37.0,0.25,65],[37.25,0.25,65],[37.5,0.25,65],[37.75,0.25,65],[38.0,0.25,67],[38.0,2.0,67],[38.25,0.25,67],[38.5,0.25,67],[38.75,0.25,67],[39.0,0.25,67],[39.25,0.25,67],[39.5,0.25,67],[39.75,0.25,67]],[[0.0,4.0,51],[4.0,4.0,51],[8.0,4.0,51],[12.0,2.0,51],[16.0,0.25,51],[16.25,0.25,51],[16.5,0.25,51],[16.75,0.25,51],[17.0,0.25,51],[17.25,0.25,51],[17.5,0.25,51],[17.75,0.25,51],[18.0,0.25,46],[18.0,1.0,46],[18.25,0.25,46],[18.5,0.25,46],[18.75,0.25,46],[19.0,0.25,51],[19.0,1.0,51],[19.25,0.25,51],[19.5,0.25,51],[19.75,0.25,51],[20.0,0.25,56],[20.0,2.0,56],[20.25,0.25,56],[20.5,0.25,56],[20.75,0.25,56],[21.0,0.25,56],[21.25,0.25,56],[21.5,0.25,56],[21.75,0.25,56],[22.0,1.0,55],[23.0,0.25,55],[23.25,0.25,55],[23.5,0.25,51],[23.75,0.25,51],[24.0,0.25,46],[24.0,2.0,46],[24.25,0.25,46],[24.5,0.25,46],[24.75,0.25,46],[25.0,0.25,46],[25.25,0.25,46],[25.5,0.25,46],[25.75,0.25,46],[26.0,0.25,51],[26.0,2.0,51],[26.25,0.25,51],[26.5,0.25,51],[26.75,0.25,51],[27.0,0.25,51],[27.25,0.25,51],[27.5,0.25,51],[27.75,0.25,51],[28.0,0.25,51],[28.0,2.0,51],[28.25,0.25,51],[28.5,0.25,51],[28.75,0.25,51],[29.0,0.25,51],[29.25,0.25,51],[29.5,0.25,51],[29.75,0.25,51],[30.0,0.25,50],[30.0,2.0,50],[30.25,0.25,50],[30.5,0.25,50],[30.75,0.25,50],[31.0,0.25,50],[31.25,0.25,50],[31.5,0.25,50],[31.75,0.25,50],[32.0,0.25,48],[32.25,0.25,48],[32.5,0.25,48],[32.75,0.25,48],[33.0,0.25,53],[33.25,0.25,53],[33.5,0.25,53],[33.75,0.25,53],[34.0,0.25,58],[34.25,0.25,58],[34.5,0.25,58],[34.75,0.25,58],[35.0,0.25,46],[35.25,0.25,46],[35.5,0.25,46],[35.75,0.25,46],[36.0,0.25,50],[36.0,2.0,50],[36.25,0.25,50],[36.5,0.25,50],[36.75,0.25,50],[37.0,0.25,50],[37.25,0.25,50],[37.5,0.25,50],[37.75,0.25,50],[38.0,0.25,51],[38.0,2.0,51],[38.25,0.25,51],[38.5,0.25,51],[38.75,0.25,51],[39.0,0.25,51],[39.25,0.25,51],[39.5,0.25,51],[39.75,0.25,51]]]}</script>
-</tac-brano>
-
-
-    <tac-stave clef="bass" time="4/4" caption="La progressione si ferma, e l&rsquo;ultimo passo diventa una cadenza: è lì che si modula" notes="c/3:h f/2:h b/2:h e/3:h a/2:w" width="500" tempo="66" play></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Quando si ferma, e perché conta</span>
-      <p>Una progressione si ferma quando <strong>l&rsquo;ultimo passo non ripete</strong>: prende una sensibile, allarga i valori, e chiude.</p>
-      <p>Il punto di uscita è dove la progressione consegna la musica a una tonalità. Prima di quel punto non ha ancora deciso niente.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Dove si trovano, le progressioni</span>
-      <p>Nei <strong>ponti</strong> e negli <strong>sviluppi</strong>: nei posti che devono portare da qualche parte senza esporre materiale nuovo. Quasi mai nei temi.</p>
-      <p>Trovare una progressione dice a che <strong>punto della forma</strong> siete, ed è un&rsquo;informazione che vale più della cifratura.</p>
-    </div>
-
-    <p class="didascalia">Un procedimento armonico ha un <strong>posto tipico nella forma</strong>. Riconoscerlo dà due informazioni al prezzo di una: che cosa succede, e dove si è.</p>
+    <p class="didascalia">Ecco perch&eacute; una progressione <strong>collega</strong> due sezioni stabili invece di stabilirne una: la sua natura &egrave; il transito. &Egrave; anche il motivo per cui una progressione si sente come un <strong>movimento continuo</strong> e non come una serie di arrivi: nessuno degli accordi &egrave; una meta, e l&rsquo;orecchio lo capisce dal fatto che ogni volta si riparte.</p>
   </div>
 </section>
 
@@ -640,6 +241,104 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
+<section class="slide" data-titolo="Dove si trovano">
+  <div class="slide-interna">
+    <h2>Dove si trovano, a che cosa servono, e perch&eacute; conviene riconoscerle</h2>
+
+    <tac-stave time="4/4"
+               caption="Una progressione di quinte discendenti: il modello si ripete e non arriva mai"
+               soprano="e/5:w | d/5:w | c/5:w | b/4:w | a/4:w"
+               basso="a/3:w | d/4:w | g/3:w | c/4:w | f/3:w"
+               width="780" tempo="52" play slow></tac-stave>
+
+    <p>Le progressioni non stanno dappertutto in un pezzo: stanno in punti precisi, e questo &egrave; un fatto di <strong>forma</strong>.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">I due posti tipici</span>
+      <p>Nei <strong>ponti</strong> della forma sonata &mdash; i passaggi che collegano due temi: servono a spostarsi senza dire niente di nuovo.<br>
+      Negli <strong>sviluppi</strong> &mdash; dove il materiale gi&agrave; esposto viene rimaneggiato: una progressione permette di far durare la tensione senza aggiungere idee.<br>
+      E poi nei <strong>divertimenti della fuga</strong> e in mezzo alle arie: nei posti che devono portare da qualche parte senza esporre materiale nuovo. Quasi mai nei temi.</p>
+    </div>
+
+    <div class="riquadro attenzione"><p><strong>Nella seconda prova</strong><br>una traccia di basso che scende per quinte va realizzata come progressione, non accordo per accordo</p></div>
+
+    <div class="riquadro studio">
+      <p>In analisi la risposta giusta non &egrave; elencare sei tonicizzazioni: &egrave; scrivere <strong>&laquo;progressione di quinte discendenti, batt. 12&ndash;16, do maggiore&raquo;</strong>. Una riga, e dice tutto. Trovare una progressione dice anche a che punto della forma siete, ed &egrave; un&rsquo;informazione che vale pi&ugrave; della cifratura.</p>
+    </div>
+
+    <p class="didascalia">In tutti e due i casi la funzione &egrave; la stessa: <strong>occupare il tempo muovendosi</strong>. E questo spiega perch&eacute; una progressione non moduli &mdash; se modulasse, sarebbe un arrivo, e un ponte non deve arrivare da nessuna parte finch&eacute; non arriva. Un procedimento armonico ha un <strong>posto tipico nella forma</strong>. Riconoscerlo dà due informazioni al prezzo di una: che cosa succede, e dove si è.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Come si scrive">
+  <div class="slide-interna">
+    <h2>Come si scrive una progressione</h2>
+
+    <tac-stave time="4/4"
+               caption="Il modello: due accordi, con la loro condotta"
+               soprano="e/5:w | d/5:w"
+               basso="a/3:w | d/4:w"
+               width="740" tempo="46" play slow></tac-stave>
+
+    <p>&Egrave; la parte pratica dell&rsquo;ora, e la procedura &egrave; corta perch&eacute; il meccanismo &egrave; meccanico.</p>
+
+    <div class="riquadro procedura">
+      <span class="etichetta">Quattro passi</span>
+      <p><strong>1.</strong> Si scrive il <strong>modello</strong>: uno o due accordi, con la loro condotta delle parti.<br>
+      <strong>2.</strong> Si sceglie la <strong>distanza</strong> di trasporto: una seconda sotto &egrave; la pi&ugrave; comune.<br>
+      <strong>3.</strong> Si <strong>ricopia</strong> il modello a quella distanza, tre o quattro volte.<br>
+      <strong>4.</strong> Si decide se resta <strong>tonale</strong> &mdash; e allora si adattano le note alla scala &mdash; o <strong>modulante</strong>, e si trasporta tutto letteralmente.</p>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">E le voci, in pratica</span>
+      <p>Le voci si muovono per <strong>moto obliquo e per grado</strong>: ogni voce fa quello che faceva due accordi prima, un grado più in giù. Il moto delle parti si eredita insieme allo schema.</p>
+    </div>
+
+    <p class="didascalia">Il passo 3 &egrave; quello che rende la progressione lo strumento pi&ugrave; economico dell&rsquo;armonia: si scrive una cosa e se ne ottengono quattro. Ed &egrave; anche il motivo per cui, ascoltandone una, si capisce subito dove finir&agrave;.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Quando si ferma">
+  <div class="slide-interna">
+    <h2>Come si esce da una progressione</h2>
+
+    <p>C&rsquo;&egrave; anche un motivo per cui tre o quattro ripetizioni sono il numero giusto, e non &egrave; arbitrario: alla prima si sente un accordo, alla seconda si riconosce che qualcosa si ripete, alla terza si <strong>prevede</strong> la quarta. Da l&igrave; in poi ogni ripetizione in pi&ugrave; non aggiunge informazione &mdash; conferma soltanto. Ed &egrave; esattamente quando conviene uscire: nel momento in cui chi ascolta sa gi&agrave; che cosa sta per arrivare.</p>
+
+    <p>&Egrave; la parte che si trascura scrivendo, ed &egrave; quella che si sente di pi&ugrave;.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Le due cose da decidere</span>
+      <p><strong>Quante volte</strong> ripetere: tre o quattro. Due sono poche perch&eacute; il modello non si riconosce; cinque o pi&ugrave; diventano una macchina.<br>
+      <strong>Dove uscire</strong>: si esce su un accordo che <em>non</em> continua la sequenza &mdash; di solito una dominante della tonalit&agrave; d&rsquo;impianto, o della nuova tonalit&agrave; se il ponte doveva portare da qualche parte.</p>
+    </div>
+
+    <tac-stave clef="bass" time="4/4" caption="La progressione si ferma, e l&rsquo;ultimo passo diventa una cadenza: è lì che si modula" notes="c/3:h f/2:h b/2:h e/3:h a/2:w" width="500" tempo="66" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Quando si ferma, e perché conta</span>
+      <p>Una progressione si ferma quando <strong>l&rsquo;ultimo passo non ripete</strong>: prende una sensibile, allarga i valori, e chiude.</p>
+      <p>Il punto di uscita è dove la progressione consegna la musica a una tonalità. Prima di quel punto non ha ancora deciso niente.</p>
+    </div>
+
+    <p class="didascalia">L&rsquo;uscita &egrave; il momento in cui la progressione smette di essere un meccanismo e torna a essere musica. Chi la interrompe senza preparare l&rsquo;uscita ottiene l&rsquo;effetto di una macchina spenta a met&agrave;: si sente che manca l&rsquo;ultimo giro.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Scrivetene una">
+  <div class="slide-interna">
+    <h2>Scrivetene una voi</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Sul quaderno, 15 minuti</span>
+      <p>In <strong>si bemolle maggiore</strong>, otto accordi che scendono per quinte, ciascuno con la settima. Quattro parti, condotta pulita: nella progressione le voci si muovono poco e sempre allo stesso modo.</p>
+      <p>Poi <strong>fermatela</strong>: aggiungete due accordi che confermino con una cadenza il punto in cui siete arrivati. Da quel momento avete modulato per davvero, e va scritto dove.</p>
+    </div>
+
+    <p class="didascalia">La seconda parte &egrave; quella che conta: sapere <strong>dove si esce</strong> da una progressione &egrave; l&rsquo;abilit&agrave; vera.</p>
+  </div>
+</section>
+
 <section class="slide" data-titolo="Scriverne una, e farla uscire">
   <div class="slide-interna">
     <h2>Come si costruisce e come si chiude</h2>
@@ -652,11 +351,6 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Tre quarti del lavoro è copiatura. È esattamente così che si scrivevano, ed è la ragione per cui sono così frequenti.</p>
     </div>
 
-    <div class="riquadro definizione">
-      <span class="etichetta">Come si scrive, in pratica</span>
-      <p>Le voci si muovono per <strong>moto obliquo e per grado</strong>: ogni voce fa quello che faceva due accordi prima, un grado più in giù. Il moto delle parti si eredita insieme allo schema.</p>
-    </div>
-
     <div class="riquadro attenzione">
       <span class="etichetta">L&rsquo;errore che compare al terzo passo</span>
       <p>Le voci finiscono <strong>fuori estensione</strong>, perché a ogni passo scendono. Si rimedia con un salto d&rsquo;ottava in una voce interna, fatto nel punto in cui il basso salta.</p>
@@ -666,7 +360,95 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
+<section class="slide" data-titolo="In musica vera">
+  <div class="slide-interna">
+    <h2>Cinque accordi alterati, e nessuna modulazione</h2>
 
+    <p>&Egrave; il caso in cui il criterio della prima ora si vede a occhio nudo: una progressione con dominanti secondarie.</p>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Insieme, 8 minuti</span>
+      <p>Ascoltate e provate a rispondere a una domanda sola: alla fine del passaggio, siete <strong>nella stessa tonalit&agrave;</strong> di quando &egrave; cominciato?</p>
+    </div>
+
+    <tac-brano organico="archi" titolo="F. J. Haydn, Quartetto op. 1 n. 1, III movimento" metronomo youtube="JQibAYdVgO8" mappa-video='{"eventi":[[1,597],[2,7613],[3,15263],[4,23356],[5,29956],[6,37807],[7,45489],[8,53139],[9,60723],[10,68389],[11,76113],[12,83580],[13,91229],[14,98830],[15,106997]],"durata":331000}' esecutore="Aeolian String Quartet" partitura="../../_assets/spartiti/A05_haydn-4-4.png" riquadri='[[1,29.1,5.23,21.67,15.95],[2,50.77,5.23,14.6,15.95],[3,65.37,5.23,16.23,15.95],[4,81.6,5.23,14.42,15.95],[5,11.51,22.95,46.24,15.79],[6,57.75,22.95,23.66,15.79],[7,81.41,22.95,14.6,15.79],[8,11.42,40.89,31.55,15.62],[9,42.97,40.89,21.31,15.62],[10,64.28,40.89,31.73,15.62],[11,11.51,58.78,46.78,15.95],[12,58.3,58.78,37.81,15.95],[13,10.7,76.62,44.33,15.36],[14,55.03,76.62,21.76,15.36],[15,76.79,76.62,19.04,15.36]]' inciso="../../_assets/incisioni/A05_haydn_4-4.mp3" mappa='{"durata":37642,"eventi":[[0,0],[1,3333],[2,6667],[3,10000],[4,14167],[5,17500],[6,20833],[7,24167],[8,27500],[9,31667]]}' da-battuta="1">
+<script type="application/json">{"titolo":"F. J. Haydn, Quartetto op. 1 n. 1, III movimento","metro":"4/4","bpm":72,"battute":10,"anacrusi":0.0,"voci":[[[2.0,2.0,68],[4.0,1.0,68],[5.0,1.0,67],[6.0,2.0,72],[8.0,2.0,70],[10.0,1.0,70],[11.0,0.125,68],[11.0,0.2083,68],[11.125,0.125,70],[11.2083,0.125,70],[11.25,0.125,68],[11.3333,0.125,68],[11.375,0.125,70],[11.4583,0.125,70],[11.5,0.125,68],[11.5833,0.125,68],[11.625,0.125,70],[11.7083,0.125,70],[11.75,0.125,68],[11.8333,0.125,68],[11.875,0.125,70],[12.0,2.0,67],[16.0,1.0,82],[17.0,0.225,80],[17.25,0.25,79],[17.5,0.225,77],[17.75,0.25,75],[18.0,0.75,74],[18.75,0.125,75],[18.875,0.125,77],[19.0,1.0,75],[20.0,1.0,84],[21.0,0.25,82],[21.25,0.25,80],[21.5,0.25,79],[21.75,0.25,77],[22.0,1.0,82],[23.0,0.5,87],[23.5,0.5,67],[24.0,1.0,70],[25.0,0.125,68],[25.0,0.2083,68],[25.125,0.125,70],[25.2083,0.125,70],[25.25,0.125,68],[25.3333,0.125,68],[25.375,0.125,70],[25.4583,0.125,70],[25.5,0.125,68],[25.5833,0.125,68],[25.625,0.125,70],[25.7083,0.125,70],[25.75,0.125,68],[25.8333,0.125,68],[25.875,0.125,70],[26.0,1.0,67],[28.0,1.0,75],[29.0,0.5,79],[29.5,0.5,82],[30.0,0.5,82],[30.5,0.125,84],[30.625,0.125,81],[30.75,0.125,82],[30.875,0.125,84],[31.0,0.5,86],[32.0,1.0,75],[33.0,0.25,87],[33.25,0.25,84],[33.5,0.25,81],[33.75,0.2083,75],[33.75,0.25,75],[33.9583,0.125,77],[34.0,0.125,75],[34.0833,0.125,75],[34.125,0.125,77],[34.2083,0.125,77],[34.25,0.125,75],[34.3333,0.125,75],[34.375,0.125,77],[34.4583,0.125,77],[34.5,0.125,75],[34.5833,0.125,75],[34.625,0.125,77],[34.75,0.125,75],[34.875,0.125,77],[35.0,1.0,74],[36.0,1.0,77],[37.0,0.5,82],[37.5,0.5,80],[38.0,0.25,79],[38.25,0.25,79],[38.5,0.25,78],[38.75,0.25,79],[39.25,0.25,84],[39.5,0.25,81],[39.75,0.25,82]],[[2.0,2.0,60],[4.0,3.0,58],[7.0,1.0,56],[8.0,1.0,56],[9.0,1.0,55],[10.0,1.0,60],[11.0,1.0,62],[12.0,2.0,63],[16.0,0.25,67],[16.25,0.25,67],[16.5,0.25,67],[16.75,0.25,67],[17.0,0.25,67],[17.0,1.0,67],[17.25,0.25,67],[17.5,0.25,67],[17.75,0.25,67],[18.0,0.25,68],[18.0,1.0,68],[18.25,0.25,68],[18.5,0.25,68],[18.75,0.25,68],[19.0,0.25,67],[19.0,1.0,67],[19.25,0.25,67],[19.5,0.25,67],[19.75,0.25,67],[20.0,0.25,72],[20.0,2.0,72],[20.25,0.25,72],[20.5,0.25,72],[20.75,0.25,72],[21.0,0.25,72],[21.25,0.25,72],[21.5,0.25,72],[21.75,0.25,72],[22.0,0.25,70],[22.0,2.0,70],[22.25,0.25,70],[22.5,0.25,70],[22.75,0.25,70],[23.0,0.25,70],[23.25,0.25,70],[23.5,0.25,70],[23.75,0.25,70],[24.0,1.0,67],[25.0,0.25,65],[25.0,1.0,65],[25.25,0.25,65],[25.5,0.25,65],[25.75,0.25,65],[26.0,0.25,63],[26.0,1.0,63],[26.25,0.25,63],[26.5,0.25,63],[26.75,0.25,63],[27.0,0.25,67],[27.0,1.0,67],[27.25,0.25,67],[27.5,0.25,67],[27.75,0.25,67],[28.0,0.25,70],[28.0,2.0,70],[28.25,0.25,70],[28.5,0.25,70],[28.75,0.25,70],[29.0,0.25,70],[29.25,0.25,70],[29.5,0.25,70],[29.75,0.25,70],[30.0,0.25,70],[30.0,2.0,70],[30.25,0.25,70],[30.5,0.25,70],[30.75,0.25,70],[31.0,0.25,70],[31.25,0.25,70],[31.5,0.25,70],[31.75,0.25,70],[32.0,0.25,70],[32.0,1.0,70],[32.25,0.25,70],[32.5,0.25,70],[32.75,0.25,70],[33.0,0.25,69],[33.25,0.25,69],[33.5,0.25,60],[33.75,0.25,60],[34.0,0.25,60],[34.0,1.0,60],[34.25,0.25,60],[34.5,0.25,60],[34.75,0.25,60],[35.0,0.25,58],[35.0,1.0,58],[35.25,0.25,58],[35.5,0.25,58],[35.75,0.25,58],[36.0,0.25,70],[36.0,2.0,70],[36.25,0.25,70],[36.5,0.25,70],[36.75,0.25,70],[37.0,0.25,70],[37.25,0.25,70],[37.5,0.25,70],[37.75,0.25,70],[38.0,0.25,70],[38.0,2.0,70],[38.25,0.25,70],[38.5,0.25,70],[38.75,0.25,70],[39.0,0.25,70],[39.25,0.25,70],[39.5,0.25,70],[39.75,0.25,70]],[[6.0,2.0,63],[8.0,3.0,63],[11.0,1.0,65],[12.0,2.0,58],[16.0,0.25,63],[16.25,0.25,63],[16.5,0.25,63],[16.75,0.25,63],[17.0,0.25,63],[17.25,0.25,63],[17.5,0.25,63],[17.75,0.25,63],[18.0,0.25,65],[18.25,0.25,65],[18.5,0.25,65],[18.75,0.25,62],[19.0,0.25,63],[19.25,0.25,63],[19.5,0.25,63],[19.75,0.25,63],[20.0,0.25,63],[20.25,0.25,63],[20.5,0.25,63],[20.75,0.25,63],[21.0,0.25,65],[21.25,0.25,65],[21.5,0.25,65],[21.75,0.25,65],[22.0,0.25,65],[22.0,1.0,65],[22.25,0.25,65],[22.5,0.25,65],[22.75,0.25,65],[23.0,0.25,63],[23.0,1.0,63],[23.25,0.25,63],[23.5,0.25,63],[23.75,0.25,63],[24.0,0.25,58],[24.0,2.0,58],[24.25,0.25,58],[24.5,0.25,58],[24.75,0.25,58],[25.0,0.25,58],[25.25,0.25,58],[25.5,0.25,58],[25.75,0.25,58],[26.0,0.25,63],[26.0,2.0,63],[26.25,0.25,63],[26.5,0.25,63],[26.75,0.25,63],[27.0,0.25,63],[27.25,0.25,63],[27.5,0.25,63],[27.75,0.25,63],[28.0,0.25,67],[28.0,2.0,67],[28.25,0.25,67],[28.5,0.25,67],[28.75,0.25,67],[29.0,0.25,67],[29.25,0.25,67],[29.5,0.25,67],[29.75,0.25,67],[30.0,0.25,65],[30.0,2.0,65],[30.25,0.25,65],[30.5,0.25,65],[30.75,0.25,65],[31.0,0.25,65],[31.25,0.25,65],[31.5,0.25,65],[31.75,0.25,65],[32.0,0.25,63],[32.0,1.0,63],[32.25,0.25,63],[32.5,0.25,63],[32.75,0.25,63],[33.0,0.25,63],[33.25,0.25,63],[33.5,0.25,63],[33.75,0.25,69],[34.0,0.25,70],[34.0,1.0,70],[34.25,0.25,70],[34.5,0.25,70],[34.75,0.25,70],[35.0,0.25,58],[35.0,1.0,58],[35.25,0.25,58],[35.5,0.25,58],[35.75,0.25,58],[36.0,0.25,65],[36.0,2.0,65],[36.25,0.25,65],[36.5,0.25,65],[36.75,0.25,65],[37.0,0.25,65],[37.25,0.25,65],[37.5,0.25,65],[37.75,0.25,65],[38.0,0.25,67],[38.0,2.0,67],[38.25,0.25,67],[38.5,0.25,67],[38.75,0.25,67],[39.0,0.25,67],[39.25,0.25,67],[39.5,0.25,67],[39.75,0.25,67]],[[0.0,4.0,51],[4.0,4.0,51],[8.0,4.0,51],[12.0,2.0,51],[16.0,0.25,51],[16.25,0.25,51],[16.5,0.25,51],[16.75,0.25,51],[17.0,0.25,51],[17.25,0.25,51],[17.5,0.25,51],[17.75,0.25,51],[18.0,0.25,46],[18.0,1.0,46],[18.25,0.25,46],[18.5,0.25,46],[18.75,0.25,46],[19.0,0.25,51],[19.0,1.0,51],[19.25,0.25,51],[19.5,0.25,51],[19.75,0.25,51],[20.0,0.25,56],[20.0,2.0,56],[20.25,0.25,56],[20.5,0.25,56],[20.75,0.25,56],[21.0,0.25,56],[21.25,0.25,56],[21.5,0.25,56],[21.75,0.25,56],[22.0,1.0,55],[23.0,0.25,55],[23.25,0.25,55],[23.5,0.25,51],[23.75,0.25,51],[24.0,0.25,46],[24.0,2.0,46],[24.25,0.25,46],[24.5,0.25,46],[24.75,0.25,46],[25.0,0.25,46],[25.25,0.25,46],[25.5,0.25,46],[25.75,0.25,46],[26.0,0.25,51],[26.0,2.0,51],[26.25,0.25,51],[26.5,0.25,51],[26.75,0.25,51],[27.0,0.25,51],[27.25,0.25,51],[27.5,0.25,51],[27.75,0.25,51],[28.0,0.25,51],[28.0,2.0,51],[28.25,0.25,51],[28.5,0.25,51],[28.75,0.25,51],[29.0,0.25,51],[29.25,0.25,51],[29.5,0.25,51],[29.75,0.25,51],[30.0,0.25,50],[30.0,2.0,50],[30.25,0.25,50],[30.5,0.25,50],[30.75,0.25,50],[31.0,0.25,50],[31.25,0.25,50],[31.5,0.25,50],[31.75,0.25,50],[32.0,0.25,48],[32.25,0.25,48],[32.5,0.25,48],[32.75,0.25,48],[33.0,0.25,53],[33.25,0.25,53],[33.5,0.25,53],[33.75,0.25,53],[34.0,0.25,58],[34.25,0.25,58],[34.5,0.25,58],[34.75,0.25,58],[35.0,0.25,46],[35.25,0.25,46],[35.5,0.25,46],[35.75,0.25,46],[36.0,0.25,50],[36.0,2.0,50],[36.25,0.25,50],[36.5,0.25,50],[36.75,0.25,50],[37.0,0.25,50],[37.25,0.25,50],[37.5,0.25,50],[37.75,0.25,50],[38.0,0.25,51],[38.0,2.0,51],[38.25,0.25,51],[38.5,0.25,51],[38.75,0.25,51],[39.0,0.25,51],[39.25,0.25,51],[39.5,0.25,51],[39.75,0.25,51]]]}</script>
+</tac-brano>
+
+
+    <p class="didascalia">S&igrave;, quasi sempre. E nel frattempo sono passate tre o quattro sensibili di altre tonalit&agrave;. Chi conta le alterazioni conta quattro modulazioni; chi cerca le <strong>conferme</strong> ne conta zero &mdash; ed &egrave; quello che &egrave; successo davvero.</p>
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────────────────────────
+     Due slide, due brani. L'ora è sulla progressione, e la tesi è che
+     in una progressione NON si modula. Una tesi negativa ha bisogno di
+     due esempi: uno dove la progressione gira e non porta da nessuna
+     parte, e uno dove una sequenza somigliante porta invece davvero
+     altrove. Con un brano solo la tesi resta un'affermazione.
+     ─────────────────────────────────────────────────────────────── -->
+<section class="slide perc" data-titolo="Una progressione che gira e non porta">
+  <div class="slide-interna">
+    <h2>Il basso che scende per quinte, e resta a casa</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Ascolto &middot; 6 minuti</span>
+      <p>Due ascolti seguendo il basso. Alla fine della sequenza: siamo in un tono <strong>nuovo</strong> o nello stesso di prima?</p>
+    </div>
+
+    <tac-brano organico="voci" titolo="Bach, Corale BWV 154/8 — la sequenza del basso"
+               metronomo youtube="HFjROKbHsLc" esecutore="Gächinger Kantorei Stuttgart · Helmuth Rilling" partitura="../../_assets/spartiti/A17_bach-sequenze.png" inciso="../../_assets/incisioni/A17_bach_sequenze.mp3" mappa='{"durata":20009,"eventi":[[0,0],[1,4000],[2,8000],[3,12000],[4,16000]]}' da-battuta="1">
+<script type="application/json">{"titolo":"J. S. Bach, Corale BWV 154/8, la sequenza del basso (bb. 1–5)","metro":"4/4","bpm":60,"battute":5,"anacrusi":0.0,"voci":[[[0.0,1.0,69],[1.0,1.0,69],[2.0,1.0,71],[3.0,1.0,71],[4.0,1.0,73],[5.0,1.0,73],[6.0,2.0,74],[8.0,1.0,76],[9.0,1.0,76],[10.0,1.0,74],[11.0,1.0,74],[12.0,1.0,73],[13.0,0.5,71],[13.5,0.25,73],[13.75,0.25,74],[14.0,2.0,71],[16.0,2.0,69]],[[0.0,0.5,66],[0.5,0.5,67],[1.0,1.0,69],[2.0,1.0,69],[3.0,1.0,67],[4.0,0.5,67],[4.5,0.5,64],[5.0,0.5,69],[5.5,0.5,67],[6.0,2.0,66],[8.0,1.0,69],[9.0,1.0,69],[10.0,1.0,69],[11.0,0.5,68],[11.5,0.5,66],[12.0,1.0,64],[13.0,1.0,64],[14.0,1.0,66],[15.0,1.0,64],[16.0,2.0,64]],[[0.0,1.0,62],[1.0,1.0,62],[2.0,1.0,62],[3.0,1.0,64],[4.0,1.0,64],[5.0,1.0,57],[6.0,2.0,57],[8.0,1.0,61],[9.0,1.0,61],[10.0,1.0,61],[11.0,1.0,59],[12.0,0.5,59],[12.5,0.5,57],[13.0,1.0,57],[14.0,1.0,57],[15.0,1.0,56],[16.0,2.0,61]],[[0.0,0.5,50],[0.5,0.5,52],[1.0,0.5,54],[1.5,0.5,50],[2.0,0.5,55],[2.5,0.5,54],[3.0,0.5,55],[3.5,0.5,52],[4.0,0.5,57],[4.5,0.5,55],[5.0,0.5,54],[5.5,0.5,52],[6.0,2.0,50],[8.0,0.5,45],[8.5,0.5,47],[9.0,0.5,49],[9.5,0.5,45],[10.0,0.5,47],[10.5,0.5,49],[11.0,0.5,50],[11.5,0.5,47],[12.0,0.5,49],[12.5,0.5,50],[13.0,0.5,52],[13.5,0.5,49],[14.0,0.5,50],[14.5,0.5,47],[15.0,0.5,52],[15.5,0.5,40],[16.0,2.0,45]]]}</script>
+</tac-brano>
+
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Come si scrive, in analisi</span>
+      <p>Una <strong>parentesi sola</strong> sopra tutta la progressione, con «prog. di quinte discendenti» e i due gradi fra cui va. Non si cifra accordo per accordo: sarebbe corretto e illeggibile.</p>
+    </div>
+
+    <p class="didascalia">L&rsquo;analisi ha una <strong>scala di risoluzione</strong> da scegliere. Cifrare ogni accordo di una progressione nasconde la progressione dietro i suoi dettagli, e il dettaglio corretto può essere l&rsquo;informazione sbagliata.</p>
+  </div>
+</section>
+
+<section class="slide perc" data-titolo="E una sequenza che invece porta">
+  <div class="slide-interna">
+    <h2>Quando la ripetizione si ferma e cade una cadenza</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Confronto &middot; 6 minuti</span>
+      <p>Questo e il precedente. In quale dei due la ripetizione <strong>si interrompe</strong>? E che cosa succede subito dopo l&rsquo;interruzione?</p>
+    </div>
+
+    <tac-brano organico="archi" titolo="Haydn, Quartetto op. 1 n. 1, III movimento"
+               metronomo youtube="JQibAYdVgO8" mappa-video='{"eventi":[[1,597],[2,7613],[3,15263],[4,23356],[5,29956],[6,37807],[7,45489],[8,53139],[9,60723],[10,68389],[11,76113],[12,83580],[13,91229],[14,98830],[15,106997]],"durata":331000}' esecutore="Aeolian String Quartet" partitura="../../_assets/spartiti/A05_haydn-4-4.png" riquadri='[[1,29.1,5.23,21.67,15.95],[2,50.77,5.23,14.6,15.95],[3,65.37,5.23,16.23,15.95],[4,81.6,5.23,14.42,15.95],[5,11.51,22.95,46.24,15.79],[6,57.75,22.95,23.66,15.79],[7,81.41,22.95,14.6,15.79],[8,11.42,40.89,31.55,15.62],[9,42.97,40.89,21.31,15.62],[10,64.28,40.89,31.73,15.62],[11,11.51,58.78,46.78,15.95],[12,58.3,58.78,37.81,15.95],[13,10.7,76.62,44.33,15.36],[14,55.03,76.62,21.76,15.36],[15,76.79,76.62,19.04,15.36]]' inciso="../../_assets/incisioni/A05_haydn_4-4.mp3" mappa='{"durata":37642,"eventi":[[0,0],[1,3333],[2,6667],[3,10000],[4,14167],[5,17500],[6,20833],[7,24167],[8,27500],[9,31667]]}' da-battuta="1">
+<script type="application/json">{"titolo":"F. J. Haydn, Quartetto op. 1 n. 1, III movimento","metro":"4/4","bpm":72,"battute":10,"anacrusi":0.0,"voci":[[[2.0,2.0,68],[4.0,1.0,68],[5.0,1.0,67],[6.0,2.0,72],[8.0,2.0,70],[10.0,1.0,70],[11.0,0.125,68],[11.0,0.2083,68],[11.125,0.125,70],[11.2083,0.125,70],[11.25,0.125,68],[11.3333,0.125,68],[11.375,0.125,70],[11.4583,0.125,70],[11.5,0.125,68],[11.5833,0.125,68],[11.625,0.125,70],[11.7083,0.125,70],[11.75,0.125,68],[11.8333,0.125,68],[11.875,0.125,70],[12.0,2.0,67],[16.0,1.0,82],[17.0,0.225,80],[17.25,0.25,79],[17.5,0.225,77],[17.75,0.25,75],[18.0,0.75,74],[18.75,0.125,75],[18.875,0.125,77],[19.0,1.0,75],[20.0,1.0,84],[21.0,0.25,82],[21.25,0.25,80],[21.5,0.25,79],[21.75,0.25,77],[22.0,1.0,82],[23.0,0.5,87],[23.5,0.5,67],[24.0,1.0,70],[25.0,0.125,68],[25.0,0.2083,68],[25.125,0.125,70],[25.2083,0.125,70],[25.25,0.125,68],[25.3333,0.125,68],[25.375,0.125,70],[25.4583,0.125,70],[25.5,0.125,68],[25.5833,0.125,68],[25.625,0.125,70],[25.7083,0.125,70],[25.75,0.125,68],[25.8333,0.125,68],[25.875,0.125,70],[26.0,1.0,67],[28.0,1.0,75],[29.0,0.5,79],[29.5,0.5,82],[30.0,0.5,82],[30.5,0.125,84],[30.625,0.125,81],[30.75,0.125,82],[30.875,0.125,84],[31.0,0.5,86],[32.0,1.0,75],[33.0,0.25,87],[33.25,0.25,84],[33.5,0.25,81],[33.75,0.2083,75],[33.75,0.25,75],[33.9583,0.125,77],[34.0,0.125,75],[34.0833,0.125,75],[34.125,0.125,77],[34.2083,0.125,77],[34.25,0.125,75],[34.3333,0.125,75],[34.375,0.125,77],[34.4583,0.125,77],[34.5,0.125,75],[34.5833,0.125,75],[34.625,0.125,77],[34.75,0.125,75],[34.875,0.125,77],[35.0,1.0,74],[36.0,1.0,77],[37.0,0.5,82],[37.5,0.5,80],[38.0,0.25,79],[38.25,0.25,79],[38.5,0.25,78],[38.75,0.25,79],[39.25,0.25,84],[39.5,0.25,81],[39.75,0.25,82]],[[2.0,2.0,60],[4.0,3.0,58],[7.0,1.0,56],[8.0,1.0,56],[9.0,1.0,55],[10.0,1.0,60],[11.0,1.0,62],[12.0,2.0,63],[16.0,0.25,67],[16.25,0.25,67],[16.5,0.25,67],[16.75,0.25,67],[17.0,0.25,67],[17.0,1.0,67],[17.25,0.25,67],[17.5,0.25,67],[17.75,0.25,67],[18.0,0.25,68],[18.0,1.0,68],[18.25,0.25,68],[18.5,0.25,68],[18.75,0.25,68],[19.0,0.25,67],[19.0,1.0,67],[19.25,0.25,67],[19.5,0.25,67],[19.75,0.25,67],[20.0,0.25,72],[20.0,2.0,72],[20.25,0.25,72],[20.5,0.25,72],[20.75,0.25,72],[21.0,0.25,72],[21.25,0.25,72],[21.5,0.25,72],[21.75,0.25,72],[22.0,0.25,70],[22.0,2.0,70],[22.25,0.25,70],[22.5,0.25,70],[22.75,0.25,70],[23.0,0.25,70],[23.25,0.25,70],[23.5,0.25,70],[23.75,0.25,70],[24.0,1.0,67],[25.0,0.25,65],[25.0,1.0,65],[25.25,0.25,65],[25.5,0.25,65],[25.75,0.25,65],[26.0,0.25,63],[26.0,1.0,63],[26.25,0.25,63],[26.5,0.25,63],[26.75,0.25,63],[27.0,0.25,67],[27.0,1.0,67],[27.25,0.25,67],[27.5,0.25,67],[27.75,0.25,67],[28.0,0.25,70],[28.0,2.0,70],[28.25,0.25,70],[28.5,0.25,70],[28.75,0.25,70],[29.0,0.25,70],[29.25,0.25,70],[29.5,0.25,70],[29.75,0.25,70],[30.0,0.25,70],[30.0,2.0,70],[30.25,0.25,70],[30.5,0.25,70],[30.75,0.25,70],[31.0,0.25,70],[31.25,0.25,70],[31.5,0.25,70],[31.75,0.25,70],[32.0,0.25,70],[32.0,1.0,70],[32.25,0.25,70],[32.5,0.25,70],[32.75,0.25,70],[33.0,0.25,69],[33.25,0.25,69],[33.5,0.25,60],[33.75,0.25,60],[34.0,0.25,60],[34.0,1.0,60],[34.25,0.25,60],[34.5,0.25,60],[34.75,0.25,60],[35.0,0.25,58],[35.0,1.0,58],[35.25,0.25,58],[35.5,0.25,58],[35.75,0.25,58],[36.0,0.25,70],[36.0,2.0,70],[36.25,0.25,70],[36.5,0.25,70],[36.75,0.25,70],[37.0,0.25,70],[37.25,0.25,70],[37.5,0.25,70],[37.75,0.25,70],[38.0,0.25,70],[38.0,2.0,70],[38.25,0.25,70],[38.5,0.25,70],[38.75,0.25,70],[39.0,0.25,70],[39.25,0.25,70],[39.5,0.25,70],[39.75,0.25,70]],[[6.0,2.0,63],[8.0,3.0,63],[11.0,1.0,65],[12.0,2.0,58],[16.0,0.25,63],[16.25,0.25,63],[16.5,0.25,63],[16.75,0.25,63],[17.0,0.25,63],[17.25,0.25,63],[17.5,0.25,63],[17.75,0.25,63],[18.0,0.25,65],[18.25,0.25,65],[18.5,0.25,65],[18.75,0.25,62],[19.0,0.25,63],[19.25,0.25,63],[19.5,0.25,63],[19.75,0.25,63],[20.0,0.25,63],[20.25,0.25,63],[20.5,0.25,63],[20.75,0.25,63],[21.0,0.25,65],[21.25,0.25,65],[21.5,0.25,65],[21.75,0.25,65],[22.0,0.25,65],[22.0,1.0,65],[22.25,0.25,65],[22.5,0.25,65],[22.75,0.25,65],[23.0,0.25,63],[23.0,1.0,63],[23.25,0.25,63],[23.5,0.25,63],[23.75,0.25,63],[24.0,0.25,58],[24.0,2.0,58],[24.25,0.25,58],[24.5,0.25,58],[24.75,0.25,58],[25.0,0.25,58],[25.25,0.25,58],[25.5,0.25,58],[25.75,0.25,58],[26.0,0.25,63],[26.0,2.0,63],[26.25,0.25,63],[26.5,0.25,63],[26.75,0.25,63],[27.0,0.25,63],[27.25,0.25,63],[27.5,0.25,63],[27.75,0.25,63],[28.0,0.25,67],[28.0,2.0,67],[28.25,0.25,67],[28.5,0.25,67],[28.75,0.25,67],[29.0,0.25,67],[29.25,0.25,67],[29.5,0.25,67],[29.75,0.25,67],[30.0,0.25,65],[30.0,2.0,65],[30.25,0.25,65],[30.5,0.25,65],[30.75,0.25,65],[31.0,0.25,65],[31.25,0.25,65],[31.5,0.25,65],[31.75,0.25,65],[32.0,0.25,63],[32.0,1.0,63],[32.25,0.25,63],[32.5,0.25,63],[32.75,0.25,63],[33.0,0.25,63],[33.25,0.25,63],[33.5,0.25,63],[33.75,0.25,69],[34.0,0.25,70],[34.0,1.0,70],[34.25,0.25,70],[34.5,0.25,70],[34.75,0.25,70],[35.0,0.25,58],[35.0,1.0,58],[35.25,0.25,58],[35.5,0.25,58],[35.75,0.25,58],[36.0,0.25,65],[36.0,2.0,65],[36.25,0.25,65],[36.5,0.25,65],[36.75,0.25,65],[37.0,0.25,65],[37.25,0.25,65],[37.5,0.25,65],[37.75,0.25,65],[38.0,0.25,67],[38.0,2.0,67],[38.25,0.25,67],[38.5,0.25,67],[38.75,0.25,67],[39.0,0.25,67],[39.25,0.25,67],[39.5,0.25,67],[39.75,0.25,67]],[[0.0,4.0,51],[4.0,4.0,51],[8.0,4.0,51],[12.0,2.0,51],[16.0,0.25,51],[16.25,0.25,51],[16.5,0.25,51],[16.75,0.25,51],[17.0,0.25,51],[17.25,0.25,51],[17.5,0.25,51],[17.75,0.25,51],[18.0,0.25,46],[18.0,1.0,46],[18.25,0.25,46],[18.5,0.25,46],[18.75,0.25,46],[19.0,0.25,51],[19.0,1.0,51],[19.25,0.25,51],[19.5,0.25,51],[19.75,0.25,51],[20.0,0.25,56],[20.0,2.0,56],[20.25,0.25,56],[20.5,0.25,56],[20.75,0.25,56],[21.0,0.25,56],[21.25,0.25,56],[21.5,0.25,56],[21.75,0.25,56],[22.0,1.0,55],[23.0,0.25,55],[23.25,0.25,55],[23.5,0.25,51],[23.75,0.25,51],[24.0,0.25,46],[24.0,2.0,46],[24.25,0.25,46],[24.5,0.25,46],[24.75,0.25,46],[25.0,0.25,46],[25.25,0.25,46],[25.5,0.25,46],[25.75,0.25,46],[26.0,0.25,51],[26.0,2.0,51],[26.25,0.25,51],[26.5,0.25,51],[26.75,0.25,51],[27.0,0.25,51],[27.25,0.25,51],[27.5,0.25,51],[27.75,0.25,51],[28.0,0.25,51],[28.0,2.0,51],[28.25,0.25,51],[28.5,0.25,51],[28.75,0.25,51],[29.0,0.25,51],[29.25,0.25,51],[29.5,0.25,51],[29.75,0.25,51],[30.0,0.25,50],[30.0,2.0,50],[30.25,0.25,50],[30.5,0.25,50],[30.75,0.25,50],[31.0,0.25,50],[31.25,0.25,50],[31.5,0.25,50],[31.75,0.25,50],[32.0,0.25,48],[32.25,0.25,48],[32.5,0.25,48],[32.75,0.25,48],[33.0,0.25,53],[33.25,0.25,53],[33.5,0.25,53],[33.75,0.25,53],[34.0,0.25,58],[34.25,0.25,58],[34.5,0.25,58],[34.75,0.25,58],[35.0,0.25,46],[35.25,0.25,46],[35.5,0.25,46],[35.75,0.25,46],[36.0,0.25,50],[36.0,2.0,50],[36.25,0.25,50],[36.5,0.25,50],[36.75,0.25,50],[37.0,0.25,50],[37.25,0.25,50],[37.5,0.25,50],[37.75,0.25,50],[38.0,0.25,51],[38.0,2.0,51],[38.25,0.25,51],[38.5,0.25,51],[38.75,0.25,51],[39.0,0.25,51],[39.25,0.25,51],[39.5,0.25,51],[39.75,0.25,51]]]}</script>
+</tac-brano>
+
+
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa</h2>
+
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">In tre righe</span>
+        <p>Una <strong>progressione</strong> ripete un modello a distanza costante.</p>
+        <p>Ogni grado pu&ograve; fare da <strong>dominante secondaria</strong> di quello alla quinta inferiore.</p>
+        <p>Nessuna meta &egrave; confermata: sono <strong>tonicizzazioni</strong>, non modulazioni.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">La cosa da ricordare</span>
+        <p>Una progressione <strong>collega</strong>, non stabilisce. Si modula nel momento in cui si decide di <em>uscirne</em> con una cadenza.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">L&rsquo;ultima ora dell&rsquo;unit&agrave;: un brano intero, e tutte le sue modulazioni &mdash; con la matita in mano.</p>
+  </div>
+</section>
 
 <section class="slide esercizio insieme-slide" data-titolo="In classe · parlato">
   <div class="slide-interna">

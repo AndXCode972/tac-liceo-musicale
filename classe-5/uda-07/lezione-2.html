@@ -65,6 +65,8 @@ try { module = undefined; exports = undefined; } catch (e) {}
      quest'ora la controlla.
      ══════════════════════════════════════════════════════════════════ -->
 
+<!-- Riordinata il 30/09/2026: i riquadri delle slide aggiunte portati nelle slide che trattano lo stesso punto (perché rallenta, regola dell'ottava sui tempi, crome e accordi, riempire, dove va il modello); «I quattro passi, con il controllo» subito dopo «Lo stesso basso, due volte»; la seconda «Trentadue contro ottantuno» rinominata «Il rapporto, e la soglia» e messa dopo «Dove va il modello» (i numeri non coincidono: segnalato); ascolti in fondo. -->
+
 <section class="slide attiva copertina foto" data-titolo="Copertina"
          style="--foto: url('../../_assets/copertine/c5u7-lezione-2.jpg?v=6c0ddbde');
                 --cop-a:#581c87; --cop-b:#9333ea; --cop-c:#e9d5ff">
@@ -213,7 +215,13 @@ try { module = undefined; exports = undefined; } catch (e) {}
       </div>
     </div>
 
-    <p class="didascalia">Le due ragioni sono la stessa vista da due parti: il ritmo del basso deve dire quello che dice la forma. Dove la forma si ferma, il ritmo si ferma.</p>
+    <div class="riquadro attenzione">
+      <span class="etichetta">E il rallentando è scritto nelle note</span>
+      <p>Verso la fine del verso il basso rallenta: dalle crome torna alle minime. È il modo di preparare la <strong>corona</strong> senza scrivere un rallentando.</p>
+      <p>La notazione del Settecento non ha l&rsquo;indicazione agogica: la scrive nelle durate.</p>
+    </div>
+
+    <p class="didascalia">Le due ragioni sono la stessa vista da due parti: il ritmo del basso deve dire quello che dice la forma. Dove la forma si ferma, il ritmo si ferma. Quello che oggi si scrive come <strong>indicazione</strong> — rallentare, allargare — nel Settecento è scritto nelle note. Cercare l&rsquo;indicazione e non trovarla non vuol dire che il fenomeno non ci sia.</p>
   </div>
 </section>
 
@@ -235,6 +243,12 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <strong>2.</strong> Un basso per grado ha l&rsquo;armonia gi&agrave; decisa dalla regola dell&rsquo;ottava.<br>
       <strong>3.</strong> Quindi l&rsquo;armonia si legge dalla <strong>direzione</strong>, non da ogni singola nota.</p>
     </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Sui tempi, non sulle crome</span>
+      <p>Le note del basso sui <strong>tempi</strong> seguono la Regola. Le crome fra un tempo e l&rsquo;altro no: non sono gradi, sono passaggio.</p>
+      <p>Applicare la Regola alle crome dà quattro accordi su quattro sbagliati, ed è l&rsquo;errore che rende impossibile analizzare un corale figurato.</p>
+    </div>
   </div>
 </section>
 
@@ -244,16 +258,31 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
     <p>Ottantuno note di basso non vogliono dire ottantuno accordi. La maggior parte delle crome sono <strong>note di passaggio</strong>: l&rsquo;armonia cambia molto pi&ugrave; lentamente del basso.</p>
 
-    <tac-stave time="3/4" keysig="Bb" clef="bass"
+    <div class="affianca">
+      <div>
+        <tac-stave time="3/4" keysig="Bb" clef="bass"
                caption="Bach, BWV 326: sei crome, e due soli accordi sotto"
                notes="bb/2:8 a/2:8 g/2:8 a/2:8 bb/2:8 c/3:8"
                segna="b1=Si&#9837; per quattro crome, poi Do"
-               width="700" tempo="58" play a-passi slow></tac-stave>
+               width="380" tempo="58" play a-passi slow></tac-stave>
+      </div>
+      <div>
+        <tac-stave clef="bass" time="4/4" caption="Il basso strutturale del BWV 326: quattro note per verso, sotto tutte le crome" notes="c/3:w g/2:w a/2:w c/3:w" width="480" tempo="56" play></tac-stave>
+      </div>
+    </div>
 
     <div class="riquadro definizione">
       <span class="etichetta">La domanda giusta, davanti a un basso in crome</span>
       <p>Non &laquo;che accordo &egrave; questa nota&raquo;, ma <strong>&laquo;dove arriva questa corsa&raquo;</strong>. Le note che contano sono quelle sui tempi forti e quelle in cui il moto cambia direzione.</p>
     </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Due su otto</span>
+      <p>In un basso in crome cambiano accordo <strong>due note su otto</strong>, non otto su otto. Le altre sei sono di passaggio o di volta.</p>
+      <p>Chi cifra ogni croma trova otto accordi per battuta e conclude che Bach ha un ritmo armonico forsennato. Ne ha due.</p>
+    </div>
+
+    <p class="didascalia">La <strong>densità di superficie</strong> e la densità strutturale sono parametri indipendenti. Un basso che corre può avere lo stesso ritmo armonico di uno che sta fermo.</p>
   </div>
 </section>
 
@@ -296,6 +325,25 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
+<section class="slide" data-titolo="I quattro passi, con il controllo">
+  <div class="slide-interna">
+    <h2>I quattro passi per figurare un basso</h2>
+
+    <tac-stave clef="bass" time="4/4" caption="Prima le note strutturali, sui tempi. Poi si riempie fra l&rsquo;una e l&rsquo;altra" notes="c/3:h e/3:h f/3:h g/2:h" width="460" tempo="58" play></tac-stave>
+
+    <tac-stave clef="bass" time="4/4" caption="Riempito: le note aggiunte procedono per grado e cadono sui levare" notes="c/3:8 d/3:8 e/3:8 d/3:8 e/3:8 f/3:8 g/3:8 f/3:8" width="480" tempo="58" play></tac-stave>
+
+    <div class="riquadro studio">
+      <span class="etichetta">I quattro passi, in ordine</span>
+      <p><strong>1.</strong> Si scrive il basso <strong>strutturale</strong>, a note lunghe.<br>
+      <strong>2.</strong> Si armonizza a quattro parti.<br>
+      <strong>3.</strong> Si <strong>riempie</strong> il basso fra le note strutturali, per grado.<br>
+      <strong>4.</strong> Si controlla che le note aggiunte non facciano parallele con le voci sopra.</p>
+    </div>
+
+  </div>
+</section>
+
 <section class="slide" data-titolo="Riempire non &egrave; gratis">
   <div class="slide-interna">
     <h2>Riempire un salto costa qualcosa</h2>
@@ -308,7 +356,18 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
     <p>&Egrave; la stessa regola che conoscete dal contrappunto di seconda specie, in seconda: il tempo debole &egrave; libero, il forte no.</p>
 
-    <p class="didascalia">Chi ha fatto le specie ha gi&agrave; in mano il criterio, e non se ne accorge perch&eacute; l&igrave; si chiamava un&rsquo;altra cosa.</p>
+    <div class="riquadro definizione">
+      <span class="etichetta">Più vincoli, non meno</span>
+      <p>Ogni croma aggiunta al basso è una nota che deve <strong>stare</strong> con le tre voci sopra. Le note di passaggio possono dissonare; quelle sui tempi no.</p>
+      <p>Un basso figurato costa più vincoli, non meno: è per questo che si scrive dopo aver fissato l&rsquo;armonia.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Il quarto passo, che tutti saltano</span>
+      <p>Le parallele nascono <strong>fra le note aggiunte</strong> e le voci superiori, non fra quelle strutturali. Un basso armonizzato bene diventa scorretto appena lo si riempie, e il controllo va rifatto.</p>
+    </div>
+
+    <p class="didascalia">Chi ha fatto le specie ha gi&agrave; in mano il criterio, e non se ne accorge perch&eacute; l&igrave; si chiamava un&rsquo;altra cosa. Un&rsquo;operazione che aggiunge materiale <strong>invalida i controlli</strong> già fatti. Il controllo va ripetuto dopo, non prima, ed è la parte che si dimentica.</p>
   </div>
 </section>
 
@@ -327,7 +386,38 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
     <p>Che &egrave; anche il motivo per cui il conto dei versi dice pi&ugrave; del conto dei brani: cercando corali &laquo;in basso in ottavi&raquo; se ne trova <strong>uno</strong>, e sembra un modello marginale. Cercando <em>versi</em> se ne trovano trecentododici, sparsi ovunque.</p>
 
+    <div class="riquadro definizione">
+      <span class="etichetta">E nella cantata</span>
+      <p>Il corale figurato sta di solito <strong>all&rsquo;inizio</strong> o in mezzo, non alla fine. Il finale è semplice, perché lo canta l&rsquo;assemblea.</p>
+      <p>La differenza è di destinazione: uno è per i cantori, l&rsquo;altro per tutti.</p>
+    </div>
+
     <p class="didascalia">E quasi sempre &egrave; il verso in cui il testo dice qualcosa che si muove &mdash; ma questa &egrave; una cosa da guardare caso per caso, e il testo dei corali non lo leggiamo in questo corso.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il rapporto, e la soglia">
+  <div class="slide-interna">
+    <h2>Che cosa dice il rapporto fra i due numeri</h2>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Il conto, e la sua condizione</span>
+      <p>Sui corali contati, i <strong>figurati</strong> sono una minoranza consistente rispetto ai semplici. Il rapporto è di circa uno a due o uno a tre secondo la soglia.</p>
+      <p>La soglia usata qui: almeno <strong>quattro crome per verso</strong>, in almeno metà dei versi.</p>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Che cosa se ne ricava</span>
+      <p>Che il basso figurato è una <strong>scelta frequente</strong> e non un&rsquo;eccezione. Se fosse uno su venti si potrebbe insegnare come curiosità; a uno su tre è parte del repertorio corrente.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">⚠ Il numero con la soglia accanto</span>
+      <p>«Trentadue su ottantuno» senza la soglia non è un dato: chiunque rifaccia il conto con un criterio diverso ottiene un altro numero e crede che uno dei due sia sbagliato.</p>
+      <p>La soglia va scritta ogni volta che si riporta il conto.</p>
+    </div>
+
+    <p class="didascalia">Un rapporto fra due numeri dice più del numero assoluto, e regge meglio ai cambi di criterio. È la forma in cui conviene riportare i conteggi su un corpus.</p>
   </div>
 </section>
 
@@ -362,25 +452,6 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide" data-titolo="Che cosa portiamo a casa">
-  <div class="slide-interna">
-    <h2>Che cosa portiamo a casa</h2>
-
-    <div class="colonne">
-      <div class="riquadro definizione">
-        <span class="etichetta">Il modello 2</span>
-        <p>Tre voci come sempre, il basso in <strong>crome</strong>, quasi tutte <strong>per grado</strong>, e il moto che <strong>si ferma alla corona</strong>.</p>
-      </div>
-      <div class="riquadro studio">
-        <span class="etichetta">Il numero da ricordare</span>
-        <p>In BWV 326 il basso ha <strong>81 note</strong> contro le <strong>32</strong> del soprano, e alla corona fa sempre <strong>sei crome e una minima</strong>.</p>
-      </div>
-    </div>
-
-    <p class="didascalia">La prossima ora si canta, e non un corale semplice: uno <strong>figurato</strong>, dove a muoversi non &egrave; il basso ma la voce che avete in mano. &Egrave; un&rsquo;altra fatica, e conviene saperlo prima.</p>
-  </div>
-</section>
-
 <!-- ───────────────────────────────────────────────────────────────────
      Quattro slide, due con musica vera. L'ora ha «Lo stesso basso, due
      volte» come titolo e un brano solo: il confronto che l'ora annuncia
@@ -402,19 +473,6 @@ try { module = undefined; exports = undefined; } catch (e) {}
 </tac-brano>
 
 
-    <div class="riquadro definizione">
-      <span class="etichetta">Riempire non è gratis</span>
-      <p>Ogni croma aggiunta al basso è una nota che deve <strong>stare</strong> con le tre voci sopra. Le note di passaggio possono dissonare; quelle sui tempi no.</p>
-      <p>Un basso figurato costa più vincoli, non meno: è per questo che si scrive dopo aver fissato l&rsquo;armonia.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Non tutte le crome sono accordi</span>
-      <p>In un basso in crome cambiano accordo <strong>due note su otto</strong>, non otto su otto. Le altre sei sono di passaggio o di volta.</p>
-      <p>Chi cifra ogni croma trova otto accordi per battuta e conclude che Bach ha un ritmo armonico forsennato. Ne ha due.</p>
-    </div>
-
-    <p class="didascalia">La <strong>densità di superficie</strong> e la densità strutturale sono parametri indipendenti. Un basso che corre può avere lo stesso ritmo armonico di uno che sta fermo.</p>
   </div>
 </section>
 
@@ -433,80 +491,27 @@ try { module = undefined; exports = undefined; } catch (e) {}
 </tac-brano>
 
 
-    <div class="riquadro definizione">
-      <span class="etichetta">La regola dell&rsquo;ottava, di nuovo</span>
-      <p>Le note del basso sui <strong>tempi</strong> seguono la Regola. Le crome fra un tempo e l&rsquo;altro no: non sono gradi, sono passaggio.</p>
-      <p>Applicare la Regola alle crome dà quattro accordi su quattro sbagliati, ed è l&rsquo;errore che rende impossibile analizzare un corale figurato.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Perché rallenta</span>
-      <p>Verso la fine del verso il basso rallenta: dalle crome torna alle minime. È il modo di preparare la <strong>corona</strong> senza scrivere un rallentando.</p>
-      <p>La notazione del Settecento non ha l&rsquo;indicazione agogica: la scrive nelle durate.</p>
-    </div>
-
-    <p class="didascalia">Quello che oggi si scrive come <strong>indicazione</strong> — rallentare, allargare — nel Settecento è scritto nelle note. Cercare l&rsquo;indicazione e non trovarla non vuol dire che il fenomeno non ci sia.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Come si scrive, e dove va il modello">
+<section class="slide" data-titolo="Che cosa portiamo a casa">
   <div class="slide-interna">
-    <h2>I quattro passi per figurare un basso</h2>
+    <h2>Che cosa portiamo a casa</h2>
 
-    <tac-stave clef="bass" time="4/4" caption="Prima le note strutturali, sui tempi. Poi si riempie fra l&rsquo;una e l&rsquo;altra" notes="c/3:h e/3:h f/3:h g/2:h" width="460" tempo="58" play></tac-stave>
-
-    <tac-stave clef="bass" time="4/4" caption="Riempito: le note aggiunte procedono per grado e cadono sui levare" notes="c/3:8 d/3:8 e/3:8 d/3:8 e/3:8 f/3:8 g/3:8 f/3:8" width="480" tempo="58" play></tac-stave>
-
-    <div class="riquadro studio">
-      <span class="etichetta">I quattro passi, in ordine</span>
-      <p><strong>1.</strong> Si scrive il basso <strong>strutturale</strong>, a note lunghe.<br>
-      <strong>2.</strong> Si armonizza a quattro parti.<br>
-      <strong>3.</strong> Si <strong>riempie</strong> il basso fra le note strutturali, per grado.<br>
-      <strong>4.</strong> Si controlla che le note aggiunte non facciano parallele con le voci sopra.</p>
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Il modello 2</span>
+        <p>Tre voci come sempre, il basso in <strong>crome</strong>, quasi tutte <strong>per grado</strong>, e il moto che <strong>si ferma alla corona</strong>.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">Il numero da ricordare</span>
+        <p>In BWV 326 il basso ha <strong>81 note</strong> contro le <strong>32</strong> del soprano, e alla corona fa sempre <strong>sei crome e una minima</strong>.</p>
+      </div>
     </div>
 
-    <div class="riquadro definizione">
-      <span class="etichetta">Dove va il modello, nella cantata</span>
-      <p>Il corale figurato sta di solito <strong>all&rsquo;inizio</strong> o in mezzo, non alla fine. Il finale è semplice, perché lo canta l&rsquo;assemblea.</p>
-      <p>La differenza è di destinazione: uno è per i cantori, l&rsquo;altro per tutti.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Il quarto passo, che tutti saltano</span>
-      <p>Le parallele nascono <strong>fra le note aggiunte</strong> e le voci superiori, non fra quelle strutturali. Un basso armonizzato bene diventa scorretto appena lo si riempie, e il controllo va rifatto.</p>
-    </div>
-
-    <p class="didascalia">Un&rsquo;operazione che aggiunge materiale <strong>invalida i controlli</strong> già fatti. Il controllo va ripetuto dopo, non prima, ed è la parte che si dimentica.</p>
+    <p class="didascalia">La prossima ora si canta, e non un corale semplice: uno <strong>figurato</strong>, dove a muoversi non &egrave; il basso ma la voce che avete in mano. &Egrave; un&rsquo;altra fatica, e conviene saperlo prima.</p>
   </div>
 </section>
-
-<section class="slide" data-titolo="Trentadue contro ottantuno">
-  <div class="slide-interna">
-    <h2>Che cosa dice il rapporto fra i due numeri</h2>
-
-    <tac-stave clef="bass" time="4/4" caption="Il basso strutturale del BWV 326: quattro note per verso, sotto tutte le crome" notes="c/3:w g/2:w a/2:w c/3:w" width="480" tempo="56" play></tac-stave>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Il conto, e la sua condizione</span>
-      <p>Sui corali contati, i <strong>figurati</strong> sono una minoranza consistente rispetto ai semplici. Il rapporto è di circa uno a due o uno a tre secondo la soglia.</p>
-      <p>La soglia usata qui: almeno <strong>quattro crome per verso</strong>, in almeno metà dei versi.</p>
-    </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa se ne ricava</span>
-      <p>Che il basso figurato è una <strong>scelta frequente</strong> e non un&rsquo;eccezione. Se fosse uno su venti si potrebbe insegnare come curiosità; a uno su tre è parte del repertorio corrente.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">⚠ Il numero con la soglia accanto</span>
-      <p>«Trentadue su ottantuno» senza la soglia non è un dato: chiunque rifaccia il conto con un criterio diverso ottiene un altro numero e crede che uno dei due sia sbagliato.</p>
-      <p>La soglia va scritta ogni volta che si riporta il conto.</p>
-    </div>
-
-    <p class="didascalia">Un rapporto fra due numeri dice più del numero assoluto, e regge meglio ai cambi di criterio. È la forma in cui conviene riportare i conteggi su un corpus.</p>
-  </div>
-</section>
-
 
 <section class="slide esercizio insieme-slide" data-titolo="In classe · parlato">
   <div class="slide-interna">

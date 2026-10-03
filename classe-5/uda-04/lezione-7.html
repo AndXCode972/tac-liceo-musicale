@@ -5,7 +5,7 @@
 <meta http-equiv="cache-control" content="no-cache, must-revalidate">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lezione 7. Analisi: lo stesso accordo in due contesti diversi | La nona, e gli accordi alterati</title>
+<title>Lezione 7. Analisi integrale: gli alterati in una mazurka di Chopin | La nona e gli accordi alterati</title>
 <script>
 /* Rete di sicurezza. Sta prima del foglio di stile apposta: uno script
    messo dopo un foglio ancora in arrivo non parte finche' quel foglio
@@ -48,40 +48,59 @@ try { module = undefined; exports = undefined; } catch (e) {}
 <div id="tac-deck">
 
 <!-- ══════════════════════════════════════════════════════════════════
-     LEZIONE 7 · Analisi: lo stesso accordo in due contesti diversi
-     Unità 4, ora 25 di 90 · classe 5ª · analisi
+     LEZIONE 5 · Analisi: gli alterati in un brano di Chopin
+     Unità 4, ora 25 di 90 · classe 5ª · analisi · CODA DELL'ORALE
 
-     PAROLE CHIAVE: enarmonia · ambiguità · ortografia · contesto ·
-     identità di un accordo · retroattività.
+     ⚠ ORA BREVE: venti minuti, undici slide.
 
-     ══ È L'ORA CHE TIENE INSIEME L'UNITÀ, e chiude un filo che parte
-     dall'ora 21 (la settima diminuita che si legge in quattro modi) e
-     passa dall'ora 23 (la sesta francese di Chopin che è anche una
-     settima con quinta abbassata).
+     ══ IL BRANO NON È STATO SCELTO: È L'UNICO ══
+     Nel corpus di music21 c'è una sola opera di Chopin, la Mazurka
+     op. 6 n. 2 — do♯ minore, 75 battute, 3/4. Va detto in classe
+     invece di far credere a una selezione fra molte: è una condizione
+     del materiale, e dichiararla insegna qualcosa sul metodo.
 
-     LA TESI: un accordo non È qualcosa. Un accordo DIVENTA qualcosa
-     quando si sente dove va. E fino a quel momento è tutte le cose che
-     potrebbe essere — il che, per un compositore, è materiale.
+     ══ I NUMERI SONO MISURATI ══
+     `03_Materiali/_repertorio/spartiti/alterati_chopin.py`.
 
-     ⚠ E C'È UNA CONSEGUENZA SULL'ASCOLTO CHE VALE L'ORA INTERA:
-     l'identità di un accordo si stabilisce RETROATTIVAMENTE. Chi
-     ascolta non sa che accordo è finché non ne sente un altro. Questo
-     rovescia l'idea ingenua che analizzare sia «riconoscere», e la
-     sostituisce con «seguire».
+     Tre accordi di SESTA FRANCESE — Mi Sol♯ La♯ Do𝄪 — alle bb. 19,
+     20 e 23. Il programma li trova cercando una sesta aumentata fra il
+     basso e una parte superiore, e poi verifica la risoluzione.
 
-     Prepara l'unità 10, dove questa ambiguità diventa il mezzo
-     principale per andare lontano.
+     ⚠ E LA RISOLUZIONE CANONICA NON C'È. Il contesto misurato:
+
+         Mi Sol♯ La♯ Do𝄪 → Mi Sol♯ La♯ La♯ → Re♯ Fa𝄪 La♯ Do♯ → Sol♯
+
+     Il Do𝄪 NON sale a Re♯: la voce che lo porta scende al La♯ dentro
+     la stessa battuta. È una figurazione melodica. Il basso invece
+     scende di semitono, e l'accordo risolve sulla dominante della
+     dominante.
+
+     ⚠ LA SLIDE DEVE DIRE QUESTO, NON LA VERSIONE DA MANUALE. Sarebbe
+     comodo scrivere «ecco una sesta aumentata che risolve all'ottava»,
+     e sarebbe falso: il programma l'ha cercata e non l'ha trovata.
+
+     È la SECONDA VOLTA IN DUE UNITÀ che un pezzo vero non fa quello
+     che dice il libro, dopo lo Schubert dell'ora 18. Vale la pena
+     farlo notare: non è sfortuna, è come stanno le cose.
      ══════════════════════════════════════════════════════════════════ -->
 
-<!-- Riordinata il 30/09/2026: da 21 a 20 slide: «Le quattro strade, e le porte» (aggiunta) confluita in «Le quattro strade della diminuita», «Come si annota» e «Che cosa ci fa un compositore»; il temperamento della slide finale in «Il temperamento»; «Le tre domande» aggiunte subito dopo quelle originali (non coincidono: segnalato); esercizio, poi Chopin, Schönberg e Webern prima della sintesi. -->
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 7 · Analisi integrale: gli alterati in una mazurka di Chopin
+     Unità 4, ora 25 · classe 5ª · analisi
+
+     Rivista il 2 ottobre 2026 (documento 43): il brano è la Mazurka
+     op. 6 n. 2 (A16), quello che il programma ha trovato (non il Preludio
+     op. 28 n. 4 previsto nel piano); aggiunto il lavoro sui quattro piani.
+     ══════════════════════════════════════════════════════════════════ -->
+
 
 <section class="slide attiva copertina foto" data-titolo="Copertina"
-         style="--foto: url('../../_assets/copertine/c5u4-lezione-7.jpg?v=5619ea99');
+         style="--foto: url('../../_assets/copertine/c5u4-lezione-5.jpg?v=6f5ae4ea');
                 --cop-a:#3b0764; --cop-b:#7e22ce; --cop-c:#e9d5ff">
   <div class="slide-interna">
-    <div class="occhiello">La nona, e gli accordi alterati &middot; UdA 4 &middot; Lezione 7 di 9</div>
-    <h1>Che accordo &egrave;? Dipende da dopo</h1>
-    <p class="sottotitolo">Un accordo non &egrave; qualcosa. <strong>Diventa</strong> qualcosa quando si sente dove va &mdash; e fino ad allora &egrave; tutte le cose che potrebbe essere.</p>
+    <div class="occhiello">La nona e gli accordi alterati &middot; UdA 4 &middot; Lezione 7 di 9</div>
+    <h1>Chopin non legge il manuale</h1>
+    <p class="sottotitolo">Tre seste francesi, misurate. E nessuna delle tre risolve come dovrebbe &mdash; il che le rende pi&ugrave; interessanti, non meno.</p>
 
     <blockquote class="aforisma">
       <p>Un accordo &egrave; quello che fa, non quello che sembra.</p>
@@ -89,441 +108,169 @@ try { module = undefined; exports = undefined; } catch (e) {}
     </blockquote>
 
     <div class="meta-copertina">
-      <span>1 ora</span>
+      <span>20 min</span>
       <span>Analisi</span>
-      <span>L&rsquo;ambiguit&agrave;</span>
+      <span>Mazurka op. 6 n. 2</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Il filo delle ore">
+<section class="slide" data-titolo="Il brano, e come &egrave; stato scelto">
   <div class="slide-interna">
-    <h2>Sono tre volte che incontrate la stessa cosa</h2>
+    <h2>Il brano non l&rsquo;ho scelto: &egrave; l&rsquo;unico</h2>
 
     <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
          «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 5&deg; anno; pagine dall'indice rilevato. -->
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
       <p><span class="lez">A4</span><strong>Altre armonie dissonanti</strong>, pp. 52&ndash;61</p>
-      <p>Sezione A, unit&agrave; 4, lezioni A22 e A23: settima diminuita e sesta tedesca, gli stessi suoni in due contesti. Le modulazioni per equivalenti enarmonici sono in B11 (unit&agrave; B3, pp. 206&ndash;237), nell&rsquo;unit&agrave; 10.</p>
+      <p>Sezione A, unit&agrave; 4, lezione A23, per riconoscere le seste aumentate della mazurka. L&rsquo;analisi di un preludio di Chopin che il libro svolge (B15) sta nell&rsquo;unit&agrave; B3 e verr&agrave; con l&rsquo;unit&agrave; 10.</p>
     </div>
 
-    <div class="riquadro definizione">
-      <span class="etichetta">Il filo di quest&rsquo;unit&agrave;</span>
-      <p><strong>Ora 21</strong> &mdash; la settima diminuita si legge in <strong>quattro</strong> modi, e ognuno porta in una tonalit&agrave; diversa.<br>
-      <strong>Ora 22</strong> &mdash; la sesta tedesca &egrave;, suono per suono, una <strong>settima di dominante</strong>.<br>
-      <strong>Ora 23</strong> &mdash; la sesta francese di Chopin &egrave; anche una settima con la <strong>quinta abbassata</strong>.</p>
-    </div>
-
-    <p>Tre volte lo stesso fenomeno, e non &egrave; una curiosit&agrave;: &egrave; una propriet&agrave; del sistema. <strong>Il temperamento equabile rende identici suoni che la teoria distingue</strong>, e su quella coincidenza si costruisce mezzo Ottocento.</p>
-
-    <p class="didascalia">Oggi si mette a fuoco il meccanismo per intero, e alla fine dell&rsquo;ora l&rsquo;idea di &laquo;riconoscere un accordo&raquo; sar&agrave; cambiata.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il temperamento">
-  <div class="slide-interna">
-    <h2>Prima di tutto: perch&eacute; due note diverse suonano uguali</h2>
-
-    <p>Non &egrave; una legge di natura. &Egrave; una <strong>scelta di accordatura</strong>, presa fra Sei e Settecento e diventata normale nell&rsquo;Ottocento.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Il temperamento equabile</span>
-      <p>L&rsquo;ottava si divide in <strong>dodici semitoni identici</strong>. Ne segue che do&#9839; e re&#9837; diventano lo <strong>stesso suono</strong>, e cos&igrave; sol&#9839; e la&#9837;, do𝄪 e re.</p>
-    </div>
-
-    <p>Nelle accordature precedenti <strong>non era cos&igrave;</strong>: un sol&#9839; e un la&#9837; erano due suoni <em>udibilmente diversi</em>, e le tastiere del Cinquecento avevano tasti separati per l&rsquo;uno e per l&rsquo;altro. Chi voleva andare lontano dalla tonalit&agrave; di partenza trovava, a un certo punto, che il tasto stonava.</p>
-
-    <p>Quindi tutto quello che facciamo oggi &mdash; leggere un accordo in due modi, usarlo come porta &mdash; &egrave; <strong>possibile perch&eacute; l&rsquo;accordatura lo permette</strong>. L&rsquo;Ottocento non ha scoperto l&rsquo;enarmonia: ha ereditato uno strumento che la rendeva utilizzabile, e l&rsquo;ha usata.</p>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Che cosa ha reso possibile</span>
-      <p>Niente di tutto questo funzionerebbe senza il temperamento equabile: è quello che rende <strong>uguali</strong> i tasti di sol diesis e la bemolle, e quindi possibili gli enarmonismi.</p>
-      <p>Una scelta tecnica del Settecento è la condizione dell&rsquo;armonia dell&rsquo;Ottocento.</p>
-    </div>
-
-    <p class="didascalia">C&rsquo;&egrave; anche il rovescio, e va detto: quello che si guadagna in libert&agrave; si perde in <strong>colore</strong>. In un temperamento diseguale ogni tonalit&agrave; suona diversa dalle altre, e quando i compositori scrivevano &laquo;mi&#9837; maggiore &egrave; solenne&raquo; non era soltanto una convenzione. Con l&rsquo;equabile tutte le tonalit&agrave; sono la stessa, trasportata. Un&rsquo;infrastruttura tecnica rende possibili sviluppi che non erano il suo scopo. Il temperamento serviva a suonare in tutte le tonalità; ha finito per <strong>permettere di uscirne</strong>.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="L&rsquo;esperimento">
-  <div class="slide-interna">
-    <h2>Lo stesso suono, due strade</h2>
-
-    <p>Ascoltate due volte. Le prime due battute sono <strong>identiche</strong>: cambia solo quello che viene dopo.</p>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Sesta tedesca che va alla dominante di do"
-               soprano="f#/4:h g/4:h | g/4:w"
-               contralto="c/4:h b/3:h | d/4:w"
-               tenore="eb/4:h d/4:h | b/3:w"
-               basso="ab/3:h g/3:h | g/3:w"
-               width="740" tempo="48" play slow></tac-stave>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Lo stesso accordo, scritto sol&#9837;: settima di dominante che va a re&#9837;"
-               soprano="gb/4:h f/4:h | f/4:w"
-               contralto="c/4:h db/4:h | ab/4:w"
-               tenore="eb/4:h db/4:h | db/4:w"
-               basso="ab/3:h db/3:h | db/3:w"
-               width="740" tempo="48" play slow></tac-stave>
-
-    <p class="didascalia">Il primo accordo dei due esempi <strong>suona identico</strong>: al pianoforte sono gli stessi quattro tasti. Quello che cambia &egrave; il secondo accordo, e quel cambiamento agisce <em>all&rsquo;indietro</em>.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Retroattivo">
-  <div class="slide-interna">
-    <h2>L&rsquo;identit&agrave; si stabilisce all&rsquo;indietro</h2>
-
-    <p>Ed &egrave; la cosa che vale l&rsquo;ora intera. Quando l&rsquo;accordo suona, <strong>chi ascolta non sa ancora che accordo &egrave;</strong>. Lo sa un momento dopo, e in quel momento la memoria lo riclassifica.</p>
+    <p>Nella raccolta di partiture digitali che uso per queste analisi c&rsquo;&egrave; <strong>una sola opera di Chopin</strong>, ed &egrave; questa mazurka. Non ho selezionato fra molte: ho preso quella che c&rsquo;era.</p>
 
     <div class="riquadro studio">
-      <p>Cio&egrave;: analizzare non &egrave; <strong>riconoscere</strong> — che presuppone di sapere in anticipo — ma <strong>seguire</strong>. Si tiene l&rsquo;accordo in sospeso finch&eacute; non arriva l&rsquo;informazione che lo decide.</p>
-    </div>
-
-    <p>Chi analizza dicendo subito un nome sbaglia quando il compositore lo sorprende. Chi aspetta due accordi non sbaglia mai, e ci mette un secondo in pi&ugrave;.</p>
-
-    <p class="didascalia">&Egrave; anche il motivo per cui, in una traccia d&rsquo;esame, gli accordi ambigui vanno lasciati per ultimi: si segnano con un punto interrogativo, si va avanti, e si torna quando il contesto &egrave; chiaro.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="L&rsquo;ortografia">
-  <div class="slide-interna">
-    <h2>E allora a che cosa serve l&rsquo;ortografia?</h2>
-
-    <p>Se il suono &egrave; lo stesso, perch&eacute; Chopin si prende la briga di scrivere <strong>Do𝄪</strong> invece di <strong>Re</strong>? Sono due segni per lo stesso tasto, e uno dei due &egrave; molto pi&ugrave; scomodo.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">A che cosa serve</span>
-      <p>A <strong>dichiarare l&rsquo;intenzione</strong>. La notazione non registra un suono: registra una funzione. Do𝄪 vuol dire &laquo;questa nota &egrave; una sensibile e va verso l&rsquo;alto&raquo;; Re vuol dire &laquo;questa nota &egrave; un grado stabile&raquo;.</p>
-    </div>
-
-    <p>Quindi l&rsquo;ortografia &egrave; un <strong>messaggio all&rsquo;esecutore</strong>: non cambia il tasto, cambia come lo si suona &mdash; il peso, la direzione, il fraseggio.</p>
-
-    <p class="didascalia">Ed &egrave; qualcosa che sapete gi&agrave; come strumentisti, anche se forse non l&rsquo;avete mai detto cos&igrave;: un do&#9839; e un re&#9837; si suonano diversi, pur essendo lo stesso tasto. Il pianoforte non lo sa; il pianista s&igrave;.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Quando l&rsquo;ortografia mente">
-  <div class="slide-interna">
-    <h2>E quando ortografia e direzione non concordano</h2>
-
-    <p>Succede, e il Chopin dell&rsquo;ora scorsa ne &egrave; un esempio: il <strong>Do𝄪 &egrave; scritto come sensibile</strong> ma la voce che lo porta scende.</p>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">La regola, e vale sempre</span>
-      <p>Se l&rsquo;ortografia dice una cosa e la <strong>risoluzione</strong> ne dice un&rsquo;altra, <strong>vince la risoluzione</strong>. La notazione &egrave; un&rsquo;intenzione; il movimento &egrave; un fatto.</p>
-    </div>
-
-    <p>Con una precisazione onesta: a volte l&rsquo;ortografia &laquo;sbagliata&raquo; &egrave; dell&rsquo;editore, non del compositore. Le edizioni ottocentesche normalizzano, e due edizioni dello stesso pezzo possono avere alterazioni diverse.</p>
-
-    <p class="didascalia">Il che d&agrave; una regola pratica per l&rsquo;analisi: quando l&rsquo;ortografia sorprende, vale la pena chiedersi <strong>di chi &egrave;</strong>. Se possibile si guarda un&rsquo;altra edizione &mdash; e se le due discordano, si &egrave; imparato qualcosa sul pezzo.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Le quattro strade della diminuita">
-  <div class="slide-interna">
-    <h2>Il caso limite: quattro strade dallo stesso punto</h2>
-
-    <p>La settima diminuita dell&rsquo;ora 21, guardata adesso con l&rsquo;idea di oggi. Le stesse quattro note, e quattro tonalit&agrave; d&rsquo;arrivo.</p>
-
-    <div class="affianca">
-      <div>
-        <tac-stave time="4/4" keysig="C"
-               caption="Si&ndash;re&ndash;fa&ndash;la&#9837;: risolve in do, poi in mi&#9837;"
-               soprano="ab/4:h g/4:h | ab/4:h g/4:h"
-               contralto="f/4:h e/4:h | f/4:h eb/4:h"
-               tenore="d/4:h c/4:h | d/4:h bb/3:h"
-               basso="b/3:h c/4:h | b/3:h eb/4:h"
-               segna="b1=lo stesso accordo &middot; b2=risolve in do &middot; b3=e qui &egrave; identico &middot; b4=ma risolve in mi bemolle"
-               width="380" tempo="46" play a-passi slow></tac-stave>
-      </div>
-      <div>
-        <tac-stave clef="bass" time="4/4" caption="La stessa diminuita, due risoluzioni diverse: cambia quale nota fa da sensibile" notes="b/2:h c/3:h d/3:h g/2:h" width="460" tempo="56" play></tac-stave>
-      </div>
-    </div>
-
-    <div class="riquadro studio">
-      <p>Quattro tonalit&agrave; d&rsquo;arrivo a distanza di terza minore l&rsquo;una dall&rsquo;altra: do, mi&#9837;, sol&#9837;, la. Sono i quattro punti pi&ugrave; lontani che si possano raggiungere <strong>senza che l&rsquo;orecchio senta uno strappo</strong>.</p>
-    </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Il conto preciso: otto mete</span>
-      <p>Quattro note, ognuna può fare da sensibile: <strong>quattro</strong> tonalità maggiori e quattro minori. Otto mete da un accordo solo.</p>
-      <p>E poiché di settime diminuite ne esistono <strong>tre</strong>, tre accordi coprono tutte le ventiquattro tonalità.</p>
-    </div>
-
-    <p class="didascalia">Questo &egrave; il motore dell&rsquo;unit&agrave;&nbsp;10, e ci arriverete a marzo. Oggi basta averlo visto funzionare: un accordo che non decide, e che decide chi lo ascolta un momento dopo. Un elemento <strong>simmetrico</strong> dentro un sistema asimmetrico funziona da scorciatoia fra punti lontani. È una proprietà strutturale, e spiega perché questi accordi compaiono sempre nei momenti di svolta.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Quante porte">
-  <div class="slide-interna">
-    <h2>Quante porte ha un accordo</h2>
-
-    <p>Non tutti gli accordi sono ambigui allo stesso modo, e il conto si fa in un modo solo: <strong>quante volte lo si pu&ograve; riscrivere</strong> ottenendo un accordo che esiste.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Il conto, dal pi&ugrave; chiuso al pi&ugrave; aperto</span>
-      <p><strong>Una triade perfetta</strong> &mdash; una porta sola. Do&ndash;mi&ndash;sol riscritto non d&agrave; niente di utile.<br>
-      <strong>La settima diminuita</strong> &mdash; <strong>quattro</strong> porte, perch&eacute; &egrave; fatta di quattro terze minori uguali.<br>
-      <strong>La triade aumentata</strong> &mdash; <strong>tre</strong> porte, perch&eacute; &egrave; fatta di tre terze maggiori uguali.</p>
-    </div>
-
-    <p>C&rsquo;&egrave; una regola dietro, e conviene vederla: <strong>un accordo &egrave; ambiguo quando &egrave; simmetrico</strong>. Se gli intervalli che lo compongono sono tutti uguali, nessuna nota &egrave; pi&ugrave; fondamentale delle altre &mdash; e quindi ognuna pu&ograve; fare da fondamentale a turno.</p>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="La triade aumentata: gli stessi tre tasti, tre volte, e tre arrivi diversi"
-               soprano="c/4:h c/4:h | e/4:h e/4:h | ab/3:h ab/3:h"
-               contralto="g#/3:h a/3:h | b#/3:h c#/4:h | e/3:h f/3:h"
-               tenore="e/3:h f/3:h | g#/3:h a/3:h | c/3:h db/3:h"
-               basso="c/3:h f/3:h | e/3:h a/3:h | ab/2:h db/3:h"
-               segna="b1=letta su do: va a fa &middot; b2=riscritta si&#9839;: va a la &middot; b3=riscritta la&#9837;: va a re&#9837;"
-               width="820" tempo="46" play a-passi slow></tac-stave>
-
-    <p class="didascalia">I tre arrivi &mdash; fa, la, re&#9837; &mdash; distano una <strong>terza maggiore</strong> l&rsquo;uno dall&rsquo;altro, come i quattro della diminuita ne distavano una minore. La simmetria dell&rsquo;accordo si trasmette alla mappa delle tonalit&agrave;: &egrave; lo stesso disegno, una scala pi&ugrave; grande.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il perno">
-  <div class="slide-interna">
-    <h2>Come si passa davvero: il perno</h2>
-
-    <p>Fin qui abbiamo visto accordi ambigui uno per volta. Adesso guardiamo che cosa succede <strong>dentro una frase</strong>, che &egrave; il posto dove servono.</p>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Da do a mi&#9837; in cinque accordi: la battuta 3 &egrave; identica alla 2"
-               soprano="c/4:w | ab/3:w | ab/3:w | ab/3:w | g/3:w"
-               contralto="g/3:w | f/3:w | f/3:w | f/3:w | g/3:w"
-               tenore="e/3:w | d/3:w | d/3:w | d/3:w | eb/3:w"
-               basso="c/3:w | b/2:w | cb/3:w | bb/2:w | eb/3:w"
-               segna="b2=si&ndash;re&ndash;fa&ndash;la&#9837;: la sensibile di do &middot; b3=stesso suono, si scritto do&#9837;: ora &egrave; di mi&#9837; &middot; b4=un semitono al basso, ed &egrave; la dominante &middot; b5=arrivati"
-               width="860" tempo="42" play a-passi slow></tac-stave>
-
-    <div class="riquadro studio">
-      <p>Fra la battuta 2 e la 3 <strong>non succede niente</strong>: gli stessi quattro tasti, tenuti. Succede tutto sulla carta, e quello che cambia &egrave; <em>a che cosa serve</em> quell&rsquo;accordo. Poi basta un semitono al basso (do&#9837; &rarr; si&#9837;) e siamo nella nuova tonalit&agrave;.</p>
-    </div>
-
-    <p class="didascalia">Questo si chiama <strong>modulazione enarmonica</strong>, e in questa forma &egrave; il modo pi&ugrave; economico che esista per andare lontano: due tonalit&agrave; a tre alterazioni di distanza, unite da un accordo che non si &egrave; mosso. Il nome ve lo do adesso perch&eacute; il meccanismo l&rsquo;avete visto; il resto &egrave; l&rsquo;unit&agrave;&nbsp;10.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Come si annota">
-  <div class="slide-interna">
-    <h2>Come si annota un&rsquo;ambiguit&agrave;, in pratica</h2>
-
-    <p>Perch&eacute; il problema, in una traccia d&rsquo;esame, non &egrave; capirla: &egrave; <strong>scriverla</strong> in modo che chi legge veda che l&rsquo;avete capita.</p>
-
-    <div class="riquadro procedura">
-      <span class="etichetta">Tre righe, e bastano</span>
-      <p><strong>1.</strong> Sopra l&rsquo;accordo, le <strong>due letture</strong>, una sull&rsquo;altra, con il numero di battuta.<br>
-      <strong>2.</strong> Una freccia dalla lettura che il pezzo sceglie all&rsquo;accordo <strong>successivo</strong>, che &egrave; la prova.<br>
-      <strong>3.</strong> Una riga in fondo alla pagina: <em>&laquo;b. 23 ambiguo, deciso alla b. 24 da&hellip;&raquo;</em>.</p>
-    </div>
-
-    <p>Il punto <strong>2</strong> &egrave; quello che conta: la lettura giusta non si sceglie perch&eacute; suona meglio, si sceglie perch&eacute; <strong>l&rsquo;accordo dopo la conferma</strong>. Senza la freccia, l&rsquo;analisi &egrave; un&rsquo;opinione.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Come si annota un perno di questo tipo</span>
-      <p>Doppia lettura, come per il perno diatonico: sopra il grado nel tono di partenza, sotto quello nel tono d&rsquo;arrivo, con il nome del tono nuovo.</p>
-      <p>Cambia solo che qui il tono d&rsquo;arrivo <strong>non è vicino</strong>: è questo il senso di usare la diminuita invece di un accordo comune.</p>
-    </div>
-
-    <p class="didascalia">E se le due letture restano tutte e due difendibili, si scrivono <strong>tutte e due</strong> e si dice perch&eacute;. Un&rsquo;ambiguit&agrave; dichiarata vale pi&ugrave; di una scelta arbitraria: qualche volta il pezzo &egrave; ambiguo davvero, e accorgersene &egrave; il lavoro.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa ci fa un compositore">
-  <div class="slide-interna">
-    <h2>Che cosa ci fa un compositore, con un accordo che non decide</h2>
-
-    <p>Finora l&rsquo;abbiamo guardata dalla parte di chi analizza. Guardiamola dalla parte di chi scrive, perch&eacute; &egrave; l&igrave; che l&rsquo;ambiguit&agrave; smette di essere un problema e diventa uno strumento.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Tre usi, e li avete gi&agrave; sentiti tutti</span>
-      <p><strong>Sorprendere.</strong> Si prepara un arrivo, si arriva altrove. Funziona perch&eacute; l&rsquo;accordo prima era compatibile con tutti e due.<br>
-      <strong>Andare lontano in fretta.</strong> Due tonalit&agrave; distanti, unite da un accordo che appartiene a tutte e due: nessuno strappo.<br>
-      <strong>Sospendere.</strong> Tenere l&rsquo;accordo ambiguo <em>a lungo</em>, senza risolverlo. Chi ascolta resta in bilico, e non &egrave; un difetto: &egrave; l&rsquo;effetto.</p>
-    </div>
-
-    <p>Il terzo &egrave; il pi&ugrave; ottocentesco dei tre, e il pi&ugrave; difficile: richiede di <strong>rinunciare alla risoluzione</strong> per un tempo lungo, cosa che un compositore del Settecento non avrebbe fatto. Wagner ci costruisce sopra intere scene.</p>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Andare lontano in due accordi</span>
-      <p>Va lontano in <strong>due accordi</strong>. Una modulazione diatonica a un tono lontano richiede una catena di passaggi; con la diminuita si arriva subito, e la sorpresa è l&rsquo;effetto.</p>
-    </div>
-
-    <p class="didascalia">Notate una cosa: tutti e tre gli usi dipendono dal fatto che l&rsquo;ascoltatore <strong>si aspetti qualcosa</strong>. Senza aspettativa non c&rsquo;&egrave; sorpresa, e senza tonalit&agrave; non c&rsquo;&egrave; aspettativa. Gli accordi alterati non sono la fine della tonalit&agrave;: <em>vivono</em> di tonalit&agrave;.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il limite">
-  <div class="slide-interna">
-    <h2>Un limite, prima che diventi un&rsquo;abitudine</h2>
-
-    <p>Un&rsquo;ora passata a dire che gli accordi sono ambigui lascia un rischio: uscire di qui e vedere ambiguit&agrave; dappertutto. Quindi il contrappeso, con un numero.</p>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Nella mazurka di Chopin, contate</span>
-      <p>Diciassette battute portano alterazioni estranee. Gli accordi <strong>alterati</strong> sono <strong>tre</strong>, e sono le tre seste francesi. Tutto il resto sono <strong>dominanti secondarie</strong> &mdash; cose che sapete dalla terza.</p>
-    </div>
-
-    <p>Tre su diciassette. E anche quelle tre non sono davvero ambigue <em>nel pezzo</em>: lo sono in astratto, perch&eacute; Chopin decide subito dove vanno. L&rsquo;ambiguit&agrave; c&rsquo;&egrave;, ma &egrave; <strong>rara, e usata di proposito</strong>.</p>
-
-    <p>Il che d&agrave; una regola pratica per l&rsquo;analisi: davanti a un accordo strano, la prima ipotesi non &egrave; mai &laquo;sar&agrave; enarmonico&raquo;. &Egrave; <strong>&laquo;sar&agrave; una dominante secondaria&raquo;</strong>, oppure <strong>&laquo;sar&agrave; una nota di passaggio&raquo;</strong>. Nove volte su dieci &egrave; una delle due.</p>
-
-    <p class="didascalia">Vale anche il rovescio, ed &egrave; la ragione per cui l&rsquo;ora esiste: la decima volta &egrave; quella che decide il pezzo, e chi non ha l&rsquo;idea di oggi la legge come un errore di stampa.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Le tre domande">
-  <div class="slide-interna">
-    <h2>Tre domande, davanti a un accordo che non si capisce</h2>
-
-    <p>In quest&rsquo;ordine, perch&eacute; l&rsquo;ordine fa risparmiare tempo: si comincia dalle ipotesi pi&ugrave; probabili.</p>
-
-    <div class="riquadro procedura">
-      <span class="etichetta">Da usare alla V2, fra due ore</span>
-      <ol>
-        <li><strong>&Egrave; una nota di figurazione?</strong> Se l&rsquo;alterazione sparisce subito, tornando dov&rsquo;era, non &egrave; un accordo: &egrave; un ornamento.</li>
-        <li><strong>&Egrave; una dominante secondaria?</strong> Se l&rsquo;alterazione &egrave; la sensibile di un grado della scala, quasi sempre s&igrave;. &Egrave; l&rsquo;ipotesi che vince pi&ugrave; spesso.</li>
-        <li><strong>Allora: dove va?</strong> Solo adesso si guarda l&rsquo;accordo dopo &mdash; e se la risposta &egrave; &laquo;in un&rsquo;altra tonalit&agrave;&raquo;, &egrave; un alterato o un perno.</li>
-      </ol>
-    </div>
-
-    <p>La terza domanda &egrave; l&rsquo;unica che richiede l&rsquo;ora di oggi, e si fa <strong>per ultima</strong>. Chi la fa per prima trova modulazioni enarmoniche dentro un minuetto.</p>
-
-    <p class="didascalia">E se dopo le tre domande l&rsquo;accordo resta oscuro, resta una quarta possibilit&agrave; che non &egrave; una vergogna: si scrive <em>&laquo;b. 23, non risolto&raquo;</em> e si va avanti. Un&rsquo;analisi con un buco dichiarato &egrave; onesta; una piena di nomi inventati non lo &egrave;.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Le tre domande, per chiudere l&rsquo;unità">
-  <div class="slide-interna">
-    <h2>Che cosa si chiede a un accordo che non si riconosce</h2>
-
-    <tac-stave clef="bass" time="4/4" caption="Il metodo che regge: si guarda il basso, si contano i semitoni, si guarda dove va" notes="a/2:q g/2:q c/3:q c/3:q" width="440" tempo="60" play></tac-stave>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Le tre domande, e sono sempre queste</span>
-      <p><strong>1.</strong> Che nota c&rsquo;è al <strong>basso</strong>, e che grado è?<br>
-      <strong>2.</strong> Quante note sono <strong>fuori</strong> dall&rsquo;armatura, e quali?<br>
-      <strong>3.</strong> <strong>Dove va</strong> l&rsquo;accordo dopo?</p>
-      <p>Tre domande, e coprono tutti gli accordi di quest&rsquo;unità. La terza è quella che decide.</p>
-    </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Il filo delle ore, riassunto</span>
-      <p>Nona &rarr; l&rsquo;accordo si allarga. Alterati &rarr; le note si spostano. Diminuita &rarr; la funzione diventa ambigua. Schönberg &rarr; l&rsquo;ambiguità diventa lo stato normale.</p>
-      <p>Sono quattro passi dello <strong>stesso movimento</strong>, non quattro argomenti separati.</p>
-    </div>
-
-  </div>
-</section>
-
-<section class="slide" data-titolo="Provate">
-  <div class="slide-interna">
-    <h2>Un accordo, due continuazioni</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Sul quaderno, 30 minuti</span>
-      <p>Scrivete l&rsquo;accordo <strong>la&#9837; &ndash; do &ndash; mi&#9837; &ndash; fa&#9839;</strong> e poi <strong>due continuazioni diverse</strong>, ciascuna di tre accordi:</p>
-      <p><strong>a)</strong> come <strong>sesta tedesca</strong> in do, che va alla dominante e poi alla tonica;<br>
-      <strong>b)</strong> riscrivendolo come <strong>settima di dominante</strong>, che va a re&#9837; maggiore.</p>
-      <p>⚠ Nel punto <strong>b</strong> l&rsquo;accordo va <strong>riscritto</strong> con le alterazioni giuste, non solo continuato: &egrave; l&igrave; che si vede se avete capito.</p>
-    </div>
-
-    <p class="didascalia">Poi, in due righe: <strong>che cosa cambia per chi ascolta</strong> fra le due versioni, e <strong>in che momento</strong> se ne accorge. La seconda domanda &egrave; quella difficile.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="In musica vera">
-  <div class="slide-interna">
-    <h2>E in Chopin, per l&rsquo;ultima volta</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">A coppie, 10 minuti</span>
-      <p>Guardate le battute 19&ndash;20 e rispondete a una sola domanda: <strong>se Chopin avesse scritto Si&#9837; e Re invece di La&#9839; e Do𝄪, che cosa sarebbe cambiato?</strong></p>
-      <p>Due cose almeno: per chi legge, e per dove il pezzo va dopo.</p>
+      <p>Lo dico perch&eacute; conta: quando un&rsquo;analisi comincia con &laquo;prendiamo per esempio&hellip;&raquo;, quasi sempre l&rsquo;esempio &egrave; stato scelto <em>perch&eacute; funzionava</em>. Qui no. La fortuna &egrave; che contiene davvero quello che serve &mdash; e questo si pu&ograve; verificare.</p>
     </div>
 
     <tac-brano organico="tastiera" titolo="F. Chopin, Mazurka op. 6 n. 2, le battute alterate"
-               segna="b19=Mi Sol&#9839; La&#9839; Do𝄪: sesta francese, o settima con quinta abbassata &middot; b20=lo stesso, di nuovo &middot; b23=e per la terza volta"
+               segna="b19=qui il primo accordo alterato &middot; b20=e subito il secondo &middot; b23=e il terzo, uguale ai primi due"
                metronomo youtube="vt_xIKmnk4I" esecutore="Arthur Rubinstein, pianoforte" partitura="../../_assets/spartiti/A16_chopin-mazurka.png" inciso="../../_assets/incisioni/A16_chopin_mazurka.mp3" mappa='{"durata":13583,"eventi":[[0,0],[1,1364],[2,2727],[3,4091],[4,5455],[5,6818],[6,8182],[7,9545]]}' da-battuta="17">
 <script type="application/json">{"titolo":"F. Chopin, Mazurka op. 6 n. 2, le battute alterate","metro":"3/4","bpm":132,"battute":8,"anacrusi":0.0,"voci":[[[0.0,0.5,63],[0.75,0.25,67],[1.0,1.0,68],[2.0,0.5,72],[2.5,0.5,75],[3.0,0.5,63],[3.75,0.25,67],[4.0,0.5,68],[4.5,0.5,72],[5.0,1.0,75],[6.0,0.75,74],[6.75,0.25,70],[7.0,1.0,73],[8.0,0.5,72],[8.5,0.5,68],[9.0,0.3333,74],[9.3333,0.3333,70],[9.6667,0.3333,72],[10.0,1.0,73],[11.0,0.5,72],[11.5,0.5,68],[12.0,0.5,63],[12.75,0.25,67],[13.0,1.0,68],[14.0,0.5,72],[14.5,0.5,75],[15.0,0.5,63],[15.75,0.25,67],[16.0,0.5,68],[16.5,0.5,72],[17.0,1.0,75],[18.0,0.5,74],[18.5,0.5,70],[19.0,1.0,73],[20.0,0.5,72],[20.5,0.5,68],[21.0,0.75,80],[21.75,0.25,68],[22.0,0.75,80],[22.75,0.25,68],[23.0,0.75,80],[23.75,0.25,68]],[[0.0,1.0,44],[1.0,1.0,51],[1.0,1.0,56],[1.0,1.0,60],[2.0,1.0,51],[2.0,1.0,56],[2.0,1.0,60],[3.0,1.0,44],[4.0,1.0,51],[4.0,1.0,56],[4.0,1.0,60],[5.0,1.0,51],[5.0,1.0,56],[5.0,1.0,60],[6.0,1.0,52],[6.0,1.0,56],[6.0,2.0,58],[7.0,1.0,51],[7.0,1.0,55],[8.0,1.0,44],[8.0,1.0,56],[9.0,1.0,52],[9.0,1.0,56],[9.0,2.0,58],[10.0,1.0,51],[10.0,1.0,55],[11.0,1.0,44],[11.0,1.0,56],[12.0,1.0,32],[12.0,1.0,44],[13.0,1.0,51],[13.0,1.0,56],[13.0,1.0,60],[14.0,1.0,51],[14.0,1.0,56],[14.0,1.0,60],[15.0,1.0,44],[16.0,1.0,51],[16.0,1.0,56],[16.0,1.0,60],[17.0,1.0,51],[17.0,1.0,56],[17.0,1.0,60],[18.0,1.0,52],[18.0,1.0,56],[18.0,2.0,58],[19.0,1.0,51],[19.0,1.0,55],[20.0,1.0,44],[20.0,1.0,56]]]}</script>
 </tac-brano>
 
-
-    <p class="didascalia">La risposta breve: il suono nessuna, la funzione tutto. La risposta lunga &egrave; quella che vi chiedo &mdash; e il modo di darla &egrave; guardare che cosa succede alla battuta seguente.</p>
+    <p class="didascalia">Do&#9839; minore, settantacinque battute, 3/4. L&rsquo;estratto va dalla battuta 17 alla 24.</p>
   </div>
 </section>
 
-<!-- ───────────────────────────────────────────────────────────────────
-     Quattro slide, due con musica vera. Ora conclusiva dell'unità: il
-     temperamento, l'ortografia, la diminuita come perno per modulare
-     lontano. Aveva un brano, la Mazurka, e la slide «Il limite» dichiara
-     dove l'armatura smette di funzionare senza far sentire che cosa c'è
-     dopo quel limite. Nel repertorio c'è: Schönberg e Webern.
-     ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="Il limite, sentito">
+<section class="slide" data-titolo="Che cosa ha trovato il programma">
   <div class="slide-interna">
-    <h2>Dove l&rsquo;armatura smette di servire</h2>
+    <h2>Che cosa cerca il programma, e che cosa trova</h2>
 
-    <div class="riquadro compito">
-      <span class="etichetta">Ascolto &middot; 5 minuti</span>
-      <p>Due ascolti. Provate a cantare la <strong>tonica</strong>. Riuscite a sceglierne una?</p>
+    <div class="riquadro procedura">
+      <span class="etichetta">Come cerca</span>
+      <p><strong>1.</strong> In ogni accordo verticale, guarda se fra il <strong>basso</strong> e una parte superiore c&rsquo;&egrave; una <strong>sesta aumentata</strong>.<br>
+      <strong>2.</strong> Se s&igrave;, controlla che nell&rsquo;accordo successivo i due estremi <strong>divergano all&rsquo;ottava</strong>.<br>
+      <strong>3.</strong> E misura che cosa c&rsquo;&egrave; in mezzo, per dire di che specie &egrave;.</p>
     </div>
-
-    <tac-brano organico="tastiera" titolo="Schönberg, op. 19 n. 2 — due note, e nessuna tonalità"
-               metronomo youtube="KDAsjiq0Bcc" esecutore="Glenn Gould, pianoforte" partitura="../../_assets/spartiti/A25_schoenberg-19-2.png" riquadri='[[1,5.94,10.99,51.18,11.87],[2,57.12,10.99,41.42,11.87],[3,2.2,35.01,50.37,12.14],[4,52.56,35.01,45.97,12.14],[5,2.2,59.97,55.0,11.87],[6,57.2,59.97,41.42,11.87],[7,9.85,85.69,28.72,11.33],[8,38.57,85.69,33.36,11.33],[9,71.93,85.69,26.28,11.33]]' inciso="../../_assets/incisioni/A25_schoenberg_19_2.mp3" mappa='{"durata":30380,"eventi":[[0,0],[1,2000],[2,4000],[3,6000],[4,8000],[5,10000],[6,14800],[7,19600],[8,24400]]}' da-battuta="1">
-<script type="application/json">{"titolo":"A. Schönberg, Sei piccoli pezzi op. 19 n. 2 — la terza che non se ne va","metro":"4/4","bpm":50,"battute":9,"anacrusi":0.0,"voci":[[[7.0,0.5,83],[7.0,0.5,86],[7.5,0.5,66],[8.0,1.5,63],[9.5,0.5,57],[10.0,1.0,60],[11.0,1.0,56],[16.0,0.25,78],[16.0,0.25,82],[16.0,0.25,88],[17.0,0.5,54],[17.0,0.5,58],[22.0,2.0,59],[22.0,2.0,62],[24.0,0.5,59],[24.0,0.5,62],[24.5,0.5,67],[24.5,0.5,71],[26.5,0.5,67],[26.5,0.5,71],[27.0,0.5,67],[27.0,0.5,71],[29.0,0.5,67],[29.0,0.5,71],[31.0,0.5,67],[31.0,0.5,71],[31.5,0.5,67],[31.5,0.5,71],[33.5,0.5,67],[33.5,0.5,71],[34.0,2.0,67],[34.0,2.0,71],[34.0,2.0,75],[34.0,2.0,78],[34.0,2.0,82],[34.0,2.0,86]],[[1.0,0.5,67],[1.0,0.5,71],[1.5,0.5,67],[1.5,0.5,71],[2.0,0.5,67],[2.0,0.5,71],[3.5,0.5,67],[3.5,0.5,71],[5.0,0.5,67],[5.0,0.5,71],[5.5,0.5,67],[5.5,0.5,71],[6.0,0.5,67],[6.0,0.5,71],[7.5,0.5,67],[7.5,0.5,71],[9.0,0.5,67],[9.0,0.5,71],[9.5,0.5,67],[9.5,0.5,71],[10.0,0.5,67],[10.0,0.5,71],[11.5,0.5,67],[11.5,0.5,71],[12.0,0.5,67],[12.0,0.5,71],[12.5,0.5,67],[12.5,0.5,71],[13.0,0.5,72],[13.0,0.5,75],[13.5,0.5,67],[13.5,0.5,71],[14.5,0.5,67],[14.5,0.5,71],[16.0,0.5,72],[16.0,0.5,75],[16.5,1.0,67],[16.5,1.0,71],[17.5,0.5,67],[17.5,0.5,71],[19.0,0.5,67],[19.0,0.5,71],[19.5,0.5,67],[19.5,0.5,71],[20.0,0.5,56],[20.0,0.5,60],[20.5,1.0,57],[20.5,1.0,61],[21.5,0.5,60],[21.5,0.5,63],[22.0,2.0,42],[22.0,2.0,48],[22.0,2.0,51],[22.0,2.0,53],[24.0,0.5,42],[24.0,0.5,48],[24.0,0.5,51],[24.0,0.5,53],[26.0,0.5,53],[26.0,0.5,57],[28.0,0.5,51],[28.0,0.5,55],[30.5,0.5,49],[30.5,0.5,53],[32.5,0.5,48],[32.5,0.5,52]]]}</script>
-</tac-brano>
-
 
     <div class="riquadro definizione">
-      <span class="etichetta">Che cosa succede quando ogni nota può essere sensibile</span>
-      <p>Se ogni accordo è ambiguo come la settima diminuita, l&rsquo;ambiguità <strong>smette di essere un effetto</strong> e diventa lo stato normale. Allora non c&rsquo;è più un tono di casa da cui allontanarsi.</p>
-      <p>La strada da Chopin a qui è continua: si tratta di usare più spesso lo stesso strumento.</p>
+      <span class="etichetta">Il risultato</span>
+      <p>Tre accordi, alle battute <strong>19, 20 e 23</strong>. Tutti e tre uguali: <strong>Mi &ndash; Sol&#9839; &ndash; La&#9839; &ndash; Do𝄪</strong>. Fra Mi e Do𝄪 c&rsquo;&egrave; una sesta aumentata; in mezzo c&rsquo;&egrave; una quarta aumentata, quindi &egrave; una <strong>sesta francese</strong>.</p>
     </div>
 
-    <div class="riquadro attenzione">
-      <span class="etichetta">Il limite, dichiarato</span>
-      <p>Da questo punto l&rsquo;apparato di quest&rsquo;anno <strong>non si applica più</strong>: cifrare questo pezzo con i gradi darebbe simboli corretti e nessuna informazione.</p>
-      <p>Serve un altro apparato, e non è del programma. Sapere dove finisce lo strumento fa parte di saperlo usare.</p>
-    </div>
-
-    <p class="didascalia">Uno strumento analitico ha un <strong>dominio di validità</strong>. Applicarlo fuori dal dominio produce risultati formalmente corretti e privi di contenuto, che è il modo più difficile di sbagliare da riconoscere.</p>
+    <p class="didascalia">Il passo 2 &egrave; quello che conta, e ci arriviamo fra un momento: il programma l&rsquo;ha eseguito, e ha detto <strong>no</strong>.</p>
   </div>
 </section>
 
-<section class="slide perc" data-titolo="Un secondo caso, oltre il limite">
+<section class="slide" data-titolo="La risoluzione che non c&rsquo;&egrave;">
   <div class="slide-interna">
-    <h2>Webern: la stessa condizione, un&rsquo;altra mano</h2>
+    <h2>E qui il manuale si ferma</h2>
 
-    <div class="riquadro compito">
-      <span class="etichetta">Confronto &middot; 6 minuti</span>
-      <p>Schönberg e Webern di fila. Che cosa <strong>resta</strong>, quando la tonalità non c&rsquo;è più? Elencate quello che riuscite ancora a riconoscere.</p>
-    </div>
-
-    <tac-brano organico="voci" titolo="Webern, op. 16 n. 2 — canone"
-               metronomo youtube="MDpJQLP50Yc" esecutore="Christiane Oelze, soprano" partitura="../../_assets/spartiti/A26_webern-16-2.png" riquadri='[[1,20.08,12.34,41.72,6.55],[2,61.79,12.34,36.35,6.55],[3,5.85,25.09,48.64,6.52],[4,54.48,25.09,43.76,6.52],[5,6.24,37.77,46.59,6.55],[6,52.83,37.77,45.61,6.55],[7,5.95,58.06,47.08,7.09],[8,53.02,58.06,44.93,7.09],[9,5.85,72.05,46.3,7.25],[10,52.14,72.05,45.71,7.25],[11,5.85,86.33,34.99,7.0],[12,40.84,86.33,28.17,7.0],[13,69.01,86.33,28.46,7.0]]' inciso="../../_assets/incisioni/A26_webern_16_2.mp3" mappa='{"durata":54621,"eventi":[[0,0],[1,4444],[2,8889],[3,13333],[4,17778],[5,22222],[6,26667],[7,31111],[8,35556],[9,40000],[10,44444],[11,48889]]}' da-battuta="1">
-<script type="application/json">{"titolo":"A. Webern, «Dormi Jesu», dai Cinque canoni op. 16 n. 2","metro":"4/4","bpm":54,"battute":12,"anacrusi":0.0,"voci":[[[4.0,0.5,76],[4.5,1.0,68],[6.0,0.6667,65],[6.6667,0.6667,62],[8.5,1.0,61],[9.5,0.5,74],[10.0,0.5,78],[10.5,0.5,67],[12.0,1.0,63],[13.0,1.0,80],[14.0,1.5,76],[15.5,0.5,74],[16.0,1.0,77],[17.5,1.0,69],[19.0,0.5,66],[19.5,0.5,71],[20.5,1.0,79],[21.5,0.5,76],[22.6667,0.6667,62],[23.3333,0.3333,73],[24.0,1.0,65],[25.0,0.3333,75],[25.3333,0.6667,78],[28.0,1.5,64],[29.5,0.5,67],[30.0,1.0,63],[31.0,1.0,74],[32.0,1.0,73],[33.5,0.5,72],[34.5,1.0,76],[35.5,0.5,65],[37.0,0.5,67],[37.5,0.5,64],[38.0,1.0,75],[39.0,1.0,74],[40.0,0.5,78],[40.5,1.0,75],[42.0,0.6667,62],[42.6667,0.6667,73],[44.0,1.0,81],[45.0,1.0,79],[46.0,1.5,66],[47.5,0.5,71]],[[0.0,0.5,58],[0.5,1.0,66],[2.0,0.6667,69],[2.6667,0.6667,72],[4.5,1.0,73],[5.5,0.5,60],[6.0,0.5,56],[6.5,0.5,67],[8.0,1.0,71],[9.0,1.0,54],[10.0,1.5,58],[11.5,0.5,60],[12.0,1.0,57],[13.5,1.0,65],[15.0,0.5,68],[15.5,0.5,63],[16.5,1.0,55],[17.5,0.5,58],[18.6667,0.6667,72],[19.3333,0.3333,61],[20.0,1.0,69],[21.0,0.3333,59],[21.3333,0.6667,56],[24.0,1.5,70],[25.5,0.5,67],[26.0,1.0,71],[27.0,1.0,60],[28.0,1.0,61],[29.5,0.5,62],[30.5,1.0,58],[31.5,0.5,69],[33.0,0.5,67],[33.5,0.5,70],[34.0,1.0,59],[35.0,1.0,60],[36.0,0.5,56],[36.5,1.0,59],[38.0,0.6667,72],[38.6667,0.6667,61],[40.0,1.0,53],[41.0,1.0,55],[42.0,1.5,68],[43.5,0.5,63],[44.0,1.0,74],[45.5,1.0,61],[47.0,0.5,58]]]}</script>
-</tac-brano>
-
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa resta, e non è poco</span>
-      <p>Restano il <strong>ritmo</strong>, l&rsquo;<strong>imitazione</strong>, la <strong>forma</strong>, il registro, la dinamica. In Webern c&rsquo;è un canone, ed è la stessa tecnica di Palestrina.</p>
-      <p>Cade un parametro, non tutti. L&rsquo;analisi si sposta sugli altri.</p>
-    </div>
+    <p>Una sesta aumentata deve divergere all&rsquo;ottava: il basso scende, la voce alta sale. Ecco che cosa succede davvero, misurato:</p>
 
     <div class="riquadro attenzione">
-      <span class="etichetta">Che cosa non concludere</span>
-      <p>Che questa musica sia «senza regole». Ha regole diverse, e alcune — il canone, per esempio — sono quelle di cinque secoli fa.</p>
-      <p>Dire «non si capisce niente» significa che si sta cercando <strong>l&rsquo;unica cosa che manca</strong> e non le altre.</p>
+      <span class="etichetta">Le battute 19 e 23, accordo per accordo</span>
+      <p><strong>Mi Sol&#9839; La&#9839; Do𝄪</strong> &rarr; <strong>Mi Sol&#9839; La&#9839; La&#9839;</strong> &rarr; <strong>Re&#9839; Fa𝄪 La&#9839; Do&#9839;</strong> &rarr; <strong>Sol&#9839;</strong></p>
     </div>
 
-    <p class="didascalia">Quando un parametro sparisce, l&rsquo;analisi non si ferma: si <strong>ridistribuisce</strong> sui parametri rimasti. La sensazione di incomprensibilità viene dal cercare ancora quello che non c&rsquo;è.</p>
+    <p>Il <strong>Do𝄪 non sale a Re&#9839;</strong>. La voce che lo porta <em>scende</em> al La&#9839;, dentro la stessa battuta: quindi il Do𝄪 &egrave; una <strong>figurazione melodica</strong>, non il polo alto di una sesta che si allarga.</p>
+
+    <p>Il basso invece fa il suo mestiere: scende di semitono da Mi a Re&#9839;. E l&rsquo;accordo su cui arriva &mdash; Re&#9839; Fa𝄪 La&#9839; Do&#9839; &mdash; &egrave; la <strong>dominante della dominante</strong>, che poi va a Sol&#9839;.</p>
+
+    <tac-stave time="4/4" keysig="C#m"
+               caption="I quattro accordi misurati, nell&rsquo;ordine in cui il programma li ha trovati"
+               notes="e/4+g#/4+a#/4+c##/5:h e/4+g#/4+a#/4:h | d#/4+f##/4+a#/4+c#/5:h g#/4+b#/4+d#/5:h"
+               segna="b1=la sesta francese, e il do𝄪 che scende invece di salire &middot; b2=dominante della dominante, poi la dominante"
+               width="800" tempo="44" play a-passi slow></tac-stave>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Che cosa si cifra, allora</span>
+      <p>Quando un accordo alterato <strong>non risolve</strong> come la sua grafia prometteva, la grafia sta indicando una funzione che il compositore ha poi abbandonato.</p>
+      <p>È un caso reale, ed è quello che rende la seconda lettura necessaria: si cifra quello che succede, e si annota che cosa era stato promesso.</p>
+    </div>
+
+    <p class="didascalia">Sarebbe comodo scrivere sulla slide &laquo;ecco una sesta aumentata che risolve all&rsquo;ottava&raquo;. Sarebbe falso, e il programma l&rsquo;ha cercata e non l&rsquo;ha trovata. La notazione porta un&rsquo;<strong>intenzione</strong>, e l&rsquo;intenzione può essere disattesa. Registrare tutte e due le cose — quello che è scritto e quello che succede — è più informativo che sceglierne una.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="La seconda lettura">
+  <div class="slide-interna">
+    <h2>E c&rsquo;&egrave; un secondo modo di leggerlo</h2>
+
+    <p>La&#9839; &egrave; enarmonicamente <strong>Si&#9837;</strong>. Do𝄪 &egrave; <strong>Re</strong>. Riscrivete l&rsquo;accordo con quei nomi:</p>
+
+    <tac-stave time="4/4" keysig="C"
+               caption="Lo stesso suono, due ortografie: sesta francese, o settima con quinta abbassata"
+               soprano="c##/5:h d/5:h"
+               contralto="a#/4:h bb/4:h"
+               tenore="g#/4:h g#/4:h"
+               basso="e/4:h e/4:h"
+               width="740" tempo="46" play slow></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Le due letture</span>
+      <p><strong>Mi Sol&#9839; La&#9839; Do𝄪</strong> &mdash; sesta francese: va alla dominante.<br>
+      <strong>Mi Sol&#9839; Si&#9837; Re</strong> &mdash; settima di dominante di la, con la <strong>quinta abbassata</strong>: andrebbe a la.</p>
+    </div>
+
+    <div class="affianca">
+      <div>
+        <tac-stave clef="treble" time="4/4" caption="Con i diesis: la nota sale, e la scrittura lo dichiara" notes="f#/4:h g/4:h a/4:w" width="380" tempo="60" play></tac-stave>
+      </div>
+      <div>
+        <tac-stave clef="treble" time="4/4" caption="Gli stessi suoni scritti al contrario: la nota scenderebbe, e la funzione è un&rsquo;altra" notes="g/4:h f/4:h e/4:w" width="380" tempo="60" play></tac-stave>
+      </div>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Che cosa distingue le due letture</span>
+      <p>Il <strong>verso</strong> in cui la nota si muove. Un diesis promette di salire, un bemolle di scendere: la grafia dichiara l&rsquo;intenzione prima che la nota si muova.</p>
+      <p>Sul pianoforte i due tasti sono uno. Sulla pagina sono due informazioni diverse.</p>
+    </div>
+
+    <p class="didascalia">Chopin sceglie la prima ortografia perch&eacute; nel suo contesto &egrave; quella che significa. Un altro compositore scriverebbe la seconda e vorrebbe dire un&rsquo;altra cosa: <strong>lo stesso accordo, due nomi, due destini</strong>.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="I doppi diesis">
+  <div class="slide-interna">
+    <h2>E i doppi diesis, che sono dappertutto</h2>
+
+    <p>Il programma li ha contati: stanno alle battute <strong>12, 13, 17&ndash;23, 28, 29, 41, 43, 60, 61, 68, 69</strong>. Non sono un vezzo notazionale.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Che cosa sono, in do&#9839; minore</span>
+      <p><strong>Fa𝄪</strong> &mdash; la sensibile di <strong>sol&#9839;</strong>, cio&egrave; della dominante. Ogni fa𝄪 annuncia una dominante della dominante.<br>
+      <strong>Do𝄪</strong> &mdash; la sensibile di <strong>re&#9839;</strong>, cio&egrave; del secondo grado.</p>
+    </div>
+
+    <p>Quindi la mazurka &egrave; piena di <strong>dominanti secondarie</strong>, che la classe conosce dalla terza. Gli accordi alterati di oggi stanno dentro quel tessuto, non sopra di esso.</p>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">I doppi diesis, e perché esistono</span>
+      <p>Perché la <strong>sensibile</strong> di un tono già diesizzato ha bisogno di alzare una nota già alzata. Non è un capriccio: è la conseguenza di scrivere ogni grado con la sua lettera.</p>
+      <p>Un fa doppio diesis in un pezzo in sol diesis minore è la sensibile, e scriverlo sol naturale renderebbe la scala illeggibile.</p>
+    </div>
+
+    <p class="didascalia">&Egrave; una cosa utile da vedere: un pezzo cromatico dell&rsquo;Ottocento non &egrave; fatto di eccezioni rare, &egrave; fatto di <strong>meccanismi noti usati fittamente</strong>. La differenza con Bach non &egrave; il vocabolario, &egrave; la densit&agrave;.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Al lavoro">
+  <div class="slide-interna">
+    <h2>Al lavoro &mdash; la Mazurka intera, sui quattro piani</h2>
+    <div class="riquadro compito"><span class="etichetta">Da soli &middot; 25 minuti</span><p>Con le misure di oggi sul tavolo, la scheda dell&rsquo;ora 4: parametri, materiale, forma, stile e storia della Mazurka op.&nbsp;6 n.&nbsp;2. Il piano 4 ha una domanda in pi&ugrave;: perchperch&eacute; un ragazzo polacco di vent&rsquo;anni, a Parigi, scrive mazurke con accordi che il manuale non sa risolvere?eacute; un ventenne polacco, intorno al 1830, scrive delle mazurke perch&eacute; un ragazzo polacco di vent&rsquo;anni, a Parigi, scrive mazurke con accordi che il manuale non sa risolvere?mdash; danze del suo paese perch&eacute; un ragazzo polacco di vent&rsquo;anni, a Parigi, scrive mazurke con accordi che il manuale non sa risolvere?mdash; con accordi che il manuale non sa risolvere?</p></div>
+
+    <p>All&rsquo;ora 18 Schubert non usava nessuna delle cinque modulazioni studiate. Oggi Chopin scrive una sesta aumentata che non risolve come dice il manuale.</p>
+
+    <div class="riquadro studio">
+      <p>Non &egrave; che i pezzi scelti siano strani: <strong>&egrave; come stanno le cose</strong>. Le categorie dei manuali sono ricavate dalla musica <em>dopo</em>, e servono a orientarsi &mdash; non a prevedere quello che un compositore far&agrave;.</p>
+    </div>
+
+    <p>Quello che regge, tutte e due le volte, &egrave; il <strong>metodo</strong>: guardare che cosa c&rsquo;&egrave; scritto, misurare dove va, e non far coincidere per forza le due cose con un nome.</p>
+
+    <p class="didascalia">&Egrave; anche quello che vi chiedo all&rsquo;esame. Una traccia che non rientra in nessuna casella non &egrave; una traccia sbagliata: &egrave; una traccia su cui si deve dire quello che si vede, con la battuta accanto.</p>
   </div>
 </section>
 
@@ -533,18 +280,24 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
     <div class="colonne">
       <div class="riquadro definizione">
-        <span class="etichetta">La tesi</span>
-        <p>Un accordo non <strong>&egrave;</strong> qualcosa: <strong>diventa</strong> qualcosa quando si sente dove va. L&rsquo;identit&agrave; si stabilisce all&rsquo;indietro.</p>
+        <span class="etichetta">Misurato</span>
+        <p>Tre <strong>seste francesi</strong> alle bb. 19, 20, 23. Il basso scende a Re&#9839;, ma il Do𝄪 <strong>non sale</strong>: &egrave; una figurazione.</p>
       </div>
       <div class="riquadro studio">
-        <span class="etichetta">La conseguenza</span>
-        <p>Analizzare non &egrave; <strong>riconoscere</strong>, &egrave; <strong>seguire</strong>. Gli accordi ambigui si segnano e si decidono dopo.</p>
+        <span class="etichetta">La cosa da ricordare</span>
+        <p>Lo stesso suono si scrive in due modi e va in due posti. L&rsquo;<strong>ortografia dichiara la direzione</strong>.</p>
       </div>
     </div>
 
-    <p class="didascalia">Le prossime due ore sono la <strong>V2</strong>, cumulativa sulle unit&agrave; 3 e 4. La domanda che le attraversa &egrave; quella di oggi: <em>questo accordo che cos&rsquo;&egrave; &mdash; e come lo sai, dalla notazione o da dove va?</em></p>
+    <div class="riquadro compito">
+      <span class="etichetta">Per la prossima volta, 20 minuti</span>
+      <p>Scrivete l&rsquo;accordo <strong>Mi Sol&#9839; La&#9839; Do𝄪</strong> e la sua risoluzione <strong>due volte</strong>: una come lo fa Chopin (verso la dominante della dominante) e una come vorrebbe il manuale (divergendo all&rsquo;ottava). Sotto ciascuna, la battuta di riferimento o l&rsquo;indicazione &laquo;versione da manuale&raquo;.</p>
+    </div>
+
+    <p class="didascalia">La prossima ora &egrave; pratica: <strong>riconoscerli a colpo d&rsquo;occhio</strong> in partitura, perch&eacute; all&rsquo;esame il tempo per contare gli intervalli non c&rsquo;&egrave;.</p>
   </div>
 </section>
+
 
 <section class="slide esercizio insieme-slide" data-titolo="In classe · parlato">
   <div class="slide-interna">
@@ -591,8 +344,8 @@ try { module = undefined; exports = undefined; } catch (e) {}
 <section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
   <div class="slide-interna">
     <p class="compiti-occhiello">In classe</p>
-    <h2>Scriviamo adesso: Se Chopin avesse scritto Si&#9837; e Re</h2>
-    <p>Guarda le battute <strong>19&ndash;20</strong> della mazurka e rispondi: se Chopin avesse scritto <strong>Si&#9837;</strong> e <strong>Re</strong> invece di La&#9839; e Do𝄪, che cosa sarebbe cambiato?</p>
+    <h2>Scriviamo adesso: Gli alterati di Chopin, contati</h2>
+    <p>Del brano di Chopin visto a lezione scrivi <strong>quanti accordi alterati</strong> ci sono e <strong>in quali battute</strong>.</p>
     <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna.</p>
   </div>
 </section>
@@ -601,10 +354,10 @@ try { module = undefined; exports = undefined; } catch (e) {}
          style="--segno: url('../../_assets/segni/segno-24.png')">
   <div class="slide-interna">
     <p class="compiti-occhiello">Compiti per la prossima volta</p>
-    <h2>1 &middot; Scritto: Un accordo, due continuazioni</h2>
+    <h2>1 &middot; Scritto: L&rsquo;accordo di Chopin, due risoluzioni</h2>
     <div class="riquadro compito">
-      <p>Scrivi <strong>la&#9837; &ndash; do &ndash; mi&#9837; &ndash; fa&#9839;</strong> e poi due continuazioni di tre accordi: <strong>a)</strong> come <strong>sesta tedesca</strong> in do, verso la dominante e la tonica; <strong>b)</strong> riscrivendolo come <strong>settima di dominante</strong>, verso re&#9837; maggiore.</p>
-      <p>⚠ Nel punto <strong>b</strong> l&rsquo;accordo va <strong>riscritto</strong> con le alterazioni giuste, non solo continuato: &egrave; l&igrave; che si vede se hai capito. Poi due righe: che cosa cambia per chi ascolta, e <strong>in che momento</strong> se ne accorge.</p>
+      <p>Scrivi <strong>Mi Sol&#9839; La&#9839; Do𝄪</strong> e la sua risoluzione <strong>due volte</strong>: una come la fa Chopin (verso la dominante della dominante) e una come vorrebbe il manuale (divergendo all&rsquo;ottava).</p>
+      <p>Sotto ciascuna, la <strong>battuta</strong> di riferimento nella mazurka, oppure l&rsquo;indicazione &laquo;versione da manuale&raquo;.</p>
     </div>
     <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C5-U4-L7-01</strong>.</p>
   </div>
@@ -622,12 +375,12 @@ try { module = undefined; exports = undefined; } catch (e) {}
     </div>
     <div class="riquadro compito">
       <span class="etichetta">3 &middot; Dettato</span>
-      <p>Scrivi <strong>la melodia</strong> sul quaderno, in chiave di violino: otto battute in 6/8, fa maggiore. Il primo suono è <strong>fa</strong>. Prima il riferimento, poi tutto due volte, a coppie di battute, le giunzioni, e tutto per controllare.</p>
+      <p>Scrivi <strong>la melodia</strong> sul quaderno, in chiave di violino: otto battute in 3/4, la maggiore. Il primo suono è <strong>la</strong>. Prima il riferimento, poi tutto due volte, a coppie di battute, le giunzioni, e tutto per controllare.</p>
       <div class="dettato-ascolti">
         <div><p class="didascalia">Il riferimento: accordo di tonica e primo suono</p>
-          <tac-stave nascondi clef="treble" time="6/8" keysig="F" notes="f/4:q a/4:q c/5:q f/5:q | f/4:w" tempo="80" play></tac-stave></div>
+          <tac-stave nascondi clef="treble" time="3/4" keysig="A" notes="a/3:q c#/4:q e/4:q a/4:q | a/4:w" tempo="80" play></tac-stave></div>
         <div><p class="didascalia">Il dettato &middot; otto battute</p>
-          <tac-stave nascondi cifrato clef="treble" time="6/8" keysig="F" notes="Lmg6NC9mIHwgODo0L2UgNjE6NC9mIC44OjQvZyA2MTo0L2YgNjE6NC9lIDYxOjQvZCA2MTo0L2UgNjE6NC9mIDYxOjQvZyB8IDg6NC9hIDg6NC9iYiA2MTo1L2MgNjE6NS9kIC5xOjQvYSB8IDg6NC9nIDg6NC9mIDYxOjQvZSA2MTo0L2YgODo0L2YgcTo0L2EgfCAucTo0L2cgODo0L2EgNjE6NC9hIDYxOjQvYmIgODo1L2MgfCA4OjQvYmIgODo0L2EgNjE6NC9nIDYxOjQvYmIgODo0L2EgODo0L2cgNjE6NC9hIDYxOjQvYmIgfCAucTo1L2QgLnE6NC9iYiB8IC5xOjQvYSA2MTo0L2JiIDYxOjUvYyA2MTo0L2JiIDYxOjQvYSA2MTo0L2cgNjE6NC9m" tempo="60" play></tac-stave></div>
+          <tac-stave nascondi cifrato clef="treble" time="3/4" keysig="A" notes="Lmg6NC9hIHwgNjE6NS8jYyA2MTo0L2IgNjE6NC9hIDYxOjQvI2cgNjE6NC9hIC44OjQvYiBxOjQvYiB8IGg6NS8jYyBxOjQvYSB8IDYxOjQvI2YgLjg6NC9lIGg6NC8jYyB8IHE6NC9lIDg6NC8jZiA4OjQvZSA2MTo0L2QgNjE6NC9lIDYxOjQvI2YgNjE6NC8jZyB8IHE6NC9hIGg6NC9hIHwgaDo0LyNmIHE6NC9hIHwgcTo1LyNjIGg6NC9h" tempo="60" play></tac-stave></div>
       </div>
       <p class="rimando">Si corregge all&rsquo;inizio della prossima lezione.</p>
     </div>

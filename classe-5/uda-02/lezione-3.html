@@ -5,7 +5,7 @@
 <meta http-equiv="cache-control" content="no-cache, must-revalidate">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lezione 3. Il pedale, e che cosa regge | Laboratorio sulla modulazione</title>
+<title>Lezione 3. Analisi: il pedale in tre epoche | Riconoscere la modulazione; il pedale</title>
 <script>
 /* Rete di sicurezza. Sta prima del foglio di stile apposta: uno script
    messo dopo un foglio ancora in arrivo non parte finche' quel foglio
@@ -48,90 +48,64 @@ try { module = undefined; exports = undefined; } catch (e) {}
 <div id="tac-deck">
 
 <!-- ══════════════════════════════════════════════════════════════════
-     LEZIONE 3 · Il pedale, e che cosa regge
-     Unità 2, ora 9 di 90 · classe 5ª · teoria/armonia
+     LEZIONE 3 · Analisi: il pedale in tre epoche
+     Unità 2, ora 9 di 90 · classe 5ª · ORA INTERA
 
-     PAROLE CHIAVE: pedale · pedale di tonica · pedale di dominante ·
-     nota tenuta · dissonanza per pedale · falsa modulazione.
-
-     ══ PERCHÉ IL PEDALE STA IN UN'UNITÀ SULLA MODULAZIONE ══
-     Perché fa il contrario, ed è per differenza che si capisce. Sopra
-     un pedale le armonie si muovono e possono anche allontanarsi
-     parecchio; ma finché il basso tiene, **non si è modulato**. Chi
-     analizza guardando solo le parti superiori vede una modulazione che
-     non c'è.
-
-     ══ LE DUE FONTI, E FANNO DUE LAVORI DIVERSI ══
-     DUBOIS p. 110 dice CHE COS'È: «Il Pedale, generalmente posto nella
-     parte grave, è una nota tenuta (dominante o tonica)». E, sempre
-     p. 110: «Nessun Pedale del resto è obbligatorio in una Fuga».
-
-     IL LIBRO p. 28 dice A CHE COSA SERVE: il pedale è «un suono
-     prolungato nell'arco di più battute»; quello di dominante «ha lo
-     scopo di prolungare l'effetto tensivo di questo grado armonico
-     prima della tonica», quello di tonica «tende a prolungare l'effetto
-     di stabilità proprio di questa funzione tonale».
-
-     Tutte e due misurate con `pagine.py`. Dubois era già stato usato
-     all'ora 86 della quarta: qui si riprende.
-
-     ⚠ DA DIRE IN CLASSE: l'esempio di pedale di dominante che il libro
-     sceglie a p. 28 è dal primo libro del Clavicembalo ben temperato —
-     la stessa raccolta di tre settimane fa, quarta, unità 11.
-
-     ══ LA DEFINIZIONE HA TRE CONDIZIONI, NON UNA ══
-     E la terza è quella che si dimentica: (1) una nota sola, (2) tenuta
-     o ribattuta per più battute, (3) **e sopra le altre parti cambiano**.
-     Senza la terza non è un pedale: è un accordo lungo tenuto da tutti.
-     È il criterio con cui `cerca_pedali.py` li ha trovati per l'ora 10.
+     Rivista il 2 ottobre 2026 (documento 43). Unisce le due ore che prima
+     c'erano sul pedale: la definizione (le tre condizioni, dominante e
+     tonica, come si trova) viene dall'ora «Il pedale, e che cosa regge»
+     e dura dieci minuti; poi il lavoro a gruppi sui tre brani tarati —
+     Bach BWV 847 (A12), Haydn op. 74 n. 1 (A13, A14), Schumann op. 41
+     n. 1 (A15) — e i loro «misurato» diventano la correzione.
+     Gli esercizi di scrittura del pedale (i due modelli del libro, p. 29)
+     sono tornati qui come compito.
      ══════════════════════════════════════════════════════════════════ -->
 
-<!-- Riordinata il 30/09/2026: da 21 a 20 slide: i riquadri delle slide aggiunte (condizioni, due specie, tre forme, dissonanze, regola e caso limite, riconoscimento) portati accanto alla spiegazione, le slide d'ascolto restano ascolti; aggiunto alle tre condizioni il grado funzionale; ordine: condizioni → due specie → dove si mette → forme → dissonanze → riconoscere → modulazione e caso limite → modelli ed esercizi → ascolti; sintesi corretta in «almeno tre battute». -->
 
 <section class="slide attiva copertina foto" data-titolo="Copertina"
-         style="--foto: url('../../_assets/copertine/c5u2-lezione-3.jpg?v=e45bf693');
+         style="--foto: url('../../_assets/copertine/c5u2-lezione-4.jpg?v=8a563f57');
                 --cop-a:#083344; --cop-b:#0e7490; --cop-c:#a5f3fc">
   <div class="slide-interna">
-    <div class="occhiello">Laboratorio sulla modulazione &middot; UdA 2 &middot; Lezione 3 di 6</div>
-    <h1>La nota che non si muove</h1>
-    <p class="sottotitolo">Sopra succede di tutto, sotto niente. E finch&eacute; sotto non succede niente, <strong>non si &egrave; modulato</strong>.</p>
+    <div class="occhiello">Riconoscere la modulazione; il pedale &middot; UdA 2 &middot; Lezione 3 di 6</div>
+    <h1>1722, 1793, 1842</h1>
+    <p class="sottotitolo">Lo stesso artificio in tre secoli diversi, e tre lavori diversi. I brani non li ho scelti: li ha trovati un programma.</p>
 
     <blockquote class="aforisma">
-      <p>Il Pedale, generalmente posto nella parte grave, &egrave; una nota tenuta (dominante o tonica).</p>
-      <cite>Th&eacute;odore Dubois, <em>Trattato di contrappunto e fuga</em>, p.&nbsp;110</cite>
+      <p>Il pedale di tonica, al contrario, tende a prolungare l&rsquo;effetto di stabilit&agrave; proprio di questa funzione tonale.</p>
+      <cite><em>Il linguaggio della musica</em>, 5&deg;&nbsp;anno, p.&nbsp;28</cite>
     </blockquote>
 
     <div class="meta-copertina">
-      <span>1 ora</span>
-      <span>Armonia</span>
-      <span>Tonica &middot; dominante</span>
+      <span>20 min</span>
+      <span>Analisi</span>
+      <span>Tre pedali misurati</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Che cos&rsquo;&egrave;">
+<section class="slide" data-titolo="Trovati, non scelti">
   <div class="slide-interna">
-    <h2>Che cos&rsquo;&egrave;, in una riga</h2>
+    <h2>Trovati da un programma, e si pu&ograve; ricontrollare</h2>
 
     <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
          «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 5&deg; anno; pagine dall'indice rilevato. -->
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
       <p><span class="lez">A2</span><strong>Laboratorio sulla modulazione</strong>, pp. 22&ndash;33</p>
-      <p>Sezione A, unit&agrave; 2: la lezione A10 &egrave; tutta sul pedale, di tonica e di dominante; &egrave; il testo che quest&rsquo;ora cita.</p>
+      <p>Sezione A, unit&agrave; 2, lezione A10: la definizione e le due funzioni del pedale; i tre brani di oggi sono nostri, non del libro.</p>
     </div>
 
-    <p>Due libri, due met&agrave; della stessa cosa. Dubois dice <strong>che cos&rsquo;&egrave;</strong>, il libro di testo dice <strong>a che cosa serve</strong>.</p>
+    <p>I tre brani di oggi non li ho scelti perch&eacute; mi piacevano. Sono usciti da una ricerca sul <strong>corpus</strong>, con tre condizioni &mdash; le stesse tre dell&rsquo;ora scorsa.</p>
 
-    <div class="riquadro definizione">
-      <span class="etichetta">Le due definizioni</span>
-      <p><strong>Dubois</strong>, p.&nbsp;110: &laquo;<em>Il Pedale, generalmente posto nella parte grave, &egrave; una nota tenuta (dominante o tonica)</em>&raquo;.<br>
-      <strong>Il libro</strong>, p.&nbsp;28: il pedale &egrave; &laquo;<em>un suono prolungato nell&rsquo;arco di pi&ugrave; battute</em>&raquo;, posto generalmente nella parte grave.</p>
+    <div class="riquadro procedura">
+      <span class="etichetta">Come li ha cercati</span>
+      <p><strong>1.</strong> Si prende la parte <strong>pi&ugrave; grave</strong>.<br>
+      <strong>2.</strong> Si cerca una nota sola tenuta o ribattuta per almeno <strong>tre battute</strong>.<br>
+      <strong>3.</strong> Si verifica che sopra le altre parti <strong>cambino</strong>.<br>
+      Poi la funzione &mdash; tonica o dominante &mdash; si ricava dalla tonalit&agrave;.</p>
     </div>
 
-    <p>Notate che tutti e due dicono <strong>generalmente</strong>. Il pedale sta quasi sempre al basso, e quasi non &egrave; sempre: esiste il pedale interno e quello acuto, e li incontrerete.</p>
-
-    <p class="didascalia">Dubois &egrave; gi&agrave; stato aperto in quarta, all&rsquo;ora 86, quando si analizzava la fuga. Qui non si scopre: si riprende una definizione che avete gi&agrave; usato.</p>
+    <p class="didascalia">Il terzo controllo &egrave; quello che conta, ed &egrave; il motivo per cui la lista non &egrave; piena di falsi: senza di quello uscivano tutti gli accordi lunghi del repertorio.</p>
   </div>
 </section>
 
@@ -207,113 +181,6 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide" data-titolo="Dove si mette">
-  <div class="slide-interna">
-    <h2>Dove si mette un pedale, e perch&eacute; l&igrave;</h2>
-
-    <p>I posti sono tre, e non sono casuali: sono i tre momenti in cui un pezzo ha bisogno che <strong>l&rsquo;armonia si fermi</strong> mentre il discorso continua.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">I tre posti</span>
-      <p><strong>All&rsquo;inizio</strong> &mdash; pedale di tonica: dichiara dove siamo, prima ancora che il tema lo confermi.<br>
-      <strong>Prima della ripresa o della coda</strong> &mdash; pedale di dominante: prepara, e fa aspettare.<br>
-      <strong>Alla fine</strong> &mdash; pedale di tonica: chiude, e dice che non ci si muove pi&ugrave;.</p>
-    </div>
-
-    <p>Vale la pena notare che sono i tre punti <strong>strutturali</strong> di un pezzo. Un pedale non &egrave; mai un ornamento locale: sta sempre a una giuntura della forma.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le due specie, e fanno lavori opposti</span>
-      <p><strong>Pedale di dominante</strong> &middot; sta sul quinto grado, <strong>accumula tensione</strong> e prepara un arrivo. Sta prima di un rientro o di una coda.<br>
-      <strong>Pedale di tonica</strong> &middot; sta sul primo grado, <strong>toglie tensione</strong> e conferma la fine. Sta dopo l&rsquo;ultima cadenza.</p>
-      <p>Stessa tecnica, due funzioni opposte, e si distinguono dal grado.</p>
-    </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Dove si mette, quando si scrive</span>
-      <p>Prima di un <strong>arrivo importante</strong>: il rientro della ripresa, l&rsquo;ultima cadenza, l&rsquo;inizio di una coda. Mai in mezzo a una frase.</p>
-      <p>Un pedale messo dove non c&rsquo;è niente da preparare suona come un errore di scrittura, e in un compito d&rsquo;esame lo è.</p>
-    </div>
-
-    <p class="didascalia">&Egrave; per questo che serve a chi analizza. Trovare un pedale in una pagina che non si conosce vuol dire aver trovato <strong>una giuntura</strong>, ed &egrave; un&rsquo;informazione sulla forma che si ottiene guardando quattro battute. Una stessa tecnica può avere <strong>funzioni opposte</strong> secondo dove si applica. Classificarla per come è fatta, e non per che cosa fa, mette insieme cose che in un&rsquo;analisi vanno separate.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Ribattuto o tenuto">
-  <div class="slide-interna">
-    <h2>Tenuto, ribattuto, e non &egrave; la stessa cosa</h2>
-
-    <p>Dubois dice &laquo;<em>una nota tenuta</em>&raquo; e il libro &laquo;<em>un suono prolungato</em>&raquo;. Nella pratica un pedale si scrive in due modi, e la scelta dipende dallo strumento.</p>
-
-    <tac-stave clef="bass" time="4/4" keysig="C"
-               caption="Lo stesso pedale, ribattuto: il basso pulsa e non si muove"
-               soprano="e/4:h g/4:h | f/4:h a/4:h | g/4:w"
-               basso="c/3:q c/3:q c/3:q c/3:q | c/3:q c/3:q c/3:q c/3:q | c/3:w"
-               width="760" tempo="60" play></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Perch&eacute; si ribatte</span>
-      <p>Un <strong>organo</strong> tiene una nota per sempre, e il pedale si scrive tenuto. Un <strong>violoncello</strong> o un pianoforte no: il suono si spegne, e per farlo durare bisogna ripeterlo.</p>
-    </div>
-
-    <p class="didascalia">&Egrave; il motivo per cui nella ricerca di ieri il programma cerca note &laquo;tenute <strong>o ribattute</strong>&raquo;: chi cercasse solo le note lunghe non troverebbe un pedale di quartetto, dove il violoncello pulsa in crome per quattro battute.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il pedale interno">
-  <div class="slide-interna">
-    <h2>Quando il pedale non sta al basso</h2>
-
-    <p>Tutti e due i libri dicono <em>generalmente</em>, e il caso non generale esiste: il pedale pu&ograve; stare in una <strong>parte interna</strong> o alla parte <strong>pi&ugrave; acuta</strong>.</p>
-
-    <tac-stave clef="bass" time="4/4" keysig="C"
-               caption="Pedale acuto: il sol sta sopra, e sotto il basso si muove"
-               soprano="g/4:w | g/4:w | g/4:w"
-               basso="c/3:h e/3:h | f/3:h d/3:h | g/2:w"
-               width="740" tempo="52" play></tac-stave>
-
-    <div class="riquadro studio">
-      <p>L&rsquo;effetto cambia parecchio. Un pedale al <strong>basso</strong> &egrave; un fondamento: regge. Un pedale <strong>acuto</strong> &egrave; una campana: non regge niente, e ipnotizza.</p>
-    </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le tre forme in cui si presenta</span>
-      <p><strong>Tenuto</strong> &middot; una nota lunga con la legatura di valore. Il caso da manuale.<br>
-      <strong>Ribattuto</strong> &middot; la stessa nota ripetuta a ogni tempo. Frequentissimo negli archi.<br>
-      <strong>Interno</strong> &middot; la nota ferma sta in una voce di mezzo, e sotto il basso si muove. Più raro, e più difficile da vedere.</p>
-    </div>
-
-    <p class="didascalia">Il pedale acuto &egrave; frequente nell&rsquo;Ottocento e oltre, e ne troverete uno all&rsquo;unit&agrave;&nbsp;10 quando si esce dalla tonalit&agrave;. La definizione &egrave; la stessa; il posto no.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Le dissonanze">
-  <div class="slide-interna">
-    <h2>Sopra un pedale le dissonanze non si contano</h2>
-
-    <p>&Egrave; la cosa che sorprende di pi&ugrave;: sopra un pedale possono capitare intervalli che in qualunque altro contesto sarebbero errori.</p>
-
-    <tac-stave clef="bass" time="4/4" keysig="C"
-               caption="Sul sol tenuto passa un la&ndash;do&ndash;fa: una nona, e non &egrave; un errore"
-               soprano="a/3:h c/4:h | b/3:h d/4:h | c/4:w"
-               basso="g/2:w | g/2:w | g/2:w"
-               width="740" tempo="52" play></tac-stave>
-
-    <div class="riquadro studio">
-      <p>La ragione &egrave; semplice e va detta: <strong>il pedale non partecipa all&rsquo;armonia</strong>. Le parti di sopra fanno accordi corretti fra loro; il basso sta sotto e le guarda passare. Le dissonanze si misurano fra le parti che si muovono.</p>
-    </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le dissonanze, e come si trattano</span>
-      <p>Contro il pedale le voci superiori possono formare <strong>qualsiasi</strong> intervallo: seconde, settime, none. Non si preparano e non si risolvono rispetto al pedale.</p>
-      <p>Si risolvono <strong>fra loro</strong>: è per questo che la prova di togliere il basso funziona.</p>
-      <p>Le dissonanze contro il pedale non si cifrano una per una: si scrive «pedale di dominante, bb. N-M» e si va avanti.</p>
-    </div>
-
-    <p class="didascalia">Nel realizzare un basso, questo &egrave; il punto in cui si sbaglia: si cifra il pedale come se fosse il fondamentale di ogni accordo, e vengono fuori cifrature impossibili. Il pedale non si cifra.</p>
-  </div>
-</section>
-
 <section class="slide" data-titolo="Come si riconosce, leggendo">
   <div class="slide-interna">
     <h2>Come si trova un pedale su una pagina</h2>
@@ -338,178 +205,139 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide" data-titolo="Il pedale e la modulazione">
+<section class="slide" data-titolo="Al lavoro">
   <div class="slide-interna">
-    <h2>Perch&eacute; il pedale sta in quest&rsquo;unit&agrave;</h2>
-
-    <p>Perch&eacute; fa il contrario della modulazione, ed &egrave; il modo migliore per capire che cos&rsquo;&egrave; davvero una modulazione.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">La differenza</span>
-      <p><strong>Modulare</strong> vuol dire cambiare il punto di riferimento.<br>
-      Sopra un <strong>pedale</strong> le armonie si allontanano quanto vogliono, ma il punto di riferimento &egrave; l&igrave;, ribattuto, e non si sposta di un centimetro.</p>
-    </div>
-
-    <p>Da qui il rischio pratico: chi analizza guardando <strong>solo le parti superiori</strong> vede accordi che si allontanano e scrive &laquo;qui modula&raquo;. Non modula: il basso lo smentisce.</p>
-
-    <p class="didascalia">La chiamerei <strong>falsa modulazione da pedale</strong>, ed &egrave; uno degli errori pi&ugrave; comuni in una traccia d&rsquo;esame &mdash; anche perch&eacute; il pedale si mette proprio dove uno se lo aspetterebbe di meno.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il caso limite">
-  <div class="slide-interna">
-    <h2>Il caso limite, e va guardato</h2>
-
-    <p>Sopra un pedale di tonica di do, uno pu&ograve; scrivere sopra un accordo di mi bemolle maggiore. In quel momento le parti superiori sono lontanissime.</p>
-
-    <tac-stave clef="bass" time="4/4" keysig="C"
-               caption="Un mi bemolle&ndash;sol&ndash;si bemolle sopra un do tenuto: lontano, ma fermo"
-               soprano="e/4:h eb/4:h | g/4:h e/4:h | c/4:w"
-               basso="c/3:w | c/3:w | c/3:w"
-               width="740" tempo="50" play></tac-stave>
-
-    <div class="riquadro studio">
-      <p>Si &egrave; modulato a mi bemolle? <strong>No.</strong> Si &egrave; <em>colorato</em> il do, che nel frattempo non ha smesso un istante di suonare. Togliete il pedale e la stessa successione modula; con il pedale, no.</p>
-    </div>
-
-    <p>Sopra un pedale <strong>non si modula</strong>: la nota ferma tiene il riferimento, e tutto quello che passa sopra è colore.</p>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Il caso limite, e come si scioglie</span>
-      <p>Se sopra il pedale c&rsquo;è una <strong>cadenza completa</strong> in un altro tono, allora il pedale ha smesso di funzionare da riferimento. Succede in Wagner; nel repertorio di quest&rsquo;anno, quasi mai.</p>
-    </div>
-
-    <p class="didascalia">&Egrave; una prova che si pu&ograve; fare al pianoforte in trenta secondi, e conviene farla: la stessa mano destra, una volta con il basso tenuto e una volta senza. Sono due musiche diverse. Una regola come «sopra un pedale non si modula» vale finché regge il meccanismo che la produce — qui la <strong>presa percettiva</strong> della nota grave. Sapere quale meccanismo è, dice anche quando la regola cade.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="I modelli del libro">
-  <div class="slide-interna">
-    <h2>I due modelli da realizzare</h2>
-
-    <p>A p.&nbsp;29 il libro d&agrave; due modelli da realizzare: un pedale di dominante e uno di tonica. Sono l&rsquo;esercizio di oggi, e vanno fatti in questo ordine.</p>
-
-    <div class="riquadro procedura">
-      <span class="etichetta">Come si realizza un pedale</span>
-      <p><strong>1.</strong> Si scrive prima il <strong>basso</strong>: la nota ripetuta, per tutte le battute che servono.<br>
-      <strong>2.</strong> Si scrivono le tre parti di sopra <strong>come se il basso non ci fosse</strong>: un giro armonico che sta in piedi da solo.<br>
-      <strong>3.</strong> Si rimette il basso e si controlla una cosa sola: che il <strong>primo</strong> e l&rsquo;<strong>ultimo</strong> accordo abbiano il pedale come nota reale.<br>
-      <strong>4.</strong> Le dissonanze in mezzo si lasciano stare.</p>
-    </div>
-
-    <p class="didascalia">Il passo 2 &egrave; quello che rende facile una cosa che sembra difficile: si scrive un giro normale, e solo dopo lo si appoggia sopra la nota ferma.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Provate">
-  <div class="slide-interna">
-    <h2>Due pedali, otto battute</h2>
-
+    <h2>Al lavoro &mdash; un brano per gruppo</h2>
     <div class="riquadro compito">
-      <span class="etichetta">Sul quaderno, 20 minuti</span>
-      <p>In <strong>sol maggiore</strong>, a quattro parti.<br>
-      <strong>a)</strong> Quattro battute di <strong>pedale di dominante</strong> (re al basso), con almeno tre armonie diverse sopra, e la risoluzione sulla tonica alla quinta battuta.<br>
-      <strong>b)</strong> Quattro battute di <strong>pedale di tonica</strong> (sol al basso) che chiudano il pezzo.</p>
-      <p>Sotto ciascuna, scrivete <strong>a che cosa serve</strong> quel pedale l&igrave;: con le parole del libro, non con le vostre.</p>
+      <span class="etichetta">A gruppi di tre &middot; 15 minuti</span>
+      <p>Tre brani, a centoventi anni di distanza: <strong>Bach 1722</strong>, <strong>Haydn 1793</strong>, <strong>Schumann 1842</strong>. Ogni gruppo ne prende uno, con partitura e ascolto.<br>
+      <strong>1.</strong> I tre controlli della slide di prima: trovate il pedale, o i pedali.<br>
+      <strong>2.</strong> Per ciascuno: battute, grado (tonica o dominante), tenuto o ribattuto.<br>
+      <strong>3.</strong> La domanda che conta: <strong>che cosa prepara</strong>, o che cosa chiude, in quel punto della forma?</p>
     </div>
-
-    <p class="didascalia">Le parole del libro sono <em>tensivo</em> e <em>stabilit&agrave;</em>. Chiedere le parole esatte non &egrave; pedanteria: sono i due termini che ricompaiono nella traccia d&rsquo;esame.</p>
+    <p>Alla fine un portavoce per gruppo scrive la sua riga nella tabella alla lavagna: anno, grado, durata, che cosa fa.</p>
+    <p class="didascalia">I brani non li ho scelti io: li ha trovati un programma che cerca note ferme in tutto il repertorio del corso. Quello che trovate voi lo si pu&ograve; ricontrollare, ed &egrave; il punto.</p>
   </div>
 </section>
 
-<!-- «I modelli del libro» e «Dubois, e una frase che sorprende» erano
-     titoli senza il modello scritto: l'ora citava e non mostrava. -->
-<section class="slide" data-titolo="Scrivere un pedale, in pratica">
+<section class="slide" data-titolo="1722 &middot; Bach">
   <div class="slide-interna">
-    <h2>Quattro parti sopra una nota ferma</h2>
+    <h2>La correzione &middot; 1722 &middot; il pedale <strong>chiude</strong></h2>
 
-    <tac-stave clef="bass" time="4/4" caption="Il pedale ribattuto, e sopra tre accordi diversi: la nota grave non partecipa" notes="g/2:q g/2:q g/2:q g/2:q g/2:w" width="460" tempo="63" play></tac-stave>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Esercizio &middot; 15 minuti</span>
-      <p>Quattro battute. Il basso tiene il <strong>quinto grado</strong>; le tre voci superiori fanno una progressione qualsiasi e chiudono sulla dominante.</p>
-      <p>Poi si toglie il basso e si guarda: le tre voci, da sole, devono avere senso. Se non ce l&rsquo;hanno, il pedale sta coprendo un errore.</p>
-    </div>
-
-  </div>
-</section>
-
-<section class="slide" data-titolo="In musica vera">
-  <div class="slide-interna">
-    <h2>Il pedale che chiude una fuga</h2>
-
-    <p>Questo &egrave; il <strong>1722</strong>, e la raccolta la conoscete: ci avete lavorato tre settimane fa, in quarta, all&rsquo;unit&agrave;&nbsp;11. Sono le ultime battute della fuga.</p>
-
-    <tac-brano organico="tastiera" titolo="J. S. Bach, Fuga in do minore BWV 847, la chiusa" metronomo youtube="1XJgy8W0P6Y" esecutore="Robert Hill, clavicembalo" partitura="../../_assets/spartiti/A12_bach-847.png" inciso="../../_assets/incisioni/A12_bach_847.mp3" mappa='{"durata":24920,"eventi":[[0,0],[1,3158],[2,6316],[3,9474],[4,12632],[5,15789],[6,18947]]}' da-battuta="25">
-<script type="application/json">{"titolo":"J. S. Bach, Fuga in do minore BWV 847, la chiusa","metro":"4/4","bpm":76,"battute":7,"anacrusi":0.0,"voci":[[[0.0,0.5,65],[0.5,0.25,74],[0.75,0.25,72],[1.0,0.5,74],[1.5,0.5,65],[2.0,0.5,63],[2.5,0.25,75],[2.75,0.25,74],[3.0,0.5,75],[3.5,0.5,67],[4.0,0.5,65],[4.5,0.25,77],[4.75,0.25,75],[5.0,0.5,77],[5.5,0.5,68],[6.0,0.25,67],[6.25,0.25,77],[6.5,0.25,75],[6.75,0.25,74],[7.0,0.25,72],[7.25,0.25,71],[7.5,0.25,69],[7.75,0.25,67],[8.0,0.5,72],[8.5,0.5,77],[9.0,0.5,75],[9.5,0.5,74],[10.5,0.5,68],[11.0,0.5,67],[11.5,0.5,65],[12.0,0.5,67],[12.5,0.25,65],[12.75,0.25,63],[13.0,0.5,65],[13.5,0.5,62],[14.0,0.5,68],[14.5,0.5,67],[15.5,0.5,69],[16.0,0.5,71],[16.5,0.5,72],[17.0,0.25,65],[17.25,0.25,63],[17.5,0.25,62],[17.75,0.25,60],[18.0,0.5,60],[18.5,0.25,72],[18.75,0.25,71],[19.0,0.5,72],[19.5,0.5,67],[20.0,0.5,68],[20.5,0.25,72],[20.75,0.25,71],[21.0,0.5,72],[21.5,0.5,71],[21.5,0.5,74],[22.0,0.5,67],[22.5,0.25,72],[22.75,0.25,71],[23.0,0.5,72],[23.5,0.5,74],[24.0,0.25,65],[24.25,0.25,67],[24.5,1.0,68],[25.5,0.25,67],[25.75,0.25,65],[26.0,2.0,64]],[[0.0,0.5,59],[1.5,0.5,59],[2.0,0.5,60],[3.5,0.5,63],[4.0,0.5,62],[5.5,0.5,65],[6.0,0.5,65],[7.5,0.5,65],[8.0,0.5,63],[8.5,0.5,68],[9.0,0.5,67],[9.5,0.5,65],[10.0,0.5,63],[10.5,0.5,62],[11.0,0.5,63],[11.5,0.5,65],[12.0,0.5,59],[12.5,0.5,60],[13.0,0.5,62],[13.5,0.5,59],[14.0,0.5,59],[14.5,0.5,60],[15.5,0.5,60],[16.0,0.25,65],[16.25,0.25,62],[16.5,0.25,63],[16.75,0.25,60],[17.0,0.5,60],[17.5,0.5,59],[18.0,1.0,60],[19.5,0.5,64],[20.0,1.0,65],[21.5,0.5,65],[21.5,0.5,68],[22.0,0.5,65],[22.5,0.25,63],[22.75,0.25,62],[23.0,0.5,63],[23.5,0.5,65],[23.5,0.5,68],[24.0,0.5,59],[24.0,0.5,62],[25.0,0.5,59],[25.0,0.5,62],[26.0,2.0,55],[26.0,2.0,60]],[[0.0,1.0,43],[2.25,0.25,43],[2.5,0.25,45],[2.75,0.25,47],[3.0,0.25,48],[3.25,0.25,50],[3.5,0.25,51],[3.75,0.25,53],[4.0,0.25,55],[4.25,0.25,53],[4.5,0.25,56],[4.75,0.25,55],[5.0,0.25,53],[5.25,0.25,51],[5.5,0.25,50],[5.75,0.25,48],[6.0,0.5,47],[6.5,0.25,48],[6.75,0.25,47],[7.0,0.5,48],[7.5,0.5,43],[8.0,0.5,44],[8.5,0.25,48],[8.75,0.25,47],[9.0,0.5,48],[9.5,0.5,50],[10.0,0.5,43],[10.5,0.25,48],[10.75,0.25,47],[11.0,0.5,48],[11.5,0.5,50],[12.0,0.25,41],[12.25,0.25,43],[12.5,1.0,44],[13.5,0.25,43],[13.75,0.25,41],[14.0,1.0,39],[15.5,0.5,51],[16.0,0.5,50],[16.5,0.5,48],[17.0,0.5,55],[17.5,0.5,43],[18.0,2.0,36],[18.0,2.0,48],[20.0,4.0,36],[20.0,4.0,48],[24.0,4.0,36],[24.0,4.0,48]]]}</script>
-</tac-brano>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa succede, misurato</span>
-      <p>Dalla <strong>b.&nbsp;29</strong> il basso si ferma sul <strong>do</strong> e non si muove pi&ugrave; fino alla fine. Sopra, le due voci continuano il loro discorso &mdash; ed &egrave; un <strong>pedale di tonica</strong>, cio&egrave; quello che dice <em>qui restiamo</em>.</p>
-    </div>
-
-    <p class="didascalia">Il libro sceglie proprio il Clavicembalo ben temperato per il suo esempio di pedale, a p.&nbsp;28. Non &egrave; una coincidenza: la fine di una fuga &egrave; il posto dove il pedale fa il lavoro pi&ugrave; visibile che ci sia.</p>
-  </div>
-</section>
-
-<section class="slide perc" data-titolo="Il pedale e la modulazione">
-  <div class="slide-interna">
-    <h2>Il caso limite: sopra si modula, sotto no</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Ascolto &middot; 6 minuti</span>
-      <p>Due ascolti. Sopra il pedale passano accordi che, da soli, apparterrebbero ad altre tonalità. La tonalità del passo <strong>cambia</strong>?</p>
-    </div>
-
-    <tac-brano organico="tastiera" titolo="Bach, Fuga BWV 847 — la chiusa, sul pedale di tonica"
+    <tac-brano organico="tastiera" titolo="J. S. Bach, Fuga in do minore BWV 847, la chiusa"
+               segna="b29-b31=da qui il basso tiene il do e non lo lascia pi&ugrave;: pedale di tonica &middot; b30=e sopra le due voci continuano il loro discorso"
                metronomo youtube="1XJgy8W0P6Y" esecutore="Robert Hill, clavicembalo" partitura="../../_assets/spartiti/A12_bach-847.png" inciso="../../_assets/incisioni/A12_bach_847.mp3" mappa='{"durata":24920,"eventi":[[0,0],[1,3158],[2,6316],[3,9474],[4,12632],[5,15789],[6,18947]]}' da-battuta="25">
 <script type="application/json">{"titolo":"J. S. Bach, Fuga in do minore BWV 847, la chiusa","metro":"4/4","bpm":76,"battute":7,"anacrusi":0.0,"voci":[[[0.0,0.5,65],[0.5,0.25,74],[0.75,0.25,72],[1.0,0.5,74],[1.5,0.5,65],[2.0,0.5,63],[2.5,0.25,75],[2.75,0.25,74],[3.0,0.5,75],[3.5,0.5,67],[4.0,0.5,65],[4.5,0.25,77],[4.75,0.25,75],[5.0,0.5,77],[5.5,0.5,68],[6.0,0.25,67],[6.25,0.25,77],[6.5,0.25,75],[6.75,0.25,74],[7.0,0.25,72],[7.25,0.25,71],[7.5,0.25,69],[7.75,0.25,67],[8.0,0.5,72],[8.5,0.5,77],[9.0,0.5,75],[9.5,0.5,74],[10.5,0.5,68],[11.0,0.5,67],[11.5,0.5,65],[12.0,0.5,67],[12.5,0.25,65],[12.75,0.25,63],[13.0,0.5,65],[13.5,0.5,62],[14.0,0.5,68],[14.5,0.5,67],[15.5,0.5,69],[16.0,0.5,71],[16.5,0.5,72],[17.0,0.25,65],[17.25,0.25,63],[17.5,0.25,62],[17.75,0.25,60],[18.0,0.5,60],[18.5,0.25,72],[18.75,0.25,71],[19.0,0.5,72],[19.5,0.5,67],[20.0,0.5,68],[20.5,0.25,72],[20.75,0.25,71],[21.0,0.5,72],[21.5,0.5,71],[21.5,0.5,74],[22.0,0.5,67],[22.5,0.25,72],[22.75,0.25,71],[23.0,0.5,72],[23.5,0.5,74],[24.0,0.25,65],[24.25,0.25,67],[24.5,1.0,68],[25.5,0.25,67],[25.75,0.25,65],[26.0,2.0,64]],[[0.0,0.5,59],[1.5,0.5,59],[2.0,0.5,60],[3.5,0.5,63],[4.0,0.5,62],[5.5,0.5,65],[6.0,0.5,65],[7.5,0.5,65],[8.0,0.5,63],[8.5,0.5,68],[9.0,0.5,67],[9.5,0.5,65],[10.0,0.5,63],[10.5,0.5,62],[11.0,0.5,63],[11.5,0.5,65],[12.0,0.5,59],[12.5,0.5,60],[13.0,0.5,62],[13.5,0.5,59],[14.0,0.5,59],[14.5,0.5,60],[15.5,0.5,60],[16.0,0.25,65],[16.25,0.25,62],[16.5,0.25,63],[16.75,0.25,60],[17.0,0.5,60],[17.5,0.5,59],[18.0,1.0,60],[19.5,0.5,64],[20.0,1.0,65],[21.5,0.5,65],[21.5,0.5,68],[22.0,0.5,65],[22.5,0.25,63],[22.75,0.25,62],[23.0,0.5,63],[23.5,0.5,65],[23.5,0.5,68],[24.0,0.5,59],[24.0,0.5,62],[25.0,0.5,59],[25.0,0.5,62],[26.0,2.0,55],[26.0,2.0,60]],[[0.0,1.0,43],[2.25,0.25,43],[2.5,0.25,45],[2.75,0.25,47],[3.0,0.25,48],[3.25,0.25,50],[3.5,0.25,51],[3.75,0.25,53],[4.0,0.25,55],[4.25,0.25,53],[4.5,0.25,56],[4.75,0.25,55],[5.0,0.25,53],[5.25,0.25,51],[5.5,0.25,50],[5.75,0.25,48],[6.0,0.5,47],[6.5,0.25,48],[6.75,0.25,47],[7.0,0.5,48],[7.5,0.5,43],[8.0,0.5,44],[8.5,0.25,48],[8.75,0.25,47],[9.0,0.5,48],[9.5,0.5,50],[10.0,0.5,43],[10.5,0.25,48],[10.75,0.25,47],[11.0,0.5,48],[11.5,0.5,50],[12.0,0.25,41],[12.25,0.25,43],[12.5,1.0,44],[13.5,0.25,43],[13.75,0.25,41],[14.0,1.0,39],[15.5,0.5,51],[16.0,0.5,50],[16.5,0.5,48],[17.0,0.5,55],[17.5,0.5,43],[18.0,2.0,36],[18.0,2.0,48],[20.0,4.0,36],[20.0,4.0,48],[24.0,4.0,36],[24.0,4.0,48]]]}</script>
 </tac-brano>
 
-
-    <tac-stave clef="bass" time="4/4" caption="Il pedale: la nota resta, e sopra l&rsquo;armonia si muove. Il grado del basso non conta più" notes="c/3:w c/3:w" width="440" tempo="60" play></tac-stave>
-
-  </div>
-</section>
-
-<section class="slide" data-titolo="Dubois, e una frase che sorprende">
-  <div class="slide-interna">
-    <h2>Una frase di Dubois che vale la pena</h2>
-
     <div class="riquadro definizione">
-      <span class="etichetta">p.&nbsp;110</span>
-      <p>&laquo;<em>Nessun Pedale del resto <strong>&egrave; obbligatorio</strong> in una Fuga</em>&raquo;.</p>
+      <span class="etichetta">Misurato</span>
+      <p>Dalla <strong>b.&nbsp;29</strong> il basso tiene il <strong>do</strong> e non lo lascia pi&ugrave; fino all&rsquo;ultima battuta, la 31. Tre battute su trentuno: <strong>il dieci per cento del pezzo &egrave; una nota sola</strong>.</p>
     </div>
 
-    <p>Detta da un trattato di fuga, questa &egrave; una frase notevole. Il pedale finale &egrave; talmente frequente che sembra una regola della forma &mdash; e Dubois si prende la briga di dire che non lo &egrave;.</p>
-
-    <p class="didascalia">La lezione, che vale oltre il pedale: <strong>frequente non vuol dire obbligatorio</strong>. Una cosa che succede quasi sempre pu&ograve; essere una consuetudine forte e non una regola, e chi la tratta da regola sbaglia le eccezioni &mdash; che spesso sono i pezzi migliori.</p>
+    <p class="didascalia">La fuga ha corso per ventotto battute con tre voci indipendenti. Poi una si ferma, e le altre due finiscono di parlare sopra di lei. Il pedale qui non aggiunge niente: <strong>toglie</strong> &mdash; toglie una voce dal gioco, e cos&igrave; il gioco finisce.</p>
   </div>
 </section>
 
-<!-- ───────────────────────────────────────────────────────────────────
-     Tre slide, due con musica vera. L'ora è sul pedale, e distingue
-     pedale di dominante e pedale di tonica: due cose che fanno mestieri
-     opposti — uno carica, l'altro chiude. C'era un brano solo, A12, ed
-     è un pedale di tonica. Il pedale di dominante — quello che prepara
-     un rientro, cioè il caso che conta per l'analisi — non si sentiva.
-     ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="Il pedale di dominante, sentito">
+<section class="slide" data-titolo="1793 &middot; Haydn, e il colpo">
   <div class="slide-interna">
-    <h2>La nota ferma che carica invece di chiudere</h2>
+    <h2>1793 &middot; il pedale <strong>segna la forma</strong></h2>
 
-    <div class="riquadro compito">
-      <span class="etichetta">Ascolto &middot; 6 minuti</span>
-      <p>Due ascolti seguendo il violoncello. La nota grave sta ferma: mentre sta ferma, <strong>sopra</strong> succede qualcosa o no?</p>
-    </div>
+    <p>Qui succede una cosa che vale l&rsquo;ora intera. Guardate il violoncello, e poi guardate il <strong>numero della battuta</strong>.</p>
 
-    <tac-brano organico="archi" titolo="Haydn, Quartetto op. 74 n. 1 — il pedale della ripresa"
+    <tac-brano organico="archi" titolo="F. J. Haydn, Quartetto op. 74 n. 1, l&rsquo;inizio (bb. 3&ndash;6)"
+               segna="b3-b6=il violoncello ribatte il do per quattro battute: pedale di tonica"
+               metronomo youtube="1YUE_KA4RvQ" esecutore="London Haydn Quartet" partitura="../../_assets/spartiti/A13_haydn-74-1-inizio.png" inciso="../../_assets/incisioni/A13_haydn_74_1_inizio.mp3" mappa='{"durata":24894,"eventi":[[0,0],[1,2727],[2,5455],[3,8182],[4,10909],[5,13636],[6,16364],[7,19091]]}' da-battuta="1">
+<script type="application/json">{"titolo":"F. J. Haydn, Quartetto op. 74 n. 1, l'inizio (bb. 3–6)","metro":"4/4","bpm":88,"battute":8,"anacrusi":0.0,"voci":[[[0.0,4.0,62],[0.0,4.0,71],[4.0,1.0,55],[4.0,1.0,64],[4.0,1.0,72],[8.0,2.0,72],[10.0,2.0,74],[12.0,2.0,71],[14.0,1.0,72],[15.0,1.0,73],[16.0,2.0,74],[18.0,1.0,75],[19.0,1.0,76],[20.0,1.0,79],[21.0,0.125,77],[21.125,0.125,79],[21.25,0.125,77],[21.375,0.125,79],[21.5,0.125,77],[21.625,0.125,79],[21.75,0.125,77],[21.875,0.125,79],[22.0,0.1125,76],[22.125,0.1125,77],[22.25,0.75,76],[23.5,0.5,79],[24.0,0.5,84],[24.5,0.25,88],[24.75,0.25,86],[25.0,0.25,84],[25.25,0.25,83],[25.5,0.25,81],[25.75,0.25,79],[26.0,0.25,77],[26.25,0.25,76],[26.5,0.25,74],[26.75,0.25,72],[27.0,0.25,71],[27.25,0.25,69],[27.5,0.25,67],[27.75,0.25,65],[28.0,2.0,64],[30.0,1.0,62],[31.0,1.0,69]],[[0.0,4.0,55],[0.0,4.0,65],[4.0,1.0,55],[4.0,1.0,64],[8.0,2.0,67],[10.0,2.0,69],[12.0,2.0,65],[14.0,2.0,67],[16.0,1.75,69],[17.75,0.25,71],[18.0,1.0,72],[19.0,1.0,72],[20.0,1.0,72],[21.0,1.0,74],[22.0,1.0,67],[24.0,4.0,55],[28.0,3.0,57],[31.0,0.5,60],[31.5,0.5,62]],[[0.0,4.0,59],[0.0,4.0,62],[4.0,1.0,48],[4.0,1.0,55],[4.0,1.0,64],[8.0,2.0,64],[10.0,2.0,65],[12.0,2.0,62],[14.0,2.0,64],[16.0,2.0,65],[18.0,1.0,66],[19.0,1.0,67],[20.0,1.0,69],[21.0,1.0,71],[22.0,1.0,74],[24.0,4.0,48],[28.0,1.0,48],[29.0,1.0,49],[30.0,2.0,50]],[[0.0,4.0,43],[4.0,1.0,36],[4.0,1.0,48],[8.0,0.5,60],[8.5,0.5,60],[9.0,0.5,60],[9.5,0.5,60],[10.0,0.5,60],[10.5,0.5,60],[11.0,0.5,60],[11.5,0.5,60],[12.0,0.5,60],[12.5,0.5,60],[13.0,0.5,60],[13.5,0.5,60],[14.0,0.5,60],[14.5,0.5,60],[15.0,0.5,60],[15.5,0.5,60],[16.0,0.5,60],[16.5,0.5,60],[17.0,0.5,60],[17.5,0.5,60],[18.0,0.5,60],[18.5,0.5,60],[19.0,0.5,60],[19.5,0.5,60],[20.0,0.5,60],[20.5,0.5,60],[21.0,0.5,60],[21.5,0.5,60],[22.0,1.0,60],[24.0,4.0,40],[28.0,3.0,41],[31.0,1.0,42]]]}</script>
+</tac-brano>
+
+    <tac-brano organico="archi" titolo="F. J. Haydn, Quartetto op. 74 n. 1, la ripresa (bb. 97&ndash;100)"
+               segna="b97-b100=lo stesso pedale, novantaquattro battute dopo &mdash; e la b.&nbsp;97 &egrave; dove comincia la ripresa"
                metronomo youtube="1YUE_KA4RvQ" esecutore="London Haydn Quartet" partitura="../../_assets/spartiti/A14_haydn-74-1-ripresa.png" inciso="../../_assets/incisioni/A14_haydn_74_1_ripresa.mp3" mappa='{"durata":24659,"eventi":[[0,0],[1,2727],[2,5455],[3,8182],[4,10909],[5,13636],[6,16364],[7,19091]]}' da-battuta="95">
 <script type="application/json">{"titolo":"F. J. Haydn, Quartetto op. 74 n. 1, la ripresa (bb. 97–100)","metro":"4/4","bpm":88,"battute":8,"anacrusi":0.0,"voci":[[[0.0,0.5,81],[0.5,0.5,80],[1.0,0.5,83],[1.5,0.5,81],[2.0,0.5,79],[2.5,0.5,78],[3.0,0.5,81],[3.5,0.5,79],[4.0,0.5,77],[4.5,0.5,76],[5.0,0.5,79],[5.5,0.5,77],[6.0,0.5,76],[6.5,0.5,74],[7.0,0.5,77],[7.5,0.5,71],[8.0,2.0,72],[10.0,2.0,74],[12.0,2.0,71],[14.0,1.0,72],[15.0,1.0,73],[16.0,2.0,74],[18.0,1.0,75],[19.0,1.0,76],[20.0,1.0,79],[21.0,0.125,77],[21.125,0.125,79],[21.25,0.125,77],[21.375,0.125,79],[21.5,0.125,77],[21.625,0.125,79],[21.75,0.125,77],[21.875,0.125,79],[22.0,1.0,76],[23.5,0.5,79],[24.0,0.5,84],[24.5,0.25,88],[24.75,0.25,86],[25.0,0.25,84],[25.25,0.25,83],[25.5,0.25,81],[25.75,0.25,79],[26.0,0.25,77],[26.25,0.25,76],[26.5,0.25,74],[26.75,0.25,72],[27.0,0.25,71],[27.25,0.25,69],[27.5,0.25,67],[27.75,0.25,65],[28.0,2.0,64],[30.0,1.0,62],[31.0,1.0,69]],[[0.0,1.0,65],[8.0,2.0,67],[10.0,2.0,69],[12.0,2.0,65],[14.0,2.0,67],[16.0,1.75,69],[17.75,0.25,71],[18.0,1.0,72],[19.0,1.0,72],[20.0,1.0,72],[21.0,1.0,74],[22.0,1.0,67],[24.0,4.0,55],[28.0,3.0,57],[31.0,0.5,60],[31.5,0.5,62]],[[0.0,1.0,59],[0.0,1.0,62],[8.0,2.0,64],[10.0,2.0,65],[12.0,2.0,62],[14.0,2.0,64],[16.0,2.0,65],[18.0,1.0,66],[19.0,1.0,67],[20.0,1.0,69],[21.0,1.0,71],[22.0,1.0,72],[24.0,4.0,48],[28.0,1.0,48],[29.0,1.0,49],[30.0,2.0,50]],[[0.0,1.0,43],[8.0,0.5,60],[8.5,0.5,60],[9.0,0.5,60],[9.5,0.5,60],[10.0,0.5,60],[10.5,0.5,60],[11.0,0.5,60],[11.5,0.5,60],[12.0,0.5,60],[12.5,0.5,60],[13.0,0.5,60],[13.5,0.5,60],[14.0,0.5,60],[14.5,0.5,60],[15.0,0.5,60],[15.5,0.5,60],[16.0,0.5,60],[16.5,0.5,60],[17.0,0.5,60],[17.5,0.5,60],[18.0,0.5,60],[18.5,0.5,60],[19.0,0.5,60],[19.5,0.5,60],[20.0,0.5,60],[20.5,0.5,60],[21.0,0.5,60],[21.5,0.5,60],[22.0,1.0,60],[24.0,4.0,40],[28.0,3.0,41],[31.0,1.0,42]]]}</script>
 </tac-brano>
 
+    <p class="didascalia">Lo stesso pedale di tonica, <strong>a novantaquattro battute di distanza</strong>. Il primo apre l&rsquo;esposizione, il secondo apre la ripresa.</p>
+  </div>
+</section>
 
+<section class="slide" data-titolo="La battuta 97">
+  <div class="slide-interna">
+    <h2>La battuta 97 la conoscete gi&agrave;</h2>
+
+    <p>&Egrave; il numero che avete <strong>misurato l&rsquo;anno scorso</strong>, in quarta, all&rsquo;unit&agrave;&nbsp;10: il punto in cui comincia la ripresa di questo movimento.</p>
+
+    <div class="riquadro studio">
+      <p>Allora ci si era arrivati per un&rsquo;altra strada: il ritorno del primo tema nella tonalit&agrave; d&rsquo;impianto. Oggi ci si arriva dal basso, cercando note ferme. <strong>Due misure indipendenti, lo stesso numero.</strong></p>
+    </div>
+
+    <p>Che vuol dire, allora, quel pedale? Che il pedale di tonica <strong>non decora un inizio: lo dichiara</strong>. E infatti torna esattamente dove l&rsquo;inizio torna.</p>
+
+    <p class="didascalia">Questa &egrave; la differenza fra sapere una definizione e capire un artificio. La definizione dice che il pedale prolunga la stabilit&agrave;; qui si vede <em>a che cosa serve</em> quella stabilit&agrave;: a dire all&rsquo;ascoltatore che si &egrave; tornati a casa, prima ancora che il tema lo confermi.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il terzo pedale di Haydn">
+  <div class="slide-interna">
+    <h2>E poi Haydn fa il contrario</h2>
+
+    <p>Nello stesso movimento c&rsquo;&egrave; un terzo pedale, alle <strong>bb.&nbsp;111&ndash;117</strong>, ed &egrave; su <strong>sol</strong>: la dominante. Sette battute, il pi&ugrave; lungo dei tre.</p>
+
+    <tac-stave clef="bass" time="4/4" keysig="C"
+               caption="Lo schema: sol tenuto, e sopra le armonie che girano"
+               soprano="d/4:h f/4:h | e/4:h g/4:h | f/4:h b/3:h | c/4:w"
+               basso="g/2:w | g/2:w | g/2:w | c/3:w"
+               segna="b1-b3=sette battute cos&igrave;: la tensione non si scarica &middot; b4=e solo qui arriva la tonica"
+               width="760" tempo="52" play a-passi></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Due funzioni opposte, stesso pezzo</span>
+      <p>Alle bb. 3&ndash;6 e 97&ndash;100 il pedale di <strong>tonica</strong> dice <em>siamo a casa</em>.<br>
+      Alle bb. 111&ndash;117 il pedale di <strong>dominante</strong> dice <em>non ancora</em>, per sette battute, prima della chiusa.</p>
+    </div>
+
+    <p class="didascalia">&Egrave; esattamente quello che il libro scrive a p.&nbsp;28 &mdash; l&rsquo;effetto tensivo prolungato prima della tonica &mdash; e sta dentro la ripresa, cio&egrave; nella parte che dovrebbe essere tranquilla.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="1842 &middot; Schumann">
+  <div class="slide-interna">
+    <h2>1842 &middot; il pedale <strong>dilata la fine</strong></h2>
+
+    <tac-brano organico="archi" titolo="R. Schumann, Quartetto op. 41 n. 1, la coda (bb. 357&ndash;364)"
+               segna="b357-b364=otto battute su una nota ferma, e il movimento finisce alla 374"
+               metronomo youtube="7sppWKocfC0" esecutore="GoYa Quartet" partitura="../../_assets/spartiti/A15_schumann-41-1.png" inciso="../../_assets/incisioni/A15_schumann_41_1.mp3" mappa='{"durata":14654,"eventi":[[0,0],[1,1250],[2,2500],[3,3750],[4,5000],[5,6250],[6,7500],[7,8750],[8,10000],[9,11250]]}' da-battuta="355">
+<script type="application/json">{"titolo":"R. Schumann, Quartetto op. 41 n. 1, la coda (bb. 357–364)","metro":"6/8","bpm":96,"battute":10,"anacrusi":0.0,"voci":[[[0.0,1.5,72],[1.5,1.5,64],[3.0,1.5,69],[4.5,0.5,69],[5.0,0.5,67],[5.5,0.5,65],[6.0,1.5,72],[7.5,0.5,72],[8.0,0.5,70],[8.5,0.5,69],[9.0,1.5,74],[10.5,1.5,77],[12.0,1.0,77],[13.0,0.5,74],[13.5,1.0,72],[14.5,0.5,70],[15.0,1.5,69],[16.5,1.5,77],[18.0,1.5,77],[19.5,1.5,78],[21.0,1.5,79],[22.5,1.5,82],[24.0,1.0,82],[25.0,0.5,79],[25.5,1.0,74],[26.5,0.5,76],[27.0,1.5,77],[28.5,0.5,77],[29.0,0.5,79],[29.5,0.5,81]],[[0.0,1.5,65],[1.5,1.5,58],[3.0,3.0,57],[6.0,3.0,63],[9.0,1.5,62],[10.5,1.5,65],[12.0,1.5,65],[13.5,1.5,64],[15.0,1.5,69],[16.5,0.5,69],[17.0,0.5,67],[17.5,0.5,65],[18.0,1.5,72],[19.5,0.5,72],[20.0,0.5,70],[20.5,0.5,69],[21.0,1.5,67],[22.5,1.5,70],[24.0,1.0,70],[25.0,0.5,67],[25.5,1.0,62],[26.5,0.5,64],[27.0,1.5,65]],[[0.0,1.4706,57],[1.4706,1.4706,55],[3.0,2.9412,53],[6.0,1.4706,57],[7.4706,0.4706,57],[7.9412,0.4706,58],[8.4118,0.4706,60],[9.0,1.4706,58],[10.4706,1.4706,62],[12.0,1.0,62],[13.0,0.4706,58],[13.4706,1.0,57],[14.4706,0.4706,55],[15.0,1.4706,53],[15.0,1.4706,60],[16.4706,0.4706,53],[16.4706,0.4706,60],[16.9412,0.4706,58],[17.4118,0.4706,57],[18.0,1.4706,63],[19.4706,0.4706,63],[19.9412,0.4706,62],[20.4118,0.4706,60],[21.0,1.4706,58],[22.4706,1.4706,62],[24.0,1.0,62],[25.0,0.4706,58],[25.4706,1.0,55],[26.4706,0.4706,58],[27.0,1.4706,57]],[[0.0,1.5,48],[1.5,1.5,36],[1.5,1.5,48],[3.0,3.0,41],[6.0,3.0,53],[9.0,1.5,53],[10.5,1.5,53],[12.0,1.5,53],[13.5,1.5,53],[15.0,3.0,53],[18.0,3.0,53],[21.0,3.0,53],[24.0,1.5,53],[25.5,1.5,53],[27.0,1.5,53]]]}</script>
+</tac-brano>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Misurato</span>
+      <p>Pedale di <strong>tonica</strong> alle bb.&nbsp;<strong>357&ndash;364</strong>, otto battute, e poi <strong>di nuovo</strong> alle bb.&nbsp;370&ndash;374. Il movimento finisce alla 374.</p>
+    </div>
+
+    <p>Otto battute pi&ugrave; cinque, nelle ultime diciotto di un movimento: <strong>quasi tutta la coda &egrave; costruita su una nota ferma</strong>. E il pedale ricomincia dopo essersi interrotto, che &egrave; una cosa che n&eacute; Bach n&eacute; Haydn fanno.</p>
+
+    <p class="didascalia">Il lavoro qui &egrave; un terzo ancora: non chiudere, non dichiarare la forma, ma <strong>allungare</strong> il momento in cui il pezzo &egrave; gi&agrave; finito. Ottant&rsquo;anni prima quel momento durava tre battute.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="I tre a confronto">
+  <div class="slide-interna">
+    <h2>Tre epoche, tre lavori</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Lo stesso artificio</span>
+      <p><strong>1722 &middot; Bach</strong> &mdash; tonica, 3 battute su 31: il pedale <strong>chiude</strong>.<br>
+      <strong>1793 &middot; Haydn</strong> &mdash; tonica alle bb. 3 e 97, dominante alla 111: il pedale <strong>segna la forma</strong>.<br>
+      <strong>1842 &middot; Schumann</strong> &mdash; tonica per 8 battute e poi altre 5: il pedale <strong>dilata la fine</strong>.</p>
+    </div>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Sul quaderno, per la prossima volta</span>
+      <p>Scegliete <strong>un pezzo qualunque</strong> del vostro repertorio di strumento e cercateci un pedale, con i tre controlli dell&rsquo;ora scorsa. Se lo trovate: copiate le battute, dite <strong>che grado</strong> &egrave; e <strong>quale dei tre lavori</strong> sta facendo. Se non lo trovate, scrivete dove avete cercato &mdash; anche quello &egrave; un risultato.</p>
+    </div>
+
+    <p class="didascalia">Centoventi anni, e la tecnica non cambia di una nota: una sola nota, tenuta, mentre sopra si muove. Quello che cambia &egrave; <strong>a che cosa serve</strong>, e &egrave; l&igrave; che si vede la differenza fra le epoche.</p>
   </div>
 </section>
 
@@ -529,9 +357,10 @@ try { module = undefined; exports = undefined; } catch (e) {}
       </div>
     </div>
 
-    <p class="didascalia">La prossima ora si va a vederli in tre pezzi veri, a centoventi anni di distanza l&rsquo;uno dall&rsquo;altro: <strong>1722, 1793, 1842</strong>. Stessa tecnica, tre lavori diversi.</p>
+    <p class="didascalia">La prossima ora &egrave; la vostra prima analisi integrale: un minuetto di Haydn, la scheda dei quattro piani, da soli. Il pedale lo cercherete anche l&igrave;.</p>
   </div>
 </section>
+
 
 <section class="slide esercizio insieme-slide" data-titolo="In classe · parlato">
   <div class="slide-interna">
@@ -586,7 +415,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>In <strong>sol maggiore</strong>. <strong>a)</strong> Quattro battute di pedale di <strong>dominante</strong> (re al basso) con almeno tre armonie diverse sopra, e la risoluzione sulla tonica alla quinta battuta. <strong>b)</strong> Quattro battute di pedale di <strong>tonica</strong> che chiudano.</p>
       <p>Sotto ciascuno, una riga: a che cosa serve quel pedale l&igrave;, <strong>con le parole del libro</strong> (p.&nbsp;28) &mdash; <em>tensivo</em> oppure <em>stabilit&agrave;</em>. Sono i due termini che ricompaiono nella traccia d&rsquo;esame.</p>
     </div>
-    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C5-U2-L3-01</strong>.</p>
+    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C5-U2-L3-05</strong>.</p>
   </div>
 </section>
 
@@ -602,12 +431,12 @@ try { module = undefined; exports = undefined; } catch (e) {}
     </div>
     <div class="riquadro compito">
       <span class="etichetta">3 &middot; Dettato</span>
-      <p>Scrivi <strong>la melodia</strong> sul quaderno, in chiave di violino: otto battute in 2/2, si♭ maggiore. Il primo suono è <strong>si♭</strong>. Prima il riferimento, poi tutto due volte, a coppie di battute, le giunzioni, e tutto per controllare.</p>
+      <p>Scrivi <strong>la linea del basso</strong> sul quaderno, in chiave di basso: otto battute in 9/8, do maggiore. Il primo suono è <strong>mi</strong>. Prima il riferimento, poi tutto due volte, a coppie di battute, le giunzioni, e tutto per controllare.</p>
       <div class="dettato-ascolti">
         <div><p class="didascalia">Il riferimento: accordo di tonica e primo suono</p>
-          <tac-stave nascondi clef="treble" time="2/2" keysig="Bb" notes="bb/3:q d/4:q f/4:q bb/4:q | bb/4:w" tempo="80" play></tac-stave></div>
+          <tac-stave nascondi clef="bass" time="9/8" keysig="C" notes="c/3:q e/3:q g/3:q c/4:q | e/3:w" tempo="80" play></tac-stave></div>
         <div><p class="didascalia">Il dettato &middot; otto battute</p>
-          <tac-stave nascondi cifrato clef="treble" time="2/2" keysig="Bb" notes="dzo0L2JiIHwgcTo1L2MgODo0L2JiIDg6NC9hIDYxOjQvYSAuODo0L2JiIHE6NS9jIHwgNjE6NC9hIDYxOjQvZyA4OjQvYSBxOjQvYmIgcTo0L2cgNjE6NC9nIDYxOjQvYSA4OjQvYmIgfCBxOjQvYmIgODo0L2EgNjE6NC9nIDYxOjQvZiBxOjQvZiBxOjQvZCB8IHE6NC9mIHE6NC9hIDg6NC9nIDg6NC9mIHE6NC9mIHwgcTo0L2cgcTo0L2JlIDg6NC9mIDYxOjQvZyA2MTo0L2EgcTo0L2JiIHwgcTo0L2cgODo0L2EgODo0L2JiIHE6NC9iYiBxOjQvZyB8IHE6NC9iYiBxOjUvZCBxOjQvYmIgODo0L2EgODo0L2Ji" tempo="60" play></tac-stave></div>
+          <tac-stave nascondi cifrato clef="bass" time="9/8" keysig="C" notes="LnE6ciAuaDozL2MgfCAucTozL2QgODozL2UgcTozL2QgLnE6My9kIHwgLnE6My9lIDg6My9kIHE6My9jIDg6My9kIDYxOjMvZSA2MTozL2YgODozL2UgfCAucTozL2cgcTozL2cgODozL2UgLnE6My9nIHwgLnE6My9nIDg6My9mIDg6My9nIDYxOjMvYSA2MTozL2IgODo0L2MgODozL2IgNjE6My9hIDYxOjMvZyB8IC5xOjMvZiAucTozL2YgODozL2cgODozL2EgODo0L2MgfCA4OjMvYiA2MTozL2EgLjg6My9mIDg6My9hIDg6My9nIDg6My9mIHE6My9hIDg6My9mIHwgODozL2YgODozL2UgNjE6My9kIDYxOjMvYyAucTozL2UgcTozL2cgODozL2U=" tempo="60" play></tac-stave></div>
       </div>
       <p class="rimando">Si corregge all&rsquo;inizio della prossima lezione.</p>
     </div>

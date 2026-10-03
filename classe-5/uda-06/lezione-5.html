@@ -5,7 +5,7 @@
 <meta http-equiv="cache-control" content="no-cache, must-revalidate">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lezione 5. Analisi: le sequenze in un corale di Bach | Partimenti da realizzare</title>
+<title>Lezione 5. Officina: realizzare un partimento breve | Il partimento, e le formule del Settecento</title>
 <script>
 /* Rete di sicurezza. Sta prima del foglio di stile apposta: uno script
    messo dopo un foglio ancora in arrivo non parte finche' quel foglio
@@ -49,231 +49,422 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
 <!-- ══════════════════════════════════════════════════════════════════
-     LEZIONE 5 · Analisi: le sequenze in un corale di Bach
-     Unità 6, ora 38 di 90 · classe 5ª · venti minuti + coda di solfeggio
+     LEZIONE 6 · Officina: realizzare un partimento breve
+     Unità 6, ora 38 di 90 · classe 5ª · ora intera · officina
 
-     ══ IL BRANO: J. S. BACH, corale BWV 154/8 — A17.
+     ══ SI SCRIVE, E SI CORREGGE IN CLASSE. L'ora è divisa in tre:
+     venti minuti di lavoro individuale, venti di scambio a coppie,
+     venti di correzione ragionata alla lavagna.
 
-     ⚠ IL PIANO PROMETTEVA VIVALDI, E VIVALDI NON C'È. Non nel corpus
-     di music21 — `corpus.search('vivaldi')` torna zero — e non fra i
-     brani del catalogo. Il sostituto non l'ho scelto io: lo ha scelto
-     `spartiti/sequenze.py`, che su centoventi partiture ha trovato in
-     questo corale la proporzione più alta di musica in sequenza —
-     28 note su 84 — e l'unico disegno che torna TRE volte.
+     ⚠ LE DUE REGOLE DELL'UNITÀ VALGONO QUI, e sono la ragione per cui
+     l'ora esiste:
+       1. ogni realizzazione porta la sua CIFRATURA — senza, si può
+          correggere il risultato ma non il ragionamento;
+       2. TRE PARTI, non quattro: il libro lo dice a p. 66, e va detto
+          che è una scelta e non un risparmio.
 
-     ⚠ E IL CERCATORE HA TROVATO ANCHE UN MIO ERRORE, nell'unità 5:
-     una slide che descriveva una sequenza inesistente nel Corelli.
-     Errore 110. Se ne parla in classe, alla penultima slide.
-
-     I NUMERI, misurati:
-       · bb. 3-4: la-si-do♯-la, si-do♯-re-si, do♯-re-mi-do♯ — tre volte;
-       · b. 1: la stessa figura, prima comparsa;
-       · b. 8: il disegno rovesciato, in discesa, due volte.
+     ⚠ E LA CORREZIONE È RAGIONATA, non «giusto/sbagliato». Due
+     realizzazioni corrette possono valere diversamente, e la
+     differenza sta in cose che nessuna formula copre.
      ══════════════════════════════════════════════════════════════════ -->
 
-<!-- Riordinata il 30/09/2026: la slide aggiunta «Dove si ferma, e come si conta» distribuita in «E dove si ferma» (definizione di passo ed esempio), «Come è stato scelto» e «Perché ve lo racconto»; il secondo errore (il conteggio dei passi) accanto al primo in «Un mio errore», con un'etichetta che li distingue. -->
+<!-- Riveduta il 2/10/2026 (documento 43): i due ascolti di Corelli in una slide; il riepilogo riscritto sulle ore 34&ndash;44 (era la chiusura di un&rsquo;unit&agrave; che non c&rsquo;&egrave; pi&ugrave;); rimandi alle ore nuove -->
+<!-- Riordinata il 30/09/2026: da 21 a 19 slide: «L'errore da trovare» e «Dove eravamo, dove andiamo» (aggiunte) confluite nelle slide originali (errore, otto battute, correzione, errori attesi, compito, bilancio); i riquadri della seconda slide Corelli nella prima; i due confronti d'ascolto subito dopo Corelli e prima dello scambio. -->
+
 
 <section class="slide attiva copertina foto" data-titolo="Copertina"
-         style="--foto: url('../../_assets/copertine/c5u6-lezione-5.jpg?v=612253d4');
-                --cop-a:#134e4a; --cop-b:#0d9488; --cop-c:#99f6e4">
+         style="--foto: url('../../_assets/copertine/c5u5-lezione-6.jpg?v=d9fa48d8');
+                --cop-a:#0c4a6e; --cop-b:#0284c7; --cop-c:#bae6fd">
   <div class="slide-interna">
-    <div class="occhiello">Partimenti da realizzare &middot; UdA 6 &middot; Lezione 5 di 9</div>
-    <h1>Tre volte la stessa figura</h1>
-    <p class="sottotitolo">Quattordici battute di Bach, e il basso fa in due battute quello che voi avete provato a fare in un&rsquo;ora.</p>
+    <div class="occhiello">Il partimento, e le formule del Settecento &middot; UdA 6 &middot; Lezione 5 di 15</div>
+    <h1>Adesso tocca a voi</h1>
+    <p class="sottotitolo">Otto battute di basso. Alla fine dell&rsquo;ora ognuno ne ha fatto un pezzo, e sa dire perch&eacute; l&rsquo;ha fatto cos&igrave;.</p>
 
     <blockquote class="aforisma">
-      <p>Il brano non l&rsquo;ho scelto io: l&rsquo;ha scelto una misura.</p>
-      <cite>Come si sceglie un esempio, quando si pu&ograve;</cite>
+      <p>La testura a tre parti risulta pi&ugrave; appropriata a questo genere.</p>
+      <cite><em>Il linguaggio della musica</em>, 5&deg;&nbsp;anno, p.&nbsp;66</cite>
     </blockquote>
 
     <div class="meta-copertina">
-      <span>20 min</span>
-      <span>Analisi</span>
-      <span>Corale BWV 154/8</span>
+      <span>1 ora</span>
+      <span>Officina</span>
+      <span>Si consegna</span>
       <span class="coda-orali">Interrogazioni &middot; teoria e armonia</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Come &egrave; stato scelto">
+<section class="slide" data-titolo="Come si spende l&rsquo;ora">
   <div class="slide-interna">
-    <h2>Come &egrave; stato scelto, e perch&eacute; ve lo dico</h2>
+    <h2>Come si spendono i sessanta minuti</h2>
 
     <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
          «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 5&deg; anno; pagine dall'indice rilevato. -->
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
       <p><span class="lez">A5</span><strong>Laboratorio sui partimenti</strong>, pp. 62&ndash;89</p>
-      <p>Sezione A, unit&agrave; 5, lezione A29, per la sequenza; il corale come genere &egrave; A34 (unit&agrave; 7, pp. 96&ndash;115). Il corale di oggi &egrave; nostro.</p>
+      <p>Sezione A, unit&agrave; 5: l&rsquo;analisi preliminare del basso (cadenze, modulazioni, cifratura) &egrave; il metodo del libro per ogni partimento; A30 &egrave; l&rsquo;ultimo dell&rsquo;unit&agrave;.</p>
     </div>
 
-    <p>Nel piano di quest&rsquo;anno, quest&rsquo;ora si chiamava «le sequenze in un movimento di <strong>Vivaldi</strong>». Il Vivaldi non c&rsquo;&egrave;: non nella raccolta di partiture da cui prendo la musica, e non fra i brani del corso.</p>
+    <div class="riquadro procedura">
+      <span class="etichetta">Tre blocchi, e il terzo &egrave; quello che insegna</span>
+      <p><strong>5 minuti</strong> &mdash; l&rsquo;<em>analisi preliminare</em>: cadenze, modulazioni, cifratura di massima.<br>
+      <strong>20 minuti</strong> &mdash; si realizza, da soli, a tre parti.<br>
+      <strong>15 minuti</strong> &mdash; si scambia il foglio con il compagno e si legge la sua.<br>
+      <strong>20 minuti</strong> &mdash; correzione ragionata insieme, alla lavagna.</p>
+    </div>
+
+    <p>Il primo blocco &egrave; il consiglio del libro: &laquo;<em>in primo luogo effettuiamo, come di consueto, un&rsquo;analisi preliminare della linea di basso, per <strong>individuare le cadenze e le modulazioni</strong></em>&raquo; (p.&nbsp;66).</p>
+
+    <p class="didascalia">Cinque minuti spesi a guardare prima di scrivere ne fanno risparmiare quindici dopo. Chi comincia dalla prima nota si accorge alla battuta sei che la tonalit&agrave; era un&rsquo;altra.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il basso">
+  <div class="slide-interna">
+    <h2>Il basso da realizzare</h2>
+
+    <tac-stave time="4/4" keysig="C" clef="bass"
+               caption="Otto battute in do maggiore. Questa &egrave; tutta la traccia"
+               notes="c/3:h d/3:h | e/3:h f/3:h | g/3:w | c/3:h a/2:h | f/2:h b/2:h | e/3:h a/2:h | d/3:h g/2:h | c/3:w"
+               segna="b1=il pentacordo &middot; b4=e qui si salta &middot; b5=quinte discendenti &middot; b7=la cadenza"
+               width="840" tempo="52" play></tac-stave>
+
+    <div class="riquadro studio">
+      <p>Guardatelo prima di scrivere una nota. <strong>Tre gruppi</strong>: le battute 1&ndash;3 sono il pentacordo, le 4&ndash;6 una catena di quinte, le 7&ndash;8 la cadenza. Nessuna nota di questo basso &egrave; nuova.</p>
+    </div>
+
+    <p class="didascalia">Otto battute, quindici note. Due formule ne coprono undici, la cadenza tre, e ne resta <strong>una</strong> da decidere davvero. Trovarla &egrave; il primo compito.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="L&rsquo;analisi preliminare">
+  <div class="slide-interna">
+    <h2>I cinque minuti di analisi preliminare</h2>
+
+    <div class="riquadro procedura">
+      <span class="etichetta">In quest&rsquo;ordine, e sono quattro segni</span>
+      <p><strong>1.</strong> Cerchiate le <strong>cadenze</strong>. Sono i punti in cui il pezzo si posa, e dividono il basso in frasi.<br>
+      <strong>2.</strong> Segnate le <strong>modulazioni</strong>, se ci sono. In questo basso non ce ne sono, e accorgersene &egrave; parte del lavoro.<br>
+      <strong>3.</strong> Sotto ogni nota, il <strong>moto</strong> che la precede: grado, terza, quinta.<br>
+      <strong>4.</strong> Cerchiate i gruppi in cui il moto si <strong>ripete</strong>.</p>
+    </div>
+
+    <p>Alla fine dei cinque minuti il foglio &egrave; pieno di segni e non c&rsquo;&egrave; ancora una nota scritta. &Egrave; giusto cos&igrave;: quei segni sono le decisioni, e le note ne sono la conseguenza.</p>
+
+    <p class="didascalia">⚠ Chi salta questo passo si riconosce dal risultato: la prima frase &egrave; curata, l&rsquo;ultima &egrave; affrettata, e la cadenza finale arriva di sorpresa. Non &egrave; mancanza di tempo: &egrave; mancanza di piano.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Le due regole">
+  <div class="slide-interna">
+    <h2>Le due regole della consegna</h2>
 
     <div class="riquadro attenzione">
-      <span class="etichetta">Le tre strade, e quella che ho preso</span>
-      <p><strong>1.</strong> Analizzare Vivaldi <em>a memoria</em>. No: sarebbe dedurre invece di misurare.<br>
-      <strong>2.</strong> Scegliere a occhio un altro brano. Meglio, e debole: la scelta sarebbe mia.<br>
-      <strong>3.</strong> <strong>Misurare</strong> quali brani hanno davvero sequenze, e prendere il migliore.</p>
+      <span class="etichetta">E si controllano prima di consegnare</span>
+      <p>⚠ <strong>1. La cifratura, sotto ogni nota.</strong> Non &egrave; un ornamento: &egrave; il modo in cui dite <em>che cosa avete deciso</em>. Senza, si pu&ograve; correggere il risultato ma non il ragionamento &mdash; e il ragionamento &egrave; quello che vi serve.</p>
+      <p>⚠ <strong>2. Tre parti, non quattro.</strong> Il libro: la testura a tre &laquo;<em>risulta pi&ugrave; appropriata a questo genere e ti consentir&agrave; di ottenere una scrittura pi&ugrave; fluida ed elegante</em>&raquo; (p.&nbsp;66).</p>
     </div>
 
-    <p>Un programma ha cercato i disegni di basso ripetuti trasportati in <strong>centoventi partiture</strong>. Questo corale ha la proporzione pi&ugrave; alta &mdash; <strong>28 note in sequenza su 84</strong> &mdash; ed &egrave; l&rsquo;unico con un disegno che torna <strong>tre volte</strong>.</p>
+    <p>La seconda &egrave; pi&ugrave; difficile della prima, perch&eacute; scrivere a tre parti dopo due anni di quattro &egrave; contro l&rsquo;abitudine. La regola pratica: <strong>si toglie la quinta</strong> quando serve, mai la terza.</p>
+
+    <p class="didascalia">E si guadagna qualcosa: con tre voci la parte superiore ha spazio per <strong>cantare</strong>. A quattro parti tende a diventare la nota che avanza, ed &egrave; il motivo per cui questo genere si scrive a tre.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il primo gruppo">
+  <div class="slide-interna">
+    <h2>Il primo gruppo, fatto insieme</h2>
+
+    <tac-stave time="4/4" keysig="C"
+               caption="Battute 1&ndash;3: il pentacordo, e la regola basta"
+               soprano="e/4:h b/3:h | c/4:h d/4:h | d/4:w"
+               contralto="g/3:h f/3:h | g/3:h a/3:h | b/3:w"
+               basso="c/3:h d/3:h | e/3:h f/3:h | g/3:w"
+               segna="b1=5/3 e 6/3 &middot; b2=6/3 e 6/3 &middot; b3=5/3"
+               width="800" tempo="50" play a-passi slow></tac-stave>
+
+    <p>Non c&rsquo;&egrave; niente da decidere: &egrave; la regola dell&rsquo;ottava applicata senza modifiche. Tre battute in quaranta secondi, e restano cinque battute e diciannove minuti.</p>
+
+    <p class="didascalia">Questo &egrave; il senso di avere una regola: non risolve il pezzo, ma toglie di mezzo la met&agrave; che non ha bisogno di essere pensata. Il tempo che avanza va dove serve.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il secondo gruppo">
+  <div class="slide-interna">
+    <h2>Il secondo gruppo, e qui si sceglie</h2>
+
+    <tac-stave time="4/4" keysig="C"
+               caption="Battute 4&ndash;6: due realizzazioni della stessa catena"
+               soprano="e/4:h c/4:h | a/3:h b/3:h | g/3:h a/3:h"
+               contralto="g/3:h e/4:h | f/3:h f/3:h | e/3:h e/3:h"
+               basso="c/3:h a/2:h | f/2:h b/2:h | e/3:h a/2:h"
+               segna="b4=quinte discendenti: triadi &middot; b6=e si arriva al sesto grado"
+               width="800" tempo="50" play a-passi slow></tac-stave>
+
+    <p>Questa &egrave; la versione con le sole <strong>triadi</strong>: corretta, e un po&rsquo; ferma. L&rsquo;altra possibilit&agrave; &egrave; incatenare le <strong>settime</strong>, come nella formula dell&rsquo;ora 37: ogni consonanza diventa la settima dell&rsquo;accordo dopo.</p>
 
     <div class="riquadro studio">
-      <span class="etichetta">E quanti ce ne sono</span>
-      <p>Cercando nel repertorio i bassi in cui un disegno si ripete traslato almeno due volte. Sono <strong>quattro</strong> su cinquantasei, e questi sono due di quelli.</p>
-      <p>La rarità è un dato: le sequenze si studiano molto e nella musica vera non sono così frequenti.</p>
+      <p>Le due sono tutte e due giuste. La prima si tiene, la seconda spinge. Scegliere &egrave; il compito &mdash; e la scelta si difende dicendo <strong>che cosa succede dopo</strong>: se la frase deve arrivare da qualche parte, si incatena.</p>
     </div>
 
-    <p class="didascalia">Ve lo dico perch&eacute; la differenza fra «ho scelto un esempio che funziona» e «ho misurato quale funziona meglio» &egrave; tutta la fiducia che potete avere in un&rsquo;analisi.</p>
+    <p class="didascalia">⚠ Chi consegna una delle due senza saper dire perch&eacute; ha realizzato il basso. Chi sa dirlo ha realizzato il <em>partimento</em>, che secondo il libro contiene &laquo;<em>elementi tematici, spunti motivici, percorsi tonali</em>&raquo; (p.&nbsp;66).</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Ascolto">
+<section class="slide" data-titolo="La cadenza finale">
   <div class="slide-interna">
-    <h2>Prima si ascolta</h2>
+    <h2>Il terzo gruppo: la cadenza</h2>
 
-    <div class="riquadro compito">
-      <span class="etichetta">Ascolto guidato, 5 minuti</span>
-      <p>Due ascolti, e una domanda per volta. Primo: seguite il <strong>basso</strong> e alzate la mano quando sentite tornare la stessa cosa.</p>
-      <p>Secondo: quando torna, &egrave; alla <strong>stessa altezza</strong> o pi&ugrave; su?</p>
-    </div>
+    <tac-stave time="4/4" keysig="C"
+               caption="Battute 7&ndash;8: re&ndash;sol&ndash;do, cio&egrave; la cadenza composta"
+               soprano="f/4:h d/4:h | e/4:w"
+               contralto="a/3:h b/3:h | c/4:w"
+               basso="d/3:h g/2:h | c/3:w"
+               segna="b1=ii poi V &middot; b2=e la tonica"
+               width="760" tempo="48" play a-passi slow></tac-stave>
 
-    <tac-brano organico="voci" titolo="J. S. Bach, corale BWV 154/8, le prime battute"
-               segna="b1=la figura, prima comparsa &middot; b3=e qui tre volte di seguito"
-               metronomo youtube="HFjROKbHsLc" esecutore="Gächinger Kantorei Stuttgart · Helmuth Rilling" partitura="../../_assets/spartiti/A17_bach-sequenze.png" inciso="../../_assets/incisioni/A17_bach_sequenze.mp3" mappa='{"durata":20009,"eventi":[[0,0],[1,4000],[2,8000],[3,12000],[4,16000]]}' da-battuta="1">
-<script type="application/json">{"titolo":"J. S. Bach, Corale BWV 154/8, la sequenza del basso (bb. 1–5)","metro":"4/4","bpm":60,"battute":5,"anacrusi":0.0,"voci":[[[0.0,1.0,69],[1.0,1.0,69],[2.0,1.0,71],[3.0,1.0,71],[4.0,1.0,73],[5.0,1.0,73],[6.0,2.0,74],[8.0,1.0,76],[9.0,1.0,76],[10.0,1.0,74],[11.0,1.0,74],[12.0,1.0,73],[13.0,0.5,71],[13.5,0.25,73],[13.75,0.25,74],[14.0,2.0,71],[16.0,2.0,69]],[[0.0,0.5,66],[0.5,0.5,67],[1.0,1.0,69],[2.0,1.0,69],[3.0,1.0,67],[4.0,0.5,67],[4.5,0.5,64],[5.0,0.5,69],[5.5,0.5,67],[6.0,2.0,66],[8.0,1.0,69],[9.0,1.0,69],[10.0,1.0,69],[11.0,0.5,68],[11.5,0.5,66],[12.0,1.0,64],[13.0,1.0,64],[14.0,1.0,66],[15.0,1.0,64],[16.0,2.0,64]],[[0.0,1.0,62],[1.0,1.0,62],[2.0,1.0,62],[3.0,1.0,64],[4.0,1.0,64],[5.0,1.0,57],[6.0,2.0,57],[8.0,1.0,61],[9.0,1.0,61],[10.0,1.0,61],[11.0,1.0,59],[12.0,0.5,59],[12.5,0.5,57],[13.0,1.0,57],[14.0,1.0,57],[15.0,1.0,56],[16.0,2.0,61]],[[0.0,0.5,50],[0.5,0.5,52],[1.0,0.5,54],[1.5,0.5,50],[2.0,0.5,55],[2.5,0.5,54],[3.0,0.5,55],[3.5,0.5,52],[4.0,0.5,57],[4.5,0.5,55],[5.0,0.5,54],[5.5,0.5,52],[6.0,2.0,50],[8.0,0.5,45],[8.5,0.5,47],[9.0,0.5,49],[9.5,0.5,45],[10.0,0.5,47],[10.5,0.5,49],[11.0,0.5,50],[11.5,0.5,47],[12.0,0.5,49],[12.5,0.5,50],[13.0,0.5,52],[13.5,0.5,49],[14.0,0.5,50],[14.5,0.5,47],[15.0,0.5,52],[15.5,0.5,40],[16.0,2.0,45]]]}</script>
-</tac-brano>
+    <p>Due battute che si sanno a memoria dall&rsquo;ora 36. Non c&rsquo;&egrave; niente da decidere, ed &egrave; giusto cos&igrave;: <strong>una cadenza si riconosce, non si inventa</strong>.</p>
 
-
-    <p class="didascalia">La seconda domanda &egrave; quella dell&rsquo;ora 34: se torna alla stessa altezza &egrave; una ripetizione, se torna trasportata &egrave; una sequenza. Qui torna trasportata, e si sente.</p>
+    <p class="didascalia">L&rsquo;unica scelta &egrave; la <strong>posizione</strong> in cui si arriva: qui il soprano chiude sul mi, cio&egrave; sulla terza. Chiudere sulla tonica sarebbe pi&ugrave; definitivo, sulla quinta pi&ugrave; aperto. Tre finali diversi per lo stesso pezzo.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="La sequenza">
+<section class="slide" data-titolo="Un errore da trovare">
   <div class="slide-interna">
-    <h2>Le battute 3 e 4, nota per nota</h2>
-
-    <tac-stave time="4/4" keysig="D" clef="bass"
-               caption="Tre volte la stessa figura, ogni volta un grado sopra"
-               notes="a/2:8 b/2:8 c#/3:8 a/2:8 b/2:8 c#/3:8 d/3:8 b/2:8 | c#/3:8 d/3:8 e/3:8 c#/3:8 d/3:8 b/2:8 e/3:8 e/2:8"
-               segna="b1=la si do&#9839; la &middot; b1=si do&#9839; re si &middot; b2=do&#9839; re mi do&#9839;, poi si esce"
-               width="860" tempo="54" play a-passi slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Il disegno</span>
-      <p><strong>Tre gradi in su, e poi gi&ugrave; di terza.</strong> Quattro note. La seconda comparsa comincia un grado sopra la prima; la terza un grado sopra la seconda.</p>
-    </div>
-
-    <p class="didascalia">Dodici note, <strong>una decisione</strong>. Bach realizza la prima comparsa e trasporta le altre due &mdash; ed &egrave; esattamente il metodo dell&rsquo;ora 34, applicato da qualcuno che lo faceva a memoria.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="E dove si ferma">
-  <div class="slide-interna">
-    <h2>E si ferma alla terza. Perch&eacute;?</h2>
-
-    <p>La sequenza potrebbe andare avanti: re&ndash;mi&ndash;fa♯&ndash;re, e poi ancora. Alla terza si interrompe, e le tre ragioni dell&rsquo;ora 34 ci sono tutte.</p>
-
-    <div class="riquadro studio">
-      <p><strong>L&rsquo;ambito</strong>: un altro passo e il basso sale troppo per una voce.<br>
-      <strong>La cadenza</strong>: alla b.&nbsp;4 il corale deve posarsi, perch&eacute; finisce un verso del testo.<br>
-      <strong>L&rsquo;orecchio</strong>: alla terza volta il meccanismo si &egrave; sentito, e continuare lo renderebbe prevedibile.</p>
-    </div>
-
-    <p>La terza &egrave; quella che decide. Bach si ferma <strong>un passo prima</strong> del punto in cui la sequenza diventerebbe un&rsquo;abitudine.</p>
+    <h2>Una realizzazione con un difetto: dove?</h2>
 
     <div class="affianca">
       <div>
-        <tac-stave time="4/4" keysig="D" clef="bass"
-               caption="Che cosa sarebbe successo con un quarto passo"
-               notes="a/2:8 b/2:8 c#/3:8 a/2:8 b/2:8 c#/3:8 d/3:8 b/2:8 | c#/3:8 d/3:8 e/3:8 c#/3:8 d/3:8 e/3:8 f#/3:8 d/3:8"
-               segna="b2=il quarto passo: il basso sale troppo, e la cadenza non arriva pi&ugrave;"
-               width="380" tempo="54" play a-passi></tac-stave>
+        <tac-stave time="4/4" keysig="C"
+               caption="Le prime due battute, e qualcosa non va"
+               soprano="c/4:h d/4:h | e/4:h f/4:h"
+               contralto="e/3:h f/3:h | g/3:h a/3:h"
+               basso="c/3:h d/3:h | e/3:h f/3:h"
+               segna="b1=? &middot; b2=?"
+               width="380" tempo="48" play a-passi slow></tac-stave>
       </div>
       <div>
-        <tac-stave clef="bass" time="4/4" caption="Tre passi e un&rsquo;uscita: i primi tre ripetono, il quarto no. L&rsquo;uscita non è un passo" notes="c/3:q f/2:q b/2:q e/3:q a/2:q d/3:q g/2:q c/3:q" width="380" tempo="63" play></tac-stave>
+        <tac-stave clef="bass" time="4/4" caption="SBAGLIATO: il basso sale per grado e le voci salgono con lui — sono quinte parallele" notes="c/3:q d/3:q e/3:q f/3:q" width="380" tempo="60" play sbagliato></tac-stave>
       </div>
     </div>
 
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cos&rsquo;è un passo, adesso che è scritto</span>
-      <p>Un tratto che <strong>ripete il precedente traslato</strong>. Il primo tratto non è un passo: è il modello. L&rsquo;ultimo, che non ripete, è l&rsquo;uscita.</p>
-      <p>Con questa definizione il conto torna, ed è lo stesso per chiunque lo faccia.</p>
+    <div class="riquadro compito">
+      <span class="etichetta">In classe, due minuti</span>
+      <p>Tutte e tre le voci salgono per grado insieme. Che cosa produce, e <strong>quale regola</strong> lo avrebbe evitato?</p>
     </div>
-
-    <p class="didascalia">⚠ E questa &egrave; una cosa che non si impara da una regola: si impara contando quante volte i compositori le fanno tornare. Quasi sempre due o tre, quasi mai quattro.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Un mio errore">
-  <div class="slide-interna">
-    <h2>⚠ E il programma ha trovato un errore mio</h2>
-
-    <p>Il cercatore di sequenze l&rsquo;ho scritto per quest&rsquo;ora. Prima di usarlo qui, gliel&rsquo;ho dato in pasto il <strong>Corelli dell&rsquo;ora 32</strong>. Ha detto: <strong>zero sequenze</strong>.</p>
-
-    <div class="riquadro attenzione">
-      <p>Ma nella lezione dell&rsquo;ora 32 io ne avevo descritta una, alle battute 9&ndash;10, con la notazione stampata sulla slide. <strong>Non c&rsquo;era.</strong> L&rsquo;avevo scritta perch&eacute; era plausibile, senza guardare.</p>
-    </div>
-
-    <p>Il primo pensiero &egrave; stato che il programma fosse troppo severo. Poi ho stampato il basso di Corelli, e il programma aveva ragione.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">E un secondo errore mio: che cos&rsquo;è un passo</span>
-      <p>Contando i passi avevo incluso l&rsquo;<strong>uscita</strong>: il tratto in cui la sequenza smette di ripetersi e cadenza. Risultato: quattro passi dove erano tre.</p>
-      <p>Non era un errore di lettura: era una definizione lasciata implicita di che cosa sia un «passo».</p>
-    </div>
-
-    <p class="didascalia">La lezione &egrave; stata corretta, e la cosa vera era pi&ugrave; bella di quella inventata: il basso di Corelli ha un <strong>motivo</strong> che torna sei volte, e una sequenza vera, una sola, alla b.&nbsp;15.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa ci imparo">
-  <div class="slide-interna">
-    <h2>Perch&eacute; ve lo racconto</h2>
 
     <div class="riquadro studio">
-      <p>Perch&eacute; quella slide stava <strong>in mezzo a due slide misurate</strong>. Prima e dopo c&rsquo;erano numeri veri con il numero di battuta accanto. Ed &egrave; proprio questo che l&rsquo;ha resa invisibile: quando tre affermazioni su quattro sono controllate, la quarta sembra controllata anche lei.</p>
+      <span class="etichetta">Come si cerca un errore, in ordine</span>
+      <p><strong>1.</strong> Le <strong>quinte</strong> e le ottave parallele: si guardano le coppie di voci, una coppia per volta.<br>
+      <strong>2.</strong> Le <strong>sensibili</strong>: salgono tutte?<br>
+      <strong>3.</strong> Le <strong>settime</strong>: scendono tutte di grado?</p>
+      <p>Tre passaggi, e trovano quasi tutto quello che si può trovare senza suonare.</p>
     </div>
 
-    <p>La regola che ne esce vale per voi quanto per me: <strong>ogni affermazione su un brano si misura prima di scriverla, soprattutto quando &egrave; plausibile</strong>. Le cose implausibili le controlliamo per istinto; sono le plausibili che passano.</p>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">E le definizioni implicite</span>
-      <p>Perché un conteggio senza definizione dà un numero che <strong>sembra</strong> un dato. Nessuno se ne accorge finché qualcun altro non rifà il conto e ottiene un numero diverso.</p>
-    </div>
-
-    <p class="didascalia">E una seconda cosa, sul metodo: uno strumento fatto per misurare una cosa trova errori in un&rsquo;altra. &Egrave; il secondo caso in due giorni &mdash; il primo &egrave; stato Chopin all&rsquo;ora 23 &mdash; ed &egrave; un buon argomento per scriverne anche quando sembrano troppi. Le definizioni implicite non producono errori evidenti: producono <strong>numeri diversi in mani diverse</strong>, e la discrepanza si scopre solo se qualcuno rifà il lavoro.</p>
+    <p class="didascalia">Sono <strong>ottave e quinte parallele</strong> a ogni passo, e la regola dell&rsquo;ottava le avrebbe evitate da sola: se i gradi di mezzo prendessero la sesta, il soprano scenderebbe. Chi realizza in moto parallelo non ha applicato la regola &mdash; l&rsquo;ha ignorata.</p>
   </div>
 </section>
 
-<!-- ───────────────────────────────────────────────────────────────────
-     Due slide, una con musica vera. L'ora racconta un mio errore
-     nell'analisi di una sequenza; il brano era A17, cioè lo stesso su
-     cui l'errore era stato fatto. Per mostrare che l'errore era di
-     metodo e non di quel pezzo serve un secondo caso.
-     ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="Lo stesso errore, su un altro basso">
+<section class="slide" data-titolo="Le otto battute intere">
   <div class="slide-interna">
-    <h2>Se l&rsquo;errore era di metodo, si ripete</h2>
+    <h2>Le otto battute, tutte insieme</h2>
 
-    <div class="riquadro compito">
-      <span class="etichetta">Verifica &middot; 8 minuti</span>
-      <p>Contate i passi della sequenza su questo basso, con lo stesso metodo di prima. Il conto <strong>torna</strong>, o si ripete lo stesso scarto?</p>
+    <div class="affianca">
+      <div>
+        <tac-stave time="4/4" keysig="C"
+               caption="Una realizzazione completa &mdash; e non l&rsquo;unica"
+               soprano="e/4:h b/3:h | c/4:h d/4:h | d/4:w | e/4:h c/4:h | a/3:h b/3:h | g/3:h a/3:h | f/4:h d/4:h | e/4:w"
+               contralto="g/3:h f/3:h | g/3:h a/3:h | b/3:w | g/3:h e/4:h | f/3:h f/3:h | e/3:h e/3:h | a/3:h b/3:h | c/4:w"
+               basso="c/3:h d/3:h | e/3:h f/3:h | g/3:w | c/3:h a/2:h | f/2:h b/2:h | e/3:h a/2:h | d/3:h g/2:h | c/3:w"
+               segna="b1=il pentacordo &middot; b4=le quinte discendenti &middot; b7=la cadenza"
+               width="380" tempo="50" play a-passi slow></tac-stave>
+      </div>
+      <div>
+        <tac-stave clef="bass" time="4/4" caption="Le otto battute del compito: due gruppi di quattro, con la cadenza finale" notes="c/3:h f/2:h g/2:h c/3:h a/2:h d/3:h g/2:h c/3:h" width="380" tempo="60" play></tac-stave>
+      </div>
     </div>
 
-    <tac-brano organico="voci" titolo="Bach, Corale BWV 326 — il basso in ottavi"
-               metronomo youtube="aVmqcOksnA0" esecutore="Chamber Choir of Europe · Nicol Matt" partitura="../../_assets/spartiti/A18_bach-basso-ottavi.png" inciso="../../_assets/incisioni/A18_bach_basso_ottavi.mp3" mappa='{"durata":28003,"eventi":[[0,0],[1,1034],[2,4138],[3,7241],[4,10345],[5,13448],[6,16552],[7,19655],[8,22759],[9,24828]]}'>
-<script type="application/json">{"titolo":"J. S. Bach, Corale BWV 326, il basso in ottavi (bb. 1–8)","metro":"3/4","bpm":58,"battute":9,"anacrusi":1.0,"voci":[[[0.0,1.0,70],[1.0,2.0,70],[3.0,1.0,69],[4.0,2.0,67],[6.0,1.0,65],[7.0,1.0,70],[8.0,2.0,72],[10.0,2.0,74],[12.0,1.0,74],[13.0,2.0,74],[15.0,1.0,74],[16.0,2.0,72],[18.0,1.0,74],[19.0,1.0,75],[20.0,2.0,74],[22.0,1.0,70],[22.0,2.0,72]],[[0.0,1.0,65],[1.0,2.0,67],[3.0,1.0,65],[4.0,2.0,63],[6.0,1.0,62],[7.0,1.0,62],[8.0,1.0,67],[9.0,1.0,65],[10.0,2.0,65],[12.0,1.0,69],[13.0,2.0,67],[15.0,1.0,67],[16.0,1.0,67],[17.0,1.0,65],[18.0,1.0,65],[19.0,1.0,65],[20.0,2.0,65],[22.0,1.0,67],[22.0,2.0,65]],[[0.0,1.0,62],[1.0,2.0,62],[3.0,1.0,62],[4.0,2.0,58],[6.0,1.0,58],[7.0,2.0,58],[9.0,1.0,57],[10.0,2.0,58],[12.0,1.0,57],[13.0,2.0,58],[15.0,1.0,58],[16.0,1.0,58],[17.0,1.0,57],[18.0,1.0,58],[19.0,1.0,60],[20.0,2.0,58],[22.0,1.0,62],[22.0,2.0,57]],[[0.0,0.5,46],[0.5,0.5,45],[1.0,0.5,43],[1.5,0.5,45],[2.0,0.5,46],[2.5,0.5,48],[3.0,0.5,50],[3.5,0.5,46],[4.0,0.5,51],[4.5,0.5,53],[5.0,0.5,55],[5.5,0.5,57],[6.0,0.5,58],[6.5,0.5,57],[7.0,0.5,55],[7.5,0.5,53],[8.0,0.5,51],[8.5,0.5,50],[9.0,0.5,51],[9.5,0.5,53],[10.0,2.0,46],[12.0,1.0,42],[13.0,0.5,43],[13.5,0.5,50],[14.0,0.5,55],[14.5,0.5,53],[15.0,0.5,51],[15.5,0.5,50],[16.0,0.5,51],[16.5,0.5,48],[17.0,0.5,53],[17.5,0.5,51],[18.0,0.5,50],[18.5,0.5,48],[19.0,0.5,46],[19.5,0.5,45],[20.0,0.5,46],[20.5,0.5,48],[21.0,0.5,50],[21.5,0.5,51],[22.0,1.0,55],[22.0,2.0,53]]]}</script>
+    <p class="didascalia">Guardate il soprano dall&rsquo;inizio alla fine: <strong>mi&ndash;si&ndash;do&ndash;re&ndash;re&ndash;mi&ndash;do&ndash;la&ndash;si&ndash;sol&ndash;la&ndash;fa&ndash;re&ndash;mi</strong>. Ha una forma: sale, scende, risale a chiudere. Non &egrave; venuta da s&eacute; &mdash; &egrave; l&rsquo;unica cosa di questa realizzazione che ho <strong>deciso</strong>. Il resto lo hanno deciso le formule.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="E come lo faceva Corelli">
+  <div class="slide-interna">
+    <h2>E per confronto, un Grave del 1689</h2>
+
+    <p>Prima di scambiare i fogli, tre minuti di ascolto. Lo stesso mestiere, fatto da qualcuno che l&rsquo;aveva imparato a Bologna nel <strong>Seicento</strong>.</p>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Confronto &middot; 8 minuti</span>
+      <p>La vostra realizzazione e questa. Due domande: le <strong>note</strong> sono le stesse? E il <strong>ritmo</strong> della mano destra?</p>
+    </div>
+
+    <tac-brano organico="archi" titolo="A. Corelli, Sonata op. 3 n. 1, Grave"
+               segna="b1=il pentacordo, come il vostro &middot; b17=e la chiusa"
+               metronomo youtube="X8en712_42s" mappa-video='{"eventi":[[1,9569],[2,17518],[3,25319],[4,34385],[5,41918],[6,49935],[7,57802],[8,66001],[9,73752],[10,81552],[11,89452],[12,97651],[13,105603],[14,113187],[15,120919],[16,128469],[17,136735],[18,146887]],"durata":163000}' esecutore="Ensemble Aurora" partitura="../../_assets/spartiti/A09_corelli.png" riquadri='[[1,26.73,25.96,21.39,11.88],[2,48.12,25.96,13.96,11.88],[3,62.08,25.96,16.14,11.88],[4,78.22,25.96,15.45,11.88],[5,6.53,43.74,26.04,11.88],[6,32.57,43.74,20.59,11.88],[7,53.17,43.74,18.32,11.88],[8,71.49,43.74,22.18,11.88],[9,6.44,61.06,22.18,12.33],[10,28.61,61.06,16.34,12.33],[11,44.95,61.06,15.94,12.33],[12,60.89,61.06,16.83,12.33],[13,77.72,61.06,15.94,12.33],[14,6.53,79.17,21.68,12.52],[15,28.22,79.17,15.94,12.52],[16,44.16,79.17,16.93,12.52],[17,61.09,79.17,16.04,12.52],[18,77.13,79.17,10.69,12.52],[19,87.82,79.17,5.84,12.52]]' inciso="../../_assets/incisioni/A09_corelli.mp3" mappa='{"durata":54465,"eventi":[[0,0],[1,5217],[2,10435],[3,15652],[4,20870],[5,26087],[6,31304],[7,36522],[8,41739],[9,46957]]}' da-battuta="1">
+<script type="application/json">{"titolo":"A. Corelli, Sonata op. 3 n. 1, Grave","metro":"4/4","bpm":46,"battute":10,"anacrusi":0.0,"voci":[[[0.0,1.5,84],[1.5,0.5,84],[2.0,1.0,82],[3.0,1.0,81],[4.0,2.0,79],[6.0,0.5,81],[6.5,0.5,82],[7.0,1.0,84],[8.0,0.5,84],[8.5,0.5,77],[9.0,2.0,82],[11.0,1.0,81],[12.0,2.0,79],[14.0,2.0,77],[16.0,1.5,81],[17.5,0.5,81],[18.0,1.5,79],[19.5,0.25,81],[19.75,0.25,79],[20.0,1.5,77],[21.5,0.25,79],[21.75,0.25,77],[22.0,1.5,76],[23.5,0.5,79],[24.0,0.5,81],[24.5,0.5,74],[25.0,0.5,74],[25.5,0.5,74],[26.0,0.5,74],[26.5,0.5,72],[27.5,0.5,79],[28.0,0.25,81],[28.25,0.25,79],[28.5,0.25,77],[28.75,0.25,76],[29.0,1.0,74],[30.0,1.0,72],[31.0,1.0,77],[32.0,1.0,77],[33.0,1.0,76],[34.0,2.0,81],[36.0,1.0,81],[37.0,2.0,79],[39.0,1.0,77]],[[0.0,1.5,81],[1.5,0.5,81],[2.0,1.0,79],[3.0,1.0,77],[4.0,2.0,76],[6.0,1.5,77],[7.5,0.5,76],[8.0,1.5,74],[9.5,0.5,79],[10.0,0.5,76],[10.5,0.5,72],[11.0,1.0,77],[12.0,1.0,77],[13.0,0.75,77],[13.75,0.25,76],[14.0,2.0,77],[16.0,1.0,84],[17.0,1.0,77],[18.0,0.5,77],[18.5,0.25,76],[18.75,0.25,74],[19.0,1.0,76],[20.0,0.5,76],[20.5,0.5,69],[21.0,1.0,74],[22.0,0.5,74],[22.5,0.5,67],[23.0,1.0,72],[24.0,1.0,72],[25.0,1.0,72],[26.0,1.0,72],[27.5,0.5,76],[28.0,0.25,69],[28.25,0.25,71],[28.5,0.5,72],[29.0,0.75,72],[29.75,0.25,71],[30.0,1.0,72],[32.0,3.0,79],[35.0,1.0,77],[36.0,2.0,82],[38.0,2.0,81]],[[0.0,1.5,53],[1.5,0.5,53],[2.0,1.0,55],[3.0,0.5,57],[3.5,0.5,58],[4.0,2.0,60],[6.0,1.0,57],[7.0,1.0,45],[8.0,1.5,46],[9.5,0.5,46],[10.0,0.5,48],[10.5,0.5,60],[11.0,0.5,62],[11.5,0.5,57],[12.0,0.5,58],[12.5,0.5,55],[13.0,0.5,60],[13.5,0.5,48],[14.0,2.0,53],[16.0,0.5,53],[16.5,0.5,55],[17.0,0.5,57],[17.5,0.5,53],[18.0,0.5,60],[18.5,0.5,48],[19.0,0.5,52],[19.5,0.5,48],[20.0,0.5,50],[20.5,0.5,48],[21.0,0.5,47],[21.5,0.5,43],[22.0,1.5,48],[23.5,0.5,52],[24.0,1.0,53],[25.0,1.0,55],[26.0,1.0,57],[27.0,1.0,52],[28.0,1.0,53],[29.0,1.0,55],[30.0,0.5,48],[30.5,0.5,60],[31.0,0.5,57],[31.5,0.5,53],[32.0,0.5,58],[32.5,0.5,55],[33.0,0.5,60],[33.5,0.5,48],[34.0,0.5,53],[34.5,0.5,55],[35.0,0.5,57],[35.5,0.5,53],[36.0,0.5,50],[36.5,0.5,50],[37.0,0.5,52],[37.5,0.5,48],[38.0,0.5,53],[38.5,0.5,55],[39.0,0.5,57],[39.5,0.5,45]]]}</script>
+</tac-brano>
+
+    <div class="riquadro studio">
+      <p>Il basso di Corelli e il vostro sono fatti delle stesse cose: gradi congiunti, catene di quinte, una cadenza. Quello che li divide non &egrave; il vocabolario &mdash; &egrave; che sopra c&rsquo;&egrave; una <strong>melodia che va da qualche parte</strong>.</p>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Che cosa si scopre, quasi sempre</span>
+      <p>Che le note sono simili e il <strong>ritmo</strong> no. Le realizzazioni degli allievi tengono accordi lunghi; quella dell&rsquo;autore ha un profilo, delle imitazioni, delle note di passaggio.</p>
+      <p>La grammatica si impara prima; quello che si fa con la grammatica viene dopo.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Che cosa non concludere</span>
+      <p>Che la realizzazione dell&rsquo;autore sia «la risposta giusta». Un partimento ne ammette molte; quella dell&rsquo;autore è una, e serve a vedere che cosa si può aggiungere.</p>
+    </div>
+
+    <p class="didascalia">Ed &egrave; la cosa su cui vale la pena tornare l&rsquo;anno prossimo, e all&rsquo;esame: le formule si imparano in sei ore, la melodia no. Ma senza le formule non si arriva nemmeno a poterci pensare. Confrontare il proprio lavoro con quello di un maestro serve a <strong>vedere che cosa manca</strong>, non a misurare la distanza. La differenza utile qui è nel ritmo, non nelle note.</p>
+    <tac-brano organico="archi" titolo="Corelli, Sonata op. 3 n. 1 — Grave"
+               metronomo youtube="X8en712_42s" mappa-video='{"eventi":[[1,9569],[2,17518],[3,25319],[4,34385],[5,41918],[6,49935],[7,57802],[8,66001],[9,73752],[10,81552],[11,89452],[12,97651],[13,105603],[14,113187],[15,120919],[16,128469],[17,136735],[18,146887]],"durata":163000}' esecutore="Ensemble Aurora" partitura="../../_assets/spartiti/A09_corelli.png" riquadri='[[1,26.73,25.96,21.39,11.88],[2,48.12,25.96,13.96,11.88],[3,62.08,25.96,16.14,11.88],[4,78.22,25.96,15.45,11.88],[5,6.53,43.74,26.04,11.88],[6,32.57,43.74,20.59,11.88],[7,53.17,43.74,18.32,11.88],[8,71.49,43.74,22.18,11.88],[9,6.44,61.06,22.18,12.33],[10,28.61,61.06,16.34,12.33],[11,44.95,61.06,15.94,12.33],[12,60.89,61.06,16.83,12.33],[13,77.72,61.06,15.94,12.33],[14,6.53,79.17,21.68,12.52],[15,28.22,79.17,15.94,12.52],[16,44.16,79.17,16.93,12.52],[17,61.09,79.17,16.04,12.52],[18,77.13,79.17,10.69,12.52],[19,87.82,79.17,5.84,12.52]]' inciso="../../_assets/incisioni/A09_corelli.mp3" mappa='{"durata":54465,"eventi":[[0,0],[1,5217],[2,10435],[3,15652],[4,20870],[5,26087],[6,31304],[7,36522],[8,41739],[9,46957]]}' da-battuta="1">
+<script type="application/json">{"titolo":"A. Corelli, Sonata op. 3 n. 1, Grave","metro":"4/4","bpm":46,"battute":10,"anacrusi":0.0,"voci":[[[0.0,1.5,84],[1.5,0.5,84],[2.0,1.0,82],[3.0,1.0,81],[4.0,2.0,79],[6.0,0.5,81],[6.5,0.5,82],[7.0,1.0,84],[8.0,0.5,84],[8.5,0.5,77],[9.0,2.0,82],[11.0,1.0,81],[12.0,2.0,79],[14.0,2.0,77],[16.0,1.5,81],[17.5,0.5,81],[18.0,1.5,79],[19.5,0.25,81],[19.75,0.25,79],[20.0,1.5,77],[21.5,0.25,79],[21.75,0.25,77],[22.0,1.5,76],[23.5,0.5,79],[24.0,0.5,81],[24.5,0.5,74],[25.0,0.5,74],[25.5,0.5,74],[26.0,0.5,74],[26.5,0.5,72],[27.5,0.5,79],[28.0,0.25,81],[28.25,0.25,79],[28.5,0.25,77],[28.75,0.25,76],[29.0,1.0,74],[30.0,1.0,72],[31.0,1.0,77],[32.0,1.0,77],[33.0,1.0,76],[34.0,2.0,81],[36.0,1.0,81],[37.0,2.0,79],[39.0,1.0,77]],[[0.0,1.5,81],[1.5,0.5,81],[2.0,1.0,79],[3.0,1.0,77],[4.0,2.0,76],[6.0,1.5,77],[7.5,0.5,76],[8.0,1.5,74],[9.5,0.5,79],[10.0,0.5,76],[10.5,0.5,72],[11.0,1.0,77],[12.0,1.0,77],[13.0,0.75,77],[13.75,0.25,76],[14.0,2.0,77],[16.0,1.0,84],[17.0,1.0,77],[18.0,0.5,77],[18.5,0.25,76],[18.75,0.25,74],[19.0,1.0,76],[20.0,0.5,76],[20.5,0.5,69],[21.0,1.0,74],[22.0,0.5,74],[22.5,0.5,67],[23.0,1.0,72],[24.0,1.0,72],[25.0,1.0,72],[26.0,1.0,72],[27.5,0.5,76],[28.0,0.25,69],[28.25,0.25,71],[28.5,0.5,72],[29.0,0.75,72],[29.75,0.25,71],[30.0,1.0,72],[32.0,3.0,79],[35.0,1.0,77],[36.0,2.0,82],[38.0,2.0,81]],[[0.0,1.5,53],[1.5,0.5,53],[2.0,1.0,55],[3.0,0.5,57],[3.5,0.5,58],[4.0,2.0,60],[6.0,1.0,57],[7.0,1.0,45],[8.0,1.5,46],[9.5,0.5,46],[10.0,0.5,48],[10.5,0.5,60],[11.0,0.5,62],[11.5,0.5,57],[12.0,0.5,58],[12.5,0.5,55],[13.0,0.5,60],[13.5,0.5,48],[14.0,2.0,53],[16.0,0.5,53],[16.5,0.5,55],[17.0,0.5,57],[17.5,0.5,53],[18.0,0.5,60],[18.5,0.5,48],[19.0,0.5,52],[19.5,0.5,48],[20.0,0.5,50],[20.5,0.5,48],[21.0,0.5,47],[21.5,0.5,43],[22.0,1.5,48],[23.5,0.5,52],[24.0,1.0,53],[25.0,1.0,55],[26.0,1.0,57],[27.0,1.0,52],[28.0,1.0,53],[29.0,1.0,55],[30.0,0.5,48],[30.5,0.5,60],[31.0,0.5,57],[31.5,0.5,53],[32.0,0.5,58],[32.5,0.5,55],[33.0,0.5,60],[33.5,0.5,48],[34.0,0.5,53],[34.5,0.5,55],[35.0,0.5,57],[35.5,0.5,53],[36.0,0.5,50],[36.5,0.5,50],[37.0,0.5,52],[37.5,0.5,48],[38.0,0.5,53],[38.5,0.5,55],[39.0,0.5,57],[39.5,0.5,45]]]}</script>
+</tac-brano>
+  </div>
+</section>
+
+<section class="slide perc" data-titolo="E come lo faceva Händel">
+  <div class="slide-interna">
+    <h2>Il secondo termine, e non è d&rsquo;accordo col primo</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Confronto &middot; 8 minuti</span>
+      <p>Tre versioni ora: la vostra, Corelli, Händel. Che cosa cambia fra i due autori, a parità di basso?</p>
+    </div>
+
+    <tac-brano organico="voci" titolo="Händel, «Lascia ch&rsquo;io pianga» — la realizzazione del continuo"
+               metronomo youtube="EKo_EmfEPWs" mappa-video='{"eventi":[[1,5300],[2,8734],[3,12400],[4,15684],[5,19283],[6,23049],[7,26816],[8,30549],[9,34600],[10,38517],[11,42549],[12,46200],[13,50216],[14,54150],[15,58184],[16,62100],[17,66166],[18,70117],[19,74001],[20,78050],[21,82200],[22,86499],[23,90767],[24,94683],[25,98717],[26,102700],[27,106650],[28,110683],[29,114717],[30,119166],[31,122566],[32,126235],[33,130067],[34,133716],[35,137367],[36,141334],[37,145248]],"durata":334000}' esecutore="Voices of Music · Kirsten Blaise, soprano" partitura="../../_assets/spartiti/A07_handel.png" inciso="../../_assets/incisioni/A07_handel.mp3" mappa='{"durata":44146,"eventi":[[0,0],[1,3462],[2,6923],[3,10385],[4,13846],[5,17308],[6,20769],[7,24231],[8,27692],[9,31154],[10,34615],[11,38077]]}' da-battuta="13">
+<script type="application/json">{"titolo":"G. F. Händel, «Lascia ch'io pianga», da Rinaldo","metro":"3/4","bpm":52,"battute":12,"anacrusi":0.0,"voci":[[[0.0,1.0,66],[1.0,1.0,66],[2.5,0.5,66],[3.0,1.0,67],[4.0,1.0,67],[6.0,1.0,64],[7.0,1.5,69],[8.5,0.5,67],[9.0,1.0,67],[10.0,1.0,66],[12.0,1.0,71],[13.0,1.0,71],[14.0,0.3333,73],[14.3333,0.3333,74],[14.6667,0.3333,76],[15.0,1.0,69],[16.0,1.0,69],[17.5,0.5,74],[18.0,0.75,66],[18.75,0.25,64],[19.0,1.0,66],[20.0,0.75,64],[20.75,0.25,62],[21.0,3.0,62],[24.0,1.0,66],[25.0,1.5,74],[26.5,0.5,71],[27.0,1.0,68],[28.0,1.0,68],[30.0,1.0,71],[31.0,1.5,76],[32.5,0.5,73],[33.0,0.5,69],[33.5,0.5,68],[34.0,1.0,69],[35.5,0.5,74]],[[0.0,1.0,62],[0.0,1.0,66],[1.0,1.0,62],[1.0,1.0,66],[2.5,0.5,62],[2.5,0.5,66],[3.0,1.0,59],[3.0,1.0,62],[3.0,1.0,67],[4.0,1.0,59],[4.0,1.0,62],[4.0,1.0,67],[6.0,1.0,61],[6.0,1.0,64],[7.0,1.5,61],[7.0,1.5,64],[7.0,1.5,69],[8.5,0.5,61],[8.5,0.5,64],[8.5,0.5,67],[9.0,1.0,67],[9.0,2.0,57],[9.0,2.0,62],[10.0,1.0,66],[12.0,1.0,62],[12.0,1.0,67],[12.0,1.0,71],[13.0,1.0,64],[13.0,1.0,67],[13.0,1.0,71],[15.0,1.0,61],[15.0,1.0,64],[15.0,1.0,69],[16.0,1.0,62],[16.0,1.0,66],[16.0,1.0,69],[17.5,0.5,57],[17.5,0.5,62],[17.5,0.5,66],[18.0,0.75,66],[18.0,1.0,59],[18.0,1.0,62],[18.75,0.25,64],[19.0,1.0,62],[19.0,1.0,66],[20.0,0.75,64],[20.0,1.0,61],[20.75,0.25,62],[21.0,3.0,57],[21.0,3.0,62],[24.0,1.0,62],[24.0,1.0,66],[25.0,1.5,74],[25.0,2.0,62],[26.5,0.5,71],[27.0,1.0,59],[27.0,1.0,62],[27.0,1.0,68],[28.0,1.0,59],[28.0,1.0,64],[28.0,1.0,68],[30.0,1.0,68],[30.0,1.0,71],[31.0,1.5,76],[31.0,2.0,64],[32.5,0.5,73],[33.0,1.0,61],[33.0,1.0,64],[33.0,1.0,69],[34.0,1.0,62],[34.0,1.0,66],[34.0,1.0,69],[35.5,0.5,66],[35.5,0.5,74]],[[0.0,1.0,50],[1.0,1.0,50],[2.5,0.5,50],[3.0,1.0,52],[4.0,1.0,52],[6.0,1.0,45],[7.0,1.0,45],[8.5,0.5,45],[9.0,1.0,50],[10.0,0.5,50],[10.5,0.5,49],[11.0,0.5,47],[11.5,0.5,45],[12.0,1.0,43],[13.0,1.0,55],[15.0,1.0,55],[16.0,1.0,54],[17.5,0.5,54],[18.0,1.0,55],[19.0,1.0,57],[20.0,0.75,55],[20.0,1.0,45],[20.75,0.25,54],[21.0,3.0,50],[21.0,3.0,54],[24.0,1.0,50],[25.0,1.5,47],[26.5,0.5,50],[27.0,1.0,52],[28.0,1.0,40],[30.0,1.0,52],[31.0,1.5,49],[31.0,2.0,56],[32.5,0.5,52],[33.0,1.0,54],[34.0,1.0,50],[35.5,0.5,50]]]}</script>
 </tac-brano>
 
 
-    <div class="riquadro attenzione">
-      <span class="etichetta">Come si distingue un errore di caso da uno di metodo</span>
-      <p>Rifacendo la stessa operazione su un <strong>caso diverso</strong>. Se lo scarto si ripete uguale, era il metodo; se non si ripete, era quel pezzo.</p>
-      <p>È una verifica che costa dieci minuti e cambia che cosa si va a correggere.</p>
+    <div class="riquadro definizione">
+      <span class="etichetta">Che cosa dice il secondo confronto</span>
+      <p>Che il <strong>genere</strong> decide: sotto una voce il continuo si fa da parte, in una sonata a tre partecipa.</p>
+      <p>Con un solo modello si sarebbe imparato «così si realizza un basso». Con due si impara che dipende, e da che cosa.</p>
     </div>
 
-    <p class="didascalia">Un errore va <strong>riprodotto</strong> prima di essere spiegato. Se non si ripete su un secondo caso, la spiegazione che se ne dà riguarda il primo e non serve a niente.</p>
+    <div class="riquadro attenzione">
+      <span class="etichetta">Lo scambio, e come si fa</span>
+      <p>Ognuno passa il foglio al compagno, che cerca <strong>un errore solo</strong>. Trovato quello, si restituisce.</p>
+      <p>Un errore per volta si corregge; dieci segnati insieme non si correggono, si subiscono.</p>
+    </div>
+
+    <p class="didascalia">Un modello unico produce imitazione; <strong>due modelli producono una regola</strong> — e in questo caso la regola è che la risposta dipende dal genere.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Lo scambio">
+  <div class="slide-interna">
+    <h2>Lo scambio: quindici minuti sul foglio dell&rsquo;altro</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">A coppie &mdash; e non si corregge, si legge</span>
+      <p>Sul foglio del compagno, tre cose e nient&rsquo;altro:</p>
+      <p><strong>1.</strong> Segnate dove ha fatto una <strong>scelta diversa</strong> dalla vostra, con il numero di battuta.<br>
+      <strong>2.</strong> Per ciascuna, scrivete in tre parole <strong>che effetto fa</strong>.<br>
+      <strong>3.</strong> Una sola domanda scritta in fondo: la cosa che non avete capito.</p>
+    </div>
+
+    <p>⚠ Non si scrive &laquo;sbagliato&raquo;. Non perch&eacute; non ci siano errori, ma perch&eacute; trovarli &egrave; il mio mestiere e non il vostro: il vostro &egrave; accorgervi che <strong>si poteva fare diversamente</strong>.</p>
+
+    <p class="didascalia">La domanda del punto 3 &egrave; obbligatoria, e quasi sempre &egrave; la parte pi&ugrave; utile del foglio: le domande che nascono guardando il lavoro di un altro sono diverse da quelle che nascono guardando il proprio.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="La correzione">
+  <div class="slide-interna">
+    <h2>La correzione, e come la faremo</h2>
+
+    <div class="riquadro procedura">
+      <span class="etichetta">Alla lavagna, venti minuti</span>
+      <p><strong>1.</strong> Si guardano le battute su cui le scelte si sono divise di pi&ugrave;.<br>
+      <strong>2.</strong> Si suonano <strong>tutte</strong> le versioni, non solo quella che preferisco.<br>
+      <strong>3.</strong> Si dice che cosa cambia, e solo alla fine se qualcuna non funziona &mdash; e perch&eacute;.</p>
+    </div>
+
+    <p>L&rsquo;ordine &egrave; deliberato. Se dico subito quale mi piace, le altre non si ascoltano pi&ugrave;; se si ascoltano prima, la differenza si sente e la mia opinione diventa un&rsquo;opinione in pi&ugrave;.</p>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">E da soli: una nota sola</span>
+      <p>Si cambia <strong>una nota sola</strong>, e quasi sempre in una voce interna. Chi riscrive tutta la battuta introduce due errori nuovi.</p>
+    </div>
+
+    <p class="didascalia">E capiter&agrave; che una versione che non avevo previsto sia migliore della mia. Quando succede lo dico, perch&eacute; se non lo dicessi la classe smetterebbe di provare a trovarne. Gli errori ricorrenti sono <strong>pochi e prevedibili</strong>. Una lista di tre cose da controllare trova più difetti di una rilettura attenta senza lista.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Gli errori che mi aspetto">
+  <div class="slide-interna">
+    <h2>I quattro errori che mi aspetto</h2>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">E dirli prima non li fa sparire, li fa notare</span>
+      <p><strong>1. La cifratura manca o &egrave; incompleta.</strong> &Egrave; il pi&ugrave; frequente ed &egrave; il pi&ugrave; costoso: senza, il vostro ragionamento non si vede.<br>
+      <strong>2. Quattro parti per abitudine.</strong> Si riconosce subito: la scrittura si irrigidisce e la voce superiore smette di cantare.<br>
+      <strong>3. La cadenza arriva di sorpresa.</strong> Chi non ha fatto l&rsquo;analisi preliminare ci sbatte contro.<br>
+      <strong>4. Ottave e quinte nel gruppo del pentacordo.</strong> Se le seste stanno dove devono, non possono esserci: quando ci sono, la regola non &egrave; stata applicata.</p>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">E i tre della condotta</span>
+      <p>Le quinte fra basso e tenore quando il basso sale per grado, la quarta e sesta risolta male in cadenza, e la settima che salta invece di scendere.</p>
+      <p>Sono sempre gli stessi tre, in tutte le classi. Sapere quali aspettarsi rende la correzione molto più veloce.</p>
+    </div>
+
+    <p class="didascalia">Il quarto &egrave; il pi&ugrave; utile da controllare da soli, perch&eacute; ha una prova meccanica: si guardano le parti estreme e si verifica che <strong>vadano in senso contrario</strong>. Trenta secondi.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Da fare a casa">
+  <div class="slide-interna">
+    <h2>E a casa: lo stesso basso, un&rsquo;altra volta</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Sul quaderno</span>
+      <p>Realizzate <strong>di nuovo</strong> lo stesso basso di oggi, e con due vincoli:</p>
+      <p><strong>a)</strong> almeno <strong>tre</strong> scelte diverse da quelle di stamattina;<br>
+      <strong>b)</strong> sotto ciascuna, una riga che dice <strong>perch&eacute;</strong>.</p>
+    </div>
+
+    <p>Rifare lo stesso basso sembra una perdita di tempo, e non lo &egrave;: la seconda volta le decisioni facili sono gi&agrave; prese, e resta tempo per quelle che contano. &Egrave; il modo in cui si lavorava a Napoli, con lo stesso partimento per settimane.</p>
+
+    <div class="riquadro studio">
+      <span class="etichetta">E poi: la mano destra che si muove</span>
+      <p>Le stesse otto battute, ma con la mano destra che <strong>si muove</strong>: almeno due note per battuta, e una nota di passaggio ogni due battute.</p>
+      <p>Stesse armonie, altro ritmo. È il primo passo verso la realizzazione vera.</p>
+    </div>
+
+    <p class="didascalia">E c&rsquo;&egrave; un vantaggio pratico: due realizzazioni dello stesso basso, messe a confronto, insegnano pi&ugrave; di due realizzazioni di bassi diversi. La variabile &egrave; una sola.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Dove eravamo, dove andiamo">
+  <div class="slide-interna">
+    <h2>Cinque ore, e che cosa se ne porta via</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Le prime cinque ore, in quattro righe</span>
+      <p><strong>Ora 34</strong> &mdash; che cos&rsquo;&egrave; un partimento, e da dove viene.<br>
+      <strong>Ora 35</strong> &mdash; la regola dell&rsquo;ottava, e i suoi limiti dichiarati.<br>
+      <strong>Ore 36&ndash;37</strong> &mdash; le mani, il vocabolario dei salti e le formule.<br>
+      <strong>Ora 38</strong> &mdash; oggi: il primo partimento scritto.</p>
+    </div>
+
+    <p>Il filo &egrave; uno: <strong>quello che si sa a memoria libera il tempo per quello che va deciso</strong>. La regola, le posizioni, le cadenze, le formule &mdash; nessuna di queste cose &egrave; musica. Tutte insieme lasciano spazio per farla.</p>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Dove andiamo</span>
+      <p>Le <strong>sequenze</strong> (ora 39), due partimenti da realizzare <strong>da soli</strong> (ora 40), un Grave di Corelli misurato (ora 41), la correzione dei vostri fogli (ora 42), un corale di Bach (ora 43) e per la prima volta un pezzo <strong>lungo</strong> (ora 44), dove il problema non &egrave; pi&ugrave; l&rsquo;accordo giusto ma la forma.</p>
+    </div>
+
+    <p class="didascalia">In un percorso di studio conviene sapere <strong>che cosa ancora non si sa fare</strong>. Elencarlo a met&agrave; strada dice quale sar&agrave; il lavoro, e impedisce di scambiare una tappa per l&rsquo;arrivo.</p>
   </div>
 </section>
 
@@ -283,30 +474,31 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
     <div class="colonne">
       <div class="riquadro definizione">
-        <span class="etichetta">Il fatto</span>
-        <p>Alle bb.&nbsp;3&ndash;4 la stessa figura <strong>tre volte</strong>, un grado sopra ogni volta. Dodici note, una decisione.</p>
+        <span class="etichetta">Il metodo</span>
+        <p>Cinque minuti di <strong>analisi preliminare</strong>, poi si scrive. Cadenze, modulazioni, moti, gruppi che si ripetono.</p>
       </div>
       <div class="riquadro studio">
-        <span class="etichetta">Il metodo</span>
-        <p>Il brano l&rsquo;ha scelto una <strong>misura</strong>, non il mio gusto. E la stessa misura ha trovato un mio errore.</p>
+        <span class="etichetta">Le due regole</span>
+        <p>La <strong>cifratura</strong> sotto ogni nota, e <strong>tre parti</strong>. Sono i due modi in cui questo genere si distingue da un compito di armonia.</p>
       </div>
     </div>
 
-    <p class="didascalia">La prossima ora il partimento diventa <strong>lungo</strong>, e il problema cambia: non pi&ugrave; quale accordo, ma <strong>dove va</strong>. &Egrave; l&rsquo;ultima cosa nuova dell&rsquo;unit&agrave;.</p>
+    <p class="didascalia">E una cosa che vale oltre l&rsquo;unit&agrave;: due realizzazioni corrette non valgono uguale, e la differenza si difende dicendo <strong>che cosa succede dopo</strong>. Chi sa dirlo sta componendo; chi non sa dirlo sta riempiendo.</p>
   </div>
 </section>
+
 
 <section class="slide esercizio insieme-slide" data-titolo="In classe · parlato">
   <div class="slide-interna">
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: parlato</h2>
-    <p class="rimando">A nomi, a tempo, con la mano che batte. Chi si ferma riparte dalla battuta dopo. <a href="../materiali/solfeggi-classe-5.html#n298">Quaderno, n.&nbsp;298</a></p>
-    <div class="righe"><tac-stave clef="tenor" time="4/4" keysig="G" caption="" notes="g/3:h a/3:8. b/3:16 d/4:q | g/3:8 a/3:q g/3:8 f#/3:q e/3:8. f#/3:16 | g/3:8 a/3:8 b/3:q c/4:8t b/3:8t a/3:8t b/3:q | g/3:h a/3:8 b/3:q c/4:8" width="760" tempo="66" play slow style="width:100.0%"></tac-stave>
-<tac-stave clef="tenor" time="4/4" keysig="G" notes="b/3:8 r:8 a/3:q b/3:q c/4:q | d/4:8 e/4:8 f#/4:q r:q e/4:q | d/4:q. b/3:8 d/3:q e/3:8t d/3:8t b/3:8t | a/3:h b/3:q c/4:q" width="760" tempo="66" style="width:100.0%"></tac-stave>
-<tac-stave clef="tenor" time="4/4" keysig="G" notes="d/4:h b/3:q r:q | c/4:8t b/3:8t a/3:8t b/3:8 c/4:8 d/4:q c/4:8 b/3:8 | c/4:q. d/4:8 e/4:16 d/4:16 c/4:16 d/4:16 g/3:q | a/3:q g/3:8 f#/3:8 g/3:q a/3:q" width="760" tempo="66" style="width:100.0%"></tac-stave>
-<tac-stave clef="tenor" time="4/4" keysig="G" notes="b/3:q r:q c/4:8 d/4:8 e/4:q | r:q d/4:8 c/4:8 b/3:h | d/4:q. e/4:8 d/4:q c/4:8 b/3:16 d/3:16 | e/3:h f#/3:q e/3:q" width="760" tempo="66" style="width:100.0%"></tac-stave>
-<tac-stave clef="tenor" time="4/4" keysig="G" notes="d/3:q. g/3:8 f#/3:8. e/3:16 r:q | d/3:8t g/3:8t f#/3:8t e/3:q r:q f#/3:q | g/3:8. d/4:16 c/4:8. d/4:16 e/4:q d/4:q | c/4:q d/4:q e/4:h" width="760" tempo="66" style="width:100.0%"></tac-stave>
-<tac-stave clef="tenor" time="4/4" keysig="G" notes="d/4:q g/3:q a/3:8 g/3:8 d/3:q | e/3:h f#/3:q. g/3:8 | f#/3:q e/3:8 r:8 f#/3:q a/3:q | g/3:w" width="760" tempo="66" fine style="width:100.0%"></tac-stave></div>
+    <p class="rimando">A nomi, a tempo, con la mano che batte. Chi si ferma riparte dalla battuta dopo. <a href="../materiali/solfeggi-classe-5.html#n280">Quaderno, n.&nbsp;280</a></p>
+    <div class="righe"><tac-stave clef="alto" time="4/4" caption="" notes="g/4:q c/4:q r:8 d/4:8 e/4:q | g/4:h f/4:q g/4:8 a/4:8 | g/4:w | f/4:q g/4:8. a/4:16 g/4:h" width="760" tempo="66" play slow style="width:100.0%"></tac-stave>
+<tac-stave clef="alto" time="4/4" notes="f/4:q e/4:q f/4:q g/4:q | f/4:8 e/4:8 f/4:q g/4:q f/4:8t e/4:8t g/4:8t | f/4:q. e/4:8 f/4:8 g/4:q f/4:8 | e/4:h f/4:8 g/4:8 e/4:8t d/4:8t e/4:8t" width="760" tempo="66" style="width:100.0%"></tac-stave>
+<tac-stave clef="alto" time="4/4" notes="f/4:q g/4:q f/4:q e/4:8t d/4:8t e/4:8t | g/3:h a/3:8t b/3:8t c/4:8t e/4:q | f/4:h e/4:q d/4:q | c/4:q b/3:8 a/3:16 b/3:16 c/4:q b/3:8t a/3:8t g/3:8t" width="760" tempo="66" style="width:100.0%"></tac-stave>
+<tac-stave clef="alto" time="4/4" notes="c/4:q b/3:8 a/3:8 b/3:q c/4:q | d/4:h. c/4:8 e/4:16 d/4:16 | c/4:q. b/3:8 a/3:8 b/3:16 c/4:16 b/3:q | a/3:q g/3:8 a/3:8 b/3:8 r:8 c/4:q" width="760" tempo="66" style="width:100.0%"></tac-stave>
+<tac-stave clef="alto" time="4/4" notes="d/4:h e/4:h | g/4:w | e/4:8 d/4:q e/4:8 g/4:q f/4:8 g/4:16 e/4:16 | f/4:w" width="760" tempo="66" style="width:100.0%"></tac-stave>
+<tac-stave clef="alto" time="4/4" notes="g/4:8 e/4:8 f/4:16 g/4:16 f/4:8 r:q d/4:q | c/4:w" width="440" tempo="66" fine style="width:57.9%"></tac-stave></div>
   </div>
 </section>
 
@@ -314,13 +506,13 @@ try { module = undefined; exports = undefined; } catch (e) {}
   <div class="slide-interna">
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: cantato</h2>
-    <p class="rimando">Si prende il tono dalla tastiera, si canta insieme; poi a gruppi. <a href="../materiali/solfeggi-classe-5.html#n299">Quaderno, n.&nbsp;299</a></p>
-    <div class="righe"><tac-stave clef="treble" time="3/4" keysig="F" caption="" notes="a/4:h g/4:q | a/4:q bb/4:8 c/5:8 r:q | d/5:h c/5:q | bb/4:h a/4:8 bb/4:16 c/5:16" width="760" tempo="66" play slow style="width:100.0%"></tac-stave>
-<tac-stave clef="treble" time="3/4" keysig="F" notes="bb/4:8 a/4:8 bb/4:8 c/5:8 d/5:8t c/5:8t a/4:8t | bb/4:q c/5:h | bb/4:16 a/4:16 bb/4:16 c/5:16 d/5:q. c/5:8 | bb/4:8 a/4:8 g/4:8. a/4:16 bb/4:16 a/4:16 g/4:8" width="760" tempo="66" style="width:100.0%"></tac-stave>
-<tac-stave clef="treble" time="3/4" keysig="F" notes="f/4:q e/4:q f/4:q | g/4:16 f/4:16 e/4:16 d/4:16 e/4:h | f/4:h e/4:8 d/4:16 e/4:16 | f/4:q. e/4:8 c/4:q" width="760" tempo="66" style="width:100.0%"></tac-stave>
-<tac-stave clef="treble" time="3/4" keysig="F" notes="d/4:h. | e/4:8 d/4:8 c/4:16 d/4:16 e/4:16 d/4:16 c/4:q | d/4:h r:q | e/4:h f/4:16 e/4:16 d/4:8" width="760" tempo="66" style="width:100.0%"></tac-stave>
-<tac-stave clef="treble" time="3/4" keysig="F" notes="e/4:q f/4:q e/4:q | d/4:q e/4:q f/4:8 r:8 | c/4:q d/4:8 e/4:8 f/4:q | c/4:8 d/4:16 e/4:16 d/4:q c/4:q" width="760" tempo="66" style="width:100.0%"></tac-stave>
-<tac-stave clef="treble" time="3/4" keysig="F" notes="d/4:h. | e/4:h d/4:16 c/4:16 d/4:16 e/4:16 | d/4:8. c/4:16 e/4:h | f/4:h." width="760" tempo="66" fine style="width:100.0%"></tac-stave></div>
+    <p class="rimando">Si prende il tono dalla tastiera, si canta insieme; poi a gruppi. <a href="../materiali/solfeggi-classe-5.html#n281">Quaderno, n.&nbsp;281</a></p>
+    <div class="righe"><tac-stave clef="treble" time="3/4" keysig="A" caption="" notes="c#/5:h. | d/5:h a/4:8 b/4:8 | b/4:8 c#/5:16 c#/5:16 d/5:h | a/4:8. b/4:16 r:8 c#/5:8 d/5:q" width="760" tempo="66" play slow style="width:100.0%"></tac-stave>
+<tac-stave clef="treble" time="3/4" keysig="A" notes="b/4:h g#/4:16 e/4:16 f#/4:16 g#/4:16 | a/4:8t b/4:8t c#/5:8t c#/5:q a/4:q | r:q f#/4:8 g#/4:16 a/4:16 a/4:q | g#/4:16 a/4:16 b/4:16 c#/5:16 b/4:q g#/4:q" width="760" tempo="66" style="width:100.0%"></tac-stave>
+<tac-stave clef="treble" time="3/4" keysig="A" notes="a/4:h e/4:q | f#/4:8 e/4:8 d/4:h | r:q e/4:8 f#/4:8 g#/4:q | e/4:q. f#/4:8 e/4:8 e/4:8" width="760" tempo="66" style="width:100.0%"></tac-stave>
+<tac-stave clef="treble" time="3/4" keysig="A" notes="f#/4:16 g#/4:16 a/4:8 a/4:q d/5:8 c#/5:8 | b/4:h d/5:8t c#/5:8t b/4:8t | a/4:q. g#/4:8 a/4:q | b/4:h e/5:8 d/5:8" width="760" tempo="66" style="width:100.0%"></tac-stave>
+<tac-stave clef="treble" time="3/4" keysig="A" notes="c#/5:h a/4:q | d/5:16 c#/5:16 b/4:8 a/4:q a/4:q | b/4:q r:q g#/4:q | c#/5:8 b/4:8 a/4:q. a/4:8" width="760" tempo="66" style="width:100.0%"></tac-stave>
+<tac-stave clef="treble" time="3/4" keysig="A" notes="b/4:q g#/4:q b/4:q | a/4:h." width="440" tempo="66" fine style="width:57.9%"></tac-stave></div>
   </div>
 </section>
 
@@ -328,21 +520,21 @@ try { module = undefined; exports = undefined; } catch (e) {}
   <div class="slide-interna">
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: ritmico</h2>
-    <p class="rimando">Tutti insieme, battendo la pulsazione. Poi a file, due battute a testa. <a href="../materiali/solfeggi-classe-5.html#n300">Quaderno, n.&nbsp;300</a></p>
-    <div class="righe"><tac-stave clef="percussion" time="6/8" caption="" notes="b/4:q. b/4:8 b/4:q | b/4:8 b/4:8 b/4:8 b/4:q r:8 | b/4:q b/4:8 b/4:q. | b/4:16 b/4:16 b/4:16 b/4:16 b/4:16 b/4:16 b/4:8. b/4:16 b/4:8" width="760" tempo="50" play slow style="width:100.0%"></tac-stave>
-<tac-stave clef="percussion" time="6/8" notes="b/4:8 b/4:8 b/4:8 r:q. | b/4:8. b/4:16 b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q r:8 b/4:16 b/4:16 b/4:16 b/4:16 b/4:16 b/4:16 | b/4:8 b/4:q b/4:q." width="760" tempo="50" style="width:100.0%"></tac-stave>
-<tac-stave clef="percussion" time="6/8" notes="b/4:8 b/4:8 b/4:8 b/4:8. b/4:16 b/4:8 | b/4:16 b/4:16 b/4:16 b/4:16 b/4:16 b/4:16 b/4:q. | b/4:q. b/4:q r:8 | b/4:q b/4:8 b/4:q r:8" width="760" tempo="50" style="width:100.0%"></tac-stave>
-<tac-stave clef="percussion" time="6/8" notes="b/4:q. r:q. | b/4:8. b/4:16 b/4:8 b/4:q. | b/4:q. b/4:8 b/4:8 b/4:8 | b/4:q. r:q." width="760" tempo="50" style="width:100.0%"></tac-stave>
-<tac-stave clef="percussion" time="6/8" notes="b/4:8. b/4:16 b/4:8 b/4:16 b/4:16 b/4:16 b/4:16 b/4:16 b/4:16 | b/4:8 b/4:16 b/4:16 b/4:8 b/4:q. | b/4:8 b/4:16 b/4:16 b/4:8 b/4:8. b/4:16 b/4:8 | b/4:8 b/4:8 b/4:8 b/4:16 b/4:16 b/4:8 b/4:8" width="760" tempo="50" style="width:100.0%"></tac-stave>
-<tac-stave clef="percussion" time="6/8" notes="b/4:16 b/4:16 b/4:8 b/4:8 b/4:8 b/4:8 b/4:8 | b/4:q b/4:8 b/4:q b/4:8 | b/4:q. b/4:q. | b/4:h." width="760" tempo="50" fine style="width:100.0%"></tac-stave></div>
+    <p class="rimando">Tutti insieme, battendo la pulsazione. Poi a file, due battute a testa. <a href="../materiali/solfeggi-classe-5.html#n282">Quaderno, n.&nbsp;282</a></p>
+    <div class="righe"><tac-stave clef="percussion" time="3/4" caption="" notes="b/4:8 b/4:16t b/4:16t b/4:16t b/4:h | b/4:8 b/4:16 b/4:16 b/4:16 b/4:16 b/4:8 b/4:16 b/4:16 b/4:8 | b/4:8 r:8 b/4:8 b/4:8 b/4:8t b/4:8t b/4:8t | b/4:8 b/4:16t b/4:16t b/4:16t b/4:h" width="760" tempo="60" play slow style="width:100.0%"></tac-stave>
+<tac-stave clef="percussion" time="3/4" notes="b/4:16t b/4:16t b/4:16t b/4:8 b/4:h | b/4:16 b/4:16 b/4:8 b/4:q b/4:8 b/4:8~ | b/4:h b/4:16t b/4:16t b/4:16t b/4:8~ | b/4:q. b/4:8 b/4:8 b/4:8" width="760" tempo="60" style="width:100.0%"></tac-stave>
+<tac-stave clef="percussion" time="3/4" notes="b/4:8 b/4:q b/4:8 b/4:16 b/4:16 b/4:16 b/4:16 | b/4:8 b/4:8 b/4:8 b/4:q b/4:8 | b/4:16. b/4:32 b/4:8 b/4:8 b/4:16 b/4:16 b/4:8. b/4:16 | b/4:16t b/4:16t b/4:16t b/4:8 b/4:8t b/4:8t b/4:8t b/4:8. b/4:16" width="760" tempo="60" style="width:100.0%"></tac-stave>
+<tac-stave clef="percussion" time="3/4" notes="b/4:h b/4:8 r:8 | b/4:q b/4:h | b/4:8 b/4:16. b/4:32 b/4:8 b/4:q b/4:8 | b/4:16t b/4:16t b/4:16t b/4:8 b/4:8t b/4:8t b/4:8t r:q" width="760" tempo="60" style="width:100.0%"></tac-stave>
+<tac-stave clef="percussion" time="3/4" notes="b/4:8 b/4:8 b/4:h | b/4:8. b/4:16 b/4:q b/4:8. b/4:16 | r:8 b/4:8 b/4:16 b/4:16 b/4:8 b/4:16 b/4:16 b/4:16 b/4:16 | b/4:8 b/4:16t b/4:16t b/4:16t b/4:8 b/4:16. b/4:32 r:q" width="760" tempo="60" style="width:100.0%"></tac-stave>
+<tac-stave clef="percussion" time="3/4" notes="b/4:8t b/4:8t b/4:8t b/4:8 b/4:16 b/4:16 b/4:16 b/4:16 b/4:16 b/4:16 | b/4:8. b/4:16 b/4:q b/4:8 b/4:8~ | b/4:8 b/4:16t b/4:16t b/4:16t b/4:8 b/4:8 b/4:8 b/4:8 | b/4:h." width="760" tempo="60" fine style="width:100.0%"></tac-stave></div>
   </div>
 </section>
 
 <section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
   <div class="slide-interna">
     <p class="compiti-occhiello">In classe</p>
-    <h2>Scriviamo adesso: Contare la sequenza nel corale</h2>
-    <p>Del corale <strong>BWV 154/8</strong> visto a lezione conta <strong>quante note</strong> stanno dentro una sequenza e <strong>quante sono in tutto</strong>.</p>
+    <h2>Scriviamo adesso: Un basso tuo, di otto battute</h2>
+    <p>Scrivi <strong>tu</strong> una traccia di basso di otto battute in una tonalit&agrave; a scelta, e realizzala a tre parti con la cifratura.</p>
     <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna.</p>
   </div>
 </section>
@@ -351,10 +543,10 @@ try { module = undefined; exports = undefined; } catch (e) {}
          style="--segno: url('../../_assets/segni/segno-24.png')">
   <div class="slide-interna">
     <p class="compiti-occhiello">Compiti per la prossima volta</p>
-    <h2>1 &middot; Scritto: La sequenza di Bach, e la tua</h2>
+    <h2>1 &middot; Scritto: Lo stesso basso, un&rsquo;altra volta</h2>
     <div class="riquadro compito">
-      <p>Metti accanto la <strong>sequenza del corale</strong> (bb.&nbsp;3&ndash;4) e quella che hai scritto tu per l&rsquo;ora 34. In cinque righe: che cosa fa Bach che tu non hai fatto.</p>
-      <p>Guarda tre cose: la <strong>voce superiore</strong> durante la sequenza, come si <strong>esce</strong> alla fine, e quante <strong>comparse</strong> ci sono. Con il numero di battuta.</p>
+      <p>Realizza <strong>di nuovo</strong> il basso di otto battute di stamattina, con due vincoli: almeno <strong>tre scelte diverse</strong> da quelle fatte in classe, e sotto ciascuna una riga che dice <strong>perch&eacute;</strong>.</p>
+      <p>⚠ Le due regole dell&rsquo;unit&agrave;: <strong>cifratura</strong> sotto ogni nota, e <strong>tre parti</strong>. Chi ne scrive quattro riscrive.</p>
     </div>
     <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C5-U6-L5-01</strong>.</p>
   </div>
@@ -367,17 +559,17 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <h2>2 &middot; Solfeggio e 3 &middot; dettato</h2>
     <div class="riquadro compito">
       <span class="etichetta">2 &middot; Solfeggio, dal quaderno di lettura</span>
-      <p><a href="../materiali/solfeggi-classe-5.html#n301"><strong>n.&nbsp;301</strong></a> e <a href="../materiali/solfeggi-classe-5.html#n302"><strong>n.&nbsp;302</strong></a> <em>parlato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-5.html#n303"><strong>n.&nbsp;303</strong></a> e <a href="../materiali/solfeggi-classe-5.html#n304"><strong>n.&nbsp;304</strong></a> <em>cantato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-5.html#n305"><strong>n.&nbsp;305</strong></a> e <a href="../materiali/solfeggi-classe-5.html#n306"><strong>n.&nbsp;306</strong></a> <em>ritmico</em></p>
+      <p><a href="../materiali/solfeggi-classe-5.html#n283"><strong>n.&nbsp;283</strong></a> e <a href="../materiali/solfeggi-classe-5.html#n284"><strong>n.&nbsp;284</strong></a> <em>parlato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-5.html#n285"><strong>n.&nbsp;285</strong></a> e <a href="../materiali/solfeggi-classe-5.html#n286"><strong>n.&nbsp;286</strong></a> <em>cantato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-5.html#n287"><strong>n.&nbsp;287</strong></a> e <a href="../materiali/solfeggi-classe-5.html#n288"><strong>n.&nbsp;288</strong></a> <em>ritmico</em></p>
       <p class="rimando">Ogni pezzo a tempo, senza fermarti: il parlato a nomi, il cantato prendendo il primo suono dalla tastiera, il ritmico battendo la pulsazione.</p>
     </div>
     <div class="riquadro compito">
       <span class="etichetta">3 &middot; Dettato</span>
-      <p>Scrivi <strong>la linea del basso</strong> sul quaderno, in chiave di basso: otto battute in 6/8, fa maggiore. Il primo suono è <strong>do</strong>. Prima il riferimento, poi tutto due volte, a coppie di battute, le giunzioni, e tutto per controllare.</p>
+      <p>Scrivi <strong>la melodia</strong> sul quaderno, in chiave di violino: otto battute in 6/8, fa maggiore. Il primo suono è <strong>fa</strong>. Prima il riferimento, poi tutto due volte, a coppie di battute, le giunzioni, e tutto per controllare.</p>
       <div class="dettato-ascolti">
         <div><p class="didascalia">Il riferimento: accordo di tonica e primo suono</p>
-          <tac-stave nascondi clef="bass" time="6/8" keysig="F" notes="f/3:q a/3:q c/4:q f/4:q | c/4:w" tempo="80" play></tac-stave></div>
+          <tac-stave nascondi clef="treble" time="6/8" keysig="F" notes="f/4:q a/4:q c/5:q f/5:q | f/4:w" tempo="80" play></tac-stave></div>
         <div><p class="didascalia">Il dettato &middot; otto battute</p>
-          <tac-stave nascondi cifrato clef="bass" time="6/8" keysig="F" notes="Lmg6My9mIHwgODozL2EgcTozL2cgcTo0L2MgODo0L2MgfCAucTozL2EgcTozL2EgODozL2YgfCAucTozL2EgLnE6My9hIHwgODozL2cgODozL2EgNjE6My9iYiA2MTo0L2MgODozL2JiIDg6My9hIDYxOjMvYmIgNjE6NC9jIHwgLnE6My9iYiA2MTo0L2QgNjE6NC9jIDYxOjMvYmIgNjE6My9hIDYxOjMvZyA2MTozL2YgfCAucTozL2JiIHE6My9iYiA4OjQvZCB8IDg6My9iYiA2MTozL2EgNjE6My9iYiA4OjQvYyA4OjMvYmIgNjE6My9hIDYxOjMvYmIgODo0L2M=" tempo="60" play></tac-stave></div>
+          <tac-stave nascondi cifrato clef="treble" time="6/8" keysig="F" notes="Lmg6NC9mIHwgLnE6NC9nIC5xOjQvZyB8IDg6NC9hIDg6NC9iYiA4OjQvYSAucTo0L2YgfCA4OjQvYSA4OjQvYmIgODo1L2MgLnE6NC9hIHwgLnE6NS9jIC5xOjUvYyB8IDg6NC9iYiA4OjQvYSA2MTo0L2cgNjE6NC9iYiAucTo0L2JiIHwgLnE6NS9kIDg6NC9iYiA4OjQvYSA4OjQvYmIgfCBxOjQvZiA4OjQvYSA2MTo0L2JiIDYxOjUvYyA2MTo0L2JiIDYxOjQvYSA2MTo0L2cgNjE6NC9m" tempo="60" play></tac-stave></div>
       </div>
       <p class="rimando">Si corregge all&rsquo;inizio della prossima lezione.</p>
     </div>

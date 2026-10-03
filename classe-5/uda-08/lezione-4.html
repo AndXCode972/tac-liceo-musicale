@@ -5,7 +5,7 @@
 <meta http-equiv="cache-control" content="no-cache, must-revalidate">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lezione 4. Analisi: come è armonizzata questa melodia | Armonizzare una melodia per pianoforte</title>
+<title>Lezione 4. Schönberg: dall&rsquo;atonalit&agrave; alla serie di dodici suoni | Novecento II: la serie, gli insiemi, il suono</title>
 <script>
 /* Rete di sicurezza. Sta prima del foglio di stile apposta: uno script
    messo dopo un foglio ancora in arrivo non parte finche' quel foglio
@@ -49,479 +49,485 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
 <!-- ══════════════════════════════════════════════════════════════════
-     LEZIONE 4 · Analisi: come è armonizzata questa melodia
-     Unità 8, ora 55 di 90 · classe 5ª · ora intera
+     LEZIONE 8 · Schönberg: dall'atonalità alla serie di dodici suoni
+     Unità 8, ora 61 di 90 · classe 5ª · ORA INTERA
 
-     È l'ultima ora prima della V4, e chiude il percorso analitico
-     dell'anno prima della verifica cumulativa.
+     LA FONTE, MISURATA:
+       D'Urso 5, p. 262  «Il sistema cromatico e la dodecafonia»
 
-     ⚠ LA COSA NUOVA È LA RIDUZIONE, cioè l'analisi fatta al contrario
-     rispetto all'ora 54: si toglie l'animazione e si rimettono le voci,
-     e quello che resta è l'armonia scritta in chiaro. È l'operazione
-     che serve per la seconda prova d'esame, e la quinta la incontra
-     qui per la prima volta con questo nome.
+     ⚠ IL LIBRO NON LO NOMINA MAI. Contato sul volume: «dodecafonia» e
+     derivati compaiono 22 volte, «Schönberg» zero. Quindi la lezione
+     lo presenta, non lo richiama.
 
-     ⚠ I NUMERI SU CHOPIN SONO MISURATI da `testura.py`, non ripresi da
-     un libro: 349 momenti, 11 % a un suono, 25 % a due, 55 % a quattro.
+     ⚠ E QUESTA È L'UNICA ORA DELL'UNITÀ CON DUE PARTITURE VERE, perché
+     Schönberg è morto nel 1951 ed è libero dal 2022. I due pezzi sono
+     misurati con music21, e i numeri stanno nella lezione:
+
+       op. 19 n. 6 — 10 battute. Attacca su la–fa♯–si, classi {6,9,11},
+                     insieme di Forte 3-7B, forma prima [0,2,5]. Alla
+                     b. 2 entra sotto sol–do–fa, {0,5,7}, Forte 3-9,
+                     forma prima [0,2,7] — tre suoni per quarte.
+       op. 19 n. 2 —  9 battute, tutte appese a sol–si, {7,11},
+                     Forte 2-4.
+
+     ⚠ L'ANALISI PER INSIEMI NON SI FA QUI: è l'ora 64. Qui i numeri
+     servono solo a mostrare che ci sono due sonorità e non il caos.
      ══════════════════════════════════════════════════════════════════ -->
 
 <section class="slide attiva copertina foto" data-titolo="Copertina"
-         style="--foto: url('../../_assets/copertine/c5u8-lezione-4.jpg?v=60d6b89b');
-                --cop-a:#0f766e; --cop-b:#14b8a6; --cop-c:#ccfbf1">
+         style="--foto: url('../../_assets/copertine/c5u10-lezione-8.jpg?v=7d725e00');
+                --cop-a:#7f1d1d; --cop-b:#dc2626; --cop-c:#fee2e2">
   <div class="slide-interna">
-    <div class="occhiello">Armonizzare una melodia per pianoforte &middot; UdA 8 &middot; Lezione 4 di 6</div>
-    <h1>Smontare</h1>
-    <p class="sottotitolo">La scorsa ora avete costruito un pezzo in tre fasi. Oggi si percorrono al contrario, su un pezzo che non &egrave; vostro.</p>
+    <div class="occhiello">Novecento II: la serie, gli insiemi, il suono &middot; UdA 8 &middot; Lezione 4 di 9</div>
+    <h1>Togliere tutto, e poi ricominciare</h1>
+    <p class="sottotitolo">Prima quindici anni senza regole, poi una regola sola: dodici suoni, e nessuno vale pi&ugrave; degli altri.</p>
 
     <blockquote class="aforisma">
-      <p>2. Alleggerimento della testura. Il passo successivo consiste nell&rsquo;alleggerire la scrittura, portandola mediamente a tre voci</p>
-      <cite><em>Il linguaggio della musica</em>, 5&deg;&nbsp;anno, p.&nbsp;118</cite>
+      <p>Il sistema cromatico e la dodecafonia</p>
+      <cite><em>Il linguaggio della musica</em>, 5&deg;&nbsp;anno, p.&nbsp;262</cite>
     </blockquote>
 
     <div class="meta-copertina">
       <span>Ora intera</span>
-      <span>Analisi</span>
-      <span>Prima della V4</span>
+      <span>Atonalit&agrave; e serie</span>
+      <span>Due partiture vere</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Che cos&rsquo;&egrave; una riduzione">
+<section class="slide" data-titolo="L&rsquo;ultima riga">
   <div class="slide-interna">
-    <h2>La riduzione: l&rsquo;armonia scritta in chiaro</h2>
+    <h2>L&rsquo;ultima riga della tavola</h2>
 
     <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
          «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 5&deg; anno; pagine dall'indice rilevato. -->
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
-      <p><span class="lez">A8</span><strong>Armonizziamo una melodia per pianoforte</strong>, pp. 116&ndash;131</p>
-      <p>Sezione A, unit&agrave; 8, lezioni A45 e A46: la riduzione armonica di oggi &egrave; la lettura al contrario delle armonizzazioni che il libro svolge.</p>
+      <p><span class="lez">B4</span><strong>Oltre la tonalit&agrave;</strong>, pp. 238&ndash;266</p>
+      <p>Sezione B, unit&agrave; 4, lezione B23: dall&rsquo;atonalit&agrave; libera alla serie di dodici suoni.</p>
     </div>
 
-    <p>Davanti a un pezzo per pianoforte, la domanda &laquo;<em>quali accordi ci sono?</em>&raquo; non ha una risposta immediata: gli accordi sono sparsi nel tempo, arpeggiati, incompleti, e qualche nota non appartiene a nessuno.</p>
+    <p>Nella tavola dei sistemi dell&rsquo;ora 30 c&rsquo;era una riga che abbiamo lasciato in sospeso: <strong>dodici suoni, dodici semitoni, una sola trasposizione</strong>. La scala cromatica presa tutta insieme.</p>
+
+    <tac-stave time="4/4" keysig="C"
+               caption="Dodici suoni a distanza uguale: la simmetria completa"
+               notes="c/4:8 c#/4:8 d/4:8 eb/4:8 e/4:8 f/4:8 f#/4:8 g/4:8 | g#/4:8 a/4:8 bb/4:8 b/4:8 c/5:h"
+               segna="b1=trasportata di un semitono d&agrave; s&eacute; stessa"
+               width="860" tempo="88" play slow></tac-stave>
 
     <div class="riquadro definizione">
-      <span class="etichetta">Ridurre</span>
-      <p>Riscrivere il pezzo <strong>a valori uguali</strong>, un accordo per movimento armonico, rimettendo le note che l&rsquo;arpeggio ha sparpagliato e togliendo quelle che non appartengono all&rsquo;accordo.</p>
+      <span class="etichetta">Il caso limite</span>
+      <p>&Egrave; la figura pi&ugrave; simmetrica possibile, e per questo la meno caratterizzata: <strong>una sola trasposizione</strong>, nessuna nota distinguibile dalle altre. Non c&rsquo;&egrave; niente che possa fare da tonica, perch&eacute; non c&rsquo;&egrave; niente che sia diverso.</p>
     </div>
 
-    <p>Quello che resta &egrave; una <strong>bozza</strong> come quella della fase 1: un corale. Se la scorsa ora siete andati dalla bozza al pezzo, oggi si va dal pezzo alla bozza.</p>
-
-    <p class="didascalia">Non &egrave; un esercizio scolastico: &egrave; il primo passo di qualunque analisi armonica di musica strumentale, ed &egrave; quello che vi si chieder&agrave; alla seconda prova.</p>
+    <p class="didascalia">La scala cromatica esisteva da secoli, e nessuno l&rsquo;aveva mai considerata un sistema: era il materiale <em>fra</em> le note della scala. Trattarla come la scala &egrave; il passo.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Un esempio breve">
+<section class="slide" data-titolo="I due tempi">
   <div class="slide-interna">
-    <h2>Due battute, ridotte</h2>
+    <h2>&#9888; E succede in due tempi, non in uno</h2>
 
-    <tac-stave time="3/4" keysig="F"
-               caption="Come sta scritto: la sinistra arpeggia, la destra canta"
-               soprano="a/4:q c/5:q f/5:q | e/5:h. "
-               contralto="r:q r:q r:q | r:h."
-               tenore="r:q r:q r:q | r:h."
-               basso="f/3:8 c/4:8 a/3:8 c/4:8 f/3:8 c/4:8 | g/3:8 c/4:8 bb/3:8 c/4:8 g/3:8 c/4:8"
-               segna="b1=due suoni per volta, e cambiano dodici volte"
-               width="860" tempo="66" play a-passi slow></tac-stave>
-
-    <tac-stave time="3/4" keysig="F"
-               caption="Ridotto: un accordo per battuta, e l&rsquo;armonia si legge"
-               soprano="f/5:h. | e/5:h."
-               contralto="c/5:h. | c/5:h."
-               tenore="a/4:h. | g/4:h."
-               basso="f/3:h. | c/3:h."
-               segna="b1=I - V, ed era tutto qui"
-               width="860" tempo="60" play slow></tac-stave>
-
-    <p>L&rsquo;arpeggio della sinistra non era altro che <strong>fa&ndash;la&ndash;do</strong> e poi <strong>do&ndash;sol&ndash;si&nbsp;bemolle</strong>, distribuiti nel tempo. Dodici eventi diventano due accordi.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il basso &egrave; la chiave">
-  <div class="slide-interna">
-    <h2>Si comincia sempre dal basso</h2>
-
-    <p>Nell&rsquo;esempio di prima l&rsquo;arpeggio della sinistra faceva dodici eventi, e la riduzione ne ha tenuti due. Il criterio per sapere <em>quali</em> due &egrave; il <strong>basso</strong>: la nota pi&ugrave; grave di ogni tratto dice il rivolto, e il rivolto &egrave; met&agrave; dell&rsquo;informazione.</p>
+    <p>&Egrave; l&rsquo;equivoco pi&ugrave; comune su Schönberg: che abbia inventato la dodecafonia per uscire dalla tonalit&agrave;. In mezzo ci sono <strong>quindici anni</strong>.</p>
 
     <div class="riquadro definizione">
-      <span class="etichetta">La nota grave di un arpeggio</span>
-      <p>Non &egrave; sempre la prima che si sente. In un arpeggio ascendente s&igrave;; in uno che gira &mdash; fa&nbsp;do&nbsp;la&nbsp;do &mdash; la nota grave &egrave; quella che <strong>torna</strong>, e le altre le girano intorno.</p>
+      <span class="etichetta">Due fasi, e sono cose diverse</span>
+      <p><strong>1908 circa &mdash; l&rsquo;atonalit&agrave; libera.</strong> Si smette di usare la tonalit&agrave; e non si mette niente al posto suo. I pezzi diventano brevissimi.<br>
+      <strong>1923 circa &mdash; la dodecafonia.</strong> Si introduce una regola nuova, e i pezzi tornano a essere lunghi.</p>
     </div>
 
-    <p>Cantate il basso della mano sinistra come se fosse una linea sola, saltando le note interne. Quello che esce &egrave; il basso del corale nascosto sotto il pezzo.</p>
+    <p>La seconda nasce da un problema pratico della prima, ed &egrave; il problema che ci interessa: <strong>senza tonalit&agrave;, che cosa impedisce di ripetersi?</strong> Con la tonalit&agrave; una nota tornava perch&eacute; era la tonica; senza, torna perch&eacute; le dita ci vanno.</p>
 
-    <p class="didascalia">&Egrave; la stessa operazione dei partimenti delle unit&agrave; 5 e 6, e non &egrave; una coincidenza: il partimento &egrave; un basso a cui manca tutto il resto, la riduzione &egrave; tutto il resto da cui si ricava il basso.</p>
+    <p class="didascalia">La brevit&agrave; dei pezzi del primo periodo non &egrave; uno stile: &egrave; una conseguenza. Senza un sistema che generi continuazione, un pezzo lungo non si regge.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="I tre passi">
+<section class="slide" data-titolo="Dieci battute">
   <div class="slide-interna">
-    <h2>Come si riduce, in tre passi</h2>
+    <h2>Quanto sono brevi: dieci battute</h2>
 
-    <div class="riquadro definizione">
-      <span class="etichetta">Nell&rsquo;ordine, e l&rsquo;ordine conta</span>
-      <p><strong>1. Trovare il ritmo armonico.</strong> Ogni quanto cambia l&rsquo;armonia? Una volta per battuta, due, ogni due battute?<br>
-      <strong>2. Raccogliere le note.</strong> Dentro ogni tratto, quali altezze diverse compaiono &mdash; in tutte e due le mani.<br>
-      <strong>3. Separare.</strong> Quali di quelle note formano un accordo, e quali sono di passaggio o di volta.</p>
-    </div>
-
-    <p>Il passo 1 &egrave; il pi&ugrave; difficile e va fatto <strong>a orecchio</strong>, non con gli occhi: si canta il basso e si sente dove &laquo;gira&raquo;.</p>
-
-    <p class="didascalia">Chi comincia dal passo 2 raccoglie note per tratti sbagliati e trova accordi che non esistono. &Egrave; l&rsquo;errore pi&ugrave; frequente, e si riconosce perch&eacute; l&rsquo;analisi produce una successione che non ha senso.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Segnare i tratti">
-  <div class="slide-interna">
-    <h2>Come si segnano i tratti, sulla partitura</h2>
-
-    <p>Una <strong>barretta verticale</strong> dove l&rsquo;armonia cambia, e basta. Niente colori, niente cerchi: la barretta &egrave; l&rsquo;unica cosa che non si pu&ograve; mettere &laquo;quasi&raquo; nel posto giusto, e proprio per questo obbliga a decidere.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Tre casi che mettono in dubbio</span>
-      <p><strong>Il basso resta e sopra cambia tutto.</strong> Spesso &egrave; un accordo solo con note estranee: guardate se le note nuove risolvono.<br>
-      <strong>Il basso cambia e sopra resta tutto.</strong> Quasi sempre &egrave; un rivolto dello stesso accordo: nessuna barretta.<br>
-      <strong>Cambiano tutti e due a met&agrave; battuta.</strong> Barretta, e il ritmo armonico &egrave; di due per battuta.</p>
-    </div>
-
-    <p class="didascalia">Il secondo caso &egrave; quello che si sbaglia di pi&ugrave;: un rivolto sembra un accordo nuovo perch&eacute; il basso si &egrave; mosso, e chi lo conta come nuovo raddoppia il ritmo armonico di tutto il pezzo.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il brano">
-  <div class="slide-interna">
-    <h2>La mazurka</h2>
+    <p>Questo &egrave; uno dei <em>Sei piccoli pezzi per pianoforte</em> op.&nbsp;19, del <strong>1911</strong>. Dura <strong>dieci battute</strong>. Non &egrave; un frammento: &egrave; il pezzo intero.</p>
 
     <tac-brano organico="tastiera"
-               titolo="F. Chopin, Mazurka op. 6 n. 2 (bb. 17&ndash;24)"
-               segna="b17=dove cambia l&rsquo;armonia&#59; b23=la cadenza"
-               metronomo youtube="vt_xIKmnk4I" esecutore="Arthur Rubinstein, pianoforte" partitura="../../_assets/spartiti/A16_chopin-mazurka.png" inciso="../../_assets/incisioni/A16_chopin_mazurka.mp3" mappa='{"durata":13583,"eventi":[[0,0],[1,1364],[2,2727],[3,4091],[4,5455],[5,6818],[6,8182],[7,9545]]}' da-battuta="17">
-<script type="application/json">{"titolo":"F. Chopin, Mazurka op. 6 n. 2, le battute alterate","metro":"3/4","bpm":132,"battute":8,"anacrusi":0.0,"voci":[[[0.0,0.5,63],[0.75,0.25,67],[1.0,1.0,68],[2.0,0.5,72],[2.5,0.5,75],[3.0,0.5,63],[3.75,0.25,67],[4.0,0.5,68],[4.5,0.5,72],[5.0,1.0,75],[6.0,0.75,74],[6.75,0.25,70],[7.0,1.0,73],[8.0,0.5,72],[8.5,0.5,68],[9.0,0.3333,74],[9.3333,0.3333,70],[9.6667,0.3333,72],[10.0,1.0,73],[11.0,0.5,72],[11.5,0.5,68],[12.0,0.5,63],[12.75,0.25,67],[13.0,1.0,68],[14.0,0.5,72],[14.5,0.5,75],[15.0,0.5,63],[15.75,0.25,67],[16.0,0.5,68],[16.5,0.5,72],[17.0,1.0,75],[18.0,0.5,74],[18.5,0.5,70],[19.0,1.0,73],[20.0,0.5,72],[20.5,0.5,68],[21.0,0.75,80],[21.75,0.25,68],[22.0,0.75,80],[22.75,0.25,68],[23.0,0.75,80],[23.75,0.25,68]],[[0.0,1.0,44],[1.0,1.0,51],[1.0,1.0,56],[1.0,1.0,60],[2.0,1.0,51],[2.0,1.0,56],[2.0,1.0,60],[3.0,1.0,44],[4.0,1.0,51],[4.0,1.0,56],[4.0,1.0,60],[5.0,1.0,51],[5.0,1.0,56],[5.0,1.0,60],[6.0,1.0,52],[6.0,1.0,56],[6.0,2.0,58],[7.0,1.0,51],[7.0,1.0,55],[8.0,1.0,44],[8.0,1.0,56],[9.0,1.0,52],[9.0,1.0,56],[9.0,2.0,58],[10.0,1.0,51],[10.0,1.0,55],[11.0,1.0,44],[11.0,1.0,56],[12.0,1.0,32],[12.0,1.0,44],[13.0,1.0,51],[13.0,1.0,56],[13.0,1.0,60],[14.0,1.0,51],[14.0,1.0,56],[14.0,1.0,60],[15.0,1.0,44],[16.0,1.0,51],[16.0,1.0,56],[16.0,1.0,60],[17.0,1.0,51],[17.0,1.0,56],[17.0,1.0,60],[18.0,1.0,52],[18.0,1.0,56],[18.0,2.0,58],[19.0,1.0,51],[19.0,1.0,55],[20.0,1.0,44],[20.0,1.0,56]]]}</script>
+               titolo="A. Sch&ouml;nberg, Sei piccoli pezzi op. 19 n. 6 (1911) &mdash; il pezzo intero"
+               segna="b1=un accordo solo, ripetuto&#59; b2=e sotto ne entra un secondo"
+               metronomo youtube="KDAsjiq0Bcc" esecutore="Glenn Gould, pianoforte" partitura="../../_assets/spartiti/A24_schoenberg-19-6.png" riquadri='[[1,24.0,11.71,24.49,14.18],[2,48.49,11.71,21.48,14.18],[3,69.98,11.71,28.23,14.18],[4,3.09,40.51,39.46,14.69],[5,42.55,40.51,33.2,14.69],[6,75.75,40.51,22.54,14.69],[7,3.17,69.96,37.67,24.15],[8,40.85,69.96,30.27,24.15],[9,71.11,69.96,27.18,24.15]]' inciso="../../_assets/incisioni/A24_schoenberg_19_6.mp3" mappa='{"durata":56581,"eventi":[[0,0],[1,1500],[2,7500],[3,13500],[4,19500],[5,25500],[6,31500],[7,37500],[8,43500],[9,49500]]}' da-battuta="1">
+<script type="application/json">{"titolo":"A. Schönberg, Sei piccoli pezzi op. 19 n. 6 — dieci battute, due accordi","metro":"4/4","bpm":40,"battute":10,"anacrusi":1.0,"voci":[[[0.0,1.0,69],[0.0,1.0,78],[0.0,1.0,83],[1.0,4.0,69],[1.0,4.0,78],[1.0,4.0,83],[5.0,2.0,69],[5.0,2.0,78],[5.0,2.0,83],[7.0,2.0,69],[7.0,2.0,78],[7.0,2.0,83],[9.0,4.0,69],[9.0,4.0,78],[9.0,4.0,83],[11.0,2.0,75],[13.0,0.5,75],[13.0,2.0,69],[13.0,2.0,78],[13.0,2.0,83],[13.5,0.5,75],[16.0,1.0,69],[16.0,1.0,78],[16.0,1.0,83],[17.0,2.0,69],[17.0,2.0,78],[17.0,2.0,83],[19.0,2.0,60],[19.0,2.0,65],[19.0,2.0,70],[21.0,4.0,60],[21.0,4.0,65],[21.0,4.0,70],[26.0,0.5,74],[26.5,0.5,49],[27.0,0.3333,49],[27.3333,0.3333,50],[27.6667,0.6667,54],[28.3333,0.6667,51],[29.3333,0.3333,64],[29.3333,0.6667,62],[29.3333,0.6667,68],[29.3333,0.6667,72],[29.6667,0.3333,63],[30.0,0.5,62],[30.0,0.5,63],[30.0,0.5,68],[30.0,0.5,72],[33.0,4.0,69],[33.0,4.0,78],[33.0,4.0,83]],[[3.0,2.0,55],[3.0,2.0,60],[3.0,2.0,65],[5.0,2.0,55],[5.0,2.0,60],[5.0,2.0,65],[10.0,3.0,55],[10.0,3.0,60],[10.0,3.0,65],[11.0,1.5,87],[12.5,0.5,88],[13.0,0.5,88],[13.0,2.0,55],[13.0,2.0,60],[13.0,2.0,65],[13.5,0.5,87],[17.0,3.0,55],[17.0,3.0,60],[17.0,3.0,65],[20.0,1.0,40],[20.0,1.0,50],[20.5,0.5,56],[21.0,1.0,55],[21.0,4.0,40],[21.0,4.0,50],[22.0,3.0,54],[29.3333,0.6667,49],[29.3333,0.6667,54],[29.3333,0.6667,59],[30.0,0.5,49],[30.0,0.5,55],[30.0,0.5,59],[34.0,3.0,55],[34.0,3.0,60],[34.0,3.0,65],[36.0,0.5,46],[36.5,0.5,32]]]}</script>
 </tac-brano>
 
-    <p>Ascoltatela una volta senza guardare niente, e chiedetevi solo: <strong>dove la musica si fa sottile?</strong></p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="I numeri">
-  <div class="slide-interna">
-    <h2>Quello che il conto dice, e quello che non dice</h2>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Mazurka op. 6 n. 2 &mdash; 349 momenti</span>
-      <p>1 suono: <strong>11&nbsp;%</strong> &middot; 2 suoni: <strong>25&nbsp;%</strong> &middot; 3 suoni: <strong>6&nbsp;%</strong> &middot; 4 suoni: <strong>55&nbsp;%</strong> &middot; 5 suoni: <strong>2&nbsp;%</strong></p>
-    </div>
-
-    <p>Il numero pi&ugrave; frequente &egrave; quattro, e ci sta per poco pi&ugrave; della met&agrave; del tempo. Nei corali di Bach il numero pi&ugrave; frequente &mdash; sempre quattro &mdash; ci sta per il <strong>91&nbsp;%</strong>.</p>
-
     <div class="riquadro attenzione">
-      <p><strong>E il conto non dice che cosa si sente.</strong> Col pedale abbassato i suoni restano, e un momento &laquo;a due&raquo; sulla carta pu&ograve; suonare a cinque. Il numero misura la <em>scrittura</em>: dice quante cose il compositore ha deciso di scrivere in quel momento, non quante ne arrivano all&rsquo;orecchio.</p>
+      <p>Ascoltatelo due volte. La seconda, contate <strong>quanti accordi diversi</strong> sentite in tutto il pezzo. La risposta sorprende, e sta nella slide dopo.</p>
     </div>
 
-    <p class="didascalia">Un dato che misura una cosa e viene letto come se ne misurasse un&rsquo;altra &egrave; peggio di nessun dato. Quando ne incontrate uno, la prima domanda &egrave; sempre: <strong>che cosa ha contato, esattamente?</strong></p>
+    <p class="didascalia">Dieci battute per un pezzo da concerto sono meno di un minuto. &Egrave; la misura di quanto poco si riesce a costruire quando si &egrave; tolto tutto e non si &egrave; ancora messo niente.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Il lavoro">
+<section class="slide" data-titolo="Due accordi">
   <div class="slide-interna">
-    <h2>Al lavoro &mdash; le battute 17&ndash;24</h2>
+    <h2>Dieci battute costruite su due accordi</h2>
+
+    <p>Il pezzo si apre su un accordo solo, ripetuto: <strong>la&ndash;fa&#9839;&ndash;si</strong>. Alla seconda battuta, sotto, ne entra un secondo: <strong>sol&ndash;do&ndash;fa</strong>. Sono i due materiali di tutto il brano.</p>
+
+    <tac-stave time="4/4" keysig="C"
+               caption="I due accordi dell&rsquo;op. 19 n. 6, uno sopra e uno sotto"
+               notes="a/4+f#/5+b/5:h a/4+f#/5+b/5:h | g/3+c/4+f/4+a/4+f#/5+b/5:w"
+               segna="b1=il primo, che sta in alto&#59; b2=e il secondo, che entra sotto e non si mescola"
+               width="840" tempo="40" play slow></tac-stave>
 
     <div class="riquadro definizione">
-      <span class="etichetta">A coppie, venticinque minuti</span>
-      <p><strong>1.</strong> Segnate sulla partitura dove cambia l&rsquo;armonia. Una barretta verticale, e basta.<br>
-      <strong>2.</strong> Sotto ogni tratto, scrivete le altezze diverse che ci trovate.<br>
-      <strong>3.</strong> Cerchiate quelle che <em>non</em> stanno nell&rsquo;accordo, e dite che cosa sono.<br>
-      <strong>4.</strong> Scrivete la riduzione a quattro parti, un accordo per tratto, e sotto i gradi.</p>
+      <span class="etichetta">Che cosa sono, misurato</span>
+      <p><strong>la&ndash;fa&#9839;&ndash;si</strong> &mdash; tre suoni, con una seconda maggiore e una quarta: non &egrave; n&eacute; maggiore n&eacute; minore, e non somiglia a nessuna triade.<br>
+      <strong>sol&ndash;do&ndash;fa</strong> &mdash; tre suoni impilati <strong>per quarte</strong>: aperto, vuoto, senza terza.</p>
     </div>
 
-    <p class="didascalia">Le barrette del passo 1 sono la parte che si confronta fra le coppie: se due coppie le hanno messe in punti diversi, una delle due ha sentito qualcosa che l&rsquo;altra non ha sentito, e vale la pena scoprire quale.</p>
+    <p class="didascalia">Nessuno dei due si pu&ograve; siglare, e tutti e due si riconoscono all&rsquo;orecchio dopo due ascolti. &Egrave; esattamente quello che l&rsquo;ora 58 vi ha allenato a fare: descrivere un accordo senza nominarlo.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="La mazurka, e l&rsquo;anno">
+<section class="slide" data-titolo="Il secondo pezzo">
   <div class="slide-interna">
-    <h2>Che cos&rsquo;&egrave; una mazurka, e da dove viene</h2>
+    <h2>E il n. 2 fa la stessa cosa con due sole note</h2>
 
-    <p>L&rsquo;opera&nbsp;6 di Chopin esce nel <strong>1832</strong>, l&rsquo;anno dopo il suo arrivo a Parigi. Sono quattro mazurke, e la mazurka &egrave; una danza polacca in tre tempi: l&rsquo;accento non sta sul primo movimento come nel valzer, ma spesso sul <strong>secondo o sul terzo</strong>.</p>
+    <p>Nove battute, e tutto il pezzo sta appeso a una <strong>terza maggiore ribattuta</strong>: sol&ndash;si. Torna in continuazione, sempre uguale, mentre intorno cambia tutto.</p>
 
-    <div class="riquadro studio">
-      <p>Per la riduzione questo conta pi&ugrave; di quanto sembri: l&rsquo;accento spostato fa venire il cambio d&rsquo;armonia in punti che l&rsquo;orecchio abituato al valzer non si aspetta. Chi cerca la barretta solo sul primo movimento ne perde met&agrave;.</p>
-    </div>
-
-    <p>Chopin ne scrisse una <strong>cinquantina</strong> in tutta la vita, dalla prima raccolta fino alle ultime dell&rsquo;op.&nbsp;63: sono il genere a cui torn&ograve; pi&ugrave; a lungo, e quello in cui la scrittura pianistica resta pi&ugrave; sottile.</p>
-
-    <p class="didascalia">L&rsquo;<strong>Ottocento</strong> &egrave; il secolo in cui le danze nazionali diventano musica da concerto e da salotto. La mazurka, la polonaise, la czarda: la forma della danza resta, il ballo no.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Le note che non sono accordo">
-  <div class="slide-interna">
-    <h2>Le note che non appartengono all&rsquo;accordo</h2>
-
-    <p>Le conoscete tutte dalla quarta, e qui tornano perch&eacute; in una scrittura pianistica sono <strong>molte di pi&ugrave;</strong> che in un corale: la mano scorre, e scorrendo tocca note che non contano.</p>
-
-    <div class="riquadro studio">
-      <p><strong>di passaggio</strong> &mdash; fra due note d&rsquo;accordo, per grado congiunto<br>
-      <strong>di volta</strong> &mdash; esce e rientra sulla stessa nota<br>
-      <strong>appoggiatura</strong> &mdash; sul tempo forte, e risolve scendendo<br>
-      <strong>anticipazione</strong> &mdash; la nota dell&rsquo;accordo dopo, arrivata prima</p>
-    </div>
-
-    <p>La differenza che conta per la riduzione &egrave; una sola: <strong>l&rsquo;appoggiatura sta sul battere</strong>, e nella riduzione va scritta, perch&eacute; fa parte di come quell&rsquo;accordo si presenta. Le altre no.</p>
-
-    <p class="didascalia">Ridurre non vuol dire cancellare tutto quello che non &egrave; triade: vuol dire tenere quello che l&rsquo;armonia ha davvero deciso.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Un secondo esempio">
-  <div class="slide-interna">
-    <h2>Una riduzione con le note estranee</h2>
-
-    <tac-stave time="3/4" keysig="G"
-               caption="Come sta scritto: la melodia gira intorno alle note dell&rsquo;accordo"
-               soprano="d/5:8 e/5:8 d/5:8 c/5:8 b/4:8 d/5:8 | c/5:8 b/4:8 a/4:8 b/4:8 c/5:8 a/4:8"
-               contralto="r:h. | r:h."
-               tenore="r:h. | r:h."
-               basso="g/3:q d/4:q b/3:q | c/4:q d/4:q d/3:q"
-               segna="b1=mi e do sono di volta&#59; b2=il la del terzo tempo anticipa"
-               width="860" tempo="66" play a-passi slow></tac-stave>
-
-    <tac-stave time="3/4" keysig="G"
-               caption="Ridotto: due accordi, e le note estranee sono sparite"
-               soprano="d/5:h. | c/5:h."
-               contralto="b/4:h. | a/4:h."
-               tenore="g/4:h. | f#/4:h."
-               basso="g/3:h. | d/3:h."
-               segna="b1=I - V, e il ritmo armonico e' uno per battuta"
-               width="860" tempo="60" play slow></tac-stave>
-
-    <p>Delle dodici note della melodia ne restano due. Le altre dieci sono <strong>di volta</strong> o <strong>di passaggio</strong>: girano intorno alle note dell&rsquo;accordo o le collegano.</p>
-
-    <p class="didascalia">Il basso invece si riduce da sei note a due, e le quattro che spariscono non sono estranee: sono <strong>rivolti dello stesso accordo</strong>. Sparisce la loro posizione, non la loro armonia.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Dove la scrittura si assottiglia">
-  <div class="slide-interna">
-    <h2>E adesso la domanda dell&rsquo;inizio</h2>
-
-    <p>Dove la mazurka si fa sottile? Guardando il conto e la partitura insieme, i momenti a <strong>uno o due suoni</strong> &mdash; il 36&nbsp;% del pezzo &mdash; non sono sparsi a caso.</p>
-
-    <div class="riquadro studio">
-      <p>Cadono agli <strong>attacchi di frase</strong> e nelle <strong>riprese</strong>: dove la musica riparte. Uno spessore che si riduce &egrave; un modo di dire &laquo;<em>si ricomincia</em>&raquo;, come una cadenza dice &laquo;<em>si chiude</em>&raquo;.</p>
-    </div>
-
-    <p>&Egrave; la cosa da portare via da quest&rsquo;ora: <strong>lo spessore della scrittura &egrave; un elemento della forma</strong>, e si analizza come si analizzano le cadenze.</p>
-
-    <p class="didascalia">Nell&rsquo;unit&agrave; 10 farete questa analisi su un brano intero, dove i cambi di spessore segnano le sezioni.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La cadenza, ridotta">
-  <div class="slide-interna">
-    <h2>La cadenza si vede solo dopo aver ridotto</h2>
-
-    <tac-stave time="3/4" keysig="G"
-               caption="Come sta scritto: la chiusa, con la melodia che fiorisce"
-               soprano="a/4:8 b/4:8 c/5:8 b/4:8 a/4:8 g/4:8 | g/4:h."
-               contralto="r:h. | r:h."
-               tenore="r:h. | r:h."
-               basso="d/3:q a/3:q f#/3:q | g/3:h."
-               segna="b2=la chiusa, e prima non si capiva dove fosse"
-               width="860" tempo="60" play a-passi slow></tac-stave>
-
-    <tac-stave time="3/4" keysig="G"
-               caption="Ridotto: V &mdash; I, cadenza perfetta, e si legge subito"
-               soprano="a/4:h. | g/4:h."
-               contralto="f#/4:h. | d/4:h."
-               tenore="d/4:h. | b/3:h."
-               basso="d/3:h. | g/3:h."
-               segna="b1=V&#59; b2=I"
-               width="860" tempo="56" play slow></tac-stave>
-
-    <p>Nella scrittura originale le sei crome della melodia nascondono la cadenza: sembra che succedano molte cose, e ne succede <strong>una sola</strong>. Nella riduzione la cadenza &egrave; l&rsquo;unica cosa che resta.</p>
-
-    <p class="didascalia">&Egrave; il motivo per cui alla domanda &laquo;dove sono le cadenze&raquo; non si risponde guardando la partitura: si risponde guardando la riduzione.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Due riduzioni diverse">
-  <div class="slide-interna">
-    <h2>Quando due riduzioni non coincidono</h2>
-
-    <p>Succede spesso, e non vuol dire che una sia sbagliata. Le differenze legittime sono <strong>due</strong>, e vale la pena riconoscerle:</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le due divergenze che ci stanno</span>
-      <p><strong>Il ritmo armonico pi&ugrave; fitto o pi&ugrave; largo.</strong> Chi conta due accordi per battuta e chi ne conta uno leggono lo stesso pezzo a due profondit&agrave;: la lettura larga &egrave; una riduzione della riduzione.<br>
-      <strong>La nota estranea presa per accordo.</strong> Un&rsquo;appoggiatura lunga si pu&ograve; leggere come un accordo suo, e in certi casi &egrave; anche pi&ugrave; utile.</p>
-    </div>
-
-    <p>Quello che <strong>non</strong> ci sta &egrave; una divergenza sul basso: se due riduzioni danno bassi diversi, una delle due ha letto male il rivolto, e si guarda la partitura.</p>
-
-    <p class="didascalia">Confrontate a coppie prima di consegnare. Dieci minuti di confronto trovano pi&ugrave; errori di mezz&rsquo;ora di ricontrollo da soli, perch&eacute; ognuno rilegge le proprie scelte come se fossero ovvie.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="A che cosa serve">
-  <div class="slide-interna">
-    <h2>Perch&eacute; questa &egrave; l&rsquo;operazione dell&rsquo;esame</h2>
-
-    <p>Alla seconda prova vi si d&agrave; un brano e vi si chiede di analizzarlo. Nessuno vi chieder&agrave; &laquo;fai una riduzione&raquo;: vi chiederanno <strong>quali accordi</strong>, <strong>dove sono le cadenze</strong>, <strong>come si articola la forma</strong>. Sono tre domande a cui non si risponde senza aver ridotto.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa la riduzione mette in mano</span>
-      <p>Gli <strong>accordi</strong>, uno per tratto, con i gradi.<br>
-      Le <strong>cadenze</strong>, che nella riduzione si vedono a colpo d&rsquo;occhio.<br>
-      Il <strong>ritmo armonico</strong>, che dove cambia segna quasi sempre un confine di sezione.</p>
-    </div>
-
-    <p>La riduzione non &egrave; il risultato dell&rsquo;analisi: &egrave; <strong>il foglio su cui l&rsquo;analisi si scrive</strong>. Nella brutta copia di una prova d&rsquo;esame ben fatta c&rsquo;&egrave; sempre.</p>
-
-    <p class="didascalia">E si fa in fretta, con l&rsquo;abitudine: sedici battute in dieci minuti, dopo un anno di esercizio. Oggi ne avete impiegati venticinque per otto, e va bene cos&igrave;.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Verso la V4">
-  <div class="slide-interna">
-    <h2>La prossima ora c&rsquo;&egrave; la V4</h2>
-
-    <p>Verifica cumulativa da due ore, sulle unit&agrave; <strong>5, 6, 7 e 8</strong>: il partimento, le sequenze, il corale oltre il modello semplice, e la testura pianistica.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa conviene ripassare</span>
-      <p>La realizzazione di un partimento (u.&nbsp;5&ndash;6) &middot; i quattro modelli del corale, e il fatto che cambiano da un verso al successivo (u.&nbsp;7) &middot; le tre fasi della realizzazione pianistica, e l&rsquo;ordine in cui si tolgono le note (u.&nbsp;8)</p>
-    </div>
-
-    <p class="didascalia">Una cosa che torna in tutte e quattro le unit&agrave;: <strong>alleggerire</strong>. Il partimento si alleggerisce, il corale figurato &egrave; un corale semplice animato, e la testura pianistica nasce da una bozza a quattro parti. Se doveste ripassare una cosa sola, ripassate quella.</p>
-  </div>
-</section>
-
-<!-- ───────────────────────────────────────────────────────────────────
-     Quattro slide, due con musica vera. L'ora è sulla riduzione — dal
-     pianoforte alla struttura — e ha «Un secondo esempio» come titolo
-     di una slide, con un brano solo. La riduzione va provata su due
-     scritture diverse, perché il metodo cambia secondo la tessitura.
-     ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="Un secondo esempio, davvero">
-  <div class="slide-interna">
-    <h2>Ridurre un accompagnamento invece di un pezzo solistico</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Riduzione &middot; 10 minuti</span>
-      <p>Scrivete il <strong>basso</strong> e la <strong>melodia</strong>, e sotto il basso le cifre. Niente altro: è la riduzione.</p>
-    </div>
-
-    <tac-brano organico="voci" titolo="Schubert, «Der Lindenbaum» — voce e pianoforte"
-               metronomo youtube="jyxMMg6bxrg" esecutore="Dietrich Fischer-Dieskau · Gerald Moore" partitura="../../_assets/spartiti/A08_schubert.png" inciso="../../_assets/incisioni/A08_schubert.mp3" mappa='{"durata":29648,"eventi":[[0,0],[1,1800],[2,3600],[3,5400],[4,7200],[5,9000],[6,10800],[7,12600],[8,14400],[9,16200],[10,18000],[11,19800],[12,21600],[13,23400],[14,25200]]}' da-battuta="1">
-<script type="application/json">{"titolo":"F. Schubert, «Der Lindenbaum», da Winterreise","metro":"3/4","bpm":100,"battute":15,"anacrusi":0.0,"voci":[[[23.5,0.5,71],[24.0,1.5,71],[25.5,0.5,68],[26.0,0.5,68],[26.5,0.5,68],[27.0,1.0,68],[28.0,1.0,64],[29.5,0.5,64],[30.0,1.5,66],[31.5,0.5,68],[32.0,0.332,69],[32.332,0.332,68],[32.6641,0.3359,66],[33.0,2.0,64],[35.5,0.5,71],[36.0,1.5,71],[37.5,0.5,68],[38.0,0.5,68],[38.5,0.5,68],[39.0,1.0,68],[40.0,1.0,64],[41.5,0.5,64],[42.0,1.5,66],[43.5,0.5,68],[44.0,0.332,69],[44.332,0.332,68],[44.6641,0.3359,66]],[[0.0,0.1641,56],[0.1641,0.168,64],[0.332,0.168,56],[0.5,0.1641,54],[0.6641,0.168,63],[0.832,0.168,54],[1.0,0.1641,56],[1.1641,0.168,64],[1.332,0.168,56],[1.5,0.1641,59],[1.6641,0.168,68],[1.832,0.168,59],[2.0,0.1641,57],[2.1641,0.168,66],[2.332,0.168,57],[2.5,0.1641,56],[2.6641,0.168,64],[2.832,0.168,56],[3.0,0.75,54],[3.0,0.75,59],[3.75,0.25,73],[4.0,2.0,71],[6.0,0.1641,68],[6.1641,0.168,76],[6.332,0.168,68],[6.5,0.1641,66],[6.6641,0.168,75],[6.832,0.168,66],[7.0,0.1641,68],[7.1641,0.168,76],[7.332,0.168,68],[7.5,0.1641,71],[7.6641,0.168,80],[7.832,0.168,71],[8.0,0.1641,69],[8.1641,0.168,78],[8.332,0.168,69],[8.5,0.1641,68],[8.6641,0.168,76],[8.832,0.168,68],[9.0,0.1641,66],[9.1641,0.168,75],[9.332,0.168,66],[9.5,0.1641,64],[9.6641,0.168,73],[9.832,0.168,64],[10.0,0.1641,63],[10.1641,0.168,71],[10.332,0.168,63],[10.5,0.1641,61],[10.6641,0.168,69],[10.832,0.168,61],[11.0,0.1641,59],[11.1641,0.168,68],[11.332,0.168,59],[11.5,0.1641,57],[11.6641,0.168,66],[11.832,0.168,57],[12.0,0.1641,56],[12.1641,0.168,64],[12.332,0.168,56],[12.5,0.1641,57],[12.6641,0.168,66],[12.832,0.168,57],[13.0,0.1641,56],[13.1641,0.168,64],[13.332,0.168,56],[13.5,0.1641,57],[13.6641,0.168,66],[13.832,0.168,57],[14.0,0.1641,56],[14.1641,0.168,64],[14.332,0.168,56],[14.5,0.1641,62],[14.6641,0.168,65],[14.832,0.168,62],[15.0,0.1641,61],[15.1641,0.168,66],[15.332,0.168,61],[15.5,0.1641,65],[15.5,0.1641,68],[15.6641,0.168,61],[15.832,0.168,65],[15.832,0.168,68],[16.0,0.5,66],[16.0,0.5,69],[16.5,0.5,61],[16.5,0.5,66],[16.5,0.5,69],[17.0,0.5,63],[17.0,0.5,66],[17.0,0.5,69],[17.5,0.5,64],[17.5,0.5,66],[17.5,0.5,69],[18.0,0.75,66],[18.0,0.75,69],[18.75,0.125,64],[18.75,0.125,68],[18.875,0.125,59],[18.875,0.125,66],[19.0,2.0,59],[19.0,2.0,66],[21.0,0.75,66],[21.0,0.75,69],[21.75,0.125,64],[21.75,0.125,68],[21.875,0.125,59],[21.875,0.125,66],[22.0,1.5,59],[22.0,1.5,66],[23.5,0.5,59],[23.5,0.5,68],[23.5,0.5,71],[24.0,1.5,59],[24.0,1.5,68],[24.0,1.5,71],[25.5,0.5,59],[25.5,0.5,64],[25.5,0.5,68],[26.0,0.5,59],[26.0,0.5,64],[26.0,0.5,68],[26.5,0.5,59],[26.5,0.5,64],[26.5,0.5,68],[27.0,1.0,59],[27.0,1.0,64],[27.0,1.0,68],[28.0,1.0,56],[28.0,1.0,59],[28.0,1.0,64],[29.5,0.5,59],[29.5,0.5,64],[30.0,2.0,59],[30.0,2.0,64],[30.0,2.0,66],[32.0,1.0,59],[32.0,1.0,63],[32.0,1.0,66],[33.0,0.5,56],[33.0,0.5,59],[33.0,0.5,64],[33.5,0.5,68],[33.5,0.5,71],[34.0,0.5,64],[34.0,0.5,68],[34.5,0.5,68],[34.5,0.5,71],[35.0,0.5,66],[35.0,0.5,69],[35.5,0.5,59],[35.5,0.5,66],[36.0,0.5,56],[36.0,0.5,64],[36.5,1.0,59],[36.5,1.0,68],[36.5,1.0,71],[37.5,0.5,59],[37.5,0.5,64],[37.5,0.5,68],[38.0,0.5,59],[38.0,0.5,64],[38.0,0.5,68],[38.5,0.5,59],[38.5,0.5,64],[38.5,0.5,68],[39.0,1.0,59],[39.0,1.0,64],[39.0,1.0,68],[40.0,1.0,56],[40.0,1.0,59],[40.0,1.0,64],[41.5,0.5,59],[41.5,0.5,64],[42.0,2.0,59],[42.0,2.0,64],[42.0,2.0,66],[44.0,1.0,59],[44.0,1.0,63],[44.0,1.0,66]],[[0.0,3.0,40],[0.0,3.0,47],[3.0,0.5,35],[3.0,0.5,47],[6.0,3.0,52],[6.0,3.0,59],[9.0,0.5,47],[9.0,0.5,59],[9.75,0.25,49],[10.0,1.5,47],[11.5,0.5,48],[12.0,0.5,49],[12.5,0.5,48],[13.0,0.5,49],[13.5,0.5,48],[14.0,0.5,49],[14.5,0.5,47],[15.0,0.5,45],[15.5,0.5,44],[16.0,0.5,42],[16.5,0.5,40],[17.0,0.5,39],[17.5,0.5,37],[18.0,3.0,35],[21.0,2.0,35],[23.0,0.5,35],[23.5,0.5,40],[23.5,0.5,52],[24.0,1.5,40],[24.0,1.5,52],[25.5,0.5,40],[26.0,0.5,44],[26.5,0.5,47],[27.0,2.0,52],[29.5,0.5,44],[30.0,2.0,47],[32.0,1.0,47],[33.0,0.5,40],[33.5,0.5,56],[33.5,0.5,59],[34.0,0.5,52],[34.0,0.5,56],[34.5,0.5,56],[34.5,0.5,59],[35.0,0.5,54],[35.0,0.5,57],[35.5,0.5,47],[35.5,0.5,51],[36.0,0.5,40],[36.0,0.5,44],[36.0,0.5,52],[36.5,1.0,52],[37.5,0.5,40],[38.0,0.5,44],[38.5,0.5,47],[39.0,2.0,52],[41.5,0.5,44],[42.0,2.0,47],[44.0,1.0,47]]]}</script>
+    <tac-brano organico="tastiera"
+               titolo="A. Sch&ouml;nberg, Sei piccoli pezzi op. 19 n. 2 (1911) &mdash; il pezzo intero"
+               segna="b1=sol e si, e non se ne vanno pi&ugrave;"
+               metronomo youtube="KDAsjiq0Bcc" esecutore="Glenn Gould, pianoforte" partitura="../../_assets/spartiti/A25_schoenberg-19-2.png" riquadri='[[1,5.94,10.99,51.18,11.87],[2,57.12,10.99,41.42,11.87],[3,2.2,35.01,50.37,12.14],[4,52.56,35.01,45.97,12.14],[5,2.2,59.97,55.0,11.87],[6,57.2,59.97,41.42,11.87],[7,9.85,85.69,28.72,11.33],[8,38.57,85.69,33.36,11.33],[9,71.93,85.69,26.28,11.33]]' inciso="../../_assets/incisioni/A25_schoenberg_19_2.mp3" mappa='{"durata":30380,"eventi":[[0,0],[1,2000],[2,4000],[3,6000],[4,8000],[5,10000],[6,14800],[7,19600],[8,24400]]}' da-battuta="1">
+<script type="application/json">{"titolo":"A. Schönberg, Sei piccoli pezzi op. 19 n. 2 — la terza che non se ne va","metro":"4/4","bpm":50,"battute":9,"anacrusi":0.0,"voci":[[[7.0,0.5,83],[7.0,0.5,86],[7.5,0.5,66],[8.0,1.5,63],[9.5,0.5,57],[10.0,1.0,60],[11.0,1.0,56],[16.0,0.25,78],[16.0,0.25,82],[16.0,0.25,88],[17.0,0.5,54],[17.0,0.5,58],[22.0,2.0,59],[22.0,2.0,62],[24.0,0.5,59],[24.0,0.5,62],[24.5,0.5,67],[24.5,0.5,71],[26.5,0.5,67],[26.5,0.5,71],[27.0,0.5,67],[27.0,0.5,71],[29.0,0.5,67],[29.0,0.5,71],[31.0,0.5,67],[31.0,0.5,71],[31.5,0.5,67],[31.5,0.5,71],[33.5,0.5,67],[33.5,0.5,71],[34.0,2.0,67],[34.0,2.0,71],[34.0,2.0,75],[34.0,2.0,78],[34.0,2.0,82],[34.0,2.0,86]],[[1.0,0.5,67],[1.0,0.5,71],[1.5,0.5,67],[1.5,0.5,71],[2.0,0.5,67],[2.0,0.5,71],[3.5,0.5,67],[3.5,0.5,71],[5.0,0.5,67],[5.0,0.5,71],[5.5,0.5,67],[5.5,0.5,71],[6.0,0.5,67],[6.0,0.5,71],[7.5,0.5,67],[7.5,0.5,71],[9.0,0.5,67],[9.0,0.5,71],[9.5,0.5,67],[9.5,0.5,71],[10.0,0.5,67],[10.0,0.5,71],[11.5,0.5,67],[11.5,0.5,71],[12.0,0.5,67],[12.0,0.5,71],[12.5,0.5,67],[12.5,0.5,71],[13.0,0.5,72],[13.0,0.5,75],[13.5,0.5,67],[13.5,0.5,71],[14.5,0.5,67],[14.5,0.5,71],[16.0,0.5,72],[16.0,0.5,75],[16.5,1.0,67],[16.5,1.0,71],[17.5,0.5,67],[17.5,0.5,71],[19.0,0.5,67],[19.0,0.5,71],[19.5,0.5,67],[19.5,0.5,71],[20.0,0.5,56],[20.0,0.5,60],[20.5,1.0,57],[20.5,1.0,61],[21.5,0.5,60],[21.5,0.5,63],[22.0,2.0,42],[22.0,2.0,48],[22.0,2.0,51],[22.0,2.0,53],[24.0,0.5,42],[24.0,0.5,48],[24.0,0.5,51],[24.0,0.5,53],[26.0,0.5,53],[26.0,0.5,57],[28.0,0.5,51],[28.0,0.5,55],[30.5,0.5,49],[30.5,0.5,53],[32.5,0.5,48],[32.5,0.5,52]]]}</script>
 </tac-brano>
 
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Il basso è la chiave</span>
-      <p>In qualunque scrittura pianistica, la <strong>nota più grave di ogni tempo</strong> è il basso, e da lì si legge l&rsquo;armonia.</p>
-      <p>Le note in mezzo si guardano solo per stabilire il rivolto e le dissonanze. Sono la maggioranza delle note e la minoranza dell&rsquo;informazione.</p>
+    <div class="riquadro studio">
+      <p>Una terza maggiore &egrave; l&rsquo;intervallo pi&ugrave; tonale che ci sia: &egrave; met&agrave; di una triade. Qui non lo &egrave;, e la ragione &egrave; una sola: <strong>non si muove</strong>. Non risolve, non prepara, non va da nessuna parte.</p>
     </div>
 
-    <div class="riquadro attenzione">
-      <span class="etichetta">Dove la scrittura si assottiglia</span>
-      <p>In un accompagnamento la tessitura si <strong>dirada</strong> quando la voce ha una nota importante: è una scelta di equilibrio, non un&rsquo;armonia più povera.</p>
-      <p>La riduzione lo registra come un accordo di due note, e va scritto che è una scelta di scrittura.</p>
-    </div>
-
-    <p class="didascalia">Una riduzione conserva la <strong>struttura</strong> e perde la scrittura. Vale la pena annotare a margine i punti in cui quello che si perde era una decisione, non un dettaglio.</p>
+    <p class="didascalia">&Egrave; il modo pi&ugrave; economico di avere un centro senza avere una tonica &mdash; lo stesso lavoro che nell&rsquo;ora 31 faceva il pedale, ridotto a due note ribattute.</p>
   </div>
 </section>
 
-<section class="slide perc" data-titolo="La mazurka, e i suoi numeri">
+<section class="slide" data-titolo="Non &egrave; il caos">
   <div class="slide-interna">
-    <h2>Il pezzo solistico, e perché si riduce diversamente</h2>
+    <h2>&#9888; Quello che questi due pezzi dimostrano</h2>
 
-    <div class="riquadro compito">
-      <span class="etichetta">Riduzione &middot; 10 minuti</span>
-      <p>Stesso lavoro. Qui però la <strong>melodia</strong> è dentro la mano destra insieme all&rsquo;armonia: bisogna prima separarla.</p>
+    <p>Si dice spesso che l&rsquo;atonalit&agrave; sia musica senza regole, in cui tutto vale uguale. I due pezzi che avete appena sentito dicono il contrario, e lo dicono in modo verificabile.</p>
+
+    <div class="riquadro attenzione">
+      <p>Dieci battute su <strong>due</strong> sonorit&agrave;. Nove battute su <strong>una</strong>. &Egrave; una economia di materiale che nessun pezzo tonale di pari durata si permetterebbe &mdash; una sonata usa molti pi&ugrave; accordi in dieci battute.</p>
     </div>
 
-    <tac-brano organico="tastiera" titolo="Chopin, Mazurka op. 6 n. 2 — le battute alterate"
-               metronomo youtube="vt_xIKmnk4I" esecutore="Arthur Rubinstein, pianoforte" partitura="../../_assets/spartiti/A16_chopin-mazurka.png" inciso="../../_assets/incisioni/A16_chopin_mazurka.mp3" mappa='{"durata":13583,"eventi":[[0,0],[1,1364],[2,2727],[3,4091],[4,5455],[5,6818],[6,8182],[7,9545]]}' da-battuta="17">
-<script type="application/json">{"titolo":"F. Chopin, Mazurka op. 6 n. 2, le battute alterate","metro":"3/4","bpm":132,"battute":8,"anacrusi":0.0,"voci":[[[0.0,0.5,63],[0.75,0.25,67],[1.0,1.0,68],[2.0,0.5,72],[2.5,0.5,75],[3.0,0.5,63],[3.75,0.25,67],[4.0,0.5,68],[4.5,0.5,72],[5.0,1.0,75],[6.0,0.75,74],[6.75,0.25,70],[7.0,1.0,73],[8.0,0.5,72],[8.5,0.5,68],[9.0,0.3333,74],[9.3333,0.3333,70],[9.6667,0.3333,72],[10.0,1.0,73],[11.0,0.5,72],[11.5,0.5,68],[12.0,0.5,63],[12.75,0.25,67],[13.0,1.0,68],[14.0,0.5,72],[14.5,0.5,75],[15.0,0.5,63],[15.75,0.25,67],[16.0,0.5,68],[16.5,0.5,72],[17.0,1.0,75],[18.0,0.5,74],[18.5,0.5,70],[19.0,1.0,73],[20.0,0.5,72],[20.5,0.5,68],[21.0,0.75,80],[21.75,0.25,68],[22.0,0.75,80],[22.75,0.25,68],[23.0,0.75,80],[23.75,0.25,68]],[[0.0,1.0,44],[1.0,1.0,51],[1.0,1.0,56],[1.0,1.0,60],[2.0,1.0,51],[2.0,1.0,56],[2.0,1.0,60],[3.0,1.0,44],[4.0,1.0,51],[4.0,1.0,56],[4.0,1.0,60],[5.0,1.0,51],[5.0,1.0,56],[5.0,1.0,60],[6.0,1.0,52],[6.0,1.0,56],[6.0,2.0,58],[7.0,1.0,51],[7.0,1.0,55],[8.0,1.0,44],[8.0,1.0,56],[9.0,1.0,52],[9.0,1.0,56],[9.0,2.0,58],[10.0,1.0,51],[10.0,1.0,55],[11.0,1.0,44],[11.0,1.0,56],[12.0,1.0,32],[12.0,1.0,44],[13.0,1.0,51],[13.0,1.0,56],[13.0,1.0,60],[14.0,1.0,51],[14.0,1.0,56],[14.0,1.0,60],[15.0,1.0,44],[16.0,1.0,51],[16.0,1.0,56],[16.0,1.0,60],[17.0,1.0,51],[17.0,1.0,56],[17.0,1.0,60],[18.0,1.0,52],[18.0,1.0,56],[18.0,2.0,58],[19.0,1.0,51],[19.0,1.0,55],[20.0,1.0,44],[20.0,1.0,56]]]}</script>
+    <p>Tolta la tonalit&agrave;, il compositore non ha <em>meno</em> vincoli: ne ha di pi&ugrave;. Deve costruire lui, dentro il pezzo, la coerenza che prima gli veniva dal sistema. E il modo &egrave; sempre quello: <strong>ripetere poco materiale</strong>.</p>
+
+    <p class="didascalia">La domanda dell&rsquo;analisi diventa quindi: <em>quali sono i pochi oggetti che tornano?</em> &Egrave; la stessa dell&rsquo;ora 62, e all&rsquo;ora 64 le daremo dei numeri.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="La serie">
+  <div class="slide-interna">
+    <h2>Quindici anni dopo: la serie</h2>
+
+    <p>La regola nuova &egrave; una sola frase: si sceglie un ordine dei <strong>dodici suoni</strong>, e prima di ripeterne uno si usano tutti gli altri.</p>
+
+    <tac-stave time="4/4" keysig="C"
+               caption="Una serie: dodici suoni, ciascuno una volta sola"
+               notes="e/4:8 f/4:8 g/4:8 c#/4:8 f#/4:8 d#/4:8 g#/4:8 d/4:8 | b/4:8 c/5:8 a/4:8 a#/4:8 r:h"
+               segna="b1=nessuna nota si ripete&#59; b2=e alla dodicesima il giro &egrave; chiuso"
+               width="860" tempo="88" play slow></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">A che cosa serve, in pratica</span>
+      <p>A <strong>impedire che una nota diventi tonica per insistenza</strong>. Se ogni suono compare con la stessa frequenza, nessuno pu&ograve; imporsi. La regola non produce bellezza: produce equilibrio, e toglie di mezzo il difetto del primo periodo.</p>
+    </div>
+
+    <p class="didascalia">La serie non &egrave; un tema: non si deve riconoscere all&rsquo;ascolto, e quasi mai si riconosce. &Egrave; il criterio con cui si generano le note, non la melodia che si sente.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Le quattro forme">
+  <div class="slide-interna">
+    <h2>Che cosa si fa con una serie</h2>
+
+    <p>Una successione di dodici suoni si pu&ograve; usare in quattro modi, e sono gli stessi che conoscete dal contrappunto della seconda.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Le quattro forme, e i loro nomi</span>
+      <p><strong>originale</strong> (O) &mdash; come &egrave; stata scritta<br>
+      <strong>retrogrado</strong> (R) &mdash; letta dalla fine<br>
+      <strong>inverso</strong> (I) &mdash; ogni intervallo rovesciato: dove saliva scende<br>
+      <strong>retrogrado dell&rsquo;inverso</strong> (RI) &mdash; tutte e due le cose insieme</p>
+    </div>
+
+    <tac-stave time="4/4" keysig="C"
+               caption="Le prime quattro note, e il loro inverso: sale dove scendeva"
+               notes="e/4:q f/4:q g/4:q c#/4:q | e/4:q eb/4:q c#/4:q g/4:q"
+               segna="b1=originale&#59; b2=inverso, gli stessi intervalli al contrario"
+               width="840" tempo="72" play slow></tac-stave>
+
+    <p class="didascalia">Ognuna delle quattro si pu&ograve; poi <strong>trasportare</strong> su dodici altezze: 4 &times; 12 = <strong>quarantotto</strong> forme in tutto, da una serie sola. Il materiale &egrave; abbondante, e viene tutto da una decisione iniziale.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Da dove viene">
+  <div class="slide-interna">
+    <h2>E non &egrave; un&rsquo;invenzione senza padri</h2>
+
+    <p>Retrogrado, inverso, retrogrado dell&rsquo;inverso: sono le trasformazioni del <strong>canone</strong>, e le avete incontrate in seconda e in quarta. Bach le usava, e prima di lui i fiamminghi.</p>
+
+    <div class="riquadro studio">
+      <p>Quello che cambia non &egrave; l&rsquo;operazione: &egrave; <strong>l&rsquo;oggetto</strong> su cui si applica. Nel canone si trasforma un <em>tema</em>, che ha un profilo e si riconosce. Qui si trasforma una <em>serie</em>, che è un ordine e non si riconosce.</p>
+    </div>
+
+    <p>Vale la pena dirlo perch&eacute; toglie alla dodecafonia l&rsquo;aria di rottura totale: la tecnica &egrave; vecchia di cinque secoli, ed &egrave; il materiale a essere nuovo.</p>
+
+    <p class="didascalia">Schönberg stesso teneva molto a questa continuit&agrave;, e insegnava armonia tonale ai suoi allievi &mdash; anche a quelli che poi hanno scritto solo musica seriale.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Gli allievi">
+  <div class="slide-interna">
+    <h2>Due allievi, e due modi opposti di usarla</h2>
+
+    <p>La serie &egrave; una regola, e una regola non fa uno stile: due compositori che la usano allo stesso modo possono scrivere musica che non si somiglia per niente. I due allievi di Schönberg lo dimostrano.</p>
+
+    <tac-brano organico="voci"
+               titolo="A. Webern, &laquo;Dormi Jesu&raquo;, dai Cinque canoni op. 16 n. 2"
+               segna="b1=un canone, e le voci non fanno pi&ugrave; armonia"
+               metronomo youtube="MDpJQLP50Yc" esecutore="Christiane Oelze, soprano" partitura="../../_assets/spartiti/A26_webern-16-2.png" riquadri='[[1,20.08,12.34,41.72,6.55],[2,61.79,12.34,36.35,6.55],[3,5.85,25.09,48.64,6.52],[4,54.48,25.09,43.76,6.52],[5,6.24,37.77,46.59,6.55],[6,52.83,37.77,45.61,6.55],[7,5.95,58.06,47.08,7.09],[8,53.02,58.06,44.93,7.09],[9,5.85,72.05,46.3,7.25],[10,52.14,72.05,45.71,7.25],[11,5.85,86.33,34.99,7.0],[12,40.84,86.33,28.17,7.0],[13,69.01,86.33,28.46,7.0]]' inciso="../../_assets/incisioni/A26_webern_16_2.mp3" mappa='{"durata":54621,"eventi":[[0,0],[1,4444],[2,8889],[3,13333],[4,17778],[5,22222],[6,26667],[7,31111],[8,35556],[9,40000],[10,44444],[11,48889]]}' da-battuta="1">
+<script type="application/json">{"titolo":"A. Webern, «Dormi Jesu», dai Cinque canoni op. 16 n. 2","metro":"4/4","bpm":54,"battute":12,"anacrusi":0.0,"voci":[[[4.0,0.5,76],[4.5,1.0,68],[6.0,0.6667,65],[6.6667,0.6667,62],[8.5,1.0,61],[9.5,0.5,74],[10.0,0.5,78],[10.5,0.5,67],[12.0,1.0,63],[13.0,1.0,80],[14.0,1.5,76],[15.5,0.5,74],[16.0,1.0,77],[17.5,1.0,69],[19.0,0.5,66],[19.5,0.5,71],[20.5,1.0,79],[21.5,0.5,76],[22.6667,0.6667,62],[23.3333,0.3333,73],[24.0,1.0,65],[25.0,0.3333,75],[25.3333,0.6667,78],[28.0,1.5,64],[29.5,0.5,67],[30.0,1.0,63],[31.0,1.0,74],[32.0,1.0,73],[33.5,0.5,72],[34.5,1.0,76],[35.5,0.5,65],[37.0,0.5,67],[37.5,0.5,64],[38.0,1.0,75],[39.0,1.0,74],[40.0,0.5,78],[40.5,1.0,75],[42.0,0.6667,62],[42.6667,0.6667,73],[44.0,1.0,81],[45.0,1.0,79],[46.0,1.5,66],[47.5,0.5,71]],[[0.0,0.5,58],[0.5,1.0,66],[2.0,0.6667,69],[2.6667,0.6667,72],[4.5,1.0,73],[5.5,0.5,60],[6.0,0.5,56],[6.5,0.5,67],[8.0,1.0,71],[9.0,1.0,54],[10.0,1.5,58],[11.5,0.5,60],[12.0,1.0,57],[13.5,1.0,65],[15.0,0.5,68],[15.5,0.5,63],[16.5,1.0,55],[17.5,0.5,58],[18.6667,0.6667,72],[19.3333,0.3333,61],[20.0,1.0,69],[21.0,0.3333,59],[21.3333,0.6667,56],[24.0,1.5,70],[25.5,0.5,67],[26.0,1.0,71],[27.0,1.0,60],[28.0,1.0,61],[29.5,0.5,62],[30.5,1.0,58],[31.5,0.5,69],[33.0,0.5,67],[33.5,0.5,70],[34.0,1.0,59],[35.0,1.0,60],[36.0,0.5,56],[36.5,1.0,59],[38.0,0.6667,72],[38.6667,0.6667,61],[40.0,1.0,53],[41.0,1.0,55],[42.0,1.5,68],[43.5,0.5,63],[44.0,1.0,74],[45.5,1.0,61],[47.0,0.5,58]]]}</script>
 </tac-brano>
 
-
     <div class="riquadro definizione">
-      <span class="etichetta">I tre passi, e il passo in più</span>
-      <p><strong>1.</strong> Isolare la <strong>melodia</strong>: è la voce più acuta, quasi sempre.<br>
-      <strong>2.</strong> Isolare il <strong>basso</strong>: la più grave di ogni tempo.<br>
-      <strong>3.</strong> Cifrare quello che sta in mezzo.</p>
-      <p>In un accompagnamento il primo passo è gratis; in un pezzo solistico è metà del lavoro.</p>
+      <span class="etichetta">Due direzioni</span>
+      <p><strong>Webern</strong> toglie: pezzi brevissimi, poche note, silenzi lunghi, e ogni suono con il suo timbro.<br>
+      <strong>Berg</strong> aggiunge: pezzi lunghi, serie costruite in modo da contenere triadi, e la musica tonale che riaffiora dentro quella seriale.</p>
     </div>
 
-    <div class="riquadro attenzione">
-      <span class="etichetta">Le note che non sono accordo</span>
-      <p>Appoggiature, note di volta, arabeschi: nella mazurka sono molte, e se si cifrano tutte l&rsquo;armonia diventa illeggibile.</p>
-      <p>Si cifra quello che cade sui <strong>tempi</strong> e si ignora il resto, come nel corale figurato.</p>
-    </div>
-
-    <p class="didascalia">Lo stesso metodo cambia <strong>costo</strong> secondo il materiale: qui l&rsquo;isolamento della melodia è banale in un caso e sostanziale nell&rsquo;altro. Vale la pena sapere quale dei due si ha davanti.</p>
+    <p class="didascalia">Questo canone &egrave; del 1924 e usa una tecnica di cinque secoli prima. Ascoltatelo con l&rsquo;orecchio dell&rsquo;unit&agrave; 7 della quarta: l&rsquo;imitazione c&rsquo;&egrave; tutta, e quello che non c&rsquo;&egrave; pi&ugrave; &egrave; l&rsquo;armonia che ne risultava.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Segnare i tratti, e la cadenza ridotta">
+<section class="slide" data-titolo="Che cosa si sente">
   <div class="slide-interna">
-    <h2>Che cosa si scrive sopra la riduzione</h2>
+    <h2>&#9888; Che cosa si sente davvero, e che cosa no</h2>
 
-    <tac-stave clef="bass" time="3/4" caption="La cadenza ridotta: dalla scrittura piena restano tre note, e sono quelle che contano" notes="f/2:q g/2:q g/2:q c/3:h." width="440" tempo="60" play></tac-stave>
+    <p>Va detto in chiaro, perch&eacute; nessun libro lo dice abbastanza: <strong>la serie non si sente</strong>. Nemmeno chi la conosce riesce a seguirla all&rsquo;ascolto in un pezzo di venti minuti.</p>
+
+    <div class="riquadro attenzione">
+      <p>Quello che si sente sono le cose di sempre: <strong>i profili melodici, i ritmi, i registri, i timbri, le riprese</strong>. La serie lavora sotto, e garantisce che il materiale non si sbilanci.</p>
+    </div>
+
+    <p>&Egrave; una distinzione onesta e utile: un sistema pu&ograve; essere <em>compositivo</em> senza essere <em>percettivo</em>. Serve a chi scrive, non a chi ascolta &mdash; e non per questo &egrave; inutile.</p>
+
+    <p class="didascalia">La stessa cosa vale per molte regole che avete imparato: nessuno «sente» che una quinta parallela &egrave; vietata. Si sente che le voci hanno perso indipendenza, che &egrave; l&rsquo;effetto della regola.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il costo">
+  <div class="slide-interna">
+    <h2>Il prezzo che la serie fa pagare</h2>
+
+    <p>Un sistema che tratta i dodici suoni come uguali toglie di mezzo, insieme alla tonica, anche tutto quello che si appoggiava su di lei.</p>
 
     <div class="riquadro studio">
-      <span class="etichetta">I tratti, e come si segnano</span>
-      <p>Una parentesi sopra ogni tratto, con una parola: <strong>tema</strong>, <strong>ponte</strong>, <strong>cadenza</strong>, <strong>progressione</strong>.</p>
-      <p>Una riduzione senza tratti è una cifratura; con i tratti è un&rsquo;analisi.</p>
+      <p><strong>La cadenza</strong>, che chiudeva le frasi. <strong>La modulazione</strong>, che dava alle forme lunghe le loro sezioni. <strong>La gerarchia</strong>, che diceva quali note erano importanti. Tutto questo va sostituito, e il sostituto lo deve inventare ogni pezzo.</p>
     </div>
 
-    <div class="riquadro definizione">
-      <span class="etichetta">I numeri, e che cosa dicono</span>
-      <p>Contate quante note ha la scrittura originale e quante la riduzione. Il rapporto dice quanto quel pezzo <strong>decora</strong>: in Chopin è alto, in Schubert molto meno.</p>
-      <p>È una misura grezza, e distingue due scritture meglio di un aggettivo.</p>
-    </div>
+    <p>Ed &egrave; anche il motivo per cui il ritmo e il timbro diventano cos&igrave; importanti nel Novecento: quando l&rsquo;altezza smette di dare la forma, la danno loro. &Egrave; la stessa cosa vista all&rsquo;ora 60 con l&rsquo;ostinato.</p>
 
-    <div class="riquadro attenzione">
-      <span class="etichetta">La mazurka, e l&rsquo;anno</span>
-      <p>Op. 6, <strong>1830</strong>: Chopin ha vent&rsquo;anni ed è appena arrivato a Parigi. È la sua prima raccolta pubblicata.</p>
-      <p>Le date servono anche qui: la scrittura pianistica del 1830 non è quella del 1870, e confrontarle senza l&rsquo;anno attribuisce a uno stile quello che appartiene a un decennio.</p>
-    </div>
-
-    <p class="didascalia">Il <strong>rapporto fra note originali e note della riduzione</strong> è una misura di densità decorativa. Grezza, calcolabile, e più utile di «scrittura ricca».</p>
+    <p class="didascalia">Nessuno dei due sistemi &mdash; tonale e seriale &mdash; &egrave; migliore dell&rsquo;altro. Costano cose diverse e permettono cose diverse, ed &egrave; l&rsquo;unico modo onesto di confrontarli.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Il lavoro, e come si consegna">
+<section class="slide" data-titolo="Al lavoro">
   <div class="slide-interna">
-    <h2>Una riduzione, su una facciata</h2>
+    <h2>Al lavoro &mdash; venticinque minuti</h2>
 
-    <tac-stave clef="treble" time="3/4" caption="La riduzione finita: melodia sopra, basso sotto, cifre in mezzo" notes="c/5:q e/5:q g/5:q f/5:h e/5:q" width="460" tempo="63" play></tac-stave>
+    <div class="riquadro definizione">
+      <span class="etichetta">Tre passi, sul quaderno</span>
+      <p><strong>1.</strong> Scrivete una serie di dodici suoni, controllando che <strong>nessuno si ripeta</strong>.<br>
+      <strong>2.</strong> Ricavatene il <strong>retrogrado</strong> e l&rsquo;<strong>inverso</strong>, e verificate l&rsquo;inverso sugli intervalli, uno per uno.<br>
+      <strong>3.</strong> Scrivete <strong>quattro battute</strong> usando la serie originale, distribuendola come volete fra due mani &mdash; ritmo, registro e ottava li scegliete voi.</p>
+    </div>
+
+    <p>Il passo 3 &egrave; quello che fa capire il sistema: la serie fissa <strong>l&rsquo;ordine</strong> e nient&rsquo;altro. Ottava, durata, dinamica, articolazione restano tutte da decidere, e sono loro a fare la musica.</p>
+
+    <p class="didascalia">Chi finisce presto scriva le stesse quattro battute una seconda volta, con lo stesso ordine di note e ritmi diversi: due pezzi con la stessa serie, e non si somigliano.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Come si riconosce">
+  <div class="slide-interna">
+    <h2>Riconoscere musica seriale su una partitura</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Tre segni</span>
+      <p><strong>1.</strong> Le dodici note compaiono tutte prima che una si ripeta &mdash; si verifica contando, su una linea sola.<br>
+      <strong>2.</strong> Non ci sono armature, e le alterazioni sono davanti a quasi ogni nota.<br>
+      <strong>3.</strong> Gli intervalli larghi sono frequenti: settime e none al posto di seconde, perch&eacute; l&rsquo;ottava della nota si sceglie ogni volta.</p>
+    </div>
+
+    <p>Il primo &egrave; l&rsquo;unico che decide, e chiede pazienza: si numerano le note da 1 a 12 e si guarda se la tredicesima ricomincia il giro. Su una parte sola funziona; su una partitura fitta &egrave; un lavoro.</p>
+
+    <p class="didascalia">⚠ E il terzo segno non &egrave; una prova: gli intervalli larghi si trovano anche in musica atonale non seriale &mdash; per esempio nei due pezzi dell&rsquo;op. 19 che avete ascoltato, che sono del 1911 e non hanno nessuna serie.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa resta">
+  <div class="slide-interna">
+    <h2>Quello che quest&rsquo;ora lascia</h2>
 
     <div class="riquadro studio">
-      <span class="etichetta">Che cosa consegnate</span>
-      <p><strong>Due righi</strong> &middot; melodia e basso, allineati.<br>
-      <strong>Le cifre</strong> &middot; sotto il basso, solo sui tempi.<br>
-      <strong>I tratti</strong> &middot; sopra, con una parola ciascuno.<br>
-      <strong>Due righe di testo</strong> &middot; il percorso tonale, e la cosa più notevole che avete trovato.</p>
+      <p>Che l&rsquo;atonalit&agrave; e la dodecafonia sono <strong>due cose diverse</strong>, a quindici anni di distanza: la prima toglie, la seconda mette.<br>
+      Che togliere la tonalit&agrave; non toglie i vincoli, <strong>li aumenta</strong> &mdash; e dieci battute su due accordi lo dimostrano.<br>
+      Che un sistema pu&ograve; servire a chi scrive senza servire a chi ascolta, e va giudicato per quello che fa, non per quello che si sente.</p>
     </div>
 
+    <p>E resta la domanda dell&rsquo;ora 59, adesso nella sua forma pi&ugrave; dura: un sistema perfettamente equilibrato produce musica <strong>riconoscibile</strong>? Il Novecento se l&rsquo;&egrave; posta, e le risposte sono state molte.</p>
+
+    <p class="didascalia">L&rsquo;ora prossima ne vedremo una molto diversa: Ligeti, dove le note diventano cos&igrave; fitte da non contarsi pi&ugrave;, e quello che si ascolta &egrave; una massa che cambia colore.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Prima di andare">
+  <div class="slide-interna">
+    <h2>Da portare all&rsquo;ora 64</h2>
+
+    <p>All&rsquo;ora 64 si torna sull&rsquo;op. 19 n. 6 &mdash; le dieci battute di oggi &mdash; e ai due accordi si danno dei <strong>numeri</strong>: si impara a descrivere un&rsquo;armonia che non ha nome, in un modo che un altro pu&ograve; controllare.</p>
+
     <div class="riquadro definizione">
-      <span class="etichetta">Che cos&rsquo;è una riduzione, riassunto</span>
-      <p>Una scrittura che conserva <strong>armonia e forma</strong> e butta via tutto il resto. Serve a confrontare pezzi che hanno scritture incomparabili.</p>
+      <span class="etichetta">Le tre cose da avere pronte</span>
+      <p><strong>1.</strong> I due accordi del pezzo, scritti sul quaderno: <strong>la&ndash;fa&#9839;&ndash;si</strong> e <strong>sol&ndash;do&ndash;fa</strong>.<br>
+      <strong>2.</strong> Le tre domande dell&rsquo;ora 58 &mdash; quanti suoni, come disposti, c&rsquo;&egrave; una seconda dentro.<br>
+      <strong>3.</strong> La consapevolezza che un pezzo di dieci battute pu&ograve; reggere un&rsquo;analisi intera: la brevit&agrave; non &egrave; povert&agrave;.</p>
+    </div>
+
+    <p class="didascalia">&Egrave; anche il motivo per cui l&rsquo;analisi per insiemi &egrave; nata su questi pezzi e non sulla musica seriale: dove i materiali sono due, si riesce a dire che cosa sono.</p>
+  </div>
+</section>
+
+<!-- Quattro slide. L'ora ha già i tre brani giusti; mancava il metodo:
+     «La serie», «Le quattro forme», «Come si legge» erano titoli senza
+     la procedura scritta, e la serie è precisamente una cosa che si
+     scrive su una griglia. -->
+<section class="slide" data-titolo="La serie, e le quattro forme">
+  <div class="slide-interna">
+    <h2>Dodici note in un ordine, e le sue trasformazioni</h2>
+
+    <tac-stave clef="treble" time="4/4" caption="Una serie: dodici note, ognuna una volta sola, prima che qualcuna ritorni" notes="c/5:8 c#/5:8 e/5:8 d#/5:8 f#/5:8 f/5:8 a/5:8 g#/5:8" width="500" tempo="76" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Le quattro forme, e sono tutte</span>
+      <p><strong>Originale (O)</strong> &middot; la serie come è.<br>
+      <strong>Retrogrado (R)</strong> &middot; letta dalla fine.<br>
+      <strong>Inversione (I)</strong> &middot; ogni intervallo capovolto.<br>
+      <strong>Retrogrado dell&rsquo;inversione (RI)</strong> &middot; le due insieme.</p>
+      <p>Quattro forme, e ognuna in dodici trasposizioni: <strong>quarantotto</strong> versioni in tutto.</p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Come si legge, in pratica</span>
+      <p>Si numerano le note della serie da 0 a 11. Poi si guarda un passo del pezzo e si cerca quale delle quarantotto versioni ha quell&rsquo;ordine.</p>
+      <p>È un lavoro meccanico, e si fa con una tabella dodici per dodici.</p>
     </div>
 
     <div class="riquadro attenzione">
-      <span class="etichetta">L&rsquo;errore che rende inutile il lavoro</span>
-      <p>Ridurre e non <strong>segnare i tratti</strong>. Restano due righi di note, che è quello da cui si era partiti, con meno informazione.</p>
+      <span class="etichetta">Il costo, detto onestamente</span>
+      <p>Trovare la serie in un pezzo richiede <strong>ore</strong>, e alla fine si sa in che ordine stanno le note. Non si sa che effetto fa il pezzo.</p>
+      <p>È un&rsquo;analisi che descrive la costruzione e non l&rsquo;ascolto, e conviene sapere che cosa si sta comprando con quelle ore.</p>
     </div>
 
-    <p class="didascalia">Una riduzione senza <strong>interpretazione strutturale</strong> è una perdita di informazione senza guadagno. I tratti segnati sopra sono la parte che giustifica la riduzione.</p>
+    <p class="didascalia">Un metodo analitico ha un <strong>costo</strong> e un rendimento. L&rsquo;analisi seriale è cara e dice una cosa sola; vale la pena farla quando quella cosa è quella che serve.</p>
   </div>
 </section>
+
+<section class="slide" data-titolo="Da dove viene, e che cosa si sente">
+  <div class="slide-interna">
+    <h2>Il problema che la serie risolveva</h2>
+
+    <tac-stave clef="treble" time="4/4" caption="Le dodici note senza ripetizioni: nessuna nota può diventare un centro, perché nessuna torna prima delle altre" notes="a/5:8 g#/5:8 b/5:8 a#/5:8 d/5:8 c#/5:8 g/5:8 f#/5:8" width="500" tempo="76" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Da dove viene</span>
+      <p>Dal problema pratico dell&rsquo;atonalità libera: senza tonalità, un pezzo lungo <strong>non ha una forma</strong>. Schönberg cerca un principio di organizzazione che sostituisca la tonalità.</p>
+      <p>La serie garantisce che nessuna nota diventi un centro, e dà un criterio per generare materiale.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Che cosa si sente, e non è la serie</span>
+      <p>Si sentono il <strong>ritmo</strong>, i <strong>registri</strong>, le <strong>dinamiche</strong>, i <strong>gesti</strong>. La serie non si sente: nessun ascoltatore riconosce un RI<sub>7</sub>.</p>
+      <p>È un principio di costruzione, come il contrappunto doppio in una fuga: garantisce coerenza e non è l&rsquo;oggetto dell&rsquo;ascolto.</p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">Gli allievi, e che cosa hanno fatto</span>
+      <p>Berg la usa con residui tonali; Webern la porta all&rsquo;estremo opposto, con pezzi di pochi minuti e simmetrie interne rigorose.</p>
+      <p>Lo stesso principio, due esiti opposti. È il segno che il principio non determina lo stile.</p>
+    </div>
+
+    <p class="didascalia">Un <strong>principio di costruzione</strong> non determina il risultato: due compositori con la stessa regola producono musiche incompatibili. È vero per la serie come per la fuga.</p>
+  </div>
+</section>
+
+<!-- «Al lavoro» chiedeva un compito senza dire come si consegna. -->
+<section class="slide" data-titolo="Al lavoro: la tabella della serie">
+  <div class="slide-interna">
+    <h2>Come si costruisce la matrice, e a che serve</h2>
+
+    <tac-stave clef="treble" time="4/4" caption="L&rsquo;inversione: gli stessi intervalli capovolti. Dove la serie saliva di tre, l&rsquo;inversione scende di tre" notes="c/5:8 a/4:8 g#/4:8 b/4:8 f#/4:8 g/4:8 d#/4:8 e/4:8" width="500" tempo="76" play></tac-stave>
+
+    <div class="riquadro studio">
+      <span class="etichetta">La matrice, in quattro passi</span>
+      <p><strong>1.</strong> La serie in prima riga, numerata da 0 a 11.<br>
+      <strong>2.</strong> L&rsquo;inversione in prima colonna.<br>
+      <strong>3.</strong> Ogni riga è una trasposizione dell&rsquo;originale.<br>
+      <strong>4.</strong> Letta al contrario, ogni riga è un retrogrado.</p>
+      <p>Una tabella dodici per dodici contiene tutte e quarantotto le forme.</p>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Come si consegna</span>
+      <p>La <strong>matrice</strong> compilata, e sotto: quale forma compare nelle prime otto battute, con la battuta accanto.</p>
+      <p>Due o tre identificazioni bastano: il resto è lavoro meccanico che non aggiunge niente.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">L&rsquo;errore che rende inutile la matrice</span>
+      <p>Compilarla e non usarla. Una matrice senza almeno un&rsquo;identificazione nel pezzo è un esercizio aritmetico, non un&rsquo;analisi.</p>
+    </div>
+
+    <p class="didascalia">Uno strumento va consegnato <strong>insieme a un suo uso</strong>. La matrice da sola dimostra che si sa fare una tabella; con due identificazioni dimostra che si sa leggere un pezzo.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Non è il caos">
+  <div class="slide-interna">
+    <h2>Che cosa organizza un pezzo senza tonalità</h2>
+
+    <tac-stave clef="treble" time="4/4" caption="Un gesto ricorrente: due note e un salto. Si riconosce anche senza sapere che nota è" notes="c/5:8 r:8 g#/5:q r:h c/5:8 r:8 g#/5:q r:h" width="500" tempo="66" play></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">I quattro principi che restano</span>
+      <p><strong>Il gesto</strong> &middot; una figura riconoscibile che torna.<br>
+      <strong>Il registro</strong> &middot; una nota sempre nella stessa ottava diventa un punto fisso.<br>
+      <strong>La dinamica</strong> &middot; i culmini si costruiscono con l&rsquo;intensità.<br>
+      <strong>La densità</strong> &middot; quante note per secondo.</p>
+      <p>Nessuno dei quattro ha bisogno della tonalità, e tutti e quattro si sentono.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Perché conta dirlo</span>
+      <p>Perché «non si capisce niente» significa quasi sempre che si sta cercando <strong>l&rsquo;unica cosa che manca</strong>. Cercare i quattro principi di sopra dà sempre qualcosa da dire.</p>
+    </div>
+
+    <div class="riquadro studio">
+      <span class="etichetta">La prova, su un ascolto</span>
+      <p>Riascoltate i due pezzi di Schönberg e segnate <strong>un gesto</strong> che torna. Se lo trovate, il pezzo ha una struttura riconoscibile, e l&rsquo;avete riconosciuta senza la serie.</p>
+    </div>
+
+    <p class="didascalia">L&rsquo;assenza di un principio organizzativo non implica l&rsquo;assenza di organizzazione. Elencare i principi che <strong>restano</strong> è più produttivo che constatare quello che manca.</p>
+  </div>
+</section>
+
 
 
 <section class="slide esercizio insieme-slide" data-titolo="In classe · parlato">
@@ -570,8 +576,8 @@ try { module = undefined; exports = undefined; } catch (e) {}
 <section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
   <div class="slide-interna">
     <p class="compiti-occhiello">In classe</p>
-    <h2>Scriviamo adesso: La riduzione delle prime sedici battute</h2>
-    <p>Finisci a casa la riduzione della mazurka: <strong>un accordo per tratto</strong>, a quattro parti, con i <strong>gradi</strong> sotto e il numero di <strong>battuta</strong> sopra ogni cambio.</p>
+    <h2>Scriviamo adesso: Le stesse dodici note, due volte</h2>
+    <p>Scrivi <strong>quattro battute</strong> usando la tua serie, distribuendola come vuoi fra due mani. Poi riscrivile una seconda volta, stesso ordine di note e ritmi diversi.</p>
     <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna.</p>
   </div>
 </section>
@@ -580,12 +586,12 @@ try { module = undefined; exports = undefined; } catch (e) {}
          style="--segno: url('../../_assets/segni/segno-24.png')">
   <div class="slide-interna">
     <p class="compiti-occhiello">Compiti per la prossima volta</p>
-    <h2>1 &middot; Scritto: Dalla riduzione al pezzo, di nuovo</h2>
+    <h2>1 &middot; Scritto: Una serie, e le sue quattro forme</h2>
     <div class="riquadro compito">
-      <p>Prendi <strong>quattro battute</strong> della riduzione che hai appena scritto e rifanne un pezzo per pianoforte, <em>diverso</em> dall&rsquo;originale di Chopin.</p>
-      <p>Stessi accordi, stesso ritmo armonico, scrittura tua. Alla fine confronta con l&rsquo;originale: quello che cambia &egrave; la testura, e l&rsquo;armonia &egrave; la stessa.</p>
+      <p>Scrivi una serie di <strong>dodici suoni</strong> controllando che nessuno si ripeta, e ricavane il retrogrado e l&rsquo;inverso.</p>
+      <p>L&rsquo;inverso si verifica <strong>sugli intervalli, uno per uno</strong>: dove l&rsquo;originale sale di tre semitoni, l&rsquo;inverso scende di tre.</p>
     </div>
-    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C5-U8-L4-02</strong>.</p>
+    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C5-U8-L4-01</strong>.</p>
   </div>
 </section>
 
@@ -601,12 +607,12 @@ try { module = undefined; exports = undefined; } catch (e) {}
     </div>
     <div class="riquadro compito">
       <span class="etichetta">3 &middot; Dettato</span>
-      <p>Scrivi <strong>la melodia</strong> sul quaderno, in chiave di violino: otto battute in 2/2, si♭ maggiore. Il primo suono è <strong>si♭</strong>. Prima il riferimento, poi tutto due volte, a coppie di battute, le giunzioni, e tutto per controllare.</p>
+      <p>Scrivi <strong>la melodia</strong> sul quaderno, in chiave di violino: otto battute in 6/8, do maggiore. Il primo suono è <strong>do</strong>. Prima il riferimento, poi tutto due volte, a coppie di battute, le giunzioni, e tutto per controllare.</p>
       <div class="dettato-ascolti">
         <div><p class="didascalia">Il riferimento: accordo di tonica e primo suono</p>
-          <tac-stave nascondi clef="treble" time="2/2" keysig="Bb" notes="bb/3:q d/4:q f/4:q bb/4:q | bb/4:w" tempo="80" play></tac-stave></div>
+          <tac-stave nascondi clef="treble" time="6/8" keysig="C" notes="c/4:q e/4:q g/4:q c/5:q | c/4:w" tempo="80" play></tac-stave></div>
         <div><p class="didascalia">Il dettato &middot; otto battute</p>
-          <tac-stave nascondi cifrato clef="treble" time="2/2" keysig="Bb" notes="dzo0L2JiIHwgaDo1L2MgcTo0L2EgNjE6NC9nIDYxOjQvYSA2MTo0L2JiIDYxOjUvYyB8IDg6NC9hIHE6NC9nIDg6NC9iYiA4OjQvZyA2MTo0L2YgNjE6NC9nIDYxOjQvYSAuODo0L2JiIHwgODo1L2MgODo0L2JiIDg6NC9hIDYxOjQvZyA2MTo0L2YgcTo0L2YgcTo0L2QgfCBxOjQvZiA4OjQvZyA4OjQvZiBxOjQvYSBxOjQvZiB8IHE6NC9iZSBxOjQvZyBoOjQvYmIgfCA2MTo0L2cgLjg6NC9hIHE6NC9iYiA4OjQvYSA4OjQvZyA4OjQvZiA4OjQvZyB8IHE6NC9iYiA4OjUvYyA4OjQvYmIgcTo1L2QgODo1L2MgODo0L2Ji" tempo="60" play></tac-stave></div>
+          <tac-stave nascondi cifrato clef="treble" time="6/8" keysig="C" notes="Lmg6NC9jIHwgLnE6NC9kIDg6NC9kIDYxOjQvZSAuODo0L2QgfCAucTo0L2EgLnE6NC9hIHwgLnE6NS9jIC5xOjUvYyB8IC5xOjQvYiA4OjUvYyA2MTo1L2QgNjE6NC9iIDg6NC9nIHwgLnE6NC9mIDg6NC9nIDYxOjQvYSA2MTo0L2cgODo0L2YgfCA4OjQvZyA2MTo0L2EgNjE6NC9iIDg6NC9hIC5xOjQvZiB8IDg6NC9mIHE6NC9lIDg6NC9kIHE6NC9j" tempo="60" play></tac-stave></div>
       </div>
       <p class="rimando">Si corregge all&rsquo;inizio della prossima lezione.</p>
     </div>

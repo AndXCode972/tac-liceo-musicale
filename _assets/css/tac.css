@@ -1674,6 +1674,16 @@ body.con-schermo { overflow: hidden; }
 
 /* Sulla slide la partitura non compare: si apre a tutta pagina. */
 .slide .tac-brano-part { display: none; }
+/* ⚠ Tranne quando il brano è `in-vista` (4 ottobre 2026): allora la
+   partitura vera sta nella slide, intera e larga quanto la slide, e la
+   slide scorre. «I brani devono essere interamente visibili nella slide». */
+.slide tac-brano[in-vista] .tac-brano-part { display: block; overflow: visible; padding: .6rem 0 0; }
+.slide tac-brano[in-vista] .tac-brano-part img { width: 100%; max-width: none; }
+.slide tac-brano[in-vista] .tac-brano-box { cursor: default; }
+/* il metro e il numero di battute in testa vengono dall'estratto inciso, non
+   dal brano intero (per Händel diceva «3/4 · 12 battute» su un'aria in 3/2 di
+   42): con la partitura sotto, la testata non serve e non deve sbagliare */
+.slide tac-brano[in-vista] .tac-brano-metro { display: none; }
 
 /* Lettore più compatto in proiezione */
 .slide .tac-brano-box { padding: .7rem .9rem; }
@@ -2650,7 +2660,12 @@ body.regia .corretto { box-shadow: -4px 0 0 -1px var(--viola); }
 /* Solo la tela da un rigo (alta 150): il doppio pentagramma è alto 260
    e il ritaglio gli tagliava il basso — visto online il 20 settembre
    sera, classe 3 unità 5 lezione 2. */
-.slide tac-stave > div:not(.tac-didascalia):not(.tac-barra) > svg[height="150"] { margin: -28px 0 -32px; }
+/* ⚠ 4 ottobre 2026: solo se il ritaglio misurato non e' riuscito
+   (`data-ritagliato` manca). Prima valeva per ogni SVG alto 150, anche
+   per uno gia' ritagliato a 150 per caso, e i 32 px tolti sotto erano
+   proprio quelli della coda della chiave di violino («il riquadro taglia
+   la chiave»). E il margine basso e' piu' corto: la coda arriva a 119. */
+.slide tac-stave > div:not(.tac-didascalia):not(.tac-barra) > svg[height="150"]:not([data-ritagliato]) { margin: -26px 0 -24px; }
 /* la didascalia e i pulsanti sulla stessa riga, sopra il rigo: sono
    quaranta pixel per rigo, e in questa unità i righi vanno a tre */
 .slide tac-stave {
@@ -3135,3 +3150,14 @@ html.tac-soccorso .solo-proiezione { display: none; }
 .dettato-ascolti { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
                    gap: .6rem 1.2rem; margin: .5rem 0; }
 .dettato-ascolti .didascalia { margin: 0 0 .2rem; font-size: .85em; }
+
+
+/* ══ IL DETTATO GUIDATO (4 ottobre 2026) ══
+   Il pannello sotto il rigo nascosto del dettato: un tasto, la fase in
+   corso scritta per esteso, e i secondi di pausa che restano. */
+.tac-guida { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin: .55rem 0 .2rem; }
+.tac-guida .btn { padding: .35rem .9rem; font-weight: 700; }
+.tac-guida-fase { font-size: .95rem; color: var(--inch2, #444); }
+.tac-guida-fase[data-resta]::after { content: '  ·  pausa ' attr(data-resta); color: #6d28d9; font-weight: 700; }
+.dettato-sigla { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .85em;
+  background: #f3f0ff; border: 1px solid #ddd6fe; border-radius: 4px; padding: .05rem .4rem; margin-left: .4rem; }

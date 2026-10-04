@@ -1834,9 +1834,18 @@
          fossero musica, e le note escono piccole del quaranta per cento.
          `vai()` lo richiama sulla slide che apre, quando l'SVG c'e' ed e'
          misurabile; `_ritagliato` fa in modo che valga una volta sola. */
-      this.ritaglia = function () {
-      if (this._ritagliato) return;
+      /* ⚠ `ancora`: rifare la misura anche se e' gia' stata fatta. Il
+         4 ottobre 2026 i righi ritmici uscivano coi gambi in giu' mozzati:
+         la prima misura avveniva prima che i gambi fossero misurabili, e
+         «una volta sola» impediva di correggerla. `vai()` adesso la rifa'
+         ogni volta che apre la slide, e dopo il disegno si rifa' una
+         seconda volta a mezzo secondo. La finestra fissa non si tocca. */
+      this.ritaglia = function (ancora) {
+      if (this._ritagliato && !(ancora && !this._fissa)) return;
       const disegno = tela.querySelector('svg');
+      if (disegno && this._tesaVera === undefined) {
+        this._tesaVera = parseFloat(disegno.getAttribute('height')) || 0;
+      }
       if (disegno) {
         /* ══ QUATTRO RIGHI ACCANTO DEVONO AVERE LO STESSO ORIZZONTE ══
 
@@ -1860,8 +1869,10 @@
         if (fissa.length === 2 && fissa.every(function (n) { return n !== '' && isFinite(+n); })) {
           disegno.setAttribute('viewBox', '0 ' + (+fissa[0]) + ' ' + larghezza + ' ' + (+fissa[1]));
           disegno.setAttribute('height', +fissa[1]);
+          disegno.setAttribute('data-ritagliato', '');
           disegno.style.height = 'auto';
           this._ritagliato = true;
+          this._fissa = true;
         }
         /* Non si puo' chiedere la misura all'SVG intero: dentro c'e' un
            elemento grande quanto la tela, e la risposta e' sempre l'altezza
@@ -1878,8 +1889,8 @@
            Si legge quindi l'altezza che l'SVG ha davvero in quel momento
            — `disegnaCifre` la allarga quando serve — e la costante resta
            solo come ripiego. */
-        if (!this._ritagliato) {
-        const tesa = parseFloat(disegno.getAttribute('height')) ||
+        if (!this._fissa) {
+        const tesa = this._tesaVera || parseFloat(disegno.getAttribute('height')) ||
                      this._tesa || (doppio ? 260 : 150);
         let su = Infinity, giu = -Infinity;
         /* ⚠ UN GLIFO NON E' ALTO QUANTO DICE. E' il difetto che stava
@@ -1901,16 +1912,50 @@
            chiave di violino, che e' il glifo che sporge di piu'. Cosi' la
            numerica sotto i gambi continua a starci (era il difetto «il
            riquadro mangia la numerica») senza pagare il bianco del font. */
+        /* ⚠ LA CHIAVE TAGLIATA, 4 ottobre 2026. Andrea: «il riquadro
+           taglia la chiave. Succede in tantissime slides».
+           La fascia qui sotto c'era gia', ma non veniva mai usata: il
+           filtro «piu' alto della tela, si scarta» stava **prima**, e un
+           glifo di Bravura dichiara 161 px. Cosi' chiave, teste e
+           alterazioni uscivano tutte dalla misura, e il riquadro si
+           stringeva sulle sole linee del rigo: la coda della chiave di
+           violino, che scende 27 px sotto la sua linea di base, restava
+           fuori (finestra 56..111, inchiostro fino a 119).
+           Adesso i testi non passano dal filtro, e il loro inchiostro si
+           chiede al font con `measureText` di un canvas — ascesa e
+           discesa vere del segno, alla stessa grandezza. La fascia fissa
+           resta solo come ripiego, se il canvas non risponde. */
         const SOPRA_GLIFO = 46, SOTTO_GLIFO = 36;
+        let metro = null;
+        try { metro = document.createElement('canvas').getContext('2d'); } catch (e) {}
+        const misurati = {};
+        const inchiostroDelTesto = function (el, base) {
+          if (!metro || el.getAttribute('transform')) return null;
+          const cs = getComputedStyle(el);
+          const chi = cs.fontSize + '|' + cs.fontFamily + '|' + cs.fontWeight + '|' + el.textContent;
+          let m = misurati[chi];
+          if (!m) {
+            metro.font = cs.fontStyle + ' ' + cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+            const t = metro.measureText(el.textContent || '');
+            m = misurati[chi] = [t.actualBoundingBoxAscent, t.actualBoundingBoxDescent];
+          }
+          if (!isFinite(m[0]) || !isFinite(m[1]) || (m[0] <= 0 && m[1] <= 0)) return null;
+          return [base - m[0] - 2, base + m[1] + 2];
+        };
         disegno.querySelectorAll('path, rect, text, line, polygon, ellipse, circle')
           .forEach(function (el) {
-            let b = null;
-            try { b = el.getBBox(); } catch (e) { return; }
-            if (!b || !b.height || b.height >= tesa - 2) return;
-            let y0 = b.y, y1 = b.y + b.height;
+            let y0, y1;
             if (el.tagName === 'text' || el.tagName === 'TEXT') {
               const base = parseFloat(el.getAttribute('y'));
-              if (isFinite(base)) { y0 = base - SOPRA_GLIFO; y1 = base + SOTTO_GLIFO; }
+              if (!isFinite(base) || !(el.textContent || '').trim()) return;
+              const ink = inchiostroDelTesto(el, base);
+              if (ink) { y0 = ink[0]; y1 = ink[1]; }
+              else { y0 = base - SOPRA_GLIFO; y1 = base + SOTTO_GLIFO; }
+            } else {
+              let b = null;
+              try { b = el.getBBox(); } catch (e) { return; }
+              if (!b || !b.height || b.height >= tesa - 2) return;
+              y0 = b.y; y1 = b.y + b.height;
             }
             if (y0 < su) su = y0;
             if (y1 > giu) giu = y1;
@@ -1933,6 +1978,7 @@
           const alta = Math.ceil(giu + 8) - cima;
           disegno.setAttribute('viewBox', '0 ' + cima + ' ' + larghezza + ' ' + alta);
           disegno.setAttribute('height', alta);
+          disegno.setAttribute('data-ritagliato', '');
           disegno.style.height = 'auto';
           this._ritagliato = true;
         }
@@ -1985,6 +2031,10 @@
       }
       };
       this.ritaglia();
+      setTimeout(() => { try { this.ritaglia(true); } catch (e) {} }, 600);
+      if (this.hasAttribute('guidato')) {
+        setTimeout(() => { try { guidaDettato(this); } catch (e) { console.warn('dettato guidato', e); } }, 0);
+      }
 
       if (this.hasAttribute('play') && dati.some(d => !d.pausa && !d.stanghetta)) {
         /* ══ I COMANDI DI RIPRODUZIONE ═══════════════════════════════
@@ -2905,6 +2955,166 @@
       }, attesa);
     }
   }
+
+  /* ══ IL DETTATO GUIDATO, ANCHE A CASA ═════════════════════════════
+     4 ottobre 2026, Andrea: «questo dettato fra gli esercizi deve essere
+     nella forma consueta, con tutta la procedura».
+
+     Il dettato di ogni lezione suonava con un tasto solo, «Ascolta», e lo
+     studente lo sentiva come capitava: tutto di fila, tre volte, e poi
+     provava a scrivere. La procedura della classe — `12_Protocollo_del_
+     dettato.md` — è un'altra cosa: l'insieme, le coppie di battute sentite
+     una prima volta, una pausa, una seconda volta, le giunzioni, la
+     verifica. È quella che insegna a scrivere un dettato, e a casa deve
+     essere la stessa.
+
+     Gli annunci registrati per la traccia guidata («battute 1 e 2»,
+     «giunzione 2–3»…) valgono per qualunque dettato di otto battute: si
+     usano quelli, e la musica la suona il rigo nascosto. Una traccia audio
+     per ciascuno dei quattrocento dettati non serve.
+
+     Il rigo porta `guidato="melodico|basso|ritmico"`; il rigo del
+     riferimento, se c'è, porta `riferimento`. Se gli annunci non si
+     caricano, la procedura va avanti lo stesso con il testo sullo schermo. */
+  const DOVE_CORE = (document.currentScript && document.currentScript.src) || '';
+  function baseAnnunci() {
+    let src = DOVE_CORE;
+    if (!src) {
+      const sc = [...document.querySelectorAll('script[src]')]
+        .find(x => /tac-core\.js/.test(x.getAttribute('src') || ''));
+      src = sc ? sc.src : '';
+    }
+    return src ? src.replace(/_assets\/js\/tac-core\.js.*$/, '') + '_materiali/dettati/annunci/' : '';
+  }
+
+  function guidaDettato(rigo) {
+    if (rigo._guida || !rigo._capi || !rigo._dati) return;
+    rigo._guida = true;
+    const tipo = rigo.getAttribute('guidato') || 'melodico';
+    const melodico = tipo !== 'ritmico';
+    const capi = rigo._capi, dati = rigo._dati, n = capi.length;
+    const tempo = parseFloat(rigo.getAttribute('tempo') || '60') || 60;
+    const [num, den] = (rigo.getAttribute('time') || '4/4').split('/').map(Number);
+    const battuta = (num * 4 / (den || 4)) * 60 / tempo;          // secondi
+    const contenitore = rigo.closest('.dettato-ascolti') || rigo.parentElement;
+    const rif = contenitore ? contenitore.querySelector('tac-stave[riferimento]') : null;
+    const base = baseAnnunci();
+
+    const ultimaPrima = i => { let j = i - 1; while (j >= 0 && dati[j].stanghetta) j--; return j; };
+    const ultima = (() => { let j = dati.length - 1; while (j >= 0 && dati[j].stanghetta) j--; return j; })();
+    const tratto = (b1, b2) => [capi[b1 - 1], b2 < n ? ultimaPrima(capi[b2]) : ultima];
+
+    /* i passi, in ordine: [testo, annuncio, cosa suona, pausa dopo] */
+    const passi = [];
+    const P = (testo, annuncio, suono, pausa) => passi.push({ testo, annuncio, suono, pausa });
+    P('Fase 0 · prima di cominciare: otto battute, il metro lo riconosci tu',
+      melodico ? 'm00-apertura' : 'd00-apertura', null, 2);
+    if (rif) P('Fase 0 · il riferimento: accordo di tonica e primo suono',
+      'm01-riferimento', 'rif', 3);
+    P('Fase 1 · tutto, prima volta. Non si scrive: si contano le battute', 'd01-intera', 'tutto', 5);
+    P('Fase 1 · tutto, seconda volta. Scrivi il metro e tira le otto stanghette', null, 'tutto',
+      Math.max(8, Math.round(battuta * 2)));
+    for (let k = 1; k + 1 <= n; k += 2) {
+      const an = { 1: 'd02-battute-1-2', 3: 'd03-battute-3-4', 5: 'd04-battute-5-6', 7: 'd05-battute-7-8' }[k];
+      P('Fase 2 · battute ' + k + '–' + (k + 1) + ', prima volta' + (melodico ? ': il ritmo' : ''),
+        n === 8 ? an : null, [k, k + 1], 15);
+      P('Fase 2 · battute ' + k + '–' + (k + 1) + ', seconda volta' + (melodico ? ': le altezze' : '') +
+        ' — poi scrivi', melodico ? 'm02-altezze' : null, [k, k + 1],
+        Math.max(20, Math.round(battuta * 2 * 4)));
+    }
+    for (let k = 2; k + 1 <= n - 1; k += 2) {
+      const an = { 2: 'd06-giunzione-2-3', 4: 'd07-giunzione-4-5', 6: 'd08-giunzione-6-7' }[k];
+      P('Fase 3 · giunzione ' + k + '–' + (k + 1) + ', prima volta', n === 8 ? an : null, [k, k + 1], 10);
+      P('Fase 3 · giunzione ' + k + '–' + (k + 1) + ', seconda volta — poi aggiusta', null, [k, k + 1],
+        Math.max(12, Math.round(battuta * 2 * 3)));
+    }
+    P('Fase 4 · la verifica: tutto, due volte di seguito. Si controlla', 'd09-verifica', 'tutto', 2);
+    P('Fase 4 · la verifica, seconda volta', null, 'tutto', 8);
+    P('Fine. Il dettato si corregge in classe, dal foglio', melodico ? 'm03-chiusura' : 'd11-chiusura', null, 0);
+
+    let stima = 0;
+    passi.forEach(p => {
+      stima += p.pausa + 4;
+      if (p.suono === 'tutto') stima += n * battuta;
+      else if (Array.isArray(p.suono)) stima += 2 * battuta;
+    });
+
+    const pan = document.createElement('div');
+    pan.className = 'tac-guida no-stampa';
+    pan.innerHTML = '<button type="button" class="btn tac-guida-via">&#9654; Dettato guidato</button>' +
+      '<button type="button" class="btn tac-guida-ferma" hidden>&#9632; Ferma</button>' +
+      '<span class="tac-guida-fase">Tutta la procedura della classe, con le pause: circa ' +
+      Math.round(stima / 60) + ' minuti</span>';
+    /* sotto tutto il blocco degli ascolti, a larghezza piena: dentro la
+       colonna del rigo nascosto la fase in corso andava a capo ogni tre parole */
+    ((contenitore && contenitore.classList.contains('dettato-ascolti')) ? contenitore
+      : (rigo.parentElement || rigo)).after(pan);
+    const via = pan.querySelector('.tac-guida-via'), ferma = pan.querySelector('.tac-guida-ferma');
+    const fase = pan.querySelector('.tac-guida-fase');
+    let corsa = null;
+
+    const dorme = (sec, c) => new Promise(r => {
+      const t0 = Date.now();
+      const giro = () => {
+        if (c.stop) return r();
+        const resta = sec - (Date.now() - t0) / 1000;
+        if (resta <= 0) return r();
+        if (sec >= 8) fase.dataset.resta = Math.ceil(resta) + ' s';
+        setTimeout(giro, 250);
+      };
+      giro();
+    });
+    const parla = (nome, c) => new Promise(r => {
+      if (!nome || !base || c.stop) return r();
+      const a = new window.Audio(base + nome + '.m4a');
+      c.audio = a;
+      let fatto = false;
+      const fine = () => { if (!fatto) { fatto = true; r(); } };
+      a.onended = fine; a.onerror = fine;
+      a.play().catch(fine);
+      setTimeout(fine, 20000);
+    });
+    const aspettaRigo = (r, c) => new Promise(ok => {
+      const t0 = Date.now();
+      const giro = () => {
+        if (c.stop) return ok();
+        if (!r._inCorso && Date.now() - t0 > 400) return ok();
+        setTimeout(giro, 120);
+      };
+      giro();
+    });
+    const suonaPasso = async (p, c) => {
+      if (!p.suono || c.stop) return;
+      if (p.suono === 'rif') { if (rif) { rif.suona(null, 1, null, null); await aspettaRigo(rif, c); } return; }
+      if (p.suono === 'tutto') rigo.suona(null, 1, null, null);
+      else { const [da, a] = tratto(p.suono[0], p.suono[1]); rigo.suona(null, 1, da, a); }
+      await aspettaRigo(rigo, c);
+    };
+
+    via.onclick = async () => {
+      if (corsa) return;
+      const c = corsa = { stop: false };
+      via.hidden = true; ferma.hidden = false;
+      for (const p of passi) {
+        if (c.stop) break;
+        fase.textContent = p.testo; delete fase.dataset.resta;
+        await parla(p.annuncio, c);
+        await suonaPasso(p, c);
+        if (p.pausa) await dorme(p.pausa, c);
+      }
+      delete fase.dataset.resta;
+      if (!c.stop) fase.textContent = 'Fatto. Si corregge in classe, dal foglio del docente.';
+      via.hidden = false; ferma.hidden = true; corsa = null;
+    };
+    ferma.onclick = () => {
+      if (!corsa) return;
+      corsa.stop = true;
+      try { if (corsa.audio) corsa.audio.pause(); } catch (e) {}
+      try { rigo.ferma(); if (rif) rif.ferma(); } catch (e) {}
+      fase.textContent = 'Fermato. Si riparte da capo con «Dettato guidato».';
+    };
+  }
+
   customElements.define('tac-stave', TacStave);
 
   /* ==========================================================
@@ -6420,6 +6630,13 @@
        a passare di lì. Ora il metodo è uno solo e lo chiamano tutti e
        due i rami. */
     rendiApribile(box) {
+      /* ⚠ `in-vista`, 4 ottobre 2026. Andrea: «i brani proposti non devono
+         apparire in un riquadro cliccabile, ma devono essere interamente
+         visibili nella slide che scorre. Utilizziamo partiture reali».
+         Con l'attributo la partitura resta nella slide, intera, sotto i
+         comandi d'ascolto: la slide scorre, il cursore della battuta
+         lavora sulla pagina che la classe sta leggendo, e niente si apre. */
+      if (this.hasAttribute('in-vista')) { box.classList.add('in-vista'); return; }
         box.classList.add('apribile');
       box.tabIndex = 0;
       box.setAttribute('role', 'button');
@@ -8230,7 +8447,7 @@
       /* I pentagrammi della slide che si apre adesso sono misurabili:
          e' il momento di togliergli il bianco di troppo (v. `ritaglia`). */
       cur.querySelectorAll('tac-stave').forEach(s => {
-        if (typeof s.ritaglia === 'function') { try { s.ritaglia(); } catch (e) {} }
+        if (typeof s.ritaglia === 'function') { try { s.ritaglia(true); } catch (e) {} }
       });
 
       this.adatta();

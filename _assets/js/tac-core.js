@@ -3014,19 +3014,26 @@
     P('Fase 1 · tutto, prima volta. Non si scrive: si contano le battute', 'd01-intera', 'tutto', 5);
     P('Fase 1 · tutto, seconda volta. Scrivi il metro e tira le otto stanghette', null, 'tutto',
       Math.max(8, Math.round(battuta * 2)));
+    /* ⚠ 5 ottobre 2026, Andrea: «le battute vanno presentate a coppie di
+       due, quindi 1-2 per due volte con un pochino di pausa, ma non troppa,
+       adesso ce n'è troppa, poi 3-4, poi 5-6, poi 7-8. Al limite possiamo
+       fare come collegamento 1-2/3-4». Fra le due esecuzioni di una coppia
+       ora c'è un respiro (FRA_LE_DUE), non più quindici secondi; le
+       giunzioni a cavallo della stanghetta (2-3, 4-5, 6-7) non ci sono
+       più: al loro posto il collegamento delle due coppie, 1-4 e 5-8. */
+    const FRA_LE_DUE = 4;
     for (let k = 1; k + 1 <= n; k += 2) {
       const an = { 1: 'd02-battute-1-2', 3: 'd03-battute-3-4', 5: 'd04-battute-5-6', 7: 'd05-battute-7-8' }[k];
       P('Fase 2 · battute ' + k + '–' + (k + 1) + ', prima volta' + (melodico ? ': il ritmo' : ''),
-        n === 8 ? an : null, [k, k + 1], 15);
+        n === 8 ? an : null, [k, k + 1], FRA_LE_DUE);
       P('Fase 2 · battute ' + k + '–' + (k + 1) + ', seconda volta' + (melodico ? ': le altezze' : '') +
-        ' — poi scrivi', melodico ? 'm02-altezze' : null, [k, k + 1],
+        ' — poi scrivi', null, [k, k + 1],
         Math.max(20, Math.round(battuta * 2 * 4)));
     }
-    for (let k = 2; k + 1 <= n - 1; k += 2) {
-      const an = { 2: 'd06-giunzione-2-3', 4: 'd07-giunzione-4-5', 6: 'd08-giunzione-6-7' }[k];
-      P('Fase 3 · giunzione ' + k + '–' + (k + 1) + ', prima volta', n === 8 ? an : null, [k, k + 1], 10);
-      P('Fase 3 · giunzione ' + k + '–' + (k + 1) + ', seconda volta — poi aggiusta', null, [k, k + 1],
-        Math.max(12, Math.round(battuta * 2 * 3)));
+    for (let k = 1; k + 3 <= n; k += 4) {
+      const an = { 1: 'd12-collegamento-1-4', 5: 'd13-collegamento-5-8' }[k];
+      P('Fase 3 · il collegamento: battute ' + k + '–' + (k + 3) + ' insieme — poi aggiusta',
+        n === 8 ? an : null, [k, k + 3], Math.max(12, Math.round(battuta * 4 * 2)));
     }
     P('Fase 4 · la verifica: tutto, due volte di seguito. Si controlla', 'd09-verifica', 'tutto', 2);
     P('Fase 4 · la verifica, seconda volta', null, 'tutto', 8);

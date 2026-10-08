@@ -30,7 +30,7 @@
 })();
 </script>
 <noscript><style>.slide { display: block !important; }</style></noscript>
-<link rel="stylesheet" href="../../_assets/css/tac.css?v=0952249f">
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=d7b0f46c">
 <script>
 /* Alcuni contenitori (Electron, visualizzatori integrati nelle app desktop)
    definiscono module ed exports anche nella pagina. Le librerie UMD in quel
@@ -50,7 +50,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
      usa, e con `defer` i due file girano nell'ordine in cui stanno
      scritti qui. -->
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=b49a4cfb" defer></script>
+<script src="../../_assets/js/tac-core.js?v=eb279422" defer></script>
 </head>
 <body>
 <div id="tac-deck" style="--banda: url('../../_assets/banda/pieno-armonia.jpg')">
@@ -4581,13 +4581,14 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Ascolta battendo la pulsazione. Dove torna l&rsquo;accento? Scrivi sul quaderno <strong>il metro</strong> (in 2, in 3 o in 4) e <strong>quante battute</strong> hai contato.</p>
       <div class="dettato-ascolti">
         <div><p class="didascalia">Il dettato &middot; otto battute</p>
-          <tac-stave nascondi cifrato clef="percussion" time="2/4" notes="aDo0L2IgfCBxOjQvYiBxOjQvYiB8IGg6NC9iIHwgcTo0L2IgcTo0L2IgfCBoOjQvYiB8IHE6NC9iIHE6NC9iIHwgcTo0L2IgcTo0L2IgfCBoOjQvYg==" tempo="66" play></tac-stave></div>
+          <tac-stave nascondi cifrato guidato="metro" clef="percussion" time="2/4" notes="aDo0L2IgfCBxOjQvYiBxOjQvYiB8IGg6NC9iIHwgcTo0L2IgcTo0L2IgfCBoOjQvYiB8IHE6NC9iIHE6NC9iIHwgcTo0L2IgcTo0L2IgfCBoOjQvYg==" tempo="66" play></tac-stave></div>
       </div>
+      <p class="rimando">Le sezioni (riferimento, tutto, le coppie, il collegamento) si ascoltano una per una e si ripetono quanto serve; <strong>&laquo;Procedura guidata&raquo;</strong> fa tutta la procedura della classe, con gli annunci e le pause.</p>
       <p class="rimando">Sul quaderno scrivi in testa la sigla <strong>C1-D-U01-L2</strong>. Si corregge all&rsquo;inizio della prossima lezione.</p>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Compiti per la prossima lezione. Scritto: Dove vanno le stanghette (Workbook, esercizio C1-U1-L2-08), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 13, 14; cantato n. 15, 16; ritmico n. 17, 18 (a tempo, senza fermarsi). Dettato C1-D-U01-L2 dalla pagina della lezione (pulsante «Dettato guidato»), sul quaderno con la sigla.</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Compiti per la prossima lezione. Scritto: Dove vanno le stanghette (Workbook, esercizio C1-U1-L2-08), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 13, 14; cantato n. 15, 16; ritmico n. 17, 18 (a tempo, senza fermarsi). Dettato C1-D-U01-L2 dalla pagina della lezione (sezioni da ascoltare, o «Procedura guidata»), sul quaderno con la sigla.</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>

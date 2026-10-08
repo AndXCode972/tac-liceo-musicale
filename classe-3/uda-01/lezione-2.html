@@ -30,7 +30,7 @@
 })();
 </script>
 <noscript><style>.slide { display: block !important; }</style></noscript>
-<link rel="stylesheet" href="../../_assets/css/tac.css?v=0952249f">
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=d7b0f46c">
 <script>
 window.__mod = (typeof module !== 'undefined') ? module : null;
 window.__exp = (typeof exports !== 'undefined') ? exports : null;
@@ -42,7 +42,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=b49a4cfb" defer></script>
+<script src="../../_assets/js/tac-core.js?v=eb279422" defer></script>
 </head>
 <body>
 <div id="tac-deck">
@@ -480,7 +480,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <div class="colonne">
       <div>
         <p><strong>Stretta, in zona comoda</strong></p>
-        <tac-stave clef="treble" time="4/4"
+        <tac-stave tastiera clef="treble" time="4/4"
                    caption="Suona pieno" soprano="g/4:w"
                contralto="e/4:w" tenore="c/4:w"
                basso="c/3:w"
@@ -488,7 +488,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
       </div>
       <div>
         <p><strong>Stretta, troppo in basso</strong></p>
-        <tac-stave clef="treble" time="4/4"
+        <tac-stave tastiera clef="treble" time="4/4"
                    caption="Suona confuso" soprano="g/3:w"
                contralto="e/3:w" tenore="c/3:w"
                basso="c/2:w"
@@ -568,7 +568,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <div class="colonne">
       <div>
         <p><strong>Di partenza: stretta</strong></p>
-        <tac-stave clef="treble" time="4/4"
+        <tac-stave tastiera clef="treble" time="4/4"
                    caption="Soprano&ndash;tenore: una quinta"
                    soprano="g/4:w" contralto="e/4:w" tenore="c/4:w" basso="c/3:w"
                    width="330" tempo="50" play></tac-stave>
@@ -627,7 +627,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <div class="colonne">
       <div>
         <p><strong>Cos&igrave; no</strong></p>
-        <tac-stave clef="treble" time="4/4"
+        <tac-stave tastiera clef="treble" time="4/4"
                    caption="Il contralto scende di un&rsquo;ottava e finisce sotto il tenore"
                    soprano="g/4:h g/4:h"
                    contralto="e/4:h e/3:h"
@@ -775,12 +775,41 @@ try { module = undefined; exports = undefined; } catch (e) {}
         <div><p class="didascalia">Il dettato &middot; otto battute</p>
           <tac-stave nascondi cifrato guidato="basso" clef="bass" time="4/4" keysig="G" notes="dzozL2UgfCBxOjMvI2YgcTozLyNkIGg6My8jZiB8IGg6My9hIHE6NC9jIHE6My9hIHwgcTozL2cgcTozL2IgcTozL2IgcTozL2cgfCB3OjMvYiB8IHE6NC9jIDg6My9iIDg6My9hIHE6My9hIHE6NC9jIHwgcTozL2EgcTozL2EgcTo0L2MgcTozL2EgfCBxOjMvZyBxOjMvZyBxOjMvYiA4OjMvYSA4OjMvZw==" tempo="60" play></tac-stave></div>
       </div>
-      <p class="rimando">Premi <strong>&laquo;Dettato guidato&raquo;</strong>: &egrave; la procedura della classe, con gli annunci e le pause. Le battute si sentono una prima volta, poi una pausa, poi la seconda.</p>
+      <p class="rimando">Le sezioni (riferimento, tutto, le coppie, il collegamento) si ascoltano una per una e si ripetono quanto serve; <strong>&laquo;Procedura guidata&raquo;</strong> fa tutta la procedura della classe, con gli annunci e le pause.</p>
       <p class="rimando">Sul quaderno scrivi in testa la sigla <strong>C3-D-U01-L2</strong>. Si corregge all&rsquo;inizio della prossima lezione.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Compiti · contrappunto e armonia" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti per la prossima volta</p>
+    <h2>Scrittura: contrappunto e armonia</h2>
+    <div class="riquadro compito scrittura-casa" id="C3-CP-U01-L2">
+      <span class="etichetta">4 &middot; Contrappunto <span class="dettato-sigla">C3-CP-U01-L2</span></span>
+      <p>Scrivi un contrappunto di <strong>seconda specie (due note contro una)</strong> sotto il canto fermo, in modo eolio (finale la): nove battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
+      <tac-stave caption="Il canto fermo" clef="treble" time="4/4" notes="a/4:w | g/4:w | e/4:w | f/4:w | g/4:w | a/4:w | g/4:w | b/4:w | a/4:w" tempo="72" play></tac-stave>
+      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-CP-U01-L2</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="cdx1q9W0/p5yym3Mh6/dzw==" iv="VOJrTbirsaTJQ+MZ" dati="wplNAEQIYUbgDaESf2ZFejF+n40ABONeiibex3dG1M6aKk97CYAeQWYzyeMFbwObKHlrEbb7VjPj0D3RjxPd4+SqNQm3gfPMyEWnfkXkWlI4NV3tWmFwdRkWsvzofs/1RnN6SLIVOeba8b9KcwdxKQJ4KPbMc41iiVQFbIADr19uo3lwfH+8LRG+UMYCnp0tqVc9lou5SfPcClOPzu/PJdUCjP8EzV0utjD/VrjXWZXDlb2D0WUT/8rkIWpFAoB0kl3A0ZxIuq1XmD0T7afLVblsHw8C2cXwHYA9SzD5TStvfI+yBFkTkmN5v8Ebx2jqeFEtd5IQSS1iKFkAEuEreWvWeRsdvPlELzAx3J1Xf46EDUnhkw5JdkEDbcBDcKhdgH/zIFEuMh8flzNBTF+R4SXZOJ20PkwgMJiCynRAK9AcoA=="></tac-chiuso>
+    </div>
+    <div class="riquadro compito scrittura-casa" id="C3-BD-U01-L2">
+      <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C3-BD-U01-L2</span></span>
+      <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: otto battute in 4/4, re maggiore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: I, IV e V, allo stato fondamentale e in primo rivolto.</p>
+      <tac-stave caption="Il basso" clef="bass" keysig="D" time="4/4" notes="d/3:h g/3:h | a/3:w | f/3:w | g/3:h a/3:h | d/3:h b/2:h | a/2:h f/2:h | g/2:h a/2:h | d/3:w" tempo="60" play></tac-stave>
+      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-BD-U01-L2</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="KVYj34xChwVJlReAzhRG6w==" iv="8ugoE7/BZIuXymqy" dati="ET5D4jqmmGEK1AcxDtKa5zl26tdfOr8OPYJpMb21zqlRs60QgE0dtaFJT311RKr+AXh3rcigerQn0VPID2MQrOIw1HtzZv/GNUWmjFCTksdAVDh1lRjvm+idUbW/2ABjGsGqTYiD9N/NFyQ8WT2lVnXDWXRN3Ws5rY1PCYd7pXUJAgXCK4lMZIJmclupkS4gtQpS1RsPucStF9CkjXrjQCfeyjmKoKXLPA3FIbPOqd/bieVdcXwxoL6WqM0BFdlowNfhsTE9+n1aRl4omoTb5VWASjMafwZgua0+UBCw+pUhAJCgn54eVSukIKK4zXWSVr6LEGKcV5D/MSyUBRuHR0y8RLlNUDaQSVTcFSDazhqJwaETxtg/Ebm9jhukFYWkwvgXbyyRWWJu02f28ofoGquZiQBs23CNiIrB5K8XlbW+Qlmhy/rhoPZyviA1CvJsrzJuFPwMZOZ0OKkBkAOfnmWTySJ3tEh1SDpdhhUP7mb+ugUopJSpGrESSpkv6Nn9IySHg3ILPkkaikmvLyX47dADdZe45zSwzGOr2xlnB9Y/uIfy1MB0RiEwLbL1ln7p2mvH9NNHRW+EyzHd/TOKG6BDCIcl7sokYStRhH1zeV+EQ2fMrF9fLsPXvDrz4LCr4DrJIq6M0fi6VAwo+3PDbcTbXzAw9E79O8lDCzxTysTMc051B0/6ilixrVh3d43PqYYJULia5TswY53cC8n+cGPzX1NJb9K/9908++SpAAAKBt6fb4BY65jG1mTD5+WxI+ogC3iFuF1zHLB9KXyn728mgUjKFrWXmCoMmuBdGj87ldfvlYi4"></tac-chiuso>
+    </div>
+    <div class="riquadro compito scrittura-casa" id="C3-CD-U01-L2">
+      <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C3-CD-U01-L2</span></span>
+      <p>Armonizza a quattro parti il <strong>canto dato</strong>: otto battute in 4/4, sol maggiore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: I, IV e V, allo stato fondamentale e in primo rivolto.</p>
+      <tac-stave caption="Il canto dato" clef="treble" keysig="G" time="4/4" notes="b/4:w | a/4:h b/4:h | c/5:w | a/4:h d/5:h | c/5:h a/4:h | g/4:w | g/4:h f/4:h | g/4:w" tempo="66" play></tac-stave>
+      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-CD-U01-L2</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="k5ouwNVyHrfsJUQbF9bU4Q==" iv="0EoZDBdH1RWmODk7" dati="rUHCeswz0zxQKoQ6IEczW2zZQTyEPMbWxbg6sjOykA2KLu7myBD5eJwg3df3UaKzruFXo+IvDsdoECq75hhWvTK1Up+i5/0qj7QdDR5yjaslTYy6mF75X9oEVLO1AQjsZ0ns+QnYO7ojnrLTBguv5/ebiwyJ1KXjqyPeUdi9flT1TBpKlbrZaDEeTCMUbnJJmEvnEIYK6jCJZEqg9fFO39FlvpOyS2TBbQbgvL/tb4sFZGZG/TT96oUS7hH5q9nPMUDcBGb/kua1qXiBqAm+ny90U5jaWO5eKOCdpoHkMZt4zcM7l81YKz9y0X3V22+Ll5L912LBXLQKJNEYsy3DzF9PR1gZuBejrwAesEWBFq6ttUMosK7e1OwaDxpgF/0by1Jel4bMCvkqOF0jkIVhHsRR9MOSgkBDLTjq96bnJb+DWdEsFbf5bZZHFQUjcA5JEwDvK05FPJpS3Z3xXQ/raaWt1c0dAYHQVL0XQMp4Dyg4u2GrJDn4+fu5BLcTgF+QdGqO3lEiUQGuUaE4kpc9FrhSrKVnMWuP7/DJx0G157WT89eLI1wRwOtqSfM8L49e/eeHLgUby9GGtIetXXNw3zfxE+S9nuj/hiM6eTrD8wjvZBKEFAuDExEwJuP8emhRSK9dh69eqWq+Mwma2T26ZIbUQMRVDeXIhUu5KpD8QTOerF/EPdisr2HdvJHboWmA5FyplODxw1libYv9pMxKHhOgbd7+ylA07QKxfjBCKkLSwy0EcBXuq5Y3+mVpbeOf7cvwoXcnrJAQ"></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Compiti per la prossima lezione. Scritto: Lo stesso accordo, sei volte (Workbook, esercizio C3-U1-L2-02), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 13, 14; cantato n. 15, 16; ritmico n. 17, 18 (a tempo, senza fermarsi). Dettato C3-D-U01-L2 dalla pagina della lezione (pulsante «Dettato guidato»), sul quaderno con la sigla.</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Compiti per la prossima lezione. Scritto: Lo stesso accordo, sei volte (Workbook, esercizio C3-U1-L2-02), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 13, 14; cantato n. 15, 16; ritmico n. 17, 18 (a tempo, senza fermarsi). Dettato C3-D-U01-L2 dalla pagina della lezione (sezioni da ascoltare, o «Procedura guidata»), sul quaderno con la sigla. Contrappunto di seconda specie sul canto fermo (C3-CP-U01-L2). Basso senza numeri da realizzare a quattro parti (C3-BD-U01-L2). Canto dato da armonizzare a quattro parti (C3-CD-U01-L2).</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>

@@ -3161,3 +3161,41 @@ html.tac-soccorso .solo-proiezione { display: none; }
 .tac-guida-fase[data-resta]::after { content: '  ·  pausa ' attr(data-resta); color: #6d28d9; font-weight: 700; }
 .dettato-sigla { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .85em;
   background: #f3f0ff; border: 1px solid #ddd6fe; border-radius: 4px; padding: .05rem .4rem; margin-left: .4rem; }
+
+/* 7 ottobre 2026: i righi della riduzione dentro un brano (la Patetica in
+   4ª U5) stanno sotto i comandi, sempre visibili, anche sulla slide. */
+.tac-brano-righi { margin-top: .7rem; }
+.tac-brano-righi tac-stave { margin: 0; }
+
+/* 8 ottobre 2026: il dettato a sezioni (Andrea: «senza le pause inserite
+   nell'audio, ma con le sezioni separate in modo da poterle ascoltare al
+   bisogno ed eventualmente ripeterle»; e prima «uno slider con i marcatori
+   per far scorrere l'audio del dettato»). */
+.tac-guida { flex-direction: column; align-items: stretch; gap: .35rem; }
+.tac-sezioni { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; }
+.tac-sez { font: inherit; font-size: .9rem; font-weight: 700; line-height: 1.2; padding: .34rem .68rem; cursor: pointer;
+  border: 1px solid #c4b5fd; border-radius: 999px; background: #faf8ff; color: #4c1d95; }
+.tac-sez:hover { background: #ede9fe; }
+.tac-sez.attivo { background: #6d28d9; border-color: #6d28d9; color: #fff; }
+.tac-sez:disabled { opacity: .45; cursor: default; }
+.tac-sez-ripeti { margin-left: auto; }
+.tac-sez-ferma { color: #6b7280; border-color: #d1d5db; background: #fff; }
+.tac-sez-gruppo { font-size: .7rem; font-weight: 800; color: #6b7280; text-transform: uppercase; letter-spacing: .03em; margin: 0 0 0 .35rem; }
+.tac-linea-box { position: relative; padding: 0 0 1.5rem; margin-top: .25rem; }
+.tac-linea-tacche { position: absolute; left: 0; right: 0; bottom: 0; height: 1.4rem; pointer-events: none; }
+.tac-tacca { position: absolute; bottom: 0; transform: translateX(-50%); pointer-events: auto; white-space: nowrap;
+  font: inherit; font-size: .74rem; font-weight: 700; line-height: 1.1; padding: .1rem .38rem; cursor: pointer;
+  border: 1px solid #ddd6fe; border-radius: 6px; background: #faf8ff; color: #4c1d95; }
+.tac-tacca::after { content: ''; position: absolute; left: 50%; bottom: 100%; width: 1px; height: .35rem; background: #a78bfa; }
+.tac-tacca.minore { color: #6b7280; border-color: #e5e7eb; background: #fff; }
+.tac-tacca.a-sinistra { transform: none; }
+.tac-tacca.a-sinistra::after { left: .3rem; }
+.tac-tacca:hover { background: #ede9fe; }
+.tac-linea { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; margin: .55rem 0 0; border-radius: 999px; cursor: pointer; display: block;
+  background: linear-gradient(to right, #6d28d9 var(--fatto, 0%), #e5e7eb var(--fatto, 0%)); }
+.tac-linea::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 3px solid #6d28d9; }
+.tac-linea::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid #6d28d9; }
+.tac-linea-tempi { position: absolute; right: 0; bottom: .1rem; font-size: .78rem; color: #6b7280; font-weight: 700; }
+.tac-guida-riga { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+.tac-guida-riga .btn { padding: .25rem .7rem; font-size: .85rem; }
+@media print { .tac-sezioni, .tac-linea-box, .tac-guida-riga { display: none !important; } }

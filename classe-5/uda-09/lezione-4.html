@@ -30,7 +30,7 @@
 })();
 </script>
 <noscript><style>.slide { display: block !important; }</style></noscript>
-<link rel="stylesheet" href="../../_assets/css/tac.css?v=0952249f">
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=d7b0f46c">
 <script>
 window.__mod = (typeof module !== 'undefined') ? module : null;
 window.__exp = (typeof exports !== 'undefined') ? exports : null;
@@ -42,7 +42,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=b49a4cfb" defer></script>
+<script src="../../_assets/js/tac-core.js?v=eb279422" defer></script>
 </head>
 <body>
 <div id="tac-deck">
@@ -124,7 +124,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
                segna="b1=due suoni per volta, e cambiano dodici volte"
                width="860" tempo="66" play a-passi slow></tac-stave>
 
-    <tac-stave time="3/4" keysig="F"
+    <tac-stave tastiera time="3/4" keysig="F"
                caption="Ridotto: un accordo per battuta, e l&rsquo;armonia si legge"
                soprano="f/5:h. | e/5:h."
                contralto="c/5:h. | c/5:h."
@@ -286,7 +286,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
                segna="b1=mi e do sono di volta&#59; b2=il la del terzo tempo anticipa"
                width="860" tempo="66" play a-passi slow></tac-stave>
 
-    <tac-stave time="3/4" keysig="G"
+    <tac-stave tastiera time="3/4" keysig="G"
                caption="Ridotto: due accordi, e le note estranee sono sparite"
                soprano="d/5:h. | c/5:h."
                contralto="b/4:h. | a/4:h."
@@ -330,7 +330,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
                segna="b2=la chiusa, e prima non si capiva dove fosse"
                width="860" tempo="60" play a-passi slow></tac-stave>
 
-    <tac-stave time="3/4" keysig="G"
+    <tac-stave tastiera time="3/4" keysig="G"
                caption="Ridotto: V &mdash; I, cadenza perfetta, e si legge subito"
                soprano="a/4:h. | g/4:h."
                contralto="f#/4:h. | d/4:h."
@@ -524,6 +524,24 @@ try { module = undefined; exports = undefined; } catch (e) {}
 </section>
 
 
+<section class="slide compiti-slide" data-titolo="Il dettato di oggi · da rifare">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Il dettato di oggi</p>
+    <h2>Da rifare da soli, con l&rsquo;audio</h2>
+    <div class="riquadro compito dettato-casa" id="C5-DV-70">
+      <span class="etichetta">Dettato <span class="dettato-sigla">C5-DV-70</span></span>
+      <p>Scrivi <strong>la melodia</strong> sul quaderno, in chiave di violino: otto battute in 9/8, la maggiore. Il primo suono è <strong>la</strong>. Prima il riferimento, poi tutto due volte, ogni coppia di battute due volte, il collegamento, e tutto per controllare.</p>
+      <div class="dettato-ascolti">
+        <div><p class="didascalia">Il riferimento: accordo di tonica e primo suono</p>
+          <tac-stave nascondi riferimento clef="treble" time="9/8" keysig="A" notes="a/3:q c#/4:q e/4:q a/4:q | a/4:w" tempo="80" play></tac-stave></div>
+        <div><p class="didascalia">Il dettato &middot; otto battute</p>
+          <tac-stave nascondi cifrato guidato="melodico" clef="treble" time="9/8" keysig="A" notes="LnE6ciAuaDo0L2EgfCA4OjQvI2cgODo0LyNmIDYxOjQvI2cgNjE6NC9iIDg6NC9hIHE6NC8jZyA4OjQvYSBxOjQvYiB8IDg6NC9hIDYxOjQvI2cgNjE6NC9hIDg6NS8jYyA4OjQvYSA2MTo0L2IgLjg6NS8jYyAucTo0LyNmIHwgODo0LyNnIHE6NC9hIC5xOjUvI2MgODo0L2IgcTo0L2EgfCA4OjQvI2cgNjE6NC8jZyA2MTo0LyNmIDg6NC9lIDYxOjQvI2YgNjE6NC8jZyA2MTo0L2EgNjE6NC9iIDYxOjQvYSA2MTo0LyNnIDg6NC8jZiBxOjQvZSB8IDg6NC9lIHE6NC8jZiAucTo0L2EgLnE6NC9hIHwgODo0LyNnIHE6NC8jZiA4OjQvI2cgcTo0L2EgcTo0L2EgODo0LyNmIHwgLnE6NC9hIC5xOjUvI2MgLnE6NC9h" tempo="60" play></tac-stave></div>
+      </div>
+      <p class="rimando">Le sezioni si ascoltano una per una e si ripetono quanto serve; <strong>&laquo;Procedura guidata&raquo;</strong> rifà tutta la procedura della classe, con gli annunci e le pause. Per chi era assente, e per chi vuole rifarlo: sul quaderno scrivi in testa la sigla <strong>C5-DV-70</strong>.</p>
+    </div>
+  </div>
+</section>
+
 <section class="slide esercizio insieme-slide" data-titolo="In classe · parlato">
   <div class="slide-interna">
     <p class="compiti-occhiello">In classe</p>
@@ -607,12 +625,41 @@ try { module = undefined; exports = undefined; } catch (e) {}
         <div><p class="didascalia">Il dettato &middot; otto battute</p>
           <tac-stave nascondi cifrato guidato="melodico" clef="treble" time="2/2" keysig="Bb" notes="dzo0L2JiIHwgaDo1L2MgcTo0L2EgNjE6NC9nIDYxOjQvYSA2MTo0L2JiIDYxOjUvYyB8IDg6NC9hIHE6NC9nIDg6NC9iYiA4OjQvZyA2MTo0L2YgNjE6NC9nIDYxOjQvYSAuODo0L2JiIHwgODo1L2MgODo0L2JiIDg6NC9hIDYxOjQvZyA2MTo0L2YgcTo0L2YgcTo0L2QgfCBxOjQvZiA4OjQvZyA4OjQvZiBxOjQvYSBxOjQvZiB8IHE6NC9iZSBxOjQvZyBoOjQvYmIgfCA2MTo0L2cgLjg6NC9hIHE6NC9iYiA4OjQvYSA4OjQvZyA4OjQvZiA4OjQvZyB8IHE6NC9iYiA4OjUvYyA4OjQvYmIgcTo1L2QgODo1L2MgODo0L2Ji" tempo="60" play></tac-stave></div>
       </div>
-      <p class="rimando">Premi <strong>&laquo;Dettato guidato&raquo;</strong>: &egrave; la procedura della classe, con gli annunci e le pause. Le battute si sentono una prima volta, poi una pausa, poi la seconda.</p>
+      <p class="rimando">Le sezioni (riferimento, tutto, le coppie, il collegamento) si ascoltano una per una e si ripetono quanto serve; <strong>&laquo;Procedura guidata&raquo;</strong> fa tutta la procedura della classe, con gli annunci e le pause.</p>
       <p class="rimando">Sul quaderno scrivi in testa la sigla <strong>C5-D-U09-L4</strong>. Si corregge all&rsquo;inizio della prossima lezione.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Compiti · contrappunto e armonia" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti per la prossima volta</p>
+    <h2>Scrittura: contrappunto e armonia</h2>
+    <div class="riquadro compito scrittura-casa" id="C5-CP-U09-L4">
+      <span class="etichetta">4 &middot; Contrappunto <span class="dettato-sigla">C5-CP-U09-L4</span></span>
+      <p>Scrivi un contrappunto di <strong>terza specie (quattro note contro una)</strong> sopra il canto fermo, in modo ionico (finale do): otto battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
+      <tac-stave caption="Il canto fermo" clef="bass" time="4/4" notes="c/3:w | d/3:w | e/3:w | b/3:w | a/3:w | g/3:w | d/3:w | c/3:w" tempo="72" play></tac-stave>
+      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C5-CP-U09-L4</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="gWFdUdGmkcTll3O3iZItBg==" iv="4NrahGReQoc4FD6e" dati="BsN0l0/oq54YM/ePTjs9kdfo2uDVMdmKeA1veGxto/Tse4iAnhpP0WVnP3UJndooRMQP7Ul+bIM0yDGWD8HAJiatqHO0+IYdLby9i0IeBdrd3qyeFDUU09BeUB3O737EdAdypJmyc+17z/U98kmK8fD/JgiYW95GChHGTpKeJRutI5ZiY6k3MY/Xfj12XuNs7acgOpxQPgFL55ZxN3JnTGQUE5EGQ7ROYfxV60eZ4GOaw/48Zbw9TeDT7RyfGtgJEjKIXtMfBG0T9kbdz5wgRwDzwiulibLoLrkE1oC11gqznyCGieesHpZ82rfBRg2obNWyETFFtewHN9SoTkubU+KvF3RRlAyIdmjVXFXSaMWpJKh5MGYCLgmfJOwn2VOa5Hw43ho1v/Eg2ZIVfZO1bHQ9kt9AmR0+eoMuSyjZpkNYMkQLgzBhpZnfOjJloxS2zqn4T/Wm2DJHLsOpf8VIFn2c0FAty3b2UkaHtFlxF00xO5mM/n4/K5cFK/guUF+Fyw=="></tac-chiuso>
+    </div>
+    <div class="riquadro compito scrittura-casa" id="C5-BD-U09-L4">
+      <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C5-BD-U09-L4</span></span>
+      <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: sedici battute in 4/4, si♭ maggiore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: tutto quello studiato, e una modulazione a un tono vicino. Il basso modula: trova dove, e in quale tonalità arriva.</p>
+      <tac-stave caption="Il basso" clef="bass" keysig="Bb" time="4/4" notes="b/2:h c/3:h | a/2:h f/2:h | g/2:h c/3:h | f/3:w | c/3:h b/2:h | g/2:h f/2:h | b/2:w | c/3:h e/3:h | d/3:h b/2:h | a/2:w | b/2:w | g/2:h a/2:h | d/3:h e/3:h | c/3:h c/3:h | d/3:h d/3:h | g/3:w" tempo="60" play></tac-stave>
+      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C5-BD-U09-L4</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="hKO3skhmvUNfx6ae/nOMSw==" iv="zSsow+/G5QKcYaQJ" dati="KJdML1Fw+JGGUeJhpUu3ZKjlAeLdHbM4TGfz6cBdq85f+xdCBIuy99v8L6hV+FuNAcbIWyDUWApv1CDfyuFu6iOP56SC4w68s2lDILCAyM1co4nz0jOKeUHTr3+dmUeAXx4YRCGvGd+t1/eEDvTI/0epZC2Zbh2SV1AcuhF7867hONg8M1mmVbUvt0UTWsof+UkxiISstD3mvWK9tDN6CMGOVxgOCOjVhOxqCesyjK3uPtUKlT6otoTsevgxxd9lNbE9ha0tzAOE37wX+Uz0rp9vxjFfMwQbVfsJYi0KWjH7YP+y7aQkn/k0FHcRmSoHYGwJmg8RC6STaSWxfIyRyPicFrLTZNmieff3u97Kfz9uD0FrgI7zn4LK1frEy1tIfQq7/79w8VCWlCa0oS6NA1rj2Qxxk7OOhZX2U1J9UhS+aYixfJ5uUgLAvSKEEsMlSPdKejvWM+nS81ieHKNbRRluuIE1amcYGlRoPJmq6fsfl76ZJvAQ0HelM2p0xSqug/hKt5xKGPDr9X83bN7jf78njKL6YjlmPYA45ABDZx5o3jZBPf2Vj0r+TpRTqlmcp2s7PQCxFVQjApnU3fPptqYVEKyO2vv6jRYwkWuHO1iYd7+sTr0HN/E3kvBNoKTo3QcCdtnRrnXsJBe++BPJFiVrSC1N4oQlhzejkgVOfQCzMgDeksOoBeUY1GNd6yUJGNzHGFGHI/0chg4/Pq9ywKreYdU7heyUdXPGTVFabmvkc+mJkN3lMjwD3LYwGVprc8MhcpLJDt8jGq5/fx/OpkCdijtS3OR+zJO+CyJO7rO0Jv5fZ8jdzI7P9ig5fW2jStrd9LG4eOx5tYnhuE7OdXf7QoW876+AamDTPhGy1ASigEqZjq2ngpgG3Dyb5oYhtErHcf7HrVx8PtUMMcIeMpZ8FEeQWdSA5gT+5I1w6GSIZPPoDbZs9l3rSYAAy9Vj+7AW3j3Vl4MUIocjyHEYktKuv0N53XNwDgNpRjJbB+3TXXHZ2QuyOEh7nx/Q80odbIe7FgA+h6CiGjceZbLRtKsrow7VqK+dws4tHstt+SQ35EsAiSSYlfs6Hcjeo0ox5EdSlvp/oQzYVTNd/Iu6fZX4IV7DyV9A5I2XEcVGYgajSJv9xQrhO9J6++1wTWu42/Bn4ozxdTQVl/+HHkN9QHvO+FOM1hdqegiO9S236WKwv6uhmf4baXv8KJtcYiAdKVwWo8lw1YaigJv3v6trtvODjjg80+K/99Eg1PB4phXYsB7yq7f+Hs8nGBmTuLmLSXLXfg2oqacFTWZPxeQJRqHipN86f0QN33qiSRaQeCbg/YJcGWOM8i5ybl6oVva7K1Eb+kXAowQ4UXTseXnwezguKftWlhPtT4p7dBpwrWxlmddv/RV5FP6FNkBKfS3+xRs3YIR2YUz8dJj+y+3KlHSCtRNSUGKGuHHBD5aCC2eYlNPTKWw5CwYVoYgZrbjvBmEXf3ehBchWZdCVnisloQ=="></tac-chiuso>
+    </div>
+    <div class="riquadro compito scrittura-casa" id="C5-CD-U09-L4">
+      <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C5-CD-U09-L4</span></span>
+      <p>Armonizza a quattro parti il <strong>canto dato</strong>: sedici battute in 4/4, si♭ maggiore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: tutto quello studiato, e una modulazione a un tono vicino. La melodia modula: trova dove, e in quale tonalità arriva.</p>
+      <tac-stave caption="Il canto dato" clef="treble" keysig="Bb" time="4/4" notes="f/5:h e/5:h | f/5:w | f/5:h d/5:h | d/5:w | g/5:w | e/5:w | d/5:w | c/5:h e/5:h | d/5:h c/5:h | c/5:h b/4:h | b/4:w | d/5:h c/5:h | en/5:h f/5:h | d/5:w | d/5:h en/5:h | f/5:w" tempo="66" play></tac-stave>
+      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C5-CD-U09-L4</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="BrMt69Z6hXrDHHB1O7JLBw==" iv="NNuCagVWukHFgOLu" dati="I8n8mMa5YCsPkQ/552RG24NmDgZziDtAUiwAF95W+mHZRPpi1sTgP38prHbX104MnIeMS8KIL7Ba/2YKdc1/+fYa7WCLM6/UwPSWtj6CUVOXorTErMq4KKq6E5aiusOBZyaYkwDT81JjfFxTilrTADK5dN4AQdBton295dqhYMDHwIdaV+JQJWluptO8nvhxVio6aJQ4ZUZzu5ddruyXQYxV8rA8yBP0HWZV5olksBg+d1QSj4Xl7DPCz+MwrXpgqC86ZwAaMrAbc7RMnIRPMdo4xj0AssPWpcrzKRjLOnPy4ZzV5HoXqcVRwT04AMV3cWWmev+mcb730Eywh9PAek+LqZop/MrbgCOPEn3lPTSQGl8Dk984OWx7L1Xm9OKkACXwReKp0vUcGb78gBjA4H4GkLcB9Lh1j65Z2Es7QD6D+SJKX32s2xs3G7QJ9So8yI3klR6sHgsbBaPVjjo965BNzZRsR2b/ubE5zE1J2mmL3PrRKSvGqKi1GcZNFwa40prZyUM3MpUcKA8xaf+t9bfEA0d+9V521X+JoGAgKRva0eAsMsTOzt94Jk7b43YnJK6tAi1Wa+WhpVQdddkBSUGiJ7fs/4ahzJx5OAYo+J8TTvt3MIVlLTYe/iBR1sTLXQJjRcggbpXa66/A86SHGUBFrCvuotJ1h82imnyg94oJBXLyuISfc38ZiFWQSqUP1xfym1j5lBhvC173smf7ewxx8YgZ7nOYjapaYmuGU6gYaLI4VXZ3822l5EU6XpPZ9f+AYPBeZEsPB41qwTmD7p4vMLD8N0OQSaXuGFqWLyopP1O38WN/YQeaUiYh7JNwVhNZJ6wdRfFqBA0F6hxaxbjLbDnAwEtVvIV4rHZPX2Zbu7j4/VhTPLkMK/i/zFMJNRc2DvpzPxUWcZxI2Kkhso0+zyp40jDfasix2yqNPGuNIWHfTats+En8r30eQtNVoFiZz5AlG4d5I2tDVunxnOWjsk1ViV4LvJ/QAwtIOEzQTDeQ13CWYuConrpGqH6yGqh7qVQFLPNt29Nr+Qo5Mk1xoHtbkWG6jd0sR5AqhapT+m2shuGHbNYpXG1XsNq0UkZDon1QO3HxduAM9cd6ClZ48tFqwyNVkw8Ahucr/fF+kIQowfjVRL9prX/mn4XGbVITa965aC0UzwJt1QwwYPmmM0fhkx/9lE9B3MPVGlaisU52HbvHmTKHRRpusrf5v9fZwY9LqCCf59tX1MCZIhlFg0GANjJblUpKq0WEYLeV+m6hOn1xShMLIDZcsl9rtmR1/5TFvjc8MmJ58vY4HZp/RM36oOwlEO2CnU8tSm/N19r/rA61zmOJDi+zixU07YfxQCSR1nNEmr+xqWpws18="></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Compiti per la prossima lezione. Scritto: Dalla riduzione al pezzo, di nuovo (Workbook, esercizio C5-U9-L4-02), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 472, 473; cantato n. 474, 475; ritmico n. 476, 477 (a tempo, senza fermarsi). Dettato C5-D-U09-L4 dalla pagina della lezione (pulsante «Dettato guidato»), sul quaderno con la sigla.</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Compiti per la prossima lezione. Scritto: Dalla riduzione al pezzo, di nuovo (Workbook, esercizio C5-U9-L4-02), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 472, 473; cantato n. 474, 475; ritmico n. 476, 477 (a tempo, senza fermarsi). Dettato C5-D-U09-L4 dalla pagina della lezione (sezioni da ascoltare, o «Procedura guidata»), sul quaderno con la sigla. Contrappunto di terza specie sul canto fermo (C5-CP-U09-L4). Basso senza numeri da realizzare a quattro parti (C5-BD-U09-L4). Canto dato da armonizzare a quattro parti (C5-CD-U09-L4).</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>

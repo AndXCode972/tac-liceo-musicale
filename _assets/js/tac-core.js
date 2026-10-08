@@ -795,7 +795,22 @@
     'F': ['b'], 'Bb': ['b', 'e'], 'Eb': ['b', 'e', 'a'],
     'Ab': ['b', 'e', 'a', 'd'], 'Db': ['b', 'e', 'a', 'd', 'g'],
     'Gb': ['b', 'e', 'a', 'd', 'g', 'c'],
-    'Cb': ['b', 'e', 'a', 'd', 'g', 'c', 'f']
+    'Cb': ['b', 'e', 'a', 'd', 'g', 'c', 'f'],
+    /* ⚠ 7 ottobre 2026: le minori. Fino a oggi mancavano, e un rigo con
+       `keysig="Cm"` mostrava tre bemolli ma suonava le note come scritte:
+       per farlo suonare giusto i righi in minore erano scritti in suoni
+       assoluti (`eb`, `ab`, e `b` per il si naturale), e così si
+       LEGGEVANO sbagliati — il si della sensibile senza bequadro sotto tre
+       bemolli è un si bemolle. Ora la minore vale come la sua relativa, e i
+       77 righi in minore sono stati riscritti con la grafia del corso
+       (`bn` per il si naturale, niente segni già in armatura), con il
+       controllo che ogni nota suonasse come prima. */
+    'Am': [], 'Em': ['f'], 'Bm': ['f', 'c'], 'F#m': ['f', 'c', 'g'],
+    'C#m': ['f', 'c', 'g', 'd'], 'G#m': ['f', 'c', 'g', 'd', 'a'],
+    'D#m': ['f', 'c', 'g', 'd', 'a', 'e'],
+    'Dm': ['b'], 'Gm': ['b', 'e'], 'Cm': ['b', 'e', 'a'],
+    'Fm': ['b', 'e', 'a', 'd'], 'Bbm': ['b', 'e', 'a', 'd', 'g'],
+    'Ebm': ['b', 'e', 'a', 'd', 'g', 'c']
   };
 
   const N = TAC.note = {
@@ -827,7 +842,7 @@
       const p = this.scomponi(k);
       if (p.alt) return k;
       if (segni.indexOf(p.lettera) < 0) return k;
-      return p.lettera + (/b$/.test(armatura) ? 'b' : '#') + '/' + p.ottava;
+      return p.lettera + (segni[0] === 'b' ? 'b' : '#') + '/' + p.ottava;   /* i bemolli cominciano dal si, i diesis dal fa: «Cm» non finisce per b */
     },
 
     /* "f#/4" -> "fa diesis" */
@@ -2882,7 +2897,13 @@
             Audio.tick.triggerAttackRelease(liv.altezza, '64n', t, liv.forza);
           } else {
             const chiavi = d.keys.map(k => N.aTone(N.conArmatura(k, this._armatura)));
-            this.inCoda(t, () => voce.triggerAttackRelease(chiavi, suonati * 0.92, t));
+            /* ⚠ 8 ottobre 2026, Andrea: «l'audio è sbagliato, non c'è la melodia
+               suonata correttamente, ma tutte le note arrivano insieme». La
+               funzione nella coda leggeva `t`, che è una variabile sola per
+               tutto il ciclo: quando la coda la eseguiva, `t` valeva già
+               l'istante di un'altra nota. Ogni nota ora porta il suo. */
+            const tNota = t;
+            this.inCoda(tNota, () => voce.triggerAttackRelease(chiavi, suonati * 0.92, tNota));
           }
           const teste = catena[i]
             .map(k => this._note && this._note[k] && this._note[k].getSVGElement())
@@ -2990,8 +3011,17 @@
   function guidaDettato(rigo) {
     if (rigo._guida || !rigo._capi || !rigo._dati) return;
     rigo._guida = true;
+    /* ⚠ 7 ottobre 2026, Andrea: «tutti i dettati … devono avere tutti la
+       stessa struttura con la possibilità per i ragazzi di svolgerli in
+       autonomia con l'audio». Oltre a melodico, basso e ritmico: `metro`
+       (si batte e si conta: procedura breve), `due-voci` (due righi) e
+       `armonico` (le quattro parti). La struttura è la stessa per tutti:
+       riferimento, tutto due volte, le coppie, il collegamento, la verifica. */
     const tipo = rigo.getAttribute('guidato') || 'melodico';
-    const melodico = tipo !== 'ritmico';
+    const melodico = tipo !== 'ritmico' && tipo !== 'metro';
+    const COPPIA = { 'melodico': [': il ritmo', ': le altezze'], 'basso': [': il ritmo', ': le altezze'],
+                     'due-voci': [': la voce di sopra', ': la voce di sotto'],
+                     'armonico': [': il basso', ': le funzioni (e il soprano, se avanza tempo)'] }[tipo] || ['', ''];
     const capi = rigo._capi, dati = rigo._dati, n = capi.length;
     const tempo = parseFloat(rigo.getAttribute('tempo') || '60') || 60;
     const [num, den] = (rigo.getAttribute('time') || '4/4').split('/').map(Number);
@@ -3007,12 +3037,34 @@
     /* i passi, in ordine: [testo, annuncio, cosa suona, pausa dopo] */
     const passi = [];
     const P = (testo, annuncio, suono, pausa) => passi.push({ testo, annuncio, suono, pausa });
-    P('Fase 0 · prima di cominciare: otto battute, il metro lo riconosci tu',
-      melodico ? 'm00-apertura' : 'd00-apertura', null, 2);
+    /* ⚠ 8 ottobre 2026, Andrea (4ª U1 L6, slide 25): «vorrei che ci fossero
+       dei mark nei dettati, che mi permettessero di muovermi fra le diverse
+       fasi». Ogni fase ha un segno: si parte da lì con un clic, anche a
+       dettato in corso; il segno della fase in corso resta acceso. */
+    const segni = [];
+    const S = (nome, gruppo) => segni.push({ nome, gruppo, i: passi.length });
+    if (tipo === 'metro') {
+      S('Pulsazione', '');
+      P('Ascolta e batti la pulsazione con la mano', 'd01-intera', 'tutto', 5);
+      S('Accento', '');
+      P('Seconda volta: dove torna l\u2019accento? Conta in 2, in 3 o in 4', null, 'tutto', 8);
+      S('Battute', '');
+      P('Terza volta: conta le battute', null, 'tutto', 10);
+      S('Scrivi', '');
+      P('Scrivi sul quaderno il metro e quante battute hai contato', null, null, 15);
+      S('Verifica', '');
+      P('La verifica: tutto, ancora una volta', 'd09-verifica', 'tutto', 4);
+      P('Fine. Si controlla in classe', 'd11-chiusura', null, 0);
+    } else {
+    S('Inizio', '0');
+    P('Fase 0 · prima di cominciare: ' + (n === 8 ? 'otto' : n) + ' battute, il metro lo riconosci tu',
+      n === 8 ? (melodico ? 'm00-apertura' : 'd00-apertura') : null, null, 2);
+    if (rif) S('Riferimento', '0');
     if (rif) P('Fase 0 · il riferimento: accordo di tonica e primo suono',
       'm01-riferimento', 'rif', 3);
+    S('Tutto', '1');
     P('Fase 1 · tutto, prima volta. Non si scrive: si contano le battute', 'd01-intera', 'tutto', 5);
-    P('Fase 1 · tutto, seconda volta. Scrivi il metro e tira le otto stanghette', null, 'tutto',
+    P('Fase 1 · tutto, seconda volta. Scrivi il metro e tira le ' + (n === 8 ? 'otto' : n) + ' stanghette', null, 'tutto',
       Math.max(8, Math.round(battuta * 2)));
     /* ⚠ 5 ottobre 2026, Andrea: «le battute vanno presentate a coppie di
        due, quindi 1-2 per due volte con un pochino di pausa, ma non troppa,
@@ -3024,20 +3076,26 @@
     const FRA_LE_DUE = 4;
     for (let k = 1; k + 1 <= n; k += 2) {
       const an = { 1: 'd02-battute-1-2', 3: 'd03-battute-3-4', 5: 'd04-battute-5-6', 7: 'd05-battute-7-8' }[k];
-      P('Fase 2 · battute ' + k + '–' + (k + 1) + ', prima volta' + (melodico ? ': il ritmo' : ''),
+      S(k + '\u2013' + (k + 1), '2');
+      P('Fase 2 · battute ' + k + '–' + (k + 1) + ', prima volta' + COPPIA[0],
         n === 8 ? an : null, [k, k + 1], FRA_LE_DUE);
-      P('Fase 2 · battute ' + k + '–' + (k + 1) + ', seconda volta' + (melodico ? ': le altezze' : '') +
+      P('Fase 2 · battute ' + k + '–' + (k + 1) + ', seconda volta' + COPPIA[1] +
         ' — poi scrivi', null, [k, k + 1],
         Math.max(20, Math.round(battuta * 2 * 4)));
     }
     for (let k = 1; k + 3 <= n; k += 4) {
       const an = { 1: 'd12-collegamento-1-4', 5: 'd13-collegamento-5-8' }[k];
+      S(k + '\u2013' + (k + 3), '3');
       P('Fase 3 · il collegamento: battute ' + k + '–' + (k + 3) + ' insieme — poi aggiusta',
         n === 8 ? an : null, [k, k + 3], Math.max(12, Math.round(battuta * 4 * 2)));
     }
+    if (n % 2) S('batt. ' + n, '2');
+    if (n % 2) P('Fase 2 · l\u2019ultima battuta, due volte — poi scrivi', null, [n, n], Math.max(10, Math.round(battuta * 4)));
+    S('Verifica', '4');
     P('Fase 4 · la verifica: tutto, due volte di seguito. Si controlla', 'd09-verifica', 'tutto', 2);
     P('Fase 4 · la verifica, seconda volta', null, 'tutto', 8);
     P('Fine. Il dettato si corregge in classe, dal foglio', melodico ? 'm03-chiusura' : 'd11-chiusura', null, 0);
+    }
 
     let stima = 0;
     passi.forEach(p => {
@@ -3045,20 +3103,58 @@
       if (p.suono === 'tutto') stima += n * battuta;
       else if (Array.isArray(p.suono)) stima += 2 * battuta;
     });
+    const mmss = t => Math.floor(t / 60) + ':' + String(Math.round(t % 60)).padStart(2, '0');
+
+    /* ⚠ 8 ottobre 2026, Andrea: «preferirei che fosse impostato in modo da
+       potersi muovere, ovvero senza le pause inserite nell'audio, ma con le
+       sezioni separate in modo da poterle ascoltare al bisogno ed
+       eventualmente ripeterle». Il pannello ora è fatto di SEZIONI: ogni
+       pulsante suona solo il suo tratto, una volta, senza annunci e senza
+       pause; «Ripeti» rifà l'ultimo. La barra scorre sulla musica (le
+       battute), e trascinandola si ascolta da quel punto. La procedura con
+       le pause resta, in piccolo, per chi lo rifà da solo a casa. */
+    const sezioni = [];
+    const Z = (nome, suono, gruppo) => sezioni.push({ nome, suono, gruppo });
+    if (rif) Z('Riferimento', 'rif', '');
+    Z('Tutto', 'tutto', '');
+    if (tipo !== 'metro') {
+      for (let k = 1; k + 1 <= n; k += 2) Z(k + '–' + (k + 1), [k, k + 1], 'coppie');
+      if (n % 2) Z('batt. ' + n, [n, n], 'coppie');
+      for (let k = 1; k + 3 <= n; k += 4) Z(k + '–' + (k + 3), [k, k + 3], 'collegamento');
+    }
+    const durata = n * battuta;
+    let tacche = '';
+    for (let k = 1; k <= n; k++) {
+      const x = 100 * (k - 1) / n;
+      tacche += '<button type="button" class="tac-tacca' + (k % 2 ? '' : ' minore') + (k === 1 ? ' a-sinistra' : '') +
+        '" data-b="' + k + '" style="left:' + x.toFixed(2) + '%" title="Ascolta dalla battuta ' + k + '">' + k + '</button>';
+    }
+    const bottoni = sezioni.map((z, j) => {
+      const nuovo = z.gruppo && (j === 0 || sezioni[j - 1].gruppo !== z.gruppo);
+      return (nuovo ? '<span class="tac-sez-gruppo">' + z.gruppo + '</span>' : '') +
+        '<button type="button" class="tac-sez" data-j="' + j + '">' + z.nome + '</button>';
+    }).join('');
 
     const pan = document.createElement('div');
     pan.className = 'tac-guida no-stampa';
-    pan.innerHTML = '<button type="button" class="btn tac-guida-via">&#9654; Dettato guidato</button>' +
-      '<button type="button" class="btn tac-guida-ferma" hidden>&#9632; Ferma</button>' +
-      '<span class="tac-guida-fase">Tutta la procedura della classe, con le pause: circa ' +
-      Math.round(stima / 60) + ' minuti</span>';
-    /* sotto tutto il blocco degli ascolti, a larghezza piena: dentro la
-       colonna del rigo nascosto la fase in corso andava a capo ogni tre parole */
+    pan.innerHTML =
+      '<div class="tac-sezioni" role="group" aria-label="Sezioni del dettato">' + bottoni +
+      '<button type="button" class="tac-sez tac-sez-ripeti" title="Rifà l’ultima sezione" disabled>&#8635; Ripeti</button>' +
+      '<button type="button" class="tac-sez tac-sez-ferma" title="Ferma">&#9632; Ferma</button></div>' +
+      '<div class="tac-linea-box"><div class="tac-linea-tacche">' + tacche + '</div>' +
+      '<input type="range" class="tac-linea" min="0" max="' + Math.round(durata * 10) + '" step="1" value="0" aria-label="Posizione nel dettato">' +
+      '<span class="tac-linea-tempi"><span class="tac-linea-ora">batt. 1</span></span></div>' +
+      '<div class="tac-guida-riga"><button type="button" class="btn secondario tac-guida-via">&#9654; Procedura guidata, con le pause</button>' +
+      '<button type="button" class="btn secondario tac-guida-ferma" hidden>&#9632; Ferma</button>' +
+      '<span class="tac-guida-fase">per rifarlo da soli a casa: circa ' + Math.round(stima / 60) + ' minuti</span></div>';
     ((contenitore && contenitore.classList.contains('dettato-ascolti')) ? contenitore
       : (rigo.parentElement || rigo)).after(pan);
     const via = pan.querySelector('.tac-guida-via'), ferma = pan.querySelector('.tac-guida-ferma');
     const fase = pan.querySelector('.tac-guida-fase');
-    let corsa = null;
+    const linea = pan.querySelector('.tac-linea'), ora = pan.querySelector('.tac-linea-ora');
+    const btnSez = [...pan.querySelectorAll('.tac-sez[data-j]')];
+    const ripeti = pan.querySelector('.tac-sez-ripeti'), fermaSez = pan.querySelector('.tac-sez-ferma');
+    let corsa = null, ultimaSez = -1, tirando = false, anima = null;
 
     const dorme = (sec, c) => new Promise(r => {
       const t0 = Date.now();
@@ -3090,35 +3186,90 @@
       };
       giro();
     });
-    const suonaPasso = async (p, c) => {
-      if (!p.suono || c.stop) return;
-      if (p.suono === 'rif') { if (rif) { rif.suona(null, 1, null, null); await aspettaRigo(rif, c); } return; }
-      if (p.suono === 'tutto') rigo.suona(null, 1, null, null);
-      else { const [da, a] = tratto(p.suono[0], p.suono[1]); rigo.suona(null, 1, da, a); }
+
+    /* la barra: posizione in secondi di musica */
+    const mostra = v => {
+      v = Math.max(0, Math.min(durata, v));
+      linea.value = Math.round(v * 10);
+      linea.style.setProperty('--fatto', (100 * v / durata).toFixed(2) + '%');
+      ora.textContent = 'batt. ' + Math.min(n, Math.floor(v / battuta + 1e-6) + 1);
+    };
+    const scorri = (b1, b2) => {
+      if (anima) clearInterval(anima);
+      const da = (b1 - 1) * battuta, a = b2 * battuta, t0 = Date.now();
+      mostra(da);
+      anima = setInterval(() => {
+        if (tirando) return;
+        const v = da + (Date.now() - t0) / 1000;
+        mostra(Math.min(v, a));
+        if (v >= a) { clearInterval(anima); anima = null; }
+      }, 100);
+    };
+    const suonaTratto = async (b1, b2, c) => {
+      if (c.stop) return;
+      scorri(b1, b2);
+      if (b1 === 1 && b2 === n) rigo.suona(null, 1, null, null);
+      else { const [da, a] = tratto(b1, b2); rigo.suona(null, 1, da, a); }
       await aspettaRigo(rigo, c);
     };
+    const accendi = j => btnSez.forEach((b, k) => b.classList.toggle('attivo', k === j));
 
-    via.onclick = async () => {
-      if (corsa) return;
-      const c = corsa = { stop: false };
-      via.hidden = true; ferma.hidden = false;
-      for (const p of passi) {
-        if (c.stop) break;
-        fase.textContent = p.testo; delete fase.dataset.resta;
-        await parla(p.annuncio, c);
-        await suonaPasso(p, c);
-        if (p.pausa) await dorme(p.pausa, c);
-      }
-      delete fase.dataset.resta;
-      if (!c.stop) fase.textContent = 'Fatto. Si corregge in classe, dal foglio del docente.';
-      via.hidden = false; ferma.hidden = true; corsa = null;
-    };
-    ferma.onclick = () => {
+    const fermaTutto = async () => {
+      if (anima) { clearInterval(anima); anima = null; }
+      via.hidden = false; ferma.hidden = true;
       if (!corsa) return;
       corsa.stop = true;
       try { if (corsa.audio) corsa.audio.pause(); } catch (e) {}
       try { rigo.ferma(); if (rif) rif.ferma(); } catch (e) {}
-      fase.textContent = 'Fermato. Si riparte da capo con «Dettato guidato».';
+      await new Promise(r => { const g = () => corsa ? setTimeout(g, 60) : r(); g(); });
+    };
+    const corri = async (lavoro) => {
+      await fermaTutto();
+      const c = corsa = { stop: false };
+      try { await lavoro(c); } finally { if (corsa === c) corsa = null; }
+      return c;
+    };
+
+    const suonaSezione = j => corri(async c => {
+      const z = sezioni[j];
+      ultimaSez = j; ripeti.disabled = false; accendi(j);
+      if (z.suono === 'rif') { if (rif) { rif.suona(null, 1, null, null); await aspettaRigo(rif, c); } }
+      else if (z.suono === 'tutto') await suonaTratto(1, n, c);
+      else await suonaTratto(z.suono[0], z.suono[1], c);
+      if (!c.stop) accendi(-1);
+    });
+    btnSez.forEach((b, j) => { b.onclick = () => suonaSezione(j); });
+    ripeti.onclick = () => { if (ultimaSez >= 0) suonaSezione(ultimaSez); };
+    fermaSez.onclick = () => { fermaTutto(); accendi(-1); };
+
+    const daBattuta = k => corri(async c => { accendi(-1); await suonaTratto(k, n, c); });
+    pan.querySelectorAll('.tac-tacca').forEach(b => { b.onclick = () => daBattuta(+b.dataset.b); });
+    linea.addEventListener('input', () => { tirando = true; mostra(+linea.value / 10); });
+    linea.addEventListener('change', () => {
+      tirando = false;
+      daBattuta(Math.min(n, Math.floor(+linea.value / 10 / battuta + 1e-6) + 1));
+    });
+
+    /* la procedura intera, con annunci e pause: per chi lo rifà da solo */
+    via.onclick = () => corri(async c => {
+      via.hidden = true; ferma.hidden = false; accendi(-1);
+      for (const p of passi) {
+        if (c.stop) break;
+        fase.textContent = p.testo; delete fase.dataset.resta;
+        await parla(p.annuncio, c);
+        if (p.suono === 'rif') { if (rif && !c.stop) { rif.suona(null, 1, null, null); await aspettaRigo(rif, c); } }
+        else if (p.suono === 'tutto') await suonaTratto(1, n, c);
+        else if (Array.isArray(p.suono)) await suonaTratto(p.suono[0], p.suono[1], c);
+        if (p.pausa) await dorme(p.pausa, c);
+      }
+      delete fase.dataset.resta;
+      if (!c.stop) fase.textContent = 'Fatto. Si corregge in classe, dal foglio del docente.';
+      via.hidden = false; ferma.hidden = true;
+    });
+    ferma.onclick = async () => {
+      await fermaTutto();
+      via.hidden = false; ferma.hidden = true;
+      fase.textContent = 'Fermato. Le sezioni qui sopra si ascoltano una per una.';
     };
   }
 
@@ -6073,6 +6224,13 @@
          per battuta, cosa impossibile con un'immagine esterna */
       this._parti = [...this.querySelectorAll('figure.tac-part')];
       this._parti.forEach(x => x.remove());
+      /* ⚠ 7 ottobre 2026. Un brano può portare dentro di sé i righi della
+         riduzione (`<tac-stave>` figli, come la Patetica in 4ª U5). Fino a
+         oggi `textContent = ''` li cancellava: sulla slide restava il
+         lettore senza la musica. Si tolgono prima, e tornano sotto i
+         comandi, visibili: «le partiture devono essere subito visibili». */
+      this._righi = [...this.children].filter(x => x.tagName === 'TAC-STAVE');
+      this._righi.forEach(x => x.remove());
       this.textContent = '';
       this._dati = null;
       this._suona = false;
@@ -6333,6 +6491,12 @@
 
       box.appendChild(barra);
       if (this._reg) box.appendChild(this._reg);
+      if (this._righi.length) {
+        const r = document.createElement('div');
+        r.className = 'tac-brano-righi';
+        this._righi.forEach(x => r.appendChild(x));
+        box.appendChild(r);
+      }
 
       /* Sulla slide non va nessuna partitura: non ci sta e non si legge.
          E non vanno nemmeno i comandi: proiettati sono minuti, e chi guarda
@@ -6643,6 +6807,14 @@
          Con l'attributo la partitura resta nella slide, intera, sotto i
          comandi d'ascolto: la slide scorre, il cursore della battuta
          lavora sulla pagina che la classe sta leggendo, e niente si apre. */
+      /* ⚠ 7 ottobre 2026, Andrea: «gli esempi reali sempre con esecuzione
+         reale e senza riquadro, le partiture devono essere subito visibili
+         nelle slides». Dentro una slide ogni brano è `in-vista`, senza
+         doverlo scrivere: il riquadro cliccabile resta solo fuori dalle
+         slide (Workbook, pagine di materiali). */
+      if (!this.hasAttribute('in-vista') && this.closest && this.closest('section.slide')) {
+        this.setAttribute('in-vista', '');
+      }
       if (this.hasAttribute('in-vista')) { box.classList.add('in-vista'); return; }
         box.classList.add('apribile');
       box.tabIndex = 0;

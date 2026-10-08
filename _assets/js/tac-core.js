@@ -8682,6 +8682,30 @@
       if (this._fatto) return;
       this._fatto = true;
       const invito = this.getAttribute('invito') || 'Contenuto riservato';
+      /* ⚠ 8 ottobre 2026, Andrea: «se ci sono dei segni sulla partitura
+         per fare l'analisi non importa il codice, basta un tasto per far
+         apparire i segni corretti». `libero` (lo mette `_chiudi.py` a tutto
+         ciò che non è una soluzione da compito o da dettato): un tasto e
+         basta, niente codice. */
+      if (this.hasAttribute('libero') && !this.getAttribute('dati')) {
+        const dentro = this.innerHTML;
+        this.innerHTML = '';
+        const box = document.createElement('div');
+        box.className = 'tac-chiuso tac-libero';
+        box.innerHTML = '<p class="tac-chiuso-invito">&#128275; ' + invito + '</p>' +
+          '<div class="tac-chiuso-riga"><button type="button" class="tac-chiuso-tasto">Mostra</button></div>';
+        this.appendChild(box);
+        box.querySelector('.tac-chiuso-tasto').addEventListener('click', () => {
+          box.remove();
+          this.innerHTML = dentro;
+          this.querySelectorAll('*').forEach(n => {
+            if (n.tagName.toLowerCase().startsWith('tac-') && n.connectedCallback) {
+              try { n.connectedCallback(); } catch (e) { /* già a posto */ }
+            }
+          });
+        });
+        return;
+      }
       if (!this.getAttribute('dati')) {
         /* Non cifrato: siamo nei sorgenti, o `_chiudi.py` non è passato.
            Si mostra com'è — nascondere qui non servirebbe a niente e

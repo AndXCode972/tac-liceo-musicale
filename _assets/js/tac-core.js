@@ -1420,16 +1420,28 @@
       this._tesa = (doppio ? 260 : 150) + extra;
       if (extra) renderer.resize(larghezza, this._tesa);
 
+      /* ⚠ 8 ottobre 2026, Andrea: «negli esempi e anche nei solfeggi il
+         metro va messo solo all'inizio e alla fine ci vogliono le doppie
+         stanghette». Un pezzo che va a capo è un `<div class="righe">` con
+         più righi: il metro sta solo sul primo, la stanghetta finale solo
+         sull'ultimo. Un rigo da solo è un pezzo intero: metro e stanghetta
+         finale. `aperto` lascia la stanghetta semplice (un frammento che
+         continua); `fine` la mette comunque, come prima. */
+      const gruppoRighe = this.closest && this.closest('.righe');
+      const righiPezzo = gruppoRighe ? [...gruppoRighe.querySelectorAll('tac-stave')] : [this];
+      const primoRigo = righiPezzo[0] === this;
+      const ultimoRigo = righiPezzo[righiPezzo.length - 1] === this;
+      const metroQui = time && (primoRigo || this.hasAttribute('metro'));
+      const fineQui = this.hasAttribute('fine') || (ultimoRigo && !this.hasAttribute('aperto'));
+      const chiudi = st => {
+        if (!fineQui || !VF.Barline) return;
+        try { st.setEndBarType(VF.Barline.type.END); } catch (e) { /* resta la semplice */ }
+      };
       const stave = new VF.Stave(10, 22, larghezza - 24);
       stave.addClef(clef);
       if (keysig) stave.addKeySignature(keysig);
-      if (time)   stave.addTimeSignature(time);
-      /* `fine`: il pezzo finisce qui, con la doppia stanghetta.
-         Andrea, 28 settembre 2026: «gli esercizi finiscono con la doppia
-         stanghetta». */
-      if (this.hasAttribute('fine') && VF.Barline) {
-        try { stave.setEndBarType(VF.Barline.type.END); } catch (e) { /* resta la semplice */ }
-      }
+      if (metroQui) stave.addTimeSignature(time);
+      chiudi(stave);
       stave.setContext(ctx).draw();
 
       let staveB = null;
@@ -1437,7 +1449,8 @@
         staveB = new VF.Stave(10, 132, larghezza - 24);
         staveB.addClef('bass');
         if (keysig) staveB.addKeySignature(keysig);
-        if (time)   staveB.addTimeSignature(time);
+        if (metroQui) staveB.addTimeSignature(time);
+        chiudi(staveB);
         staveB.setContext(ctx).draw();
         /* LA GRAFFA È DEL PIANOFORTE, NON DI DUE VOCI. Andrea, 17 agosto:
            «non mettiamo la parentesi graffa su un rigo non per pianoforte».

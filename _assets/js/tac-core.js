@@ -6628,7 +6628,11 @@
       ctrl.innerHTML = '<label>Velocità <input type="range" min="40" max="100" value="100"> ' +
                        '<strong class="perc">100</strong>%</label>';
       /* Stesso motivo: non appeso affatto invece che nascosto. */
-      if (!this.getAttribute('inciso')) box.appendChild(ctrl);
+      /* ⚠ 8 ottobre 2026: e solo se c'è qualcosa da far andare più piano —
+         la riproduzione sintetica (`src` o i dati nel brano). Sotto una
+         scansione senza audio, o sopra un'esecuzione vera, il cursore non
+         comanda niente. */
+      if (!this.getAttribute('inciso') && (this._src || this._grezzo)) box.appendChild(ctrl);
       this._range = ctrl.querySelector('input');
       this._range.oninput = () => ctrl.querySelector('.perc').textContent = this._range.value;
 

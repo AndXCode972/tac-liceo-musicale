@@ -1302,12 +1302,23 @@
          in base64 (la scrive `dettati_lezione.py`): si decifra qui, una
          volta, e resta in memoria. */
       if (this.hasAttribute('cifrato') && this._chiaro === undefined) {
-        let chiaro = '';
-        try { chiaro = atob(Element.prototype.getAttribute.call(this, 'notes') || '')
-                       .split('').reverse().join(''); } catch (e) { chiaro = ''; }
-        this._chiaro = chiaro;
         const originale = Element.prototype.getAttribute;
-        this.getAttribute = (n) => (n === 'notes' ? this._chiaro : originale.call(this, n));
+        const decifra = (v) => { try { return atob(v || '').split('').reverse().join(''); }
+                                 catch (e) { return ''; } };
+        this._chiaro = decifra(originale.call(this, 'notes'));
+        /* 9 ottobre 2026: nel dettato armonico a quattro parti (e in quello
+           a due voci) anche soprano, contralto, tenore, basso e `bass`
+           stavano in chiaro, e il basso ERA la soluzione. Con `voci-cifrate`
+           il generatore (esercizi._righi_dettato) le cifra come `notes`. */
+        const voci = {};
+        if (this.hasAttribute('voci-cifrate')) {
+          ['soprano', 'contralto', 'tenore', 'basso', 'bass'].forEach((k) => {
+            const v = originale.call(this, k);
+            if (v !== null) voci[k] = decifra(v);
+          });
+        }
+        this.getAttribute = (n) => (n === 'notes' ? this._chiaro
+                                    : (n in voci ? voci[n] : originale.call(this, n)));
       }
       const clef    = this.getAttribute('clef')   || 'treble';
       const time    = this.getAttribute('time')   || '';

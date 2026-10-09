@@ -42,7 +42,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=81c782c8" defer></script>
+<script src="../../_assets/js/tac-core.js?v=27b7511b" defer></script>
 </head>
 <body>
 <div id="tac-deck">
@@ -78,18 +78,29 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 <!-- Riordinata il 30/09/2026: il quarto caso («niente») subito dopo gli altri tre ritagli, poi le due armonizzazioni e il lavoro a coppie; «I casi discussi» subito dopo il conto; nessun doppione vero -->
 
+<!-- Riscritta il 9/10/2026. Tolte: l'attribuzione a Bach di esempi costruiti; la «trappola» (fa4 tenuto, cambiava solo etichetta di voce); l'esempio «del tastierista» (la settima arrivava per grado); le affermazioni non misurate sulla rarità della D, ora un'ipotesi da verificare. Corretto: BWV 244/44 è la terza delle cinque armonizzazioni, non «alla fine della Passione». Differenze fra 244/15 e 244/44 misurate con music21. Commenti precedenti:
+ Il rimando al libro di testo (Andrea, 20 settembre 2026:
+         «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 4&deg; anno; pagine dall'indice rilevato. 
+ ───────────────────────────────────────────────────────────────────
+     Una slide con una musica vera. L'ora di analisi ha già A20 e A21 —
+     le due armonizzazioni della stessa melodia — e le serviva un terzo
+     brano soltanto. Il vuoto: tutte e due sono corali di Bach, cioè lo
+     stesso genere e lo stesso autore. Manca il controllo che la
+     procedura funzioni fuori di lì, che è l'unico modo di sapere se si
+     è imparata la procedura o quel repertorio.
+     ─────────────────────────────────────────────────────────────── 
+-->
 <section class="slide attiva copertina foto" data-titolo="Copertina"
          style="--foto: url('../../_assets/copertine/c4u2-lezione-6.jpg?v=c4107a08');
                 --cop-a:#1e3a5f; --cop-b:#2563eb; --cop-c:#93c5fd">
   <div class="slide-interna">
     <div class="occhiello">Da dove arriva la settima &middot; UdA 2 &middot; Lezione 6 di 9</div>
-    <h1>Le tre lettere su una pagina vera</h1>
-    <p class="sottotitolo">Un corale che nessuno ha scritto per noi. Quante settime ci sono, e da dove arrivano &mdash; e viene fuori una proporzione che non &egrave; quella che vi aspettate.</p>
+    <h1>Le provenienze della settima in un brano</h1>
+    <p class="sottotitolo">L&rsquo;analisi delle settime di dominante e della loro provenienza in due armonizzazioni della stessa melodia, e un collaudo su un brano per pianoforte.</p>
     <blockquote class="aforisma">
       <p>Nel repertorio musicale la settima di dominante &egrave; spesso introdotta sotto forma di nota di figurazione.</p>
       <cite><em>Il linguaggio della musica</em>, 4&deg;&nbsp;anno, p.&nbsp;14</cite>
     </blockquote>
-
     <div class="meta-copertina">
       <span>1 ora</span>
       <span>Analisi</span>
@@ -97,208 +108,92 @@ try { module = undefined; exports = undefined; } catch (e) {}
     </div>
   </div>
 </section>
-<section class="slide" data-titolo="Che cosa si fa oggi">
-  <div class="slide-interna">
-    <h2>Che cosa si fa oggi, e in che ordine</h2>
 
-    <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
-         «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 4&deg; anno; pagine dall'indice rilevato. -->
+<section class="slide" data-titolo="L&rsquo;oggetto dell&rsquo;analisi">
+  <div class="slide-interna">
+    <h2>L&rsquo;oggetto dell&rsquo;analisi</h2>
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
       <p><span class="lez">A2</span><strong>Settima di dominante in stato fondamentale</strong>, pp. 8&ndash;19</p>
-      <p>Sezione A, unit&agrave; 2, lezione 7 &laquo;Armonie con la settima in stato fondamentale&raquo;: le realizzazioni del libro sono la pagina su cui rifare da soli il conto delle provenienze (lezione 6).</p>
+      <p>Lezione 7 &laquo;Armonie con la settima in stato fondamentale&raquo;: le realizzazioni del libro, su cui ripetere il conteggio delle provenienze della lezione 6.</p>
     </div>
-
-    <p>Tre ore fa non sapevate che una settima potesse <em>arrivare</em> in modi diversi. Adesso sapete i tre modi, e li avete scritti su esempi costruiti apposta.</p>
-
-    <div class="riquadro attenzione">
-      <p>Oggi si apre una pagina che <strong>non &egrave; stata scritta per voi</strong>, e la domanda &egrave; una sola: <strong>quante settime di dominante ci sono, e di che specie</strong>. Nient&rsquo;altro. Non si cifra tutto, non si analizza la forma.</p>
+    <p>L&rsquo;analisi ha un oggetto unico: le settime di dominante presenti nel brano e la loro provenienza. Non si cifra l&rsquo;intero brano e non se ne analizza la forma. Un&rsquo;analisi con un obiettivo circoscritto si porta a termine e si verifica.</p>
+    <div class="riquadro definizione">
+      <span class="etichetta">Che cosa si conta</span>
+      <p>Si contano soltanto gli accordi di settima costruiti sul quinto grado della tonalit&agrave; in cui si trovano: triade maggiore con settima minore. Le settime sugli altri gradi saranno studiate all&rsquo;unit&agrave;&nbsp;6.</p>
     </div>
-
-    <p class="didascalia">Un&rsquo;analisi che chiede una cosa sola si finisce e si controlla. Un&rsquo;analisi che chiede tutto non si finisce mai, e alla fine non si sa che cosa si &egrave; imparato.</p>
   </div>
 </section>
-<section class="slide" data-titolo="Prima cosa: quali contare">
+
+<section class="slide" data-titolo="Quale settima">
   <div class="slide-interna">
-    <h2>La prima cosa da imparare: quali settime contare</h2>
-
-    <p>In una pagina vera le settime non sono tutte di dominante. Ce ne sono su altri gradi, e li faremo all&rsquo;<strong>unit&agrave; 6</strong>.</p>
-
-    <div class="colonne">
-      <div class="riquadro">
-        <p><strong>Si conta</strong><br>la settima costruita sul <strong>quinto grado</strong>: triade maggiore pi&ugrave; settima minore.</p>
-      </div>
-      <div class="riquadro attenzione">
-        <p><strong>Non si conta</strong><br>tutto il resto. Non &laquo;perch&eacute; &egrave; sbagliato&raquo;: perch&eacute; non &egrave; stato ancora insegnato, e contarlo vuol dire contare a caso.</p>
-      </div>
-    </div>
-
-    <tac-stave clef="treble" time="4/4"
-               caption="Due settime: la prima &egrave; di dominante, la seconda no"
-               soprano="f/5:h f/5:h"
-               contralto="b/4:h a/4:h"
-               tenore="d/4:h c/4:h"
-               basso="g/2:h d/3:h"
-               width="700" tempo="46" play></tac-stave>
-
-    <p class="didascalia">Si guarda <strong>il basso</strong>, e si chiede: &egrave; il quinto grado della tonalit&agrave;? Due secondi, e si sa se quella settima ci riguarda oggi.</p>
+    <h2>Riconoscere la settima di dominante</h2>
+    <tac-stave time="4/4"
+               caption="Due accordi di settima: sol&ndash;si&ndash;re&ndash;fa &egrave; di dominante; re&ndash;fa&ndash;la&ndash;do no"
+               soprano="f/5:h f/5:h" contralto="b/4:h a/4:h" tenore="d/4:h c/4:h" basso="g/2:h d/3:h"
+               width="560" tempo="46" play></tac-stave>
+    <p class="didascalia">Il criterio &egrave; il basso, quando l&rsquo;accordo &egrave; in stato fondamentale: si verifica se la nota del basso &egrave; il quinto grado della tonalit&agrave; locale e se l&rsquo;accordo &egrave; una triade maggiore con settima minore.</p>
   </div>
 </section>
+
 <section class="slide" data-titolo="La procedura">
   <div class="slide-interna">
-    <h2>La procedura, e sono quattro passi</h2>
-
-    <ol>
-      <li><strong>Si cerchia ogni V&#8311;</strong>, scorrendo il basso. Solo il basso, non le voci di sopra.</li>
-      <li>Per ciascuno, si guarda <strong>l&rsquo;accordo prima</strong> &mdash; e si guarda dove sta la nota che diventa la settima.</li>
-      <li>Si scrive la lettera: <strong>D</strong> se quella nota non c&rsquo;era, <strong>P</strong> se c&rsquo;era ed &egrave; rimasta ferma, <strong>p</strong> se c&rsquo;era un&rsquo;ottava sopra ed &egrave; scesa.</li>
-      <li>Alla fine <strong>si contano</strong> le tre lettere.</li>
-    </ol>
-
-    <div class="riquadro attenzione">
-      <p>Il passo 2 &egrave; l&rsquo;unico che conta davvero, ed &egrave; anche l&rsquo;unico controintuitivo: per capire una settima <strong>si guarda l&rsquo;accordo prima</strong>, non quello dove la settima sta.</p>
+    <h2>La procedura</h2>
+    <div class="riquadro procedura">
+      <span class="etichetta">Quattro passi</span>
+      <p><strong>1.</strong> Si individuano, scorrendo il basso, tutti i V&#8311;.<br>
+      <strong>2.</strong> Per ciascuno si osserva l&rsquo;accordo precedente e la voce che porta la settima.<br>
+      <strong>3.</strong> Si assegna la lettera: <strong>P</strong> se la nota era gi&agrave; presente nella stessa voce ed &egrave; rimasta ferma; <strong>p</strong> se la settima &egrave; raggiunta per grado sul basso fermo; <strong>D</strong> negli altri casi.<br>
+      <strong>4.</strong> Si contano le lettere.</p>
     </div>
-
-    <p class="didascalia">&Egrave; il gesto che quest&rsquo;unit&agrave; sta insegnando, e vale oltre le settime: quasi tutto quello che si analizza in armonia si spiega con quello che c&rsquo;era prima.</p>
+    <div class="riquadro studio">
+      <span class="etichetta">La forma scritta: Belisario</span>
+      <p>&laquo;<em>3&ordf; batt.: i Sol ed il Si sono note reali; il La nota di passaggio; 4&ordf; batt.: il Re, il Si ed il Sol sono note reali, il Do ed il La di passaggio</em>&raquo; (A. Belisario, <em>Pratica di analisi musicale</em>, p.&nbsp;51). Tre pagine dopo: &laquo;<em>9&ordf; batt.: accordo di settima di Dominante sul Sol, incompleto</em>&raquo; (p.&nbsp;54). L&rsquo;analisi scritta &egrave; un verbale, battuta per battuta, che chiunque deve poter ripetere arrivando alle stesse parole.</p>
+    </div>
   </div>
 </section>
-<section class="slide" data-titolo="Come si scrive un'analisi">
+
+<section class="slide" data-titolo="Tre casi">
   <div class="slide-interna">
-    <h2>Non lo inventiamo noi: si scrive cos&igrave; da sempre</h2>
-
-    <p>Il modo di annotare che stiamo usando &mdash; una battuta, e per ogni nota si dice che cos&rsquo;&egrave; &mdash; non &egrave; un espediente per la scuola. &Egrave; la forma corrente dell&rsquo;analisi armonica scritta. <strong>Angelo Belisario</strong> analizza cos&igrave;, battuta per battuta, per pagine intere:</p>
-
-    <div class="riquadro citazione">
-      <p>&laquo;3&ordf; batt.: i Sol ed il Si sono note reali; il La nota di passaggio; 4&ordf; batt.: il Re, il Si ed il Sol sono note reali, il Do ed il La di passaggio&raquo;</p>
-      <p class="fonte">A. Belisario, <em>Pratica di Analisi musicale</em>, p.&nbsp;51</p>
-    </div>
-
-    <p>Tre pagine dopo, la stessa scrittura arriva esattamente dove siamo noi: <em>&laquo;9&ordf; batt.: accordo di settima di Dominante sul Sol, incompleto&raquo;</em> (p.&nbsp;54). La differenza fra quella riga e la nostra &egrave; una lettera: noi aggiungiamo <strong>da dove arriva</strong> la settima.</p>
-
-    <div class="riquadro attenzione">
-      <p>Perch&eacute; questo conta: un&rsquo;analisi non &egrave; un giudizio, &egrave; un <strong>verbale</strong>. Si scrive quello che c&rsquo;&egrave;, nell&rsquo;ordine in cui c&rsquo;&egrave;, e chi la legge deve poterla rifare da capo e arrivare alle stesse parole. Se due di voi scrivono due verbali diversi sulla stessa battuta, uno dei due ha guardato male &mdash; e si scopre confrontandoli.</p>
-    </div>
-
-    <p class="didascalia">In quinta si legger&agrave; l&rsquo;analisi di qualcun altro prima di scriverne una propria. Abituarsi adesso alla forma che usano tutti fa risparmiare un anno.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="Il primo, insieme">
-  <div class="slide-interna">
-    <h2>Il primo lo facciamo insieme</h2>
-
-    <tac-stave tastiera clef="treble" time="4/4"
-               caption="J. S. Bach, corale &middot; battute 3&ndash;4"
-               soprano="a/4:h g/4:h | g/4:w"
-               contralto="f/4:h f/4:h | e/4:w"
-               tenore="c/4:h b/3:h | c/4:w"
-               basso="f/2:h g/2:h | c/3:w"
-               width="740" tempo="46" play></tac-stave>
-
+    <h2>Tre casi</h2>
     <div class="colonne">
-      <div class="riquadro"><p><strong>1.</strong> Il basso va al sol: quinto grado, &egrave; una dominante. Cerchiata.</p></div>
-      <div class="riquadro"><p><strong>2.</strong> La settima &egrave; il fa. Nell&rsquo;accordo prima, il fa c&rsquo;era &mdash; al contralto.</p></div>
-      <div class="riquadro"><p><strong>3.</strong> Era fermo. Lettera: <strong>P</strong>.</p></div>
+      <tac-stave tastiera clef="treble" time="4/4"
+                 caption="1. IV &rarr; V&#8311; &rarr; I: il fa del contralto resta fermo"
+                 soprano="a/4:h g/4:h | g/4:w" contralto="f/4:h f/4:h | e/4:w" tenore="c/4:h b/3:h | c/4:w" basso="f/2:h g/2:h | c/3:w"
+                 width="420" tempo="46" play></tac-stave>
+      <tac-stave time="4/4"
+                 caption="2. Il fa c&rsquo;era, ma al soprano; nel V&#8311; &egrave; al tenore"
+                 soprano="f/5:h d/5:h" contralto="a/4:h b/4:h" tenore="c/4:h f/4:h" basso="f/2:h g/2:h"
+                 width="420" tempo="46" play></tac-stave>
     </div>
-
-    <p class="didascalia">Dieci secondi, quando la procedura &egrave; automatica. All&rsquo;inizio ce ne vogliono trenta, e va bene: il tempo si accorcia da solo dopo il quinto.</p>
+    <tac-stave time="4/4"
+               caption="3. Sul basso fermo il sol del contralto scende al fa"
+               soprano="d/5:h d/5:h | c/5:w" contralto="g/4:h f/4:h | e/4:w" tenore="b/3:h b/3:h | g/3:w" basso="g/2:h g/2:h | c/3:w"
+               width="560" tempo="46" play></tac-stave>
+    <tac-chiuso invito="Le tre lettere" libero>
+      <p><strong>1.</strong> Il fa &egrave; presente nel IV, al contralto, e resta fermo: <strong>P</strong>.<br>
+      <strong>2.</strong> Il fa &egrave; presente nel IV, ma al soprano (fa5); nel V&#8311; compare al tenore (fa4), un&rsquo;ottava sotto: la nota &egrave; nuova per la voce che la porta, <strong>D</strong>. La preparazione richiede che la nota resti nella stessa voce.<br>
+      <strong>3.</strong> Il basso resta sul sol: un solo accordo, nel quale l&rsquo;ottava del contralto scende alla settima, <strong>p</strong>. La sensibile, al tenore, scende di terza: la risoluzione libera della sensibile in una parte interna, che lascia la tonica completa.</p>
+    </tac-chiuso>
   </div>
 </section>
-<section class="slide" data-titolo="Un caso che sembra difficile">
+
+<section class="slide" data-titolo="Una dominante senza settima">
   <div class="slide-interna">
-    <h2>Un caso che sembra difficile e non lo &egrave;</h2>
-
-    <p>A volte la nota che diventa la settima <strong>cambia voce</strong> fra i due accordi. Sembra una preparata, e non lo &egrave;.</p>
-
-    <tac-stave clef="treble" time="4/4"
-               caption="Il fa c&rsquo;era, ma al soprano; nel V&#8311; sta al tenore"
-               soprano="f/5:h d/5:h"
-               contralto="a/4:h b/4:h"
-               tenore="c/4:h f/4:h"
-               basso="f/2:h g/2:h"
-               width="700" tempo="46" play></tac-stave>
-
-    <div class="riquadro attenzione">
-      <p>La preparazione vuol dire che la nota <strong>resta nella stessa voce</strong>. Se salta da una voce all&rsquo;altra, due voci si sono mosse e la nota &egrave; <em>nuova</em> per la voce che se la trova: si conta <strong>D</strong>.</p>
-    </div>
-
-    <p class="didascalia">&Egrave; la stessa distinzione del secondo caso, in terza: «si lega nella stessa parte». Chi la ricorda da l&igrave; non ha niente da imparare oggi.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="Il secondo, quasi da soli">
-  <div class="slide-interna">
-    <h2>Il secondo, e questo lo dite voi</h2>
-
-    <tac-stave clef="treble" time="4/4"
-               caption="Che lettera va qui?"
-               soprano="d/5:h d/5:h | c/5:w"
-               contralto="g/4:h f/4:h | e/4:w"
-               tenore="b/3:h b/3:h | g/3:w"
-               basso="g/2:h g/2:h | c/3:w"
-               width="740" tempo="46" play></tac-stave>
-
-    <div class="riquadro attenzione">
-      <p>Il basso <strong>non si muove</strong>: sol per due movimenti. Quindi &egrave; un accordo solo, e la settima &egrave; arrivata da dentro. Il sol del contralto &egrave; sceso al fa: lettera <strong>p</strong>.</p>
-    </div>
-
-    <p>E notate una cosa che torner&agrave; utile fra poco: qui la sensibile sta al <strong>tenore</strong>, in una parte interna, e salta gi&ugrave; di terza invece di salire. &Egrave; la <strong>risoluzione libera</strong> dell&rsquo;ora 7 &mdash; e infatti la tonica esce completa.</p>
-
-    <p class="didascalia">Due cose dell&rsquo;unit&agrave; nello stesso mezzo secondo di musica. In una pagina vera capita sempre: le regole non arrivano una per volta come nelle lezioni.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="Il terzo, e la trappola">
-  <div class="slide-interna">
-    <h2>Il terzo, e c&rsquo;&egrave; una trappola</h2>
-
+    <h2>Le dominanti senza settima</h2>
     <tac-stave tastiera clef="treble" time="4/4"
-               caption="Attenzione al basso"
-               soprano="c/5:h b/4:h | c/5:w"
-               contralto="a/4:h f/4:h | e/4:w"
-               tenore="f/4:h d/4:h | c/4:w"
-               basso="f/2:h g/2:h | c/3:w"
-               width="740" tempo="46" play></tac-stave>
-
-    <div class="riquadro attenzione">
-      <p>Qui il basso <strong>si muove</strong>: fa &rarr; sol. Quindi non &egrave; una figurazione dentro un accordo &mdash; sono <strong>due accordi</strong>, IV e V&#8311;. E il fa era al tenore, adesso &egrave; al contralto: ha <strong>cambiato voce</strong>.</p>
-    </div>
-
-    <p>Due indizi che tirano in direzioni diverse: il fa c&rsquo;era (sembra <strong>P</strong>) ma non &egrave; rimasto dov&rsquo;era (allora <strong>D</strong>). Vince il secondo, e la ragione &egrave; quella della slide di prima: la preparazione &egrave; una nota che <em>non si muove</em>.</p>
-
-    <p class="didascalia">Questo &egrave; il caso su cui, in classe, si alzano le mani in disaccordo. Va bene cos&igrave;: se nessuno sbaglia qui, l&rsquo;esempio era troppo facile.</p>
+               caption="Sol &ndash; si &ndash; re &ndash; sol: una triade di dominante, che non entra nel conteggio"
+               soprano="d/5:h c/5:h" contralto="b/4:h g/4:h" tenore="g/4:h e/4:h" basso="g/2:h c/3:h"
+               width="560" tempo="46" play></tac-stave>
+    <p class="didascalia">Non tutte le dominanti portano la settima. Chi cerca le settime tende a individuarle anche dove mancano: il rimedio consiste nel nominare le note dell&rsquo;accordo, non nell&rsquo;osservarne la forma. Il rapporto fra dominanti con e senza settima &egrave; un indicatore di stile, che sar&agrave; misurato in quinta.</p>
   </div>
 </section>
-<section class="slide" data-titolo="Il quarto, dove non c&rsquo;è settima">
+
+<section class="slide perc" data-titolo="Due armonizzazioni">
   <div class="slide-interna">
-    <h2>Un caso in cui la risposta &egrave; &laquo;niente&raquo;</h2>
-
-    <p>Non tutte le dominanti di un corale portano la settima. Molte sono <strong>triadi</strong> e basta, e non vanno cerchiate.</p>
-
-    <tac-stave tastiera clef="treble" time="4/4"
-               caption="Una dominante senza settima: qui non c&rsquo;&egrave; niente da contare"
-               soprano="d/5:h c/5:h"
-               contralto="b/4:h g/4:h"
-               tenore="g/4:h e/4:h"
-               basso="g/2:h c/3:h"
-               width="700" tempo="46" play></tac-stave>
-
-    <div class="riquadro attenzione">
-      <p>Sol, si, re, sol: <strong>non c&rsquo;&egrave; il fa</strong>. &Egrave; una triade di dominante, chiude benissimo, e non entra nel conto di oggi.</p>
-    </div>
-
-    <p>Sembra ovvio detto cos&igrave;, e in partitura non lo &egrave;: chi cerca le settime tende a <strong>trovarle</strong>, anche dove non ci sono. Il rimedio &egrave; meccanico &mdash; si nomina la nota, non si guarda la forma dell&rsquo;accordo.</p>
-
-    <p class="didascalia">Ed &egrave; un&rsquo;informazione anche questa: il rapporto fra dominanti con la settima e dominanti senza dice qualcosa sullo stile del pezzo, ed &egrave; un conto che si far&agrave; in quinta.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="La stessa melodia, due settime diverse">
-  <div class="slide-interna">
-    <h2>Bach la armonizza due volte, e le settime cambiano</h2>
-
-    <p>I quattro casi di prima erano ritagli. Adesso due pagine intere, e
-    sono la stessa melodia: nella <em>Passione secondo Matteo</em> Bach
-    armonizza il corale <em>O Haupt voll Blut und Wunden</em> cinque
-    volte. Queste sono la prima e l&rsquo;ultima.</p>
-
-    <tac-brano organico="voci" titolo="J. S. Bach, Corale BWV 244/15 &mdash; la prima armonizzazione" metronomo youtube="2nc7ZHWEz40" esecutore="Collegium Vocale Gent · Philippe Herreweghe" inciso="../../_assets/incisioni/A20_bach_gemello_a.mp3" mappa='{"durata":72959,"eventi":[[0,0],[1,1111],[2,5556],[3,10000],[4,14444],[0,17778],[1,18889],[2,23333],[3,27778],[4,32222],[5,35556],[6,36667],[7,41111],[8,45556],[9,50000],[10,53333],[11,54444],[12,58889],[13,63333],[14,67778]]}'>
+    <h2>Una melodia, due armonizzazioni</h2>
+    <p>Nella <em>Passione secondo Matteo</em> la melodia del corale &laquo;Herzlich tut mich verlangen&raquo;, nota soprattutto con il testo &laquo;O Haupt voll Blut und Wunden&raquo;, compare cinque volte con armonizzazioni diverse. Qui la prima (n.&nbsp;15) e la terza (n.&nbsp;44): il soprano &egrave; identico nota per nota, le altre voci cambiano.</p>
+    <tac-brano organico="voci" titolo="J. S. Bach, Matth&auml;us-Passion BWV 244, n. 15" metronomo youtube="2nc7ZHWEz40" esecutore="Collegium Vocale Gent · Philippe Herreweghe" inciso="../../_assets/incisioni/A20_bach_gemello_a.mp3" mappa='{"durata":72959,"eventi":[[0,0],[1,1111],[2,5556],[3,10000],[4,14444],[0,17778],[1,18889],[2,23333],[3,27778],[4,32222],[5,35556],[6,36667],[7,41111],[8,45556],[9,50000],[10,53333],[11,54444],[12,58889],[13,63333],[14,67778]]}'>
 <script type="application/json">{"titolo":"J. S. Bach, Corale BWV 244/15 — la prima delle due armonizzazioni","metro":"4/4","bpm":54,"battute":13,"anacrusi":1.0,"voci":[[[0.0,1.0,66],[1.0,1.0,71],[2.0,1.0,69],[3.0,1.0,67],[4.0,1.0,66],[5.0,2.0,64],[7.0,1.0,66],[8.0,1.0,73],[9.0,1.0,74],[10.0,1.0,74],[11.0,0.5,73],[11.5,0.5,71],[12.0,1.0,73],[13.0,1.0,74],[13.0,3.0,71],[17.0,0.5,73],[17.5,0.5,71],[18.0,1.0,69],[19.0,1.0,71],[20.0,1.0,73],[21.0,2.0,74],[23.0,1.0,74],[24.0,1.0,69],[25.0,1.0,71],[26.0,1.0,69],[27.0,1.0,67],[28.0,1.0,67],[29.0,1.0,74],[29.0,3.0,66],[33.0,0.5,73],[33.5,0.5,74],[34.0,1.0,76],[35.0,1.0,74],[36.0,1.0,73],[37.0,2.0,71],[39.0,1.0,73],[40.0,1.0,66],[41.0,1.0,67],[42.0,1.0,66],[43.0,1.0,64],[44.0,1.0,69],[45.0,3.0,66]],[[0.0,1.0,62],[1.0,1.0,62],[2.0,1.0,62],[3.0,0.5,62],[3.5,0.5,64],[4.0,0.5,64],[4.5,0.5,62],[5.0,1.0,62],[6.0,1.0,61],[7.0,1.0,62],[8.0,1.0,64],[9.0,0.5,62],[9.5,0.5,64],[10.0,1.0,66],[11.0,1.0,66],[12.0,0.5,66],[12.5,0.5,64],[13.0,0.5,71],[13.0,3.0,62],[13.5,0.5,69],[17.0,1.0,67],[18.0,0.5,66],[18.5,0.5,64],[19.0,1.0,62],[20.0,1.0,67],[21.0,1.0,67],[22.0,0.5,66],[22.5,0.5,64],[23.0,1.0,66],[24.0,1.0,66],[25.0,1.0,67],[26.0,1.0,66],[27.0,1.0,66],[28.0,1.0,64],[29.0,1.0,64],[29.0,3.0,63],[33.0,1.0,64],[34.0,1.0,64],[35.0,1.0,66],[36.0,1.0,64],[37.0,1.0,66],[38.0,1.0,64],[39.0,1.0,64],[40.0,1.0,62],[41.0,0.5,62],[41.5,0.5,61],[42.0,1.0,62],[43.0,1.0,62],[44.0,1.0,61],[45.0,3.0,62]],[[0.0,1.0,57],[1.0,1.0,55],[2.0,1.0,57],[3.0,0.5,59],[3.5,0.5,57],[4.0,1.0,57],[5.0,1.0,59],[6.0,1.0,57],[7.0,1.0,57],[8.0,1.0,58],[9.0,1.0,54],[10.0,1.0,59],[11.0,1.0,59],[12.0,1.0,58],[13.0,1.0,66],[13.0,3.0,59],[17.0,0.5,64],[17.5,0.5,62],[18.0,1.0,61],[19.0,0.5,59],[19.5,0.5,57],[20.0,0.5,55],[20.5,0.5,57],[21.0,1.0,59],[22.0,0.5,57],[22.5,0.5,55],[23.0,1.0,57],[24.0,1.0,62],[25.0,1.0,62],[26.0,0.5,62],[26.5,0.5,61],[27.0,1.0,59],[28.0,1.0,59],[29.0,1.0,59],[29.0,3.0,59],[33.0,1.0,57],[34.0,0.5,57],[34.5,0.5,56],[35.0,0.5,57],[35.5,0.5,59],[36.0,0.5,61],[36.5,0.5,57],[37.0,0.5,54],[37.5,0.5,59],[38.0,1.0,56],[39.0,1.0,57],[40.0,1.0,57],[41.0,1.0,55],[42.0,1.0,57],[43.0,1.0,59],[44.0,0.5,52],[44.5,0.5,57],[45.0,3.0,57]],[[0.0,1.0,50],[1.0,1.0,55],[2.0,1.0,54],[3.0,0.5,47],[3.5,0.5,49],[4.0,1.0,50],[5.0,1.0,43],[6.0,1.0,45],[7.0,1.0,50],[8.0,1.0,49],[9.0,0.5,47],[9.5,0.5,49],[10.0,0.5,50],[10.5,0.5,52],[11.0,1.0,54],[12.0,1.0,42],[13.0,1.0,59],[13.0,3.0,47],[17.0,1.0,52],[18.0,1.0,54],[19.0,0.5,55],[19.5,0.5,54],[20.0,1.0,52],[21.0,2.0,50],[23.0,1.0,50],[24.0,1.0,50],[25.0,1.0,55],[26.0,1.0,50],[27.0,0.5,52],[27.5,0.5,54],[28.0,0.5,55],[28.5,0.5,57],[29.0,1.0,56],[29.0,3.0,59],[33.0,1.0,57],[34.0,1.0,49],[35.0,0.5,54],[35.5,0.5,56],[36.0,1.0,57],[37.0,1.0,50],[38.0,1.0,52],[39.0,1.0,45],[40.0,0.5,50],[40.5,0.5,49],[41.0,1.0,47],[42.0,1.0,45],[43.0,1.0,43],[44.0,1.0,45],[45.0,3.0,38]]]}</script>
 <figure class="tac-part" data-quale="intera"><svg viewBox="0 0 1311 539" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="visible" id="lbf26ew-A201t">
    <desc>Engraved by Verovio 6.2.0-43f8060</desc>
@@ -3684,8 +3579,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
 </svg>
 </figure>
 </tac-brano>
-
-    <tac-brano organico="voci" titolo="J. S. Bach, Corale BWV 244/44 &mdash; la stessa melodia, alla fine della Passione" metronomo youtube="O-zHxwWkktM" esecutore="Collegium Vocale Gent · Philippe Herreweghe" inciso="../../_assets/incisioni/A21_bach_gemello_b.mp3" mappa='{"durata":72986,"eventi":[[0,0],[1,1111],[2,5556],[3,10000],[4,14444],[0,17778],[1,18889],[2,23333],[3,27778],[4,32222],[5,35556],[6,36667],[7,41111],[8,45556],[9,50000],[10,53333],[11,54444],[12,58889],[13,63333],[14,67778]]}'>
+    <tac-brano organico="voci" titolo="J. S. Bach, Matth&auml;us-Passion BWV 244, n. 44: la stessa melodia" metronomo youtube="O-zHxwWkktM" esecutore="Collegium Vocale Gent · Philippe Herreweghe" inciso="../../_assets/incisioni/A21_bach_gemello_b.mp3" mappa='{"durata":72986,"eventi":[[0,0],[1,1111],[2,5556],[3,10000],[4,14444],[0,17778],[1,18889],[2,23333],[3,27778],[4,32222],[5,35556],[6,36667],[7,41111],[8,45556],[9,50000],[10,53333],[11,54444],[12,58889],[13,63333],[14,67778]]}'>
 <script type="application/json">{"titolo":"J. S. Bach, Corale BWV 244/44 — la stessa melodia, armonizzata dopo","metro":"4/4","bpm":54,"battute":13,"anacrusi":1.0,"voci":[[[0.0,1.0,66],[1.0,1.0,71],[2.0,1.0,69],[3.0,1.0,67],[4.0,1.0,66],[5.0,2.0,64],[7.0,1.0,66],[8.0,1.0,73],[9.0,1.0,74],[10.0,1.0,74],[11.0,0.5,73],[11.5,0.5,71],[12.0,1.0,73],[13.0,1.0,74],[13.0,3.0,71],[17.0,0.5,73],[17.5,0.5,71],[18.0,1.0,69],[19.0,1.0,71],[20.0,1.0,73],[21.0,2.0,74],[23.0,1.0,74],[24.0,1.0,69],[25.0,1.0,71],[26.0,1.0,69],[27.0,1.0,67],[28.0,1.0,67],[29.0,1.0,74],[29.0,3.0,66],[33.0,0.5,73],[33.5,0.5,74],[34.0,1.0,76],[35.0,1.0,74],[36.0,1.0,73],[37.0,2.0,71],[39.0,1.0,73],[40.0,1.0,66],[41.0,1.0,67],[42.0,1.0,66],[43.0,1.0,64],[44.0,1.0,69],[45.0,3.0,66]],[[0.0,1.0,62],[1.0,1.0,62],[2.0,1.0,62],[3.0,0.5,62],[3.5,0.5,64],[4.0,0.5,64],[4.5,0.5,62],[5.0,1.0,62],[6.0,1.0,61],[7.0,1.0,62],[8.0,1.0,64],[9.0,0.5,62],[9.5,0.5,64],[10.0,1.0,66],[11.0,1.5,66],[12.5,0.5,64],[13.0,1.0,66],[13.0,3.0,62],[17.0,0.5,64],[17.5,0.5,67],[18.0,0.5,66],[18.5,0.5,64],[19.0,1.0,62],[20.0,1.0,67],[21.0,1.0,67],[22.0,0.5,66],[22.5,0.5,64],[23.0,1.0,66],[24.0,1.0,66],[25.0,1.0,67],[26.0,1.0,66],[27.0,1.0,66],[28.0,1.0,64],[29.0,1.0,64],[29.0,3.0,63],[33.0,1.0,64],[34.0,1.0,64],[35.0,0.5,66],[35.5,0.5,68],[36.0,1.0,69],[37.0,1.0,69],[38.0,1.0,68],[39.0,1.0,69],[40.0,0.5,62],[40.5,0.5,61],[41.0,0.5,59],[41.5,0.5,61],[42.0,1.0,62],[43.0,0.5,62],[43.5,0.5,59],[44.0,1.0,61],[45.0,3.0,62]],[[0.0,1.0,57],[1.0,1.0,55],[2.0,1.0,57],[3.0,0.5,59],[3.5,0.5,57],[4.0,1.0,57],[5.0,1.0,59],[6.0,1.0,57],[7.0,1.0,57],[8.0,1.0,58],[9.0,1.0,59],[10.0,1.0,59],[11.0,1.0,59],[12.0,1.0,58],[13.0,0.5,59],[13.0,3.0,59],[13.5,0.5,57],[17.0,0.5,55],[17.5,0.5,59],[18.0,0.5,62],[18.5,0.5,61],[19.0,0.5,59],[19.5,0.5,57],[20.0,0.5,55],[20.5,0.5,57],[21.0,1.0,59],[22.0,0.5,57],[22.5,0.5,55],[23.0,1.0,57],[24.0,1.0,62],[25.0,1.0,62],[26.0,1.0,60],[27.0,1.0,59],[28.0,1.0,59],[29.0,1.0,59],[29.0,3.0,59],[33.0,1.0,57],[34.0,1.0,59],[35.0,0.5,57],[35.5,0.5,59],[36.0,0.5,61],[36.5,0.5,57],[37.0,1.0,66],[38.0,1.0,64],[39.0,1.0,64],[40.0,1.0,57],[41.0,1.0,55],[42.0,1.0,57],[43.0,1.0,57],[44.0,1.0,57],[45.0,3.0,57]],[[0.0,1.0,50],[1.0,1.0,55],[2.0,1.0,54],[3.0,0.5,47],[3.5,0.5,49],[4.0,1.0,50],[5.0,1.0,43],[6.0,1.0,45],[7.0,1.0,50],[8.0,1.0,49],[9.0,0.5,47],[9.5,0.5,49],[10.0,0.5,50],[10.5,0.5,52],[11.0,1.0,54],[12.0,1.0,42],[13.0,1.0,47],[13.0,3.0,47],[17.0,1.0,52],[18.0,1.0,54],[19.0,0.5,55],[19.5,0.5,54],[20.0,1.0,52],[21.0,2.0,50],[23.0,1.0,50],[24.0,1.0,50],[25.0,0.5,55],[25.5,0.5,54],[26.0,0.5,52],[26.5,0.5,51],[27.0,0.5,52],[27.5,0.5,54],[28.0,0.5,55],[28.5,0.5,57],[29.0,1.0,56],[29.0,3.0,59],[33.0,1.0,57],[34.0,1.0,56],[35.0,1.0,54],[36.0,1.0,52],[37.0,1.0,51],[38.0,1.0,52],[39.0,1.0,45],[40.0,1.0,50],[41.0,1.0,52],[42.0,0.5,54],[42.5,0.5,55],[43.0,1.0,57],[44.0,1.0,45],[45.0,3.0,50]]]}</script>
 <figure class="tac-part" data-quale="intera"><svg viewBox="0 0 1311 544" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="visible" id="b2xvdvi-A212t">
    <desc>Engraved by Verovio 6.2.0-43f8060</desc>
@@ -7086,238 +6980,85 @@ try { module = undefined; exports = undefined; } catch (e) {}
 </svg>
 </figure>
 </tac-brano>
-
-    <div class="riquadro attenzione">
-      <p>La melodia &egrave; identica nota per nota. Tutto quello che
-      cambia sta <strong>sotto</strong> &mdash; e le settime della seconda
-      arrivano da dove non arrivavano nella prima.</p>
-    </div>
-
-    <p class="didascalia">Quando lo stesso soprano regge due armonie
-    diverse, la domanda &laquo;da dove arriva la settima&raquo; smette di
-    essere un esercizio di riconoscimento e diventa una domanda sulle
-    scelte di chi scrive: &egrave; il passaggio dall&rsquo;analisi alla
-    composizione, e questa &egrave; l&rsquo;ora in cui si vede.</p>
+    <tac-chiuso invito="Che cosa cambia fra le due versioni" libero>
+      <p>Le settime compaiono nelle stesse battute (bb.&nbsp;1, 3, 5, 8), quasi tutte su un movimento debole e molte su dominanti secondarie. Due differenze: alla b.&nbsp;3 la settima del contralto (mi) arriva dal basso nella prima versione (re&ndash;mi) e dall&rsquo;alto nella seconda (fa&#9839;&ndash;mi); alla b.&nbsp;10 la seconda versione contiene una settima (si&ndash;re&#9839;&ndash;fa&#9839;&ndash;la) che la prima non ha (rilevato sulla partitura del corpus music21).</p>
+    </tac-chiuso>
+    <p class="didascalia">Quando la stessa melodia sostiene due armonie, la provenienza della settima diventa una scelta di chi scrive: &egrave; il punto in cui l&rsquo;analisi incontra la composizione.</p>
   </div>
 </section>
-<section class="slide" data-titolo="Adesso voi">
-  <div class="slide-interna">
-    <h2>Adesso voi &middot; venti minuti</h2>
 
+<section class="slide" data-titolo="Al lavoro" data-in-classe>
+  <div class="slide-interna">
+    <h2>Esercitazione: il corale intero</h2>
     <div class="riquadro compito">
-      <span class="etichetta">A coppie, sul foglio</span>
-      <p>Il corale intero. Cerchiate <strong>tutte</strong> le settime di dominante, e a ognuna mettete la sua lettera. Non cifrate il resto.</p>
+      <span class="etichetta">A coppie &middot; 20 minuti</span>
+      <p>Su una delle due armonizzazioni, per intero: individuare tutte le settime di dominante e assegnare a ciascuna la lettera della provenienza. Il resto non si cifra.</p>
+      <p><strong>Prima</strong> si individuano tutte le settime, <strong>poi</strong> si assegnano le lettere: alternare i due lavori raddoppia il tempo. Nei casi di disaccordo si scrive un punto interrogativo e si prosegue.</p>
     </div>
-
-    <p>Due regole per non perdere tempo:</p>
-
-    <ol>
-      <li>Prima si fa <strong>tutto il passo 1</strong> &mdash; si cerchiano tutte &mdash; e solo dopo si torna indietro a mettere le lettere. Alternare i due lavori raddoppia il tempo.</li>
-      <li>Se su una c&rsquo;&egrave; disaccordo, si lascia il <strong>punto interrogativo</strong> e si va avanti. Le discutiamo alla fine, e sono le pi&ugrave; interessanti.</li>
-    </ol>
-
-    <p class="didascalia">Il punto interrogativo non &egrave; una resa: &egrave; un&rsquo;informazione. Un caso su cui due persone competenti non si mettono d&rsquo;accordo dice qualcosa sul pezzo, non su chi lo guarda.</p>
+    <div class="riquadro procedura">
+      <span class="etichetta">Il confronto alla lavagna</span>
+      <p>Tre colonne, D, P, p; ogni coppia riporta i suoi numeri. Si discutono i casi incerti, che di solito sono di tre tipi: la nota che cambia voce (D); la settima su un movimento debole, che sembra un abbellimento (se l&rsquo;accordo dura, la settima gli appartiene); il basso che si muove fra i due accordi (non &egrave; una figurazione: la settima entra con il secondo accordo).</p>
+    </div>
   </div>
 </section>
-<section class="slide" data-titolo="Il conto">
+
+<section class="slide" data-titolo="Un&rsquo;ipotesi">
   <div class="slide-interna">
-    <h2>Il conto, alla lavagna</h2>
-
-    <p>Tre colonne: <strong>D</strong>, <strong>P</strong>, <strong>p</strong>. Ogni coppia dice i suoi numeri, e si sommano.</p>
-
-    <div class="riquadro attenzione">
-      <p>Guardate la colonna della <strong>D</strong>. &Egrave; la pi&ugrave; corta &mdash; e la <strong>D</strong> &egrave; l&rsquo;unica che sapevate fare fino a otto giorni fa.</p>
-    </div>
-
-    <p>Cio&egrave;: il modo in cui avete scritto le settime per due anni, nel repertorio corale, &egrave; il <strong>meno frequente dei tre</strong>. Non era sbagliato insegnarlo per primo &mdash; &egrave; il pi&ugrave; semplice. Ma non &egrave; quello che si trova aprendo una pagina.</p>
-
-    <p class="didascalia">&Egrave; la ragione per cui l&rsquo;unit&agrave; esiste, ed &egrave; giusto che arrivi adesso invece che alla prima ora: una proporzione contata da voi vale pi&ugrave; della stessa proporzione annunciata da me.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="I casi discussi">
-  <div class="slide-interna">
-    <h2>I punti interrogativi, e cosa farne</h2>
-
-    <p>Adesso si guardano i casi su cui non c&rsquo;era accordo. Di solito sono di tre tipi, e vale la pena riconoscerli.</p>
-
-    <ol>
-      <li><strong>La nota cambia voce</strong> &mdash; e allora &egrave; D, come abbiamo visto.</li>
-      <li><strong>La settima arriva su un tempo debole</strong> e sembra solo un abbellimento. Si guarda se l&rsquo;accordo dura: se dura, la settima &egrave; sua.</li>
-      <li><strong>Il basso si muove</strong> fra i due accordi, e allora non &egrave; una figurazione dentro un accordo solo: sono due accordi, e la settima &egrave; entrata col secondo.</li>
-    </ol>
-
-    <p class="didascalia">Il terzo &egrave; il pi&ugrave; utile da fissare, perch&eacute; &egrave; il rovescio della regola dell&rsquo;ora 8: <strong>se il basso si muove, non &egrave; una provenienza</strong>. Il basso fermo &egrave; la condizione, non un dettaglio.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="Perché è così">
-  <div class="slide-interna">
-    <h2>E adesso il perch&eacute;, che non &egrave; una preferenza di stile</h2>
-
-    <p>Un corale &egrave; scritto per <strong>quattro voci che cantano</strong>. E una voce che canta preferisce, in ordine:</p>
-
-    <div class="colonne3">
-      <div class="riquadro"><p><strong>1.</strong> non muoversi</p></div>
-      <div class="riquadro"><p><strong>2.</strong> muoversi di un grado</p></div>
-      <div class="riquadro"><p><strong>3.</strong> saltare</p></div>
-    </div>
-
-    <p>La <strong>preparata</strong> &egrave; il caso 1: la nota resta ferma. La <strong>di passaggio</strong> &egrave; il caso 2: scende di un grado. La <strong>diretta</strong> chiede spesso un salto, o comunque una nota che compare senza preavviso.</p>
-
+    <h2>Un&rsquo;ipotesi da verificare</h2>
+    <p>Una parte vocale, potendo scegliere, preferisce restare ferma, poi muoversi di grado, infine saltare. La settima preparata corrisponde al primo caso, quella di passaggio al secondo, quella diretta spesso al terzo.</p>
     <div class="riquadro definizione">
-      <span class="etichetta">La conclusione, e vale la pena scriverla</span>
-      <p>La proporzione che avete contato <strong>non &egrave; una scelta armonica</strong>: &egrave; una conseguenza del fatto che quelle parti si cantano. L&rsquo;armonia di un corale &egrave; il risultato di quattro linee comode, non il contrario.</p>
+      <span class="etichetta">L&rsquo;ipotesi</span>
+      <p>Se la condotta di un corale deriva dalla cantabilit&agrave; delle parti, le provenienze P e p dovrebbero prevalere su D. Nella scrittura per tastiera, dove le parti non si cantano, la proporzione potrebbe essere diversa.</p>
     </div>
-
-    <p class="didascalia">&Egrave; la stessa tesi dell&rsquo;unit&agrave; 2 della terza &mdash; la condotta delle parti <em>&egrave;</em> contrappunto &mdash; ritrovata due anni dopo su un dettaglio molto pi&ugrave; piccolo.</p>
+    <p class="didascalia">Il conteggio in classe e il collaudo che segue servono a verificare l&rsquo;ipotesi, non a illustrarla: un&rsquo;ipotesi vale se i dati possono smentirla. &Egrave; la tesi dell&rsquo;unit&agrave;&nbsp;2 della terza &mdash; la condotta delle parti &egrave; contrappunto &mdash; applicata a un dettaglio.</p>
   </div>
 </section>
-<section class="slide" data-titolo="La prova">
+
+<section class="slide perc" data-titolo="Il collaudo">
   <div class="slide-interna">
-    <h2>La prova che regge questa spiegazione</h2>
-
-    <p>Una spiegazione vale se si pu&ograve; smentire. Questa si smentisce cos&igrave;: <strong>si guarda uno strumento a tastiera</strong>, dove le voci non devono essere comode da cantare.</p>
-
-    <tac-stave tastiera clef="treble" time="4/4"
-               caption="La stessa cadenza, come la scriverebbe un tastierista: la settima entra di colpo"
-               soprano="c/5:h b/4:h | c/5:w"
-               contralto="g/4:h f/4:h | e/4:w"
-               tenore="e/4:h d/4:h | c/4:w"
-               basso="c/3:h g/2:h | c/3:w"
-               width="740" tempo="46" play></tac-stave>
-
-    <div class="riquadro attenzione">
-      <p>Qui nessuno canta e nessuna voce &egrave; scomoda: la mano prende quattro tasti insieme. La settima pu&ograve; comparire dal nulla senza che costi niente &mdash; e infatti nella musica per tastiera la <strong>D</strong> &egrave; molto pi&ugrave; frequente che nei corali.</p>
-    </div>
-
-    <p class="didascalia">Se il conto fosse uguale nei due repertori, la spiegazione delle voci comode sarebbe sbagliata. Non lo &egrave;, e questo la regge: una regola che vale in un posto e non in un altro sta dicendo qualcosa su <em>quel</em> posto.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="Che cosa cambia per chi scrive">
-  <div class="slide-interna">
-    <h2>Che cosa cambia, adesso, quando scrivete voi</h2>
-
-    <p>Fino a otto giorni fa, davanti a una dominante, avevate <strong>una</strong> possibilit&agrave;. Da oggi ne avete tre, e la scelta &egrave; vostra.</p>
-
-    <div class="colonne3">
-      <div class="riquadro">
-        <p><strong>Serve una cadenza netta</strong><br>la <strong>D</strong>: l&rsquo;urto arriva secco, e chiude.</p>
-      </div>
-      <div class="riquadro">
-        <p><strong>Serve morbidezza</strong><br>la <strong>P</strong>: la nota c&rsquo;era gi&agrave;, e l&rsquo;urto si smorza.</p>
-      </div>
-      <div class="riquadro">
-        <p><strong>Serve una linea che canti</strong><br>la <strong>p</strong>: la voce cammina per gradi.</p>
-      </div>
-    </div>
-
-    <div class="riquadro attenzione">
-      <p>Non c&rsquo;&egrave; una regola che dica quale. C&rsquo;&egrave; una <strong>ragione</strong> da dare, e da qui in avanti sar&agrave; chiesta: sul quaderno, accanto alla lettera, in tre parole.</p>
-    </div>
-
-    <p class="didascalia">&Egrave; il passaggio che segna il quarto anno: fin qui l&rsquo;armonia aveva risposte giuste e sbagliate. Da qui comincia ad avere <strong>scelte</strong>, e una scelta si difende invece di essere corretta.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="Da quando">
-  <div class="slide-interna">
-    <h2>Da quando i corali si scrivono cos&igrave;</h2>
-
-    <p>I corali di Bach che analizziamo sono del <strong>Settecento</strong>, ma le melodie sono molto pi&ugrave; vecchie: molte vengono dal <strong>Cinquecento</strong> luterano, e alcune da canti ancora anteriori.</p>
-
-    <p>Bach non le ha inventate: le ha <strong>armonizzate</strong>, e spesso pi&ugrave; volte la stessa. Il suo lavoro &egrave; esattamente quello che state facendo voi dall&rsquo;unit&agrave; 1 &mdash; una melodia data, e quattro parti sotto.</p>
-
-    <div class="riquadro attenzione">
-      <p>Ne restano <strong>371</strong> raccolte dopo la sua morte. &Egrave; il pi&ugrave; grande archivio di soluzioni allo stesso problema che esista, ed &egrave; per questo che tutti i trattati lo usano.</p>
-    </div>
-
-    <p class="didascalia">Quando all&rsquo;unit&agrave; 8 armonizzerete un corale, il confronto sar&agrave; con quello: non con &laquo;la soluzione giusta&raquo;, ma con una fra le tante che un uomo ha trovato facendo lo stesso esercizio.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="Non due, ma una famiglia">
-  <div class="slide-interna">
-    <h2>E non sono due formule: sono una famiglia</h2>
-
-    <p><strong>Marenco</strong> ne elenca sette, tutte varianti dello stesso movimento fra l&rsquo;ottava e la settima (<em>Manuale d&rsquo;armonia</em>, p.&nbsp;130):</p>
-
-    <div class="colonne">
-      <div class="riquadro">
-        <p><strong>8 7</strong> &mdash; l&rsquo;ottava introduce la settima: la preparazione per grado, quella di oggi<br>
-        <strong>7 8</strong> &mdash; la settima, preparata, &egrave; <em>ornata da una nota di sfuggita</em><br>
-        <strong>7 8 7</strong> &mdash; l&rsquo;ottava fa da <em>nota di volta</em> alla settima</p>
-      </div>
-      <div class="riquadro">
-        <p><strong>8 9 8 7</strong> &mdash; l&rsquo;ottava fiorita prima da una volta superiore, poi la settima<br>
-        <strong>8 5 8 7</strong> &mdash; l&rsquo;ottava passa dalla quinta e torna<br>
-        <strong>7 5 8 7</strong> &mdash; la settima preparata scende, e si ricostruisce</p>
-      </div>
-    </div>
-
-    <div class="riquadro attenzione">
-      <p>Non si imparano tutte, e non si chiederanno mai. Servono a una cosa sola: capire che quella cifra <strong>descrive un movimento</strong>, e i movimenti possibili fra due note sono tanti. Le due che sappiamo sono le due pi&ugrave; semplici.</p>
-    </div>
-
-    <p class="didascalia">Vale la pena vederle una volta: chi sa che la famiglia esiste, davanti a una cifra strana in partitura, cerca il movimento invece di cercare l&rsquo;accordo. Ed &egrave; il gesto che serve in quinta.</p>
-  </div>
-</section>
-<!-- ───────────────────────────────────────────────────────────────────
-     Una slide con una musica vera. L'ora di analisi ha già A20 e A21 —
-     le due armonizzazioni della stessa melodia — e le serviva un terzo
-     brano soltanto. Il vuoto: tutte e due sono corali di Bach, cioè lo
-     stesso genere e lo stesso autore. Manca il controllo che la
-     procedura funzioni fuori di lì, che è l'unico modo di sapere se si
-     è imparata la procedura o quel repertorio.
-     ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="La stessa procedura, fuori dal corale">
-  <div class="slide-interna">
-    <h2>Un collaudo su un genere diverso</h2>
-
+    <h2>Un collaudo su un altro genere</h2>
     <div class="riquadro compito">
       <span class="etichetta">Analisi &middot; 8 minuti</span>
-      <p>Due ascolti. Applicate la procedura di oggi: <strong>quali settime contare</strong>, e per ognuna da dove arriva e dove va.</p>
+      <p>Due ascolti con la partitura; si applica la stessa procedura: quali settime contare, da dove arrivano, dove vanno.</p>
     </div>
 
-    <tac-brano organico="tastiera" titolo="Clara Schumann, Polacca op. 1 n. 1 in mi bemolle maggiore"
-               metronomo youtube="kXEu6Dd0wR0" esecutore="Franz Fedor Alexandros, pianoforte" partitura="../../_assets/spartiti/C07_clara-schumann-polacca.png" inciso="../../_assets/incisioni/C07_clara_schumann_polacca.mp3" mappa='{"durata":24659,"eventi":[[0,0],[1,1364],[2,2727],[3,4091],[4,5455],[5,6818],[6,8182],[7,9545],[0,10909],[1,12273],[2,13636],[3,15000],[4,16364],[5,17727],[6,19091],[7,20455]]}' da-battuta="1">
+    <tac-brano organico="tastiera" titolo="Clara Schumann, Polacca op. 1 n. 1 in mi bemolle maggiore" metronomo youtube="kXEu6Dd0wR0" esecutore="Franz Fedor Alexandros, pianoforte" partitura="../../_assets/spartiti/C07_clara-schumann-polacca.png" inciso="../../_assets/incisioni/C07_clara_schumann_polacca.mp3" mappa='{"durata":24659,"eventi":[[0,0],[1,1364],[2,2727],[3,4091],[4,5455],[5,6818],[6,8182],[7,9545],[0,10909],[1,12273],[2,13636],[3,15000],[4,16364],[5,17727],[6,19091],[7,20455]]}' da-battuta="1">
 <script type="application/json">{"titolo":"C. Schumann, Polacca op. 1 n. 1 in mi bemolle maggiore","metro":"3/4","bpm":132,"battute":8,"anacrusi":0.0,"voci":[[[0.5,0.25,67],[0.5,0.25,70],[0.75,0.25,67],[0.75,0.25,70],[1.0,0.5,67],[1.0,0.5,70],[3.0,1.0,79],[3.0,1.5,68],[4.0,0.5,77],[6.5,0.25,67],[6.5,0.25,75],[6.75,0.25,67],[6.75,0.25,75],[7.0,0.5,67],[7.0,0.5,75],[9.0,1.0,77],[9.0,1.5,68],[10.0,0.5,75],[12.0,1.5,74],[13.5,0.1667,70],[13.6667,0.1667,74],[13.8333,0.1667,77],[14.0,0.1667,82],[14.1667,0.1667,86],[14.3333,0.1667,89],[14.5,0.1667,92],[14.6667,0.1667,91],[14.8333,0.1667,89],[15.0,1.5,87],[16.5,0.1667,75],[16.6667,0.1667,79],[16.8333,0.1667,82],[17.0,0.1667,87],[17.1667,0.1667,91],[17.3333,0.1667,94],[17.5,0.1667,99],[17.6667,0.1667,98],[17.8333,0.1667,96],[18.0,1.5,94],[19.5,0.1667,70],[19.6667,0.1667,74],[19.8333,0.1667,77],[20.0,0.1667,82],[20.1667,0.1667,86],[20.3333,0.1667,89],[20.5,0.1667,92],[20.6667,0.1667,91],[20.8333,0.1667,89],[21.0,0.5,87],[21.5,0.1667,92],[21.6667,0.1667,91],[21.8333,0.1667,89],[22.0,0.5,75],[22.5,0.1667,80],[22.6667,0.1667,79],[22.8333,0.1667,77],[23.0,0.5,75]],[[0.0,0.5,51],[0.0,0.5,63],[0.5,0.5,46],[0.5,0.5,58],[1.0,0.5,51],[1.0,0.5,63],[1.5,0.5,46],[1.5,0.5,58],[2.0,0.5,51],[2.0,0.5,63],[2.5,0.5,46],[2.5,0.5,58],[3.0,0.5,50],[3.0,0.5,62],[3.5,0.5,46],[3.5,0.5,58],[4.0,0.5,50],[4.0,0.5,62],[4.5,0.5,46],[4.5,0.5,58],[5.0,0.5,50],[5.0,0.5,62],[5.5,0.5,46],[5.5,0.5,58],[6.0,0.5,49],[6.0,0.5,61],[6.5,0.5,51],[6.5,0.5,63],[7.0,0.5,49],[7.0,0.5,61],[7.5,0.5,51],[7.5,0.5,63],[8.0,0.5,49],[8.0,0.5,61],[8.5,0.5,51],[8.5,0.5,63],[9.0,0.5,48],[9.0,0.5,60],[9.5,0.5,51],[9.5,0.5,63],[10.0,0.5,48],[10.0,0.5,60],[10.5,0.5,51],[10.5,0.5,63],[11.0,0.5,47],[11.0,0.5,59],[11.5,0.5,51],[11.5,0.5,63],[12.0,0.5,46],[12.5,0.25,58],[12.5,0.25,65],[12.5,0.25,68],[12.75,0.25,58],[12.75,0.25,65],[12.75,0.25,68],[13.0,0.5,58],[13.0,0.5,65],[13.0,0.5,68],[13.5,0.5,58],[13.5,0.5,65],[13.5,0.5,68],[14.0,0.5,58],[14.0,0.5,65],[14.0,0.5,68],[14.5,0.5,58],[14.5,0.5,65],[14.5,0.5,68],[15.0,0.5,51],[15.5,0.25,70],[15.5,0.25,75],[15.5,0.25,79],[15.75,0.25,70],[15.75,0.25,75],[15.75,0.25,79],[16.0,0.5,70],[16.0,0.5,75],[16.0,0.5,79],[16.5,0.5,70],[16.5,0.5,75],[16.5,0.5,79],[17.0,0.5,70],[17.0,0.5,75],[17.0,0.5,79],[17.5,0.5,70],[17.5,0.5,75],[17.5,0.5,79],[18.0,0.5,46],[18.5,0.25,58],[18.5,0.25,65],[18.5,0.25,68],[18.75,0.25,58],[18.75,0.25,65],[18.75,0.25,68],[19.0,0.5,58],[19.0,0.5,65],[19.0,0.5,68],[19.5,0.5,58],[19.5,0.5,65],[19.5,0.5,68],[20.0,0.5,58],[20.0,0.5,65],[20.0,0.5,68],[20.5,0.5,58],[20.5,0.5,65],[20.5,0.5,68],[21.0,0.5,63],[21.0,0.5,67],[21.5,0.5,58],[21.5,0.5,62],[21.5,0.5,65],[21.5,0.5,68],[22.0,0.5,63],[22.0,0.5,67],[22.5,0.5,58],[22.5,0.5,62],[22.5,0.5,65],[22.5,0.5,68],[23.0,0.5,63],[23.0,0.5,67]]]}</script>
 </tac-brano>
 
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa cambia rispetto al corale</span>
-      <p>Che l&rsquo;armonia non è a blocchi: c&rsquo;è una melodia sopra e un accompagnamento sotto, e le quattro parti reali non ci sono.</p>
-      <p>La procedura tiene lo stesso, ma il primo passo — <strong>quali contare</strong> — diventa più difficile, perché molte note sono figurazione.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Perché si collauda su qualcosa di diverso</span>
-      <p>Perché una procedura provata solo dove è nata <strong>non è stata provata</strong>. Se funziona su un corale a quattro voci e su una danza per pianoforte, allora è una procedura; se funziona solo sul corale, era una descrizione del corale.</p>
-    </div>
-
-    <p class="didascalia">È il criterio che vale per tutti gli strumenti di analisi di quest&rsquo;anno: <strong>si prova su materiale che non è stato scelto per loro</strong>. Quello che sopravvive al cambio di genere è la parte che avete davvero imparato.</p>
+    <p class="didascalia">L&rsquo;armonia non procede per blocchi: una melodia sopra un accompagnamento, senza quattro parti reali. La procedura resta valida, ma il primo passo &egrave; pi&ugrave; difficile, perch&eacute; molte note sono figurazione. Una procedura verificata soltanto sul repertorio da cui &egrave; nata non &egrave; ancora stata verificata.</p>
   </div>
 </section>
-<section class="slide" data-titolo="Che cosa portiamo a casa">
-  <div class="slide-interna">
-    <h2>Che cosa portiamo a casa</h2>
 
+<section class="slide" data-titolo="La famiglia della figurazione">
+  <div class="slide-interna">
+    <h2>Le figurazioni fra ottava e settima</h2>
+    <div class="riquadro definizione">
+      <span class="etichetta">Carlo Marenco, <em>Manuale d&rsquo;armonia</em>, p.&nbsp;130</span>
+      <p>Sette varianti dello stesso movimento: <strong>8 7</strong>, l&rsquo;ottava introduce la settima; <strong>7 8</strong>, la settima preparata ornata da una nota di sfuggita; <strong>7 8 7</strong>, l&rsquo;ottava come nota di volta della settima; <strong>8 9 8 7</strong>; <strong>8 5 8 7</strong>; <strong>7 5 8 7</strong>, e le loro combinazioni.</p>
+    </div>
+    <p class="didascalia">Non si memorizzano: servono a capire che la cifratura descrive un movimento, e che i movimenti possibili fra due note sono molti. Davanti a una cifratura insolita si cerca il movimento, non l&rsquo;accordo.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Sintesi">
+  <div class="slide-interna">
+    <h2>Sintesi</h2>
     <div class="colonne">
       <div class="riquadro definizione">
-        <span class="etichetta">Le parole di oggi</span>
-        <p><strong>Quali contare</strong> &mdash; solo le settime sul quinto grado. Le altre sono dell&rsquo;unit&agrave; 6.</p>
-        <p><strong>Si guarda prima</strong> &mdash; la provenienza sta nell&rsquo;accordo che precede.</p>
-        <p><strong>Basso fermo</strong> &mdash; la condizione perch&eacute; ci sia una figurazione.</p>
+        <span class="etichetta">La procedura</span>
+        <p>Si contano solo le settime sul quinto grado; la provenienza si legge nell&rsquo;accordo precedente e nella voce che porta la settima; il basso fermo &egrave; la condizione della figurazione.</p>
       </div>
       <div class="riquadro studio">
-        <span class="etichetta">La cosa da ricordare</span>
-        <p>Nel repertorio corale la <strong>D</strong> &egrave; la pi&ugrave; rara delle tre, e la ragione non &egrave; armonica: &egrave; che quelle parti <strong>si cantano</strong>, e una voce che canta preferisce non muoversi.</p>
+        <span class="etichetta">La scelta</span>
+        <p>Con tre provenienze disponibili, la scelta si motiva: una cadenza netta, un ingresso attenuato, una linea che procede per grado. Sul quaderno, accanto alla lettera, la ragione in tre parole.</p>
       </div>
     </div>
-
-    <div class="riquadro studio">
+    <div class="riquadro libro">
       <span class="etichetta">Sul libro</span>
-      <p><em>Il linguaggio della musica</em>, 4&deg;&nbsp;anno, <strong>p.&nbsp;14</strong> &mdash; il corale <strong>BWV 269</strong> da cui il libro fa nascere la provenienza, con la clausola di tenore al soprano e la risoluzione libera della sensibile. &Egrave; l&rsquo;esempio che abbiamo visto all&rsquo;ora 8, e adesso si legge per intero.</p>
+      <p><em>Il linguaggio della musica</em>, 4&deg;&nbsp;anno, p.&nbsp;14: il corale BWV 269 da cui il libro ricava la provenienza.</p>
     </div>
-
-    <p class="didascalia">La prossima ora &egrave; d&rsquo;ascolto e dura venti minuti: le stesse tre provenienze, senza la partitura davanti. Poi la <strong>V1</strong>.</p>
+    <p class="didascalia">La lezione successiva &egrave; d&rsquo;ascolto: le provenienze senza partitura. Poi la verifica V1.</p>
   </div>
 </section>
 
@@ -7349,14 +7090,6 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
-  <div class="slide-interna">
-    <p class="compiti-occhiello">In classe</p>
-    <h2>Scriviamo adesso: Un corale intero, settima per settima</h2>
-    <p>Sul Workbook trovi un corale di Bach di otto battute. Cerchia ogni V⁷ e scrivi accanto la lettera.</p>
-    <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna.</p>
-  </div>
-</section>
 
 <section class="slide compiti-slide" data-titolo="Compiti · lo scritto" data-segno
          style="--segno: url('../../_assets/segni/segno-24.png')">
@@ -7406,21 +7139,21 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Scrivi un contrappunto di <strong>terza specie (quattro note contro una)</strong> sotto il canto fermo, in modo misolidio (finale sol): dieci battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
       <tac-stave caption="Il canto fermo" clef="treble" time="4/4" notes="g/4:w | f/4:w | e/4:w | g/4:w | a/4:w | f/4:w | a/4:w | b/4:w | a/4:w | g/4:w" tempo="72" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C4-CP-U02-L6</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="FMKE6RwkimQKHau2MSamWw==" iv="txleJ0EQdJ4rZ3xA" dati="s5MoZRTLrWkJy6dSQ/QzknY4KE4WxWdRchn65j154RIwKQhKwnm28HVcGdU1msiMIWraCReU3xM1odg41yTojX+aFWc3eNxvFOa4XlTKe2foMvsVmTSE+uoG4wVM642dIJeCDasnfsLuv4uHzMCSbm5hZKyWc7rQupKc9N13z0cfReBRn9Xm8PWiZEbOHbFe1jKI1bsY0BnIqDRQTTQI328qqSca02t/LL8XTVqXn69PjEJtqam/ws2efR91IzJ7fv15+DU9Ot8cXDhIbnnt+t6JHBhInKRjGroB0jMB4GI01+pZUDJQYGvJGlhIkM50dyVBvo4K2i63556nBO9Xio4yHucTZUagOrgryfOkWW9HB/jfQgDyJLrxewvi4FhF/GKqriHwIqKHESYYVeXAN5KyCWXzBOEOhIeNxmviichDz3L9DRd7tXOBtwe5oC8FDbm58VkQJVmaEvjQA2STQ+SUb8DZ3LLRnnL87UE0dIuRNC+lND4cSChMoZ7dW0Rw9jJlv6NslKfkHeuNpe6XoAdI/+IFg4E1RrYrPiXcZ3g1uAb63xjRZ6sagpyTKmHBMm4700/yVZtsk2inNWzgd0DpjD5pHg=="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="JwBp8ojec2kQTkir4ayIAQ==" iv="dUNbINFeoHHEifVf" dati="1aHzpAyRetBqKwH88tmE1xoPUcGvMuuLaFJYs8A2ABs2Ol01aYJrUHMk/hUd7skLMzMbrK3cZRBeXlmqD4CvdWNPSE6hiuUDEUl2zp1ujDM6dVBR9RYj1rSXXIpaBmib6pkheM9xb68xwX1jQA3QAqa5PHkKfOejvoSqwAN/5jyFzwkSupCiW6mK5wQWzyx17+PznxrvhnZDUslgXTGheaL8ISwd25O3Gy7B6ydlStjpse6i/nxHrA3b6XRFv5N/XXNCRAwvJzxxbmw73Ul2T0DoIaY0nKxpQdUDhyNyN1/JxPU6SGzd9SgwToN97ePNTqHlWobtX5YxYkiUp3fxiMDcEros9X8INuIWUwW4gz9ysewV58TL0IwqYWOCqeiUe4lg6ftq9jaF0WyfSxaHtbYDCEr6Bez+2quwS8LItDcDihprd0edSeY9iRyYPrUXYb28L9zpHmgTEpB96hsd15Jz3+Qqlf436WfPZIKNTvJRAGoHSL4WTnA8ijXMu/xlg52TBlGP5h6J4fExY1kem51Hawp20+7r1EtIKPphDxr/m1SnbWQ2l8z0HhqQzUqmymLRTzZGEctLBRm/twvCl2WdX2CRoA=="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C4-BD-U02-L6">
       <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C4-BD-U02-L6</span></span>
       <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: otto battute in 4/4, re minore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: anche la settima di dominante.</p>
       <tac-stave caption="Il basso" clef="bass" keysig="F" time="4/4" notes="d/3:h a/2:h | d/3:w | c#/3:h a/2:h | d/3:w | f#/3:w | g/3:h d/3:h | g/3:h a/3:h | d/3:w" tempo="60" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C4-BD-U02-L6</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="kqk2nPJBCxHZ9vfV1D8LIA==" iv="oDCoGayRCRxZdFV8" dati="LIydkM2z6r9TYY8HCpjFdpnkaL6s2vTwxCr5ByfTSGTmS+sSEJdK23AVeWKBt6yejyurPn66idANxSv1DlDY8Kkg8olyAOI+WpRBYiPOi26V5/Ne01iT0ki1J5Fiwooq/prixQl2R3kLa06lsovVv8PjnUJfHgfgWc+EtSj78qVpE+Z84ScnF90Ui7Nn2v/m9XLogkaEsFVC0i4AzdrTOCTv4HMMkcRGx8QZD3GZ8rKlh5S9jHpxAS9tQQGbvnyDk8h7cjJsR9qvq5xoyb07mh3mEpr23cXcn18lW2B0iL1gRONcJaqXOIWYRS1SClRstMmbYUHy16Qjka5XiNWiu7/o54IsWyZs2Dl5Q8rUz4iJHQ7Il1HOg+D7iRkoMM8nzq09O08mdGZ4bA3gdtJVYs1nwKxis6bIn99XPUVxJEjjAgHicsmFFODvLP2j7zoOda92z26dwiuwFo0Q+VKPqY+Wz9jPDkpmnLbW74sQNjZu2dhNvoIEeOVZ559Dsj0Ene3zT3O/GeMSNMf5HMRvU/aH89ep+0cdwLizWgVWQcbcSFqHJUUpXAPZ9Cj3+QDohAE8uV/Ncx/uGTjTJTdIaE4/CvX6P/64+kGdz2yyExeP1Y/Ik3UHlZjGmhduetRIz4+Wo8pPBaYJiKBHmBaO1RM7OalGjI0LDgg/OCNmfWowT3P+R9h0bKCbA3J6gzesv5fEbqc5Raog9+umesMJjMNaMc4ITUaAnY643IdOxue4bg61H5SobBZYp7R/CMhn2yXTARNZH6HVLEuTOhLarQaS2IY="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="hHQJo3ZkaBsBwTgIdz2UQA==" iv="p1Km400VCQPjMY+Y" dati="EuGEsnoff8n19qUo1qtpFSRY/DxeWJAuyLCdA/rlYs8Cfbv9qfYTpoQFSJoKr/VG5ap9eKdimrXD6dMugafe/T6kpEyVzCggfeOdun4ZC5LVAWB8GUBUzMEl+nkQq470xxn9XGC1XCl26Hbiin9+GL6Ihj2nrDidxfeH9Mrlq0REmeg6vkEQJvJ5130QKlLGV3YqhVGv4da6zbndvnyEdEZjt6hGTyISgXOg6TZyr+FPZ0rbA1AYIIxP/hHontSHnRcDcnu4bIHgfm9oR5Kq+1d9AMhy1H/kfRg8zkU96tg3REl5M8sWCAzNKuMBIMnS9EQzNxtcebJE6DVZYz3XdcbSQa4y3wkmSb9qU8uiO9NsACxRSDuNlfI5f106h/aBzu++jfiGyC4zvuZV/2BoJutsctyBQmJzjSME8AIw7C3D1kj5+7nqNz0+R2B9IP411DUvPb8GcpreAQdIaEFcAIoOAThuIMG1YpMM/CvREYEJCvE9s7nrZo4uFJ65peeBl8IT1pAndCojn3E4Ud0ZaviehPJrCbx7EzZdyCWsBMrkAyWd6OdSv6ZSU2h2lnq2UWKt04PXaFTp/p03B7rZpUBODVkC2lTYoaCL1fh5l7kg9VblN0IO1h9Qn7EZSDkYP0/e+t86mohmBGUPZWcl322/E1FnpxctEBFcEvgCThRzlyQsjDt9S1fjtcJULAe8cnZkpaPXtTjoDHy+xsJJ1Xcqbe2c3mOLQX64fC18izEcKl2EBNnNFigp1ruC+auYS+ZIJ6OKCwsHE57q72pcpRa76sg="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C4-CD-U02-L6">
       <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C4-CD-U02-L6</span></span>
       <p>Armonizza a quattro parti il <strong>canto dato</strong>: otto battute in 4/4, la minore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: anche la settima di dominante.</p>
       <tac-stave caption="Il canto dato" clef="treble" keysig="C" time="4/4" notes="e/5:w | f/5:w | d/5:w | c/5:w | e/5:h d/5:h | e/5:w | b/4:h g#/4:h | a/4:w" tempo="66" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C4-CD-U02-L6</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="UpgZ2ZTKGKNM2v5DOPql5A==" iv="aKwbQOawVhXZMfaf" dati="P95zpCLxWRz5IQqmT0r6BK8guABIx5IZPlP6S58p7W0RnhyoPSdFH33PTANUXKORRmyb9w2K3ITnHKBDRoI1RKxLUyX29pPCvSvVvDCnInein1anKnMQZMFLcb25ZZssonj3N09c3+y6w9qtsDyhdmqolegellFjC3xbUZvJlZt4wR0OBf2m8YyirrRqHiD4oIUImfSChK/GWTOuOOzyDP64gbTAglth/JMFjzJHVgNhXWr/93biwjCMz3o+3N7teevQ1i9DM21pt7k7+Uk8j9fjucXTrF9TiGo3hOsu1bjGWt4nFkjupbmH/DnKXMIiPLT9RBXgn7kwZ1V6DKRnwYamuh1w27ef8I1mtmpAQSO5qhz0wvpka/hu4qK3qE4j+St2kHhBZ+AFniUuhytwMdoUcOFh3gQxadDq6x91Nul+uHhS6q710YRkXXDq2JBuykgcjYkAzmnjkHt9n/1Il7aV0n1A+bCmp3tUphabQ4vlolivLnN9zlIz4rgty08w7kknhGIi36lsCzQNpI1iSuAUvea+1P5zNn1HWGL4tT8szAMSq8nMCEhlTGZW10pR4SIqapqraNVTbtpWK2F1Hds5J4t0R5rn47Hqj0GEqDGU1ejEt8ZDrmgQOwFpFqG4FBXcYVF3AkaL7mZZF4tMtlpkFai52VV7WdssROnq1icnU1I+tCrNM4+zPdZD3+lOfSuuEXLrf9CIZqXhwA=="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="orKv+qxqodPA4NSzsL5qTw==" iv="YtBQ0PC2QzpH8FxJ" dati="9dM1x1P5iyvxGA4qY1ijRqgNuqN6XxQgraanXzw0IOmcC3a6ICHbQ+B/ejM6EVqgUqE25eLHEYsMf2aj1rGL62Gn9F1JpjfmL/2qJ65BjB/9a4difojZdkLhx5mpMeYXwSz1ugH3WppNEl7dPZP/VcQ3hix5crfurvMKzIeYfe+Gnrebvw6N7FodTTMZhTGpKQ5wnZIIztpViAkZDphmprcxyPaopiyxUluqfDJd20yPkuuXJQLfr4oTDFJx9s2iJTCDxwjCNJ5p/iV/8Q7GzSkHe3+vOjKr9fTrF9Bccbf0Xan5hStTTYXzhe8weR8taHlZlS7nV9HN2YdUabWXNtFHqPfoXzuX9EwutnPquOsW9lKUm+aVB5rrXxn5jFbrQkfP8n9PL26MZl7elVLn16hPM//iz29I5UzTA2EMVUjTM3EEFy7yk8Gl6eZDTqBCmNkNcbXy/zYl14v3zylW+p3B4BfnAb8kG/56i79NnvVMWaxzkUb2qZeYjOJpWpa5WFD10GT1E/NCj+5ANaO6iPNxaw5mJ82aJuFQKsPyaIgaTiabU3qxK+EryTbcAzdMLIXKJxQ/rkthy9wtF/FIJ0RdYy+IWt2zVn5HPX73QeaHGYuqRF855Qb/05hV4N5gnpLDKX4S3AoeHOHDICJ3r9pLChe2wbk4KY6MD7w5QI2nJwNxoXK4ya8tQadQ8Fa6EDaup84pICRoE+cZqA=="></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>

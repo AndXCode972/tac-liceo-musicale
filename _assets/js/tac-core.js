@@ -942,6 +942,49 @@
     });
   }
 
+  /* ══ I SEGNI DI ALTERAZIONE, BATTUTA PER BATTUTA ══
+     Andrea, 9 ottobre 2026, dalla lezione sulle alterazioni: «un'alterazione
+     vale per tutta la battuta». Fino a oggi il motore disegnava il segno
+     solo se era scritto nella nota, e così un mi dopo un mi bemolle nella
+     stessa battuta compariva senza bequadro: si leggeva mi bemolle e si
+     sentiva mi. Trenta righi del corso erano in questa condizione.
+
+     Qui si tiene, per ogni rigo e per ogni battuta, lo stato di ciascuna
+     nota (lettera + ottava), che parte dall'armatura. Si disegna il segno
+     solo quando la nota cambia stato: il bequadro di precauzione compare
+     da sé, e un diesis già valido non si ripete. Il SUONO non cambia: la
+     nota scritta è quella che si sente (l'armatura la applica conArmatura).
+     La nota legata oltre la stanghetta non ripete il segno. */
+  function annotaSegni(dati, armatura) {
+    const inArm = (ARMATURE[armatura] || []);
+    const segnoArm = inArm.length ? (inArm[0] === 'b' ? 'b' : '#') : '';
+    const base = (l) => (inArm.indexOf(l) >= 0 ? segnoArm : 'n');
+    let stato = {}, prec = null;
+    (dati || []).forEach(d => {
+      if (d.stanghetta) { stato = {}; return; }
+      if (d.pausa) { d.segni = []; prec = d; return; }
+      d.segni = d.keys.map(k => {
+        let p; try { p = N.scomponi(k); } catch (e) { return null; }
+        const chiave = p.lettera + p.ottava;
+        const eff = p.alt ? p.alt : base(p.lettera);
+        const legataDa = prec && prec.legata && prec.keys && prec.keys.indexOf(k) >= 0;
+        if (legataDa) { if (!(chiave in stato)) stato[chiave] = eff; return null; }
+        const ora = (chiave in stato) ? stato[chiave] : base(p.lettera);
+        stato[chiave] = eff;
+        return eff !== ora ? eff : null;
+      });
+      prec = d;
+    });
+    return dati;
+  }
+  /* "C5" spostato di 12 o 24 semitoni: cambia solo il numero d'ottava */
+  function spostaOttava(t, semitoni) {
+    if (!semitoni) return t;
+    const m = /^([A-Ga-g][#b]*)(-?\d+)$/.exec(t);
+    return m ? m[1] + (parseInt(m[2], 10) + semitoni / 12) : t;
+  }
+  const segnoDi = (d, i, p) => (d && d.segni ? d.segni[i] : (p.alt || null));
+
   /* ══ LA PAUSA DI SEMIBREVE CHE VALE LA BATTUTA ══
      Quando una battuta e' tutta silenzio si scrive una pausa di semibreve,
      in qualunque metro: in 3/4 vale tre movimenti, in 2/4 due. Prima il
@@ -1324,6 +1367,7 @@
       const time    = this.getAttribute('time')   || '';
       const keysig  = this.getAttribute('keysig') || '';
       this._armatura = keysig;   /* la riproduzione la applica: v. conArmatura */
+      this._ottava = ({ '8va': 12, '8vb': -12, '15ma': 24, '15mb': -24 })[this.getAttribute('ottava') || ''] || 0;
       const caption = this.getAttribute('caption') || '';
       /* LE QUATTRO PARTI. Basta `soprano` per entrare in questa modalità:
          il rigo acuto prende soprano e contralto, il grave tenore e basso,
@@ -1391,7 +1435,7 @@
       }
       this.appendChild(tela);
 
-      const dati = leggiNote(testo);
+      const dati = annotaSegni(leggiNote(testo), keysig);
       this._dati = dati;
       battuteVuote(dati, this.getAttribute('time'));
 
@@ -1478,7 +1522,7 @@
         new VF.StaveConnector(stave, staveB).setType(VF.StaveConnector.type.SINGLE_LEFT).setContext(ctx).draw();
         new VF.StaveConnector(stave, staveB).setType(VF.StaveConnector.type.SINGLE_RIGHT).setContext(ctx).draw();
         this._staveB = staveB;
-        this._datiB = leggiNote(testoBasso);
+        this._datiB = annotaSegni(leggiNote(testoBasso), keysig);
         if (this._datiB.length) {
           /* Nelle quattro parti il basso ha il gambo **in giù**, perché
              sopra di lui, sullo stesso rigo, c'è il tenore. Da solo il
@@ -1490,7 +1534,7 @@
             if (quattro) sn.setStemDirection(VF.Stem.DOWN);
             if (!d.pausa) d.keys.forEach((k, i) => {
               const p = N.scomponi(k);
-              if (p.alt) sn.addModifier(new VF.Accidental(p.alt), i);
+              { const sg = segnoDi(d, i, p); if (sg) sn.addModifier(new VF.Accidental(sg), i); }
             });
             if (d.puntata) VF.Dot.buildAndAttach([sn], { all: true });
             return sn;
@@ -1592,7 +1636,7 @@
           if (accordoDestra && nome === 'tenore') return;
           const testoV = (accordoDestra && nome === 'contralto') ? accordoDestra : this.getAttribute(nome);
           if (testoV === null || !rigo) return;
-          const dV = leggiNote(testoV);
+          const dV = annotaSegni(leggiNote(testoV), keysig);
           if (!dV.length) return;
           const noteV = dV.map(d => {
             if (d.stanghetta) return stanghettaVF(VF, d.stanghetta);
@@ -1602,7 +1646,7 @@
             sn.setStemDirection(verso);
             if (!d.pausa) d.keys.forEach((k, i) => {
               const p = N.scomponi(k);
-              if (p.alt) sn.addModifier(new VF.Accidental(p.alt), i);
+              { const sg = segnoDi(d, i, p); if (sg) sn.addModifier(new VF.Accidental(sg), i); }
             });
             if (d.puntata) VF.Dot.buildAndAttach([sn], { all: true });
             return sn;
@@ -1634,7 +1678,7 @@
           if (!d.pausa) {
             d.keys.forEach((k, i) => {
               const p = N.scomponi(k);
-              if (p.alt) sn.addModifier(new VF.Accidental(p.alt), i);
+              { const sg = segnoDi(d, i, p); if (sg) sn.addModifier(new VF.Accidental(sg), i); }
             });
           }
           if (d.puntata) VF.Dot.buildAndAttach([sn], { all: true });
@@ -1822,6 +1866,26 @@
            legature, chiede alle note dove sono finite sul rigo. */
         terzine.forEach(t => t.setContext(ctx).draw());
         disegnaLegature(VF, ctx, dati, note);
+        /* ══ IL SEGNO D'OTTAVA ══ (9 ottobre 2026, 1ª U3 L2)
+           `ottava="8va"`, `"8vb"`, `"15ma"`, `"15mb"`: la parentesi
+           tratteggiata sopra (o sotto) le note del rigo, e la riproduzione
+           le suona dove il segno dice. Prima la lezione chiedeva di
+           «immaginare» il segno, e l'esempio suonava un'ottava sotto. */
+        const ottava = this.getAttribute('ottava');
+        if (ottava && VF.TextBracket) {
+          const vere = note.filter((n, i) => dati[i] && !dati[i].stanghetta && !dati[i].pausa);
+          if (vere.length) {
+            const sotto = /b$/.test(ottava);
+            const POS = VF.TextBracketPosition || { TOP: 1, BOTTOM: -1 };
+            try {
+              new VF.TextBracket({ start: vere[0], stop: vere[vere.length - 1],
+                                   text: ottava.startsWith('15') ? '15' : '8',
+                                   superscript: ottava.startsWith('15') ? (sotto ? 'mb' : 'ma') : (sotto ? 'vb' : 'va'),
+                                   position: sotto ? POS.BOTTOM : POS.TOP })
+                .setContext(ctx).draw();
+            } catch (e) { console.warn('ottava', e); }
+          }
+        }
         if (giu) {
           giu.voce.draw(ctx, staveB);
           giu.trav.forEach(b => b.setContext(ctx).draw());
@@ -2852,7 +2916,7 @@
           if (!dentro(q0, qa)) return;   /* fuori dal tratto segnato */
           if (!d.pausa && !muta2[i]) {
             voce.triggerAttackRelease(
-              d.keys.map(k => N.aTone(N.conArmatura(k, this._armatura))),
+              d.keys.map(k => spostaOttava(N.aTone(N.conArmatura(k, this._armatura)), this._ottava)),
               Math.min(dur2[i], fine - q0) * durBattito * 0.92, quando(q0));
           }
         });
@@ -2920,7 +2984,7 @@
                lezione muta. */
             Audio.tick.triggerAttackRelease(liv.altezza, '64n', t, liv.forza);
           } else {
-            const chiavi = d.keys.map(k => N.aTone(N.conArmatura(k, this._armatura)));
+            const chiavi = d.keys.map(k => spostaOttava(N.aTone(N.conArmatura(k, this._armatura)), this._ottava));
             /* ⚠ 8 ottobre 2026, Andrea: «l'audio è sbagliato, non c'è la melodia
                suonata correttamente, ma tutte le note arrivano insieme». La
                funzione nella coda leggeva `t`, che è una variabile sola per
@@ -6171,12 +6235,12 @@
         /* Melodia data sul rigo superiore, se fornita per questo sistema */
         const mel = melodie[i];
         if (mel) {
-          const dati = leggiNote(mel);
+          const dati = annotaSegni(leggiNote(mel), keysig);
           const note = dati.map(d => {
             const sn = new VF.StaveNote({ keys: d.keys, duration: d.dur + (d.puntata ? 'd' : '') + (d.pausa ? 'r' : ''), clef: clef });
             if (!d.pausa) d.keys.forEach((k, j) => {
               const p = N.scomponi(k);
-              if (p.alt) sn.addModifier(new VF.Accidental(p.alt), j);
+              { const sg = segnoDi(d, j, p); if (sg) sn.addModifier(new VF.Accidental(sg), j); }
             });
             if (d.puntata) VF.Dot.buildAndAttach([sn], { all: true });
             return sn;

@@ -2847,7 +2847,12 @@
          assegnato un istante NEGATIVO — cioè partiva prima del clic.
          Trovato simulando i tempi fuori dal browser, non guardando. */
       const dentro = (q0, q1) => q1 > inizio + 1e-9 && q0 < fine - 1e-9;
-      const quando = (q0) => Tone.now() + 0.15 + (q0 - inizio) * durBattito;
+      const avvioT = Tone.now() + 0.15;
+      const quando = (q0) => avvioT + (q0 - inizio) * durBattito;
+      /* da dove e quando parte il suono: la barra del dettato guidato si
+         sincronizza su questo, non sull'orologio del clic (il pianoforte
+         campionato può impiegare secondi a caricarsi) */
+      this._partenza = { tone: avvioT, inizio: inizio, durBattito: durBattito };
       let t = quando(inizio);
 
       /* LA LEGATURA DI VALORE NON È DUE SUONI: È UN SUONO SOLO, PIÙ LUNGO.
@@ -2915,9 +2920,13 @@
           qa += d.battiti;
           if (!dentro(q0, qa)) return;   /* fuori dal tratto segnato */
           if (!d.pausa && !muta2[i]) {
-            voce.triggerAttackRelease(
-              d.keys.map(k => spostaOttava(N.aTone(N.conArmatura(k, this._armatura)), this._ottava)),
-              Math.min(dur2[i], fine - q0) * durBattito * 0.92, quando(q0));
+            /* ⚠ 12 ottobre 2026: anche le altre voci passano dalla coda.
+               Programmate direttamente, il «Ferma» non le zittiva: nei
+               dettati a due righi, cliccando una sezione dopo l'altra, il
+               basso della sezione precedente continuava sotto la nuova. */
+            const ch2 = d.keys.map(k => spostaOttava(N.aTone(N.conArmatura(k, this._armatura)), this._ottava));
+            const dd2 = Math.min(dur2[i], fine - q0) * durBattito * 0.92, t2 = quando(q0);
+            this.inCoda(t2, () => voce.triggerAttackRelease(ch2, dd2, t2));
           }
         });
       });
@@ -2982,7 +2991,17 @@
                funzionato. Il prezzo e' che il «Ferma» non zittisce i colpi
                gia' programmati: si preferisce un pulsante imperfetto a una
                lezione muta. */
-            Audio.tick.triggerAttackRelease(liv.altezza, '64n', t, liv.forza);
+            /* ⚠ 12 ottobre 2026, Andrea: «non riesco ad ascoltare le
+               battute separate 1-2, 3-4…». I colpi erano programmati tutti
+               subito su `Audio.tick`, monofonico: il «Ferma» non li toglieva,
+               e la sezione cliccata dopo chiedeva istanti PRECEDENTI a quelli
+               ancora in sospeso — Tone li rifiutava («The time must be
+               greater than or equal to the last scheduled time») e la
+               sezione restava muta. Il disordine del 24 settembre veniva
+               dalla variabile `t` condivisa, corretta l'8 ottobre: ogni colpo
+               ora porta il suo istante, e la coda li consegna in ordine. */
+            const tColpo = t;
+            this.inCoda(tColpo, () => Audio.tick.triggerAttackRelease(liv.altezza, '64n', tColpo, liv.forza));
           } else {
             const chiavi = d.keys.map(k => spostaOttava(N.aTone(N.conArmatura(k, this._armatura)), this._ottava));
             /* ⚠ 8 ottobre 2026, Andrea: «l'audio è sbagliato, non c'è la melodia
@@ -3171,8 +3190,12 @@
         ' — poi scrivi', null, [k, k + 1],
         Math.max(20, Math.round(battuta * 2 * 4)));
     }
-    for (let k = 1; k + 3 <= n; k += 4) {
-      const an = { 1: 'd12-collegamento-1-4', 5: 'd13-collegamento-5-8' }[k];
+    /* ⚠ 13 ottobre 2026, Andrea: «nei dettati ci vuole anche il
+       collegamento 3-6». Le finestre di quattro battute avanzano di due:
+       1-4, 3-6, 5-8. Il 3-6 tiene insieme la metà del dettato, dove le
+       due quartine si toccano. */
+    for (let k = 1; k + 3 <= n; k += 2) {
+      const an = { 1: 'd12-collegamento-1-4', 3: 'd14-collegamento-3-6', 5: 'd13-collegamento-5-8' }[k];
       S(k + '\u2013' + (k + 3), '3');
       P('Fase 3 · il collegamento: battute ' + k + '–' + (k + 3) + ' insieme — poi aggiusta',
         n === 8 ? an : null, [k, k + 3], Math.max(12, Math.round(battuta * 4 * 2)));
@@ -3208,7 +3231,7 @@
     if (tipo !== 'metro') {
       for (let k = 1; k + 1 <= n; k += 2) Z(k + '–' + (k + 1), [k, k + 1], 'coppie');
       if (n % 2) Z('batt. ' + n, [n, n], 'coppie');
-      for (let k = 1; k + 3 <= n; k += 4) Z(k + '–' + (k + 3), [k, k + 3], 'collegamento');
+      for (let k = 1; k + 3 <= n; k += 2) Z(k + '–' + (k + 3), [k, k + 3], 'collegamento');
     }
     const durata = n * battuta;
     let tacche = '';
@@ -3227,12 +3250,17 @@
     pan.className = 'tac-guida no-stampa';
     pan.innerHTML =
       '<div class="tac-sezioni" role="group" aria-label="Sezioni del dettato">' + bottoni +
+      '<span class="tac-sez-comandi"><button type="button" class="tac-sez tac-sez-prec" title="Sezione precedente" disabled>&#9664; Precedente</button>' +
+      '<button type="button" class="tac-sez tac-sez-succ" title="Sezione successiva">Successiva &#9654;</button>' +
       '<button type="button" class="tac-sez tac-sez-ripeti" title="Rifà l’ultima sezione" disabled>&#8635; Ripeti</button>' +
-      '<button type="button" class="tac-sez tac-sez-ferma" title="Ferma">&#9632; Ferma</button></div>' +
+      '<button type="button" class="tac-sez tac-sez-ferma" title="Ferma">&#9632; Ferma</button></span></div>' +
       '<div class="tac-linea-box"><div class="tac-linea-tacche">' + tacche + '</div>' +
       '<input type="range" class="tac-linea" min="0" max="' + Math.round(durata * 10) + '" step="1" value="0" aria-label="Posizione nel dettato">' +
       '<span class="tac-linea-tempi"><span class="tac-linea-ora">batt. 1</span></span></div>' +
       '<div class="tac-guida-riga"><button type="button" class="btn secondario tac-guida-via">&#9654; Procedura guidata, con le pause</button>' +
+      '<span class="tac-segni" role="group" aria-label="Fasi della procedura"><span class="tac-sez-gruppo">fasi</span>' +
+      segni.map((g, j) => '<button type="button" class="tac-sez tac-segno" data-s="' + j + '" title="Procedura guidata da qui">' + g.nome + '</button>').join('') +
+      '</span>' +
       '<button type="button" class="btn secondario tac-guida-ferma" hidden>&#9632; Ferma</button>' +
       '<span class="tac-guida-fase">per rifarlo da soli a casa: circa ' + Math.round(stima / 60) + ' minuti</span></div>';
     ((contenitore && contenitore.classList.contains('dettato-ascolti')) ? contenitore
@@ -3242,6 +3270,36 @@
     const linea = pan.querySelector('.tac-linea'), ora = pan.querySelector('.tac-linea-ora');
     const btnSez = [...pan.querySelectorAll('.tac-sez[data-j]')];
     const ripeti = pan.querySelector('.tac-sez-ripeti'), fermaSez = pan.querySelector('.tac-sez-ferma');
+    const prec = pan.querySelector('.tac-sez-prec'), succ = pan.querySelector('.tac-sez-succ');
+    const btnSegni = [...pan.querySelectorAll('.tac-segno')];
+    /* ⚠ 12 ottobre 2026, Andrea: i comandi erano due — la barra del rigo
+       nascosto («Ascolta», battuta avanti e indietro) e questo pannello —
+       e non si parlavano: avviato il dettato dalla barra, le sezioni non
+       suonavano più e la linea restava ferma. Il pannello è l'unico
+       comando: la barra del rigo si toglie. */
+    { const vecchia = rigo.querySelector('.tac-barra'); if (vecchia) vecchia.remove(); }
+    /* il rigo del dettato e quello del riferimento sono nascosti: il loro
+       riquadro vuoto e la loro barra restavano sullo schermo come un
+       secondo comando. Suonano lo stesso, comandati da qui. */
+    const nascondi = r => {
+      const cont = r.parentElement;
+      /* nel blocco «dettato-ascolti» ogni rigo ha un suo riquadro con la
+         didascalia: si nasconde il riquadro intero */
+      if (cont && cont.parentElement && cont.parentElement.classList.contains('dettato-ascolti')) cont.style.display = 'none';
+      else r.style.display = 'none';
+    };
+    nascondi(rigo);
+    if (rif) nascondi(rif);
+    if (!document.getElementById('tac-guida-stile')) {
+      const st = document.createElement('style');
+      st.id = 'tac-guida-stile';
+      st.textContent =
+        '.tac-sez-comandi{margin-left:auto;display:inline-flex;flex-wrap:wrap;gap:.35rem}' +
+        '.tac-sez-comandi .tac-sez-ripeti{margin-left:0}' +
+        '.tac-segni{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.25rem}' +
+        '.tac-segno{font-size:.8rem;padding:.22rem .5rem}';
+      document.head.appendChild(st);
+    }
     let corsa = null, ultimaSez = -1, tirando = false, anima = null;
 
     const dorme = (sec, c) => new Promise(r => {
@@ -3282,25 +3340,38 @@
       linea.style.setProperty('--fatto', (100 * v / durata).toFixed(2) + '%');
       ora.textContent = 'batt. ' + Math.min(n, Math.floor(v / battuta + 1e-6) + 1);
     };
+    /* ⚠ 12 ottobre 2026: la linea seguiva l'orologio del clic, e il suono
+       parte più tardi (il pianoforte si carica, l'audio si sblocca): la
+       linea correva avanti alla musica. Ora segue l'istante in cui il rigo
+       ha davvero programmato la prima nota (`rigo._partenza`). */
     const scorri = (b1, b2) => {
       if (anima) clearInterval(anima);
-      const da = (b1 - 1) * battuta, a = b2 * battuta, t0 = Date.now();
+      const da = (b1 - 1) * battuta, a = b2 * battuta;
       mostra(da);
       anima = setInterval(() => {
         if (tirando) return;
-        const v = da + (Date.now() - t0) / 1000;
+        const pt = rigo._partenza;
+        if (!pt || typeof Tone === 'undefined') return;
+        const v = da + Math.max(0, Tone.now() - pt.tone);
         mostra(Math.min(v, a));
-        if (v >= a) { clearInterval(anima); anima = null; }
-      }, 100);
+        if (v >= a || (!rigo._inCorso && Tone.now() > pt.tone + 0.5)) { clearInterval(anima); anima = null; }
+      }, 80);
     };
     const suonaTratto = async (b1, b2, c) => {
       if (c.stop) return;
+      rigo._partenza = null;
       scorri(b1, b2);
       if (b1 === 1 && b2 === n) rigo.suona(null, 1, null, null);
       else { const [da, a] = tratto(b1, b2); rigo.suona(null, 1, da, a); }
       await aspettaRigo(rigo, c);
     };
-    const accendi = j => btnSez.forEach((b, k) => b.classList.toggle('attivo', k === j));
+    const accendi = j => {
+      btnSez.forEach((b, k) => b.classList.toggle('attivo', k === j));
+      const rif0 = ultimaSez < 0 ? -1 : ultimaSez;
+      prec.disabled = rif0 <= 0;
+      succ.disabled = rif0 >= sezioni.length - 1;
+    };
+    const segnoAcceso = j => btnSegni.forEach((b, k) => b.classList.toggle('attivo', k === j));
 
     const fermaTutto = async () => {
       if (anima) { clearInterval(anima); anima = null; }
@@ -3313,6 +3384,7 @@
     };
     const corri = async (lavoro) => {
       await fermaTutto();
+      if (typeof ferma2 === 'function') ferma2();
       const c = corsa = { stop: false };
       try { await lavoro(c); } finally { if (corsa === c) corsa = null; }
       return c;
@@ -3328,7 +3400,21 @@
     });
     btnSez.forEach((b, j) => { b.onclick = () => suonaSezione(j); });
     ripeti.onclick = () => { if (ultimaSez >= 0) suonaSezione(ultimaSez); };
-    fermaSez.onclick = () => { fermaTutto(); accendi(-1); };
+    prec.onclick = () => { if (ultimaSez > 0) suonaSezione(ultimaSez - 1); };
+    succ.onclick = () => { suonaSezione(Math.min(sezioni.length - 1, ultimaSez + 1)); };
+    /* ⚠ 12 ottobre 2026, Andrea: «il dettato intero non può essere mosso».
+       «Ferma» lascia la linea dove si è fermata e diventa «Riprendi»: si
+       riparte dalla battuta in cui ci si era fermati (o da quella su cui si
+       è portata la linea). Ferma anche la procedura guidata. */
+    const ferma2 = () => { fermaSez.innerHTML = '&#9632; Ferma'; fermaSez.dataset.riprendi = ''; };
+    const battutaLinea = () => Math.min(n, Math.floor(+linea.value / 10 / battuta + 1e-6) + 1);
+    fermaSez.onclick = async () => {
+      if (fermaSez.dataset.riprendi) { ferma2(); daBattuta(battutaLinea()); return; }
+      const suonava = !!corsa;
+      await fermaTutto(); accendi(-1); segnoAcceso(-1);
+      if (fase.textContent.indexOf('Fase') === 0) fase.textContent = 'Fermato. Le sezioni e le fasi qui sopra ripartono da dove si vuole.';
+      if (suonava) { fermaSez.innerHTML = '&#9654; Riprendi'; fermaSez.dataset.riprendi = '1'; }
+    };
 
     const daBattuta = k => corri(async c => { accendi(-1); await suonaTratto(k, n, c); });
     pan.querySelectorAll('.tac-tacca').forEach(b => { b.onclick = () => daBattuta(+b.dataset.b); });
@@ -3339,10 +3425,13 @@
     });
 
     /* la procedura intera, con annunci e pause: per chi lo rifà da solo */
-    via.onclick = () => corri(async c => {
+    const procedura = (da) => corri(async c => {
       via.hidden = true; ferma.hidden = false; accendi(-1);
-      for (const p of passi) {
+      for (let ip = da; ip < passi.length; ip++) {
+        const p = passi[ip];
         if (c.stop) break;
+        let js = -1; segni.forEach((g, j) => { if (g.i <= ip) js = j; });
+        segnoAcceso(js);
         fase.textContent = p.testo; delete fase.dataset.resta;
         await parla(p.annuncio, c);
         if (p.suono === 'rif') { if (rif && !c.stop) { rif.suona(null, 1, null, null); await aspettaRigo(rif, c); } }
@@ -3351,9 +3440,11 @@
         if (p.pausa) await dorme(p.pausa, c);
       }
       delete fase.dataset.resta;
-      if (!c.stop) fase.textContent = 'Fatto. Si corregge in classe, dal foglio del docente.';
+      if (!c.stop) { fase.textContent = 'Fatto. Si corregge in classe, dal foglio del docente.'; segnoAcceso(-1); }
       via.hidden = false; ferma.hidden = true;
     });
+    via.onclick = () => procedura(0);
+    btnSegni.forEach((b, j) => { b.onclick = () => procedura(segni[j].i); });
     ferma.onclick = async () => {
       await fermaTutto();
       via.hidden = false; ferma.hidden = true;

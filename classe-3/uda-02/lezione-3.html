@@ -107,6 +107,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
      A42, dove ci sono i casi limite, e A20, che la classe conosce.
      ─────────────────────────────────────────────────────────────── 
 -->
+<!-- Rivista il 13/10/2026 per l'ora intera: corretto il quarto collegamento di «Provate a trovarle» (erano quinte parallele, non nascoste); la regola delle nascoste data per intero (soprano e basso: da evitare col soprano di salto, ammessa per grado; altre coppie tollerate); il meccanismo mostrato su due voci; corretta la frase sul moto contrario (esclude le consecutive solo se l'intervallo cambia); tolte le eccezioni di Piston. Aggiunti il compito da correggere (8 battute), la realizzazione di un basso (8 battute) e il canto; soluzione del corale verificata sulla partitura del corpus music21. -->
 <section class="slide attiva copertina foto" data-titolo="Copertina"
          style="--foto: url('../../_assets/copertine/c3u2-lezione-3.jpg?v=d306e646');
                 --cop-a:#0f766e; --cop-b:#0d9488; --cop-c:#2dd4bf">
@@ -128,13 +129,14 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 <section class="slide" data-titolo="La promessa">
   <div class="slide-interna">
-    <h2>L&rsquo;argomento</h2>
+    <h2>La promessa dell&rsquo;anno scorso</h2>
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
       <p><span class="lez">A5</span><strong>Condotte particolari</strong>, pp. 46&ndash;51</p>
       <p>Sezione A, unit&agrave; 5: le relazioni di quinta (lezione 18), di ottava e di unisono (lezione 19).</p>
     </div>
-    <p>Nel contrappunto a due voci le quinte e le ottave nascoste sono rare e di scarso rilievo. Nella scrittura a quattro parti, con salti pi&ugrave; frequenti, diventano un problema concreto della condotta delle voci.</p>
+    <p>In seconda, alla verifica della prima specie: &laquo;le quinte nascoste sono materia del terzo anno&raquo;. A due voci la regola era una sola: sulla quinta e sull&rsquo;ottava si arriva per moto contrario o obliquo (Salzer: &laquo;eviteremo dunque di raggiungere gli intervalli perfetti mediante moto simile&raquo;, cio&egrave; retto).</p>
+    <p class="didascalia">A quattro parti le coppie di voci sono sei e il moto retto non si pu&ograve; evitare sempre: la regola va precisata. Oggi si vede che cosa sono le nascoste, perch&eacute; esistono solo per moto retto e perch&eacute; non pesano tutte uguale.</p>
   </div>
 </section>
 
@@ -148,7 +150,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <tac-stave clef="treble" time="4/4"
                caption="I &rarr; V: soprano e basso salgono insieme e arrivano all&rsquo;ottava, il soprano di salto"
                soprano="e/5:h g/5:h" contralto="g/4:h b/4:h" tenore="c/4:h d/4:h" basso="c/3:h g/3:h"
-               width="560" tempo="50" play></tac-stave>
+               width="560" tempo="50" play sbagliato></tac-stave>
     <p class="didascalia">Fra soprano e basso non vi sono ottave parallele: il primo intervallo &egrave; una decima, il secondo un&rsquo;ottava. L&rsquo;ottava &egrave; per&ograve; raggiunta per moto retto, e il soprano vi arriva di salto.</p>
   </div>
 </section>
@@ -158,11 +160,12 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <h2>Il meccanismo: colmare i vuoti</h2>
     <div class="riquadro definizione">
       <span class="etichetta">Il procedimento di de Ninno</span>
-      <p>Si colma il salto con le note della scala, come se la voce procedesse per grado, e si osserva l&rsquo;ultimo intervallo prima dell&rsquo;arrivo. Se anche quello &egrave; una quinta, o un&rsquo;ottava, la consonanza perfetta era <strong>nascosta nel salto</strong>.</p>
+      <p>Si colmano i salti delle due voci con le note della scala, come se procedessero per grado, e si osserva l&rsquo;ultimo intervallo prima dell&rsquo;arrivo. Se anche quello &egrave; una quinta, o un&rsquo;ottava, la consonanza perfetta era <strong>nascosta nel salto</strong>.</p>
     </div>
-    <tac-stave clef="treble" time="4/4"
-               caption="Il salto do&ndash;sol del soprano, colmato: do re mi fa sol"
-               notes="c/5:q d/5:8 e/5:8 f/5:8 g/5:q."
+    <tac-stave paralleli-voluti="le ottave fa–fa e sol–sol sono l’argomento della slide" clef="treble" time="4/4"
+               caption="Soprano e basso dell&rsquo;esempio, con i salti colmati: mi&ndash;fa&ndash;sol sopra, do&ndash;re&ndash;mi&ndash;fa&ndash;sol sotto. Le ultime due note formano due ottave di seguito, fa&ndash;fa e sol&ndash;sol"
+               soprano="e/5:q f/5:h g/5:q"
+               basso="c/3:q d/3:q e/3:8 f/3:8 g/3:q"
                width="620" tempo="52" play slow></tac-stave>
     <div class="riquadro studio">
       <span class="etichetta">La conseguenza</span>
@@ -192,10 +195,10 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Queste successioni sono &laquo;tollerate da quasi tutti i teorici quando hanno luogo fra le parti medie, oppure fra una parte esterna e una media&raquo;, e &laquo;sono vietate fra le parti estreme&raquo;.</p>
     </div>
     <blockquote class="citazione">
-      <p>&Egrave; evidente una certa <strong>prudenza</strong> da parte dei compositori del periodo tonale nel disporre in quinta giusta o in ottava parti che si muovono per moto retto. [&hellip;] Generalmente non si dispongono in ottava o in quinta giusta due voci che procedono entrambe di salto e per moto retto.</p>
+      <p>&Egrave; evidente una certa <strong>prudenza</strong> da parte dei compositori del periodo tonale nel disporre in quinta giusta o in ottava parti che si muovono per moto retto.</p>
       <cite>Walter Piston, <em>Armonia</em>, p.&nbsp;30, dove il fenomeno &egrave; chiamato &laquo;quinte e ottave dirette&raquo;</cite>
     </blockquote>
-    <p class="didascalia">Le due fonti concordano sul punto essenziale: la regola vale con rigore fra <strong>soprano e basso</strong>; fra le parti interne la nascosta &egrave; poco percepibile.</p>
+    <p class="didascalia">Le due fonti concordano sul punto essenziale: la regola vale con rigore fra <strong>soprano e basso</strong>; fra le altre coppie la nascosta &egrave; poco percepibile e si tollera. &laquo;Nascoste&raquo;, &laquo;coperte&raquo; e &laquo;dirette&raquo; sono tre nomi della stessa cosa.</p>
   </div>
 </section>
 
@@ -206,10 +209,11 @@ try { module = undefined; exports = undefined; } catch (e) {}
                caption="V &rarr; I: soprano e basso salgono insieme all&rsquo;ottava, ma il soprano procede per grado (si&ndash;do)"
                soprano="b/4:h c/5:h" contralto="d/4:h e/4:h" tenore="g/3:h g/3:h" basso="g/2:h c/3:h"
                width="560" tempo="50" play></tac-stave>
-    <p>Quando la voce superiore procede per <strong>grado congiunto</strong>, l&rsquo;arrivo sulla consonanza perfetta non &egrave; messo in rilievo e il collegamento &egrave; corretto. &Egrave; la cadenza pi&ugrave; frequente della musica tonale: la sensibile sale alla tonica mentre il basso va dal V al I.</p>
+    <p>Il divieto fra le voci estreme ha un limite: quando il soprano procede per <strong>grado congiunto</strong>, l&rsquo;arrivo sulla consonanza perfetta non &egrave; messo in rilievo e il collegamento &egrave; corretto. &Egrave; la cadenza pi&ugrave; frequente della musica tonale: la sensibile sale alla tonica mentre il basso va dal V al I.</p>
     <div class="riquadro studio">
-      <span class="etichetta">Le eccezioni secondo Piston (p.&nbsp;30)</span>
-      <p>Le quinte dirette prese di salto sono ammesse quando si <strong>cambia posizione senza cambiare armonia</strong>, e nella successione <strong>V&ndash;I</strong>, soprattutto in cadenza finale, se la sensibile scende di salto al quinto grado in una parte interna.</p>
+      <span class="etichetta">La regola, per intero</span>
+      <p><strong>Soprano e basso</strong> che arrivano per moto retto su una quinta o un&rsquo;ottava: con il soprano <strong>di salto</strong> &egrave; da evitare; con il soprano <strong>per grado</strong> &egrave; ammessa.<br>
+      <strong>Le altre cinque coppie</strong>: la nascosta si tollera. Nel compito si pu&ograve; segnare, ma non &egrave; un errore.</p>
     </div>
   </div>
 </section>
@@ -222,12 +226,11 @@ try { module = undefined; exports = undefined; } catch (e) {}
                soprano="e/5:h g/5:h | e/5:h d/5:h" contralto="g/4:h b/4:h | g/4:h g/4:h" tenore="c/4:h d/4:h | c/4:h b/3:h" basso="c/3:h g/3:h | c/3:h g/3:h"
                width="740" tempo="50" play></tac-stave>
     <div class="riquadro procedura">
-      <span class="etichetta">Tre soluzioni, in ordine di preferenza</span>
+      <span class="etichetta">Due soluzioni, in ordine di preferenza</span>
       <p><strong>1.</strong> Invertire la direzione del soprano: se il basso sale, il soprano scende alla nota pi&ugrave; vicina dell&rsquo;accordo. Il moto diventa contrario.<br>
-      <strong>2.</strong> Cambiare la nota d&rsquo;arrivo del soprano: una terza al posto dell&rsquo;ottava o della quinta.<br>
-      <strong>3.</strong> Cambiare il raddoppio: soluzione estrema, perch&eacute; modifica pi&ugrave; voci.</p>
+      <strong>2.</strong> Cambiare la nota d&rsquo;arrivo del soprano: la terza dell&rsquo;accordo al posto della fondamentale o della quinta.</p>
     </div>
-    <p class="didascalia">La prima soluzione elimina insieme le nascoste e le parallele: il moto contrario fra le voci estreme le esclude entrambe.</p>
+    <p class="didascalia">Nella correzione il sol comune resta al contralto: &egrave; il collegamento I&ndash;V della lezione 1. Attenzione: il moto contrario esclude le nascoste, ma esclude le consecutive <strong>solo se l&rsquo;intervallo cambia</strong>. Due ottave, o due quinte, di seguito restano un errore anche quando le voci vanno in direzioni opposte: sono le ottave e le quinte <strong>per moto contrario</strong>.</p>
   </div>
 </section>
 
@@ -235,19 +238,70 @@ try { module = undefined; exports = undefined; } catch (e) {}
   <div class="slide-interna">
     <h2>Esercizio in classe</h2>
     <tac-stave clef="treble" time="4/4"
-               caption="Quattro collegamenti: due contengono una consonanza perfetta nascosta fra le voci estreme, da correggere"
-               soprano="b/4:h c/5:h | e/5:h g/5:h | f/5:h d/5:h | d/5:h g/5:h"
-               contralto="d/4:h e/4:h | g/4:h b/4:h | a/4:h g/4:h | b/4:h c/5:h"
-               tenore="g/3:h g/3:h | c/4:h d/4:h | c/4:h b/3:h | d/4:h e/4:h"
-               basso="g/2:h c/3:h | c/3:h g/3:h | f/3:h g/3:h | g/2:h c/3:h"
+               caption="Quattro collegamenti: in due c&rsquo;&egrave; una consonanza perfetta nascosta fra le voci estreme, da evitare"
+               soprano="f/5:h d/5:h | b/4:h c/5:h | e/5:h g/5:h | e/5:h c/5:h"
+               contralto="a/4:h g/4:h | d/4:h e/4:h | g/4:h b/4:h | g/4:h a/4:h"
+               tenore="c/4:h b/3:h | g/3:h g/3:h | c/4:h d/4:h | c/4:h c/4:h"
+               basso="f/3:h g/3:h | g/2:h c/3:h | c/3:h g/3:h | c/3:h f/2:h"
                width="820" tempo="48" play></tac-stave>
     <div class="riquadro compito">
-      <span class="etichetta">Sul quaderno &middot; 15 minuti</span>
-      <p><strong>1.</strong> Per ciascun collegamento indicare il moto fra soprano e basso e l&rsquo;intervallo d&rsquo;arrivo.<br>
-      <strong>2.</strong> Individuare i due collegamenti con una quinta o un&rsquo;ottava nascosta raggiunta di salto.<br>
-      <strong>3.</strong> Riscriverli corretti, a quattro parti, con la prima delle tre soluzioni.</p>
+      <span class="etichetta">A voce, tutti insieme &middot; 4 minuti</span>
+      <p><strong>1.</strong> Per ciascun collegamento: il moto fra soprano e basso, l&rsquo;intervallo d&rsquo;arrivo, il soprano di grado o di salto.<br>
+      <strong>2.</strong> I due collegamenti da evitare: quale nota del soprano si cambia, e con quale.</p>
     </div>
-    <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="jLCjjdjDl55Ob4V+o7171A==" iv="8gaYcaWy3KmccRmI" dati="rk/0Og4LHU/1eP4YZRz4K4NRuziQQytaQ04GOS/Z790kBxLo3Iuzz07NiYbVWSAtqrYekN9VWyX0HaQbAegb5KjVCplZuslJuPAsxTjvG3lxvlYtqnfTYwenkoiH1WWwo8O/s1gST5zqWzWPLZyy0lkn3aB1FjZQJbEyj5Ev4EIuutB27p4K4E5SheCtHXbNJ8p0bn7Ok3yWbgI6yTHNa2Z2ox0DlTzas6k8CoQfabNgzwAFxXqGhCCWWOioV3/Q3Rt6aW8MeiHDka3/67txOr1/AHRevrQHpEbHn4lQabTDiCgHBRLX2mn9lBZn7Qg3qyk02vA4lRik0n+uX/EaE6fyUVzvd1AKsGuOmeRshMrFXdAL0iUaxr+CEIRIw2DIsCGdGamOfElwoeel0WBFvn+IWYLMjdK/MNgPHsGiEIAgBzDRd1pHgAlwb2EeAk3fieQBSpatnpSqmof1uUhwzqluDTceicjfiUGrIvNjVaaxT29z53qkQetCWYRpspA1OQP1KW3XfU2R8bcoWMUql2VwiCs="></tac-chiuso>
+    <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="env1Au+QEQYbVdKlSlkNPQ==" iv="fe56C21nkxwzRI3g" dati="CjWVxMhtUKMI7JoUf2IodaqQHSjrK2lnnFnzs5JsJ8VnSwm/ME/bgWAR8nl+5m9knMAIdTaZl+GjailPGPM08Khx4eGa0dE50EV9azhiLhsucB+1Ua9fccXv9dW6GMQqJLAasrcLw/xpxEuURcC1b3nJEelwKnBtsVhVl6xuQVvvuTYS8bPW5q3VUfIhrv5+zGztNV78c9V9MDJHtUD2+VaX+MsAUZSA0/tkP6Ut1Eh15PSm/v3IY1f3YE5ZcN1ART0ruY1KX1Zr35l1E73+nGM6tFGPtjGVV4PzsHZurhowUH+kd1TEImEIbYMgTxqoWRc2j98W4jFxrv8ZqPlz0WSufIYb3DKZWaWvuq2cbpgIxip4XaFBK2EZm53MWwYdIXiKUvgo6RKDCpbpx5DIlS2f6q7cc3V//PcLSp8DomZHFrkCs3e4LJIkdXE+nBlk5QlhR0u2tQt956231id0sEl99+gl4kgzRIbPsWEfitojYCA+MBUst7/9zW4E1Ty2uove+6eipMrEoV0Gpx+oPmBe248P+MSVMt3kUYkHb5L3tSkXhekL+lLxi7I8NtDpiBEhI2Xu6oG2DMSu1R0Pr2paSRq+PTbWC33HbuK/2rEjIoFoel2CzQkbZJvc7AMHpVg+BdHfZd0ZYjYVv4O41TzQ8Za08SK0EolDX6uSKaEeyBY7HEpL6saym7Z98JVc+tMpK/VnMyYZJRi3EniaViiOfWowjhrAJwJEJOVoK88YZAi30TBOP3a+gF2NUWcX9s7JqrYgp20dSN0y81dNoHuy0U9638Ls24KDyRosJMS12n2kD+IVedRajWLFe5Y8pb+Cg0TzTSe44js0A/nUQkrAqhupMUrbDYwqpB7IhuwB153PIRX6hJhSiZKDmqamow=="></tac-chiuso>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il compito da correggere" data-in-classe>
+  <div class="slide-interna">
+    <h2>Un compito sbagliato apposta</h2>
+    <tac-stave time="4/4"
+               caption="Do maggiore: I &ndash; IV &ndash; I &ndash; V &ndash; I &ndash; IV &ndash; V &ndash; I. Fra soprano e basso quattro arrivi per moto retto su una consonanza perfetta: due sono errori"
+               soprano="e/5:w | c/5:w | e/5:w | g/5:w | e/5:w | f/5:w | d/5:w | c/5:w"
+               contralto="g/4:w | a/4:w | g/4:w | g/4:w | g/4:w | a/4:w | g/4:w | e/4:w"
+               tenore="c/4:w | c/4:w | c/4:w | b/3:w | c/4:w | c/4:w | b/3:w | c/4:w"
+               basso="c/3:w | f/2:w | c/3:w | g/3:w | c/3:w | f/3:w | g/3:w | c/3:w"
+               width="900" tempo="52" play></tac-stave>
+    <div class="riquadro compito">
+      <span class="etichetta">Individuale &middot; 10 minuti</span>
+      <p><strong>1.</strong> Collegamento per collegamento, soprano e basso: dove arrivano per moto retto su una quinta o un&rsquo;ottava, segnare <strong>5&rsaquo;</strong> o <strong>8&rsaquo;</strong> e se il soprano procede di grado o di salto.<br>
+      <strong>2.</strong> Riscrivere le otto battute a quattro parti, cambiando soltanto le note che servono a togliere i due errori.</p>
+    </div>
+    <tac-chiuso invito="La correzione del compito" sale="ve+uu7AUIYbbEhvVHI6Ueg==" iv="OgPkcQ4n4KiJ5M0S" dati="Kl5QsVMJsifPMgZyLw0YzjNqp//HOI8FQ4x2tdr0xUBE82Am4H40wJO1uOorkbsRc8sKpx/GyOmz2ZZdHWTu7A+gGJJ7gCyLl1zz5NMgjvAlQ1EwUGzyuC9niIff715JOkNzOJ1xEl7vVSUOFtd2SUVlgnpvJdreUlLACobkiKVQeXSPcZgPjwnE8QTUmazpMNVaT5+6a9nr9pUNBin3tJXnjeuHopchAIIDpz/AKeFNITzw4NboW4/K+nTNPZxMv4UUzIsuIgLhDpBS4lZGYRjbXtZrssSP9V/OGoSsvRw1jy7HS3hTFJ9mgxrEG1bShUL38bxJLc1rC06O0hqGOfEFPCUZC1N41teyJafMrzFVHo0b2PTDh6SXZpLX7MYMCrWbqvCpsgbZRX52T6x8BblLv5PMKe8KbNFN4JA4frCQ3MIZGN4w8dtodJjs82E4L8GBj3n+1u1SNsAT6NQGJ3Lx7aXlLGoZ7iaaasZIkEI09zC0WA5SsPFmzxTssnrw6q3rjsHmM/rR/69J7RePaD2nzXNfAXxvNQMmRma0jXQPkAg0g6seAl0mjJqNAZokTGkThux6d3yhEYNoyPdW1dYGrzoVMlRTbSgzj6qekpP3C6gVAxXqf6XgVtmSOvpQbv2Kyrlm29H6AgHcsaZRd41RaliN2FXLPXdabh3mj1k1Esph8HAJOs+bYs2gBfGgfBEpbw3zmq5YgtX6lj52ctB0RVH1GWo+TvDJu1heOuOHOiHxGUpiLe+KyrMawxHtttvcfKA98F9miLpxLZETw3hL3fgbbGVlzwc2YuRUoxlmtsY9i2+0FA2XzChqmyXHOP0s3+9o+3wj5LaNHWu/+GgNQbgClFOQ77yWjzlYcyYX3DENYPo9LMT+Dip9jQNuAme8gDenP/oI8K+nHVcbwKN7D5mUEFgKxK/6Oeb8Bu7z662B6i5Z9rWazULak/oDcKA9I3clBTeNLzMvVsU8qflCu3lXlDgbjSPMs1xv9AOElD+HtNUOONBCINyJH3f4EHsGIQHd5raTusACzpRD8/B1AlxhrK0VuU0N13mU+Schn6OwmD0C65rEBQ08VO1M0IRfGG1ZOXA0G+3F61jEMxF25BB+tocEu19aorevOhbfPCNwFjp+a8lYhDHXsaxIXRy6BxZuaIHqSv1F86POPFEnBVaHqdRcgBOv8C/gCpRpAZeeiX8jt73Ec5FXtqKXw5/8+lfLqybpRFz3NZh1gCo3OfJGEpezgLZEY3VsLrmihc371WlMOfxEFgwRM9gGHzLTJT0sW3yLH2cjnGpFuTlD2nwlXXSgMYTEZUrx6w6HlPyad1KuhedyVK2eCvsvzeie41xXZEkTtUxikw+VilcsjFSUeFD8qwc58GPnYS52w3yWtqoPvBafeVwXZTz3Tzjw4A//3Fma8QZWHewxFNJqZ5C0v5epSKJbJS3PhsPv1FygZ2TUvjuHK069B5g9Exmy6JMJbtKyjyePN9skL+RjVmLeHh6YEJX7kUSD0iMACLcYxTfdpLT/cppsnyTLv29cbT4VTDAM1JdYqbiYF2r4L8rvoi2x5MXcNvaOjw/nWxhEjFvjZc3zcZJkl6SxYXmUmWbGwVZzEo76woJsaQtSFgsS/6ZcppDPo4LkCZBUpaTEsEN5EuUrIn9wqbTaxQPSDdFMxLR3C/7uyTP8mOWAU59L32Tt"></tac-chiuso>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Scrivere su un basso dato" data-in-classe>
+  <div class="slide-interna">
+    <h2>Esercizio di scrittura</h2>
+    <tac-stave time="4/4"
+               caption="Do maggiore: I &ndash; IV &ndash; V &ndash; I &ndash; IV &ndash; I &ndash; V &ndash; I, tutti allo stato fondamentale. Il primo accordo &egrave; dato"
+               soprano="e/5:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w"
+               contralto="g/4:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w"
+               tenore="c/4:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w"
+               basso="c/3:w | f/2:w | g/2:w | c/3:w | f/3:w | c/3:w | g/2:w | c/3:w"
+               width="900" tempo="52" play></tac-stave>
+    <div class="riquadro compito">
+      <span class="etichetta">Sul quaderno &middot; 10 minuti</span>
+      <p>Completare le otto battute a quattro parti con le regole della lezione 1: nota comune tenuta, voci alla nota pi&ugrave; vicina, contro il basso quando non c&rsquo;&egrave; nota comune. Poi controllare soprano e basso: dove arrivano per moto retto su una quinta o un&rsquo;ottava, il soprano deve arrivarci per grado.</p>
+    </div>
+    <tac-chiuso invito="Una soluzione possibile" sale="ZLl7INR1spAHEGCkOPDN0Q==" iv="n0R3YoMg8SOLozFU" dati="Wz1SWijsS/JiKhZEf+Jb2FYj/XKn/Rnja681User6CCUks+I2+mSfnEcOuISkgIouq/PGrT55RfwfP92rbaOGPkaT3oEgLthksjGy9wQ0daeEySMqkbdpIVEO++WWXtIQkbv9RwvxmvKkmK4cXQMxKIugxPy1fp3BkYg9Dgxnq6PGbppAHd1E5nyK/zOrY3jgahvKYCoW5mzmXcrQC4NnozuJzvM/7jMjnsl7IU9ykjjZKixpMMCGRF4y/J2azyGjX/xVjsvUzUffKBGYBSFG0ZL7pjcR7y0OGYQQJfTlYGrOXhbGaz+nZzmwQQQ5PcENdVucr/K5cqgeaF7NH+WOcnkUyLYl137OdMA4kjRNDq1O+HOhZwqOT1XcsuJOi3yHy9ctUB91LA2wer59wnnrMAJiKpffxLrFQo03SNgmzVjjilw80YZkdpvbcFYzflkEcxrkocB9HT5LzSso64Ki6QzL6NZFhIB0+so9eeCf0Ut6GwzQZ3i4N/cKOZheHUQL5ZjvhSofTqOfcRUJe4AS6aqI4XdBr7bkv3SarV9ETHCAxxMlQw61UNgV8V1T9S1V/B8Ck7jy/XTeEk2R7UEQgFTUopTEEv8WPasxQ1f7vu9cDfdiCzjCYxsAkaAFlPBz15gAHfD+BYs6PwVGd/q2UVL0Y5igayKh7Fx0BNSXmCW9KX6OugKnE4OwzYC3I6BeXNU+md/TbPAi1rWAgFOAxlOTbn1vwbiOSNYU+sycG7o4lzA3sIHeQCGspvv9cPHBIsVP92EMvvLPrUDcn7l3ulb0JPKyiBMhsC58e3DBQ8Px1+IggY61ALDdNC7FLyPm2dns7YNmxt2TlX/j8vlEMcjSGFc4yg+iZMNIYCstiaUWWNHEBd4jOI/xT9a6HaBV5tN2eCqDXxEBgE2sGc9U071xX7c1Ox0HYy1akJZVrgguAwcysLXF+b907MldSahUuSSApL7vU2IXozSbZ5lfbVKVf825dO175LLyK8tFs9JPA7JevBvN25Q7SaSX3YdjT9+0NrmeSpt0H7epyMrNH8iRAl2u07e41Hz1hQTcHeWe/FTJaGblPUoZL2/kSGibfxVlHK6Nlkd8c82tOozNwb6xVB7Y4c5oMc4dSModOW6IPiXL1hdS02mgNCDPfqx3xpXIAOPyBUMTOT9dfhITfE/lonySVj6mWKlC9TgknJ+52qmMZglQ2ilZwClzzTxkSXY7K6GbMXZwlPezofQWIyu2Z8atPxdZNRBVl48eeJ8oEThziS8SCQF9xRu2Kkr/oC9mapD5OBJBi0sUkNun6rKT6hqjyD3VsU="></tac-chiuso>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Cantare ci&ograve; che si &egrave; scritto">
+  <div class="slide-interna">
+    <h2>La prova del canto</h2>
+    <tac-stave clef="bass" time="4/4"
+               caption="Il basso dell&rsquo;esercizio di scrittura: do &ndash; fa &ndash; sol &ndash; do &ndash; fa &ndash; do &ndash; sol &ndash; do"
+               notes="c/3:w | f/2:w | g/2:w | c/3:w | f/3:w | c/3:w | g/2:w | c/3:w"
+               width="760" tempo="56" play slow></tac-stave>
+    <div class="riquadro compito">
+      <span class="etichetta">A coppie &middot; 4 minuti</span>
+      <p>Uno canta il soprano che ha scritto, l&rsquo;altro il basso, nell&rsquo;ottava comoda; poi ci si scambia. Dove le due voci arrivano insieme su una quinta o un&rsquo;ottava ci si ferma: il soprano ci &egrave; arrivato di grado o di salto?</p>
+    </div>
+    <p class="didascalia">Cantando, la nascosta col soprano di salto si sente: per un istante le due voci sembrano una.</p>
   </div>
 </section>
 
@@ -255,15 +309,15 @@ try { module = undefined; exports = undefined; } catch (e) {}
   <div class="slide-interna">
     <h2>Applicazione: un corale</h2>
     <div class="riquadro compito">
-      <span class="etichetta">Insieme &middot; 8 minuti</span>
-      <p>Nelle prime quattro battute, individuare i punti in cui soprano e basso procedono per moto retto e annotare l&rsquo;intervallo d&rsquo;arrivo e il modo in cui il soprano vi giunge.</p>
+      <span class="etichetta">Ascolto con la partitura, tutti insieme &middot; 4 minuti</span>
+      <p>Nelle prime sei battute (l&rsquo;anacrusi non si conta) soprano e basso arrivano tre volte insieme, per moto retto, su una quinta o un&rsquo;ottava. Trovarle e dire a voce come vi arriva il soprano.</p>
     </div>
 
     <tac-brano youtube="bvoAsedF2cE" mappa-video='{"eventi":[[1,1443],[2,3926],[3,7009],[4,9743],[5,12993],[6,15726],[7,19459],[8,22309],[9,25376],[10,28277],[11,31459],[12,34393]],"durata":78000}' organico="voci" titolo="J. S. Bach, corale &laquo;Wie sch&ouml;n leuchtet der Morgenstern&raquo; BWV 1/6" metronomo esecutore="Holland Boys Choir · Netherlands Bach Collegium · Pieter Jan Leusink" partitura="../../_assets/spartiti/A03_bach_bwv1-corale_bga.png" riquadri='[[1,29.62,6.25,10.31,38.63],[2,39.93,6.25,11.54,38.63],[3,51.47,6.25,11.81,38.63],[4,63.28,6.25,11.13,38.63],[5,74.4,6.25,9.42,38.63],[6,83.82,6.25,9.42,38.63],[7,29.62,6.25,10.31,38.63],[8,39.93,6.25,11.54,38.63],[9,51.47,6.25,11.81,38.63],[10,63.28,6.25,11.13,38.63],[11,74.4,6.25,9.42,38.63],[12,83.82,6.25,9.42,38.63],[13,13.11,54.97,9.35,39.94],[14,22.46,54.97,7.99,39.94],[15,30.44,54.97,13.79,39.94],[16,44.23,54.97,9.76,39.94],[17,53.99,54.97,12.63,39.94],[18,66.62,54.97,8.46,39.94],[19,75.09,54.97,9.83,39.94],[20,84.91,54.97,8.6,39.94]]' inciso="../../_assets/incisioni/A03_bach_corale.mp3" mappa='{"durata":33358,"eventi":[[0,0],[1,938],[2,4688],[3,8438],[4,12188],[5,15938],[6,19688],[7,23438],[8,27188]]}'>
 <script type="application/json">{"titolo":"J. S. Bach, Corale «Wie schön leuchtet der Morgenstern» BWV 1/6","metro":"4/4","bpm":64,"battute":9,"anacrusi":1.0,"voci":[[[0.0,1.0,65],[1.0,0.5,67],[1.5,0.5,60],[2.0,0.5,65],[2.5,0.5,53],[3.0,0.5,57],[3.5,0.5,53],[4.0,0.5,57],[4.5,0.5,60],[5.0,0.25,65],[5.25,0.25,70],[5.5,0.25,69],[5.75,0.25,67],[6.0,0.5,65],[6.5,0.5,67],[7.0,1.0,69],[8.0,1.0,69],[9.0,0.5,65],[9.5,0.25,67],[9.75,0.25,69],[10.0,0.5,70],[10.5,0.25,72],[10.75,0.25,70],[11.0,0.5,69],[11.5,0.5,67],[12.0,0.5,67],[12.5,0.5,72],[13.0,0.5,72],[13.5,0.25,71],[13.75,0.25,69],[14.0,1.0,71],[15.0,1.0,72],[16.0,1.0,65],[17.0,0.5,65],[17.5,0.5,70],[18.0,0.5,69],[18.5,0.5,67],[19.0,0.5,65],[19.5,0.5,60],[20.0,0.5,65],[20.5,0.5,60],[21.0,0.5,60],[21.5,0.25,57],[21.75,0.25,53],[22.0,0.5,60],[22.5,0.25,60],[22.75,0.25,60],[23.0,1.0,57],[24.0,1.0,65],[25.0,0.5,67],[25.5,0.5,60],[26.0,0.5,65],[26.5,0.5,53],[27.0,0.5,57],[27.5,0.5,53],[28.0,0.5,57],[28.5,0.5,60],[29.0,0.25,65],[29.25,0.25,70],[29.5,0.25,69],[29.75,0.25,67],[30.0,0.5,65],[30.5,0.5,67],[31.0,1.0,69],[32.0,1.0,69]],[[0.0,1.0,65],[1.0,1.0,72],[2.0,1.0,69],[3.0,1.0,65],[4.0,1.0,72],[5.0,1.0,74],[6.0,1.0,74],[7.0,1.0,72],[8.0,1.0,72],[9.0,1.0,74],[10.0,1.0,76],[11.0,1.0,77],[12.0,1.0,76],[13.0,1.0,74],[14.0,1.0,74],[15.0,1.0,72],[16.0,1.0,69],[17.0,1.0,74],[18.0,1.0,72],[19.0,1.0,70],[20.0,1.0,69],[21.0,2.0,67],[23.0,1.0,65],[24.0,1.0,65],[25.0,1.0,72],[26.0,1.0,69],[27.0,1.0,65],[28.0,1.0,72],[29.0,1.0,74],[30.0,1.0,74],[31.0,1.0,72],[32.0,1.0,72]],[[0.0,1.0,60],[1.0,1.0,60],[2.0,1.0,60],[3.0,1.0,62],[4.0,1.0,65],[5.0,1.0,70],[6.0,1.0,70],[7.0,1.0,69],[8.0,1.0,69],[9.0,1.0,70],[10.0,1.0,70],[11.0,0.5,72],[11.5,0.5,74],[12.0,0.5,72],[12.5,0.5,67],[13.0,1.0,69],[14.0,1.0,67],[15.0,1.0,67],[16.0,1.0,65],[17.0,1.0,65],[18.0,1.0,64],[19.0,0.5,65],[19.5,0.5,67],[20.0,0.5,60],[20.5,0.5,65],[21.0,1.0,65],[22.0,1.0,64],[23.0,1.0,60],[24.0,1.0,60],[25.0,1.0,60],[26.0,1.0,60],[27.0,1.0,62],[28.0,1.0,65],[29.0,1.0,70],[30.0,1.0,70],[31.0,1.0,69],[32.0,1.0,69]],[[0.0,1.0,57],[1.0,1.0,55],[2.0,1.0,57],[3.0,1.0,57],[4.0,1.0,57],[5.0,1.0,53],[6.0,1.0,65],[7.0,1.0,65],[8.0,1.0,65],[9.0,1.0,65],[10.0,1.0,67],[11.0,0.5,65],[11.5,0.5,62],[12.0,1.0,64],[13.0,0.5,65],[13.5,0.5,64],[14.0,1.0,62],[15.0,1.0,64],[16.0,0.5,60],[16.5,0.5,57],[17.0,0.5,53],[17.5,0.5,55],[18.0,1.0,57],[19.0,0.5,57],[19.5,0.5,55],[20.0,0.5,57],[20.5,0.5,53],[21.0,0.5,55],[21.5,0.5,57],[22.0,1.0,58],[23.0,1.0,57],[24.0,1.0,57],[25.0,1.0,55],[26.0,1.0,57],[27.0,1.0,57],[28.0,1.0,57],[29.0,1.0,53],[30.0,1.0,65],[31.0,1.0,65],[32.0,1.0,65]],[[0.0,1.0,53],[1.0,1.0,52],[2.0,1.0,53],[3.0,1.0,50],[4.0,1.0,45],[5.0,0.5,46],[5.5,0.5,48],[6.0,0.5,50],[6.5,0.5,52],[7.0,1.0,53],[8.0,1.0,53],[9.0,1.0,58],[10.0,0.5,57],[10.5,0.5,55],[11.0,0.5,57],[11.5,0.5,59],[12.0,1.0,60],[13.0,1.0,53],[14.0,1.0,55],[15.0,1.0,48],[16.0,1.0,53],[17.0,1.0,46],[18.0,1.0,48],[19.0,0.5,50],[19.5,0.5,52],[20.0,1.0,53],[21.0,2.0,48],[23.0,1.0,41],[24.0,1.0,53],[25.0,1.0,52],[26.0,1.0,53],[27.0,1.0,50],[28.0,1.0,45],[29.0,0.5,46],[29.5,0.5,48],[30.0,0.5,50],[30.5,0.5,52],[31.0,1.0,53],[32.0,1.0,53]]]}</script>
 </tac-brano>
 
-    <p class="didascalia">Il moto retto fra le voci estreme &egrave; raro, e quando conduce a una consonanza perfetta il soprano vi giunge per grado: &egrave; la &laquo;prudenza&raquo; di cui scrive Piston, una consuetudine dei compositori che i trattati hanno poi codificato.</p>
+    <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="s6onj4vWQtUHxXpDS2DMWw==" iv="cSQTJewMXzv04xAW" dati="bVEwY0Elptc57X9fMG8wqyK3fz5q3Gn1fpS+fNH/FqIKIgJB5MntMzEfrYTB7V+gJrnshsC6zkoAsh96QXBMGnpfabSFNNMQpkDzXDxKDN+5q0USb52oCdlEAxAMEsmJ7pisiyzBVKO6gM1PD/SICZLdUCQkgPcT0ptpeC38o9p1T15tzsbLsj6HbyNa+I7Y0YglWyMC8qR79vjxwAx2CtVjbse+Odf7xNl/Ig9gwvgLzyHjbW3agoOrPPtucCoqyydCe94Cogq1rvdM/LdAJTTiH8BTW6iTP5g5diik4YiRAdhLxUYLA+aWMsvHa+TNGtcmUfWNY9ZBI4qFnYTrEZlkZUfWN92TKiGYtUUo6DXriNSREwhESEaHltnTjkNL+XsmjrOf79c9uIIpb4a9doC/bZ1s4ozwBQiaWjYAmY5HREn+UgTy2nmeM78guFSSS51metHactsRvK029HMmM6ohBUjLGkqI/o+t7gt01+nEC1M10VqXvIkdb7E/f/GIL7IN7i4Q2weE0EGg7FJKx+ViaacOgSFjRFhnyNZrKn+2lGuXACbre5H1Brg7rtCmQLumlhHJAgDUp0JypqWB0BzqE5IXkR6azGsGnbEOnoJiyVsZb07FMxW1Rt2Fv6WZsTn1JkANE4/y6tQOgi08ec5fcamYTL0s9YNnPlRYnXzXMoWiLNyBNinXLM8fcztPf4cZImdg5ac7nZ1ITHHArJqS0zYzYpHYAq/oLOa1MVEogw3Jua0F/KGE1rZAzGHQFG5aZp8u/lzkri3X61/DONw9XHxiMR/AN0hM5ZNlkwAxSmeo22/YlZL5ARUj6E795i2DczF8eTzHZNupOyjD/+PIC5fXNyIlJzhBWVvmSBftS/cOEk8PSptLqCGYnbNXMyaYfCF4z3BcPSnXa74qGbTcp+ShXrVHxxl2COmgqIE1OHhitIBhXgROLfNXune+ZAcQEtyGcrqrfRwilzUoy3+7OqbM2A=="></tac-chiuso>
   </div>
 </section>
 
@@ -273,11 +327,11 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <div class="colonne">
       <div class="riquadro definizione">
         <span class="etichetta">La definizione</span>
-        <p><strong>Quinta o ottava nascosta</strong> (coperta, diretta) &mdash; una consonanza perfetta raggiunta per moto retto da un intervallo di specie diversa. Si individua colmando il salto e osservando l&rsquo;ultimo intervallo.</p>
+        <p><strong>Quinta o ottava nascosta</strong> (coperta, diretta) &mdash; una consonanza perfetta raggiunta per moto retto da un intervallo di specie diversa. Si individua colmando i salti e osservando l&rsquo;ultimo intervallo.</p>
       </div>
       <div class="riquadro studio">
         <span class="etichetta">La regola</span>
-        <p>Esiste <strong>solo per moto retto</strong>; &egrave; vietata fra le <strong>voci estreme</strong> quando il soprano procede di salto, tollerata fra le parti interne. Si corregge invertendo la direzione del soprano.</p>
+        <p>Esiste <strong>solo per moto retto</strong>. Fra <strong>soprano e basso</strong> &egrave; da evitare quando il soprano procede di salto, ammessa quando procede per grado; fra le altre coppie si tollera. Si corregge invertendo la direzione del soprano.</p>
       </div>
     </div>
     <p class="didascalia">La regola descrive la scrittura vocale a quattro parti dei secoli XVII e XVIII; nella musica strumentale dell&rsquo;Ottocento e nel Novecento il moto parallelo diventa un mezzo espressivo. La lezione successiva tratta incroci e sorpassi.</p>
@@ -361,21 +415,21 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Scrivi un contrappunto di <strong>terza specie (quattro note contro una)</strong> sotto il canto fermo, in modo ionico (finale do): nove battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
       <tac-stave caption="Il canto fermo" clef="treble" time="4/4" notes="c/4:w | b/3:w | a/3:w | c/4:w | a/3:w | g/3:w | e/4:w | d/4:w | c/4:w" tempo="72" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-CP-U02-L3</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="74nIci1oFtDL0eFo+oDK5Q==" iv="gFRvjsr4wwnyXdza" dati="TL7+/ImUfoG7jmI/r3+1Q6oQn3fCeo3t0CjMl8hOad5OhMvj+eZ9tSEOIrGVQF3L2hm/muCDwr9ApPX5OUb8xi525yUE9k2keTLbHg4ikF+Vp7A97YilIrkDusr2TCvlxWEEk6Zijs9lF1GYrrN15LxiNi29Wsg/DKNFJ1eQwW3kuU3mdlEQe7V2qXtCSwbPM0ZngNsIa+2ZAXOht+QLK4J8qs8OSBz0sRzAf8xvq/OorRj7FRHN2QzLt/fYIDGsg70inFOGfk5+uCLMXg+TiPzgrj++lSvKGU9bO1SUH1Ysqc13RO8YL629g4mmdG2tcdo/mzZXmyLMsi1vaxOpmbjmVTpQ3PNjOeOtHPHVmtmFgdqdJyrTXhPYm86i4n8ZN787JzxYiXAuvQj/5U1fHdC/q2Wq2Lz8J4smdIV/UlnlLt49mH7yfQ9Cec4k94RUR2uXGc1Cn9ys6ESRZmagCqm+WYrNB39AKGsto2MlWrcIv3xcSRU/wRqoqsTxFSWh/g6DtXWZwSsF/kKXFOYrIKSPDA3e9zmRbl9SyBugjmgHWUA="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="61X6z9M7H94qLrXqpBLmGw==" iv="du7VwKO3xlXZNe1r" dati="nY/NJK/dhXYYH3NlAKdTT+63ij/9AwIW59Hh6xqLEuopOUF/0RwpME2bgQrAOl80TxXWSJhpgKl+dtJh82c/66nilzaffib6s0zGdXcQbz08v0S7SL2sRUKZOZJYFdDJOLwKQeoYcFXPft8EWT3+NlkepdFCnxyD/P+vPugk4KxLzxJ/L2oKvQxy2myj7yM0JmzHgUGX+FWHRWF/Hqv12DLeKthRiEIVh7a/jgD3hyCPE04jHLyEJMkqVha978hgPWelFvgNfGX2uTTWQsgm8HrwpISdHWdss9lReMLNCfcowJRG6pKv2Wy1WNEFTa+2l87wddo9OrPDmFK69rl3Ponqi188Efzaw7qfRa64C/F2kIUOCFeuRzeANYfWrkfhuCnU/7/vY+oCqY8ys7E2gqTcwWtc4n5brHqca+tHyXlNeJPCfCWjRpYlIqY6c3xICWCJ0lHObd0FZhcQgiW6kOQ+BjY99PHUIs5OBTCMHtJ+Nx3bhyP0Z1jWcvnG1rs8icAv1amdKYr+7Pyu86RNrC2k5cNCKuqNrlBZUeP36arEhCU="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C3-BD-U02-L3">
       <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C3-BD-U02-L3</span></span>
       <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: otto battute in 4/4, do maggiore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: I, IV e V, allo stato fondamentale e in primo rivolto.</p>
       <tac-stave caption="Il basso" clef="bass" keysig="C" time="4/4" notes="c/3:h f/3:h | c/3:w | g/2:w | e/2:w | f/2:h g/2:h | c/3:w | f/3:h g/3:h | c/4:w" tempo="60" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-BD-U02-L3</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="l8v6zcenwyQK6guUP/QF5w==" iv="VEHZt99hyf07CNcO" dati="zQIWi6JEJhdDnahQ8wAakNmEoBr00QaxZAHQMvr6B+hK09aOXKSifJfVdhfiqt1kPpwuwhGh4fdrX0Fc2aKWW1g22rQrasaZED4JWWqFxu0J10SUZ8rL8prQoS8u6iqOdR5dCmv9IVWghQimAEJCZ2B1hIOqIEvfLboSb6mr5XSFH1Sk4ld0NRO/MrSng8mf0pzPk+gtuuihCdlKbqnpLRF3sQXFxI2Vs7l/ComkiAK4362ASk5HvgUXSC8ESHW0jA6vz2XThfXDgf0n8xE6ggevO7iRpUZyq9RKdZXzP/sJJTN2VLRftH75B1D9yE7TGdw5pZdG8kwG+W4PLLS6sSOlb+18011F+GB18ClyXAUAGBtDgd4DlyPeTsYmyp7Lx6edA53oq2INt0RViz7PXuJdsN4QamNzyZq6SnNS0fQctbNNkUrCqr1T/Ko2p5Q9O8adi9blBMoBp/uo6oRpJDklr3KBNmT/bM2uTMsonim9+ZJOWprctBCW7X2c0Bdg9XndIAdxYF7eBX9npqeXHMQ732yb/REZvSytN/QNnFeQbuTboRrym7Ofcx39++1Ajlr/b+B9xeiu3WsSkVqhP+p84N+RkKtsMta82Pr59CXDIsy3zfi1BIKHQiWiGozwETNVLSqjJ9Db2cbAo9cVzF8fwTPVjinEqNQHPEiDWRAiYLqyjb6LjHnYk9CxD1EhMqRyWbxAnOTLWf8S77WyCsHq7mmEMWRVGFs="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="DxrB7+Z3I2gMWBwunTuCPQ==" iv="ls39OMTQuUFZjcf3" dati="GIkz/lXjMEKVka5jKBB8CTOWZnUaBgX1kqa4yiDukjxB5Z3GmKQZ2ZkwzB8U4g0GaaswA0Oo9gVw99PLKcWHlIwD39z5j+WbwL+Ab4YzlCojZD/4LYY9Aha30sDlNGRH9jnC1rwD2jMFnMT1yUyuEncPPTWgrQUsgaPSdDXY6IBv5NYo+xYAY9f3botESWx/Xjz8L//AeOslL4rF/mFIQfvyPimwXUt2eAYnAPRyClbJakXQYdhbFu44Xf3vB3Rpn/gSwyeGbxPUmWuYI5Bh0dqEvBq2UiawOIMCOKQmqtKk7oGob08OPDudfLpixTPGdJ3KMp9qotWh0gWsdVXfpFjkt20TN2F5prk3LGx7gvH9o3Lslm0antqlV4iRIzbnHfKKrXLbbHOxrRf1G8NfjUp0l2Gas6Uu9mzIw8ebU5rY7s5Dfb5vsld96IdE9ZbBGESIiwzRs1Vu4LYBZg3jw4Bq47nW/JjsDOcfVdE34h8SRyw2PpieePHgZq2VNdiI3+7MzTsvQ+nu30SZAZrvzJziqpDLnZkzPIMmT8nqgww9I9gHJBULLlUusy6LKKT/e1KMkvnfUVwA3si2e0AXOKQK+RQ3JD0YhqYg7cNlEjEMgL3kVtCH7KqiNARXSg1Mzg3ATP45CsJkEym2JrWcb2k9RiwyOcI28gnsMrxem89iD+b6kQ5oSVM/BM7NZMbBDsvyPeN4N7l4BuMbCjOCNy1iM8y9A9uLZUk="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C3-CD-U02-L3">
       <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C3-CD-U02-L3</span></span>
       <p>Armonizza a quattro parti il <strong>canto dato</strong>: otto battute in 4/4, fa maggiore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: I, IV e V, allo stato fondamentale e in primo rivolto.</p>
       <tac-stave caption="Il canto dato" clef="treble" keysig="F" time="4/4" notes="c/5:w | b/4:h c/5:h | c/5:h b/4:h | a/4:w | g/4:w | f/4:w | f/4:h e/4:h | f/4:w" tempo="66" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-CD-U02-L3</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="RMPHdrBB5SOmhCNMpy+Xyw==" iv="MG4Ri018eTdSioGy" dati="XCOeOZCIZxar8bmwAjFE+zTJkPPzWFLYoz6CIspM2F3V8KMESCK/dZ1vd1b4VgsAGdFJDjV1AXr8uueNUuGwEye6ifbEf5tToNnbfrhu4DL0GkyR+A9HLhQKmu4I9elkMJl5ilv+6p1kNeiYwxC7bg6cPho7bZXsYDmC9PyjUNsq8kxgNp1Jax5CbfpBPeApJY4Q2T9Lesg0gU+m1D3mvYfJ6Taxm3iz2n14hWjeXs6TjH3JHoRd98ZzMjD+16igAEqO0cb2b/z34DrJlXKLDGjbNHkl8GyzregCVm6Ewzcjms9L/SPQg2tjLF5rQMmGZFJ6Qns2csm84dXk1krKLFckBIfmB9FwDLhNXdM9xjIpQlMztn4ufBQxuVC+j6wGmOW3wPLuGL5IyirryMB1wZ+gUwhPATU44eUvGQRApbA/GrjZ+JJUbRLNgTbnaYBvvO7AtpKt6dNOiKMEmeV0hp3467zpiPKDWC0r58YkwLNCjnVwT1n6j1uek+4Y4+Y9seEGlqd5UcK99HHG3vMlB1pJ54HTjmaLvH7KcGIEsamU9jXl5i+mAERysOfUQQeTj9wet2g87IGM1lOnMPC8GRhZoBaP9DmjTiul9Jo0XmwF38B2Qc0CiztsMoQh6hfKuQVbwpxSydqtJLSulXqFMP1li3zPqTTMc/yu5CbJ/qrT4NVNHele9jKE/PSsB0v5JPJp89IFnUGogRbCWjBykK6VFhu83pI5Vhz8vg=="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="+dO4OPpzqXPjMA6J2/Qx8Q==" iv="5BhfxzIiQYuMFLGr" dati="BDQkE2oFD4pB1XZjD2WtS+PiO3VAfwK5WwN3P1W+Ogmy5DldjOLk9OQyvxvoJJmyKe58n+jiQuJ/JoC4yyMyDzAMHFqvEp1L6uGE2svhN0bYNkmkOUkDk7NbkfcS1nSM5e3K66D7jdSMtcCq092p4L+MA3jlz/TJ2AJy8gkSJgCzR1Qw80ptpxWxtAhxTicAD6BFckBqs0LXCPLQE4zP7hWxyNdmXZIYDKdVZHo0mNNIVUvAmtkW3AWlLuy7sE5iNN3Zzgy0tn6vQv+rdqQgDcoYeaiIyBHkz4UKpjOEu3z8euDK0YFGksnRCEusGUSr6IcCIfH+6IcFnup+34ekYYilKKayP0XNnnRw4PNcGa7AxsdyvXObnSW+ra/B2/yP5dybXO5j1W+byV6bAobmcmlpGT+Rw/6MVNnGJy8HXp1iwACv1/zrJutlrzXm9zR/PY+F/MNqEkx+hVcy31YV8CSnLKwMMApoJLLTNdvAIcqfrwtW2FmHmTnyn1xxcvsjkYU3M9PhyfdQO0plvMINi4y5q0hW1bGAKQzXXQucw4v4a4n5XuE5Z5638L5nJijAGXqegFaUOZ8rODMBk0PTEgvH5ecrCECqkA4POYRTh5a9mWRfiDX6rnOg58hhrZ/6to4LO6b9j+oYZCCP7EqYjQLRS4UzLdJWIQlOXapa8QSWgni2O2rAMcYXBENq6lvo0tV7nI4IyqGW9qN0S6RhKxKGbFKkMkoEdUV1WA=="></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>

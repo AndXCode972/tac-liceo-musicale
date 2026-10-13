@@ -2606,15 +2606,28 @@
           g.appendChild(p);
         }
 
-        if (s.testo) {
+        /* ⚠ 13 ottobre 2026, Andrea (quinta): «basta la partitura già con i
+           segni», niente «Segna» a passi. Con tutti i segni accesi insieme le
+           etichette scritte DENTRO l'SVG, piccole e scalate con il rigo, si
+           sovrapponevano e non si leggevano («mimaggiore:ilsol»). Sul rigo
+           adesso c'è solo il numero del segno, in un tondino; l'etichetta
+           intera sta sotto, nella legenda in testo normale (o, a passi,
+           nella riga che dice il segno acceso). */
+        {
+          const cx = (sx + dx) / 2, cy = su - (solaNota ? 32 : 27);
+          const o = document.createElementNS(NS, 'circle');
+          o.setAttribute('cx', cx); o.setAttribute('cy', cy); o.setAttribute('r', '9');
+          o.setAttribute('fill', 'var(--segno, #b45309)');
+          g.appendChild(o);
           const t = document.createElementNS(NS, 'text');
-          t.setAttribute('x', (sx + dx) / 2);
-          t.setAttribute('y', su - (solaNota ? 30 : 25));
+          t.setAttribute('x', cx);
+          t.setAttribute('y', cy + 4.5);
           t.setAttribute('text-anchor', 'middle');
-          t.setAttribute('font-size', '13');
-          t.setAttribute('font-weight', '600');
-          t.setAttribute('fill', 'var(--segno, #b45309)');
-          t.textContent = s.testo;
+          t.setAttribute('font-size', '12.5');
+          t.setAttribute('font-weight', '700');
+          t.setAttribute('font-family', 'Helvetica, Arial, sans-serif');
+          t.setAttribute('fill', '#fff');
+          t.textContent = String(k + 1);
           g.appendChild(t);
         }
 
@@ -2627,6 +2640,38 @@
 
       this._gruppiSegni = gruppi;
       if (!gruppi.length) return;
+
+      /* la legenda dei segni, sotto il rigo: «1 · etichetta» */
+      if (!document.getElementById('tac-stile-segni')) {
+        const st = document.createElement('style');
+        st.id = 'tac-stile-segni';
+        st.textContent =
+          '.tac-legenda-segni{list-style:none;margin:.35rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.2rem 1.4rem;font-size:.9em;line-height:1.35}' +
+          '.tac-legenda-segni li{display:flex;gap:.45rem;align-items:baseline}' +
+          '.tac-legenda-segni .n{flex:none;display:inline-flex;align-items:center;justify-content:center;width:1.35em;height:1.35em;border-radius:50%;background:var(--segno,#b45309);color:#fff;font-weight:700;font-size:.85em}' +
+          /* 13 ottobre 2026: la descrizione in prosa delle analisi della quinta
+             va su due colonne negli schermi larghi, perché la slide resti
+             nello schermo; su uno schermo stretto, una colonna sola */
+          '.analisi-prosa{column-count:2;column-gap:2.2rem;font-size:.95em;line-height:1.5}' +
+          '.analisi-prosa p{margin:0 0 .6em}' +
+          '@media (max-width:900px){.analisi-prosa{column-count:1}}';
+        document.head.appendChild(st);
+      }
+      this.querySelectorAll(':scope > .tac-legenda-segni').forEach(x => x.remove());
+      if (!this.hasAttribute('a-passi') && this._segni.some(s => s.testo)) {
+        const leg = document.createElement('ol');
+        leg.className = 'tac-legenda-segni';
+        gruppi.forEach((g, i) => {
+          const li = document.createElement('li');
+          const n = document.createElement('span');
+          n.className = 'n'; n.textContent = g.getAttribute('data-segno');
+          const tx = document.createElement('span');
+          tx.textContent = etichette[i];
+          li.appendChild(n); li.appendChild(tx);
+          leg.appendChild(li);
+        });
+        this.appendChild(leg);
+      }
 
       /* ══ A PASSI ══
          Senza `a-passi` i segni ci sono tutti e la slide è una tavola
@@ -2652,7 +2697,7 @@
       let quanti = 0;
       const aggiorna = () => {
         gruppi.forEach((g, i) => { g.style.display = i < quanti ? '' : 'none'; });
-        dice.textContent = quanti ? etichette[quanti - 1] : '';
+        dice.textContent = quanti ? (quanti + ' · ' + etichette[quanti - 1]) : '';
         avanti.innerHTML = quanti >= gruppi.length
           ? '&#8635; Da capo'
           : '&#9654; Segna (' + (quanti + 1) + ' di ' + gruppi.length + ')';
@@ -3156,9 +3201,10 @@
       S('Accento', '');
       P('Seconda volta: dove torna l\u2019accento? Conta in 2, in 3 o in 4', null, 'tutto', 8);
       S('Battute', '');
-      P('Terza volta: conta le battute', null, 'tutto', 10);
-      S('Scrivi', '');
-      P('Scrivi sul quaderno il metro e quante battute hai contato', null, null, 15);
+      /* 13 ottobre 2026, Andrea: «le pause devono stare soltanto dopo
+         l'esecuzione, non dopo le istruzioni». La consegna di scrivere sta
+         nel testo della terza esecuzione, e il tempo per scrivere la segue. */
+      P('Terza volta: conta le battute, poi scrivi sul quaderno il metro e quante battute hai contato', null, 'tutto', 25);
       S('Verifica', '');
       P('La verifica: tutto, ancora una volta', 'd09-verifica', 'tutto', 4);
       P('Fine. Si controlla in classe', 'd11-chiusura', null, 0);
@@ -3210,7 +3256,7 @@
 
     let stima = 0;
     passi.forEach(p => {
-      stima += p.pausa + 4;
+      stima += (p.suono ? p.pausa : 0) + 4;
       if (p.suono === 'tutto') stima += n * battuta;
       else if (Array.isArray(p.suono)) stima += 2 * battuta;
     });
@@ -3437,7 +3483,10 @@
         if (p.suono === 'rif') { if (rif && !c.stop) { rif.suona(null, 1, null, null); await aspettaRigo(rif, c); } }
         else if (p.suono === 'tutto') await suonaTratto(1, n, c);
         else if (Array.isArray(p.suono)) await suonaTratto(p.suono[0], p.suono[1], c);
-        if (p.pausa) await dorme(p.pausa, c);
+        /* ⚠ 13 ottobre 2026, Andrea: «per i dettati le pause devono stare
+           soltanto dopo l'esecuzione, non dopo le istruzioni». Un passo che
+           non suona niente (l'apertura, la chiusura) non aspetta. */
+        if (p.pausa && p.suono) await dorme(p.pausa, c);
       }
       delete fase.dataset.resta;
       if (!c.stop) { fase.textContent = 'Fatto. Si corregge in classe, dal foglio del docente.'; segnoAcceso(-1); }

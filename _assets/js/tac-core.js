@@ -8367,6 +8367,12 @@
           else if (l.stato === 'pronta')
             h += '<a class="tac-voce" href="' + dove + '">' +
                  '<b>' + l.n + '.</b> ' + l.titolo + '</a>';
+          /* 14 ottobre 2026, Andrea: le verifiche scritte non hanno una
+             pagina, «basta che sia segnalato in calendario». La riga resta,
+             senza collegamento. */
+          else if (l.stato === 'verifica')
+            h += '<div class="tac-voce vuota"><b>' + l.n + '.</b> ' + l.titolo +
+                 '<span class="segno">verifica scritta &middot; vedi il calendario</span></div>';
           else
             h += '<div class="tac-voce vuota"><b>' + l.n + '.</b> ' + l.titolo +
                  '<span class="segno">in preparazione</span></div>';

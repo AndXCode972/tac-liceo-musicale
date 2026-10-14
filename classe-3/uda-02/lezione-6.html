@@ -112,6 +112,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
      che la condotta ha i vincoli veri.
      ─────────────────────────────────────────────────────────────── 
 -->
+<!-- Tarata il 13/10/2026 per l'ora con la coda d'interrogazione (20 + 30 minuti; «il resto diventa lavoro»). Primi 20 minuti guidati: le due parti (1), l'ordine di correzione con le sigle, spostato prima del compito perché il compito lo usa (3), il compito da correggere, cronometrato (5 di attività + 2 di correzione alla lavagna), il tenore da solo (2), il corale BWV 1/6 contato sulle prime sei battute (6), la sintesi (1). Poi 30 minuti da soli: riscrivere il compito sullo stesso basso (15; la vecchia slide «La correzione» è diventata la sua soluzione chiusa) e correggere e riscrivere un secondo compito in sol maggiore (15). «La distribuzione del movimento» va fra le letture a casa. Il compito e la correzione usavano vi e ii (bb. 5-6): riscritti con I, IV, V (I-IV-V-I-IV-I-V-I), stessi tipi di errore; aggiunte le sigle 8› e la regola delle consecutive per moto contrario (decisione del 13/10); dichiarati nell'analisi anche gli errori che c'erano e non erano detti (nota comune lasciata, nascoste tollerate, le due ammesse fra soprano e basso). Conti del corale sulla partitura del corpus music21; compiti e soluzioni controllati con qp.py. Attività: prima 22 minuti (10 + 12), ora 41 (5 + 6 guidati, 15 + 15 da soli). -->
 <section class="slide attiva copertina foto" data-titolo="Copertina"
          style="--foto: url('../../_assets/copertine/c3u2-lezione-6.jpg?v=7c2feef4');
                 --cop-a:#0f766e; --cop-b:#0d9488; --cop-c:#2dd4bf">
@@ -124,7 +125,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <cite><em>Il linguaggio della musica</em>, 3&deg;&nbsp;anno, p.&nbsp;18</cite>
     </blockquote>
     <div class="meta-copertina">
-      <span>1 ora</span>
+      <span>20 minuti</span>
       <span>Armonia</span>
       <span>Correzione &middot; Analisi della condotta</span>
       <span class="coda-orali">Interrogazioni &middot; teoria e armonia</span>
@@ -150,88 +151,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
         <p>Un corale, da osservare non per cercarvi errori ma per misurare come si muove ciascuna voce.</p>
       </div>
     </div>
-    <p class="didascalia">Le due attivit&agrave; sono complementari: la correzione insegna a riconoscere gli errori, l&rsquo;analisi mostra che l&rsquo;obiettivo della condotta non &egrave; soltanto la loro assenza. L&rsquo;esercizio da correggere &egrave; stato costruito per la lezione.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il compito" data-in-classe>
-  <div class="slide-interna">
-    <h2>L&rsquo;esercizio da correggere</h2>
-    <tac-stave paralleli-voluti="esercizio di correzione: gli errori sono intenzionali" time="4/4"
-               caption="Do maggiore: I &ndash; IV &ndash; V &ndash; I &ndash; vi &ndash; ii &ndash; V &ndash; I, con errori di condotta"
-               soprano="c/5:w | a/4:w | b/4:w | c/5:w | a/4:w | a/4:w | b/4:w | g/4:w"
-               contralto="g/4:w | f/4:w | g/4:w | e/4:w | e/4:w | f/4:w | g/4:w | e/4:w"
-               tenore="e/4:w | c/4:w | d/4:w | g/3:w | c/4:w | d/4:w | d/4:w | c/4:w"
-               basso="c/3:w | f/2:w | g/2:w | c/3:w | a/2:w | d/3:w | g/2:w | c/3:w"
-               width="900" tempo="52" play></tac-stave>
-    <div class="riquadro compito">
-      <span class="etichetta">Individuale &middot; 10 minuti</span>
-      <p>Individuare gli errori seguendo l&rsquo;ordine di controllo: prima soprano e basso, poi le tre coppie adiacenti, infine le due coppie lontane; per ogni collegamento verificare anche il moto complessivo delle quattro voci e la risoluzione della sensibile. Annotare per ciascun errore le battute, le voci e il tipo.</p>
-    </div>
-    <tac-chiuso invito="L&rsquo;analisi del compito" libero>
-      <p><strong>Bb.&nbsp;1&ndash;2</strong> &mdash; tutte e quattro le voci scendono: moto retto generale; fra tenore e basso una quinta raggiunta per moto retto (quinta nascosta, tollerata nelle parti interne).<br>
-      <strong>Bb.&nbsp;2&ndash;3</strong> &mdash; tutte e quattro le voci salgono di grado: <strong>ottave parallele</strong> contralto&ndash;basso (fa&ndash;fa, sol&ndash;sol) e <strong>quinte parallele</strong> tenore&ndash;basso (fa&ndash;do, sol&ndash;re). &Egrave; l&rsquo;errore principale.<br>
-      <strong>Bb.&nbsp;3&ndash;4</strong> &mdash; il tenore salta di quinta (re&ndash;sol) e forma con il basso quinte per moto contrario (sol&ndash;re, do&ndash;sol).<br>
-      <strong>Bb.&nbsp;4&ndash;5</strong> &mdash; soprano e basso scendono entrambi di terza da un&rsquo;ottava (do&ndash;do) a un&rsquo;altra (la&ndash;la): <strong>ottave parallele</strong> fra le voci estreme.<br>
-      <strong>Bb.&nbsp;7&ndash;8</strong> &mdash; la sensibile (si) al soprano scende al sol invece di salire alla tonica.</p>
-    </tac-chiuso>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il tenore da solo">
-  <div class="slide-interna">
-    <h2>La prova del canto: il tenore</h2>
-    <tac-stave clef="treble" time="4/4"
-               caption="Il tenore dell&rsquo;esercizio, da solo: mi &ndash; do &ndash; re &ndash; sol &ndash; do &ndash; re &ndash; re &ndash; do"
-               notes="e/4:w | c/4:w | d/4:w | g/3:w | c/4:w | d/4:w | d/4:w | c/4:w"
-               width="760" tempo="60" play slow></tac-stave>
-    <p>Terza discendente, seconda ascendente, quinta discendente, quarta ascendente: nelle prime cinque note la linea alterna salti e gradi senza una direzione. Non &egrave; una parte, ma il residuo di decisioni prese accordo per accordo.</p>
-    <p class="didascalia">Questo difetto resterebbe anche correggendo tutti i divieti. Si rivela con la verifica della lezione precedente, che non richiede alcuna regola: si canta ogni voce. La domanda da porsi per ogni movimento anomalo &egrave; sempre la stessa: perch&eacute; questa voce &egrave; andata in quel punto?</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La correzione">
-  <div class="slide-interna">
-    <h2>Lo stesso basso, una condotta corretta</h2>
-    <tac-stave time="4/4"
-               caption="Do maggiore: I &ndash; IV &ndash; V &ndash; I &ndash; vi &ndash; ii &ndash; V &ndash; I, con lo stesso basso"
-               soprano="c/5:w | c/5:w | b/4:w | c/5:w | c/5:w | d/5:w | d/5:w | e/5:w"
-               contralto="g/4:w | a/4:w | g/4:w | g/4:w | a/4:w | a/4:w | b/4:w | c/5:w"
-               tenore="e/4:w | f/4:w | d/4:w | e/4:w | e/4:w | f/4:w | g/4:w | g/4:w"
-               basso="c/3:w | f/2:w | g/2:w | c/3:w | a/2:w | d/3:w | g/2:w | c/3:w"
-               width="900" tempo="52" play></tac-stave>
-    <p class="didascalia">Il tenore procede mi&ndash;fa&ndash;re&ndash;mi&ndash;mi&ndash;fa&ndash;sol&ndash;sol: gradi congiunti e note ripetute, una sola terza. Il risultato si ottiene con la procedura gi&agrave; nota: nota comune tenuta, movimento minimo alla nota pi&ugrave; vicina, raddoppio verificato dopo. Le parti interne cantabili non si costruiscono con artifici: derivano dal movimento minimo.</p>
-  </div>
-</section>
-
-<section class="slide perc" data-titolo="Il corale">
-  <div class="slide-interna">
-    <h2>Seconda parte: la condotta in un corale</h2>
-    <div class="riquadro compito">
-      <span class="etichetta">A quattro gruppi &middot; 12 minuti</span>
-      <p>Ogni gruppo segue una delle quattro voci (la parte di corno non si considera) e conta, nota per nota rispetto alla precedente: i movimenti per grado congiunto, i salti, le note ripetute. I numeri si riportano alla lavagna in una tabella unica.</p>
-    </div>
-
-    <tac-brano youtube="bvoAsedF2cE" mappa-video='{"eventi":[[1,1443],[2,3926],[3,7009],[4,9743],[5,12993],[6,15726],[7,19459],[8,22309],[9,25376],[10,28277],[11,31459],[12,34393]],"durata":78000}' organico="voci" titolo="J. S. Bach, corale &laquo;Wie sch&ouml;n leuchtet der Morgenstern&raquo; BWV 1/6" metronomo esecutore="Holland Boys Choir · Netherlands Bach Collegium · Pieter Jan Leusink" partitura="../../_assets/spartiti/A03_bach_bwv1-corale_bga.png" riquadri='[[1,29.62,6.25,10.31,38.63],[2,39.93,6.25,11.54,38.63],[3,51.47,6.25,11.81,38.63],[4,63.28,6.25,11.13,38.63],[5,74.4,6.25,9.42,38.63],[6,83.82,6.25,9.42,38.63],[7,29.62,6.25,10.31,38.63],[8,39.93,6.25,11.54,38.63],[9,51.47,6.25,11.81,38.63],[10,63.28,6.25,11.13,38.63],[11,74.4,6.25,9.42,38.63],[12,83.82,6.25,9.42,38.63],[13,13.11,54.97,9.35,39.94],[14,22.46,54.97,7.99,39.94],[15,30.44,54.97,13.79,39.94],[16,44.23,54.97,9.76,39.94],[17,53.99,54.97,12.63,39.94],[18,66.62,54.97,8.46,39.94],[19,75.09,54.97,9.83,39.94],[20,84.91,54.97,8.6,39.94]]' inciso="../../_assets/incisioni/A03_bach_corale.mp3" mappa='{"durata":33358,"eventi":[[0,0],[1,938],[2,4688],[3,8438],[4,12188],[5,15938],[6,19688],[7,23438],[8,27188]]}'>
-<script type="application/json">{"titolo":"J. S. Bach, Corale «Wie schön leuchtet der Morgenstern» BWV 1/6","metro":"4/4","bpm":64,"battute":9,"anacrusi":1.0,"voci":[[[0.0,1.0,65],[1.0,0.5,67],[1.5,0.5,60],[2.0,0.5,65],[2.5,0.5,53],[3.0,0.5,57],[3.5,0.5,53],[4.0,0.5,57],[4.5,0.5,60],[5.0,0.25,65],[5.25,0.25,70],[5.5,0.25,69],[5.75,0.25,67],[6.0,0.5,65],[6.5,0.5,67],[7.0,1.0,69],[8.0,1.0,69],[9.0,0.5,65],[9.5,0.25,67],[9.75,0.25,69],[10.0,0.5,70],[10.5,0.25,72],[10.75,0.25,70],[11.0,0.5,69],[11.5,0.5,67],[12.0,0.5,67],[12.5,0.5,72],[13.0,0.5,72],[13.5,0.25,71],[13.75,0.25,69],[14.0,1.0,71],[15.0,1.0,72],[16.0,1.0,65],[17.0,0.5,65],[17.5,0.5,70],[18.0,0.5,69],[18.5,0.5,67],[19.0,0.5,65],[19.5,0.5,60],[20.0,0.5,65],[20.5,0.5,60],[21.0,0.5,60],[21.5,0.25,57],[21.75,0.25,53],[22.0,0.5,60],[22.5,0.25,60],[22.75,0.25,60],[23.0,1.0,57],[24.0,1.0,65],[25.0,0.5,67],[25.5,0.5,60],[26.0,0.5,65],[26.5,0.5,53],[27.0,0.5,57],[27.5,0.5,53],[28.0,0.5,57],[28.5,0.5,60],[29.0,0.25,65],[29.25,0.25,70],[29.5,0.25,69],[29.75,0.25,67],[30.0,0.5,65],[30.5,0.5,67],[31.0,1.0,69],[32.0,1.0,69]],[[0.0,1.0,65],[1.0,1.0,72],[2.0,1.0,69],[3.0,1.0,65],[4.0,1.0,72],[5.0,1.0,74],[6.0,1.0,74],[7.0,1.0,72],[8.0,1.0,72],[9.0,1.0,74],[10.0,1.0,76],[11.0,1.0,77],[12.0,1.0,76],[13.0,1.0,74],[14.0,1.0,74],[15.0,1.0,72],[16.0,1.0,69],[17.0,1.0,74],[18.0,1.0,72],[19.0,1.0,70],[20.0,1.0,69],[21.0,2.0,67],[23.0,1.0,65],[24.0,1.0,65],[25.0,1.0,72],[26.0,1.0,69],[27.0,1.0,65],[28.0,1.0,72],[29.0,1.0,74],[30.0,1.0,74],[31.0,1.0,72],[32.0,1.0,72]],[[0.0,1.0,60],[1.0,1.0,60],[2.0,1.0,60],[3.0,1.0,62],[4.0,1.0,65],[5.0,1.0,70],[6.0,1.0,70],[7.0,1.0,69],[8.0,1.0,69],[9.0,1.0,70],[10.0,1.0,70],[11.0,0.5,72],[11.5,0.5,74],[12.0,0.5,72],[12.5,0.5,67],[13.0,1.0,69],[14.0,1.0,67],[15.0,1.0,67],[16.0,1.0,65],[17.0,1.0,65],[18.0,1.0,64],[19.0,0.5,65],[19.5,0.5,67],[20.0,0.5,60],[20.5,0.5,65],[21.0,1.0,65],[22.0,1.0,64],[23.0,1.0,60],[24.0,1.0,60],[25.0,1.0,60],[26.0,1.0,60],[27.0,1.0,62],[28.0,1.0,65],[29.0,1.0,70],[30.0,1.0,70],[31.0,1.0,69],[32.0,1.0,69]],[[0.0,1.0,57],[1.0,1.0,55],[2.0,1.0,57],[3.0,1.0,57],[4.0,1.0,57],[5.0,1.0,53],[6.0,1.0,65],[7.0,1.0,65],[8.0,1.0,65],[9.0,1.0,65],[10.0,1.0,67],[11.0,0.5,65],[11.5,0.5,62],[12.0,1.0,64],[13.0,0.5,65],[13.5,0.5,64],[14.0,1.0,62],[15.0,1.0,64],[16.0,0.5,60],[16.5,0.5,57],[17.0,0.5,53],[17.5,0.5,55],[18.0,1.0,57],[19.0,0.5,57],[19.5,0.5,55],[20.0,0.5,57],[20.5,0.5,53],[21.0,0.5,55],[21.5,0.5,57],[22.0,1.0,58],[23.0,1.0,57],[24.0,1.0,57],[25.0,1.0,55],[26.0,1.0,57],[27.0,1.0,57],[28.0,1.0,57],[29.0,1.0,53],[30.0,1.0,65],[31.0,1.0,65],[32.0,1.0,65]],[[0.0,1.0,53],[1.0,1.0,52],[2.0,1.0,53],[3.0,1.0,50],[4.0,1.0,45],[5.0,0.5,46],[5.5,0.5,48],[6.0,0.5,50],[6.5,0.5,52],[7.0,1.0,53],[8.0,1.0,53],[9.0,1.0,58],[10.0,0.5,57],[10.5,0.5,55],[11.0,0.5,57],[11.5,0.5,59],[12.0,1.0,60],[13.0,1.0,53],[14.0,1.0,55],[15.0,1.0,48],[16.0,1.0,53],[17.0,1.0,46],[18.0,1.0,48],[19.0,0.5,50],[19.5,0.5,52],[20.0,1.0,53],[21.0,2.0,48],[23.0,1.0,41],[24.0,1.0,53],[25.0,1.0,52],[26.0,1.0,53],[27.0,1.0,50],[28.0,1.0,45],[29.0,0.5,46],[29.5,0.5,48],[30.0,0.5,50],[30.5,0.5,52],[31.0,1.0,53],[32.0,1.0,53]]]}</script>
-</tac-brano>
-
-    <tac-chiuso invito="I numeri del corale" libero>
-      <p>Su tutto il corale: <strong>soprano</strong> 41 gradi, 17 salti, 11 ripetute &middot; <strong>contralto</strong> 45 gradi, 17 salti, 26 ripetute &middot; <strong>tenore</strong> 44 gradi, 21 salti, 27 ripetute &middot; <strong>basso</strong> 50 gradi, 39 salti, 3 ripetute (conteggio sulla partitura del corpus music21).</p>
-      <p>Il basso &egrave; la voce con la proporzione di salti pi&ugrave; alta, circa due movimenti su cinque, ma procede anch&rsquo;esso pi&ugrave; per grado che per salto; le parti interne si distinguono per il numero di note ripetute, quasi nullo nel basso. &Egrave; la descrizione del libro: il basso ha &laquo;un numero di salti maggiore rispetto a tutte le altre voci&raquo;, le parti interne &laquo;una presenza consistente di suoni ripetuti&raquo; (p.&nbsp;18).</p>
-    </tac-chiuso>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La distribuzione del movimento">
-  <div class="slide-interna">
-    <h2>La distribuzione del movimento</h2>
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa mostrano i numeri</span>
-      <p>Il movimento, in una scrittura a quattro parti, &egrave; una risorsa che si distribuisce: il basso definisce l&rsquo;armonia e si muove per salti verso le fondamentali; le parti interne completano l&rsquo;accordo e restano il pi&ugrave; possibile ferme; il soprano conduce la melodia.</p>
-    </div>
-    <p>I salti delle parti interne non sono casuali: compaiono di norma dove la voce, restando ferma o procedendo per grado, uscirebbe dal proprio registro o produrrebbe un raddoppio scorretto. Il salto &egrave; il costo di un problema maggiore, e si assegna alla voce che pu&ograve; sostenerlo.</p>
-    <p class="didascalia">Il confronto con il proprio esercizio &egrave; immediato: se una parte interna ha il profilo del basso, la condotta va rivista anche in assenza di divieti violati.</p>
+    <p class="didascalia">La correzione insegna a riconoscere gli errori; il corale mostra che l&rsquo;obiettivo della condotta non &egrave; soltanto la loro assenza. L&rsquo;esercizio &egrave; stato costruito per la lezione. Durante le interrogazioni si lavora da soli su due compiti.</p>
   </div>
 </section>
 
@@ -241,16 +161,124 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <div class="riquadro procedura">
       <span class="etichetta">Sei passi</span>
       <p><strong>1.</strong> Si cantano le quattro voci, una per volta.<br>
-      <strong>2.</strong> Soprano e basso, collegamento per collegamento: parallele, poi nascoste dove il moto &egrave; retto.<br>
+      <strong>2.</strong> Soprano e basso, collegamento per collegamento: quinte e ottave di seguito, poi nascoste dove il moto &egrave; retto.<br>
       <strong>3.</strong> Le tre coppie adiacenti: soprano&ndash;contralto, contralto&ndash;tenore, tenore&ndash;basso.<br>
       <strong>4.</strong> Le due coppie lontane: soprano&ndash;tenore e contralto&ndash;basso, le pi&ugrave; trascurate.<br>
-      <strong>5.</strong> L&rsquo;ordine delle altezze in ogni accordo, per gli incroci.<br>
-      <strong>6.</strong> I raddoppi e la risoluzione delle note obbligate, in particolare la sensibile.</p>
+      <strong>5.</strong> L&rsquo;ordine delle altezze in ogni accordo, per gli incroci, e i sorpassi nei collegamenti.<br>
+      <strong>6.</strong> I raddoppi e la risoluzione della sensibile.</p>
     </div>
     <div class="riquadro studio">
       <span class="etichetta">Le sigle</span>
-      <p>5// quinte parallele &middot; 8// ottave parallele &middot; 5&rsaquo; quinta nascosta &middot; &times; incrocio &middot; &gt;&lt; sorpasso &middot; S&darr; sensibile che scende &middot; R raddoppio da rivedere &middot; V? voce non cantabile. Ogni sigla indica battuta e voci: &laquo;8// bb. 2&ndash;3 contralto&ndash;basso&raquo;.</p>
+      <p>5// quinte e 8// ottave di seguito, parallele o per moto contrario: sempre errore &middot; 5&rsaquo; quinta e 8&rsaquo; ottava nascosta: errore solo fra soprano e basso col soprano di salto &middot; &times; incrocio &middot; &gt;&lt; sorpasso &middot; S&darr; sensibile che scende &middot; R raddoppio da rivedere &middot; V? voce non cantabile. Ogni sigla indica battute e voci: &laquo;8// bb. 2&ndash;3 contralto&ndash;basso&raquo;.</p>
     </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il compito" data-in-classe>
+  <div class="slide-interna">
+    <h2>L&rsquo;esercizio da correggere</h2>
+    <tac-stave paralleli-voluti="esercizio di correzione: gli errori sono intenzionali" clef="treble" time="4/4"
+               caption="Do maggiore: I &ndash; IV &ndash; V &ndash; I &ndash; IV &ndash; I &ndash; V &ndash; I, con errori di condotta"
+               soprano="c/5:w | a/4:w | b/4:w | c/5:w | f/4:w | g/4:w | b/4:w | g/4:w"
+               contralto="g/4:w | f/4:w | g/4:w | e/4:w | c/4:w | e/4:w | d/4:w | e/4:w"
+               tenore="e/4:w | c/4:w | d/4:w | g/3:w | a/3:w | g/3:w | g/3:w | g/3:w"
+               basso="c/3:w | f/2:w | g/2:w | c/3:w | f/2:w | c/3:w | g/2:w | c/3:w"
+               width="900" tempo="52" play></tac-stave>
+    <div class="riquadro compito">
+      <span class="etichetta">Individuale, a tempo &middot; 5 minuti</span>
+      <p>Individuare gli errori con i sei passi, nell&rsquo;ordine; in ogni collegamento guardare anche il moto delle quattro voci insieme. Per ciascun errore annotare sigla, battute e voci. Le nascoste fra coppie diverse da soprano e basso si possono segnare, ma non sono errori.</p>
+    </div>
+    <tac-chiuso invito="L&rsquo;analisi del compito" libero>
+      <p><strong>Bb.&nbsp;1&ndash;2</strong> &mdash; tutte e quattro le voci scendono, e il do, nota comune a I e IV, non &egrave; tenuto. Le nascoste contralto&ndash;basso (8&rsaquo;) e tenore&ndash;basso (5&rsaquo;) sono tollerate.<br>
+      <strong>Bb.&nbsp;2&ndash;3</strong> &mdash; nel collegamento melodico IV&ndash;V tutte e quattro le voci salgono di grado: <strong>8//</strong> contralto&ndash;basso (fa&ndash;fa, sol&ndash;sol) e <strong>5//</strong> tenore&ndash;basso (fa&ndash;do, sol&ndash;re). &Egrave; l&rsquo;errore principale.<br>
+      <strong>Bb.&nbsp;3&ndash;4</strong> &mdash; il tenore salta di quinta (re&ndash;sol) e forma con il basso due quinte per moto contrario (sol&ndash;re, do&ndash;sol): <strong>5//</strong>. Il sol, nota comune a V e I, non &egrave; tenuto. L&rsquo;ottava soprano&ndash;basso col soprano per grado (si&ndash;do) &egrave; ammessa.<br>
+      <strong>Bb.&nbsp;4&ndash;5</strong> &mdash; soprano e basso scendono entrambi di quinta da un&rsquo;ottava (do&ndash;do) a un&rsquo;altra (fa&ndash;fa): <strong>8//</strong> fra le voci estreme. Il soprano ha lasciato il do, nota comune.<br>
+      <strong>Bb.&nbsp;5&ndash;6</strong> &mdash; quinta soprano&ndash;basso per moto retto, col soprano per grado (fa&ndash;sol): ammessa.<br>
+      <strong>Bb.&nbsp;7&ndash;8</strong> &mdash; la sensibile (si) al soprano scende al sol invece di salire alla tonica: <strong>S&darr;</strong>.</p>
+    </tac-chiuso>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il tenore da solo">
+  <div class="slide-interna">
+    <h2>La prova del canto: il tenore</h2>
+    <tac-stave clef="treble" time="4/4"
+               caption="Il tenore dell&rsquo;esercizio, da solo: mi &ndash; do &ndash; re &ndash; sol &ndash; la &ndash; sol &ndash; sol &ndash; sol"
+               notes="e/4:w | c/4:w | d/4:w | g/3:w | a/3:w | g/3:w | g/3:w | g/3:w"
+               width="760" tempo="60" play slow></tac-stave>
+    <p>Terza discendente, seconda ascendente, quinta discendente, seconda ascendente e discendente: nelle prime sei note la linea cambia direzione a ogni passo, poi resta ferma sul sol per tre battute. Non &egrave; una parte, ma il residuo di decisioni prese accordo per accordo.</p>
+    <p class="didascalia">Questo difetto resterebbe anche correggendo tutti i divieti. Si rivela con la verifica della lezione precedente, che non richiede alcuna regola: si canta ogni voce. La domanda da porsi per ogni movimento anomalo &egrave; sempre la stessa: perch&eacute; questa voce &egrave; andata in quel punto?</p>
+  </div>
+</section>
+
+<section class="slide perc" data-titolo="Il corale">
+  <div class="slide-interna">
+    <h2>Seconda parte: la condotta in un corale</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Ascolto con la partitura, a quattro gruppi &middot; 6 minuti</span>
+      <p>Ogni gruppo segue una delle quattro voci (la parte di corno non si considera), dall&rsquo;anacrusi alla fine della b.&nbsp;6, e conta, nota per nota rispetto alla precedente: i movimenti per grado congiunto, i salti, le note ripetute. Due ascolti; i numeri si riportano alla lavagna in una tabella unica.</p>
+    </div>
+
+    <tac-brano youtube="bvoAsedF2cE" mappa-video='{"eventi":[[1,1443],[2,3926],[3,7009],[4,9743],[5,12993],[6,15726],[7,19459],[8,22309],[9,25376],[10,28277],[11,31459],[12,34393]],"durata":78000}' organico="voci" titolo="J. S. Bach, corale &laquo;Wie sch&ouml;n leuchtet der Morgenstern&raquo; BWV 1/6" metronomo esecutore="Holland Boys Choir · Netherlands Bach Collegium · Pieter Jan Leusink" partitura="../../_assets/spartiti/A03_bach_bwv1-corale_bga.png" riquadri='[[1,29.62,6.25,10.31,38.63],[2,39.93,6.25,11.54,38.63],[3,51.47,6.25,11.81,38.63],[4,63.28,6.25,11.13,38.63],[5,74.4,6.25,9.42,38.63],[6,83.82,6.25,9.42,38.63],[7,29.62,6.25,10.31,38.63],[8,39.93,6.25,11.54,38.63],[9,51.47,6.25,11.81,38.63],[10,63.28,6.25,11.13,38.63],[11,74.4,6.25,9.42,38.63],[12,83.82,6.25,9.42,38.63],[13,13.11,54.97,9.35,39.94],[14,22.46,54.97,7.99,39.94],[15,30.44,54.97,13.79,39.94],[16,44.23,54.97,9.76,39.94],[17,53.99,54.97,12.63,39.94],[18,66.62,54.97,8.46,39.94],[19,75.09,54.97,9.83,39.94],[20,84.91,54.97,8.6,39.94]]' inciso="../../_assets/incisioni/A03_bach_corale.mp3" mappa='{"durata":33358,"eventi":[[0,0],[1,938],[2,4688],[3,8438],[4,12188],[5,15938],[6,19688],[7,23438],[8,27188]]}'>
+<script type="application/json">{"titolo":"J. S. Bach, Corale «Wie schön leuchtet der Morgenstern» BWV 1/6","metro":"4/4","bpm":64,"battute":9,"anacrusi":1.0,"voci":[[[0.0,1.0,65],[1.0,0.5,67],[1.5,0.5,60],[2.0,0.5,65],[2.5,0.5,53],[3.0,0.5,57],[3.5,0.5,53],[4.0,0.5,57],[4.5,0.5,60],[5.0,0.25,65],[5.25,0.25,70],[5.5,0.25,69],[5.75,0.25,67],[6.0,0.5,65],[6.5,0.5,67],[7.0,1.0,69],[8.0,1.0,69],[9.0,0.5,65],[9.5,0.25,67],[9.75,0.25,69],[10.0,0.5,70],[10.5,0.25,72],[10.75,0.25,70],[11.0,0.5,69],[11.5,0.5,67],[12.0,0.5,67],[12.5,0.5,72],[13.0,0.5,72],[13.5,0.25,71],[13.75,0.25,69],[14.0,1.0,71],[15.0,1.0,72],[16.0,1.0,65],[17.0,0.5,65],[17.5,0.5,70],[18.0,0.5,69],[18.5,0.5,67],[19.0,0.5,65],[19.5,0.5,60],[20.0,0.5,65],[20.5,0.5,60],[21.0,0.5,60],[21.5,0.25,57],[21.75,0.25,53],[22.0,0.5,60],[22.5,0.25,60],[22.75,0.25,60],[23.0,1.0,57],[24.0,1.0,65],[25.0,0.5,67],[25.5,0.5,60],[26.0,0.5,65],[26.5,0.5,53],[27.0,0.5,57],[27.5,0.5,53],[28.0,0.5,57],[28.5,0.5,60],[29.0,0.25,65],[29.25,0.25,70],[29.5,0.25,69],[29.75,0.25,67],[30.0,0.5,65],[30.5,0.5,67],[31.0,1.0,69],[32.0,1.0,69]],[[0.0,1.0,65],[1.0,1.0,72],[2.0,1.0,69],[3.0,1.0,65],[4.0,1.0,72],[5.0,1.0,74],[6.0,1.0,74],[7.0,1.0,72],[8.0,1.0,72],[9.0,1.0,74],[10.0,1.0,76],[11.0,1.0,77],[12.0,1.0,76],[13.0,1.0,74],[14.0,1.0,74],[15.0,1.0,72],[16.0,1.0,69],[17.0,1.0,74],[18.0,1.0,72],[19.0,1.0,70],[20.0,1.0,69],[21.0,2.0,67],[23.0,1.0,65],[24.0,1.0,65],[25.0,1.0,72],[26.0,1.0,69],[27.0,1.0,65],[28.0,1.0,72],[29.0,1.0,74],[30.0,1.0,74],[31.0,1.0,72],[32.0,1.0,72]],[[0.0,1.0,60],[1.0,1.0,60],[2.0,1.0,60],[3.0,1.0,62],[4.0,1.0,65],[5.0,1.0,70],[6.0,1.0,70],[7.0,1.0,69],[8.0,1.0,69],[9.0,1.0,70],[10.0,1.0,70],[11.0,0.5,72],[11.5,0.5,74],[12.0,0.5,72],[12.5,0.5,67],[13.0,1.0,69],[14.0,1.0,67],[15.0,1.0,67],[16.0,1.0,65],[17.0,1.0,65],[18.0,1.0,64],[19.0,0.5,65],[19.5,0.5,67],[20.0,0.5,60],[20.5,0.5,65],[21.0,1.0,65],[22.0,1.0,64],[23.0,1.0,60],[24.0,1.0,60],[25.0,1.0,60],[26.0,1.0,60],[27.0,1.0,62],[28.0,1.0,65],[29.0,1.0,70],[30.0,1.0,70],[31.0,1.0,69],[32.0,1.0,69]],[[0.0,1.0,57],[1.0,1.0,55],[2.0,1.0,57],[3.0,1.0,57],[4.0,1.0,57],[5.0,1.0,53],[6.0,1.0,65],[7.0,1.0,65],[8.0,1.0,65],[9.0,1.0,65],[10.0,1.0,67],[11.0,0.5,65],[11.5,0.5,62],[12.0,1.0,64],[13.0,0.5,65],[13.5,0.5,64],[14.0,1.0,62],[15.0,1.0,64],[16.0,0.5,60],[16.5,0.5,57],[17.0,0.5,53],[17.5,0.5,55],[18.0,1.0,57],[19.0,0.5,57],[19.5,0.5,55],[20.0,0.5,57],[20.5,0.5,53],[21.0,0.5,55],[21.5,0.5,57],[22.0,1.0,58],[23.0,1.0,57],[24.0,1.0,57],[25.0,1.0,55],[26.0,1.0,57],[27.0,1.0,57],[28.0,1.0,57],[29.0,1.0,53],[30.0,1.0,65],[31.0,1.0,65],[32.0,1.0,65]],[[0.0,1.0,53],[1.0,1.0,52],[2.0,1.0,53],[3.0,1.0,50],[4.0,1.0,45],[5.0,0.5,46],[5.5,0.5,48],[6.0,0.5,50],[6.5,0.5,52],[7.0,1.0,53],[8.0,1.0,53],[9.0,1.0,58],[10.0,0.5,57],[10.5,0.5,55],[11.0,0.5,57],[11.5,0.5,59],[12.0,1.0,60],[13.0,1.0,53],[14.0,1.0,55],[15.0,1.0,48],[16.0,1.0,53],[17.0,1.0,46],[18.0,1.0,48],[19.0,0.5,50],[19.5,0.5,52],[20.0,1.0,53],[21.0,2.0,48],[23.0,1.0,41],[24.0,1.0,53],[25.0,1.0,52],[26.0,1.0,53],[27.0,1.0,50],[28.0,1.0,45],[29.0,0.5,46],[29.5,0.5,48],[30.0,0.5,50],[30.5,0.5,52],[31.0,1.0,53],[32.0,1.0,53]]]}</script>
+</tac-brano>
+
+    <tac-chiuso invito="I numeri del corale" libero>
+      <p>Dall&rsquo;anacrusi alla b.&nbsp;6: <strong>soprano</strong> 13 gradi, 6 salti, 4 ripetute &middot; <strong>contralto</strong> 13, 6, 9 &middot; <strong>tenore</strong> 17, 7, 7 &middot; <strong>basso</strong> 17, 10, 1. Su tutto il corale: soprano 41, 17, 11 &middot; contralto 45, 17, 26 &middot; tenore 44, 21, 26 &middot; basso 50, 39, 3 (conteggio sulla partitura del corpus music21).</p>
+      <p>Il basso &egrave; la voce con la proporzione di salti pi&ugrave; alta (su tutto il corale circa due movimenti su cinque), ma procede anch&rsquo;esso pi&ugrave; per grado che per salto; le parti interne si distinguono per le note ripetute, quasi assenti nel basso. &Egrave; la descrizione del libro: il basso ha &laquo;un numero di salti maggiore rispetto a tutte le altre voci&raquo;, le parti interne &laquo;una presenza consistente di suoni ripetuti&raquo; (p.&nbsp;18).</p>
+    </tac-chiuso>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Mentre si interroga &middot; 1" data-in-classe>
+  <div class="slide-interna">
+    <h2>Mentre si interroga: riscrivere il compito</h2>
+    <tac-stave clef="treble" time="4/4"
+               caption="Do maggiore: I &ndash; IV &ndash; V &ndash; I &ndash; IV &ndash; I &ndash; V &ndash; I. Il basso del compito; il primo accordo &egrave; dato"
+               soprano="c/5:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w"
+               contralto="g/4:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w"
+               tenore="e/4:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w"
+               basso="c/3:w | f/2:w | g/2:w | c/3:w | f/2:w | c/3:w | g/2:w | c/3:w"
+               width="900" tempo="52" play></tac-stave>
+    <div class="riquadro compito">
+      <span class="etichetta">Da soli &middot; 15 minuti</span>
+      <p>Si lavora in silenzio, sul quaderno: prima questo esercizio, poi quello della slide successiva (altri 15 minuti).<br>
+      <strong>1.</strong> Copiare il basso e il primo accordo, e scrivere le altre sette battute a quattro parti: nota comune tenuta nella stessa voce; nel IV&ndash;V, senza nota comune, le tre voci superiori contro il basso, ciascuna alla nota pi&ugrave; vicina.<br>
+      <strong>2.</strong> Controllare con i sei passi; il canto del passo 1 si fa a mente. Nessuno degli errori dell&rsquo;analisi deve ripresentarsi.</p>
+    </div>
+    <tac-chiuso invito="Una soluzione possibile &mdash; si apre alla correzione" sale="dYteyBl/XSeKRj7HTNvdVQ==" iv="h1Wv2+cyjlQtercT" dati="06FbFu2ekzHitwo54Ch+d8DK2LwffFaWvaYWfMenPQ3iU+qLEOTFGOptCjvK2gFtRUbHFJ6tFaK1bbXI94X+DrgVjpsti1A1jtiTcUKK+hN351jJpXZb46UMOsLVuW+dTFzE6tUFpp/iRfExYETkLbtvn02xfM6wB6Zq77JBmF4j4UQFvOY0H1eVbjFZmsv0cOoNQ3s+Lv10Lh+A2RTfOC5HNpisZvExqNDlOtB/nZNIF9sQfmzGoh9zudP7szIOXZsEeQmdN2I7SGEAh5HqaXNee+yGBKNnUNHpFL3xI9mbPB4eH4mReIuTNlRXXbveXocDnh4i2lG70eIjcMyKLyQ5WBLZ5x3G4BmEg0ipKNwMxkFvVXw1CCag9Oq2aTdcvsy4QQGr+zZFrZ4uO61zVkhe1aF+cBYNHMy3M4Zp0iS9FVo3T6ywGoYVJ9rOLe3Fv25hud/r9p9EfCojHeBeJSLHstlUEA9On3GLUuAAe9/YtrhCJsDZTp98yve4qCMDYk5X2TEpr+CrZTMpUBI9ghh+oXCb+Mjbik+68SxIEsa44Pe0rEN/cbl1IgvQTzjM1GstgdokoT0E+h7fg78MlzcTuxSu3SW+PwZk0F5eKWAbWyi6LfSgWlue7qcV2Zl5QytbmnWU1+AZJUhkUhp4xl93zhiyZxt725LoeHq2BIINaRSX7qIfPJj/ZHjx+93nRLal+fRZ/tkGD6FDYPeOoVOX/UJ9NqSWd9ZXGLoMn3pN84BJyRwyltaY9oC23qMRbB6FdHR/M/vOGAYBHbOJ3ABGVPdGwp45xgclNWNEb7wvFWhbGz04Oy07wYz+8smSuVQkS8feM+40t3A+RGl2wiIjylIhaWWPxb/pkH0LIh32SyegkkweIXQtZ34wQDO2Fmdi/dsQINFSBQGvyZm0MYHp9OIL2Tpj7UpTrYOOz2w9jCfL/Pg4Wlhd/isi0nF2Sc1cG905p9qvGcwUmWwWxwWU06GTSyZaIP/ZB2JCNvgbRs6j4nSYfIAm1QUdp4QXMqNBWraApmwRr7fAW9VerUxKYazF3+79OTOytjBH5ON8faJBsFGUqXU7yxrzXzjaFA9mocNjFtH4S08vr8wKL7Yb86z8v7QoO553MM2E/MUdLqIqywhyTu/nJJn9mbJtirFKe56Tfs/AhcbGI4YZD93ACR677js0+/C0yS2J13pQwaC/B0adoBkdBfS61mJvhR3qINSqW2STBi+95vKSW3N/Gh6UJeQZiS0ZKNYSNpFWXW6N6Yrn8tbZ1hNxTmNe/L3PDODYfXc+bc/W5Tse8G4/dcZXOQ1UzkRFjuf37GgzaqMgRuqdtKlM2qJXIDhJ0GiUavI88xaxSsOtdEzs103J7eFUXfIe15Fybda3E2xw08yUJ+aFPBmoWGIqVrzcT6L9BQkDt4A7HO3itlnt9QPTfeAnET3zjUUFrJOADJKQlQ6grJtu"></tac-chiuso>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Mentre si interroga &middot; 2" data-in-classe>
+  <div class="slide-interna">
+    <h2>Mentre si interroga: un secondo compito</h2>
+    <tac-stave paralleli-voluti="esercizio di correzione: gli errori sono intenzionali" clef="treble" time="4/4" keysig="G"
+               caption="Sol maggiore: I &ndash; IV &ndash; V &ndash; I &ndash; IV &ndash; I &ndash; V &ndash; I, con errori di condotta"
+               soprano="d/5:w | e/5:w | a/4:w | d/5:w | c/5:w | b/4:w | a/4:w | g/4:w"
+               contralto="g/4:w | g/4:w | f#/4:w | g/4:w | e/4:w | g/4:w | d/4:w | b/3:w"
+               tenore="b/3:w | g/3:w | a/3:w | b/3:w | g/3:w | g/3:w | f#/3:w | g/3:w"
+               basso="g/2:w | c/3:w | d/3:w | g/2:w | c/3:w | g/2:w | d/3:w | g/2:w"
+               width="900" tempo="52" play></tac-stave>
+    <div class="riquadro compito">
+      <span class="etichetta">Da soli &middot; 15 minuti</span>
+      <p><strong>1.</strong> Trovare gli errori con i sei passi e annotarli con le sigle. Sono tre, in tre collegamenti diversi; fra soprano e basso c&rsquo;&egrave; anche un&rsquo;ottava nascosta che non &egrave; un errore.<br>
+      <strong>2.</strong> Riscrivere le otto battute cambiando soltanto le note che servono.<br>
+      <strong>Chi finisce prima</strong> applica i sei passi alla propria realizzazione a quattro parti gi&agrave; svolta sul quaderno, con le sigle, e riscrive le battute sbagliate.</p>
+    </div>
+    <tac-chiuso invito="La correzione &mdash; si apre alla correzione" sale="XLb2x3t3oJxpwY545fXTeA==" iv="Ty/a1FoVqmP9OLWW" dati="9N39dHRzOejnETlJMKcvuVsur1ODVJpgMy6MZVZjGExdtpBK72VfzE9/HZv5Ez8B//LqUzSUzXs7/E1ljWo6FrQ8CZrygLigZvhtCZlPkG8X5vjz7fYh9+W2/xwguN/ga83/F/T73agnJ77AX6ChTqBDjH3XByIqH84zj1OxSAa6jhsMzOHQy4+goZ1ihQ3r8Vm6zR+gDjaIHENTbdO8vihTWlTdmI9CygBjC2DeJ2ki+bpLMzbaaMLPyzVkygfBfOOOVbCrQdfboHRMUbcvLnfEoY4NA4uK3nK5f2aY/5bfmBEcBMQBv6IREGucu+WVsvQhxLyxXaq8MW7mdA/Dr+xneZpwFonQZBHGy/hwT9SEnXA0yFjLeyUZabLtSQhQWainSwWtqqUDVbabKUSoyA+LRF4Irr0EdpVApSXPxMaBjdoomSx+pVQoh8GDrWf3h5OZuZq4yZsf8ub8K4U8EqVMGt/+mNDAu5LJac2oQpqkB176n48vHotD4w08jbWKNpgmKVHarKasjoJDGYjel8KRLLW61J5cg2/fuP2yB7X9fhdH/5FB2SE1NxKqvO+KC/AItkwwUD0Od+sQ4zPUeGHRTaNu9nOhRcf7xFCUt9eXaKKQnyAtZQNeY/f9O6zYb7j9VYccP2tiO1+r5TKy8UfxwCViqCBuNUtgtm9k+rlEd9pxbtmGqY2FisLRump3pp9Uc5aEZeKp02XTfareRHD1IDL9a02zNBqKX8wmJMLG0aUMj/agxNJpD1URnb5qCLXx71UHmdDfiZkQpJtVkS0/2nR8GFsyd8Tn++Znc4+FYPKLUWcZSq5Nc6FYwigHkNPSwD1BHJmc7IagfCde5ew+j2PqpB0d3gk5IJyu2cLnRpRgsBDAkDjtSksirOsqV5ObbEmv6AIASb+DSxDkypYfiN8GZ7m7f6FEZqfsIhszZ8UGG6L8UOWKO0fPPA7Ko2zBCGeqDnh+zj9AiinqDzNglR2Buk2NMew+yVdvp0XL1zeSwtaeQgEeInJ9fvH9yQRIGgNPLP3AcSM34bqPky4SrN7blPT2UPKT09fispBcnTSLo6RhlXxnfK+VupUJ8od0+t4kxFVK8I2kotq4GFNKRUYznlFcnug56O701ak07+HV2lG7UTowWR/tjYMQnntCQ4oRCHfkau9aMsQzHQRmPONKyriGvi366FQuEQ3NyyGAxJRCPa2Z8iIk5Nrngqn2AiBSNlHlFm5tGxU9JsxmUfSmiGKIGpOmVjXYFQI+1qBU2YuSfvmTM268P4RjUk7rV8PyYOeZlQUGSqIIE48GuS7s0YiJmVZxvM8HOBpqSlQqLRI/hTDFgqqD9cmbX6tZkQeOylkwEgg2nQitPygTQqG8co9wPhYhoX1kgFyorxgpQR2D49a5kITcxmCInadAgYevYyeyxFv512/eHoZx3wWfAIPYEWp192vzPgomI+XBDNLtMYdEsWoLRf3oEu8pCjNHqzauweOEhSfztZBIkqgo8Iqgw8EfSI+NQMrX6+b3Nn2fJnoOh6RjFrI08s3B2DMaGnTOOPLfUDSJ+y3tYucAVeSi45oz0wuHWEJm1rRGtLjILUDZLFLQeqqH8ipFW3AncUROofMgkXlRyNbThZl8wUj80PbS/O5l4jiGxW6xYNpsogAfEHs7zB+ZE8atm6WKWJR2EKnGfM3RldQB8/s9u/aS744VbDJv3hb22hD8M75zIhjhrMy5RMW8wyzKbPPDoeCdsUsR+aYLP795VPgLeQwJ2tRBw+kUElALF0W2K7IW9XNpyUeuotTCKAEo1FuqL9j1BBsh/KC8PKFjgLnjchcGbYD7yqMyPPlLlvur30bK/0l1P1yJoWHTPl/IKOSjy8Dp9PLuvjFXyvNINNIS0X2E2sVKYLqh3xFvMiL+U2xlSaujBiK3B9AGC6eSlMMZMANe9N7BP3zx8Z4ZSkrc6FO7q8uuSrUd6Ls="></tac-chiuso>
+  </div>
+</section>
+
+<section class="slide" data-titolo="La distribuzione del movimento">
+  <div class="slide-interna">
+    <h2>Da leggere a casa &middot; La distribuzione del movimento</h2>
+    <div class="riquadro definizione">
+      <span class="etichetta">Che cosa mostrano i numeri</span>
+      <p>Il movimento, in una scrittura a quattro parti, &egrave; una risorsa che si distribuisce: il basso definisce l&rsquo;armonia e si muove per salti verso le fondamentali; le parti interne completano l&rsquo;accordo e restano il pi&ugrave; possibile ferme; il soprano conduce la melodia.</p>
+    </div>
+    <p>I salti delle parti interne non sono casuali: compaiono di norma dove la voce, restando ferma o procedendo per grado, uscirebbe dal proprio registro o produrrebbe un raddoppio scorretto. Il salto &egrave; il costo di un problema maggiore, e si assegna alla voce che pu&ograve; sostenerlo.</p>
+    <p class="didascalia">Il confronto con il proprio esercizio &egrave; immediato: se una parte interna ha il profilo del basso, la condotta va rivista anche in assenza di divieti violati.</p>
   </div>
 </section>
 
@@ -260,14 +288,14 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <div class="colonne">
       <div class="riquadro definizione">
         <span class="etichetta">La correzione</span>
-        <p>Un ordine di controllo fisso, dalle voci estreme alle coppie lontane, e per ogni movimento anomalo la domanda sulla sua ragione.</p>
+        <p>Un ordine di controllo fisso, dalle voci estreme alle coppie lontane, e per ogni movimento anomalo la domanda sulla sua ragione. Quinte e ottave di seguito sono errore anche per moto contrario.</p>
       </div>
       <div class="riquadro studio">
         <span class="etichetta">La condotta</span>
         <p>Un esercizio pu&ograve; rispettare tutti i divieti senza che nessuna voce sia cantabile. Il criterio decisivo &egrave; il canto di ciascuna parte.</p>
       </div>
     </div>
-    <p class="didascalia">La correzione reciproca degli esercizi si ripeter&agrave; nel corso dell&rsquo;anno: sugli esercizi altrui gli errori si vedono pi&ugrave; facilmente, e la pratica rende pi&ugrave; attenti sui propri.</p>
+    <p class="didascalia">La correzione dei compiti si ripeter&agrave; nel corso dell&rsquo;anno: sugli esercizi altrui gli errori si vedono pi&ugrave; facilmente, e la pratica rende pi&ugrave; attenti sui propri.</p>
   </div>
 </section>
 
@@ -349,21 +377,21 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Scrivi un contrappunto di <strong>terza specie (quattro note contro una)</strong> sopra il canto fermo, in modo dorico (finale re): nove battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
       <tac-stave caption="Il canto fermo" clef="bass" time="4/4" notes="d/3:w | b/2:w | a/2:w | b/2:w | c/3:w | f/3:w | g/3:w | e/3:w | d/3:w" tempo="72" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-CP-U02-L6</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="bIo8d6yZ1kjFY7ctohEH3Q==" iv="KR7CfoVCwssUVtCN" dati="7YD0bcIcjkltZOn0ZgRzT10fGiWWuYgF/C1SpdyLM5iJrgdtKASCyoix213OwCc/ygaCYzf/CjOW/02iYV/qJjfUpGBt0z/417RVUaqX6aSsN04gMv3ni7/NQNaEgE4rn8vH6cD3RJwBx+i6DrT/k/fx5UQlRwziqfu+zRrB1X/ZYu6FrD9LFB4KyJu/aLsx4BH+M4+50I5KCIaXkMiVuA2ZwrO2WBu4fD1YQpiqfDcpPiuKy7iBd9YWg9kjapvHebCjbWDruJJ1BE1btGltuWMZlYbzkvLdHjPsujMdLctblf0/98xJJ+pq7uVZeEePz6u7RVH0z83dMi7Tpq/FdS4OM3P4Zt2fRujQfA2aovyPFeCZCsxbMN5OjxbWXDVFjS2RuB7aCgmlMk5L/RJogv14IWsNXGQXjmcFqYvG6KjkXj+buLa3vDmmkOITODF94dhFcSaCMDfWHXxkR4bcUZxy3NKQSDAlfqxTebgtUEYU22pcQ8MsZ5TlNOyzVbkRXWpBSEiTHVDKoHPtlK+uw5H99JrJh+8B0o3JRJUQmyVL2VFR"></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="HRDyN2WmQgf/M5W/HoXBzA==" iv="QSS2Cq4juKA0D4Tj" dati="LpJjltTHUEFHGnaAbpNVEIyy8QRQcKwt6gqdp16Mu3gpb2aUlqpOlTWFjyqfUMhWJiN5a6IV7DZixWnlJCM2WJFI0V+1NjXlROUWg6jY/7napWmX5REQk3Cc5q+jvkom1oCjKtE+9e7VLcNsy5aCMPr1eR16jl4IzcLJ62SARVOaupobEk3sdImdceyY95z76nZpDGSeFCc3+5zcs4LPqjAT67hCSAHM7v+QUxtHkdyQKDg/W62qviCDP00kbZjnMjw9CwqiFVlGSn9vx8iIqY8iQzZF9uOH6Q/9JMwBptNfADr0SJzNGJHo9G7Gfic/SHoyeRQ5DxOEodVSJOFHHSPfmPHuCAhmEVBFQjx/BckNnyQyny4+7vcG7lpxbzi5Hm5zneGUEIL1ghtRs83E23qhe5RfMH2rUKi0y3/fK7TinBXW1hMoWb4rmEt/4Jy4IVE4MsVNyjMpK45ofoYIV0hDHwLkrzGA84PB0hdpdukEVc4qNtH53eFwq+K0wwn9dpcnCTIGaBi1+gcmUvZx6EmTbMfIH6WrvkvB5DIao37wZm6x"></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C3-BD-U02-L6">
       <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C3-BD-U02-L6</span></span>
       <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: otto battute in 4/4, sol minore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: I, IV e V, allo stato fondamentale e in primo rivolto.</p>
       <tac-stave caption="Il basso" clef="bass" keysig="Bb" time="4/4" notes="g/2:h c/3:h | d/3:h g/3:h | e/3:h d/3:h | b/2:w | c/3:w | d/3:h b/2:h | c/3:h d/3:h | g/3:w" tempo="60" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-BD-U02-L6</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="Nw6IotZhK8VFQlP+Z5lerg==" iv="AzgWpXXzkaatxiA9" dati="4+LFrGf0ivLgehFhaSRFUQUxcPBkPIOXezTauyUl0ijsfuE5R7zXXvxoMnifh2/hY8RseOdMjZXt+ssmEp+znDuBd5D2eV8SiCU34o9ykErKXIqCHisMg6noi3A6IkaoO7NkTdzE++bJHTgnVACt49P+KOOy3q+QPcZdTTVDJ/fwUsXgsLt/+Ixi38zEDCIQMNByi+V/Kv0GiDLibvFZi9sp75qmUtSYt5f/RtATmq5sjIeQcl/zZu11gTOYjZIfiukNv6Sdc6tCH8RE5hTPBCC4KdZ/MRSMtI3cefKrpdx4wXVfe1I7NwIodbwQGRLFJ6uza9Yw6SEIukUlvmoD3udaeKFDHjM0xht6iFQhZtjcLIUDoCmv9Z2Da0liOz6tcra1mfYC2QMFKmcA5e786j+E+9sqCXx2r0iuNjBpoNXsMOv9PBO0U2aDrOyTwpooA/IKhbtZJTwAkRIZPG017h4aW47OTIzGSczYKMNg/m0U2UjItwkxNW8NpnvUpJNaCpix7kXH5qmeWwW6fx09ZOeDXYmycN1qik9jXSlKTNqQnYwWXWpQgfyWeKSMh0urObmPcl6MYn1Ui5mAq9wOp/S8lTSzvtgWJhZZEaO+qXjOQ1Q29Iy5wsulJvOmWVa5cBae6tz3HxGOEMt2sef5JQEA+L/9wGm6eIoM24WQgNvgCcvKuQBahdiVUob5I/w1SqNMqinGj3dmYMOnVFA+4wwbMDTEwHttlVNpwEEraAnmlG4dTfKbHE8vNO0bkbMlG5c0J3vrBSpOpe+5aMVCcw7iIgfy0JN7CzVPtBoDr/Rq+qHVN+DUIMitrWQ="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="KJBxlbAiOqsGbfnQblIhdw==" iv="AKrwmyLYALA/jshx" dati="NYcmgX9+Wq6lfHM0Y7cp6OaA5t8cdxT80TKFh2JPUvPqrQ5dTqEd011WtyAlZg3z6yW1EZDE9ypiCkxS4TaRldspzm+K4BE1OkXnCvs9MXA2AZrAoxD+WAxGuW26j4EJxLEYUEFA9W+fDr3wBl38ofJYKHbwGpBwSKuppS4+KZPJytUfyicEYo95BST150OnSN9PLAVDHEn3Ds42FDvI6YZaAemTQHO2PuI9x0gdv6gq+yKAOIvCu6m9qpTcJBsJCe6fOmoictRld5jsf2CRKMQM2Ca3nT1Xq2+IYOxS8fC1JJZnQJW42weqyO5t/uLavvz1f6RzFxkvtvfWrsw4yoH4AwZir3L+lBU4mFyx/u76EXi4eZJhs1vePfQKphypeoGAf/nnuR6XPF/IQ6ur3eD0wiqHS01vlJGDqQauVaEbKogunqrLuD/ee7nn81FmOsovmpHDSQekoHjqKDVZE7GZV6CYOILc80wc1BeO6pS8jeaoyo3yZz0VDa+9/jqF8XiMUHBhrvAhbxmrc2cm/O3fs9sUn8ROUNznlOYp1G2x6Kk6XloJrdrh9rb9XV8uPzAxm5GUyA2i8tDJ3jglFlftKy7PZFRbLxMiOVRMLT4Chu8smUttpxmOXhf9E6lnpSXlEaejCDnB8qVraMxhCHK1Giq9+X28u+vA5u5JkyZHqbHJAlp2JQdl5z6Aw/A6E8HNfaMMnyakwfkVkkBQkYHSkOBBOgb7jWm5Wb2Cr6LIOGFU0tgp/1tVtJkmglYmfE2r9vVrXAO2RUZoCBLf7LgJY9oyk1y/gr6yjoXRelWL8NV/h79T3DoK7/A="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C3-CD-U02-L6">
       <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C3-CD-U02-L6</span></span>
       <p>Armonizza a quattro parti il <strong>canto dato</strong>: otto battute in 4/4, do maggiore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: I, IV e V, allo stato fondamentale e in primo rivolto.</p>
       <tac-stave caption="Il canto dato" clef="treble" keysig="C" time="4/4" notes="e/5:w | f/5:h d/5:h | g/5:w | f/5:h d/5:h | g/5:h f/5:h | d/5:h c/5:h | c/5:h b/4:h | c/5:w" tempo="66" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-CD-U02-L6</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="ChyXmGu3ua7nJJ7Upbjd5Q==" iv="cmSjtG4jcbDPHQbD" dati="txKzg0EJfwehuGE8nxUW6K0ptU+ucfkgfL+SFUptzKqw+zCCrUXdlDMTchyTbOYtfdKB1HSioxUoNrzCAXBEWuX7w9+SIBPpZHThVLfDO9CEzp9Munb0YNKo95clpEs5UAFMUJsbB9nOf5J1IQeDEaxvVxigF/WXk2hmObGYxd8g0m9+o2bAeN+qurjvv306uPYLDzQMdilRy0eP69nvaZKOaxmkDkqiC2bc+QKGvdtYhnvdi0geg334mUAk8q8CCiBOXhv7pE/VDpwzGgxwEdAxSTFQiPVG5aKV+c7ClQcD2Oj33jPXaIGSUJ588zWBcCmCtZYjNAQsxw/+DvUbv4xIlMkUbocnLFd9nCpmCxmVRKXdna+lzus1+LFhUS9uEG6RnF0ozQemLgebmMSFcUBaSbd7LaSr2/qnVcBZI6Yi8CZnJfRP8KH83sKjW2PoF6RUF7Bul51dhNjCIQyObk2HjzCEY00xUntQO/5ooJlhWTOPs+DufCsh0NB9g/klqz8FTMqwctqGMK0yvKcpR1qKGS8c8BXBiLrgUY4v2NodPtkPszqZVg+oxtgX8A6MwjKffXDHbtgDLD/fTeoTceAiQGqBQL7ItHTGUNCc5PK3BSTFX0HPHT/XcfWyPNuDV9KvJPRWzrCVS/qhlECBjyrFDAlPWNj0Q+82zuOSsZTuGTG1HR7xmbp7sqGHQ/pmL1qfdCCYGvu8bP2DMHWHqvhvL9RyP7bE/j7JszBUr6rfmF1Imq5gTSMtqvcTXTxoYgjxb3Ah0OY90h85JguKpBt7AFGGir44RjlNRBXcfINhAgw5H+v8"></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="Tvd7CwFLpp5uBF5UiWajCQ==" iv="lkjrSyKZUq8TUhbT" dati="uLfmtn3/AuT4WbVjQ1Gs2bm1wBKY3cGIRAEbMq8fCmbxVTbhR/9oti4/CNuY2yIZEqSapYBlIE9jheoUX0Coo3IfxjpoQbKXyGGCvGwINus8a2djv6tMfXg5W0MXILHNgwlITdthWjhxnCPqmvJIxxup7n2xCPVUG3LF81QvuT6utsfnDJubYhCXsEX2v2nSUcIqLBJLWhTXYUYPj/lpDc0MjMom1o/VqWJ57MwFgeBm+Xo0Du0wtvXHW3MQs6pKlbQQD22s5oJWJ6KDxum8C1tSuV2m2+7o3jycpI7bSB7E4hc6N2Y6PYkMyEQVFlCXDxl5WJ3rvYlb4lAJgbxEh4PNM6cCJJdyOlSEqriJvj81tL4nk7+PnbUK+Cd85H51f6ttmuxkc4bJfZ82pA9tsd4V+M3TrrMFRXqhuGbDgTI8bZK+fzcyW8k4wfZNdgDe27G1juIjzKS1+PUeUbnmf+Tte5HSBsgxiUz5EuUW+Y/n9RO8Ih22iGGw0xuuv5QKDYVSm8LcwyFJR0ZukLlnuv9a6FuRzoPMVJm1Qtzb6hwpV3qgqpF+vQckGOp+K+g0jhgWTitxyTY3ifLM2HmES+HA5oIV+ErS5ltu+r4vZtsaiJS5qOKJFrvEpEP2kcoxatBLDSsj9jfpqjfGH0pvYEgEtjQ4uTCFMufwt+RO6jR3I4JKp9OI8EljlmtG5h5ijJImBhleWJiEZuHCBIJ7BP+Le8+vo/X/NW8scmBGEhDZ8X63DSgZfS5CoXySZraqhe27O0xWymdMqFT5pE1aiSYO1rYNrS/AjoePhhKudg84R5c8B1Dz"></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>

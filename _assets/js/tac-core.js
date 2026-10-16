@@ -8919,7 +8919,15 @@
          apparire i segni corretti». `libero` (lo mette `_chiudi.py` a tutto
          ciò che non è una soluzione da compito o da dettato): un tasto e
          basta, niente codice. */
+      /* ⚠ 16 ottobre 2026, Andrea: «ci sono ancora troppe partiture con
+         indicazioni diverse e il tasto mostra. Tutto deve essere subito
+         visibile». Ciò che non è cifrato (segni, risposte, analisi) si vede
+         subito; il tasto resta solo per le soluzioni chiuse col codice. */
       if (this.hasAttribute('libero') && !this.getAttribute('dati')) {
+        this.classList.add('tac-aperto');
+        return;
+      }
+      if (false) {
         const dentro = this.innerHTML;
         this.innerHTML = '';
         const box = document.createElement('div');

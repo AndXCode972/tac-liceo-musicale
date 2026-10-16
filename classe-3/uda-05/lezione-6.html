@@ -1,9 +1,1388 @@
-<!doctype html>
-<html lang="it"><head><meta charset="utf-8">
-<!-- ore-doppie: rimando -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lezione 6. Canone alla mente a due voci | Contrappunto &middot; quarta specie: la sincope e il ritardo</title>
-<meta http-equiv="refresh" content="0; url=lezione-5.html#s20">
-<script>location.replace("lezione-5.html#s20")</script>
-<style>body{font-family:system-ui,sans-serif;background:#fff;color:#1f2430;padding:2rem 16px}</style>
-</head><body><p>Questa ora fa parte di una lezione di due ore: <a href="lezione-5.html#s20">vai alla seconda ora della lezione</a>.</p></body></html>
+<script>
+/* Rete di sicurezza. Sta prima del foglio di stile apposta: uno script
+   messo dopo un foglio ancora in arrivo non parte finche' quel foglio
+   non arriva, e qui serve esattamente il contrario. */
+(function () {
+  function soccorso() {
+    var T = window.TAC;
+    if (T && T.deck && T.deck._avviato) return;
+    var f = document.querySelector('link[rel="stylesheet"]');
+    if (f && !f.sheet) f.media = 'none';
+    document.documentElement.className += ' tac-soccorso';
+    var b = document.body;
+    if (b && !document.getElementById('tac-soccorso-avviso')) {
+      var p = document.createElement('p');
+      p.id = 'tac-soccorso-avviso';
+      p.textContent = 'La lezione non si \u00e8 aperta come dovrebbe. Qui sotto la trovi tutta di seguito, da scorrere. Avvisa il professore.';
+      b.insertBefore(p, b.firstChild);
+      window.scrollTo(0, 0);
+    }
+  }
+  setTimeout(soccorso, 8000);
+})();
+</script>
+<noscript><style>.slide { display: block !important; }</style></noscript>
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=12da14de">
+<script>
+window.__mod = (typeof module !== 'undefined') ? module : null;
+window.__exp = (typeof exports !== 'undefined') ? exports : null;
+try { module = undefined; exports = undefined; } catch (e) {}
+</script>
+<script src="../../_assets/lib/vexflow.js" defer></script>
+<script src="../../_assets/lib/tone.js" defer></script>
+<script src="../../_assets/js/avvio.js?v=e01781f9" defer></script>
+
+
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=5dd09581" defer></script>
+</head>
+<body>
+<div id="tac-deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LEZIONE 6 · Canone alla mente a due voci
+     Unità 5, ora 36 di 90 · classe 3ª · percezione
+     ⚠ ORA CON CODA DI ORALE (teoria). Venti minuti, dodici slide.
+     ⚠ ULTIMA ORA DELL'UNITÀ. Non c'è verifica: l'unità 5 non ne ha.
+     PAROLE CHIAVE PER LA BIBLIOTECA:
+        canone alla mente · condurre · seguire · proposta · risposta ·
+        valore guida · per dritto · riversa
+     ══ IL TESTO, TROVATO DALLA RICOGNIZIONE ══
+     «La didattica del canone alla mente», capitoli 1 e 2, due dispense
+     anonime in biblioteca che nessuna unità aveva ancora assegnato.
+     Non hanno numerazione d'autore: si citano per capitolo.
+     Il metodo sta in due parole:
+       CONDURRE — il maestro propone una linea e dichiara PRIMA tre
+         cose: 1) la pausa d'attesa (una minima, una semibreve);
+         2) la relazione melodica fra proposta e risposta (unisono,
+         seconda sopra, seconda sotto, quarta sopra…); 3) se la
+         risposta va «per dritto» o «riversa».
+       SEGUIRE — il conseguente «deve semplicemente eseguire la ricetta
+         proposta dal conduttore».
+     E i tre modi di eseguirlo, «in ordine di difficoltà»:
+       1 cantando, solfeggiando il nome delle note
+       2 cantando con un testo latino o volgare
+       3 suonando con uno strumento
+     La battuta: «un battere ed un levare equidistanti e di velocità
+     moderata», e contiene una semibreve o due minime.
+     ⚠ IL PRIMO PASSO DEL CAPITOLO 1, e va fatto davvero anche se sembra
+     banale: il maestro canta UNA minima in battere e TACE; l'allievo la
+     ripete in levare. Il maestro fa pausa «per evitare di confondere la
+     risposta». Solo dopo si passa alla catena ininterrotta.
+     ══ PERCHÉ QUEST'ORA CHIUDE QUEST'UNITÀ ══
+     Il canone alla mente è la quarta specie senza carta: una voce
+     arriva mezza battuta dopo l'altra, e chi segue deve tenere la
+     propria nota mentre ne ascolta un'altra. È la stessa fatica del
+     ritardo, fatta con la gola.
+     ══ CHE COSA NON ENTRA ══
+     Il canone scritto. Le imitazioni di Dubois (parte seconda, p. 74).
+     La risposta alla seconda sopra è il capitolo 2 della dispensa: si
+     nomina e si rimanda.
+     ══════════════════════════════════════════════════════════════════ -->
+
+<!-- Riordinata il 30/09/2026: la linea da giudicare a orecchio (B01) accanto a «Che cosa rende una linea seguibile»; «Che cosa c'entra con l'unità» dopo aver cantato; tolta da «Come ci si organizza» la didascalia che ripeteva la slide sulla linea seguibile. -->
+
+<section class="slide attiva copertina foto" data-titolo="Copertina"
+         style="--foto: url('../../_assets/copertine/c3u5-lezione-6.jpg?v=db41fc87');
+                --cop-a:#1a1508; --cop-b:#a16207; --cop-c:#fde68a">
+  <div class="slide-interna">
+    <div class="occhiello">Contrappunto &middot; quarta specie: la sincope e il ritardo &middot; UdA 5 &middot; Lezione 6 di 6</div>
+    <h1>Canone alla mente a due voci</h1>
+    <p class="sottotitolo">La quarta specie senza carta. Molto pi&ugrave; difficile, e dura venti minuti.</p>
+    <blockquote class="aforisma">
+      <p>Il conseguente deve semplicemente eseguire la ricetta proposta dal conduttore.</p>
+      <cite><em>La didattica del canone alla mente</em>, cap.&nbsp;1</cite>
+    </blockquote>
+
+    <div class="meta-copertina">
+      <span>20 minuti</span>
+      <span>Percezione</span>
+      <span>Si canta, in due</span>
+      <span class="coda-orali">Interrogazioni &middot; teoria e armonia</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cos&rsquo;&egrave;">
+  <div class="slide-interna">
+    <h2>Due azioni, e hanno due nomi</h2>
+
+    <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
+         «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 3&deg; anno; pagine dall'indice rilevato. -->
+    <div class="riquadro libro">
+      <span class="etichetta">Sul tuo libro</span>
+      <p><span class="lez">B5</span><strong>Il Barocco: ritmo, contrappunto e forma</strong>, pp. 174&ndash;179</p>
+      <p>Lezione 16 &laquo;L&rsquo;invenzione imitativa&raquo;. Il libro non ha il canone; la pagina pi&ugrave; vicina &egrave; l&rsquo;imitazione barocca nella sezione B, unit&agrave; 5 &laquo;Il Barocco: ritmo, contrappunto e forma&raquo; (lezione 16).</p>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Condurre e seguire</span>
+      <p><strong>Condurre</strong> &mdash; propongo una linea, una nota alla volta. Ma prima dichiaro <strong>tre cose</strong>, e poi non le cambio.<br>
+      <strong>Seguire</strong> &mdash; voi ripetete quello che ho cantato, applicando la ricetta. Niente da inventare: da eseguire.</p>
+    </div>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Le tre cose che il conduttore dichiara prima</span>
+      <p><strong>1.</strong> Quanto si aspetta: una minima, o una semibreve.<br>
+      <strong>2.</strong> A che distanza si risponde: all&rsquo;unisono, una seconda sopra, una seconda sotto, una quarta sopra.<br>
+      <strong>3.</strong> Se la risposta va <strong>per dritto</strong> o <strong>riversa</strong>, cio&egrave; se copia il movimento o lo rovescia.</p>
+    </div>
+
+    <p class="didascalia">Oggi si fa il caso pi&ugrave; semplice: <strong>unisono, a distanza di minima, per dritto</strong>. Gli altri sono il capitolo 2 della dispensa, e non &egrave; roba di quest&rsquo;anno.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il primo passo">
+  <div class="slide-interna">
+    <h2>Il primo passo sembra banale. Non lo &egrave;.</h2>
+
+    <tac-stave time="4/4" keysig="C"
+               caption="Primo passo: io canto in battere e taccio, voi rispondete in levare"
+               soprano="g/4:h r:h | a/4:h r:h | g/4:h r:h | f/4:h r:h"
+               basso="r:h g/4:h | r:h a/4:h | r:h g/4:h | r:h f/4:h"
+               width="860" tempo="60" play slow></tac-stave>
+
+    <p>Io canto <strong>una</strong> minima e sto zitto. Voi la ripetete nella met&agrave; battuta dopo. Poi la prossima.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Perch&eacute; il maestro tace</span>
+      <p>La dispensa lo dice: si fa pausa <em>&laquo;per evitare di confondere la risposta&raquo;</em>. Finch&eacute; ripetere non &egrave; automatico, sentire due voci insieme &egrave; troppo.</p>
+    </div>
+
+    <p class="didascalia">Si va avanti finch&eacute; la risposta &egrave; <strong>intonata, al posto giusto e della stessa forza</strong>. Tutti e tre, non due su tre.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Il secondo passo">
+  <div class="slide-interna">
+    <h2>E adesso non taccio pi&ugrave;</h2>
+
+    <tac-stave time="4/4" keysig="C"
+               caption="Secondo passo: io continuo, e voi mi seguite a distanza di minima"
+               soprano="g/4:h a/4:h | g/4:h f/4:h | e/4:h f/4:h | g/4:h g/4:h"
+               basso="r:h g/4:h | a/4:h g/4:h | f/4:h e/4:h | f/4:h g/4:h"
+               width="860" tempo="60" play slow></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Che cosa succede adesso, e &egrave; la vera difficolt&agrave;</span>
+      <p>Mentre cantate la nota che avete appena sentito, ne state gi&agrave; <strong>ascoltando un&rsquo;altra</strong>, che dovrete cantare fra mezza battuta.<br>
+      Due cose insieme: eseguire e memorizzare. La dispensa la chiama <em>&laquo;duplice azione&raquo;</em>, e dice che superarla &egrave; <em>&laquo;di estrema importanza&raquo;</em> per qualunque musica d&rsquo;insieme.</p>
+    </div>
+
+    <p class="didascalia">Non &egrave; un esercizio di memoria: la nota da tenere a mente &egrave; <strong>una sola</strong>. &Egrave; un esercizio di attenzione divisa, ed &egrave; per questo che stanca.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa rende una linea seguibile">
+  <div class="slide-interna">
+    <h2>Chi conduce ha un mestiere</h2>
+
+    <tac-stave time="4/4" keysig="C"
+               caption="Una proposta che si segue: gradi congiunti e una nota ripetuta per respirare"
+               notes="g/4:h a/4:h | g/4:h g/4:h | f/4:h e/4:h | f/4:h g/4:h"
+               width="820" tempo="60" play slow></tac-stave>
+
+    <tac-stave time="4/4" keysig="C"
+               caption="Una proposta che affonda il compagno: salti larghi, nessun appiglio"
+               notes="g/4:h e/5:h | a/4:h f/5:h | d/4:h c/5:h | b/4:h g/4:h"
+               width="820" tempo="60" play slow></tac-stave>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Che differenza c&rsquo;&egrave;</span>
+      <p>La prima si muove per <strong>gradi congiunti</strong> e ogni tanto ripete una nota: chi segue ha sempre un appiglio vicino a quello di prima.<br>
+      La seconda &egrave; fatta di <strong>salti larghi</strong> in direzioni diverse. Nessuna nota aiuta a trovare la prossima.</p>
+    </div>
+
+    <p class="didascalia">Tutte e due sono lecite, e la seconda non &egrave; pi&ugrave; brava: &egrave; solo pi&ugrave; difficile da seguire. Chi conduce impari a stare sui gradi congiunti: chi conduce per far sbagliare il compagno ha capito male l&rsquo;esercizio, e non &egrave; una vittoria.</p>
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────────────────────────
+     Una slide con una musica vera. L'ora organizza il lavoro autonomo a
+     gruppi e non aveva un solo brano: la discussione sulla «linea
+     seguibile» avveniva in astratto. Manca il materiale su cui i gruppi
+     possono discutere davvero, cioè una linea che si può seguire a
+     orecchio e giudicare senza partitura.
+     ─────────────────────────────────────────────────────────────── -->
+<section class="slide perc" data-titolo="Una linea da giudicare a orecchio">
+  <div class="slide-interna">
+    <h2>Prima di scriverne una, sentirne una</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Lavoro a coppie &middot; 8 minuti</span>
+      <p>Due ascolti. Ognuno segue <strong>una voce sola</strong> — decidete prima chi. Poi, senza guardare niente, rispondete a due domande:</p>
+      <p><strong>a</strong> &middot; la vostra voce ha un punto più acuto di tutti, e ce n&rsquo;è <strong>uno solo</strong>?<br>
+      <strong>b</strong> &middot; dopo un salto, la linea <strong>torna indietro</strong>?</p>
+    </div>
+
+    <tac-brano organico="voci" titolo="«Benedicamus Domino» — due voci, modo dorico"
+               metronomo cerca="Benedicamus Domino Trecento PMFC 12 two voices" inciso="../../_assets/incisioni/B01_benedicamus.mp3" mappa='{"durata":37877,"eventi":[[0,0],[1,3000],[2,6000],[3,9000],[4,12000],[5,15000],[6,18000],[7,21000],[8,24000],[9,27000],[10,30000],[11,33000]]}' da-battuta="1">
+<script type="application/json">{"titolo":"Anonimo (Trecento italiano), «Benedicamus Domino» — due voci, modo dorico","metro":"3/4","bpm":60,"battute":12,"anacrusi":0.0,"voci":[[[0.0,3.0,57],[3.0,1.0,55],[4.0,2.0,57],[6.0,3.0,53],[9.0,1.0,55],[10.0,2.0,57],[12.0,1.0,55],[13.0,2.0,57],[15.0,3.0,53],[18.0,1.0,52],[19.0,2.0,50],[21.0,1.0,48],[22.0,2.0,50],[24.0,3.0,50],[27.0,1.0,52],[28.0,2.0,53],[30.0,1.0,55],[31.0,2.0,57],[33.0,1.0,55],[34.0,2.0,53]],[[0.0,3.0,50],[3.0,1.0,48],[4.0,2.0,50],[6.0,3.0,53],[9.0,1.0,52],[10.0,2.0,50],[12.0,1.0,48],[13.0,2.0,50],[15.0,3.0,53],[18.0,1.0,55],[19.0,2.0,57],[21.0,1.0,55],[22.0,2.0,57],[24.0,3.0,57],[27.0,1.0,55],[28.0,2.0,53],[30.0,1.0,52],[31.0,2.0,50],[33.0,1.0,52],[34.0,2.0,53]]]}</script>
+<figure class="tac-part" data-quale="intera"><svg viewBox="0 0 684 278" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="visible" id="exh2gcz-B011t">
+   <desc>Engraved by Verovio 6.2.0-43f8060</desc>
+   <defs>
+      <g id="E062-exh2gcz-B011t">
+         <path transform="scale(1,-1)" d="M582 -120c0 32 26 58 58 58s58 -26 58 -58s-26 -58 -58 -58s-58 26 -58 58zM582 120c0 32 26 58 58 58s58 -26 58 -58s-26 -58 -58 -58s-58 26 -58 58zM158 96c51 0 73 -14 88 -49l16 -39c0 -17 -2 -30 -7 -40c-3 -11 -10 -21 -19 -31c-17 -18 -49 -43 -84 -43 c-55 0 -77 13 -112 44c-24 21 -35 55 -35 100c0 46 14 81 32 112c30 52 71 79 137 93l36 6l26 2c154 0 235 -68 274 -182c11 -32 18 -68 18 -107c0 -103 -26 -182 -68 -250c-89 -145 -234 -230 -412 -288l-30 -5c-9 0 -14 3 -14 8c3 10 5 11 10 16c35 15 70 30 96 44l78 43 c96 57 162 136 197 258c9 33 17 60 22 100c3 22 5 35 6 39c-7 69 -16 115 -23 140s-4 22 -16 40c-8 12 -19 23 -31 34c-24 21 -62 44 -118 44c-48 0 -84 -8 -113 -28c-28 -19 -42 -44 -42 -73v-16c2 -5 3 -9 4 -11c24 22 52 39 84 39z" />
+      </g>
+      <g id="E083-exh2gcz-B011t">
+         <path transform="scale(1,-1)" d="M208 250c97 0 177 -52 177 -116c0 -69 -40 -111 -118 -125c56 -5 125 -44 125 -116c0 -31 -10 -57 -31 -78c-19 -21 -45 -38 -78 -49l-50 -11c-15 -3 -36 -7 -55 -7c-50 0 -86 16 -113 38c-16 10 -23 18 -34 34c-7 13 -11 25 -11 38c0 43 27 83 68 83l3 -2 c61 0 75 -42 75 -70c0 -19 -24 -42 -26 -57c7 -17 20 -25 37 -25c44 0 94 29 94 78c0 75 -34 125 -138 125v36c84 0 131 22 131 98c0 54 -37 88 -87 88c-26 0 -43 -7 -51 -22c15 -22 44 -16 44 -70c0 -37 -37 -62 -71 -62c-22 0 -69 15 -69 76c0 79 101 116 178 116z" />
+      </g>
+      <g id="E084-exh2gcz-B011t">
+         <path transform="scale(1,-1)" d="M20 -78c84 97 114 180 134 329h170c-13 -32 -82 -132 -99 -151l-84 -97c-33 -36 -59 -63 -80 -81h162v102l127 123v-225h57v-39h-57v-34c0 -43 19 -65 57 -65v-34h-244v36c48 0 60 26 60 70v27h-203v39z" />
+      </g>
+      <g id="E0A3-exh2gcz-B011t">
+         <path transform="scale(1,-1)" d="M278 64c0 22 -17 39 -43 39c-12 0 -26 -3 -41 -10c-85 -43 -165 -94 -165 -156c5 -25 15 -32 49 -32c67 11 200 95 200 159zM0 -36c0 68 73 174 200 174c66 0 114 -39 114 -97c0 -84 -106 -173 -218 -173c-64 0 -96 32 -96 96z" />
+      </g>
+      <g id="E0A4-exh2gcz-B011t">
+         <path transform="scale(1,-1)" d="M0 -39c0 68 73 172 200 172c66 0 114 -37 114 -95c0 -84 -106 -171 -218 -171c-64 0 -96 30 -96 94z" />
+      </g>
+   </defs>
+   <style type="text/css">#exh2gcz-B011t g.ending, #exh2gcz-B011t g.fing, #exh2gcz-B011t g.reh, #exh2gcz-B011t g.tempo {font-weight:bold;}#exh2gcz-B011t g.dir, #exh2gcz-B011t g.dynam, #exh2gcz-B011t g.mNum {font-style:italic;}#exh2gcz-B011t g.label {font-weight:normal;}#exh2gcz-B011t ellipse, #exh2gcz-B011t path, #exh2gcz-B011t polygon, #exh2gcz-B011t polyline, #exh2gcz-B011t rect {stroke:currentColor}</style>
+   <svg class="definition-scale" color="black" font-family="Times, serif" viewBox="0 0 18000 7300">
+      <g class="page-margin" transform="translate(600, 600)">
+         <g data-id="oi8yfi2" data-class="mdiv" class="mdiv pageMilestone" />
+         <g data-id="pgli4cw" data-class="score" class="score pageMilestone" />
+         <g data-id="j1uc24sq" data-class="system" class="system">
+            <path d="M13 270 L13 2593" stroke-width="27" />
+            <g data-id="r1osmrlm" data-class="section" class="section systemMilestone" />
+            <g data-id="s7k0q3e" data-class="pb" class="pb" />
+            <g data-id="d88jx2r" data-class="section" class="section systemMilestone" />
+            <g data-id="fjeyjmi" data-class="measure" class="measure">
+               <g data-id="o1odyp5h" data-class="staff" class="staff">
+                  <path d="M0 270 L2843 270" stroke-width="13" />
+                  <path d="M0 450 L2843 450" stroke-width="13" />
+                  <path d="M0 630 L2843 630" stroke-width="13" />
+                  <path d="M0 810 L2843 810" stroke-width="13" />
+                  <path d="M0 990 L2843 990" stroke-width="13" />
+                  <g data-id="v1hk28o4" data-class="clef" class="clef">
+                     <use xlink:href="#E062-exh2gcz-B011t" transform="translate(115, 450) scale(0.72, 0.72)" />
+                  </g>
+                  <g data-id="w1jcgd25" data-class="keySig" class="keySig" />
+                  <g data-id="x10owczq" data-class="meterSig" class="meterSig">
+                     <use xlink:href="#E083-exh2gcz-B011t" transform="translate(788, 450) scale(0.72, 0.72)" />
+                     <use xlink:href="#E084-exh2gcz-B011t" transform="translate(782, 810) scale(0.72, 0.72)" />
+                  </g>
+                  <g data-id="phwzslh" data-class="layer" class="layer">
+                     <g data-id="qf6jz8f" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(1355, 270) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="pcy2x5f" data-class="dots" class="dots">
+                           <ellipse cx="1671" cy="180" rx="36" ry="36" />
+                        </g>
+                        <g data-id="o1trdxkz" data-class="stem" class="stem">
+                           <path d="M1364 295 L1364 900" stroke-width="18" />
+                        </g>
+                        <g data-id="r8w1g7o" data-class="accid" class="accid" />
+                        <g data-id="s13231at" data-class="verse" class="verse">
+                           <title class="labelAttr">verse</title>
+                           <g data-id="tf1rkqr" data-class="syl" class="syl">
+                              <text x="1265" y="1551" font-size="0px">
+                                 <tspan data-id="u1c46635" data-class="text" class="text">
+                                    <tspan font-size="405px">Be</tspan>
+                                 </tspan>
+                              </text>
+                              <rect x="2659" y="1448" height="22" width="98" />
+                              <rect x="3859" y="1448" height="22" width="98" />
+                              <rect x="5059" y="1448" height="22" width="98" />
+                              <rect x="6259" y="1448" height="22" width="98" />
+                              <rect x="7459" y="1448" height="22" width="98" />
+                              <rect x="8659" y="1448" height="22" width="98" />
+                              <rect x="9859" y="1448" height="22" width="98" />
+                              <rect x="11059" y="1448" height="22" width="98" />
+                              <rect x="12259" y="1448" height="22" width="98" />
+                              <rect x="13459" y="1448" height="22" width="98" />
+                              <rect x="14659" y="1448" height="22" width="98" />
+                              <rect x="15859" y="1448" height="22" width="98" />
+                           </g>
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="t1j0l90k" data-class="staff" class="staff">
+                  <path d="M0 1873 L2843 1873" stroke-width="13" />
+                  <path d="M0 2053 L2843 2053" stroke-width="13" />
+                  <path d="M0 2233 L2843 2233" stroke-width="13" />
+                  <path d="M0 2413 L2843 2413" stroke-width="13" />
+                  <path d="M0 2593 L2843 2593" stroke-width="13" />
+                  <g data-id="y1cxeotu" data-class="clef" class="clef">
+                     <use xlink:href="#E062-exh2gcz-B011t" transform="translate(115, 2053) scale(0.72, 0.72)" />
+                  </g>
+                  <g data-id="z1bjgnyk" data-class="keySig" class="keySig" />
+                  <g data-id="arcdu9" data-class="meterSig" class="meterSig">
+                     <use xlink:href="#E083-exh2gcz-B011t" transform="translate(788, 2053) scale(0.72, 0.72)" />
+                     <use xlink:href="#E084-exh2gcz-B011t" transform="translate(782, 2413) scale(0.72, 0.72)" />
+                  </g>
+                  <g data-id="u1lzx901" data-class="layer" class="layer">
+                     <g data-id="v16h3nos" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(1355, 2233) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="r1q9cakr" data-class="dots" class="dots">
+                           <ellipse cx="1671" cy="2143" rx="36" ry="36" />
+                        </g>
+                        <g data-id="q1ozegyx" data-class="stem" class="stem">
+                           <path d="M1364 2258 L1364 2833" stroke-width="18" />
+                        </g>
+                        <g data-id="w1hyx1ln" data-class="accid" class="accid" />
+                        <g data-id="x1ma8mys" data-class="verse" class="verse">
+                           <title class="labelAttr">verse</title>
+                           <g data-id="y1v4b257" data-class="syl" class="syl">
+                              <text x="1265" y="3154" font-size="0px">
+                                 <tspan data-id="z1buq34z" data-class="text" class="text">
+                                    <tspan font-size="405px">Be</tspan>
+                                 </tspan>
+                              </text>
+                              <rect x="2659" y="3051" height="22" width="98" />
+                              <rect x="3859" y="3051" height="22" width="98" />
+                              <rect x="5059" y="3051" height="22" width="98" />
+                              <rect x="6259" y="3051" height="22" width="98" />
+                              <rect x="7459" y="3051" height="22" width="98" />
+                              <rect x="8659" y="3051" height="22" width="98" />
+                              <rect x="9859" y="3051" height="22" width="98" />
+                              <rect x="11059" y="3051" height="22" width="98" />
+                              <rect x="12259" y="3051" height="22" width="98" />
+                              <rect x="13459" y="3051" height="22" width="98" />
+                              <rect x="14659" y="3051" height="22" width="98" />
+                              <rect x="15859" y="3051" height="22" width="98" />
+                           </g>
+                        </g>
+                     </g>
+                  </g>
+               </g>
+               <g data-id="n1pyxx41" data-class="barLine" class="barLine">
+                  <path d="M2830 270 L2830 990" stroke-width="27" />
+                  <path d="M2830 1873 L2830 2593" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="vloyj1b" data-class="measure" class="measure">
+               <g data-id="ee0leqb" data-class="staff" class="staff">
+                  <path d="M2843 270 L4963 270" stroke-width="13" />
+                  <path d="M2843 450 L4963 450" stroke-width="13" />
+                  <path d="M2843 630 L4963 630" stroke-width="13" />
+                  <path d="M2843 810 L4963 810" stroke-width="13" />
+                  <path d="M2843 990 L4963 990" stroke-width="13" />
+                  <g data-id="f1q2m8ur" data-class="layer" class="layer">
+                     <g data-id="g314sbi" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-exh2gcz-B011t" transform="translate(3034, 360) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="sg2wdwz" data-class="stem" class="stem">
+                           <path d="M3043 388 L3043 990" stroke-width="18" />
+                        </g>
+                        <g data-id="hfvf7l0" data-class="accid" class="accid" />
+                     </g>
+                     <g data-id="i11xoy6e" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(3794, 270) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="t1msggld" data-class="stem" class="stem">
+                           <path d="M3803 295 L3803 900" stroke-width="18" />
+                        </g>
+                        <g data-id="j89ieud" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="j1z03gv7" data-class="staff" class="staff">
+                  <path d="M2843 1873 L4963 1873" stroke-width="13" />
+                  <path d="M2843 2053 L4963 2053" stroke-width="13" />
+                  <path d="M2843 2233 L4963 2233" stroke-width="13" />
+                  <path d="M2843 2413 L4963 2413" stroke-width="13" />
+                  <path d="M2843 2593 L4963 2593" stroke-width="13" />
+                  <g data-id="k8wlovg" data-class="layer" class="layer">
+                     <g data-id="l18jp38b" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-exh2gcz-B011t" transform="translate(3034, 2323) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="uj68jpi" data-class="stem" class="stem">
+                           <path d="M3251 2295 L3251 1693" stroke-width="18" />
+                        </g>
+                        <g data-id="m1fjchbp" data-class="accid" class="accid" />
+                     </g>
+                     <g data-id="n19yela5" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(3794, 2233) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="v10xomu2" data-class="stem" class="stem">
+                           <path d="M3803 2258 L3803 2833" stroke-width="18" />
+                        </g>
+                        <g data-id="o1f9d52s" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="d14xuaqv" data-class="barLine" class="barLine">
+                  <path d="M4950 270 L4950 990" stroke-width="27" />
+                  <path d="M4950 1873 L4950 2593" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="kyqccee" data-class="measure" class="measure">
+               <g data-id="tfc4es" data-class="staff" class="staff">
+                  <path d="M4963 270 L6642 270" stroke-width="13" />
+                  <path d="M4963 450 L6642 450" stroke-width="13" />
+                  <path d="M4963 630 L6642 630" stroke-width="13" />
+                  <path d="M4963 810 L6642 810" stroke-width="13" />
+                  <path d="M4963 990 L6642 990" stroke-width="13" />
+                  <g data-id="u92crgp" data-class="layer" class="layer">
+                     <g data-id="v1r3exon" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(5154, 450) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="x1u5t5jq" data-class="dots" class="dots">
+                           <ellipse cx="5470" cy="360" rx="36" ry="36" />
+                        </g>
+                        <g data-id="w1m6se10" data-class="stem" class="stem">
+                           <path d="M5163 475 L5163 1080" stroke-width="18" />
+                        </g>
+                        <g data-id="wigzjau" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="y1gcxaey" data-class="staff" class="staff">
+                  <path d="M4963 1873 L6642 1873" stroke-width="13" />
+                  <path d="M4963 2053 L6642 2053" stroke-width="13" />
+                  <path d="M4963 2233 L6642 2233" stroke-width="13" />
+                  <path d="M4963 2413 L6642 2413" stroke-width="13" />
+                  <path d="M4963 2593 L6642 2593" stroke-width="13" />
+                  <g data-id="z122r4pe" data-class="layer" class="layer">
+                     <g data-id="a45khbi" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(5154, 2053) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="z19r5tp8" data-class="dots" class="dots">
+                           <ellipse cx="5470" cy="1963" rx="36" ry="36" />
+                        </g>
+                        <g data-id="y1w2dact" data-class="stem" class="stem">
+                           <path d="M5163 2078 L5163 2683" stroke-width="18" />
+                        </g>
+                        <g data-id="bi08vg0" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="s133h6f7" data-class="barLine" class="barLine">
+                  <path d="M6629 270 L6629 990" stroke-width="27" />
+                  <path d="M6629 1873 L6629 2593" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="x10zrpvt" data-class="measure" class="measure">
+               <g data-id="gz1rj37" data-class="staff" class="staff">
+                  <path d="M6642 270 L8762 270" stroke-width="13" />
+                  <path d="M6642 450 L8762 450" stroke-width="13" />
+                  <path d="M6642 630 L8762 630" stroke-width="13" />
+                  <path d="M6642 810 L8762 810" stroke-width="13" />
+                  <path d="M6642 990 L8762 990" stroke-width="13" />
+                  <g data-id="h1og66km" data-class="layer" class="layer">
+                     <g data-id="id6xxu9" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-exh2gcz-B011t" transform="translate(6833, 360) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="a2i13pr" data-class="stem" class="stem">
+                           <path d="M6842 388 L6842 990" stroke-width="18" />
+                        </g>
+                        <g data-id="j1ya654y" data-class="accid" class="accid" />
+                     </g>
+                     <g data-id="k1xj2xa" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(7593, 270) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="b1w1rz7n" data-class="stem" class="stem">
+                           <path d="M7602 295 L7602 900" stroke-width="18" />
+                        </g>
+                        <g data-id="lygznyd" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="l1x79y6m" data-class="staff" class="staff">
+                  <path d="M6642 1873 L8762 1873" stroke-width="13" />
+                  <path d="M6642 2053 L8762 2053" stroke-width="13" />
+                  <path d="M6642 2233 L8762 2233" stroke-width="13" />
+                  <path d="M6642 2413 L8762 2413" stroke-width="13" />
+                  <path d="M6642 2593 L8762 2593" stroke-width="13" />
+                  <g data-id="mzm29kw" data-class="layer" class="layer">
+                     <g data-id="nokedlh" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-exh2gcz-B011t" transform="translate(6833, 2143) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="c1jg9jgf" data-class="stem" class="stem">
+                           <path d="M6842 2171 L6842 2773" stroke-width="18" />
+                        </g>
+                        <g data-id="omh0a25" data-class="accid" class="accid" />
+                     </g>
+                     <g data-id="p1y0x4ua" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(7593, 2233) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="d1td3x28" data-class="stem" class="stem">
+                           <path d="M7602 2258 L7602 2833" stroke-width="18" />
+                        </g>
+                        <g data-id="q1ckywst" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="f19r2qo1" data-class="barLine" class="barLine">
+                  <path d="M8749 270 L8749 990" stroke-width="27" />
+                  <path d="M8749 1873 L8749 2593" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="m1hwo4on" data-class="measure" class="measure">
+               <g data-id="vxbnpu6" data-class="staff" class="staff">
+                  <path d="M8762 270 L10882 270" stroke-width="13" />
+                  <path d="M8762 450 L10882 450" stroke-width="13" />
+                  <path d="M8762 630 L10882 630" stroke-width="13" />
+                  <path d="M8762 810 L10882 810" stroke-width="13" />
+                  <path d="M8762 990 L10882 990" stroke-width="13" />
+                  <g data-id="w2nvix5" data-class="layer" class="layer">
+                     <g data-id="x1pl7t0g" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-exh2gcz-B011t" transform="translate(8953, 360) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="e1tgf92k" data-class="stem" class="stem">
+                           <path d="M8962 388 L8962 990" stroke-width="18" />
+                        </g>
+                        <g data-id="yqpjoa5" data-class="accid" class="accid" />
+                     </g>
+                     <g data-id="z1nnnxv8" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(9713, 270) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="f1mr2ko2" data-class="stem" class="stem">
+                           <path d="M9722 295 L9722 900" stroke-width="18" />
+                        </g>
+                        <g data-id="a10qjzz2" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="a13e9amk" data-class="staff" class="staff">
+                  <path d="M8762 1873 L10882 1873" stroke-width="13" />
+                  <path d="M8762 2053 L10882 2053" stroke-width="13" />
+                  <path d="M8762 2233 L10882 2233" stroke-width="13" />
+                  <path d="M8762 2413 L10882 2413" stroke-width="13" />
+                  <path d="M8762 2593 L10882 2593" stroke-width="13" />
+                  <g data-id="b7i5v0j" data-class="layer" class="layer">
+                     <g data-id="c1s4c4g7" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-exh2gcz-B011t" transform="translate(8953, 2323) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="g10wkzks" data-class="stem" class="stem">
+                           <path d="M9170 2295 L9170 1693" stroke-width="18" />
+                        </g>
+                        <g data-id="d1sl92ac" data-class="accid" class="accid" />
+                     </g>
+                     <g data-id="e10z458p" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(9713, 2233) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="h1yh8l37" data-class="stem" class="stem">
+                           <path d="M9722 2258 L9722 2833" stroke-width="18" />
+                        </g>
+                        <g data-id="f19guc16" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="u1sapmxc" data-class="barLine" class="barLine">
+                  <path d="M10869 270 L10869 990" stroke-width="27" />
+                  <path d="M10869 1873 L10869 2593" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="b1lby9un" data-class="measure" class="measure">
+               <g data-id="klrud70" data-class="staff" class="staff">
+                  <path d="M10882 270 L12561 270" stroke-width="13" />
+                  <path d="M10882 450 L12561 450" stroke-width="13" />
+                  <path d="M10882 630 L12561 630" stroke-width="13" />
+                  <path d="M10882 810 L12561 810" stroke-width="13" />
+                  <path d="M10882 990 L12561 990" stroke-width="13" />
+                  <g data-id="l102d0ve" data-class="layer" class="layer">
+                     <g data-id="m1triqkq" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(11073, 450) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="j1kuo5w8" data-class="dots" class="dots">
+                           <ellipse cx="11389" cy="360" rx="36" ry="36" />
+                        </g>
+                        <g data-id="i1lex3jh" data-class="stem" class="stem">
+                           <path d="M11082 475 L11082 1080" stroke-width="18" />
+                        </g>
+                        <g data-id="n24p3gb" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="p2qqszq" data-class="staff" class="staff">
+                  <path d="M10882 1873 L12561 1873" stroke-width="13" />
+                  <path d="M10882 2053 L12561 2053" stroke-width="13" />
+                  <path d="M10882 2233 L12561 2233" stroke-width="13" />
+                  <path d="M10882 2413 L12561 2413" stroke-width="13" />
+                  <path d="M10882 2593 L12561 2593" stroke-width="13" />
+                  <g data-id="q13012e4" data-class="layer" class="layer">
+                     <g data-id="rp40bt1" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(11073, 2053) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="lmied43" data-class="dots" class="dots">
+                           <ellipse cx="11389" cy="1963" rx="36" ry="36" />
+                        </g>
+                        <g data-id="k9x318l" data-class="stem" class="stem">
+                           <path d="M11082 2078 L11082 2683" stroke-width="18" />
+                        </g>
+                        <g data-id="s19itgik" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="j1i8l0tk" data-class="barLine" class="barLine">
+                  <path d="M12548 270 L12548 990" stroke-width="27" />
+                  <path d="M12548 1873 L12548 2593" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="o1c49xpo" data-class="measure" class="measure">
+               <g data-id="xx5g5o5" data-class="staff" class="staff">
+                  <path d="M12561 270 L14681 270" stroke-width="13" />
+                  <path d="M12561 450 L14681 450" stroke-width="13" />
+                  <path d="M12561 630 L14681 630" stroke-width="13" />
+                  <path d="M12561 810 L14681 810" stroke-width="13" />
+                  <path d="M12561 990 L14681 990" stroke-width="13" />
+                  <g data-id="y9tj89g" data-class="layer" class="layer">
+                     <g data-id="zgsi7jw" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-exh2gcz-B011t" transform="translate(12752, 540) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="mf8fegy" data-class="stem" class="stem">
+                           <path d="M12761 568 L12761 1170" stroke-width="18" />
+                        </g>
+                        <g data-id="a1l0sk0l" data-class="accid" class="accid" />
+                     </g>
+                     <g data-id="b2yh3y3" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(13512, 630) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="n18cozta" data-class="stem" class="stem">
+                           <path d="M13521 655 L13521 1230" stroke-width="18" />
+                        </g>
+                        <g data-id="c11lof2h" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="ce75sv5" data-class="staff" class="staff">
+                  <path d="M12561 1873 L14681 1873" stroke-width="13" />
+                  <path d="M12561 2053 L14681 2053" stroke-width="13" />
+                  <path d="M12561 2233 L14681 2233" stroke-width="13" />
+                  <path d="M12561 2413 L14681 2413" stroke-width="13" />
+                  <path d="M12561 2593 L14681 2593" stroke-width="13" />
+                  <g data-id="dtv0ej6" data-class="layer" class="layer">
+                     <g data-id="e1o3i8g2" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-exh2gcz-B011t" transform="translate(12752, 1963) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="o1xfy6hh" data-class="stem" class="stem">
+                           <path d="M12761 1991 L12761 2593" stroke-width="18" />
+                        </g>
+                        <g data-id="fh1udie" data-class="accid" class="accid" />
+                     </g>
+                     <g data-id="gu61inz" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(13512, 1873) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="p18xwts9" data-class="stem" class="stem">
+                           <path d="M13521 1898 L13521 2503" stroke-width="18" />
+                        </g>
+                        <g data-id="h1rtbs56" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="w3qmxcn" data-class="barLine" class="barLine">
+                  <path d="M14668 270 L14668 990" stroke-width="27" />
+                  <path d="M14668 1873 L14668 2593" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="dlmjikl" data-class="measure" class="measure">
+               <g data-id="mzc8jip" data-class="staff" class="staff">
+                  <path d="M14681 270 L16801 270" stroke-width="13" />
+                  <path d="M14681 450 L16801 450" stroke-width="13" />
+                  <path d="M14681 630 L16801 630" stroke-width="13" />
+                  <path d="M14681 810 L16801 810" stroke-width="13" />
+                  <path d="M14681 990 L16801 990" stroke-width="13" />
+                  <g data-id="n9l0aqu" data-class="layer" class="layer">
+                     <g data-id="o1d1kvcf" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-exh2gcz-B011t" transform="translate(14872, 720) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="q15qextb" data-class="stem" class="stem">
+                           <path d="M15089 692 L15089 90" stroke-width="18" />
+                        </g>
+                        <g data-id="p1uy0pv4" data-class="accid" class="accid" />
+                     </g>
+                     <g data-id="q3ca97f" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(15632, 630) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="r14b7py5" data-class="stem" class="stem">
+                           <path d="M15641 655 L15641 1230" stroke-width="18" />
+                        </g>
+                        <g data-id="r1x6jgzc" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="r1pq4i7h" data-class="staff" class="staff">
+                  <path d="M14681 1873 L16801 1873" stroke-width="13" />
+                  <path d="M14681 2053 L16801 2053" stroke-width="13" />
+                  <path d="M14681 2233 L16801 2233" stroke-width="13" />
+                  <path d="M14681 2413 L16801 2413" stroke-width="13" />
+                  <path d="M14681 2593 L16801 2593" stroke-width="13" />
+                  <g data-id="s13vidu1" data-class="layer" class="layer">
+                     <g data-id="to7vsja" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-exh2gcz-B011t" transform="translate(14872, 1963) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="s3ef7aq" data-class="stem" class="stem">
+                           <path d="M14881 1991 L14881 2593" stroke-width="18" />
+                        </g>
+                        <g data-id="usl0fnw" data-class="accid" class="accid" />
+                     </g>
+                     <g data-id="verkr1z" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(15632, 1873) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="t190jhdp" data-class="stem" class="stem">
+                           <path d="M15641 1898 L15641 2503" stroke-width="18" />
+                        </g>
+                        <g data-id="w1a44g1g" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="l1kcezv5" data-class="barLine" class="barLine">
+                  <path d="M16788 270 L16788 990" stroke-width="27" />
+                  <path d="M16788 1873 L16788 2593" stroke-width="27" />
+               </g>
+            </g>
+         </g>
+         <g data-id="m1uxs3c9" data-class="system" class="system">
+            <path d="M13 4052 L13 6032" stroke-width="27" />
+            <g data-id="slf0eai" data-class="measure" class="measure">
+               <g data-id="g3pyvhk" data-class="mNum" class="mNum autogenerated">
+                  <text y="3809" text-anchor="middle" font-size="0px">
+                     <tspan data-id="hyg6wkb" data-class="text" class="text">
+                        <tspan font-size="324px">9</tspan>
+                     </tspan>
+                  </text>
+               </g>
+               <g data-id="bng04hb" data-class="staff" class="staff">
+                  <path d="M0 4052 L2295 4052" stroke-width="13" />
+                  <path d="M0 4232 L2295 4232" stroke-width="13" />
+                  <path d="M0 4412 L2295 4412" stroke-width="13" />
+                  <path d="M0 4592 L2295 4592" stroke-width="13" />
+                  <path d="M0 4772 L2295 4772" stroke-width="13" />
+                  <g data-id="v1skh7f1" data-class="clef" class="clef">
+                     <use xlink:href="#E062-exh2gcz-B011t" transform="translate(115, 4232) scale(0.72, 0.72)" />
+                  </g>
+                  <g data-id="w1wbq9qv" data-class="keySig" class="keySig" />
+                  <g data-id="c11q0n45" data-class="layer" class="layer">
+                     <g data-id="d1m1xnis" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(886, 4412) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="v1s0021j" data-class="dots" class="dots">
+                           <ellipse cx="1202" cy="4322" rx="36" ry="36" />
+                        </g>
+                        <g data-id="u131m7ku" data-class="stem" class="stem">
+                           <path d="M895 4437 L895 5012" stroke-width="18" />
+                        </g>
+                        <g data-id="e1uq9nqj" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="g14es6kf" data-class="staff" class="staff">
+                  <path d="M0 5312 L2295 5312" stroke-width="13" />
+                  <path d="M0 5492 L2295 5492" stroke-width="13" />
+                  <path d="M0 5672 L2295 5672" stroke-width="13" />
+                  <path d="M0 5852 L2295 5852" stroke-width="13" />
+                  <path d="M0 6032 L2295 6032" stroke-width="13" />
+                  <g data-id="xpnt10" data-class="clef" class="clef">
+                     <use xlink:href="#E062-exh2gcz-B011t" transform="translate(115, 5492) scale(0.72, 0.72)" />
+                  </g>
+                  <g data-id="y1emx0wy" data-class="keySig" class="keySig" />
+                  <g data-id="h1ilj45r" data-class="layer" class="layer">
+                     <g data-id="iesmhaj" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(886, 5312) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="xopqhhx" data-class="dots" class="dots">
+                           <ellipse cx="1202" cy="5222" rx="36" ry="36" />
+                        </g>
+                        <g data-id="w1glist0" data-class="stem" class="stem">
+                           <path d="M895 5337 L895 5942" stroke-width="18" />
+                        </g>
+                        <g data-id="j1y8d5ae" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="adjklu4" data-class="barLine" class="barLine">
+                  <path d="M2282 4052 L2282 4772" stroke-width="27" />
+                  <path d="M2282 5312 L2282 6032" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="p14rkv4v" data-class="sb" class="sb" />
+            <g data-id="f193lzav" data-class="measure" class="measure">
+               <g data-id="o1cnf52d" data-class="staff" class="staff">
+                  <path d="M2295 4052 L4301 4052" stroke-width="13" />
+                  <path d="M2295 4232 L4301 4232" stroke-width="13" />
+                  <path d="M2295 4412 L4301 4412" stroke-width="13" />
+                  <path d="M2295 4592 L4301 4592" stroke-width="13" />
+                  <path d="M2295 4772 L4301 4772" stroke-width="13" />
+                  <g data-id="q1iugxcn" data-class="layer" class="layer">
+                     <g data-id="r1ob4ytr" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-exh2gcz-B011t" transform="translate(2475, 4322) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="yuj944v" data-class="stem" class="stem">
+                           <path d="M2484 4350 L2484 4952" stroke-width="18" />
+                        </g>
+                        <g data-id="suifp1x" data-class="accid" class="accid" />
+                     </g>
+                     <g data-id="t1y9b0a5" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(3194, 4232) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="zhmg46z" data-class="stem" class="stem">
+                           <path d="M3203 4257 L3203 4862" stroke-width="18" />
+                        </g>
+                        <g data-id="u1v7qfs2" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="t1r1x63a" data-class="staff" class="staff">
+                  <path d="M2295 5312 L4301 5312" stroke-width="13" />
+                  <path d="M2295 5492 L4301 5492" stroke-width="13" />
+                  <path d="M2295 5672 L4301 5672" stroke-width="13" />
+                  <path d="M2295 5852 L4301 5852" stroke-width="13" />
+                  <path d="M2295 6032 L4301 6032" stroke-width="13" />
+                  <g data-id="un03gtl" data-class="layer" class="layer">
+                     <g data-id="v1gazbmc" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-exh2gcz-B011t" transform="translate(2475, 5402) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="a1rlwg7r" data-class="stem" class="stem">
+                           <path d="M2484 5430 L2484 6032" stroke-width="18" />
+                        </g>
+                        <g data-id="w1aoboic" data-class="accid" class="accid" />
+                     </g>
+                     <g data-id="xa4187p" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(3194, 5492) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="b1hpwuq4" data-class="stem" class="stem">
+                           <path d="M3203 5517 L3203 6122" stroke-width="18" />
+                        </g>
+                        <g data-id="y1ijt0m9" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="n1a4vxwq" data-class="barLine" class="barLine">
+                  <path d="M4288 4052 L4288 4772" stroke-width="27" />
+                  <path d="M4288 5312 L4288 6032" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="vt63yqq" data-class="measure" class="measure">
+               <g data-id="e1txwygl" data-class="staff" class="staff">
+                  <path d="M4301 4052 L6307 4052" stroke-width="13" />
+                  <path d="M4301 4232 L6307 4232" stroke-width="13" />
+                  <path d="M4301 4412 L6307 4412" stroke-width="13" />
+                  <path d="M4301 4592 L6307 4592" stroke-width="13" />
+                  <path d="M4301 4772 L6307 4772" stroke-width="13" />
+                  <g data-id="fmaj6x1" data-class="layer" class="layer">
+                     <g data-id="gclcqaw" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-exh2gcz-B011t" transform="translate(4481, 4142) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="c1dsygfc" data-class="stem" class="stem">
+                           <path d="M4490 4170 L4490 4772" stroke-width="18" />
+                        </g>
+                        <g data-id="hslnsc7" data-class="accid" class="accid" />
+                     </g>
+                     <g data-id="i1wejoq4" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(5200, 4052) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="dop4r3e" data-class="stem" class="stem">
+                           <path d="M5209 4077 L5209 4682" stroke-width="18" />
+                        </g>
+                        <g data-id="j1488j0r" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="i1wi6bv0" data-class="staff" class="staff">
+                  <path d="M4301 5312 L6307 5312" stroke-width="13" />
+                  <path d="M4301 5492 L6307 5492" stroke-width="13" />
+                  <path d="M4301 5672 L6307 5672" stroke-width="13" />
+                  <path d="M4301 5852 L6307 5852" stroke-width="13" />
+                  <path d="M4301 6032 L6307 6032" stroke-width="13" />
+                  <g data-id="jzo5i94" data-class="layer" class="layer">
+                     <g data-id="k2zgrdu" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-exh2gcz-B011t" transform="translate(4481, 5582) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="e1dznyz1" data-class="stem" class="stem">
+                           <path d="M4490 5610 L4490 6212" stroke-width="18" />
+                        </g>
+                        <g data-id="l42jdnn" data-class="accid" class="accid" />
+                     </g>
+                     <g data-id="mlmg9is" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(5200, 5672) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="fb6sral" data-class="stem" class="stem">
+                           <path d="M5209 5697 L5209 6272" stroke-width="18" />
+                        </g>
+                        <g data-id="n30tbft" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="d3lthlx" data-class="barLine" class="barLine">
+                  <path d="M6294 4052 L6294 4772" stroke-width="27" />
+                  <path d="M6294 5312 L6294 6032" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="k666gsd" data-class="measure" class="measure">
+               <g data-id="tc5nkcg" data-class="staff" class="staff">
+                  <path d="M6307 4052 L8313 4052" stroke-width="13" />
+                  <path d="M6307 4232 L8313 4232" stroke-width="13" />
+                  <path d="M6307 4412 L8313 4412" stroke-width="13" />
+                  <path d="M6307 4592 L8313 4592" stroke-width="13" />
+                  <path d="M6307 4772 L8313 4772" stroke-width="13" />
+                  <g data-id="u1lnwlmk" data-class="layer" class="layer">
+                     <g data-id="vxj3ygn" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-exh2gcz-B011t" transform="translate(6487, 4142) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="g1daxe5l" data-class="stem" class="stem">
+                           <path d="M6496 4170 L6496 4772" stroke-width="18" />
+                        </g>
+                        <g data-id="w5mxi14" data-class="accid" class="accid" />
+                     </g>
+                     <g data-id="x3r3u7q" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(7206, 4232) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="hffo4rz" data-class="stem" class="stem">
+                           <path d="M7215 4257 L7215 4862" stroke-width="18" />
+                        </g>
+                        <g data-id="y17kyy51" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="x1jkmagh" data-class="staff" class="staff">
+                  <path d="M6307 5312 L8313 5312" stroke-width="13" />
+                  <path d="M6307 5492 L8313 5492" stroke-width="13" />
+                  <path d="M6307 5672 L8313 5672" stroke-width="13" />
+                  <path d="M6307 5852 L8313 5852" stroke-width="13" />
+                  <path d="M6307 6032 L8313 6032" stroke-width="13" />
+                  <g data-id="y5slwn9" data-class="layer" class="layer">
+                     <g data-id="zgm8un5" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A4-exh2gcz-B011t" transform="translate(6487, 5582) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="i1pf19gb" data-class="stem" class="stem">
+                           <path d="M6496 5610 L6496 6212" stroke-width="18" />
+                        </g>
+                        <g data-id="a1twr0rd" data-class="accid" class="accid" />
+                     </g>
+                     <g data-id="buh04tl" data-class="note" class="note">
+                        <g data-class="notehead" class="notehead">
+                           <use xlink:href="#E0A3-exh2gcz-B011t" transform="translate(7206, 5492) scale(0.72, 0.72)" />
+                        </g>
+                        <g data-id="j1maeee4" data-class="stem" class="stem">
+                           <path d="M7215 5517 L7215 6122" stroke-width="18" />
+                        </g>
+                        <g data-id="c1wy37d9" data-class="accid" class="accid" />
+                     </g>
+                  </g>
+               </g>
+               <g data-id="s1chinnr" data-class="barLine" class="barLine">
+                  <path d="M8300 4052 L8300 4772" stroke-width="27" />
+                  <path d="M8300 5312 L8300 6032" stroke-width="27" />
+               </g>
+            </g>
+            <g data-id="m14yxxrd" data-class="systemMilestoneEnd" class="systemMilestoneEnd d88jx2r" />
+            <g data-id="n1pr9z0m" data-class="systemMilestoneEnd" class="systemMilestoneEnd r1osmrlm" />
+            <g data-id="tf1rkqr" data-class="syl" class="syl id-tf1rkqr spanning">
+               <rect x="1530" y="5230" height="22" width="98" />
+               <rect x="2730" y="5230" height="22" width="98" />
+               <rect x="3930" y="5230" height="22" width="98" />
+               <rect x="5130" y="5230" height="22" width="98" />
+               <rect x="6330" y="5230" height="22" width="98" />
+            </g>
+            <g data-id="y1v4b257" data-class="syl" class="syl id-y1v4b257 spanning">
+               <rect x="1530" y="6490" height="22" width="98" />
+               <rect x="2730" y="6490" height="22" width="98" />
+               <rect x="3930" y="6490" height="22" width="98" />
+               <rect x="5130" y="6490" height="22" width="98" />
+               <rect x="6330" y="6490" height="22" width="98" />
+            </g>
+         </g>
+         <g data-id="o1aejxkr" data-class="pageMilestoneEnd" class="pageMilestoneEnd pgli4cw" />
+         <g data-id="p1lr73tg" data-class="pageMilestoneEnd" class="pageMilestoneEnd oi8yfi2" />
+      </g>
+   </svg>
+</svg>
+</figure>
+</tac-brano>
+
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Perché queste due domande e non altre</span>
+      <p>Perché sono le due che si possono verificare <strong>senza partitura</strong>. Un culmine unico si sente; un salto compensato si sente. Le quinte parallele no, e infatti non ve le chiediamo a orecchio.</p>
+    </div>
+
+    <div class="riquadro attenzione">
+      <span class="etichetta">Che cosa fare se non siete d&rsquo;accordo</span>
+      <p>Riascoltate una terza volta seguendo <strong>la stessa</strong> voce tutti e due. Quasi sempre il disaccordo nasce da lì: due persone che seguono voci diverse descrivono musiche diverse.</p>
+    </div>
+
+    <p class="didascalia">È il metodo di tutta l&rsquo;analisi d&rsquo;ascolto: si concordano prima <strong>che cosa si sta seguendo</strong> e <strong>quali domande si stanno facendo</strong>, e solo dopo si discute la risposta. L&rsquo;ordine inverso produce discussioni che non finiscono.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Come ci si organizza">
+  <div class="slide-interna">
+    <h2>Come si fa in classe, in venti minuti</h2>
+
+    <div class="riquadro procedura">
+      <span class="etichetta">Quattro giri</span>
+      <ol>
+        <li><strong>Tutti insieme</strong> seguono me, primo passo: io canto e taccio. Due minuti.</li>
+        <li><strong>Tutti insieme</strong>, secondo passo: io non taccio pi&ugrave;. Quattro minuti.</li>
+        <li><strong>Met&agrave; classe</strong> conduce, met&agrave; segue. Poi si scambiano.</li>
+        <li><strong>A coppie</strong>: uno conduce, uno segue. Otto battute, e poi ci si scambia.</li>
+      </ol>
+    </div>
+
+    <p>Il passo 4 &egrave; quello che si ricorda, e per una ragione precisa: <strong>condurre &egrave; pi&ugrave; difficile che seguire</strong>. Chi conduce deve inventare una linea che si possa seguire, e scopre in tre note che non tutte le linee lo sono.</p>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; il ritardo, da capo" data-segno
+         style="--segno: url('../../_assets/segni/segno-18.png')">
+  <div class="slide-interna">
+    <h2>Vero o falso &middot; il ritardo, da capo</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Proviamo · 5 minuti</span>
+      <p>Cinque affermazioni, e pescano da tutta l&rsquo;unit&agrave;. Su quelle che parlano di una dissonanza, chi risponde dice anche <strong>quale dei tre momenti</strong> sta descrivendo.</p>
+    </div>
+    <tac-quiz quante="5">
+[
+ {
+  "d": "Il ritardo si riconosce dal disegno della linea, come la nota di passaggio.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed &egrave; la tesi dell&rsquo;unit&agrave;: la natura del ritardo <em>&laquo;non &egrave; melodica, bens&igrave; ritmica&raquo;</em>. Quella nota non si muove affatto: si guarda <strong>quando</strong> suona rispetto a quando cambia l&rsquo;armonia.",
+  "da": "Le due che sapete, e la terza"
+ },
+ {
+  "d": "I tre momenti del ritardo si chiamano preparazione, percussione e risoluzione.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e i nomi vengono dal <cite>Manuale d&rsquo;armonia</cite> di Marenco (p.&nbsp;173): sono le parole dell&rsquo;armonia, non del contrappunto.",
+  "da": "I tre momenti"
+ },
+ {
+  "d": "La preparazione pu&ograve; essere pi&ugrave; corta della dissonanza che prepara.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso. Marenco: la dissonanza va legata a un suono consonante <em>&laquo;di valore pari o superiore, mai inferiore&raquo;</em>. Una nota veloce non prepara niente, perch&eacute; l&rsquo;orecchio non fa in tempo a prenderla come punto di partenza.",
+  "da": "La preparazione"
+ },
+ {
+  "d": "Il ritardo si risolve scendendo di un grado.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e senza eccezioni in quest&rsquo;unit&agrave;. Dubois: le dissonanze usate <em>&laquo;si risolvono sempre discendendo di un grado&raquo;</em>.",
+  "da": "La risoluzione"
+ },
+ {
+  "d": "Il ritardo aggiunge una nota all&rsquo;accordo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: ne <strong>rimanda</strong> una. La nota su cui si risolve &egrave; quella che l&rsquo;accordo aspettava fin dall&rsquo;inizio.",
+  "da": "La risoluzione"
+ },
+ {
+  "d": "Il secondo numero della cifra &egrave; sempre uno di meno del primo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e non c&rsquo;&egrave; niente da ricordare: 4&ndash;3, 7&ndash;6, 9&ndash;8. La risoluzione scende di un grado, e la cifra &egrave; il conto scritto.",
+  "da": "La cifratura"
+ },
+ {
+  "d": "L&rsquo;appoggiatura e il ritardo cadono in posti diversi della battuta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: cadono tutti e due sul tempo forte, ed &egrave; per questo che si confondono. La differenza sta nella <strong>preparazione</strong>: il ritardo c&rsquo;era gi&agrave;, l&rsquo;appoggiatura arriva per salto.",
+  "da": "Non &egrave; l&rsquo;appoggiatura"
+ },
+ {
+  "d": "In quarta specie la prima battuta comincia con una pausa di mezza battuta.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e serve a far partire la sincope. Dubois aggiunge che la nota che entra dev&rsquo;essere in <strong>consonanza perfetta</strong>: quinta, ottava o unisono.",
+  "da": "Le regole, in una pagina"
+ },
+ {
+  "d": "In quarta specie la sincope dev&rsquo;essere sempre una dissonanza.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: <em>&laquo;pu&ograve; essere o non essere una dissonanza. &Egrave; per&ograve; preferibile ch&rsquo;essa lo sia&raquo;</em>. Nell&rsquo;esercizio modello la battuta 3 &egrave; un&rsquo;ottava, ed &egrave; regolare.",
+  "da": "L&rsquo;esercizio fatto"
+ },
+ {
+  "d": "Si pu&ograve; ripetere due volte di fila la stessa nota sincopata.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso: Dubois lo vieta in una riga. La ragione &egrave; melodica &mdash; il contrappunto smetterebbe di essere una linea e diventerebbe un pedale.",
+  "da": "La nota che non si ripete"
+ },
+ {
+  "d": "Quinte e ottave consecutive fra i tempi <strong>forti</strong> sono permesse in quarta specie.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ed &egrave; una regola diversa da tutte le altre dell&rsquo;anno. Fra due tempi forti c&rsquo;&egrave; sempre una risoluzione, e quella spezza il parallelismo. Fra i tempi <em>deboli</em> restano vietate.",
+  "da": "Quinte e ottave, dove"
+ },
+ {
+  "d": "Per controllare le parallele in quarta specie si sopprime la sincope.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero: <em>&laquo;basta sopprimere la sincope per constatare se la realizzazione armonica &egrave; corretta&raquo;</em>. Quello che resta &egrave; la vera successione di accordi.",
+  "da": "Il controllo, sull&rsquo;esercizio"
+ },
+ {
+  "d": "Il ritardo pu&ograve; separare due quinte parallele che si formerebbero senza di lui.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, ed &egrave; la cosa che tutti sperano: Marenco scrive che il ritardo <em>&laquo;non &egrave; sufficiente a separare due quinte o due ottave&raquo;</em> fra la preparazione e la risoluzione. Rimanda una nota, non la cancella.",
+  "da": "Il ritardo non salva"
+ },
+ {
+  "d": "Il ritardo e la nota che sta ritardando possono suonare insieme, se sono lontane.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, ma con una condizione precisa: la nota ritardata dev&rsquo;essere <strong>al basso</strong> e ad almeno una <strong>nona</strong> di distanza. A distanza di seconda &egrave; solo uno scontro.",
+  "da": "Il divieto della simultaneit&agrave;"
+ },
+ {
+  "d": "Una nota lunga che cade sul tempo forte &egrave; un ritardo.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 1,
+  "spiega": "Falso, e scarta tre quarti dei falsi allarmi: se sul forte quella nota &egrave; <strong>consonante</strong>, non c&rsquo;&egrave; nessun ritardo. C&rsquo;&egrave; una nota tenuta, che &egrave; una cosa normale.",
+  "da": "L&rsquo;errore da non fare"
+ },
+ {
+  "d": "Nel canone alla mente il conduttore dichiara la ricetta prima di attaccare.",
+  "o": [
+   "Vero",
+   "Falso"
+  ],
+  "c": 0,
+  "spiega": "Vero, e sono tre cose: la pausa d&rsquo;attesa, la distanza fra proposta e risposta, e se la risposta va per dritto o riversa. Chi segue <em>&laquo;deve semplicemente eseguire la ricetta&raquo;</em>.",
+  "da": "Che cos&rsquo;&egrave;"
+ }
+]
+    </tac-quiz>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa c&rsquo;entra con l&rsquo;unit&agrave;">
+  <div class="slide-interna">
+    <h2>E adesso guardate che cosa avete cantato</h2>
+
+    <p>Due voci uguali, sfasate di <strong>mezza battuta</strong>. Una arriva quando l&rsquo;altra &egrave; gi&agrave; l&igrave;, e per met&agrave; del tempo si sovrappongono.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">&Egrave; la quarta specie, senza carta</span>
+      <p>Nel contrappunto scritto una voce sta ferma mentre l&rsquo;altra cambia sotto, e nasce una dissonanza. Nel canone alla mente succede la stessa cosa, e voi ci siete <strong>dentro</strong>: siete la voce che deve restare mentre l&rsquo;altra si muove.</p>
+    </div>
+
+    <p>Le dissonanze che si formano non le avete scelte: vengono fuori dallo sfasamento. Ed &egrave; esattamente quello che dice Salzer del ritardo &mdash; che la sua natura non &egrave; melodica ma <strong>ritmica</strong>.</p>
+
+    <p class="didascalia">Chi ha scritto bene la quarta specie luned&igrave; e oggi si perde non ha capito meno: sta facendo la stessa cosa <em>in tempo reale</em>, ed &egrave; un mestiere diverso.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Che cosa portiamo a casa">
+  <div class="slide-interna">
+    <h2>Che cosa portiamo a casa, e l&rsquo;unit&agrave; &egrave; finita</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Le tre cose di oggi</span>
+      <p><strong>Condurre e seguire</strong> sono due mestieri, e il pi&ugrave; difficile &egrave; il primo.<br>
+      <strong>La difficolt&agrave; non &egrave; la memoria</strong>: &egrave; fare due cose insieme, eseguire e ascoltare.<br>
+      <strong>Il canone alla mente &egrave; la quarta specie in tempo reale</strong>, e le dissonanze vengono fuori da sole.</p>
+    </div>
+
+    <p>E la domanda dell&rsquo;unit&agrave;, per l&rsquo;ultima volta: davanti a una dissonanza, <strong>da dove viene?</strong> Dal disegno della linea, oppure dal fatto che una nota &egrave; rimasta ferma mentre il tempo andava avanti.</p>
+
+    <p class="didascalia">L&rsquo;unit&agrave; prossima sono il secondo, il sesto e il terzo grado: gli accordi che finora abbiamo visto passare e lasciato stare. Nel corale di Bach ci sono, e li avete gi&agrave; sentiti.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Compiti · lo scritto" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti per la prossima volta</p>
+    <h2>1 &middot; Scritto: Scrivi la risposta del canone</h2>
+    <div class="riquadro compito">
+      <p>Questa è la proposta di un canone alla mente.<br><strong>1.</strong> Scrivi sotto la <strong>risposta</strong>: all’unisono, a distanza di minima, per dritto (comincia con una pausa di minima). Fermati alla fine della battuta 4.<br><strong>2.</strong> Sotto ogni metà battuta scrivi l’intervallo fra le due voci (2ª, 3ª, unisono…).<br><strong>3.</strong> Cerchia le dissonanze.<br><strong>4.</strong> Confronta gli intervalli con la linea della proposta e scrivi in una riga la regola che hai scoperto.</p>
+    </div>
+    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C3-U5-L6-N1</strong>.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Compiti · solfeggio e dettato" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti per la prossima volta</p>
+    <h2>2 &middot; Solfeggio e 3 &middot; dettato</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">2 &middot; Solfeggio, dal quaderno di lettura</span>
+      <p><a href="../materiali/solfeggi-classe-3.html#n308"><strong>n.&nbsp;308</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n309"><strong>n.&nbsp;309</strong></a> <em>parlato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-3.html#n310"><strong>n.&nbsp;310</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n311"><strong>n.&nbsp;311</strong></a> <em>cantato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-3.html#n312"><strong>n.&nbsp;312</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n313"><strong>n.&nbsp;313</strong></a> <em>ritmico</em></p>
+      <p class="rimando">Ogni pezzo a tempo, senza fermarti: il parlato a nomi, il cantato prendendo il primo suono dalla tastiera, il ritmico battendo la pulsazione.</p>
+    </div>
+    <div class="riquadro compito dettato-casa" id="C3-D-U05-L6">
+      <span class="etichetta">3 &middot; Dettato <span class="dettato-sigla">C3-D-U05-L6</span></span>
+      <p>Scrivi <strong>la linea del basso</strong> sul quaderno, in chiave di basso: otto battute in 4/4, mi♭ maggiore. Il primo suono è <strong>si♭</strong>. Prima il riferimento, poi tutto due volte, ogni coppia di battute due volte, il collegamento 1–4, 3–6 e 5–8, e tutto per controllare.</p>
+      <div class="dettato-ascolti">
+        <div><p class="didascalia">Il riferimento: accordo di tonica e primo suono</p>
+          <tac-stave nascondi riferimento clef="bass" time="4/4" keysig="Eb" notes="eb/3:q g/3:q bb/3:q eb/4:q | bb/3:w" tempo="80" play></tac-stave></div>
+        <div><p class="didascalia">Il dettato &middot; otto battute</p>
+          <tac-stave nascondi cifrato guidato="basso" clef="bass" time="4/4" keysig="Eb" notes="dzozL2JlIHwgcTozL2YgODozL2cgODozL2YgcTozL2JiIHE6My9iYiB8IDg6My9iYSA2MTozL2cgNjE6My9iZSBxOjMvYmUgcTozL2cgNjE6My9iYSA2MTozL2cgNjE6My9mIDYxOjMvYmUgfCBxOjMvYmIgcTozL2cgODozL2JhIDg6My9iYiA2MTozL2JhIDYxOjMvZyA2MTozL2JhIDYxOjMvYmIgfCBoOjQvZCBoOjMvYmIgfCBoOjMvYmEgNjE6My9iYSA2MTozL2cgNjE6My9mIDYxOjMvYmUgcTozL2JhIHwgcTozL2JhIHE6NC9jIGg6My9iYSB8IDg6My9iYSBxOjMvZyA4OjMvYmIgaDozL2Ji" tempo="60" play></tac-stave></div>
+      </div>
+      <p class="rimando">Le sezioni (riferimento, tutto, le coppie, il collegamento) si ascoltano una per una e si ripetono quanto serve; le <strong>fasi</strong> fanno la procedura della classe, con gli annunci e le pause, da qualunque punto.</p>
+      <p class="rimando">Sul quaderno scrivi in testa la sigla <strong>C3-D-U05-L6</strong>. Si corregge all&rsquo;inizio della prossima lezione.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Compiti · contrappunto e armonia" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti per la prossima volta</p>
+    <h2>Scrittura: contrappunto e armonia</h2>
+    <div class="riquadro compito scrittura-casa" id="C3-CP-U05-L6">
+      <span class="etichetta">4 &middot; Contrappunto <span class="dettato-sigla">C3-CP-U05-L6</span></span>
+      <p>Scrivi un contrappunto di <strong>quarta specie (la sincope)</strong> sopra il canto fermo, in modo misolidio (finale sol): nove battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
+      <tac-stave caption="Il canto fermo" clef="bass" time="4/4" notes="g/3:w | a/3:w | c/4:w | a/3:w | d/4:w | c/4:w | b/3:w | a/3:w | g/3:w" tempo="72" play></tac-stave>
+      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-CP-U05-L6</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="8l75MqXeD5WYruihq445/A==" iv="iP0Vz6qTFI/qGSMX" dati="0kYcVBQyNoMC++RO6KY8dqr6S7SKhGkU1ToMEgm5ffWlhXIBUXeVrl9lpvUxr1/Lvu+dpt+zZqCXqVQlEhM9XVvH39SdmrqLhxPcgWSZAF2w5BABtHZAo4ROOYYHypyKZC9+xtMrTJu723DE+7sRJsokeB+FZr1iEJYEJkdJXgqf8y3nZ3VO1Zmmn83CgAmHjOuve+Jaem3MNOYr7o5vk+x64quEchKsd4uqiyKtzANDCFyXZrhzlLVMbA1NiwoqEvNCWQ2PGcw0ZoOIYhecqQ4qZFYy0Xm7/3rD2daqhGADkOATxzaDZwNiDQrk86y1Kvo8wL12N1s1RTVfxSXiH/2zHo1reSBryLXHIBAuIdDxDpK5uaT7FDXtaEXHHfPUIH3/LfJxXtyc69RFOf6a7naNHNY0lFDwRl4DcaM06YsEl9dxp2hAdjs="></tac-chiuso>
+    </div>
+    <div class="riquadro compito scrittura-casa" id="C3-BD-U05-L6">
+      <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C3-BD-U05-L6</span></span>
+      <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: otto battute in 4/4, mi♭ maggiore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: le triadi principali in tutti i rivolti, la quarta e sesta di cadenza, il vii°6.</p>
+      <tac-stave caption="Il basso" clef="bass" keysig="Eb" time="4/4" notes="e/3:w | a/3:h f/3:h | g/3:h a/3:h | f/3:w | e/3:h c/3:h | b/2:h g/2:h | a/2:h b/2:h | e/3:w" tempo="60" play></tac-stave>
+      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-BD-U05-L6</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="HEGxPolH8Ib8IJHPac6rFA==" iv="gbuf961Iy/cYkVu0" dati="p1wUT3NWhmYNL/YLVBOkA1vPa2a7KXY32PXxYqsRtd4Tny80N6HrUJ6eH4TiRvPxHDWo+iBNe9I4YynxYQcJjW3FoNdX7uzrmyG2bshVjMPo1Xkz89nTz2NybA9LF1lJqmI/dJPx93AIHwJxk4LgltZNDx3jrQ34hXZhenj3Vr8Vi6+sPWeCLgszJbB/570wQ1/IuPhPIC2eacWYFbam4l7euuyXGCTg7eSW+ZgLJCxliyZnm+2vXFu9esM6RQreLYYvpxZGajgphqoz1EKagNfCfMkVXpsbc1zaz1TSuGAo/XEWCLg8bfhDRW+2yxHoqx32QAIiVE4AkByb0FqdYHZTkw9ddPbKGhwdaPEkgjXutZ/sYem6ByRHDQBF0wyJLOwk4NC4KAN+zpCD5zEbVrphPV3Mf7LuJyf3OqFpacLqVdzGvr7lA7a1nrRRF8JRQWv8UwqDNq2iYU72wRIjp/KXDOHrnOXY+UQessMO1VohAS2lbAfDyUI82yGzI38wbFqrJEmwFsXfL50IygHVFVJUwme1OkNBdu0SxOLEiPtIFJ9V8k9Ci9d60pqCm28eeEGqvfMwVdnNuUp4pnz7CIE4/1X7p/RsRx5dSNpXagvdzRQeZMLk4Pa5E/CYSwG+cM8Nh5h+9QqkLnfYdFbTNeD0dlqo/cHCRus1gJW12IVOMx3/zubnekbnOT6e7S1d/wfWhsurhdBD4++e4pAx1BUWwKLOcvD5Lt8a/b8+kNDBMPYRt5U6IbMgoC6t1uSEylKJmRlfroOtCOx7e4eZzzAqsNolYdjk7u2U6KRukMVmLbAdojT5BB7IbomoO+dDfWc="></tac-chiuso>
+    </div>
+    <div class="riquadro compito scrittura-casa" id="C3-CD-U05-L6">
+      <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C3-CD-U05-L6</span></span>
+      <p>Armonizza a quattro parti il <strong>canto dato</strong>: otto battute in 4/4, do maggiore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: le triadi principali in tutti i rivolti, la quarta e sesta di cadenza, il vii°6.</p>
+      <tac-stave caption="Il canto dato" clef="treble" keysig="C" time="4/4" notes="g/4:w | a/4:h g/4:h | g/4:h f/4:h | g/4:h a/4:h | b/4:w | c/5:w | c/5:h b/4:h | c/5:w" tempo="66" play></tac-stave>
+      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-CD-U05-L6</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="yMJaaOCHRsA/t/mu1lKO6A==" iv="sxZhq0ZXIxeXTZ6h" dati="O6FEHN1TfAIv1I9aKJ7pfCeTEyo71Qh0iDc21PPYs0Cv9iz3zZHYZWZeEafzgJ03BamhnnZ76pSYSMt/sA7EDnShdbsptcwhEtZY6v/0LwWoP/EfCZe5DQ1OUeWuUPZg2mCH+IME+u/WcOsKnlyMLFVeWncO+fW4G7u+5tEkS0MI0ayDOB6gnap2ul/zFRwzwBVQAErfbcDqDOBjDYHQ5GZfTBcjCbtBKK0UcP+mrvr9uRjCphtY/SEAl68i8vJCLoeA5NaUC5uxu2cJOHV6n7oXmFnYnudlcLugwAfuii0wcDgH4unNIwbDuZX3IsRVMZyR3vEC0MPFNSFdSaP7haiqHNsBnD9hYgFVpZ4/ziAodDvu/WxwR4x+ERE3nXO5LbYoNR4w0/cBMUeKp6ThGaMxOEHng0nDlQ5b5Oj3lU2jBgbsLsZhOCbPV10C/Oa21/zUFFUZ6rUCu9JaBmmscDaKIhKYj2oMF3ltRyY7Rd70e1L9O8fSwfz3qLIsAbZdpFLL8U8xw6WlT59fuqQe2Q9DmXbz8FSBKxnXuI/ne9+pD74muv+synzotyxEokynPPAopqmFA7koOdOkdtNArKm5FeNHJjJw3DJO+HnPbp3Cbb7LMFSHP8fDoFrCWc0b1sYogITt6URE0bxBGLYfTEs0ltBiHdzNh/++o/XHmcRBGaIFr8Mqja4IWqvCaPGj3fPds/c5PK5zHumctytqCmvhGgs3VW1Y1/vcxWsSEzD+qPiHC9WOqW+Q4xnpHIJ05VTyCFh8rvyFCCNjaPPP2Q=="></tac-chiuso>
+    </div>
+    <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
+      <summary style="cursor:pointer">Testo per il registro elettronico</summary>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Scrivi la risposta del canone (Workbook, esercizio C3-U5-L6-N1), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 308, 309; cantato n. 310, 311; ritmico n. 312, 313 (a tempo, senza fermarsi). Dettato C3-D-U05-L6 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di quarta specie sul canto fermo (C3-CP-U05-L6). Basso senza numeri da realizzare a quattro parti (C3-BD-U05-L6). Canto dato da armonizzare a quattro parti (C3-CD-U05-L6).</p>
+      <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
+    </details>
+  </div>
+</section>
+
+<section class="slide esercizio insieme-slide" data-titolo="In classe · parlato">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">In classe</p>
+    <h2>Leggiamo insieme: parlato</h2>
+    <p>A nomi, a tempo, con la mano che batte. Chi si ferma riparte dalla battuta dopo.</p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n304">Apri il n.&nbsp;304 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di contralto &middot; 4/4</span></p>
+  </div>
+</section>
+
+<section class="slide esercizio insieme-slide" data-titolo="In classe · cantato">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">In classe</p>
+    <h2>Leggiamo insieme: cantato</h2>
+    <p>Si prende il tono dalla tastiera, si canta insieme; poi a gruppi.</p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n305">Apri il n.&nbsp;305 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 3/4 &middot; fa maggiore</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n306">Apri il n.&nbsp;306 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 3/4 &middot; mi minore</span></p>
+  </div>
+</section>
+
+<section class="slide esercizio insieme-slide" data-titolo="In classe · ritmico">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">In classe</p>
+    <h2>Leggiamo insieme: ritmico</h2>
+    <p>Tutti insieme, battendo la pulsazione. Poi a file, due battute a testa.</p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n307">Apri il n.&nbsp;307 nel quaderno di lettura &#8599;</a> <span class="rimando">4/4</span></p>
+  </div>
+</section>
+
+<section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">In classe</p>
+    <h2>Cominciamo il compito: Scrivi la risposta del canone</h2>
+    <p>Questa è la proposta di un canone alla mente.<br><strong>1.</strong> Scrivi sotto la <strong>risposta</strong>: all’unisono, a distanza di minima, per dritto (comincia con una pausa di minima). Fermati alla fine della battuta 4.<br><strong>2.</strong> Sotto ogni metà battuta scrivi l’intervallo fra le due voci (2ª, 3ª, unisono…).<br><strong>3.</strong> Cerchia le dissonanze.<br><strong>4.</strong> Confronta gli intervalli con la linea della proposta e scrivi in una riga la regola che hai scoperto.</p>
+    <p class="rimando">Dieci minuti insieme sul quaderno, alla lavagna il primo punto; il resto &egrave; il compito per casa.</p>
+  </div>
+</section>
+
+
+</div>
+<script id="tac-indice-corso" type="application/json">{"corso":"Teoria, Analisi e Composizione","classi":[{"n":1,"titolo":"Il ritmo e la lettura","via":"classe-1","unita":[{"n":1,"titolo":"Il battito della musica","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Dove sta il battito","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Forte e debole: il metro binario","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Pulsazione e lettura ritmica","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dividere il battito: semplice e composto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Le figure e le pause","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Tre battiti: il metro ternario, e il primo dettato","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Il rigo e le note","quando":"settimane 3–4","stato":"pronta","lezioni":[{"n":1,"titolo":"Dalle posizioni ai nomi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il doppio pentagramma e i tagli addizionali","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato sul rigo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Analisi all’ascolto: maggiore e minore in brani veri","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Scrivere sul rigo: esercitazione guidata","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico: la seconda volta","file":"lezione-6.html","stato":"pronta"}],"via":"uda-02"},{"n":3,"titolo":"Alterazioni e suddivisione","quando":"settimane 5–6","stato":"da preparare","lezioni":[{"n":1,"titolo":"Diesis, bemolle, bequadro: che cosa alterano","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Segni di ottava e loro lettura","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato con alterazioni","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La suddivisione e i tempi composti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Analisi all’ascolto: terze e seste in duetti veri","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V1 · verifica scritta","file":"lezione-6.html","stato":"verifica","titolo_piano":"V1 · verifica scritta"}],"via":"uda-03"},{"n":4,"titolo":"La scala maggiore","quando":"settimane 7–9","stato":"pronta","lezioni":[{"n":1,"titolo":"Il tetracordo, mattone della scala","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La scala diatonica maggiore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione della scala di Do","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il circolo delle quinte con i diesis","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La scala armonizzata: tonica e dominante","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in Do","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Prima analisi all’ascolto: tonica e dominante in un brano","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: scrivere una scala su qualunque nota","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico entro la quinta","file":"lezione-9.html","stato":"pronta"}],"via":"uda-04"},{"n":5,"titolo":"Le tonalità","quando":"settimane 10–11","stato":"da preparare","lezioni":[{"n":1,"titolo":"Il circolo con i bemolli","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le armature di chiave: come si leggono","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato melodico in Do e in Sol","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Trovare la tonica dall’armatura","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Solfeggio cantato con armatura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V2 · verifica scritta","file":"lezione-6.html","stato":"verifica","titolo_piano":"V2 · verifica scritta"}],"via":"uda-05"},{"n":6,"titolo":"Le scale minori","quando":"settimane 12–14","stato":"pronta","lezioni":[{"n":1,"titolo":"Il modo minore naturale, e le tonalità relative","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La minore armonica e il grado di sensibile","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione nel modo minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Perché la settima si alza","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"La minore melodica, e perché cambia salendo e scendendo","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio cantato in modo minore","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Analisi: le tre minori in tre brani","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: le tre minori scritte su una nota data","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico in modo minore","file":"lezione-9.html","stato":"pronta"}],"via":"uda-06"},{"n":7,"titolo":"Gli intervalli","quando":"settimane 15–17","stato":"da preparare","lezioni":[{"n":1,"titolo":"Quantità dell’intervallo: contare i gradi","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Qualità: giusti, maggiori, minori","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione degli intervalli entro la quinta","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Aumentati, diminuiti, enarmonia","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"L’inversione degli intervalli","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato a salti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Consonanti e dissonanti: che cosa vuol dire davvero","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Intonazione degli intervalli oltre la quinta","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V3 · verifica scritta","file":"lezione-9.html","stato":"verifica","titolo_piano":"V3 · verifica scritta"}],"via":"uda-07"},{"n":8,"titolo":"Le triadi sui gradi","quando":"settimane 18–19","stato":"pronta","lezioni":[{"n":1,"titolo":"La triade come due terze sovrapposte","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le quattro specie: maggiore, minore, diminuita, aumentata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Riconoscimento uditivo di maggiore e minore","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Le triadi sui gradi della scala","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"I rivolti e la cifratura. La scala cromatica","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Arpeggi cantati sulle triadi","file":"lezione-6.html","stato":"pronta"}],"via":"uda-08"},{"n":9,"titolo":"La quadriade","quando":"settimane 20–22","stato":"da preparare","lezioni":[{"n":1,"titolo":"Struttura della quadriade","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La settima di dominante","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ear training sugli intervalli","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La risoluzione della settima","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Analisi: la dominante in partitura","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico con salti d’accordo","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Esercitazione: cifrare e realizzare","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Solfeggio cantato con accompagnamento","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V4 · verifica scritta","file":"lezione-9.html","stato":"verifica","titolo_piano":"V4 · verifica scritta"}],"via":"uda-09"},{"n":10,"titolo":"Le funzioni armoniche","quando":"settimane 23–26","stato":"da preparare","lezioni":[{"n":1,"titolo":"Tonica, dominante, sottodominante","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La progressione I–IV–V–I","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato ritmico-melodico","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La condotta delle parti: moti e divieti","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Esercitazione: trovare e correggere gli errori di condotta","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura in tempi composti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Riconoscere le funzioni all’ascolto","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Esercitazione: armonizzare un basso dato","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Solfeggio ritmico in 6/8","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Analisi all’ascolto: le funzioni in un brano vero","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Dettato armonico: due funzioni","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V5 · verifica scritta","file":"lezione-12.html","stato":"verifica","titolo_piano":"V5 · verifica scritta"}],"via":"uda-10"},{"n":11,"titolo":"Le cadenze","quando":"settimane 27–30","stato":"da preparare","lezioni":[{"n":1,"titolo":"La cadenza autentica","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Plagale, sospesa, d’inganno","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio a due voci","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Riconoscere le cadenze all’ascolto","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Analisi: le cadenze come punteggiatura, in un brano vero","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Intonazione di arpeggi","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Prima armonizzazione di una melodia","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Armonizzazione: la seconda prova","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico con cadenza finale","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Analisi: le cadenze dentro un brano del repertorio","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Solfeggio: ripasso dell’anno","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V6 · verifica scritta","file":"lezione-12.html","stato":"verifica","titolo_piano":"V6 · verifica scritta"}],"via":"uda-11"}],"materiali":[{"file":"libro-capitolo-01.pdf","titolo":"Il libro · capitolo 1","breve":"Libro","unita":1,"tipo":"libro","stato":"pronta"},{"file":"partiture-uda-01.html","titolo":"partiture-uda-01","breve":"partiture-ud","stato":"pronta"},{"file":"scheda-lavoro-autonomo-10.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-11.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-2.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-3.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-4.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-5.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-6.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-7.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-8.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-9.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"solfeggi-classe-1.html","titolo":"Il quaderno di lettura","breve":"Letture","stato":"pronta"},{"file":"workbook-uda-01.html","titolo":"Workbook · unità 1","breve":"Workbook","unita":1,"stato":"pronta"},{"file":"workbook-uda-02.html","titolo":"Workbook · unità 2","breve":"Workbook","unita":2,"stato":"pronta"},{"file":"workbook-uda-03.html","titolo":"Workbook · unità 3","breve":"Workbook","unita":3,"stato":"pronta"},{"file":"workbook-uda-04.html","titolo":"Workbook · unità 4","breve":"Workbook","unita":4,"stato":"pronta"},{"file":"workbook-uda-05.html","titolo":"Workbook · unità 5","breve":"Workbook","unita":5,"stato":"pronta"},{"file":"workbook-uda-06.html","titolo":"Workbook · unità 6","breve":"Workbook","unita":6,"stato":"pronta"},{"file":"workbook-uda-07.html","titolo":"Workbook · unità 7","breve":"Workbook","unita":7,"stato":"pronta"},{"file":"workbook-uda-08.html","titolo":"Workbook · unità 8","breve":"Workbook","unita":8,"stato":"pronta"},{"file":"workbook-uda-09.html","titolo":"Workbook · unità 9","breve":"Workbook","unita":9,"stato":"pronta"},{"file":"workbook-uda-10.html","titolo":"Workbook · unità 10","breve":"Workbook","unita":10,"stato":"pronta"},{"file":"workbook-uda-11.html","titolo":"Workbook · unità 11","breve":"Workbook","unita":11,"stato":"pronta"}]},{"n":2,"titolo":"Le voci, e come si muovono","via":"classe-2","unita":[{"n":1,"titolo":"Due voci, e che cosa succede fra loro","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cos’è una voce, e perché se ne sentono due","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Consonanza e dissonanza: la lista, e da dove viene","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ripasso: valori, chiavi, la sincope &middot; <em>due ore, con I quattro moti: retto, obliquo, parallelo, contrario</em>","file":"lezione-3.html","stato":"pronta","titolo_piano":"Ripasso: valori, chiavi, la sincope","doppia":"prima"},{"n":4,"titolo":"I quattro moti: retto, obliquo, parallelo, contrario &middot; <em>seconda ora della lezione 3</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"I quattro moti: retto, obliquo, parallelo, contrario","doppia":"seconda"},{"n":5,"titolo":"Il moto contrario tiene separate le voci: proviamolo","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Intonazione a due voci per terze e per seste &middot; <em>due ore, con Il cantus firmus: una linea che non si tocca</em>","file":"lezione-6.html","stato":"pronta","titolo_piano":"Intonazione a due voci per terze e per seste","doppia":"prima"}],"via":"uda-01"},{"n":2,"titolo":"Prima specie: nota contro nota","quando":"settimane 3–5","stato":"da preparare","lezioni":[{"n":1,"titolo":"Il cantus firmus: una linea che non si tocca &middot; <em>seconda ora della lezione 6 dell&rsquo;unità 1</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Il cantus firmus: una linea che non si tocca","doppia":"seconda"},{"n":2,"titolo":"Come cominciano e come finiscono: tre contrappunti veri a confronto","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Cantare il cantus firmus, tutti insieme &middot; <em>due ore, con Quinte e ottave parallele: ascoltiamo che cosa succede</em>","file":"lezione-3.html","stato":"pronta","titolo_piano":"Cantare il cantus firmus, tutti insieme","doppia":"prima"},{"n":4,"titolo":"Quinte e ottave parallele: ascoltiamo che cosa succede &middot; <em>seconda ora della lezione 3</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Quinte e ottave parallele: ascoltiamo che cosa succede","doppia":"seconda"},{"n":5,"titolo":"La regola scritta, dopo averla sentita","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico di otto battute &middot; <em>due ore, con Officina: otto note contro otto</em>","file":"lezione-6.html","stato":"pronta","titolo_piano":"Dettato ritmico di otto battute","doppia":"prima"},{"n":7,"titolo":"Officina: otto note contro otto &middot; <em>seconda ora della lezione 6</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"Officina: otto note contro otto","doppia":"seconda"},{"n":8,"titolo":"Intonazione: la voce aggiunta sopra il canto dato","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V1 · verifica scritta","file":"lezione-9.html","stato":"verifica","titolo_piano":"V1 · verifica scritta"}],"via":"uda-02"},{"n":3,"titolo":"La chiave di contralto, e il profilo della linea","quando":"settimane 6–7","stato":"pronta","lezioni":[{"n":1,"titolo":"La chiave di do: una regola sola per tre posizioni","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Contralto: dove sta il do, e come si conta","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato in chiave di contralto &middot; <em>due ore, con Il profilo di una linea, misurato su melodie vere: culmine, ambito, direzione</em>","file":"lezione-3.html","stato":"pronta","titolo_piano":"Solfeggio parlato in chiave di contralto","doppia":"prima"},{"n":4,"titolo":"Il profilo di una linea, misurato su melodie vere: culmine, ambito, direzione &middot; <em>seconda ora della lezione 3</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Il profilo di una linea, misurato su melodie vere: culmine, ambito, direzione","doppia":"seconda"},{"n":5,"titolo":"I salti si compensano: la regola del ritorno","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura alternata: violino, basso, contralto &middot; <em>due ore, con Le clausole in partitura: come finiscono i contrappunti del Cinquecento</em>","file":"lezione-6.html","stato":"pronta","titolo_piano":"Lettura alternata: violino, basso, contralto","doppia":"prima"}],"via":"uda-03"},{"n":4,"titolo":"Prima specie: le cadenze e i modi","quando":"settimane 8–10","stato":"da preparare","lezioni":[{"n":1,"titolo":"Le clausole in partitura: come finiscono i contrappunti del Cinquecento &middot; <em>seconda ora della lezione 6 dell&rsquo;unità 3</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Le clausole in partitura: come finiscono i contrappunti del Cinquecento","doppia":"seconda"},{"n":2,"titolo":"La sensibile che non c’era: musica ficta","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonazione nei modi ecclesiastici &middot; <em>due ore, con I modi: dorico, frigio, lidio, misolidio</em>","file":"lezione-3.html","stato":"pronta","titolo_piano":"Intonazione nei modi ecclesiastici","doppia":"prima"},{"n":4,"titolo":"I modi: dorico, frigio, lidio, misolidio &middot; <em>seconda ora della lezione 3</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"I modi: dorico, frigio, lidio, misolidio","doppia":"seconda"},{"n":5,"titolo":"Lo stesso canto dato in due modi diversi","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico modale &middot; <em>due ore, con Officina: contrappunto di prima specie, intero</em>","file":"lezione-6.html","stato":"pronta","titolo_piano":"Dettato melodico modale","doppia":"prima"},{"n":7,"titolo":"Officina: contrappunto di prima specie, intero &middot; <em>seconda ora della lezione 6</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"Officina: contrappunto di prima specie, intero","doppia":"seconda"},{"n":8,"titolo":"Canone alla mente a due voci","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V2 · verifica scritta","file":"lezione-9.html","stato":"verifica","titolo_piano":"V2 · verifica scritta"}],"via":"uda-04"},{"n":5,"titolo":"Seconda specie: due note contro una","quando":"settimane 11–12","stato":"pronta","lezioni":[{"n":1,"titolo":"Due note contro una: il tempo debole si libera","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"La nota di passaggio: una dissonanza che non pesa","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio cantato con note di passaggio &middot; <em>due ore, con La nota di volta, e passaggio e volta cercati in un brano vero</em>","file":"lezione-3.html","stato":"pronta","titolo_piano":"Solfeggio cantato con note di passaggio","doppia":"prima"},{"n":4,"titolo":"La nota di volta, e passaggio e volta cercati in un brano vero &middot; <em>seconda ora della lezione 3</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"La nota di volta, e passaggio e volta cercati in un brano vero","doppia":"seconda"},{"n":5,"titolo":"Officina: seconda specie sul canto dato","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato melodico di due battute &middot; <em>due ore, con Il motivo: la cellula che si riconosce</em>","file":"lezione-6.html","stato":"pronta","titolo_piano":"Dettato melodico di due battute","doppia":"prima"}],"via":"uda-05"},{"n":6,"titolo":"Comporre: la frase, il periodo, e una seconda voce","quando":"settimane 13–15","stato":"da preparare","lezioni":[{"n":1,"titolo":"Il motivo: la cellula che si riconosce &middot; <em>seconda ora della lezione 6 dell&rsquo;unità 5</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Il motivo: la cellula che si riconosce","doppia":"seconda"},{"n":2,"titolo":"Analisi della frase: antecedente e conseguente","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Bicinia: cantare a due voci per gruppi &middot; <em>due ore, con La testura, e il primo accompagnamento: basso e accordi sotto una melodia</em>","file":"lezione-3.html","stato":"pronta","titolo_piano":"Bicinia: cantare a due voci per gruppi","doppia":"prima"},{"n":4,"titolo":"La testura, e il primo accompagnamento: basso e accordi sotto una melodia &middot; <em>seconda ora della lezione 3</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"La testura, e il primo accompagnamento: basso e accordi sotto una melodia","doppia":"seconda"},{"n":5,"titolo":"Comporre otto battute su un metro dato","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Solfeggio a due parti &middot; <em>due ore, con Dare una seconda voce alla propria melodia</em>","file":"lezione-6.html","stato":"pronta","titolo_piano":"Solfeggio a due parti","doppia":"prima"},{"n":7,"titolo":"Dare una seconda voce alla propria melodia &middot; <em>seconda ora della lezione 6</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"Dare una seconda voce alla propria melodia","doppia":"seconda"},{"n":8,"titolo":"Canone: la forma più semplice di imitazione","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"V3 · verifica scritta","file":"lezione-9.html","stato":"verifica","titolo_piano":"V3 · verifica scritta"}],"via":"uda-06"},{"n":7,"titolo":"Terza specie: quattro note contro una","quando":"settimane 16–18","stato":"pronta","lezioni":[{"n":1,"titolo":"Quattro note contro una: la linea si muove davvero","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Dove sta la dissonanza in una pagina vera: guardare prima di regolare","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Chiave di tenore: leggere e trasportare &middot; <em>due ore, con La nota cambiata e la doppia volta</em>","file":"lezione-3.html","stato":"pronta","titolo_piano":"Chiave di tenore: leggere e trasportare","doppia":"prima"},{"n":4,"titolo":"La nota cambiata e la doppia volta &middot; <em>seconda ora della lezione 3</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"La nota cambiata e la doppia volta","doppia":"seconda"},{"n":5,"titolo":"Il profilo su quattro note: non tutto può salire","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"La terzina: la suddivisione irregolare &middot; <em>due ore, con Officina: terza specie sul canto dato</em>","file":"lezione-6.html","stato":"pronta","titolo_piano":"La terzina: la suddivisione irregolare","doppia":"prima"},{"n":7,"titolo":"Officina: terza specie sul canto dato &middot; <em>seconda ora della lezione 6</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"Officina: terza specie sul canto dato","doppia":"seconda"},{"n":8,"titolo":"Correggere il contrappunto di un compagno","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Dettato melodico con salti d’accordo &middot; <em>due ore, con Tre funzioni, tre effetti: sentirli prima di nominarli</em>","file":"lezione-9.html","stato":"pronta","titolo_piano":"Dettato melodico con salti d’accordo","doppia":"prima"}],"via":"uda-07"},{"n":8,"titolo":"Le funzioni, all’orecchio e alla tastiera","quando":"settimane 19–20","stato":"da preparare","lezioni":[{"n":1,"titolo":"Tre funzioni, tre effetti: sentirli prima di nominarli &middot; <em>seconda ora della lezione 9 dell&rsquo;unità 7</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Tre funzioni, tre effetti: sentirli prima di nominarli","doppia":"seconda"},{"n":2,"titolo":"Il giro T–S–D–T alla tastiera, con una melodia sopra","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato armonico: riconoscere le tre funzioni &middot; <em>due ore, con Analisi: le cadenze in un brano vero, e la posizione melodica</em>","file":"lezione-3.html","stato":"pronta","titolo_piano":"Dettato armonico: riconoscere le tre funzioni","doppia":"prima"},{"n":4,"titolo":"Analisi: le cadenze in un brano vero, e la posizione melodica &middot; <em>seconda ora della lezione 3</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Analisi: le cadenze in un brano vero, e la posizione melodica","doppia":"seconda"},{"n":5,"titolo":"Intonazione dei giri armonici","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"V4 · verifica scritta","file":"lezione-6.html","stato":"verifica","titolo_piano":"V4 · verifica scritta"}],"via":"uda-08"},{"n":9,"titolo":"Le prime quattro voci","quando":"settimane 21–22","stato":"pronta","lezioni":[{"n":1,"titolo":"Due voci diventano quattro: che cosa resta e che cosa cambia","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Le quattro estensioni, e la disposizione stretta","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato: trascrivere il basso di un frammento &middot; <em>due ore, con Il primo collegamento scritto: I–V–I</em>","file":"lezione-3.html","stato":"pronta","titolo_piano":"Dettato: trascrivere il basso di un frammento","doppia":"prima"},{"n":4,"titolo":"Il primo collegamento scritto: I–V–I &middot; <em>seconda ora della lezione 3</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Il primo collegamento scritto: I–V–I","doppia":"seconda"},{"n":5,"titolo":"Le parallele in un corale vero: cercarle in una pagina di Bach","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Cantare il basso di un corale &middot; <em>due ore, con Il quarto grado, e il giro completo a quattro parti</em>","file":"lezione-6.html","stato":"pronta","titolo_piano":"Cantare il basso di un corale","doppia":"prima"}],"via":"uda-09"},{"n":10,"titolo":"Le tre funzioni a quattro parti, e la settima","quando":"settimane 23–26","stato":"da preparare","lezioni":[{"n":1,"titolo":"Il quarto grado, e il giro completo a quattro parti &middot; <em>seconda ora della lezione 6 dell&rsquo;unità 9</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Il quarto grado, e il giro completo a quattro parti","doppia":"seconda"},{"n":2,"titolo":"La sensibile sale, e non si raddoppia","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato armonico con le tre funzioni &middot; <em>due ore, con Lo stesso accordo con tre bassi diversi: il rivolto</em>","file":"lezione-3.html","stato":"pronta","titolo_piano":"Dettato armonico con le tre funzioni","doppia":"prima"},{"n":4,"titolo":"Lo stesso accordo con tre bassi diversi: il rivolto &middot; <em>seconda ora della lezione 3</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Lo stesso accordo con tre bassi diversi: il rivolto","doppia":"seconda"},{"n":5,"titolo":"La cifratura: leggere e scrivere un basso numerato","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Metri con l’unità di tempo sull’ottavo &middot; <em>due ore, con La settima di dominante: forma completa, incompleta e risoluzioni</em>","file":"lezione-6.html","stato":"pronta","titolo_piano":"Metri con l’unità di tempo sull’ottavo","doppia":"prima"},{"n":7,"titolo":"La settima di dominante: forma completa, incompleta e risoluzioni &middot; <em>seconda ora della lezione 6</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"La settima di dominante: forma completa, incompleta e risoluzioni","doppia":"seconda"},{"n":8,"titolo":"Officina breve: in che ordine si applicano le regole &middot; <em>due ore, con Dettato melodico modulante</em>","file":"lezione-8.html","stato":"pronta","titolo_piano":"Officina breve: in che ordine si applicano le regole","doppia":"prima"},{"n":9,"titolo":"Dettato melodico modulante &middot; <em>seconda ora della lezione 8</em>","file":"lezione-9.html","stato":"pronta","titolo_piano":"Dettato melodico modulante","doppia":"seconda"},{"n":10,"titolo":"I toni vicini: che cosa vuol dire che una tonalità è vicina","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Intonazione fino a quattro alterazioni, e il temperamento","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V5 · verifica scritta","file":"lezione-12.html","stato":"verifica","titolo_piano":"V5 · verifica scritta"}],"via":"uda-10"},{"n":11,"titolo":"Le forme, e la modulazione che le fa muovere","quando":"settimane 27–30","stato":"da preparare","lezioni":[{"n":1,"titolo":"Quando la simmetria si rompe: motivi e periodi in musica vera","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Il II e il VI: lo schema dei collegamenti si chiude &middot; <em>due ore, con Ornamentazione: appoggiatura, mordente, gruppetto, trillo</em>","file":"lezione-2.html","stato":"pronta","titolo_piano":"Il II e il VI: lo schema dei collegamenti si chiude","doppia":"prima"},{"n":3,"titolo":"Ornamentazione: appoggiatura, mordente, gruppetto, trillo &middot; <em>seconda ora della lezione 2</em>","file":"lezione-3.html","stato":"pronta","titolo_piano":"Ornamentazione: appoggiatura, mordente, gruppetto, trillo","doppia":"seconda"},{"n":4,"titolo":"La modulazione scritta: l’accordo perno","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Analisi: segmentare un minuetto in frasi e periodi &middot; <em>due ore, con Dettato a due parti</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Analisi: segmentare un minuetto in frasi e periodi","doppia":"prima"},{"n":6,"titolo":"Dettato a due parti &middot; <em>seconda ora della lezione 5</em>","file":"lezione-6.html","stato":"pronta","titolo_piano":"Dettato a due parti","doppia":"seconda"},{"n":7,"titolo":"Analisi: un brano intero diviso in frasi","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"Analisi: riassumere un brano in uno schema &middot; <em>due ore, con Cantare in due: bicinia e canoni dell'anno</em>","file":"lezione-8.html","stato":"pronta","titolo_piano":"Analisi: riassumere un brano in uno schema","doppia":"prima"},{"n":9,"titolo":"Cantare in due: bicinia e canoni dell’anno &middot; <em>seconda ora della lezione 8</em>","file":"lezione-9.html","stato":"pronta","titolo_piano":"Cantare in due: bicinia e canoni dell’anno","doppia":"seconda"},{"n":10,"titolo":"Officina: analisi di un brano scelto dalla classe","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"Ripasso: il solfeggio dell’anno","file":"lezione-11.html","stato":"pronta"},{"n":12,"titolo":"V6 · verifica scritta","file":"lezione-12.html","stato":"verifica","titolo_piano":"V6 · verifica scritta"}],"via":"uda-11"}],"materiali":[{"file":"scheda-lavoro-autonomo-10.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-11.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-2.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-3.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-4.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-5.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-6.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-7.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-8.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-9.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"solfeggi-classe-2.html","titolo":"Il quaderno di lettura","breve":"Letture","stato":"pronta"},{"file":"workbook-uda-01.html","titolo":"Workbook · unità 1","breve":"Workbook","unita":1,"stato":"pronta"},{"file":"workbook-uda-02.html","titolo":"Workbook · unità 2","breve":"Workbook","unita":2,"stato":"pronta"},{"file":"workbook-uda-03.html","titolo":"Workbook · unità 3","breve":"Workbook","unita":3,"stato":"pronta"},{"file":"workbook-uda-04.html","titolo":"Workbook · unità 4","breve":"Workbook","unita":4,"stato":"pronta"},{"file":"workbook-uda-05.html","titolo":"Workbook · unità 5","breve":"Workbook","unita":5,"stato":"pronta"},{"file":"workbook-uda-06.html","titolo":"Workbook · unità 6","breve":"Workbook","unita":6,"stato":"pronta"},{"file":"workbook-uda-07.html","titolo":"Workbook · unità 7","breve":"Workbook","unita":7,"stato":"pronta"},{"file":"workbook-uda-08.html","titolo":"Workbook · unità 8","breve":"Workbook","unita":8,"stato":"pronta"},{"file":"workbook-uda-09.html","titolo":"Workbook · unità 9","breve":"Workbook","unita":9,"stato":"pronta"},{"file":"workbook-uda-10.html","titolo":"Workbook · unità 10","breve":"Workbook","unita":10,"stato":"pronta"},{"file":"workbook-uda-11.html","titolo":"Workbook · unità 11","breve":"Workbook","unita":11,"stato":"pronta"}]},{"n":3,"titolo":"Dalla linea all'accordo","via":"classe-3","unita":[{"n":1,"titolo":"Ripresa: la testura a quattro parti","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo già fare a quattro parti","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Disposizione stretta e disposizione lata","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Solfeggio parlato: violino, basso, contralto &middot; <em>due ore, con I raddoppi: che cosa si raddoppia, e che cosa mai</em>","file":"lezione-3.html","stato":"pronta","titolo_piano":"Solfeggio parlato: violino, basso, contralto","doppia":"prima"},{"n":4,"titolo":"I raddoppi: che cosa si raddoppia, e che cosa mai &middot; <em>seconda ora della lezione 3</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"I raddoppi: che cosa si raddoppia, e che cosa mai","doppia":"seconda"},{"n":5,"titolo":"Dal cifrato alla realizzazione, senza esitare","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Lettura ritmica mediamente complessa &middot; <em>due ore, con Lo sapete già: le regole a quattro parti, ritrovate in un corale di Bach</em>","file":"lezione-6.html","stato":"pronta","titolo_piano":"Lettura ritmica mediamente complessa","doppia":"prima"}],"via":"uda-01"},{"n":2,"titolo":"La condotta delle parti è contrappunto","quando":"settimane 3–5","stato":"da preparare","lezioni":[{"n":1,"titolo":"Lo sapete già: le regole a quattro parti, ritrovate in un corale di Bach &middot; <em>seconda ora della lezione 6 dell&rsquo;unità 1</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Lo sapete già: le regole a quattro parti, ritrovate in un corale di Bach","doppia":"seconda"},{"n":2,"titolo":"Dettato melodico diatonico non modulante","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Quinte e ottave nascoste: perché sono un caso diverso &middot; <em>due ore, con Incroci e sorpassi</em>","file":"lezione-3.html","stato":"pronta","titolo_piano":"Quinte e ottave nascoste: perché sono un caso diverso","doppia":"prima"},{"n":4,"titolo":"Incroci e sorpassi &middot; <em>seconda ora della lezione 3</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Incroci e sorpassi","doppia":"seconda"},{"n":5,"titolo":"Intonare una voce mentre le altre suonano","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Trovare gli errori di condotta in un compito, e la condotta vera in un corale","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Solfeggio cantato con cromatismi di passaggio","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"V1 · verifica scritta · prima ora","file":"lezione-8.html","stato":"verifica","titolo_piano":"V1 · verifica scritta · prima ora"},{"n":9,"titolo":"V1 · verifica scritta · seconda ora","file":"lezione-9.html","stato":"verifica","titolo_piano":"V1 · verifica scritta · seconda ora"}],"via":"uda-02"},{"n":3,"titolo":"Le triadi primarie a quattro parti","quando":"settimane 6–7","stato":"pronta","lezioni":[{"n":1,"titolo":"Officina: collegare I e V nelle due strade","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Analisi: il IV e il giro completo in un corale di Bach &middot; <em>due ore, con Dettato armonico con le tre funzioni</em>","file":"lezione-2.html","stato":"pronta","titolo_piano":"Analisi: il IV e il giro completo in un corale di Bach","doppia":"prima"},{"n":3,"titolo":"Dettato armonico con le tre funzioni &middot; <em>seconda ora della lezione 2</em>","file":"lezione-3.html","stato":"pronta","titolo_piano":"Dettato armonico con le tre funzioni","doppia":"seconda"},{"n":4,"titolo":"Analisi: la sensibile, e dove Bach la fa scendere","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Dieci collegamenti di seguito, e le stesse triadi cercate dentro un brano &middot; <em>due ore, con Lettura in chiave di tenore</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Dieci collegamenti di seguito, e le stesse triadi cercate dentro un brano","doppia":"prima"},{"n":6,"titolo":"Lettura in chiave di tenore &middot; <em>seconda ora della lezione 5</em>","file":"lezione-6.html","stato":"pronta","titolo_piano":"Lettura in chiave di tenore","doppia":"seconda"}],"via":"uda-03"},{"n":4,"titolo":"I rivolti, e il basso come linea","quando":"settimane 8–10","stato":"da preparare","lezioni":[{"n":1,"titolo":"Il primo rivolto a quattro parti, su tonica e su dominante: che cosa si raddoppia","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Dettato: il basso di un frammento a tre parti &middot; <em>due ore, con I rivolti della sottodominante</em>","file":"lezione-2.html","stato":"pronta","titolo_piano":"Dettato: il basso di un frammento a tre parti","doppia":"prima"},{"n":3,"titolo":"I rivolti della sottodominante &middot; <em>seconda ora della lezione 2</em>","file":"lezione-3.html","stato":"pronta","titolo_piano":"I rivolti della sottodominante","doppia":"seconda"},{"n":4,"titolo":"Il 6/4: cadenzale, di passaggio, di volta","file":"lezione-4.html","stato":"pronta"},{"n":5,"titolo":"Cantare il basso di un corale &middot; <em>due ore, con Il basso è una linea, non una fila di fondamentali: seguirlo in partitura</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Cantare il basso di un corale","doppia":"prima"},{"n":6,"titolo":"Il basso è una linea, non una fila di fondamentali: seguirlo in partitura &middot; <em>seconda ora della lezione 5</em>","file":"lezione-6.html","stato":"pronta","titolo_piano":"Il basso è una linea, non una fila di fondamentali: seguirlo in partitura","doppia":"seconda"},{"n":7,"titolo":"Solfeggio a due parti","file":"lezione-7.html","stato":"pronta"},{"n":8,"titolo":"V2 · verifica scritta · prima ora","file":"lezione-8.html","stato":"verifica","titolo_piano":"V2 · verifica scritta · prima ora"},{"n":9,"titolo":"V2 · verifica scritta · seconda ora","file":"lezione-9.html","stato":"verifica","titolo_piano":"V2 · verifica scritta · seconda ora"}],"via":"uda-04"},{"n":5,"titolo":"Contrappunto · quarta specie: la sincope e il ritardo","quando":"settimane 11–12","stato":"pronta","lezioni":[{"n":1,"titolo":"Quarta specie: la nota che resta &middot; <em>due ore, con Preparazione, percussione, risoluzione</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Quarta specie: la nota che resta","doppia":"prima"},{"n":2,"titolo":"Preparazione, percussione, risoluzione &middot; <em>seconda ora della lezione 1</em>","file":"lezione-2.html","stato":"pronta","titolo_piano":"Preparazione, percussione, risoluzione","doppia":"seconda"},{"n":3,"titolo":"Dettato ritmico con sincope oltre l’unità di tempo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il ritardo in armonia è questo, scritto a quattro parti &middot; <em>due ore, con Officina: la quarta specie sul canto dato, e il ritardo cercato in un brano vero</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Il ritardo in armonia è questo, scritto a quattro parti","doppia":"prima"},{"n":5,"titolo":"Officina: la quarta specie sul canto dato, e il ritardo cercato in un brano vero &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Officina: la quarta specie sul canto dato, e il ritardo cercato in un brano vero","doppia":"seconda"},{"n":6,"titolo":"Canone alla mente a due voci","file":"lezione-6.html","stato":"pronta"}],"via":"uda-05"},{"n":6,"titolo":"Secondo, sesto e terzo grado","quando":"settimane 13–15","stato":"da preparare","lezioni":[{"n":1,"titolo":"Il secondo grado, ponte verso la dominante &middot; <em>due ore, con Il sesto grado, la cadenza evitata e le altre varianti della successione cadenzale</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Il secondo grado, ponte verso la dominante","doppia":"prima"},{"n":2,"titolo":"Il sesto grado, la cadenza evitata e le altre varianti della successione cadenzale &middot; <em>seconda ora della lezione 1</em>","file":"lezione-2.html","stato":"pronta","titolo_piano":"Il sesto grado, la cadenza evitata e le altre varianti della successione cadenzale","doppia":"seconda"},{"n":3,"titolo":"Dettato melodico con salti d’accordo","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il terzo grado e le sue cautele &middot; <em>due ore, con Le condotte particolari, cercate dove un autore piega davvero la regola</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Il terzo grado e le sue cautele","doppia":"prima"},{"n":5,"titolo":"Le condotte particolari, cercate dove un autore piega davvero la regola &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Le condotte particolari, cercate dove un autore piega davvero la regola","doppia":"seconda"},{"n":6,"titolo":"Solfeggio a due parti","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Dettato armonico con II e VI &middot; <em>due ore, con Sotto ogni nota, quali accordi sono possibili</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"Dettato armonico con II e VI","doppia":"prima"},{"n":8,"titolo":"V3 · verifica scritta · prima ora","file":"lezione-8.html","stato":"verifica","titolo_piano":"V3 · verifica scritta · prima ora"},{"n":9,"titolo":"V3 · verifica scritta · seconda ora","file":"lezione-9.html","stato":"verifica","titolo_piano":"V3 · verifica scritta · seconda ora"}],"via":"uda-06"},{"n":7,"titolo":"Armonizzare una melodia","quando":"settimane 16–18","stato":"pronta","lezioni":[{"n":1,"titolo":"Sotto ogni nota, quali accordi sono possibili &middot; <em>seconda ora della lezione 7 dell&rsquo;unità 6</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Sotto ogni nota, quali accordi sono possibili","doppia":"seconda"},{"n":2,"titolo":"Analisi: il ritmo armonico in un corale","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato a due voci","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Armonizzare una melodia di otto battute &middot; <em>due ore, con La stessa melodia armonizzata due volte, e una terza volta dal suo autore: confronto</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Armonizzare una melodia di otto battute","doppia":"prima"},{"n":5,"titolo":"La stessa melodia armonizzata due volte, e una terza volta dal suo autore: confronto &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"La stessa melodia armonizzata due volte, e una terza volta dal suo autore: confronto","doppia":"seconda"},{"n":6,"titolo":"Intonazione con sensibili secondarie","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Officina: armonizzare un corale semplice &middot; <em>due ore, con Correggere il lavoro di un compagno</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"Officina: armonizzare un corale semplice","doppia":"prima"},{"n":8,"titolo":"Correggere il lavoro di un compagno &middot; <em>seconda ora della lezione 7</em>","file":"lezione-8.html","stato":"pronta","titolo_piano":"Correggere il lavoro di un compagno","doppia":"seconda"},{"n":9,"titolo":"Solfeggio ritmico a due parti","file":"lezione-9.html","stato":"pronta"}],"via":"uda-07"},{"n":8,"titolo":"Contrappunto · quinta specie: il fiorito","quando":"settimane 19–20","stato":"da preparare","lezioni":[{"n":1,"titolo":"Quinta specie: mescolare le altre quattro, e dove la linea respira &middot; <em>due ore, con Dettato modale a due voci</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Quinta specie: mescolare le altre quattro, e dove la linea respira","doppia":"prima"},{"n":2,"titolo":"Dettato modale a due voci &middot; <em>seconda ora della lezione 1</em>","file":"lezione-2.html","stato":"pronta","titolo_piano":"Dettato modale a due voci","doppia":"seconda"},{"n":3,"titolo":"Officina: un fiorito intero sul canto dato, guardato prima in una pagina del Cinquecento","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Intonazione a due voci del proprio contrappunto &middot; <em>due ore, con Una dominante che non porta alla tonica</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Intonazione a due voci del proprio contrappunto","doppia":"prima"},{"n":5,"titolo":"V4 · verifica scritta · prima ora","file":"lezione-5.html","stato":"verifica","titolo_piano":"V4 · verifica scritta · prima ora"},{"n":6,"titolo":"V4 · verifica scritta · seconda ora","file":"lezione-6.html","stato":"verifica","titolo_piano":"V4 · verifica scritta · seconda ora"}],"via":"uda-08"},{"n":9,"titolo":"La dominante della dominante","quando":"settimane 21–22","stato":"pronta","lezioni":[{"n":1,"titolo":"Una dominante che non porta alla tonica &middot; <em>seconda ora della lezione 4 dell&rsquo;unità 8</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Una dominante che non porta alla tonica","doppia":"seconda"},{"n":2,"titolo":"La dominante della dominante: come si scrive","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato melodico con sensibili secondarie","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Riconoscerla in partitura: la dominante della dominante dentro un brano vero &middot; <em>due ore, con Esercitazione: inserirla in un giro cadenzale</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Riconoscerla in partitura: la dominante della dominante dentro un brano vero","doppia":"prima"},{"n":5,"titolo":"Esercitazione: inserirla in un giro cadenzale &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Esercitazione: inserirla in un giro cadenzale","doppia":"seconda"},{"n":6,"titolo":"Solfeggio cromatico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-09"},{"n":10,"titolo":"Altre dominanti secondarie e la progressione","quando":"settimane 23–26","stato":"da preparare","lezioni":[{"n":1,"titolo":"Il iii nel maggiore e il VI nel minore &middot; <em>due ore, con Altre dominanti secondarie nel maggiore</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Il iii nel maggiore e il VI nel minore","doppia":"prima"},{"n":2,"titolo":"Altre dominanti secondarie nel maggiore &middot; <em>seconda ora della lezione 1</em>","file":"lezione-2.html","stato":"pronta","titolo_piano":"Altre dominanti secondarie nel maggiore","doppia":"seconda"},{"n":3,"titolo":"Dettato armonico con una dominante secondaria","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Altre dominanti secondarie nel minore &middot; <em>due ore, con Analisi: la progressione in un brano vero — il modello, le copie, le discendenti per quinte</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Altre dominanti secondarie nel minore","doppia":"prima"},{"n":5,"titolo":"Analisi: la progressione in un brano vero — il modello, le copie, le discendenti per quinte &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Analisi: la progressione in un brano vero — il modello, le copie, le discendenti per quinte","doppia":"seconda"},{"n":6,"titolo":"Il trasporto: leggere un tono sopra &middot; <em>due ore, con Officina: scrivere una progressione di quattro modelli</em>","file":"lezione-6.html","stato":"pronta","titolo_piano":"Il trasporto: leggere un tono sopra","doppia":"prima"},{"n":7,"titolo":"Officina: scrivere una progressione di quattro modelli &middot; <em>seconda ora della lezione 6</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"Officina: scrivere una progressione di quattro modelli","doppia":"seconda"},{"n":8,"titolo":"Dettato melodico modulante","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Riconoscere una progressione in partitura &middot; <em>due ore, con Solfeggio: lettura a prima vista</em>","file":"lezione-9.html","stato":"pronta","titolo_piano":"Riconoscere una progressione in partitura","doppia":"prima"},{"n":10,"titolo":"Solfeggio: lettura a prima vista &middot; <em>seconda ora della lezione 9</em>","file":"lezione-10.html","stato":"pronta","titolo_piano":"Solfeggio: lettura a prima vista","doppia":"seconda"},{"n":11,"titolo":"V5 · verifica scritta · prima ora","file":"lezione-11.html","stato":"verifica","titolo_piano":"V5 · verifica scritta · prima ora"},{"n":12,"titolo":"V5 · verifica scritta · seconda ora","file":"lezione-12.html","stato":"verifica","titolo_piano":"V5 · verifica scritta · seconda ora"}],"via":"uda-10"},{"n":11,"titolo":"Analisi: dal periodo alla forma-Lied, e il Barocco","quando":"settimane 27–30","stato":"da preparare","lezioni":[{"n":1,"titolo":"Analisi formale: gli elementi di base","file":"lezione-1.html","stato":"pronta"},{"n":2,"titolo":"Frase standard, estensioni ed espansioni","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Polimetria: due metri sovrapposti &middot; <em>due ore, con Varianti ai modelli base</em>","file":"lezione-3.html","stato":"pronta","titolo_piano":"Polimetria: due metri sovrapposti","doppia":"prima"},{"n":4,"titolo":"Varianti ai modelli base &middot; <em>seconda ora della lezione 3</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Varianti ai modelli base","doppia":"seconda"},{"n":5,"titolo":"Analisi della forma: il Lied binario","file":"lezione-5.html","stato":"pronta"},{"n":6,"titolo":"Dettato ritmico con emiolia &middot; <em>due ore, con Analisi della forma: il Lied ternario</em>","file":"lezione-6.html","stato":"pronta","titolo_piano":"Dettato ritmico con emiolia","doppia":"prima"},{"n":7,"titolo":"Analisi della forma: il Lied ternario &middot; <em>seconda ora della lezione 6</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"Analisi della forma: il Lied ternario","doppia":"seconda"},{"n":8,"titolo":"Il Barocco: le forme di danza, il ritmo e il contrappunto","file":"lezione-8.html","stato":"pronta"},{"n":9,"titolo":"Solfeggio: lettura a prima vista &middot; <em>due ore, con Verifica orale di solfeggio</em>","file":"lezione-9.html","stato":"pronta","titolo_piano":"Solfeggio: lettura a prima vista","doppia":"prima"},{"n":10,"titolo":"Verifica orale di solfeggio &middot; <em>seconda ora della lezione 9</em>","file":"lezione-10.html","stato":"pronta","titolo_piano":"Verifica orale di solfeggio","doppia":"seconda"},{"n":11,"titolo":"V6 · verifica scritta · prima ora","file":"lezione-11.html","stato":"verifica","titolo_piano":"V6 · verifica scritta · prima ora"},{"n":12,"titolo":"V6 · verifica scritta · seconda ora","file":"lezione-12.html","stato":"verifica","titolo_piano":"V6 · verifica scritta · seconda ora"}],"via":"uda-11"}],"materiali":[{"file":"scheda-lavoro-autonomo-10.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-11.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-2.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-3.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-4.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-5.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-6.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-7.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-8.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-9.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"solfeggi-classe-3.html","titolo":"Il quaderno di lettura","breve":"Letture","stato":"pronta"},{"file":"workbook-uda-01.html","titolo":"Workbook · unità 1","breve":"Workbook","unita":1,"stato":"pronta"},{"file":"workbook-uda-02.html","titolo":"Workbook · unità 2","breve":"Workbook","unita":2,"stato":"pronta"},{"file":"workbook-uda-03.html","titolo":"Workbook · unità 3","breve":"Workbook","unita":3,"stato":"pronta"},{"file":"workbook-uda-04.html","titolo":"Workbook · unità 4","breve":"Workbook","unita":4,"stato":"pronta"},{"file":"workbook-uda-05.html","titolo":"Workbook · unità 5","breve":"Workbook","unita":5,"stato":"pronta"},{"file":"workbook-uda-06.html","titolo":"Workbook · unità 6","breve":"Workbook","unita":6,"stato":"pronta"},{"file":"workbook-uda-07.html","titolo":"Workbook · unità 7","breve":"Workbook","unita":7,"stato":"pronta"},{"file":"workbook-uda-08.html","titolo":"Workbook · unità 8","breve":"Workbook","unita":8,"stato":"pronta"},{"file":"workbook-uda-09.html","titolo":"Workbook · unità 9","breve":"Workbook","unita":9,"stato":"pronta"},{"file":"workbook-uda-10.html","titolo":"Workbook · unità 10","breve":"Workbook","unita":10,"stato":"pronta"},{"file":"workbook-uda-11.html","titolo":"Workbook · unità 11","breve":"Workbook","unita":11,"stato":"pronta"}]},{"n":4,"titolo":"Settime, imitazione, forma","via":"classe-4","unita":[{"n":1,"titolo":"Ripresa: armonizzare con le triadi secondarie","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo armonizzare, e con che cosa &middot; <em>due ore, con Melodie in maggiore con la triade di secondo grado</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Che cosa sappiamo armonizzare, e con che cosa","doppia":"prima"},{"n":2,"titolo":"Melodie in maggiore con la triade di secondo grado &middot; <em>seconda ora della lezione 1</em>","file":"lezione-2.html","stato":"pronta","titolo_piano":"Melodie in maggiore con la triade di secondo grado","doppia":"seconda"},{"n":3,"titolo":"Ripasso: solfeggio e lettura nelle tre chiavi","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Melodie in maggiore con sesto e terzo grado &middot; <em>due ore, con Melodia in minore con primarie e secondarie</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Melodie in maggiore con sesto e terzo grado","doppia":"prima"},{"n":5,"titolo":"Melodia in minore con primarie e secondarie &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Melodia in minore con primarie e secondarie","doppia":"seconda"},{"n":6,"titolo":"Dettato melodico diatonico","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Da dove arriva la settima","quando":"settimane 3–5","stato":"da preparare","lezioni":[{"n":1,"titolo":"Lo sapete già: la settima di dominante, scritta otto volte e ritrovata in Mozart &middot; <em>due ore, con La provenienza 8°–7°: la settima che arriva da sopra</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Lo sapete già: la settima di dominante, scritta otto volte e ritrovata in Mozart","doppia":"prima"},{"n":2,"titolo":"La provenienza 8°–7°: la settima che arriva da sopra &middot; <em>seconda ora della lezione 1</em>","file":"lezione-2.html","stato":"pronta","titolo_piano":"La provenienza 8°–7°: la settima che arriva da sopra","doppia":"seconda"},{"n":3,"titolo":"Dettato armonico con la settima di dominante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La settima preparata: il IV che precede il V⁷ &middot; <em>due ore, con La settima che sale dalla quinta, e la figurazione V⁵⁻⁶⁻⁷</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"La settima preparata: il IV che precede il V⁷","doppia":"prima"},{"n":5,"titolo":"La settima che sale dalla quinta, e la figurazione V⁵⁻⁶⁻⁷ &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"La settima che sale dalla quinta, e la figurazione V⁵⁻⁶⁻⁷","doppia":"seconda"},{"n":6,"titolo":"Analisi: da dove arriva la settima, in un brano vero","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Ascolto: riconoscere da dove arriva la settima &middot; <em>due ore, con Il primo rivolto, e una promessa fatta in prima</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"Ascolto: riconoscere da dove arriva la settima","doppia":"prima"},{"n":8,"titolo":"V1 · verifica scritta · prima ora","file":"lezione-8.html","stato":"verifica","titolo_piano":"V1 · verifica scritta · prima ora"},{"n":9,"titolo":"V1 · verifica scritta · seconda ora","file":"lezione-9.html","stato":"verifica","titolo_piano":"V1 · verifica scritta · seconda ora"}],"via":"uda-02"},{"n":3,"titolo":"I tre rivolti, e i loro tre mestieri","quando":"settimane 6–7","stato":"pronta","lezioni":[{"n":1,"titolo":"Il primo rivolto, e una promessa fatta in prima &middot; <em>seconda ora della lezione 7 dell&rsquo;unità 2</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Il primo rivolto, e una promessa fatta in prima","doppia":"seconda"},{"n":2,"titolo":"Il secondo rivolto: l’accordo che congiunge","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato: il basso dice il rivolto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Il terzo rivolto, e l’unica risoluzione obbligata &middot; <em>due ore, con Le stesse armonie, per tastiera e per voci</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Il terzo rivolto, e l’unica risoluzione obbligata","doppia":"prima"},{"n":5,"titolo":"Le stesse armonie, per tastiera e per voci &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Le stesse armonie, per tastiera e per voci","doppia":"seconda"},{"n":6,"titolo":"Analisi: che mestiere fa ogni rivolto","file":"lezione-6.html","stato":"pronta"}],"via":"uda-03"},{"n":4,"titolo":"Dall’alto: i profili melodici cadenzali","quando":"settimane 8–10","stato":"da preparare","lezioni":[{"n":1,"titolo":"Guardare dall’alto: che cos’è un profilo cadenzale &middot; <em>due ore, con Le due clausole: di soprano e di tenore</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Guardare dall’alto: che cos’è un profilo cadenzale","doppia":"prima"},{"n":2,"titolo":"Le due clausole: di soprano e di tenore &middot; <em>seconda ora della lezione 1</em>","file":"lezione-2.html","stato":"pronta","titolo_piano":"Le due clausole: di soprano e di tenore","doppia":"seconda"},{"n":3,"titolo":"Dettato a due voci","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La cadenza doppia &middot; <em>due ore, con La losanga, il napoletano, e i profili sulle espansioni</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"La cadenza doppia","doppia":"prima"},{"n":5,"titolo":"La losanga, il napoletano, e i profili sulle espansioni &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"La losanga, il napoletano, e i profili sulle espansioni","doppia":"seconda"},{"n":6,"titolo":"Analisi: i profili cadenzali di un corale","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Ascolto: riconoscere il profilo in un corale &middot; <em>due ore, con Il settimo grado con la settima</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"Ascolto: riconoscere il profilo in un corale","doppia":"prima"},{"n":8,"titolo":"V2 · verifica scritta · prima ora","file":"lezione-8.html","stato":"verifica","titolo_piano":"V2 · verifica scritta · prima ora"},{"n":9,"titolo":"V2 · verifica scritta · seconda ora","file":"lezione-9.html","stato":"verifica","titolo_piano":"V2 · verifica scritta · seconda ora"}],"via":"uda-04"},{"n":5,"titolo":"La settima di sensibile","quando":"settimane 11–12","stato":"pronta","lezioni":[{"n":1,"titolo":"Il settimo grado con la settima &middot; <em>seconda ora della lezione 7 dell&rsquo;unità 4</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Il settimo grado con la settima","doppia":"seconda"},{"n":2,"titolo":"Semidiminuita nel maggiore, diminuita nel minore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato armonico con il VII7","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"I rivolti della settima di sensibile &middot; <em>due ore, con Esercitazione: sostituire la dominante con il VII7</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"I rivolti della settima di sensibile","doppia":"prima"},{"n":5,"titolo":"Esercitazione: sostituire la dominante con il VII7 &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Esercitazione: sostituire la dominante con il VII7","doppia":"seconda"},{"n":6,"titolo":"Intonazione: la settima diminuita","file":"lezione-6.html","stato":"pronta"}],"via":"uda-05"},{"n":6,"titolo":"Le settime secondarie","quando":"settimane 13–15","stato":"da preparare","lezioni":[{"n":1,"titolo":"Una settima su ogni grado, e la catena discendente per quinte &middot; <em>due ore, con Dettato armonico con una catena di settime</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Una settima su ogni grado, e la catena discendente per quinte","doppia":"prima"},{"n":2,"titolo":"Dettato armonico con una catena di settime &middot; <em>seconda ora della lezione 1</em>","file":"lezione-2.html","stato":"pronta","titolo_piano":"Dettato armonico con una catena di settime","doppia":"seconda"},{"n":3,"titolo":"La preparazione della settima","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Armonizzare una melodia con accordi di settima &middot; <em>due ore, con Analisi: una catena di settime in un brano romantico</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Armonizzare una melodia con accordi di settima","doppia":"prima"},{"n":5,"titolo":"Analisi: una catena di settime in un brano romantico &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Analisi: una catena di settime in un brano romantico","doppia":"seconda"},{"n":6,"titolo":"Officina: sedici battute con settime secondarie","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Ascolto: le settime in un brano romantico &middot; <em>due ore, con Analisi: la figurazione melodica in un corale di Bach</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"Ascolto: le settime in un brano romantico","doppia":"prima"},{"n":8,"titolo":"V3 · verifica scritta · prima ora","file":"lezione-8.html","stato":"verifica","titolo_piano":"V3 · verifica scritta · prima ora"},{"n":9,"titolo":"V3 · verifica scritta · seconda ora","file":"lezione-9.html","stato":"verifica","titolo_piano":"V3 · verifica scritta · seconda ora"}],"via":"uda-06"},{"n":7,"titolo":"Figurazione, contrappunto e imitazione","quando":"settimane 16–18","stato":"pronta","lezioni":[{"n":1,"titolo":"Analisi: la figurazione melodica in un corale di Bach &middot; <em>seconda ora della lezione 7 dell&rsquo;unità 6</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Analisi: la figurazione melodica in un corale di Bach","doppia":"seconda"},{"n":2,"titolo":"Contrappunto a tre voci: che cosa cambia","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Canone a tre voci","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"L’imitazione: la stessa idea che ritorna spostata &middot; <em>due ore, con Imitazione all’ottava, alla quinta, alla quarta</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"L’imitazione: la stessa idea che ritorna spostata","doppia":"prima"},{"n":5,"titolo":"Imitazione all’ottava, alla quinta, alla quarta &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Imitazione all’ottava, alla quinta, alla quarta","doppia":"seconda"},{"n":6,"titolo":"Analisi: l’imitazione in un mottetto","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"L’invenzione a due voci di Bach, letta da vicino &middot; <em>due ore, con Officina: scrivere l'inizio di un'invenzione</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"L’invenzione a due voci di Bach, letta da vicino","doppia":"prima"},{"n":8,"titolo":"Officina: scrivere l’inizio di un’invenzione &middot; <em>seconda ora della lezione 7</em>","file":"lezione-8.html","stato":"pronta","titolo_piano":"Officina: scrivere l’inizio di un’invenzione","doppia":"seconda"},{"n":9,"titolo":"Intonazione a tre voci","file":"lezione-9.html","stato":"pronta"}],"via":"uda-07"},{"n":8,"titolo":"Il corale di Bach","quando":"settimane 19–20","stato":"da preparare","lezioni":[{"n":1,"titolo":"Analisi: quattro linee che cantano, in un corale &middot; <em>due ore, con Cantare un corale a quattro parti, per gruppi</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Analisi: quattro linee che cantano, in un corale","doppia":"prima"},{"n":2,"titolo":"Cantare un corale a quattro parti, per gruppi &middot; <em>seconda ora della lezione 1</em>","file":"lezione-2.html","stato":"pronta","titolo_piano":"Cantare un corale a quattro parti, per gruppi","doppia":"seconda"},{"n":3,"titolo":"Officina: armonizzare una melodia di corale","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Dettato: il basso di un corale &middot; <em>due ore, con Analisi: la modulazione alla dominante in un minuetto</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Dettato: il basso di un corale","doppia":"prima"},{"n":5,"titolo":"V4 · verifica scritta · prima ora","file":"lezione-5.html","stato":"verifica","titolo_piano":"V4 · verifica scritta · prima ora"},{"n":6,"titolo":"V4 · verifica scritta · seconda ora","file":"lezione-6.html","stato":"verifica","titolo_piano":"V4 · verifica scritta · seconda ora"}],"via":"uda-08"},{"n":9,"titolo":"Modulazione ai toni vicini e ai toni lontani","quando":"settimane 21–22","stato":"pronta","lezioni":[{"n":1,"titolo":"Analisi: la modulazione alla dominante in un minuetto &middot; <em>seconda ora della lezione 4 dell&rsquo;unità 8</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Analisi: la modulazione alla dominante in un minuetto","doppia":"seconda"},{"n":2,"titolo":"Modulazione alla dominante e alla mediante del minore","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Dettato melodico modulante","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Analisi: i toni lontani, trovati in partitura &middot; <em>due ore, con Gli accordi di sesta aumentata (libro A11, lezione 51)</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Analisi: i toni lontani, trovati in partitura","doppia":"prima"},{"n":5,"titolo":"Gli accordi di sesta aumentata (libro A11, lezione 51) &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Gli accordi di sesta aumentata (libro A11, lezione 51)","doppia":"seconda"},{"n":6,"titolo":"Intonazione di una melodia che modula due volte","file":"lezione-6.html","stato":"pronta"}],"via":"uda-09"},{"n":10,"titolo":"La forma sonata","quando":"settimane 23–26","stato":"da preparare","lezioni":[{"n":1,"titolo":"La forma sonata sul movimento: le tre parti e le due tonalità &middot; <em>due ore, con Dettato: trascrivere un tema</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"La forma sonata sul movimento: le tre parti e le due tonalità","doppia":"prima"},{"n":2,"titolo":"Dettato: trascrivere un tema &middot; <em>seconda ora della lezione 1</em>","file":"lezione-2.html","stato":"pronta","titolo_piano":"Dettato: trascrivere un tema","doppia":"seconda"},{"n":3,"titolo":"Il ponte, e che cosa deve fare","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Lo sviluppo: elaborazione motivica &middot; <em>due ore, con Analisi: il ponte di tre sonate a confronto</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Lo sviluppo: elaborazione motivica","doppia":"prima"},{"n":5,"titolo":"Analisi: il ponte di tre sonate a confronto &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Analisi: il ponte di tre sonate a confronto","doppia":"seconda"},{"n":6,"titolo":"La ripresa, e perché il secondo tema cambia tonalità","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Laboratorio: il primo movimento della Sonata op. 31 n. 2 &middot; <em>due ore, con Ascolto guidato di una sonata intera</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"Laboratorio: il primo movimento della Sonata op. 31 n. 2","doppia":"prima"},{"n":8,"titolo":"Ascolto guidato di una sonata intera &middot; <em>seconda ora della lezione 7</em>","file":"lezione-8.html","stato":"pronta","titolo_piano":"Ascolto guidato di una sonata intera","doppia":"seconda"},{"n":9,"titolo":"Sintesi grafica della forma: tre pezzi a confronto","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Dettato ritmico complesso &middot; <em>due ore, con Le forme ternarie e le forme barocche a due ritornelli</em>","file":"lezione-10.html","stato":"pronta","titolo_piano":"Dettato ritmico complesso","doppia":"prima"},{"n":11,"titolo":"V5 · verifica scritta · prima ora","file":"lezione-11.html","stato":"verifica","titolo_piano":"V5 · verifica scritta · prima ora"},{"n":12,"titolo":"V5 · verifica scritta · seconda ora","file":"lezione-12.html","stato":"verifica","titolo_piano":"V5 · verifica scritta · seconda ora"}],"via":"uda-10"},{"n":11,"titolo":"Forme barocche, forme ternarie, e la fuga","quando":"settimane 27–30","stato":"da preparare","lezioni":[{"n":1,"titolo":"Le forme ternarie e le forme barocche a due ritornelli &middot; <em>seconda ora della lezione 10 dell&rsquo;unità 10</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Le forme ternarie e le forme barocche a due ritornelli","doppia":"seconda"},{"n":2,"titolo":"Dettato polifonico","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"La fuga: il soggetto","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La risposta, tonale e reale &middot; <em>due ore, con Cantare l'esposizione di una fuga, per gruppi</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"La risposta, tonale e reale","doppia":"prima"},{"n":5,"titolo":"Cantare l’esposizione di una fuga, per gruppi &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Cantare l’esposizione di una fuga, per gruppi","doppia":"seconda"},{"n":6,"titolo":"Il controsoggetto e l’esposizione","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Laboratorio: analisi di una fuga del Clavicembalo &middot; <em>due ore, con Analisi: il piano tonale di una fuga intera</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"Laboratorio: analisi di una fuga del Clavicembalo","doppia":"prima"},{"n":8,"titolo":"Analisi: il piano tonale di una fuga intera &middot; <em>seconda ora della lezione 7</em>","file":"lezione-8.html","stato":"pronta","titolo_piano":"Analisi: il piano tonale di una fuga intera","doppia":"seconda"},{"n":9,"titolo":"Analisi: la fuga dopo Bach — Beethoven, Grande Fuga op. 133","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Verifica orale di solfeggio","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"V6 · verifica scritta · prima ora","file":"lezione-11.html","stato":"verifica","titolo_piano":"V6 · verifica scritta · prima ora"},{"n":12,"titolo":"V6 · verifica scritta · seconda ora","file":"lezione-12.html","stato":"verifica","titolo_piano":"V6 · verifica scritta · seconda ora"}],"via":"uda-11"}],"materiali":[{"file":"scheda-lavoro-autonomo-10.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-11.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-2.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-3.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-4.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-5.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-6.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-7.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-8.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-9.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"solfeggi-classe-4.html","titolo":"Il quaderno di lettura","breve":"Letture","stato":"pronta"},{"file":"workbook-uda-01.html","titolo":"Workbook · unità 1","breve":"Workbook","unita":1,"stato":"pronta"},{"file":"workbook-uda-02.html","titolo":"Workbook · unità 2","breve":"Workbook","unita":2,"stato":"pronta"},{"file":"workbook-uda-03.html","titolo":"Workbook · unità 3","breve":"Workbook","unita":3,"stato":"pronta"},{"file":"workbook-uda-04.html","titolo":"Workbook · unità 4","breve":"Workbook","unita":4,"stato":"pronta"},{"file":"workbook-uda-05.html","titolo":"Workbook · unità 5","breve":"Workbook","unita":5,"stato":"pronta"},{"file":"workbook-uda-06.html","titolo":"Workbook · unità 6","breve":"Workbook","unita":6,"stato":"pronta"},{"file":"workbook-uda-07.html","titolo":"Workbook · unità 7","breve":"Workbook","unita":7,"stato":"pronta"},{"file":"workbook-uda-08.html","titolo":"Workbook · unità 8","breve":"Workbook","unita":8,"stato":"pronta"},{"file":"workbook-uda-09.html","titolo":"Workbook · unità 9","breve":"Workbook","unita":9,"stato":"pronta"},{"file":"workbook-uda-10.html","titolo":"Workbook · unità 10","breve":"Workbook","unita":10,"stato":"pronta"},{"file":"workbook-uda-11.html","titolo":"Workbook · unità 11","breve":"Workbook","unita":11,"stato":"pronta"}]},{"n":5,"titolo":"Analisi, e la seconda prova","via":"classe-5","unita":[{"n":1,"titolo":"Il metodo, e la modulazione ai toni vicini","quando":"settimane 1–2","stato":"pronta","lezioni":[{"n":1,"titolo":"Che cosa sappiamo della modulazione, in mezz’ora &middot; <em>due ore, con La sopradominante e la sopratonica del maggiore</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Che cosa sappiamo della modulazione, in mezz’ora","doppia":"prima"},{"n":2,"titolo":"La sopradominante e la sopratonica del maggiore &middot; <em>seconda ora della lezione 1</em>","file":"lezione-2.html","stato":"pronta","titolo_piano":"La sopradominante e la sopratonica del maggiore","doppia":"seconda"},{"n":3,"titolo":"Che cos’è l’analisi, e perché non ce n’è una sola","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"La scheda dei quattro piani, riempita insieme &middot; <em>due ore, con Analisi: il piano delle altezze di un brano intero</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"La scheda dei quattro piani, riempita insieme","doppia":"prima"},{"n":5,"titolo":"Analisi: il piano delle altezze di un brano intero &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Analisi: il piano delle altezze di un brano intero","doppia":"seconda"},{"n":6,"titolo":"Scrivere una progressione di quinta con tonicizzazioni, e uscirne modulando","file":"lezione-6.html","stato":"pronta"}],"via":"uda-01"},{"n":2,"titolo":"Riconoscere la modulazione; il pedale","quando":"settimane 3–4","stato":"da preparare","lezioni":[{"n":1,"titolo":"Riconoscere una modulazione, anche multipla: gli indizi in partitura &middot; <em>due ore, con Dettato armonico con una modulazione</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Riconoscere una modulazione, anche multipla: gli indizi in partitura","doppia":"prima"},{"n":2,"titolo":"Dettato armonico con una modulazione &middot; <em>seconda ora della lezione 1</em>","file":"lezione-2.html","stato":"pronta","titolo_piano":"Dettato armonico con una modulazione","doppia":"seconda"},{"n":3,"titolo":"Analisi: il pedale nel Novecento","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Analisi integrale scritta: Ravel, «Pavane pour une infante défunte» &middot; <em>due ore, con Analisi: Debussy, «Voiles» — la scala esatonale</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Analisi integrale scritta: Ravel, «Pavane pour une infante défunte»","doppia":"prima"},{"n":5,"titolo":"V1 · verifica scritta · prima ora","file":"lezione-5.html","stato":"verifica","titolo_piano":"V1 · verifica scritta · prima ora"},{"n":6,"titolo":"V1 · verifica scritta · seconda ora","file":"lezione-6.html","stato":"verifica","titolo_piano":"V1 · verifica scritta · seconda ora"}],"via":"uda-02"},{"n":3,"titolo":"Debussy: il modo, la pentatonica, la scala esatonale","quando":"settimane 5–6","stato":"da preparare","lezioni":[{"n":1,"titolo":"Analisi: Debussy, «Voiles» — la scala esatonale &middot; <em>seconda ora della lezione 4 dell&rsquo;unità 2</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Analisi: Debussy, «Voiles» — la scala esatonale","doppia":"seconda"},{"n":2,"titolo":"Analisi: Debussy, «Pagodes» — la pentatonica","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Ascolto e canto: modi, pentatonica, esatonale","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"Scrittura: un basso nella forma della seconda prova &middot; <em>due ore, con Analisi: Debussy, il Prélude à l’après-midi d’un faune — l’inizio</em>","file":"lezione-4.html","stato":"in preparazione","titolo_piano":"Scrittura: un basso nella forma della seconda prova","doppia":"prima"},{"n":5,"titolo":"Analisi: Debussy, il Prélude à l’après-midi d’un faune — l’inizio &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"in preparazione","titolo_piano":"Analisi: Debussy, il Prélude à l’après-midi d’un faune — l’inizio","doppia":"seconda"},{"n":6,"titolo":"Analisi integrale scritta: Debussy, «La cathédrale engloutie»","file":"lezione-6.html","stato":"in preparazione"}],"via":"uda-03"},{"n":4,"titolo":"Satie e il modo ritrovato; quando la dominante smette di risolvere","quando":"settimane 7–9","stato":"da preparare","lezioni":[{"n":1,"titolo":"Analisi: il modo ritrovato — Satie e il lidio di Beethoven &middot; <em>due ore, con Ear training: modi e accordi senza funzione</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Analisi: il modo ritrovato — Satie e il lidio di Beethoven","doppia":"prima"},{"n":2,"titolo":"Ear training: modi e accordi senza funzione &middot; <em>seconda ora della lezione 1</em>","file":"lezione-2.html","stato":"in preparazione","titolo_piano":"Ear training: modi e accordi senza funzione","doppia":"seconda"},{"n":3,"titolo":"Quando la dominante smette di risolvere","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Analisi all’ascolto: accordi senza funzione e simmetrie &middot; <em>due ore, con Scrittura: una melodia da armonizzare nella forma della seconda prova</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Analisi all’ascolto: accordi senza funzione e simmetrie","doppia":"prima"},{"n":5,"titolo":"Scrittura: una melodia da armonizzare nella forma della seconda prova &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"in preparazione","titolo_piano":"Scrittura: una melodia da armonizzare nella forma della seconda prova","doppia":"seconda"},{"n":6,"titolo":"Analisi integrale scritta: Debussy, «Des pas sur la neige»","file":"lezione-6.html","stato":"in preparazione"},{"n":7,"titolo":"Analisi integrale scritta: Satie, Gymnopédie n. 1 &middot; <em>due ore, con Analisi: Bartók, «In modo lidio» e «Scala di cinque note»</em>","file":"lezione-7.html","stato":"in preparazione","titolo_piano":"Analisi integrale scritta: Satie, Gymnopédie n. 1","doppia":"prima"},{"n":8,"titolo":"V2 · verifica scritta · prima ora","file":"lezione-8.html","stato":"verifica","titolo_piano":"V2 · verifica scritta · prima ora"},{"n":9,"titolo":"V2 · verifica scritta · seconda ora","file":"lezione-9.html","stato":"verifica","titolo_piano":"V2 · verifica scritta · seconda ora"}],"via":"uda-04"},{"n":5,"titolo":"Bartók e il modo popolare","quando":"settimane 10–11","stato":"da preparare","lezioni":[{"n":1,"titolo":"Analisi: Bartók, «In modo lidio» e «Scala di cinque note» &middot; <em>seconda ora della lezione 7 dell&rsquo;unità 4</em>","file":"lezione-1.html","stato":"in preparazione","titolo_piano":"Analisi: Bartók, «In modo lidio» e «Scala di cinque note»","doppia":"seconda"},{"n":2,"titolo":"Analisi: Bartók, «Quinte diminuite» e il ritmo bulgaro","file":"lezione-2.html","stato":"in preparazione"},{"n":3,"titolo":"Analisi: Janáček, Sinfonietta — la fanfara","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"Analisi integrale scritta: un pezzo del Mikrokosmos &middot; <em>due ore, con Analisi integrale scritta: Chopin, una mazurka e i suoi alterati</em>","file":"lezione-4.html","stato":"in preparazione","titolo_piano":"Analisi integrale scritta: un pezzo del Mikrokosmos","doppia":"prima"},{"n":5,"titolo":"V3 · verifica scritta · prima ora","file":"lezione-5.html","stato":"verifica","titolo_piano":"V3 · verifica scritta · prima ora"},{"n":6,"titolo":"V3 · verifica scritta · seconda ora","file":"lezione-6.html","stato":"verifica","titolo_piano":"V3 · verifica scritta · seconda ora"}],"via":"uda-05"},{"n":6,"titolo":"Il tardo Ottocento e la fine della tonalità","quando":"settimane 12–16","stato":"da preparare","lezioni":[{"n":1,"titolo":"Analisi integrale scritta: Chopin, una mazurka e i suoi alterati &middot; <em>seconda ora della lezione 4 dell&rsquo;unità 5</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Analisi integrale scritta: Chopin, una mazurka e i suoi alterati","doppia":"seconda"},{"n":2,"titolo":"Scrittura: un basso con napoletana e seste eccedenti","file":"lezione-2.html","stato":"in preparazione"},{"n":3,"titolo":"Ear training: nona, settima diminuita, alterati","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"Analisi: la settima diminuita, un perno con quattro strade &middot; <em>due ore, con Scrittura: una melodia che modula lontano</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Analisi: la settima diminuita, un perno con quattro strade","doppia":"prima"},{"n":5,"titolo":"Scrittura: una melodia che modula lontano &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"in preparazione","titolo_piano":"Scrittura: una melodia che modula lontano","doppia":"seconda"},{"n":6,"titolo":"Analisi: Schönberg, «Notte trasfigurata» — l’inizio","file":"lezione-6.html","stato":"in preparazione"},{"n":7,"titolo":"Scrittura: un basso nella forma della seconda prova &middot; <em>due ore, con Analisi: Schönberg, Kammersymphonie op. 9 — l’accordo di quarte</em>","file":"lezione-7.html","stato":"in preparazione","titolo_piano":"Scrittura: un basso nella forma della seconda prova","doppia":"prima"},{"n":8,"titolo":"Analisi: Schönberg, Kammersymphonie op. 9 — l’accordo di quarte &middot; <em>seconda ora della lezione 7</em>","file":"lezione-8.html","stato":"in preparazione","titolo_piano":"Analisi: Schönberg, Kammersymphonie op. 9 — l’accordo di quarte","doppia":"seconda"},{"n":9,"titolo":"Analisi: Mahler, Sinfonia n. 1, III — il canone in minore","file":"lezione-9.html","stato":"in preparazione"},{"n":10,"titolo":"Politonalità e ritmo: Stravinskij, «Auguri primaverili» &middot; <em>due ore, con Analisi integrale scritta: Stravinskij, «Auguri primaverili»</em>","file":"lezione-10.html","stato":"pronta","titolo_piano":"Politonalità e ritmo: Stravinskij, «Auguri primaverili»","doppia":"prima"},{"n":11,"titolo":"Analisi integrale scritta: Stravinskij, «Auguri primaverili» &middot; <em>seconda ora della lezione 10</em>","file":"lezione-11.html","stato":"in preparazione","titolo_piano":"Analisi integrale scritta: Stravinskij, «Auguri primaverili»","doppia":"seconda"},{"n":12,"titolo":"Analisi: lo stesso accordo in due contesti diversi","file":"lezione-12.html","stato":"pronta"},{"n":13,"titolo":"Analisi: Berg, Sonata op. 1 — l’inizio &middot; <em>due ore, con Schönberg: dall’atonalità alla serie — l’op. 11 n. 1</em>","file":"lezione-13.html","stato":"in preparazione","titolo_piano":"Analisi: Berg, Sonata op. 1 — l’inizio","doppia":"prima"},{"n":14,"titolo":"V4 · verifica scritta · prima ora","file":"lezione-14.html","stato":"verifica","titolo_piano":"V4 · verifica scritta · prima ora"},{"n":15,"titolo":"V4 · verifica scritta · seconda ora","file":"lezione-15.html","stato":"verifica","titolo_piano":"V4 · verifica scritta · seconda ora"}],"via":"uda-06"},{"n":7,"titolo":"L’atonalità libera","quando":"settimane 17–19","stato":"da preparare","lezioni":[{"n":1,"titolo":"Schönberg: dall’atonalità alla serie — l’op. 11 n. 1 &middot; <em>seconda ora della lezione 13 dell&rsquo;unità 6</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"Schönberg: dall’atonalità alla serie — l’op. 11 n. 1","doppia":"seconda"},{"n":2,"titolo":"Analisi per insiemi: Schönberg, op. 19 n. 6","file":"lezione-2.html","stato":"pronta"},{"n":3,"titolo":"Intonare e riconoscere intervalli fuori dalla tonalità","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"Scrittura: un basso nella forma della seconda prova &middot; <em>due ore, con Scrittura: una melodia da armonizzare nella forma della seconda prova</em>","file":"lezione-4.html","stato":"in preparazione","titolo_piano":"Scrittura: un basso nella forma della seconda prova","doppia":"prima"},{"n":5,"titolo":"Scrittura: una melodia da armonizzare nella forma della seconda prova &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"in preparazione","titolo_piano":"Scrittura: una melodia da armonizzare nella forma della seconda prova","doppia":"seconda"},{"n":6,"titolo":"Ear training: insiemi e intervalli all’ascolto","file":"lezione-6.html","stato":"in preparazione"},{"n":7,"titolo":"Analisi: Schönberg, op. 19 n. 2 — la terza che non se ne va &middot; <em>due ore, con Analisi: Webern, op. 5 n. 4</em>","file":"lezione-7.html","stato":"in preparazione","titolo_piano":"Analisi: Schönberg, op. 19 n. 2 — la terza che non se ne va","doppia":"prima"},{"n":8,"titolo":"Analisi: Webern, op. 5 n. 4 &middot; <em>seconda ora della lezione 7</em>","file":"lezione-8.html","stato":"in preparazione","titolo_piano":"Analisi: Webern, op. 5 n. 4","doppia":"seconda"},{"n":9,"titolo":"Analisi integrale scritta: Schönberg, op. 19 n. 6","file":"lezione-9.html","stato":"in preparazione"}],"via":"uda-07"},{"n":8,"titolo":"La serie, e dopo la serie","quando":"settimane 20–22","stato":"da preparare","lezioni":[{"n":1,"titolo":"Analisi: la serie e le sue forme — Schönberg, Suite op. 25 &middot; <em>due ore, con Analisi: Webern, Variazioni op. 27, II</em>","file":"lezione-1.html","stato":"in preparazione","titolo_piano":"Analisi: la serie e le sue forme — Schönberg, Suite op. 25","doppia":"prima"},{"n":2,"titolo":"Analisi: Webern, Variazioni op. 27, II &middot; <em>seconda ora della lezione 1</em>","file":"lezione-2.html","stato":"in preparazione","titolo_piano":"Analisi: Webern, Variazioni op. 27, II","doppia":"seconda"},{"n":3,"titolo":"Scrittura: un basso nella forma della seconda prova","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"Analisi: Messiaen, «Quatuor pour la fin du temps» — modi a trasposizione limitata e ritmo non misurato &middot; <em>due ore, con Analisi: Ligeti, «Lux Aeterna» — quando il canone diventa massa</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Analisi: Messiaen, «Quatuor pour la fin du temps» — modi a trasposizione limitata e ritmo non misurato","doppia":"prima"},{"n":5,"titolo":"Analisi: Ligeti, «Lux Aeterna» — quando il canone diventa massa &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Analisi: Ligeti, «Lux Aeterna» — quando il canone diventa massa","doppia":"seconda"},{"n":6,"titolo":"Analisi: Varèse, «Ionisation» — il suono come materiale","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Scrittura: una melodia da armonizzare nella forma della seconda prova &middot; <em>due ore, con Analisi: Webern, «Dormi Jesu» — il canone seriale</em>","file":"lezione-7.html","stato":"in preparazione","titolo_piano":"Scrittura: una melodia da armonizzare nella forma della seconda prova","doppia":"prima"},{"n":8,"titolo":"Analisi: Webern, «Dormi Jesu» — il canone seriale &middot; <em>seconda ora della lezione 7</em>","file":"lezione-8.html","stato":"in preparazione","titolo_piano":"Analisi: Webern, «Dormi Jesu» — il canone seriale","doppia":"seconda"},{"n":9,"titolo":"Analisi integrale scritta: Webern, Variazioni op. 27, II","file":"lezione-9.html","stato":"in preparazione"}],"via":"uda-08"},{"n":9,"titolo":"Dopo il 1945, e la forma della seconda prova","quando":"settimane 23–26","stato":"da preparare","lezioni":[{"n":1,"titolo":"Analisi: Ligeti, «Musica ricercata» n. 1 — il materiale ridotto al minimo &middot; <em>due ore, con Ear training: il Novecento all’ascolto</em>","file":"lezione-1.html","stato":"in preparazione","titolo_piano":"Analisi: Ligeti, «Musica ricercata» n. 1 — il materiale ridotto al minimo","doppia":"prima"},{"n":2,"titolo":"Ear training: il Novecento all’ascolto &middot; <em>seconda ora della lezione 1</em>","file":"lezione-2.html","stato":"in preparazione","titolo_piano":"Ear training: il Novecento all’ascolto","doppia":"seconda"},{"n":3,"titolo":"Scrittura: un basso nella forma della seconda prova","file":"lezione-3.html","stato":"in preparazione"},{"n":4,"titolo":"Analisi: Britten, «Peter Grimes» — il primo Interludio marino &middot; <em>due ore, con Analisi: un ascolto extraeuropeo, con quali strumenti</em>","file":"lezione-4.html","stato":"in preparazione","titolo_piano":"Analisi: Britten, «Peter Grimes» — il primo Interludio marino","doppia":"prima"},{"n":5,"titolo":"V5 · verifica scritta · prima ora","file":"lezione-5.html","stato":"verifica","titolo_piano":"V5 · verifica scritta · prima ora"},{"n":6,"titolo":"V5 · verifica scritta · seconda ora","file":"lezione-6.html","stato":"verifica","titolo_piano":"V5 · verifica scritta · seconda ora"},{"n":7,"titolo":"Analisi: un ascolto extraeuropeo, con quali strumenti &middot; <em>seconda ora della lezione 4</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"Analisi: un ascolto extraeuropeo, con quali strumenti","doppia":"seconda"},{"n":8,"titolo":"Scrittura: una melodia da armonizzare nella forma della seconda prova","file":"lezione-8.html","stato":"in preparazione"},{"n":9,"titolo":"Dettato di consolidamento: melodico, armonico, polifonico","file":"lezione-9.html","stato":"in preparazione"},{"n":10,"titolo":"Scegliere il metodo: lo stesso brano letto dal libro e da Natoli &middot; <em>due ore, con Analisi integrale scritta: Britten, il primo Interludio marino</em>","file":"lezione-10.html","stato":"pronta","titolo_piano":"Scegliere il metodo: lo stesso brano letto dal libro e da Natoli","doppia":"prima"},{"n":11,"titolo":"Analisi integrale scritta: Britten, il primo Interludio marino &middot; <em>seconda ora della lezione 10</em>","file":"lezione-11.html","stato":"in preparazione","titolo_piano":"Analisi integrale scritta: Britten, il primo Interludio marino","doppia":"seconda"},{"n":12,"titolo":"Scrittura: un basso con la nona e il pedale","file":"lezione-12.html","stato":"in preparazione"}],"via":"uda-09"},{"n":10,"titolo":"La seconda prova, e il progetto","quando":"settimane 27–30","stato":"da preparare","lezioni":[{"n":1,"titolo":"La tipologia A: che cosa chiede un’analisi d’esame &middot; <em>due ore, con Un tema di tipologia A rifatto in classe, a tempo</em>","file":"lezione-1.html","stato":"pronta","titolo_piano":"La tipologia A: che cosa chiede un’analisi d’esame","doppia":"prima"},{"n":2,"titolo":"Un tema di tipologia A rifatto in classe, a tempo &middot; <em>seconda ora della lezione 1</em>","file":"lezione-2.html","stato":"pronta","titolo_piano":"Un tema di tipologia A rifatto in classe, a tempo","doppia":"seconda"},{"n":3,"titolo":"Il colloquio: presentare un’analisi in cinque minuti","file":"lezione-3.html","stato":"pronta"},{"n":4,"titolo":"Simulazione, prima parte: analisi &middot; <em>due ore, con Simulazione, seconda parte: composizione</em>","file":"lezione-4.html","stato":"pronta","titolo_piano":"Simulazione, prima parte: analisi","doppia":"prima"},{"n":5,"titolo":"Simulazione, seconda parte: composizione &middot; <em>seconda ora della lezione 4</em>","file":"lezione-5.html","stato":"pronta","titolo_piano":"Simulazione, seconda parte: composizione","doppia":"seconda"},{"n":6,"titolo":"Correzione ragionata della simulazione","file":"lezione-6.html","stato":"pronta"},{"n":7,"titolo":"Le tipologie B1 e B2: comporre partendo da un’analisi &middot; <em>due ore, con Il progetto compositivo: istanze di partenza e scopi</em>","file":"lezione-7.html","stato":"pronta","titolo_piano":"Le tipologie B1 e B2: comporre partendo da un’analisi","doppia":"prima"},{"n":8,"titolo":"Il progetto compositivo: istanze di partenza e scopi &middot; <em>seconda ora della lezione 7</em>","file":"lezione-8.html","stato":"pronta","titolo_piano":"Il progetto compositivo: istanze di partenza e scopi","doppia":"seconda"},{"n":9,"titolo":"Officina di composizione, e revisione finale delle partiture","file":"lezione-9.html","stato":"pronta"},{"n":10,"titolo":"Prove di esecuzione dei progetti","file":"lezione-10.html","stato":"pronta"},{"n":11,"titolo":"V6 · verifica finale · presentazione del progetto · prima ora","file":"lezione-11.html","stato":"verifica","titolo_piano":"V6 · verifica finale · presentazione del progetto · prima ora"},{"n":12,"titolo":"V6 · verifica finale · presentazione del progetto · seconda ora","file":"lezione-12.html","stato":"verifica","titolo_piano":"V6 · verifica finale · presentazione del progetto · seconda ora"}],"via":"uda-10"}],"materiali":[{"file":"scheda-lavoro-autonomo-1.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-10.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-11.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-2.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-3.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-4.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-5.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-6.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-7.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-8.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"scheda-lavoro-autonomo-9.html","titolo":"Lavoro autonomo a gruppi","breve":"Schede","stato":"pronta"},{"file":"solfeggi-classe-5.html","titolo":"Il quaderno di lettura","breve":"Letture","stato":"pronta"},{"file":"workbook-uda-01.html","titolo":"Workbook · unità 1","breve":"Workbook","unita":1,"stato":"pronta"},{"file":"workbook-uda-02.html","titolo":"Workbook · unità 2","breve":"Workbook","unita":2,"stato":"pronta"},{"file":"workbook-uda-03.html","titolo":"Workbook · unità 3","breve":"Workbook","unita":3,"stato":"pronta"},{"file":"workbook-uda-04.html","titolo":"Workbook · unità 4","breve":"Workbook","unita":4,"stato":"pronta"},{"file":"workbook-uda-05.html","titolo":"Workbook · unità 5","breve":"Workbook","unita":5,"stato":"pronta"},{"file":"workbook-uda-06.html","titolo":"Workbook · unità 6","breve":"Workbook","unita":6,"stato":"pronta"},{"file":"workbook-uda-07.html","titolo":"Workbook · unità 7","breve":"Workbook","unita":7,"stato":"pronta"},{"file":"workbook-uda-08.html","titolo":"Workbook · unità 8","breve":"Workbook","unita":8,"stato":"pronta"},{"file":"workbook-uda-09.html","titolo":"Workbook · unità 9","breve":"Workbook","unita":9,"stato":"pronta"},{"file":"workbook-uda-10.html","titolo":"Workbook · unità 10","breve":"Workbook","unita":10,"stato":"pronta"}]}],"qui":{"classe":3,"unita":5,"lezione":6}}</script>
+</body>
+</html>

@@ -6672,7 +6672,7 @@
           c.innerHTML =
             '<iframe src="https://www.youtube-nocookie.com/embed/' +
             encodeURIComponent(yt) + '?' + q.join('&') + '" allowfullscreen ' +
-            'referrerpolicy="strict-origin-when-cross-origin" title="Esecuzione reale"></iframe>' +
+            'loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Esecuzione reale"></iframe>' +
             '<a class="tac-fuori" target="_blank" rel="noopener" href="' +
             'https://www.youtube.com/watch?v=' + encodeURIComponent(yt) +
             (da !== null ? '&t=' + da : '') + '">' +
@@ -6686,6 +6686,13 @@
           b.innerHTML = '&#10005; Chiudi il video';
         };
         if (!giaSorgente) barra.appendChild(b);
+        /* ⚠ 16 ottobre 2026, Andrea: «gli ascolti devono essere direttamente
+           nella pagina, non vanno cliccati». Il video si apre da sé, già
+           incorporato sotto la scheda del brano; il pulsante resta per
+           chiuderlo (e riaprirlo). `chiuso` sull'elemento lo lascia chiuso. */
+        if (!giaSorgente && !this.hasAttribute('chiuso')) {
+          setTimeout(() => { try { if (!this._tubo && this._box) b.onclick(); } catch (e) {} }, 0);
+        }
 
         /* ⚠ NESSUNA ETICHETTA DI SERVIZIO IN PAGINA. Qui compariva
            «brano intero — da restringere», promemoria per chi monta il

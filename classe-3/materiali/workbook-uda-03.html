@@ -7,7 +7,7 @@
 <title>Workbook — UdA 3 · Tutti i gradi, e la settima di dominante nei suoi rivolti | TAC Classe 3&ordf;</title>
 <!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
      Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
-<link rel="stylesheet" href="../../_assets/css/tac.css?v=12da14de">
+<link rel="stylesheet" href="../../_assets/css/tac.css?v=d1427c0c">
 <link rel="stylesheet" href="../../_assets/css/sito.css?v=d65b9664">
 <script src="../../_assets/lib/vexflow.js"></script>
 <script src="../../_assets/lib/tone.js"></script>
@@ -15,7 +15,7 @@
      usa, e con `defer` i due file girano nell'ordine in cui stanno
      scritti qui. -->
 <script src="../../_assets/js/codice.js" defer></script>
-<script src="../../_assets/js/tac-core.js?v=b2492844" defer></script>
+<script src="../../_assets/js/tac-core.js?v=b43da6be" defer></script>
 <style>
   .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
                 border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
@@ -116,10 +116,26 @@
       <p class="titolo-consegna"><span class="num">1</span> Un basso numerato di dodici battute in la maggiore con il II, il VI, il III e il VII</p>
       <div class="testo">Realizza a quattro parti il basso numerato, un accordo per minima, due voci per rigo con i gambi opposti. Sotto ogni accordo scrivi anche la funzione: T, S o D.<p class="dettaglio">Nel vi e nel iii allo stato fondamentale si raddoppia la fondamentale, tranne nel V<sup>7</sup>&ndash;vi della b.&nbsp;6, dove il vi raddoppia la terza (la sensibile sale alla tonica). Nel ii<sup>6</sup> si raddoppia volentieri il basso; nel vii&deg;<sup>6</sup> della b.&nbsp;9 il basso, mai la sensibile. Nel iii&ndash;IV delle bb.&nbsp;3&ndash;4 la sensibile <em>sol</em>&#9839;, se &egrave; nel iii, scende al <em>fa</em>&#9839;. Il ii non torna al I.</p></div>
       <div class="materiale">
-      <p class="didascalia-rigo">La maggiore, dodici battute: il basso con la cifratura</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 76.04" src="incisioni/0d07d7c35557-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 75.17" src="incisioni/0b83610ffd4b-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 76.04" src="incisioni/373d869d6bee-1.svg" alt="">
+      <tac-stave clef="bass"
+               time="4/4"
+               keysig="A"
+               caption="La maggiore, dodici battute: il basso con la cifratura"
+               notes="a/2:h f/3:h | d/3:h e/3:h | a/2:h c/3:h | d/3:h e/3:h"
+               cifre="I · vi · ii6 · V · I · iii · IV · V"
+               width="900"
+               tempo="60" play></tac-stave>
+      <tac-stave clef="bass"
+               time="4/4"
+               keysig="A"
+               notes="f/3:h b/2:h | e/3:h f/3:h | d/3:h c/3:h | d/3:h e/3:h"
+               cifre="vi · ii · V7 · vi · IV · I6 · ii6 · V"
+               width="900"></tac-stave>
+      <tac-stave clef="bass"
+               time="4/4"
+               keysig="A"
+               notes="a/2:h b/2:h | c/3:h d/3:h | e/3:h e/3:h | a/2:w"
+               cifre="I · vii°6 · I6 · IV · I64 · V7 · I"
+               width="900"></tac-stave>
       </div>
     </div>
     </section>
@@ -152,10 +168,26 @@
       <p class="titolo-consegna"><span class="num">1</span> Un basso numerato di dodici battute in si&#9837; maggiore con i tre rivolti della settima</p>
       <div class="testo">Realizza a quattro parti il basso numerato, un accordo per minima, due voci per rigo. Sopra ogni dominante segna con una freccia in su la sensibile e con una in gi&ugrave; la settima, e controlla che arrivino dove devono.<p class="dettaglio">V<span class="cifrata"><sup>6</sup><sub>5</sub></span>&ndash;I (b.&nbsp;1), V<span class="cifrata"><sup>4</sup><sub>2</sub></span>&ndash;I<sup>6</sup> (b.&nbsp;3, la settima <em>mi</em>&#9837; preparata al basso dal IV), I&ndash;V<span class="cifrata"><sup>4</sup><sub>3</sub></span>&ndash;I<sup>6</sup> (bb.&nbsp;5&ndash;6) e I<sup>6</sup>&ndash;V<span class="cifrata"><sup>4</sup><sub>3</sub></span>&ndash;I (bb.&nbsp;9&ndash;10). Nei rivolti la settima di dominante &egrave; completa. Nel I<sup>6</sup> dopo il V<span class="cifrata"><sup>4</sup><sub>3</sub></span> la terza raddoppiata &egrave; regolare.</p></div>
       <div class="materiale">
-      <p class="didascalia-rigo">Si&#9837; maggiore, dodici battute: il basso con la cifratura</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 75.27" src="incisioni/933bde4c99ae-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 74.40" src="incisioni/0a7ede77c582-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 73.53" src="incisioni/311f0fefcbfc-1.svg" alt="">
+      <tac-stave clef="bass"
+               time="4/4"
+               keysig="Bb"
+               caption="Si&#9837; maggiore, dodici battute: il basso con la cifratura"
+               notes="b/2:h a/2:h | b/2:h e/3:h | e/3:h d/3:h | e/3:h f/3:h"
+               cifre="I · V65 · I · IV · V42 · I6 · ii6 · V"
+               width="900"
+               tempo="60" play></tac-stave>
+      <tac-stave clef="bass"
+               time="4/4"
+               keysig="Bb"
+               notes="b/2:h c/3:h | d/3:h e/3:h | e/3:h f/3:h | g/3:h e/3:h"
+               cifre="I · V43 · I6 · IV · ii6 · V7 · vi · IV"
+               width="900"></tac-stave>
+      <tac-stave clef="bass"
+               time="4/4"
+               keysig="Bb"
+               notes="d/3:h c/3:h | b/2:h e/3:h | f/3:h f/3:h | b/2:w"
+               cifre="I6 · V43 · I · ii6 · I64 · V7 · I"
+               width="900"></tac-stave>
       </div>
     </div>
     </section>
@@ -176,9 +208,20 @@
       <p class="titolo-consegna"><span class="num">2</span> Otto battute in re minore con il V6/5, il V4/3 e il V4/2</p>
       <div class="testo">Realizza a quattro parti il basso numerato, un accordo per minima, due voci per rigo. In ogni accordo di dominante scrivi a mano il <em>do</em>&#9839;.<p class="dettaglio">V<span class="cifrata"><sup>6</sup><sub>5</sub></span>&ndash;i alla b.&nbsp;1 (il <em>do</em>&#9839; al basso sale al <em>re</em>), V<span class="cifrata"><sup>4</sup><sub>2</sub></span>&ndash;i<sup>6</sup> alla b.&nbsp;3 (il <em>sol</em> preparato al basso dal iv), i&ndash;V<span class="cifrata"><sup>4</sup><sub>3</sub></span>&ndash;i<sup>6</sup> alle bb.&nbsp;5&ndash;6. Nessun <em>si</em>&#9837;&ndash;<em>do</em>&#9839; nella stessa voce: &egrave; una seconda eccedente.</p></div>
       <div class="materiale">
-      <p class="didascalia-rigo">Re minore, otto battute: il basso con la cifratura</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 73.53" src="incisioni/2465b6b1c849-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 72.65" src="incisioni/74e56a7283ec-1.svg" alt="">
+      <tac-stave clef="bass"
+               time="4/4"
+               keysig="Dm"
+               caption="Re minore, otto battute: il basso con la cifratura"
+               notes="d/3:h c#/3:h | d/3:h g/2:h | g/2:h f/2:h | g/2:h a/2:h"
+               cifre="i · V65 · i · iv · V42 · i6 · iv · V"
+               width="900"
+               tempo="60" play></tac-stave>
+      <tac-stave clef="bass"
+               time="4/4"
+               keysig="Dm"
+               notes="d/3:h e/3:h | f/3:h g/3:h | a/3:h a/3:h | d/3:w"
+               cifre="i · V43 · i6 · ii°6 · i64 · V7 · i"
+               width="900"></tac-stave>
       </div>
     </div>
     </details>
@@ -200,10 +243,26 @@
       <p class="titolo-consegna"><span class="num">1</span> Un basso numerato di dodici battute in re maggiore con II, VI e settima di dominante</p>
       <div class="testo">Realizza a quattro parti il basso numerato, un accordo per minima, due voci per rigo. Poi suona o canta il basso e, sopra, il soprano che hai scritto: &egrave; lo stesso esercizio del dettato di oggi, nell&rsquo;altro verso.<p class="dettaglio">ii<sup>6</sup>&ndash;V (b.&nbsp;2), V<span class="cifrata"><sup>6</sup><sub>5</sub></span>&ndash;I (b.&nbsp;3), ii&ndash;V<sup>7</sup>&ndash;vi d&rsquo;inganno (bb.&nbsp;5&ndash;6), V<sup>7</sup>&ndash;vi (b.&nbsp;8), ii<sup>6</sup>&ndash;V<sup>7</sup>&ndash;I alla cadenza. Nel vi dopo il V<sup>7</sup> si raddoppia la terza.</p></div>
       <div class="materiale">
-      <p class="didascalia-rigo">Re maggiore, dodici battute: il basso con la cifratura</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 74.40" src="incisioni/a1ecd35e9175-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 77.89" src="incisioni/d37e2aaf28e9-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 76.15" src="incisioni/c05c036bdd41-1.svg" alt="">
+      <tac-stave clef="bass"
+               time="4/4"
+               keysig="D"
+               caption="Re maggiore, dodici battute: il basso con la cifratura"
+               notes="d/3:h b/2:h | g/2:h a/2:h | d/3:h c/3:h | d/3:h g/2:h"
+               cifre="I · vi · ii6 · V · I · V65 · I · IV"
+               width="900"
+               tempo="60" play></tac-stave>
+      <tac-stave clef="bass"
+               time="4/4"
+               keysig="D"
+               notes="e/2:h a/2:h | b/2:h g/2:h | f/2:h e/2:h | a/2:h b/2:h"
+               cifre="ii · V7 · vi · IV · I6 · ii · V7 · vi"
+               width="900"></tac-stave>
+      <tac-stave clef="bass"
+               time="4/4"
+               keysig="D"
+               notes="g/2:h g/2:h | a/2:h f/2:h | g/2:h a/2:h | d/3:w"
+               cifre="IV · ii6 · V · I6 · ii6 · V7 · I"
+               width="900"></tac-stave>
       </div>
     </div>
     </section>
@@ -236,10 +295,26 @@
       <p class="titolo-consegna"><span class="num">1</span> Un basso numerato di dodici battute, in si&#9837; maggiore</p>
       <div class="testo">Realizzare a quattro parti il basso numerato qui sotto (si&#9837; maggiore, 4/4, dodici battute): due voci per rigo con i gambi opposti, soprano e contralto sul rigo di violino, tenore sul rigo del basso. Prima di scrivere, sotto ogni nota il grado e lo stato.<p class="dettaglio">Il basso contiene tutti i gradi (II, III, VI, VII<sup>6</sup>) e la settima di dominante nei tre rivolti: V<span class="cifrata"><sup>6</sup><sub>5</sub></span> (b.&nbsp;1), V<span class="cifrata"><sup>4</sup><sub>3</sub></span> di passaggio (b.&nbsp;2), V<span class="cifrata"><sup>4</sup><sub>2</sub></span> (b.&nbsp;7), V<sup>7</sup> (bb.&nbsp;8 e 11). Controlli prima di consegnare: <strong>1.</strong> la sensibile (la) sale sempre; <strong>2.</strong> ogni settima scende di grado, salvo quella del V<span class="cifrata"><sup>4</sup><sub>3</sub></span> verso il I<sup>6</sup>; <strong>3.</strong> nella quarta e sesta della b.&nbsp;11 si raddoppia il basso; <strong>4.</strong> nessuna quinta o ottava consecutiva fra le sei coppie di voci.</p></div>
       <div class="materiale">
-      <p class="didascalia-rigo">Il basso numerato, bb. 1–12 (si♭ maggiore)</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 75.27" src="incisioni/61a4f30c416d-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 76.15" src="incisioni/a83c40847277-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 76.15" src="incisioni/4993171b2d88-1.svg" alt="">
+      <tac-stave clef="bass"
+           time="4/4"
+           keysig="Bb"
+           caption="Il basso numerato, bb. 1–12 (si♭ maggiore)"
+           notes="b/2:h a/2:h | b/2:h c/3:q d/3:q | e/3:h c/3:h | f/3:h d/3:h"
+           cifre="- · 6:5 · - · 4:3 · 6 · - · - · - · -"
+           width="900"
+           tempo="60" play></tac-stave>
+      <tac-stave clef="bass"
+           time="4/4"
+           keysig="Bb"
+           notes="g/2:h c/3:h | d/3:h e/3:h | e/3:h d/3:h | c/3:h f/2:h"
+           cifre="- · 6 · 6 · - · 4:2 · 6 · - · 7"
+           width="900"></tac-stave>
+      <tac-stave clef="bass"
+           time="4/4"
+           keysig="Bb"
+           notes="g/2:h a/2:h | b/2:h e/3:h | f/3:h f/2:h | b/2:w"
+           cifre="- · 6 · - · 6 · 6:4 · 7 · -"
+           width="900"></tac-stave>
       </div>
     </div>
     </section>

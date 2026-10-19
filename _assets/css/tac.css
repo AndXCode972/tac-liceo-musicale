@@ -3205,3 +3205,21 @@ html.tac-soccorso .solo-proiezione { display: none; }
    il link»). */
 .apri-solfeggio { margin: 1.6rem 0 .8rem; }
 .apri-solfeggio .btn { font-size: 1.35rem; padding: .8rem 1.6rem; text-decoration: none; display: inline-block; }
+
+/* ══ LE SLIDE SDOPPIATE (19 ottobre 2026) ══
+   `Deck.sdoppia` divide la slide che non sta nel palco e ripete il titolo
+   in testa alla seconda parte, con «(segue)». Il segno è più leggero del
+   titolo; e dove si legge di seguito — studio, dispensa, stampa — il
+   titolo ripetuto non serve e sparisce. */
+.slide h2 .segue-segno { font-weight: 500; opacity: .55; font-size: .8em; }
+body.modalita-studio .ripetuto,
+body.modalita-dispensa .ripetuto { display: none !important; }
+@media print { .ripetuto { display: none !important; } }
+
+/* Il riquadro chiuso, prima del codice, è solo un invito: 165 pixel di
+   cornice tratteggiata per un campo e un tasto facevano scendere sotto
+   la barra la fine di metà delle slide dei compiti (19 ottobre 2026).
+   Più raccolto; l'esito occupa spazio solo quando c'è qualcosa da dire. */
+.tac-chiuso:not(.tac-aperto) { padding: .8rem 1.2rem; }
+.tac-chiuso:not(.tac-aperto) .tac-chiuso-invito { margin-bottom: .5rem; }
+.tac-chiuso-esito:empty { display: none; }

@@ -1410,6 +1410,8 @@
         }
       }
 
+      if (this._allargato) larghezza = Math.max(larghezza, this._allargato);   /* v. «le ultime note fuori» */
+
       if (caption) {
         const d = document.createElement('div');
         d.className = 'tac-didascalia';
@@ -1765,7 +1767,8 @@
            confronto fra righe è il contenuto della slide. */
         const eguali = this.hasAttribute('battute-uguali')
                        || !!(this.closest && this.closest('.tre-livelli'));
-        const F = new VF.Formatter(eguali ? { softmaxFactor: 1 } : undefined);
+        const F = new VF.Formatter(eguali ? { softmaxFactor: 1 }
+                                   : (this._giroFormato ? { maxIterations: 0 } : undefined));
         F.joinVoices([voce].concat(suRigo(stave)));
         if (giu) F.joinVoices([giu.voce].concat(suRigo(staveB)));
         const tutte = [voce].concat(giu ? [giu.voce] : [])
@@ -1791,6 +1794,66 @@
         const utile = Math.min(larghezza - 104,
                                stave.getNoteEndX() - inizio - 14);
         F.format(tutte, Math.max(60, utile));
+
+        /* ⚠ LE ULTIME NOTE FUORI DAL PENTAGRAMMA.
+           19 ottobre 2026, Andrea: «i pentagrammi, a volte le ultime note
+           sono fuori dal pentagramma». Misurato su tutto il sito: 40
+           esempi, quasi tutti i canti dati e i bassi dei compiti di 16
+           battute, e alcuni esempi di 8 battute con `width="900"`.
+
+           La causa è di VexFlow 5, non della larghezza. Il formattatore,
+           dopo la prima disposizione, «giustifica» per qualche giro; con le
+           stanghette dentro la voce (sono note di durata zero) e un ritmo
+           puntato, quei giri divergono: lo stesso rigo di otto battute a
+           800 unità finisce a 813, a 900 a 949, a 1000 a 1587. Provato con
+           VexFlow da solo, senza questo file: stesso risultato.
+
+           Rimedio, in tre passi e solo se l'ultima nota esce davvero:
+           1. si ridisegna senza i giri di giustificazione
+              (`maxIterations: 0`): la prima disposizione è già corretta e
+              proporzionale alle durate;
+           2. se esce ancora, il passo è fitto davvero: si ridisegna con il
+              rigo più lungo, e l'SVG si stringe nel riquadro (viewBox);
+           3. se resta qualche pixel, si avvicinano le colonne in
+              proporzione finché l'ultima nota sta prima della stanghetta.
+           I righi che non escono non cambiano di un pixel. */
+        if (!eguali) {
+          const base = inizio + 12;
+          const limite = Math.min(stave.getNoteEndX(),
+                                  staveB ? staveB.getNoteEndX() : Infinity) - 6;
+          const misura = () => {
+            let fine = 0, larga = 0;
+            tutte.forEach(v => v.getTickables().forEach(t => {
+              try {
+                /* Prima di `draw` la nota non conosce il suo rigo:
+                   `getAbsoluteX` non conta chiave, armatura e metro
+                   (`inizio`) né il margine di 12. Si aggiungono qui. */
+                const x = t.getAbsoluteX() + ((t.getStave && t.getStave()) ? 0 : base);
+                const w = t.getWidth ? t.getWidth() : 0;
+                if (x + w > fine) { fine = x + w; larga = w; }
+              } catch (e) { /* non formattata: non conta */ }
+            }));
+            return { fine, larga };
+          };
+          let { fine, larga } = misura();
+          if (fine > limite) {
+            const giro = this._giroFormato || 0;
+            if (giro < 2) {
+              this._giroFormato = giro + 1;
+              if (giro === 1) {
+                const quota = (fine - base) / Math.max(1, limite - base);
+                this._allargato = Math.ceil(larghezza + (limite - base) * (quota - 1) * 1.1 + 24);
+              }
+              while (this.firstChild) this.removeChild(this.firstChild);
+              return this.render();
+            }
+            const tc = F.getTickContexts && F.getTickContexts();
+            const lista = tc ? (tc.array || Object.values(tc.map || {})) : [];
+            const ultimo = Math.max(1, fine - larga - base);
+            const k = Math.max(0.5, (limite - base - larga) / ultimo);
+            lista.forEach(c => { try { c.setX(c.getX() * k); } catch (e) {} });
+          }
+        }
 
         /* ══ E POI LE COLONNE SI METTONO PER DURATA ══
            (solo quando `eguali`: e' la slide dei tre livelli)
@@ -8048,7 +8111,7 @@
     elementi() {
       const COMP = 'tac-stave, tac-brano, tac-quiz, tac-drag, tac-ear, ' +
                    'tac-rhythm, tac-metro, tac-griglia, tac-piano';
-      const dentroUnComponente = e => !!e.closest(COMP + ', .tac-barra, #tac-nav, #tac-indice');
+      const dentroUnComponente = e => !!e.closest(COMP + ', .tac-barra, #tac-nav, #tac-indice, .ripetuto');
       const contieneUnComponente = e => !!e.querySelector(COMP);
       const sel = '.slide ' + this.SCELTA.split(', ').join(', .slide ');
       return Array.prototype.filter.call(document.querySelectorAll(sel),
@@ -8130,9 +8193,30 @@
 
       if (TAC.audio && TAC.audio.sblocca) TAC.audio.sblocca();
 
-      this.etichettaAree();
+      /* Le slide troppo lunghe si sdoppiano prima di costruire la barra e
+         l'indice: v. `sdoppia`. Bisogna aspettare i pentagrammi, che si
+         disegnano quando il carattere musicale è arrivato — prima sono
+         alti zero e la misura mentirebbe. */
+      const caricata = new Promise(ok => {
+        if (document.readyState === 'complete') ok();
+        else { window.addEventListener('load', ok, { once: true }); setTimeout(ok, 2500); }
+      });
+      Promise.all([caratterePronto(), caricata]).then(() => {
+        /* Il numero di ogni slide prima dello sdoppiamento: i collegamenti
+           `#sN` che arrivano da fuori (la seconda ora di una lezione da due
+           ore, l'indice della classe) sono contati sul file montato, e
+           devono continuare a portare allo stesso punto. */
+        this.slides.forEach((sl, k) => { sl._orig = k; });
+        this.etichettaAree();   /* prima di misurare: aggiunge l'occhiello dell'area in testa */
+        Correzioni.applica();
+        try { this.sdoppia(deck); } catch (e) { console.warn('TAC: sdoppia', e); }
+        this.slides = [...deck.querySelectorAll('.slide')];
+        this.avvia();
+      });
+    },
+
+    avvia() {
       this.costruisciNav();
-      Correzioni.applica();
 
       const av = document.createElement('div');
       av.id = 'tac-densita'; av.className = 'no-stampa';
@@ -8150,7 +8234,10 @@
       this.costruisciIndice();
 
       const salvata = parseInt(location.hash.replace('#s', ''), 10);
-      this.vai(isNaN(salvata) ? 0 : salvata);
+      /* `#sN` è contato sulle slide del file (v. `_orig`), non su quelle sdoppiate */
+      let dove = isNaN(salvata) ? 0 : this.slides.findIndex(sl => sl._orig === salvata);
+      if (dove < 0) dove = isNaN(salvata) ? 0 : salvata;
+      this.vai(dove);
 
       document.addEventListener('keydown', e => {
         if (document.body.classList.contains('modalita-studio')) return;
@@ -8627,7 +8714,7 @@
         const t = s.dataset.titolo || (s.querySelector('h1,h2') || {}).textContent || ('Slide ' + (k + 1));
         const li = document.createElement('li');
         const a = document.createElement('a');
-        a.href = '#s' + k;
+        a.href = '#s' + (s._orig !== undefined ? s._orig : k);
         a.textContent = t.trim();
         a.onclick = e => { e.preventDefault(); this.vai(k); ind.classList.remove('aperto'); };
         li.appendChild(a);
@@ -8649,6 +8736,143 @@
        Le slide inattive non sono disegnate, quindi non si possono misurare
        così come sono: si accendono una alla volta, invisibili e fuori dal
        flusso, il tempo di leggere l'altezza del contenuto. */
+    /* ══ LA SLIDE CHE NON CI STA SI SDOPPIA ══
+
+       19 ottobre 2026, Andrea: «attenzione alle dimensioni dei riquadri,
+       spesso sforano». Misurato su tutto il sito a 1280 × 720: due slide
+       su tre delle lezioni riscritte superavano l'altezza del palco, e il
+       riquadro in fondo finiva sotto la barra dei comandi — c'era, ma
+       andava cercato scorrendo. La diagnosi era già scritta qui sotto, in
+       `adatta`: «una slide che si deve scorrere è comunque una slide da
+       sdoppiare». Ora lo si fa.
+
+       Come. Si accende ogni slide invisibile (classe `misura`), si
+       misurano i blocchi della `.slide-interna` uno per uno e, al primo
+       che scende oltre lo spazio utile, la slide si divide: da lì in poi
+       i blocchi passano a una slide nuova, con lo stesso titolo seguito da
+       «(segue)» e le stesse classi (l'area, il colore). Si ripete sulla
+       nuova finché tutto sta. I blocchi si **spostano**, non si copiano:
+       pentagrammi, ascolti e riquadri chiusi restano quelli già pronti.
+
+       Che cosa non si divide.
+       • Un blocco solo: un riquadro più alto del palco resta intero, e
+         quella slide scorre come prima (meglio che spezzarlo a metà).
+         L'eccezione è l'esempio su più righi (`.righe`), che si divide fra
+         un rigo e l'altro, come si volta pagina in una partitura.
+       • Il titolo con quello che lo precede (l'occhiello dei compiti):
+         si ripete in testa alla slide nuova, marcato `ripetuto`, e le
+         correzioni dal vivo (v. `Correzioni.elementi`) lo saltano, così
+         i loro indici restano gli stessi di prima.
+       • Un sottotitolo (h3, h4) non resta in fondo da solo: passa con il
+         blocco che introduce; e una didascalia (`p.didascalia`) non va
+         da sola sulla slide dopo: passa insieme al blocco che commenta.
+       • La copertina, le pagine in modalità studio o dispensa (lì si
+         scorre per natura), e le slide con `data-intera`.
+
+       Lo spazio si misura con le proporzioni della finestra, come fa
+       `adatta`; la divisione avviene una volta, all'apertura. */
+    sdoppia(deck) {
+      const b = document.body.classList;
+      if (b.contains('modalita-studio') || b.contains('modalita-dispensa') ||
+          b.contains('documento')) return;
+      const r = document.documentElement;
+      const prop = window.innerWidth / Math.max(1, window.innerHeight);
+      r.style.setProperty('--palco-l', Math.max(1100, Math.min(2000, Math.round(720 * prop))) + 'px');
+      r.style.setProperty('--adatta', 1);
+      const RISERVA = 14;   /* la barra dei comandi copre il bordo in basso */
+      let nuove = 0;
+
+      [...deck.querySelectorAll('.slide')].forEach(s0 => {
+        if (s0.classList.contains('copertina') || s0.hasAttribute('data-intera')) return;
+        let s = s0;
+        for (let giro = 0; giro < 8; giro++) {
+          const dentro = s.querySelector(':scope > .slide-interna');
+          if (!dentro) return;
+          const figli = [...dentro.children];
+          const h = figli.findIndex(e => e.tagName === 'H2');
+          const testa = h >= 0 ? figli.slice(0, h + 1) : [];
+          const corpo = figli.slice(testa.length);
+          if (corpo.length < 2) return;
+
+          const attiva = s.classList.contains('attiva');
+          if (!attiva) s.classList.add('misura');
+          void dentro.offsetHeight;
+          /* I pentagrammi si ritagliano sull'inchiostro solo quando sono
+             visibili (v. `ritaglia`, che `vai` richiama): lo si fa qui, così
+             l'altezza misurata è quella che si vedrà. */
+          s.querySelectorAll('tac-stave').forEach(t => {
+            if (typeof t.ritaglia === 'function') { try { t.ritaglia(true); } catch (e) {} }
+          });
+          void dentro.offsetHeight;
+          const cs = getComputedStyle(s);
+          const spazio = s.clientHeight - parseFloat(cs.paddingTop)
+                         - parseFloat(cs.paddingBottom) - 8 - RISERVA;
+          const kappa = s.getBoundingClientRect().width / (s.offsetWidth || 1) || 1;
+          const base = dentro.getBoundingClientRect().top
+                       + parseFloat(getComputedStyle(dentro).paddingTop) * kappa;
+          const fondo = e => (e.getBoundingClientRect().bottom - base) / kappa;
+          /* Un esempio su più righi (`.righe`) che non ci sta si divide fra
+             un rigo e l'altro: i righi sono già disegnati, con il metro sul
+             primo e la doppia stanghetta sull'ultimo, e restano così. */
+          const divisibile = e => e.classList.contains('righe') && e.children.length > 1;
+          let taglio = -1, gruppo = null, rigo = -1;
+          for (let i = 0; i < corpo.length; i++) {
+            if (fondo(corpo[i]) <= spazio) continue;
+            if (divisibile(corpo[i])) {
+              let j = [...corpo[i].children].findIndex(c => fondo(c) > spazio);
+              /* il primo rigo da solo non ci sta: se l'esempio apre la slide
+                 resta lì e gli altri passano; altrimenti passa tutto intero */
+              if (j === 0 && i === 0) j = 1;
+              if (j >= 1) { gruppo = corpo[i]; rigo = j; taglio = i + 1; break; }
+            }
+            if (i >= 1) { taglio = i; break; }
+          }
+          if (!attiva) s.classList.remove('misura');
+          if (taglio < 1) return;
+          if (!gruppo) {
+            while (taglio > 1 && /^H[3-6]$/.test(corpo[taglio - 1].tagName)) taglio--;
+            /* la didascalia resta con il blocco che commenta */
+            if (corpo[taglio].classList.contains('didascalia')) {
+              if (taglio > 1) taglio--; else return;
+            }
+          }
+
+          const nuova = s.cloneNode(false);
+          nuova.classList.remove('attiva', 'misura');
+          nuova.classList.add('segue');
+          nuova._orig = s0._orig;
+          nuova.removeAttribute('id');
+          const titolo = s0.dataset.titolo || '';
+          if (titolo) nuova.dataset.titolo = titolo + ' (segue)';
+          const nd = dentro.cloneNode(false);
+          nuova.appendChild(nd);
+          testa.forEach(t => {
+            const c = t.cloneNode(true);
+            c.classList.add('ripetuto');
+            c.removeAttribute('id');
+            if (c.tagName === 'H2') {
+              const sg = document.createElement('span');
+              sg.className = 'segue-segno';
+              sg.textContent = ' (segue)';
+              c.appendChild(sg);
+            }
+            nd.appendChild(c);
+          });
+          if (gruppo) {
+            const resto = gruppo.cloneNode(false);
+            resto.removeAttribute('id');
+            [...gruppo.children].slice(rigo).forEach(c => resto.appendChild(c));
+            nd.appendChild(resto);
+          }
+          corpo.slice(taglio).forEach(e => nd.appendChild(e));
+          s.after(nuova);
+          nuove++;
+          s = nuova;
+        }
+      });
+      if (nuove) console.info('TAC: %d slide aggiunte per sdoppiare quelle troppo lunghe.', nuove);
+    },
+
     misuraTutte() {
       const r = document.documentElement;
       const prima = r.style.getPropertyValue('--adatta');
@@ -8878,7 +9102,8 @@
       /* i pentagrammi e le partiture arrivano dopo: si rimisura */
       clearTimeout(this._t1); this._t1 = setTimeout(() => this.adatta(), 260);
       clearTimeout(this._t2); this._t2 = setTimeout(() => this.adatta(true), 900);
-      try { history.replaceState(null, '', '#s' + this.i); } catch (e) { /* alcuni contesti file:// */ }
+      const numero = (cur && cur._orig !== undefined) ? cur._orig : this.i;
+      try { history.replaceState(null, '', '#s' + numero); } catch (e) { /* alcuni contesti file:// */ }
       window.scrollTo(0, 0);
     },
 

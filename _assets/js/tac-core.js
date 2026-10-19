@@ -8851,6 +8851,8 @@
             c.classList.add('ripetuto');
             c.removeAttribute('id');
             if (c.tagName === 'H2') {
+              /* dalla terza parte in poi il titolo arriva già con «(segue)» */
+              c.querySelectorAll('.segue-segno').forEach(x => x.remove());
               const sg = document.createElement('span');
               sg.className = 'segue-segno';
               sg.textContent = ' (segue)';

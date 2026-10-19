@@ -42,1687 +42,264 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=b43da6be" defer></script>
+<script src="../../_assets/js/tac-core.js?v=621f9506" defer></script>
 </head>
 <body>
 <div id="tac-deck">
-<!-- 16/10/2026: piano nuovo della 3ª. Era la U5 L2 del piano vecchio; ora è la U5 L4, ora 34 di 90 («Le catene di ritardi: la progressione di Corelli»). Da riscrivere per il titolo nuovo. -->
-
 <!-- ══════════════════════════════════════════════════════════════════
-     LEZIONE 2 · Preparazione, percussione, risoluzione
-     Unità 5, ora 32 di 90 · classe 3ª · contrappunto e armonia
-     ⚠ ORA CON CODA DI ORALE (teoria). Venti minuti, undici slide.
-     PAROLE CHIAVE PER LA BIBLIOTECA:
-        preparazione · percussione · risoluzione · ritardo · dissonanza
-        preparata · appoggiatura · Marenco · Dubois
-     ══ I TRE NOMI SONO DI MARENCO, E SONO GLI STESSI DELL'ARMONIA ══
-     «Sono suoni dissonanti in posizione metrica accentata che
-     protraggono un suono dell'armonia precedente ritardando il suono
-     reale dell'accordo in cui sono inquadrati.» — Manuale d'armonia,
-     p. 173, § 11.1. Le tre fasi sono elencate lì, in quest'ordine:
-       1 preparazione: «la dissonanza deve essere legata a un suono
-         consonante (ma anche dissonante) dell'armonia precedente di
-         valore pari o superiore, MAI INFERIORE»
-       2 «la percussione vera e propria del ritardo»
-       3 risoluzione «per grado congiunto discendente»
-     Che siano le parole dell'ARMONIA e non del contrappunto è il punto
-     dell'unità: le due discipline stanno guardando la stessa cosa.
-     ══ LE QUATTRO DISSONANZE, E VENGONO DA DUBOIS ══
-     «Le dissonanze impiegate sono quelle di 2ª e di 4ª ritardanti la
-     3ª, di 7ª ritardante la 6ª, e di 9ª ritardante l'8ª. Esse si
-     risolvono sempre discendendo di un grado.» — p. 16
-     La 2ª è il caso in cui le sincopi stanno nella voce di SOTTO.
-     ⚠ E la nota in coda, sempre p. 16: quando le sincopi sono nella
-     parte inferiore si può usare la 4ª come ritardo della 5ª, «ma con
-     riserbo a due parti, a causa della povertà e dell'aridità
-     dell'armonia». Non si scrive in classe: si dice che esiste.
-     ══ L'APPOGGIATURA VA NOMINATA, E SOLO PER DISTINGUERLA ══
-     La 2ª u5 l2 l'ha già definita: «una dissonanza sul forte, presa per
-     salto». Cade nello stesso posto del ritardo ed è il suo contrario
-     nella preparazione. Se non si nomina, la classe le confonde.
-     ══ CHE COSA NON ENTRA ══
-     I ritardi ascendenti e multipli (Marenco § 11.6, p. 189). Le
-     settime come accordo. Le regole di scrittura di Dubois: ora 35.
+     LEZIONE 4 · Le catene di ritardi: la progressione di Corelli
+     Unità 5, ora 34 di 90 · classe 3ª · armonia e contrappunto ·
+     mer 16/12/2026, 1ª ora
+     Con la restituzione della V2 (2/12). Nessuna coda di orali.
+
+     16/10/2026 · RISCRITTA PER IL PIANO NUOVO DELLA 3ª (scritta il 19/10).
+     Il file di partenza era la U5 L2 del piano vecchio («Preparazione,
+     percussione, risoluzione», copia in lezione-4.tpl.html.prima-della-
+     riscrittura): i tre momenti sono ora nella lezione 1 e le regole a
+     quattro parti nella lezione 2, e di quel file non resta niente. La
+     lezione nuova è la catena: la risoluzione di un ritardo che prepara
+     il successivo, nel moto parallelo sincopato (seste e terze) e nella
+     progressione delle bb. 9–11 del Grave di Corelli (A09), la stessa
+     sonata delle lezioni 1 e 3. Il corale BWV 101/7 (A41) è passato alla
+     lezione 2. Tolti «voi/noi» e i richiami all'ora precedente.
+
+     ⚠ LA RESTITUZIONE DELLA V2 apre l'ora. La V2 (2/12) chiede, secondo il
+     rapporto della 3ª, un basso di 12–16 bb. con dominanti secondarie e
+     modulazione ai toni vicini; il file della prova non è ancora fra le
+     verifiche archiviate, e la slide ne riprende i quattro punti generali
+     su un modello di otto battute. Va confrontata con il testo vero della
+     prova (punti incerti).
+
+     FONTI
+     · F. Salzer, C. Schachter, Contrappunto e composizione, p. 89
+       (ritardi in serie; le progressioni che derivano dalle sincopi; non
+       più di tre ritardi uguali di seguito negli esercizi).
+     · D. D'Urso, C. Bertolini, Il linguaggio della musica, 4° anno,
+       lezione 37, p. 95 (moto parallelo sincopato: 7–6 nelle seste, 4–3 e
+       2–3 nelle terze).
+     · C. Marenco, Manuale d'armonia, p. 34 (la progressione: modello e
+       riprese); p. 174 (il ritardo non separa le parallele).
+
+     ESEMPI (durate controllate; le catene con scritture/verifica.py,
+     verifica_contrappunto, specie 4; il modello della V2 con verifica.py
+     e il controllo della falsa relazione)
+     · Restituzione: otto battute in fa maggiore con V<span class="cifrata"><sup>6</sup><sub>5</sub></span>/V, V⁷/IV e V/V.
+     · Catena di 7–6 sopra un basso discendente (fa maggiore, 8 bb.);
+       catena di 2–3 (9–10) nel basso (do maggiore, 10 bb.).
+     · Palestrina, Benedictus, bb. 17–20 (A11): due 4–3 di seguito.
+     · Corelli, op. 3 n. 1, Grave, bb. 8–12 (corpus music21), un rigo solo
+       perché la legatura del violino I attraversa ogni stanghetta.
+     · Lavoro guidato: catena di 7–6 sopra un basso in sol (10 bb.). Per
+       casa: catena di 2–3 sotto una voce data in re (10 bb.,
+       C3-U5-L4-04).
+
+     I TEMPI · 50 minuti
+     Restituzione della V2 20': consegna 3', i quattro punti sul modello
+     12', domande 5'. Poi 30': il moto parallelo sincopato 8', la
+     progressione di Corelli 8', lavoro guidato 12', sintesi 2'. Poi i
+     compiti e il solfeggio.
      ══════════════════════════════════════════════════════════════════ -->
 
-<!-- Riordinata il 30/09/2026: il controllo in tre domande di «Che cosa NON è una preparazione» unito alla procedura in tre passi di «La risoluzione»; gli errori di preparazione accanto all'appoggiatura; il corale A41 prima della sintesi; corretto il basso dell'esempio dei tre ritardi (do e sol, perché vengano davvero 7-6 e 9-8); stanghette nell'esempio sbagliato. -->
-
-<!-- ore-doppie: pagina da due ore -->
 <section class="slide attiva copertina foto" data-titolo="Copertina"
-         style="--foto: url('../../_assets/copertine/c3u5-lezione-2.jpg?v=8d73cef7');
-                --cop-a:#1a0b0b; --cop-b:#9f1239; --cop-c:#fda4af">
+         style="--foto: url('../../_assets/copertine/c3u5-lezione-4.jpg?v=8124a71e');
+                --cop-a:#1a0b14; --cop-b:#9d174d; --cop-c:#f9a8d4">
   <div class="slide-interna">
     <div class="occhiello">La sincope e il ritardo: quarta specie e ritardi a quattro parti &middot; UdA 5 &middot; Lezione 4 di 6</div>
-    <h1>Preparazione, percussione, risoluzione</h1>
-    <p class="sottotitolo">Tre nomi, e sono quelli dell&rsquo;armonia. Non &egrave; una coincidenza.</p>
+    <h1>La catena di ritardi</h1>
+    <p class="sottotitolo">Dopo la restituzione della V2: la risoluzione di un ritardo che prepara il successivo. Due voci in seste o in terze, una sincopata; e in Corelli due violini che si scambiano il ritardo.</p>
     <blockquote class="aforisma">
-      <p>Sono suoni dissonanti in posizione metrica accentata che protraggono un suono dell&rsquo;armonia precedente, ritardando il suono reale dell&rsquo;accordo in cui sono inquadrati.</p>
-      <cite>Carlo Marenco, <em>Manuale d&rsquo;armonia</em>, p.&nbsp;173</cite>
+      <p>Molte progressioni utilizzate nelle composizioni di epoca tonale derivano appunto da successioni di sincopi consonanti o dissonanti.</p>
+      <cite>F. Salzer, C. Schachter, <em>Contrappunto e composizione</em>, p.&nbsp;89</cite>
     </blockquote>
-
-    <p class="sottotitolo" style="margin-top:.6rem"><strong>Lezione di due ore.</strong> Seconda ora: <em>Officina: quarta specie sul canto dato, e un basso di sedici battute con ritardi</em>. I compiti per casa sono alla fine.</p>
     <div class="meta-copertina">
-      <span>2 ore</span>
-      <span>1ª ora: 20 minuti</span>
-      <span>Contrappunto e armonia</span>
-      <span>I tre momenti</span>
+      <span>50 minuti</span>
+      <span>Armonia e contrappunto</span>
+      <span>Restituzione V2 &middot; Catene di ritardi &middot; Progressione</span>
     </div>
   </div>
 </section>
-
-<section class="slide" data-titolo="I tre momenti">
+<section class="slide" data-titolo="Restituzione della V2">
   <div class="slide-interna">
-    <h2>Quello che avete contato ieri, coi nomi</h2>
+    <h2>Restituzione della V2: quattro punti</h2>
 
-    <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
-         «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 3&deg; anno; pagine dall'indice rilevato. -->
+    <p>La V2 chiedeva un basso di dodici&ndash;sedici battute con dominanti secondarie e una modulazione a un tono vicino. La correzione si &egrave; concentrata su quattro punti, che sono gli argomenti dell&rsquo;unit&agrave; 4.</p>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Che cosa si &egrave; guardato</span>
+      <p><strong>1. La sensibile secondaria.</strong> Il IV&#9839; del V/V (e ogni nota alzata di una dominante secondaria) sale di semitono e non si raddoppia.<br>
+      <strong>2. La falsa relazione.</strong> Il cromatismo si fa nella stessa voce: <em>si&#9837;</em>&ndash;<em>si&#9838;</em> nel tenore, non <em>si&#9837;</em> nel contralto e <em>si&#9838;</em> nel basso nell&rsquo;accordo dopo.<br>
+      <strong>3. La settima della dominante secondaria.</strong> Scende di grado, come quella del V<sup>7</sup>: nel V<sup>7</sup>/IV la settima &egrave; il <em>mi&#9837;</em>.<br>
+      <strong>4. La modulazione.</strong> Accordo perno, dominante della tonalit&agrave; nuova, cadenza che la conferma (U4 L4); una sensibile isolata &egrave; una tonicizzazione, non una modulazione.</p>
+    </div>
+    <div class="righe">
+        <tac-stave time="4/4"
+               keysig="F"
+               caption="Un modello di otto battute in fa maggiore con tre dominanti secondarie"
+               soprano="c/5:h d/5:h | f/5:h f/5:h | e/5:h f/5:h | d/5:h e/5:h"
+               contralto="f/4:h f/4:h | f/4:h g/4:h | g/4:h f/4:h | g/4:h g/4:h"
+               tenore="a/3:h b/3:h | c/4:h d/4:h | c/4:h c/4:h | d/4:h c/4:h"
+               basso="f/2:h b/2:h | a/2:h bn/2:h | c/3:h a/2:h | b/2:h c/3:h"
+               segna="b2=V<span class="cifrata"><sup>6</sup><sub>5</sub></span>/V: il si♮ al basso sale al do; la settima fa del soprano scende"
+               cifre="I · IV · I6 · V65/V · V · I6 · ii6 · V"
+               width="900"
+               tempo="60" play></tac-stave>
+        <tac-stave time="4/4"
+               keysig="F"
+               soprano="f/5:h eb/5:h | d/5:h d/5:h | f/5:h e/5:h | f/5:w"
+               contralto="a/4:h f/4:h | f/4:h g/4:h | a/4:h g/4:h | f/4:w"
+               tenore="c/4:h a/3:h | b/3:h bn/3:h | c/4:h b/3:h | a/3:w"
+               basso="f/2:h f/2:h | b/2:h g/2:h | c/3:h c/3:h | f/2:w"
+               segna="b1=V⁷/IV: il mi♭ del soprano scende al re · b2=V/V: si♭–si♮ nel tenore, poi il do"
+               cifre="I · V7/IV · IV · V/V · I64 · V7 · I"
+               width="900"></tac-stave>
+    </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">L&rsquo;errore pi&ugrave; frequente</span>
+      <p>La falsa relazione nell&rsquo;arrivo al V/V: il <em>si&#9837;</em> del IV in una voce e il <em>si&#9838;</em> in un&rsquo;altra, subito dopo. Nel modello, alla b.&nbsp;6, il tenore porta tutti e due (<em>si&#9837;</em>, poi <em>si&#9838;</em>) e sale al <em>do</em> del I<span class="cifrata"><sup>6</sup><sub>4</sub></span>; alla b.&nbsp;2 il cromatismo &egrave; nel basso.</p>
+    </div>
+  </div>
+</section>
+<section class="slide perc" data-titolo="Il moto parallelo sincopato">
+  <div class="slide-interna">
+    <h2>Il moto parallelo sincopato: la catena</h2>
+
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
-      <p><span class="lez">A9</span><strong>Varianti alla successione cadenzale</strong>, pp. 92&ndash;95</p>
-      <p>Lezione 38 &laquo;La quarta e sesta cadenzale&raquo;. Preparazione, percussione e risoluzione non hanno una lezione nel 3&deg; anno del libro; i tre momenti si vedono nel 6/4 cadenzale della sezione A, unit&agrave; 9 (lezione 38), che &egrave; la pagina pi&ugrave; vicina.</p>
+      <p><strong>Moto parallelo sincopato</strong>, 4&deg; anno, lezione 37, p.&nbsp;95</p>
+      <p>Il libro mostra i ritardi 4&ndash;3, 2&ndash;3 e 7&ndash;6 dentro un movimento di terze o di seste parallele: &egrave; la catena di questa lezione.</p>
     </div>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Il ritardo 4-3: la nota entra, resta, scende"
-               soprano="r:h c/5:h~ | c/5:h b/4:h"
-               basso="f/3:w | g/3:w"
-               width="760" tempo="46" play slow></tac-stave>
 
     <div class="riquadro definizione">
-      <span class="etichetta">I tre momenti, in ordine</span>
-      <p><strong>Preparazione</strong> &mdash; il do entra sopra il fa, dove &egrave; consonante. Non &egrave; ancora niente: &egrave; una nota qualunque.<br>
-      <strong>Percussione</strong> &mdash; il basso va al sol. Il do non si &egrave; mosso, ma adesso &egrave; una <strong>quarta</strong>, ed &egrave; sul tempo forte.<br>
-      <strong>Risoluzione</strong> &mdash; il do scende al si, che sopra il sol &egrave; una terza. La tensione si scioglie.</p>
+      <span class="etichetta">Definizione</span>
+      <p>Una <em class="termine">catena di ritardi</em> &egrave; una serie di ritardi in cui la risoluzione di ciascuno &egrave; la preparazione del seguente: la nota che scende sulla consonanza viene legata, e sul tempo forte dopo &egrave; di nuovo dissonante. Nasce da due voci in moto parallelo, una delle quali &egrave; spostata di mezza battuta: seste parallele con la voce superiore in ritardo danno una catena di 7&ndash;6; terze (o decime) con la voce inferiore in ritardo danno una catena di 2&ndash;3. Le serie pi&ugrave; usate sono 7&ndash;6 e 2&ndash;3; la serie di 4&ndash;3 &egrave; possibile ma meno fluida.</p>
+      <p class="didascalia">F. Salzer, C. Schachter, <em>Contrappunto e composizione</em>, p.&nbsp;89; D. D&rsquo;Urso, C. Bertolini, <em>Il linguaggio della musica</em>, 4&deg; anno, p.&nbsp;95.</p>
+    </div>
+    <tac-stave time="4/4"
+           keysig="F"
+           caption="Seste parallele, la voce superiore sincopata: una catena di 7–6 (fa maggiore, 8 bb.)"
+           notes="r:h d/5:h~ | d/5:h c/5:h~ | c/5:h b/4:h~ | b/4:h a/4:h~ | a/4:h g/4:h~ | g/4:h f/4:h~ | f/4:h e/4:h | f/4:w"
+           bass="f/3:w | e/3:w | d/3:w | c/3:w | b/2:w | a/2:w | g/2:w | f/2:w"
+           segna="b2=7–6 · b3=7–6 · b4=7–6 · b5=7–6 · b6=7–6 · b7=7–6 e cadenza"
+           width="900"
+           tempo="52" play></tac-stave>
+    <tac-stave time="4/4"
+           keysig="C"
+           caption="Decime parallele, la voce inferiore sincopata: catena di 2–3 (9–10) nel basso, do maggiore"
+           notes="e/5:w | d/5:w | c/5:w | b/4:w | a/4:w | g/4:w | f/4:w | e/4:w | d/4:w | c/4:w"
+           bass="r:h c/4:h~ | c/4:h b/3:h~ | b/3:h a/3:h~ | a/3:h g/3:h~ | g/3:h f/3:h~ | f/3:h e/3:h~ | e/3:h d/3:h~ | d/3:h c/3:h~ | c/3:h b/2:h | c/3:w"
+           segna="b2=9–10 · b3=9–10 · b5=9–10 · b7=9–10 · b9=9–10: il si, sensibile, sale al do"
+           width="900"
+           tempo="52"></tac-stave>
+    <div class="analisi-prosa">
+      <p>Soppressa la sincope, il primo esempio &egrave; una scala in seste parallele sopra il basso che scende per grado (<em>re</em>&ndash;<em>fa</em>, <em>do</em>&ndash;<em>mi</em>, <em>si&#9837;</em>&ndash;<em>re</em>&hellip;), il secondo una scala in decime: due successioni corrette, che la sincope rende dissonanti su ogni tempo forte senza toccarne la condotta. &Egrave; il caso in cui la regola di Dubois si legge al contrario: la sincope non nasconde le parallele, ma le parallele imperfette si possono caricare di ritardi. Per la stessa ragione una catena di 9&ndash;8 non si fa: soppressa la sincope, &egrave; una serie di ottave; e una catena di 4&ndash;5 &egrave; una serie di quinte.</p>
     </div>
 
-    <p class="didascalia">Marenco li chiama cos&igrave; nel <em>Manuale d&rsquo;armonia</em>, non in un trattato di contrappunto. Sono le parole dell&rsquo;<strong>armonia</strong>, e questo &egrave; il punto: le due discipline stanno guardando la stessa cosa da due parti.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La preparazione">
-  <div class="slide-interna">
-    <h2>Il primo momento &egrave; quello che si sbaglia</h2>
-
-    <p>La percussione e la risoluzione si vedono. La preparazione no: &egrave; una nota che sembra normale, e proprio per questo nessuno la controlla.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le due condizioni, e Marenco le mette insieme</span>
-      <p>La dissonanza dev&rsquo;essere legata a un suono <strong>consonante</strong> dell&rsquo;armonia precedente, e <em>&laquo;di valore pari o superiore, mai inferiore&raquo;</em>.<br>
-      <cite>Carlo Marenco, <em>Manuale d&rsquo;armonia</em>, p.&nbsp;173</cite></p>
-    </div>
-
-    <p>La prima condizione &egrave; ovvia: se la nota era gi&agrave; dissonante prima, non c&rsquo;&egrave; nessun ritardo &mdash; c&rsquo;&egrave; solo un pasticcio che dura di pi&ugrave;.</p>
-
-    <p class="didascalia">La seconda &egrave; quella che si dimentica: <strong>la preparazione non pu&ograve; essere pi&ugrave; corta della dissonanza</strong>. Una nota di passaggio veloce non prepara niente, perch&eacute; l&rsquo;orecchio non fa in tempo a prenderla come punto di partenza.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Preparazione troppo corta">
-  <div class="slide-interna">
-    <h2>L&rsquo;errore, una volta sola</h2>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="SBAGLIATO: la preparazione dura meno della dissonanza"
-               soprano="r:h r:q c/5:q~ | c/5:h b/4:h"
-               basso="f/3:w | g/3:w"
-               width="760" tempo="46" play slow></tac-stave>
-
-    <div class="riquadro errore">
-      <span class="etichetta">Che cosa non va</span>
-      <p>Il do di preparazione dura un <strong>quarto</strong>; la dissonanza che ne segue dura una <strong>minima</strong>. Marenco lo vieta con tre parole: <em>&laquo;mai inferiore&raquo;</em>.</p>
-    </div>
-
-    <div class="riquadro regola">
-      <span class="etichetta">Come ci si accorge</span>
-      <p>Si guardano <strong>le due note legate</strong> e si confrontano i valori. Se la prima &egrave; pi&ugrave; corta della seconda, il ritardo non regge, e non importa quanto sia giusto tutto il resto.</p>
-    </div>
-
-    <p class="didascalia">In quarta specie il problema non si pone quasi mai, perch&eacute; le note sono tutte minime. Si pone appena si esce dalle specie &mdash; cio&egrave; nei vostri esercizi di armonia, dall&rsquo;ora 34 in poi.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La risoluzione">
-  <div class="slide-interna">
-    <h2>Il terzo momento non ha alternative</h2>
-
-    <div class="riquadro regola">
-      <span class="etichetta">La regola, e vale sempre</span>
-      <p>Il ritardo si risolve <strong>scendendo di un grado</strong>. Dubois lo dice senza eccezioni: le dissonanze usate <em>&laquo;si risolvono sempre discendendo di un grado&raquo;</em> (p.&nbsp;16).</p>
-    </div>
-
-    <p>Non scende di terza, non salta, non sale. E soprattutto non resta: una dissonanza che non risolve non &egrave; un ritardo, &egrave; un errore che dura.</p>
-
-    <p>Marenco ammette anche il <strong>ritardo ascendente</strong>, ma lo confina alle combinazioni multiple e scrive che nell&rsquo;armonia scolastica si usa <em>di solito</em> quello semplice discendente. Per noi, quest&rsquo;anno, la risoluzione va gi&ugrave;.</p>
-
-    <div class="riquadro procedura">
-      <span class="etichetta">Come si controlla un ritardo, in tre passi</span>
-      <ol>
-        <li>Guarda la nota <strong>prima</strong> della legatura: &egrave; consonante? dura almeno quanto quella dopo?</li>
-        <li>Guarda il <strong>tempo forte</strong>: l&rsquo;intervallo &egrave; davvero dissonante? Se &egrave; consonante non c&rsquo;&egrave; nessun ritardo, c&rsquo;&egrave; solo una nota tenuta.</li>
-        <li>Guarda la nota <strong>dopo</strong>: scende di un grado?</li>
-      </ol>
-      <p>Cio&egrave; tre domande, in fila: <strong>da dove viene</strong> la nota? <strong>quanto dura</strong> prima? <strong>dove va</strong> dopo? Se una delle tre risposte non torna, il ritardo non &egrave; un ritardo. E conviene farle <strong>mentre</strong> si scrive, non alla fine: un ritardo sbagliato all&rsquo;inizio costringe a rifare anche tutto quello che gli sta dietro.</p>
-    </div>
-
-    <p class="didascalia">La nota su cui si risolve &egrave; sempre quella che l&rsquo;accordo aspettava fin dall&rsquo;inizio. Il ritardo non aggiunge una nota: ne <strong>rimanda</strong> una.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Quali dissonanze">
-  <div class="slide-interna">
-    <h2>Quali dissonanze si usano, e sono quattro</h2>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Tre ritardi di seguito: 4-3, poi 7-6, poi 9-8"
-               soprano="r:h c/5:h~ | c/5:h b/4:h~ | b/4:h a/4:h~ | a/4:h g/4:h"
-               basso="f/3:w | g/3:w | c/3:w | g/3:w"
-               width="860" tempo="46" play slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">L&rsquo;elenco di Dubois, p.&nbsp;16</span>
-      <p><strong>4ª che ritarda la 3ª</strong> &mdash; la pi&ugrave; frequente di tutte.<br>
-      <strong>7ª che ritarda la 6ª</strong>.<br>
-      <strong>9ª che ritarda l&rsquo;8ª</strong>.<br>
-      <strong>2ª che ritarda la 3ª</strong> &mdash; ed &egrave; lo stesso caso visto dall&rsquo;altra parte: succede quando le sincopi stanno nella voce di <strong>sotto</strong>.</p>
-    </div>
-
-    <p class="didascalia">Sono quattro numeri e si imparano contando, non a memoria. Il numero della dissonanza &egrave; sempre <strong>uno pi&ugrave; grande</strong> di quello della risoluzione, perch&eacute; la risoluzione scende di un grado.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Non &egrave; l&rsquo;appoggiatura">
-  <div class="slide-interna">
-    <h2>Una cosa che le somiglia, e non &egrave; lei</h2>
-
-    <p>L&rsquo;anno scorso, elencando le figure che restavano fuori, avevamo nominato l&rsquo;<strong>appoggiatura</strong>: una dissonanza sul tempo forte, <em>presa per salto</em>. Cade nello stesso posto del ritardo, e per questo si confondono.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">La differenza sta tutta nel primo momento</span>
-      <p><strong>Ritardo</strong> &mdash; la nota c&rsquo;<strong>era gi&agrave;</strong>, ed era consonante. &Egrave; preparata.<br>
-      <strong>Appoggiatura</strong> &mdash; la nota <strong>arriva</strong> sul tempo forte, per salto, e non c&rsquo;era prima. Non &egrave; preparata.</p>
-    </div>
-
-    <p>Percussione e risoluzione sono uguali; la preparazione &egrave; l&rsquo;opposto. E siccome quest&rsquo;unit&agrave; si occupa di <strong>dissonanze preparate</strong>, l&rsquo;appoggiatura resta fuori.</p>
-
-    <p class="didascalia">Se in un brano trovate una dissonanza sul forte, la domanda &egrave; una sola: <strong>quella nota c&rsquo;era gi&agrave;?</strong> Se s&igrave;, ritardo. Se &egrave; arrivata saltando, appoggiatura.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa NON è una preparazione">
-  <div class="slide-interna">
-    <h2>Tre casi che sembrano giusti e non lo sono</h2>
-
-    <tac-stave clef="treble" time="4/4" caption="SBAGLIATO: la nota che ritarda arriva dal salto, non è preparata" notes="c/4:w | g/4+f/4:w | f/4+e/4:w" width="470" tempo="44" play sbagliato></tac-stave>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Primo &middot; la nota arriva saltando</span>
-      <p>La preparazione è la <strong>stessa nota</strong> che nella battuta prima era consonante e ferma. Se ci si arriva con un salto, non c&rsquo;è preparazione: c&rsquo;è un&rsquo;<strong>appoggiatura</strong>, che è un altro fenomeno e appartiene a un altro secolo.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Secondo &middot; la preparazione dura troppo poco</span>
-      <p>Deve valere <strong>almeno quanto</strong> la dissonanza che prepara. Una preparazione più corta non si sente come «nota che resta»: si sente come una nota nuova, e l&rsquo;effetto sparisce.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Terzo &middot; la risoluzione sale</span>
-      <p>Il ritardo <strong>scende</strong> di un grado. Sempre, in questa specie. Una risoluzione che sale è un altro fenomeno — e nel Cinquecento riguarda un caso solo, la sensibile in cadenza.</p>
-    </div>
-
-
-  </div>
-</section>
-
-<section class="slide perc" data-titolo="I tre momenti, dentro un corale">
-  <div class="slide-interna">
-    <h2>Dove la dissonanza è coperta</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Ascolto &middot; 5 minuti</span>
-      <p>Due ascolti. Segnate i punti in cui, alla fine di un verso, <strong>una voce arriva in ritardo</strong> rispetto alle altre.</p>
-    </div>
-
-    <tac-brano organico="voci" titolo="Bach, corale BWV 101/7 in re minore"
-               metronomo youtube="b9i5Ak-QX9o" esecutore="Monteverdi Choir · John Eliot Gardiner" partitura="../../_assets/spartiti/A41_bach-101-7.png" inciso="../../_assets/incisioni/A41_bach_101_7.mp3" mappa='{"durata":55614,"eventi":[[0,0],[1,1111],[2,5556],[3,10000],[4,14444],[5,17778],[6,18889],[7,23333],[8,27778],[9,32222],[10,35556],[11,36667],[12,41111],[13,45556],[14,50000]]}'>
-<script type="application/json">{"titolo":"J. S. Bach, Corale BWV 101/7 in re minore","metro":"4/4","bpm":54,"battute":13,"anacrusi":1.0,"voci":[[[0.0,1.0,69],[1.0,1.0,69],[2.0,1.0,65],[3.0,1.0,67],[4.0,1.0,69],[5.0,1.0,65],[6.0,1.0,64],[7.0,1.0,62],[8.0,1.0,69],[9.0,1.0,69],[10.0,1.0,67],[11.0,1.0,72],[12.0,1.0,69],[13.0,1.0,65],[13.0,1.0,69],[14.0,1.0,67],[15.0,1.0,69],[17.0,1.0,72],[18.0,0.5,74],[18.5,0.5,76],[19.0,1.0,77],[20.0,1.0,76],[21.0,1.0,74],[22.0,1.0,73],[23.0,1.0,74],[24.0,1.0,74],[25.0,1.0,76],[26.0,1.0,74],[27.0,1.0,72],[28.0,1.0,71],[29.0,1.0,69],[29.0,1.0,74],[30.0,1.0,71],[31.0,1.0,69],[33.0,1.0,72],[34.0,1.0,71],[35.0,1.0,72],[36.0,1.0,69],[37.0,1.0,69],[38.0,1.0,67],[39.0,1.0,65],[40.0,1.0,69],[41.0,1.0,70],[42.0,0.5,69],[42.5,0.5,67],[43.0,1.0,65],[44.0,1.0,67],[45.0,1.0,65],[46.0,1.0,64],[47.0,1.0,62]],[[0.0,1.0,65],[1.0,1.0,64],[2.0,1.0,62],[3.0,1.0,62],[4.0,1.0,62],[5.0,1.0,62],[6.0,1.0,61],[7.0,1.0,57],[8.0,1.0,65],[9.0,1.0,65],[10.0,0.5,67],[10.5,0.5,65],[11.0,1.0,64],[12.0,1.0,65],[13.0,1.0,62],[13.0,1.0,62],[14.0,1.0,62],[15.0,1.0,61],[17.0,1.0,64],[18.0,1.0,67],[19.0,1.0,69],[20.0,1.0,67],[21.0,0.5,65],[21.5,0.5,67],[22.0,1.0,69],[23.0,1.0,69],[24.0,1.0,67],[25.0,1.0,67],[26.0,0.5,66],[26.5,0.5,68],[27.0,1.0,69],[28.0,1.0,64],[29.0,0.5,64],[29.0,1.0,62],[29.5,0.5,69],[30.0,0.5,69],[30.5,0.5,68],[31.0,1.0,64],[33.0,1.0,64],[34.0,1.0,65],[35.0,1.0,67],[36.0,1.0,65],[37.0,1.0,65],[38.0,1.0,64],[39.0,1.0,60],[40.0,1.0,62],[41.0,1.0,62],[42.0,1.0,61],[43.0,1.0,62],[44.0,1.0,64],[45.0,0.5,61],[45.5,1.0,62],[46.5,0.5,61],[47.0,1.0,57]],[[0.0,1.0,62],[1.0,1.0,57],[2.0,1.0,57],[3.0,1.0,58],[4.0,1.0,57],[5.0,1.0,58],[6.0,1.0,52],[7.0,1.0,53],[8.0,1.0,62],[9.0,1.0,60],[10.0,1.0,60],[11.0,1.0,60],[12.0,1.0,60],[13.0,1.0,53],[13.0,1.0,58],[14.0,1.0,50],[15.0,1.0,52],[17.0,1.0,57],[18.0,1.0,58],[19.0,1.0,60],[20.0,0.5,58],[20.5,0.5,60],[21.0,1.0,62],[22.0,1.0,64],[23.0,1.0,65],[24.0,1.0,59],[25.0,0.5,60],[25.5,0.5,59],[26.0,1.0,57],[27.0,1.0,62],[28.0,1.0,62],[29.0,1.0,55],[29.0,1.0,60],[30.0,1.0,62],[31.0,1.0,60],[33.0,1.0,55],[34.0,1.0,62],[35.0,1.0,60],[36.0,1.0,60],[37.0,1.0,62],[38.0,1.0,55],[39.0,1.0,57],[40.0,1.0,57],[41.0,0.5,55],[41.5,0.5,53],[42.0,1.0,52],[43.0,2.0,58],[45.0,0.5,58],[45.5,0.5,57],[46.0,0.5,55],[46.5,0.5,57],[47.0,1.0,54]],[[0.0,1.0,50],[1.0,1.0,49],[2.0,1.0,50],[3.0,1.0,58],[4.0,1.0,53],[5.0,1.0,55],[6.0,1.0,57],[7.0,1.0,50],[8.0,0.5,50],[8.5,0.5,52],[9.0,1.0,53],[10.0,1.0,52],[11.0,1.0,57],[12.0,1.0,53],[13.0,1.0,50],[13.0,1.0,58],[14.0,1.0,46],[15.0,1.0,45],[17.0,1.0,57],[18.0,1.0,55],[19.0,1.0,53],[20.0,0.5,55],[20.5,0.5,57],[21.0,1.0,58],[22.0,1.0,57],[23.0,1.0,50],[24.0,1.0,55],[25.0,1.0,48],[26.0,0.5,50],[26.5,0.5,52],[27.0,1.0,54],[28.0,1.0,56],[29.0,1.0,47],[29.0,1.0,57],[30.0,1.0,52],[31.0,1.0,45],[33.0,1.0,48],[34.0,1.0,50],[35.0,1.0,52],[36.0,1.0,53],[37.0,1.0,46],[38.0,1.0,48],[39.0,1.0,41],[40.0,1.0,42],[41.0,1.0,43],[42.0,1.0,45],[43.0,1.0,46],[44.0,0.5,45],[44.5,0.5,43],[45.0,1.0,45],[46.0,1.0,45],[47.0,1.0,50]]]}</script>
+    <tac-brano organico="voci" titolo="G. P. da Palestrina, Benedictus dalla &laquo;Missa Ad fugam&raquo;" metronomo youtube="RNm6FzrDYKY" esecutore="Cantores Carmeli · Michael Stenov" partitura="../../_assets/spartiti/A11_palestrina.png" riquadri='[[1,10.24,11.48,18.03,24.29],[2,28.27,11.48,12.2,24.29],[3,40.47,11.48,14.96,24.29],[4,55.43,11.48,14.25,24.29],[5,69.69,11.48,14.65,24.29],[6,84.33,11.48,14.02,24.29],[7,1.5,42.69,17.8,24.21],[8,19.29,42.69,13.39,24.21],[9,32.68,42.69,13.46,24.21],[10,46.14,42.69,12.6,24.21],[11,58.74,42.69,13.39,24.21],[12,72.13,42.69,13.07,24.21],[13,85.2,42.69,13.23,24.21],[14,1.5,74.14,17.87,24.29],[15,19.37,74.14,14.02,24.29],[16,33.39,74.14,14.09,24.29],[17,47.48,74.14,14.09,24.29],[18,61.57,74.14,13.7,24.29],[19,75.28,74.14,13.54,24.29],[20,88.82,74.14,9.37,24.29]]' inciso="../../_assets/incisioni/A11_palestrina.mp3" mappa='{"durata":162559,"eventi":[[0,0],[1,8000],[2,16000],[3,24000],[4,32000],[5,40000],[6,48000],[7,56000],[8,64000],[9,72000],[10,80000],[11,88000],[12,96000],[13,104000],[14,112000],[15,120000],[16,128000],[17,136000],[18,144000],[19,152000]]}' da-battuta="1">
+<script type="application/json">{"titolo":"G. P. da Palestrina, Benedictus dalla «Missa Ad fugam»","metro":"4/2","bpm":60,"battute":20,"anacrusi":0.0,"voci":[[[0.0,6.0,76],[6.0,2.0,74],[8.0,4.0,77],[12.0,4.0,76],[18.0,1.0,69],[19.0,1.0,71],[20.0,1.0,72],[21.0,1.0,74],[22.0,2.0,76],[24.0,1.0,76],[25.0,1.0,74],[26.0,4.0,74],[30.0,2.0,73],[32.0,3.0,74],[35.0,1.0,72],[36.0,1.0,69],[37.0,1.0,71],[38.0,2.0,72],[40.0,1.0,72],[41.0,1.0,71],[42.0,1.0,71],[43.0,0.5,69],[43.5,0.5,67],[44.0,4.0,69],[48.0,1.0,67],[49.0,1.0,69],[50.0,1.0,71],[51.0,1.0,72],[52.0,4.0,74],[62.0,2.0,74],[64.0,4.0,76],[68.0,2.0,76],[70.0,2.0,74],[72.0,2.0,74],[74.0,2.0,72],[76.0,2.0,71],[78.0,2.0,71],[80.0,1.0,69],[81.0,1.0,71],[82.0,1.0,72],[83.0,1.0,74],[84.0,1.0,76],[85.0,1.0,77],[86.0,2.0,76],[88.0,1.0,76],[89.0,1.0,74],[90.0,2.0,74],[92.0,2.0,79],[94.0,2.0,79],[96.0,4.0,77],[110.0,2.0,76],[112.0,2.0,79],[114.0,2.0,74],[116.0,4.0,77],[120.0,2.0,76],[122.0,2.0,76],[124.0,1.0,69],[125.0,1.0,71],[126.0,1.0,72],[127.0,1.0,74],[128.0,1.0,76],[129.0,1.0,77],[130.0,3.0,76],[133.0,1.0,74],[134.0,2.0,74],[136.0,2.0,74],[138.0,2.0,73],[140.0,4.0,74],[144.0,4.0,72],[148.0,2.0,71],[150.0,1.0,69],[151.0,1.0,67],[152.0,4.0,69],[156.0,4.0,71]],[[16.0,6.0,69],[22.0,2.0,67],[24.0,4.0,70],[28.0,4.0,69],[34.0,1.0,62],[35.0,1.0,64],[36.0,1.0,65],[37.0,1.0,67],[38.0,2.0,69],[40.0,1.0,69],[41.0,1.0,67],[42.0,4.0,67],[46.0,2.0,66],[48.0,3.0,67],[51.0,1.0,65],[52.0,1.0,62],[53.0,1.0,64],[54.0,2.0,65],[56.0,1.0,65],[57.0,1.0,64],[58.0,1.0,64],[59.0,0.5,62],[59.5,0.5,60],[60.0,4.0,62],[64.0,1.0,60],[65.0,1.0,62],[66.0,1.0,64],[67.0,1.0,65],[68.0,4.0,67],[78.0,2.0,67],[80.0,4.0,69],[84.0,2.0,69],[86.0,2.0,67],[88.0,2.0,67],[90.0,2.0,65],[92.0,2.0,64],[94.0,2.0,64],[96.0,1.0,62],[97.0,1.0,64],[98.0,1.0,65],[99.0,1.0,67],[100.0,1.0,69],[101.0,1.0,70],[102.0,2.0,69],[104.0,1.0,69],[105.0,1.0,67],[106.0,2.0,67],[108.0,2.0,72],[110.0,2.0,72],[112.0,4.0,71],[126.0,2.0,69],[128.0,2.0,72],[130.0,2.0,67],[132.0,4.0,70],[136.0,2.0,69],[138.0,2.0,69],[140.0,1.0,62],[141.0,1.0,64],[142.0,1.0,65],[143.0,1.0,67],[144.0,1.0,69],[145.0,1.0,70],[146.0,3.0,69],[149.0,1.0,67],[150.0,2.0,67],[152.0,2.0,67],[154.0,2.0,66],[156.0,4.0,67]],[[32.0,6.0,62],[38.0,2.0,60],[40.0,4.0,64],[44.0,4.0,62],[50.0,1.0,55],[51.0,1.0,57],[52.0,1.0,59],[53.0,1.0,60],[54.0,2.0,62],[56.0,1.0,62],[57.0,1.0,60],[58.0,4.0,60],[62.0,2.0,59],[64.0,3.0,60],[67.0,1.0,59],[68.0,1.0,55],[69.0,1.0,57],[70.0,2.0,59],[72.0,1.0,59],[73.0,1.0,57],[74.0,1.0,57],[75.0,0.5,55],[75.5,0.5,53],[76.0,4.0,55],[80.0,1.0,53],[81.0,1.0,55],[82.0,1.0,57],[83.0,1.0,59],[84.0,4.0,60],[94.0,2.0,60],[96.0,4.0,62],[100.0,2.0,62],[102.0,2.0,60],[104.0,2.0,60],[106.0,2.0,59],[108.0,2.0,57],[110.0,2.0,57],[112.0,1.0,55],[113.0,1.0,57],[114.0,1.0,59],[115.0,1.0,60],[116.0,1.0,62],[117.0,1.0,64],[118.0,2.0,62],[120.0,1.0,62],[121.0,1.0,60],[122.0,2.0,60],[124.0,2.0,65],[126.0,2.0,65],[128.0,4.0,64],[142.0,2.0,62],[144.0,2.0,65],[146.0,2.0,60],[148.0,4.0,64],[152.0,2.0,62],[154.0,2.0,62],[156.0,4.0,55]]]}</script>
 </tac-brano>
-
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Perché a quattro voci si sente meno</span>
-      <p>Perché sotto la dissonanza ci sono <strong>altre due consonanze</strong>. A due voci il ritardo è nudo e brucia; a quattro è un colore dentro un accordo, e passa quasi inosservato.</p>
-      <p>La struttura però è identica: <strong>preparazione, dissonanza, risoluzione</strong>. Cambia solo quanto è coperta.</p>
+    <tac-stave time="4/2"
+           keysig="C"
+           caption="Palestrina, Benedictus dalla «Missa Ad fugam», bb. 17–20: soprano e contralto sopra, tenore sotto"
+           soprano="e/5:q f/5:q e/5:h. d/5:q d/5:h~ | d/5:h c#/5:h d/5:w | c/5:w b/4:h a/4:q g/4:q | a/4:w b/4:w"
+           contralto="c/5:h g/4:h bb/4:w | a/4:h a/4:h d/4:q e/4:q f/4:q g/4:q | a/4:q bb/4:q a/4:h. g/4:q g/4:h~ | g/4:h f#/4:h g/4:w"
+           basso="e/4:w r:w | r:w r:h d/4:h | f/4:h c/4:h e/4:w | d/4:h d/4:h g/3:w"
+           segna="b3=4–3 nel contralto: il la sopra il mi del tenore · b4=4–3: il sol, risolto e ribattuto, sopra il re"
+           width="900"
+           tempo="60" play></tac-stave>
+    <div class="analisi-prosa">
+      <p>Nella chiusa del Benedictus due ritardi si concatenano nel contralto. Alla b.&nbsp;19 il <em>la</em>, tenuto dal terzo tempo, diventa quarta quando il tenore sale al <em>mi</em> e si scioglie sul <em>sol</em>; il <em>sol</em> &egrave; ribattuto e legato, e sul primo tempo della b.&nbsp;20 &egrave; di nuovo quarta, sopra il <em>re</em> del tenore, prima di scendere al <em>fa&#9839;</em> della cadenza. La risoluzione del primo ritardo &egrave; la preparazione del secondo.</p>
     </div>
 
     <div class="riquadro attenzione">
-      <span class="etichetta">La conseguenza per lo studio</span>
-      <p>I ritardi si imparano a due voci <strong>apposta</strong>: è l&rsquo;unico posto dove si sentono per quello che sono. Chi li incontra per la prima volta a quattro parti impara la cifratura e non il suono.</p>
+      <span class="etichetta">L&rsquo;errore tipico</span>
+      <p>Allungare la catena senza misura in un esercizio di contrappunto. Negli esercizi lo stesso ritardo non si ripete pi&ugrave; di tre volte di seguito (Salzer&ndash;Schachter, p.&nbsp;89): la quarta specie lo interrompe con una sincope consonante. Nella composizione libera la catena pu&ograve; durare di pi&ugrave;, perch&eacute; diventa una progressione e la regolarit&agrave; &egrave; il suo senso.</p>
     </div>
-
-    <p class="didascalia">Vale per quasi tutto il contrappunto scolastico: le specie sono a due voci non perché la musica sia a due voci, ma perché a due voci <strong>non ci si può nascondere</strong>.</p>
   </div>
 </section>
-
-<section class="slide" data-titolo="Che cosa portiamo a casa">
+<section class="slide perc" data-titolo="La progressione di Corelli">
   <div class="slide-interna">
-    <h2>Che cosa portiamo a casa</h2>
+    <h2>La progressione di Corelli: due violini che si scambiano il ritardo</h2>
 
     <div class="riquadro definizione">
-      <span class="etichetta">Le tre cose di oggi</span>
-      <p><strong>Preparazione, percussione, risoluzione</strong> &mdash; tre momenti, e i nomi vengono dall&rsquo;armonia.<br>
-      <strong>La preparazione dev&rsquo;essere consonante e non pi&ugrave; corta</strong> della dissonanza.<br>
-      <strong>La risoluzione scende di un grado</strong>, sempre.</p>
+      <span class="etichetta">Definizione</span>
+      <p>La <em class="termine">progressione</em> &egrave; la ripetizione di un modulo melodico e armonico su gradi diversi: il <em>modello</em> e le sue <em>riprese</em>, che ne riproducono fedelmente le note del basso, le cifre e il percorso delle voci superiori. Nella sonata a tre la catena di ritardi &egrave; il modo pi&ugrave; frequente di costruirla: i due violini procedono per grado congiunto a distanza di seconda o di terza, e ciascuno tiene la propria nota mentre l&rsquo;altro attacca la sua.</p>
+      <p class="didascalia">C. Marenco, <em>Manuale d&rsquo;armonia</em>, p.&nbsp;34; F. Salzer, C. Schachter, <em>Contrappunto e composizione</em>, p.&nbsp;89.</p>
     </div>
 
-    <p>E la cosa che tiene insieme le due ore fatte finora: il ritardo <strong>non aggiunge una nota all&rsquo;accordo</strong>. Ne rimanda una che c&rsquo;era gi&agrave; da aspettare.</p>
-
-    <p>Una nota storica, che spiega perch&eacute; quest&rsquo;unit&agrave; sta fra il contrappunto e l&rsquo;armonia: la figura non nasce con la tonalit&agrave;. Marenco scrive che <em>&laquo;gi&agrave; il contrappunto modale ne faceva ampio uso, soprattutto nelle cadenze&raquo;</em> (p.&nbsp;173) &mdash; cio&egrave; nel <strong>Cinquecento</strong>, prima che esistessero gli accordi di cui oggi la chiamiamo un ritardo.</p>
-
-    <p class="didascalia">L&rsquo;ora prossima &egrave; di percezione, e si scrive un dettato ritmico con la sincope che scavalca la stanghetta. La stessa cosa di oggi, sentita invece che vista.</p>
-  </div>
-</section>
-
-<section class="slide copertina foto" data-titolo="Seconda ora"
-         style="--foto: url('../../_assets/copertine/c3u5-lezione-5.jpg?v=4adb0ed4');
-                --cop-a:#111206; --cop-b:#65a30d; --cop-c:#d9f99d">
-  <div class="slide-interna">
-    <div class="occhiello">Seconda ora &middot; La sincope e il ritardo: quarta specie e ritardi a quattro parti &middot; UdA 5 &middot; Lezione 5 di 6</div>
-    <h1>Officina: la quarta specie sul canto dato</h1>
-    <p class="sottotitolo">Quattro ore di teoria. Adesso si scrive, e alla fine si va a cercarne uno vero.</p>
-    <blockquote class="aforisma">
-      <p>La sincope pu&ograve; essere o non essere una dissonanza. &Egrave; per&ograve; preferibile ch&rsquo;essa lo sia.</p>
-      <cite>Th&eacute;odore Dubois, <em>Trattato di contrappunto e fuga</em>, p.&nbsp;16</cite>
-    </blockquote>
-
-    <div class="meta-copertina">
-      <span>Seconda ora</span>
-      <span>Contrappunto</span>
-      <span>Si scrive</span>
-    </div>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa si fa oggi">
-  <div class="slide-interna">
-    <h2>Due cose, e la seconda &egrave; la pi&ugrave; difficile</h2>
-
-    <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
-         «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 3&deg; anno; pagine dall'indice rilevato. -->
-    <div class="riquadro libro">
-      <span class="etichetta">Sul tuo libro</span>
-      <p><span class="lez">A9</span><strong>Varianti alla successione cadenzale</strong>, pp. 92&ndash;95</p>
-      <p>Lezione 38 &laquo;La quarta e sesta cadenzale&raquo;. Officina di quarta specie: il libro non ha il canto dato n&eacute; il ritardo nel 3&deg; anno; la pagina pi&ugrave; vicina resta il 6/4 cadenzale, sezione A, unit&agrave; 9 (lezione 38), per il ritardo cercato nel brano.</p>
-    </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Il programma dell&rsquo;ora</span>
-      <p><strong>Prima met&agrave;</strong> &mdash; si scrive la quarta specie su un canto dato, con le regole di Dubois. Sopra e poi sotto.<br>
-      <strong>Seconda met&agrave;</strong> &mdash; si apre uno spartito che state studiando e si cerca un ritardo. Uno vero, con la battuta.</p>
-    </div>
-
-    <p>La seconda &egrave; pi&ugrave; difficile perch&eacute; nessuno vi dice dove guardare. Nell&rsquo;esercizio la figura c&rsquo;&egrave; per forza; in un pezzo bisogna trovarla, e la met&agrave; delle volte non &egrave; dove ve la aspettate.</p>
-
-    <p class="didascalia">Portate lo spartito, non il telefono: serve poterci scrivere sopra a matita.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Le regole, in una pagina">
-  <div class="slide-interna">
-    <h2>Le regole di Dubois, e sono poche</h2>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Come si comincia e come si finisce</span>
-      <p><strong>Prima battuta</strong> &mdash; pausa di mezza battuta, e la nota che entra dev&rsquo;essere in <strong>consonanza perfetta</strong>: quinta, ottava o unisono.<br>
-      <strong>Ultima battuta</strong> &mdash; ottava o unisono, senza legatura.<br>
-      <strong>Penultima</strong> &mdash; deve contenere una <strong>dissonanza sincopata</strong>, se il canto dato lo consente.</p>
-    </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa succede in mezzo</span>
-      <p>Ogni minima &egrave; legata alla battuta dopo. La sincope pu&ograve; essere consonante, ma <em>&laquo;&egrave; preferibile&raquo;</em> che sia dissonante: &egrave; il senso della specie.<br>
-      Le dissonanze sono le quattro di ieri, e <strong>risolvono sempre scendendo di un grado</strong>.</p>
-    </div>
-
-    <p class="didascalia">Tutto qui sta a pagina 16 del trattato. Le pagine 17 e 18 sono le eccezioni e gli esempi, e le vediamo fra due slide.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="L&rsquo;esercizio fatto">
-  <div class="slide-interna">
-    <h2>Uno fatto, prima di farne uno</h2>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Quarta specie sopra un canto dato di sei note"
-               soprano="r:h g/4:h~ | g/4:h f/4:h~ | f/4:h a/4:h~ | a/4:h g/4:h~ | g/4:h f/4:h | c/5:w"
-               basso="c/3:w | d/3:w | f/3:w | e/3:w | d/3:w | c/3:w"
-               width="880" tempo="50" play slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Battuta per battuta</span>
-      <p><strong>1</strong> pausa, poi sol: quinta sopra il do, consonanza perfetta.<br>
-      <strong>2</strong> il sol resta sopra il re: quarta, dissonante &rarr; scende al fa, terza.<br>
-      <strong>3</strong> il fa resta sopra il fa: ottava, consonante. Qui la sincope non &egrave; dissonanza, e si pu&ograve;.<br>
-      <strong>4</strong> il la sopra il mi: quarta &rarr; sol, terza.<br>
-      <strong>5</strong> il sol sopra il re: quarta &rarr; fa, terza. &Egrave; la penultima, e la dissonanza c&rsquo;&egrave;.<br>
-      <strong>6</strong> do, semibreve, due ottave sopra il canto dato.</p>
-    </div>
-
-    <p class="didascalia">Contate le preparazioni: quinta, terza, terza, terza. Tutte consonanti, tutte lunghe quanto la dissonanza che preparano.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Perch&eacute; l&rsquo;ultima nota sale">
-  <div class="slide-interna">
-    <h2>Un dettaglio dell&rsquo;ultima battuta, che vale un&rsquo;ora</h2>
-
-    <p>L&rsquo;esercizio finisce sul <strong>do acuto</strong>, non su quello sotto. Sono tutti e due un&rsquo;ottava sopra il canto dato, e Dubois li accetterebbe tutti e due. Eppure uno dei due &egrave; sbagliato.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Il conto</span>
-      <p>Alla fine della battuta 5 il contrappunto ha un <strong>fa</strong>; il canto dato ha un <strong>re</strong>. Poi il canto dato scende al do.<br>
-      Se il contrappunto scendesse al do grave, le due voci andrebbero <strong>gi&ugrave; tutte e due</strong> per arrivare a un&rsquo;ottava, e con un salto: &egrave; un&rsquo;<strong>ottava nascosta</strong>.<br>
-      Salendo al do acuto, il moto &egrave; <strong>contrario</strong>, e non c&rsquo;&egrave; niente da controllare.</p>
-    </div>
-
-    <p class="didascalia">Nessuna regola della quarta specie parla di questo. &Egrave; una regola dell&rsquo;unit&agrave; 2 di quest&rsquo;anno, che continua a valere anche quando si sta pensando ad altro &mdash; ed &egrave; il motivo per cui gli errori nuovi si fanno sempre sulle regole vecchie.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il controllo, sull&rsquo;esercizio">
-  <div class="slide-interna">
-    <h2>E adesso si sopprimono le sincopi</h2>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Lo stesso esercizio, con le sole risoluzioni"
-               soprano="g/4:w | f/4:w | a/4:w | g/4:w | f/4:w | c/5:w"
-               basso="c/3:w | d/3:w | f/3:w | e/3:w | d/3:w | c/3:w"
-               width="880" tempo="50" play slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa si vede adesso</span>
-      <p>Quinta, poi <strong>quattro decime di fila</strong>, poi l&rsquo;ottava finale. Nessuna quinta, nessuna ottava parallela: la realizzazione regge.</p>
-    </div>
-
-    <p>Quattro terze di fila, se le contate semplici. In prima specie sarebbe monotono; qui Dubois lo prevede: <em>&laquo;a causa dell&rsquo;obbligo di sincopare, si &egrave; costretti sovente a fare pi&ugrave; di tre terze o di tre seste di seguito&raquo;</em> (p.&nbsp;17).</p>
-
-    <p class="didascalia">&Egrave; una delle poche volte in cui un trattato dice &laquo;questo di solito non si fa, ma qui si deve&raquo;. Vale la pena notarlo: le regole non sono tutte dello stesso peso.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Quinte e ottave, dove">
-  <div class="slide-interna">
-    <h2>Le parallele in quarta specie: una regola diversa</h2>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Dubois, p.&nbsp;16, e non &egrave; quello che vi aspettate</span>
-      <p>Quinte e ottave consecutive fra i <strong>tempi deboli</strong> &mdash; <strong>vietate</strong>.<br>
-      Fra i <strong>tempi forti</strong> &mdash; <strong>permesse</strong>, <em>&laquo;ci&ograve; nondimeno le 8ª sono meno buone delle 5ª&raquo;</em>.</p>
-    </div>
-
-    <p>Sembra strano finch&eacute; non si pensa a che cosa succede in mezzo: fra due tempi forti c&rsquo;&egrave; sempre una risoluzione, e quella spezza il parallelismo all&rsquo;orecchio. Fra due tempi deboli non c&rsquo;&egrave; niente.</p>
-
-    <div class="riquadro regola">
-      <span class="etichetta">E l&rsquo;unisono</span>
-      <p>Permesso sui tempi <strong>deboli</strong>, vietato sui <strong>forti</strong>. Sul forte le due voci sparirebbero l&rsquo;una nell&rsquo;altra proprio dove dovrebbe esserci la dissonanza.</p>
-    </div>
-
-    <p class="didascalia">Il modo pratico per non sbagliare &egrave; sempre lo stesso: si sopprime la sincope e si guarda quello che resta.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Una cosa che non dovete controllare">
-  <div class="slide-interna">
-    <h2>E una che, per una volta, non dovete controllare</h2>
-
-    <div class="riquadro regola">
-      <span class="etichetta">Dubois, p.&nbsp;17</span>
-      <p><em>&laquo;Gli errori di 5ª e di 8ª <strong>dirette</strong> non possono prodursi con delle sincopi.&raquo;</em></p>
-    </div>
-
-    <p>Le quinte e le ottave <strong>nascoste</strong> &mdash; quelle che si formano andando per moto retto verso una consonanza perfetta &mdash; in quarta specie non ci sono. La ragione &egrave; meccanica: la voce sincopata non <em>va</em> da nessuna parte sul tempo forte. Ci <strong>era gi&agrave;</strong>.</p>
-
-    <p>Un moto diretto ha bisogno di due voci che si muovono nello stesso momento. Qui, sul tempo forte, se ne muove <strong>una sola</strong>.</p>
-
-    <p class="didascalia">Vale finch&eacute; la sincope tiene. Nell&rsquo;ultima battuta, che non &egrave; legata, tornano a esistere &mdash; ed &egrave; esattamente quello che &egrave; successo nell&rsquo;esempio di prima.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La nota che non si ripete">
-  <div class="slide-interna">
-    <h2>Un divieto corto e assoluto</h2>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="SBAGLIATO: la stessa nota sincopata due volte di fila"
-               soprano="r:h g/4:h~ | g/4:h g/4:h~ | g/4:h f/4:h"
-               basso="c/3:w | d/3:w | e/3:w"
-               width="800" tempo="50" play slow></tac-stave>
-
-    <div class="riquadro errore">
-      <span class="etichetta">Dubois, p.&nbsp;17</span>
-      <p><em>&laquo;Non si deve fare la ripetizione di una nota sincopata.&raquo;</em> Il sol resta per tre battute, e la linea si ferma.</p>
-    </div>
-
-    <p>La ragione &egrave; melodica, non armonica: la quarta specie ha gi&agrave; una sola nota per battuta, e ripetendola il contrappunto smette di essere una linea. Diventa un pedale col fiato corto.</p>
-
-    <p class="didascalia">Se vi capita di volerlo fare, quasi sempre &egrave; perch&eacute; non trovate una preparazione per la nota che vorreste. La soluzione non &egrave; ripetere: &egrave; cambiare la battuta prima.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Interrompere la sincope">
-  <div class="slide-interna">
-    <h2>Quando proprio non se ne esce</h2>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Dubois lo concede, e con che parole</span>
-      <p>Si pu&ograve; interrompere la sincope con una <strong>pausa di mezza battuta</strong> o con una <strong>minima</strong> non legata. La minima &egrave; preferibile.<br>
-      Ma &mdash; e questa &egrave; la parte che conta &mdash; <em>&laquo;per interrompere la sincope bisogna aver esauriti tutti i mezzi per fare altrimenti&raquo;</em>, e non pi&ugrave; di una volta o due nello stesso contrappunto.</p>
-    </div>
-
-    <p>Cio&egrave;: &egrave; una via d&rsquo;uscita, non una scelta. Chi la usa alla seconda battuta non ha esaurito niente: ha smesso di cercare.</p>
-
-    <p class="didascalia">La regola pratica per oggi: <strong>non si interrompe</strong>. Se non ne uscite, si cambia la nota di due battute prima. Nove volte su dieci il problema &egrave; l&igrave;.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Come si scrive, in pratica">
-  <div class="slide-interna">
-    <h2>L&rsquo;ordine dei gesti</h2>
-
-    <div class="riquadro procedura">
-      <span class="etichetta">Sei passi, e i primi due non scrivono note</span>
-      <ol>
-        <li><strong>Guarda il canto dato</strong> e segna dove sale e dove scende. Le dissonanze si preparano meglio dove il canto dato scende.</li>
-        <li><strong>Decidi l&rsquo;ultima battuta</strong>: ottava o unisono, e da che parte ci arrivi. Il moto dev&rsquo;essere contrario.</li>
-        <li><strong>Scrivi la penultima</strong>: ci va una dissonanza sincopata, e quella decide la nota di prima.</li>
-        <li><strong>Torna indietro</strong>, battuta per battuta: ogni nota dev&rsquo;essere consonante dove entra.</li>
-        <li><strong>Arriva alla prima</strong> e controlla che sia una consonanza perfetta.</li>
-        <li><strong>Sopprimi le sincopi</strong> e guarda quinte e ottave sulle risoluzioni.</li>
-      </ol>
-    </div>
-
-    <p class="didascalia">Si scrive <strong>a ritroso</strong>, e non &egrave; un vezzo: in quarta specie ogni nota &egrave; vincolata da quella dopo, non da quella prima. Chi comincia dall&rsquo;inizio si accorge alla penultima che non ci arriva, e rifà tutto.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Officina, prima parte">
-  <div class="slide-interna">
-    <h2>Il canto dato, e tocca a voi</h2>
-
-    <tac-stave clef="bass" time="4/4" keysig="C"
-               caption="Canto dato al basso: scrivete il contrappunto sopra"
-               notes="c/3:w | e/3:w | f/3:w | d/3:w | e/3:w | c/3:w"
-               width="820" tempo="50" play slow></tac-stave>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Da soli, 15 minuti</span>
-      <p>Contrappunto di <strong>quarta specie sopra</strong> questo canto dato. Sei battute, minime legate, pausa di mezza battuta all&rsquo;inizio.</p>
-      <p>Cominciate dal <strong>fondo</strong>, come dice la procedura. E segnate a margine, per ogni battuta, l&rsquo;intervallo sul tempo forte.</p>
-    </div>
-
-    <p class="didascalia">Chi finisce presto lo rifa&rsquo; con il contrappunto <strong>sotto</strong>. Dubois lo chiede tutte le volte: tre col canto dato sopra e tre col canto dato sotto, ed &egrave; l&rsquo;unico modo di scoprire che le due cose non sono simmetriche.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa cambia mettendolo sotto">
-  <div class="slide-interna">
-    <h2>Sotto non &egrave; lo stesso lavoro</h2>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Frammento: il canto dato sopra, le sincopi al basso. La 2&ordf; che ritarda la 3&ordf;"
-               soprano="d/5:w | c/5:w | a/4:w"
-               basso="r:h b/3:h~ | b/3:h a/3:h | a/3:w"
-               width="800" tempo="50" play slow></tac-stave>
-
-    <p>Quando le sincopi stanno nella voce <strong>inferiore</strong>, le dissonanze cambiano nome: la principale diventa la <strong>2ª che ritarda la 3ª</strong>, perch&eacute; l&rsquo;intervallo si conta sempre dal basso, e adesso il basso &egrave; il contrappunto.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">E una concessione che Dubois fa solo qui</span>
-      <p>Con le sincopi al basso si pu&ograve; usare la <strong>quarta come ritardo della quinta</strong> &mdash; ma <em>&laquo;con riserbo a due parti, a causa della povert&agrave; e dell&rsquo;aridit&agrave; dell&rsquo;armonia&raquo;</em> (p.&nbsp;16).</p>
-    </div>
-
-    <p class="didascalia">&laquo;Povert&agrave; e aridit&agrave;&raquo;: due parole che dicono una cosa che nessuna regola dice, cio&egrave; che a due voci certe soluzioni sono legali e suonano vuote. Vale la pena provarle una volta per sentirlo.</p>
-  </div>
-</section>
-
-<section class="slide perc" data-titolo="Quando &egrave; il basso a ritardare">
-  <div class="slide-interna">
-    <h2>Il 2-3, e perché è il più difficile da scrivere</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Ascolto &middot; 5 minuti</span>
-      <p>Un ascolto sulla <strong>mano sinistra</strong>. Ci sono punti in cui è la nota grave a restare ferma mentre sopra cambia tutto?</p>
-    </div>
-
-    <tac-brano organico="tastiera" titolo="C. P. E. Bach, Sonata Wq 55/4, II — Poco adagio"
-               metronomo youtube="Ue4dq3Bcd7s" esecutore="Ana-Marija Markovina, pianoforte" partitura="../../_assets/spartiti/A06_cpebach.png" inciso="../../_assets/incisioni/A06_cpebach.mp3" mappa='{"durata":67526,"eventi":[[0,0],[1,5455],[2,10909],[3,16364],[4,21818],[5,27273],[6,32727],[7,38182],[8,43636],[9,49091],[10,54545],[11,60000]]}' da-battuta="1">
-<script type="application/json">{"titolo":"C. P. E. Bach, Sonata in la maggiore Wq 55/4, II — Poco adagio","metro":"4/4","bpm":44,"battute":12,"anacrusi":0.0,"voci":[[[0.0,0.125,74],[0.125,0.125,73],[0.25,0.125,71],[0.375,0.125,73],[0.5,0.25,81],[0.75,0.25,77],[1.0,0.125,80],[1.125,0.375,78],[1.5,0.125,76],[1.625,0.375,74],[2.0,1.0,73],[3.0,0.125,71],[3.125,0.125,73],[3.25,0.5,71],[3.875,0.125,83],[4.0,0.125,85],[4.125,0.125,83],[4.25,0.125,81],[4.375,0.125,83],[4.5,0.375,83],[4.875,0.125,86],[5.0,0.125,85],[5.125,0.375,83],[5.5,0.125,81],[5.625,0.375,80],[6.0,0.25,85],[6.25,0.25,81],[6.5,0.25,77],[6.75,0.25,78],[7.5,0.375,66],[7.875,0.125,78],[8.0,0.5,69],[8.5,0.167,69],[8.667,0.166,68],[8.833,0.167,74],[9.0,0.5,66],[9.5,0.167,66],[9.667,0.166,65],[9.833,0.167,71],[10.0,0.25,71],[10.25,0.083,69],[10.333,0.084,68],[10.417,0.083,66],[10.5,0.5,66],[11.5,0.125,74],[11.625,0.125,73],[11.75,0.125,71],[11.875,0.125,73],[12.0,0.5,81],[12.5,0.125,83],[12.625,0.125,81],[12.75,0.125,80],[12.875,0.125,81],[13.0,0.25,81],[13.25,0.125,80],[13.375,0.125,78],[13.5,0.125,76],[13.625,0.125,75],[13.75,0.125,73],[13.875,0.125,71],[14.0,1.0,69],[15.0,0.2002,69],[15.2002,0.05,68],[15.2502,0.05,69],[15.3003,0.1001,68],[15.4004,0.1992,66],[15.5996,0.2002,68],[15.7998,0.2002,71],[16.0,0.1543,69],[16.1543,0.1533,73],[16.3076,0.1543,71],[16.4619,0.1533,74],[16.6152,0.1543,73],[16.7695,0.1533,76],[16.9229,0.1543,74],[17.0771,0.1533,73],[17.2305,0.1543,71],[17.3848,0.1533,69],[17.5381,0.1543,68],[17.6924,0.1533,66],[17.8457,0.1543,64],[18.0,1.0,62],[19.0,0.125,61],[19.125,0.125,62],[19.25,0.25,61],[20.0,0.25,76],[20.25,0.25,73],[20.5,0.25,68],[20.75,0.25,69],[21.25,0.25,57],[21.5,0.25,64],[21.75,0.25,67],[22.0,0.25,66],[22.25,0.25,69],[22.5,0.25,61],[22.75,0.25,62],[24.0,0.25,78],[24.25,0.25,75],[24.5,0.25,70],[24.75,0.25,71],[25.25,0.25,59],[25.5,0.25,66],[25.75,0.25,69],[26.0,0.25,68],[26.25,0.25,71],[26.5,0.25,63],[26.75,0.25,64],[28.25,0.25,88],[28.5,0.25,80],[28.75,0.25,83],[29.0,0.25,81],[29.25,0.1125,76],[29.375,0.125,73],[29.5,0.1125,71],[29.625,0.125,69],[29.75,0.225,79],[30.0,0.25,78],[30.25,0.125,78],[30.375,0.125,74],[30.5,0.125,70],[30.625,0.125,71],[30.75,0.225,81],[31.0,0.25,80],[31.25,0.125,80],[31.375,0.125,76],[31.5,0.125,72],[31.625,0.125,73],[32.0,0.125,73],[32.125,0.125,83],[32.25,0.25,81],[32.5,0.125,81],[32.625,0.125,78],[32.75,0.125,73],[32.875,0.125,75],[33.0,0.125,83],[33.125,0.125,80],[33.25,0.125,75],[33.375,0.125,76],[33.5,0.125,85],[33.625,0.125,81],[33.75,0.125,75],[33.875,0.125,76],[34.0,0.125,86],[34.125,0.125,85],[34.25,0.125,86],[34.375,0.125,88],[34.5,0.125,86],[34.625,0.125,85],[34.75,0.125,83],[34.875,0.125,82],[35.0,0.125,85],[35.125,0.125,83],[35.25,0.125,81],[35.375,0.125,80],[35.5,0.0312,78],[35.5312,0.0312,80],[35.5625,0.0625,78],[35.625,0.125,76],[35.75,0.125,83],[35.875,0.125,74],[36.0,0.125,73],[36.125,0.125,76],[36.25,0.125,80],[36.375,0.125,81],[36.5,0.125,78],[36.625,0.125,74],[36.75,0.125,73],[36.875,0.125,71],[37.0,0.125,71],[37.125,0.125,73],[37.25,0.125,71],[37.375,0.125,73],[37.5,0.125,71],[37.625,0.125,73],[37.75,0.125,69],[37.875,0.125,71],[38.0,0.5,69],[38.5,0.5,76],[39.0,0.125,74],[39.125,0.375,72],[39.5,0.0312,71],[39.5312,0.0312,73],[39.5625,0.0625,71],[39.625,0.375,69],[40.0,1.0,68],[41.25,0.25,68],[41.25,0.25,71],[41.5,0.25,71],[41.5,0.25,74],[41.75,0.25,69],[41.75,0.25,72],[43.25,0.25,69],[43.25,0.25,72],[43.5,0.25,72],[43.5,0.25,76],[43.75,0.25,71],[43.75,0.25,74],[45.25,0.25,71],[45.25,0.25,74],[45.5,0.25,74],[45.5,0.25,77],[45.75,0.25,72],[45.75,0.25,76],[46.0,0.5,71],[46.0,0.5,74],[46.5,0.0417,72],[46.5,0.5,69],[46.5417,0.0417,74],[46.5835,0.0835,72],[46.667,0.166,71],[46.833,0.167,72],[47.0,0.5,68],[47.0,0.5,71]],[[0.0,1.0,54],[0.0,1.0,57],[2.5,0.5,56],[2.5,0.5,65],[3.0,0.5,56],[3.0,0.5,65],[3.5,0.5,56],[3.5,0.5,65],[4.5,0.5,53],[4.5,0.5,56],[5.0,0.5,53],[5.0,0.5,56],[5.5,0.5,53],[5.5,0.5,61],[6.0,1.0,45],[7.0,0.5,57],[7.5,0.5,57],[7.5,0.5,61],[8.0,0.5,59],[8.0,0.5,62],[8.5,0.5,59],[8.5,0.5,62],[9.0,0.5,61],[9.5,0.5,49],[9.5,0.5,61],[10.0,0.5,42],[10.5,0.375,45],[10.875,0.125,49],[11.0,1.0,54],[12.5,0.5,54],[12.5,0.5,57],[12.5,0.5,63],[13.0,0.5,54],[13.0,0.5,57],[13.0,0.5,63],[13.5,0.5,54],[13.5,0.5,57],[14.5,0.5,40],[15.0,0.5,52],[15.5,0.5,52],[16.0,0.5,54],[16.5,0.5,54],[17.0,0.5,56],[17.5,0.5,56],[18.5,0.375,45],[18.875,0.125,44],[19.0,0.375,45],[19.375,0.125,49],[19.5,0.375,47],[19.875,0.125,50],[20.0,1.0,49],[21.0,0.5,49],[21.5,0.5,49],[22.0,1.0,50],[23.0,1.0,38],[23.25,0.25,57],[23.5,0.25,49],[23.75,0.25,50],[24.0,1.0,51],[25.0,0.5,51],[25.5,0.5,51],[26.0,1.0,52],[27.0,1.0,40],[27.25,0.25,59],[27.5,0.25,51],[27.75,0.25,52],[28.0,1.0,38],[28.0,1.0,50],[29.0,1.0,37],[29.0,1.0,49],[30.5,0.5,50],[31.5,0.5,52],[32.5,0.5,54],[33.0,0.5,56],[33.5,0.5,57],[34.0,1.0,59],[35.0,1.0,56],[36.0,0.5,57],[36.5,0.5,50],[37.0,0.5,52],[37.5,0.5,40],[38.0,1.0,45],[40.0,0.125,59],[40.125,0.125,56],[40.25,0.125,51],[40.375,0.125,52],[40.5,0.125,47],[40.625,0.125,52],[40.75,0.125,44],[40.875,0.125,47],[41.0,1.0,40],[42.0,0.125,60],[42.125,0.125,57],[42.25,0.125,51],[42.375,0.125,52],[42.5,0.125,48],[42.625,0.125,52],[42.75,0.125,45],[42.875,0.125,48],[43.0,1.0,40],[44.0,0.125,62],[44.125,0.125,59],[44.25,0.125,51],[44.375,0.125,52],[44.5,0.125,47],[44.625,0.125,52],[44.75,0.125,44],[44.875,0.125,47],[45.0,1.0,40],[46.0,0.5,40],[46.5,0.5,39],[47.0,0.25,40],[47.25,0.125,52],[47.375,0.125,54],[47.5,0.25,52],[47.75,0.25,50]]]}</script>
-</tac-brano>
-
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa cambia rispetto agli altri tre</span>
-      <p>Che la nota che ritarda è <strong>quella da cui si contano le cifre</strong>. Il ritardo al basso si cifra <strong>2-3</strong> perché sopra c&rsquo;è una seconda che diventa terza — ma il movimento vero è del basso, che scende.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Perché è il caso che si sbaglia di più</span>
-      <p>Perché l&rsquo;abitudine dice «il ritardo scende dall&rsquo;alto». Qui scende dal basso, e chi ha imparato la figura invece del <strong>meccanismo</strong> non lo riconosce.</p>
-      <p>Il meccanismo è sempre lo stesso: una nota resta, l&rsquo;altra si muove, per un momento sono dissonanti. <strong>Quale delle due resta</strong> è libero.</p>
-    </div>
-
-    <p class="didascalia">Quando nella vostra officina il contrappunto va <strong>sotto</strong> il canto fermo, tutti i vostri ritardi diventano di questo tipo. Non è un&rsquo;esercitazione in più: è lo stesso esercizio visto dall&rsquo;altra parte.</p>
-  </div>
-</section>
-
-<section class="slide perc" data-titolo="Due voci sole, davvero">
-  <div class="slide-interna">
-    <h2>La testura del vostro esercizio, in musica</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Ascolto &middot; 6 minuti</span>
-      <p>Un ascolto seguendo <strong>solo la voce grave</strong>, un secondo seguendo solo l&rsquo;acuta. Domanda: quale delle due si muove di più?</p>
-    </div>
-
-    <tac-brano organico="voci" titolo="«O proles Hispanie» — due voci, modo lidio"
-               metronomo youtube="T-kEdueGZqw" esecutore="La Reverdie" inciso="../../_assets/incisioni/B05_o_proles.mp3" mappa='{"durata":36884,"eventi":[[0,0],[1,2857],[2,5714],[3,8571],[4,11429],[5,14286],[6,17143],[7,20000],[8,22857],[9,25714],[10,28571],[11,31429]]}' da-battuta="1">
-<script type="application/json">{"titolo":"J. Ciconia (attribuzione dubbia), «O proles Hispanie» — due voci, modo lidio","metro":"3/4","bpm":63,"battute":12,"anacrusi":0.0,"voci":[[[0.0,3.0,72],[3.0,3.0,72],[6.0,1.0,72],[7.0,0.5,72],[7.5,0.5,71],[8.0,0.5,72],[8.5,0.5,69],[9.0,1.0,67],[10.0,1.0,67],[11.0,1.0,64],[13.0,1.0,60],[14.0,1.0,64],[15.0,1.0,62],[17.0,0.5,69],[17.5,0.5,71],[18.0,0.5,72],[18.5,0.5,69],[19.0,1.0,67],[20.0,1.0,74],[21.0,0.5,74],[21.5,1.0,72],[22.5,0.5,71],[23.0,0.5,72],[23.5,0.5,69],[24.0,1.0,67],[26.0,1.0,69],[27.0,1.0,67],[28.5,0.5,72],[29.0,0.5,69],[29.5,0.5,71],[30.0,3.0,72],[33.0,3.0,72]],[[0.0,3.0,53],[3.0,3.0,53],[30.0,3.0,53],[33.0,3.0,53]]]}</script>
-<figure class="tac-part" data-quale="intera"><svg viewBox="0 0 684 284" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="visible" id="l1ba0yms-B052t">
-   <desc>Engraved by Verovio 6.2.0-43f8060</desc>
-   <defs>
-      <g id="E050-l1ba0yms-B052t">
-         <path transform="scale(1,-1)" d="M441 -245c-23 -4 -48 -6 -76 -6c-59 0 -102 7 -130 20c-88 42 -150 93 -187 154c-26 44 -43 103 -48 176c0 6 -1 13 -1 19c0 54 15 111 45 170c29 57 65 106 110 148s96 85 153 127c-3 16 -8 46 -13 92c-4 43 -5 73 -5 89c0 117 16 172 69 257c34 54 64 82 89 82 c21 0 43 -30 69 -92s39 -115 41 -159v-15c0 -109 -21 -162 -67 -241c-13 -20 -63 -90 -98 -118c-13 -9 -25 -19 -37 -29l31 -181c8 1 18 2 28 2c58 0 102 -12 133 -35c59 -43 92 -104 98 -184c1 -7 1 -15 1 -22c0 -123 -87 -209 -181 -248c8 -57 17 -110 25 -162 c5 -31 6 -58 6 -80c0 -30 -5 -53 -14 -70c-35 -64 -88 -99 -158 -103c-5 0 -11 -1 -16 -1c-37 0 -72 10 -108 27c-50 24 -77 59 -80 105v11c0 29 7 55 20 76c18 28 45 42 79 44h6c49 0 93 -42 97 -87v-9c0 -51 -34 -86 -105 -106c17 -24 51 -36 102 -36c62 0 116 43 140 85 c9 16 13 41 13 74c0 20 -1 42 -5 67c-8 53 -18 106 -26 159zM461 939c-95 0 -135 -175 -135 -286c0 -24 2 -48 5 -71c50 39 92 82 127 128c40 53 60 100 60 140v8c-4 53 -22 81 -55 81h-2zM406 119l54 -326c73 25 110 78 110 161c0 7 0 15 -1 23c-7 95 -57 142 -151 142h-12 zM382 117c-72 -2 -128 -47 -128 -120v-7c2 -46 43 -99 75 -115c-3 -2 -7 -5 -10 -10c-70 33 -116 88 -123 172v11c0 68 44 126 88 159c23 17 49 29 78 36l-29 170c-21 -13 -52 -37 -92 -73c-50 -44 -86 -84 -109 -119c-45 -69 -67 -130 -67 -182v-13c5 -68 35 -127 93 -176 s125 -73 203 -73c25 0 50 3 75 9c-19 111 -36 221 -54 331z" />
-      </g>
-      <g id="E083-l1ba0yms-B052t">
-         <path transform="scale(1,-1)" d="M208 250c97 0 177 -52 177 -116c0 -69 -40 -111 -118 -125c56 -5 125 -44 125 -116c0 -31 -10 -57 -31 -78c-19 -21 -45 -38 -78 -49l-50 -11c-15 -3 -36 -7 -55 -7c-50 0 -86 16 -113 38c-16 10 -23 18 -34 34c-7 13 -11 25 -11 38c0 43 27 83 68 83l3 -2 c61 0 75 -42 75 -70c0 -19 -24 -42 -26 -57c7 -17 20 -25 37 -25c44 0 94 29 94 78c0 75 -34 125 -138 125v36c84 0 131 22 131 98c0 54 -37 88 -87 88c-26 0 -43 -7 -51 -22c15 -22 44 -16 44 -70c0 -37 -37 -62 -71 -62c-22 0 -69 15 -69 76c0 79 101 116 178 116z" />
-      </g>
-      <g id="E084-l1ba0yms-B052t">
-         <path transform="scale(1,-1)" d="M20 -78c84 97 114 180 134 329h170c-13 -32 -82 -132 -99 -151l-84 -97c-33 -36 -59 -63 -80 -81h162v102l127 123v-225h57v-39h-57v-34c0 -43 19 -65 57 -65v-34h-244v36c48 0 60 26 60 70v27h-203v39z" />
-      </g>
-      <g id="E0A3-l1ba0yms-B052t">
-         <path transform="scale(1,-1)" d="M278 64c0 22 -17 39 -43 39c-12 0 -26 -3 -41 -10c-85 -43 -165 -94 -165 -156c5 -25 15 -32 49 -32c67 11 200 95 200 159zM0 -36c0 68 73 174 200 174c66 0 114 -39 114 -97c0 -84 -106 -173 -218 -173c-64 0 -96 32 -96 96z" />
-      </g>
-      <g id="E052-l1ba0yms-B052t">
-         <path transform="scale(1,-1)" d="M382 117c-72 -2 -128 -47 -128 -120v-7c2 -46 43 -99 75 -115c-3 -2 -7 -5 -10 -10c-70 33 -116 88 -123 172v11c0 68 44 126 88 159c23 17 49 29 78 36l-29 170c-21 -13 -52 -37 -92 -73c-50 -44 -86 -84 -109 -119c-45 -69 -67 -130 -67 -182v-13 c5 -68 35 -127 93 -176s125 -73 203 -73c25 0 50 3 75 9c-19 111 -36 221 -54 331zM406 119l54 -326c73 25 110 78 110 161c0 7 0 15 -1 23c-7 95 -57 142 -151 142h-12zM461 939c-95 0 -135 -175 -135 -286c0 -24 2 -48 5 -71c50 39 92 82 127 128c40 53 60 100 60 140v8 c-4 53 -22 81 -55 81h-2zM441 -245c-23 -4 -48 -6 -76 -6c-59 0 -102 7 -130 20c-88 42 -150 93 -187 154c-26 44 -43 103 -48 176c0 6 -1 13 -1 19c0 54 15 111 45 170c29 57 65 106 110 148s96 85 153 127c-3 16 -8 46 -13 92c-4 43 -5 73 -5 89c0 117 16 172 69 257 c34 54 64 82 89 82c21 0 43 -30 69 -92s39 -115 41 -159v-15c0 -109 -21 -162 -67 -241c-13 -20 -63 -90 -98 -118c-13 -9 -25 -19 -37 -29l31 -181c8 1 18 2 28 2c58 0 102 -12 133 -35c59 -43 92 -104 98 -184c1 -7 1 -15 1 -22c0 -123 -87 -209 -181 -248 c8 -57 17 -110 25 -162c5 -31 6 -58 6 -80c0 -30 -5 -53 -14 -70c-25 -46 -59 -77 -102 -92c21 -1 85 -13 85 -60c0 -35 -22 -43 -31 -50c-6 -5 -8 -10 -8 -16s0 -11 4 -16c6 -11 9 -22 9 -34c0 -27 -18 -53 -46 -65c-11 -4 -27 -6 -41 -6c-34 0 -82 21 -90 58 c-1 5 -2 8 -2 12c0 28 25 57 51 66c4 1 6 2 6 5c0 2 -1 3 -2 3c-11 13 -16 27 -16 41c0 21 11 40 30 51h-5c-5 0 -11 -1 -16 -1c-37 0 -72 10 -108 27c-50 24 -77 59 -80 105v11c0 29 7 55 20 76c18 28 45 42 79 44h6c49 0 93 -42 97 -87v-9c0 -51 -34 -86 -105 -106 c17 -24 51 -36 102 -36c62 0 116 43 140 85c9 16 13 41 13 74c0 20 -1 42 -5 67c-8 53 -18 106 -26 159zM315 -781c-3 -2 -6 -5 -7 -8c-6 -8 -10 -19 -10 -30c0 -2 0 -4 1 -7c7 -32 34 -52 53 -52c20 0 37 20 37 36c0 5 -2 9 -4 14c-5 13 -14 24 -25 34c-6 5 -11 10 -17 14 c-4 2 -9 6 -14 6c-6 0 -11 -3 -14 -7zM349 -685c0 -14 10 -25 18 -34c8 -8 16 -18 26 -25c5 -2 10 -4 13 -4c17 0 22 30 23 48c0 9 -3 20 -9 26c-8 9 -23 14 -40 14c-15 -1 -29 -8 -31 -25z" />
-      </g>
-      <g id="E0A4-l1ba0yms-B052t">
-         <path transform="scale(1,-1)" d="M0 -39c0 68 73 172 200 172c66 0 114 -37 114 -95c0 -84 -106 -171 -218 -171c-64 0 -96 30 -96 94z" />
-      </g>
-      <g id="E4E3-l1ba0yms-B052t">
-         <path transform="scale(1,-1)" d="M0 -115v105c0 9 1 10 10 10h280c9 0 10 -1 10 -10v-105c0 -9 -1 -10 -10 -10h-280c-9 0 -10 1 -10 10z" />
-      </g>
-      <g id="E4E5-l1ba0yms-B052t">
-         <path transform="scale(1,-1)" d="M107 292c-13 24 -30 49 -52 71c-1 1 0 2 0 3l-2 2c3 3 4 4 6 4c12 0 26 -7 40 -20s44 -40 89 -81c26 -24 28 -29 46 -47c4 -4 8 -9 10 -14c6 -8 8 -16 8 -27c0 -19 -12 -40 -36 -61c-28 -23 -49 -38 -61 -73c-4 -11 -7 -27 -10 -50c13 -43 34 -83 59 -121 c31 -47 59 -79 101 -129c-8 0 -26 7 -54 20l-62 29l-21 6l-23 1c-25 0 -45 -10 -60 -30l-4 -14l-1 -12c0 -33 20 -56 39 -78c8 -9 17 -18 26 -26c17 -15 27 -24 28 -30l-3 -3c-11 5 -19 10 -25 15c-9 3 -37 21 -45 26c-24 14 -45 32 -63 51c-19 21 -37 44 -37 71 c0 63 27 95 80 95c41 0 86 -18 136 -52c-19 26 -37 48 -55 66c-23 23 -48 44 -73 65c-28 23 -47 40 -58 53s-17 26 -18 39c75 64 113 125 113 183c0 27 -7 48 -18 68z" />
-      </g>
-      <g id="E241-l1ba0yms-B052t">
-         <path transform="scale(1,-1)" d="M179 646c-4 8 -17 30 -18 33l-4 10c0 3 2 5 5 5s7 -2 13 -7c23 -33 46 -81 66 -132c22 -57 35 -125 35 -163c0 -104 -60 -183 -122 -241c-63 -59 -57 -53 -61 -56c-38 -34 -63 -95 -71 -95h-22v190c40 7 69 11 87 16c88 27 168 95 168 200c0 30 -12 89 -30 138 c-17 47 -31 73 -46 102z" />
-      </g>
-      <g id="E4E6-l1ba0yms-B052t">
-         <path transform="scale(1,-1)" d="M0 123c7 34 33 56 69 60c29 -3 43 -9 53 -29c4 -8 7 -15 10 -22c0 -21 -1 -25 -11 -35c-5 -8 -18 -14 -40 -20l12 -3l15 -1c44 0 97 26 122 56c10 11 18 26 24 42c7 1 15 2 22 3l-140 -424h-36l111 330c-10 -6 -27 -12 -53 -16l-52 -8h-10l-20 1c-1 0 -8 3 -21 6 c-37 9 -55 28 -55 60z" />
-      </g>
-   </defs>
-   <style type="text/css">#l1ba0yms-B052t g.ending, #l1ba0yms-B052t g.fing, #l1ba0yms-B052t g.reh, #l1ba0yms-B052t g.tempo {font-weight:bold;}#l1ba0yms-B052t g.dir, #l1ba0yms-B052t g.dynam, #l1ba0yms-B052t g.mNum {font-style:italic;}#l1ba0yms-B052t g.label {font-weight:normal;}#l1ba0yms-B052t ellipse, #l1ba0yms-B052t path, #l1ba0yms-B052t polygon, #l1ba0yms-B052t polyline, #l1ba0yms-B052t rect {stroke:currentColor}</style>
-   <svg class="definition-scale" color="black" font-family="Times, serif" viewBox="0 0 18000 7450">
-      <g class="page-margin" transform="translate(600, 600)">
-         <g data-id="vpqf4qi" data-class="mdiv" class="mdiv pageMilestone" />
-         <g data-id="w14okiq5" data-class="score" class="score pageMilestone" />
-         <g data-id="t7r5ma1" data-class="system" class="system">
-            <path d="M13 270 L13 2515" stroke-width="27" />
-            <g data-id="yvik3wr" data-class="section" class="section systemMilestone" />
-            <g data-id="z1afydnu" data-class="pb" class="pb" />
-            <g data-id="n1raka88" data-class="section" class="section systemMilestone" />
-            <g data-id="n13soshr" data-class="measure" class="measure">
-               <g data-id="w1y99gau" data-class="staff" class="staff">
-                  <path d="M0 270 L2710 270" stroke-width="13" />
-                  <path d="M0 450 L2710 450" stroke-width="13" />
-                  <path d="M0 630 L2710 630" stroke-width="13" />
-                  <path d="M0 810 L2710 810" stroke-width="13" />
-                  <path d="M0 990 L2710 990" stroke-width="13" />
-                  <g data-id="t5cp8s5" data-class="clef" class="clef">
-                     <use xlink:href="#E050-l1ba0yms-B052t" transform="translate(117, 810) scale(0.72, 0.72)" />
-                  </g>
-                  <g data-id="u11wjupc" data-class="keySig" class="keySig" />
-                  <g data-id="v5iphe" data-class="meterSig" class="meterSig">
-                     <use xlink:href="#E083-l1ba0yms-B052t" transform="translate(754, 450) scale(0.72, 0.72)" />
-                     <use xlink:href="#E084-l1ba0yms-B052t" transform="translate(748, 810) scale(0.72, 0.72)" />
-                  </g>
-                  <g data-id="ywp3lsy" data-class="layer" class="layer">
-                     <g data-id="zh6t0hu" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A3-l1ba0yms-B052t" transform="translate(1320, 540) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="abps58h" data-class="dots" class="dots">
-                           <ellipse cx="1636" cy="540" rx="36" ry="36" />
-                        </g>
-                        <g data-id="z1oxhz86" data-class="stem" class="stem">
-                           <path d="M1329 565 L1329 1170" stroke-width="18" />
-                        </g>
-                        <g data-id="ae2nfl2" data-class="accid" class="accid" />
-                        <g data-id="b6d9qsr" data-class="verse" class="verse">
-                           <title class="labelAttr">1</title>
-                           <g data-id="c1xjgt1a" data-class="syl" class="syl">
-                              <text x="1230" y="1617" font-size="0px">
-                                 <tspan data-id="duqvw37" data-class="text" class="text">
-                                    <tspan font-size="405px">O</tspan>
-                                 </tspan>
-                              </text>
-                           </g>
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="b1fwq5f" data-class="staff" class="staff">
-                  <path d="M0 1795 L2710 1795" stroke-width="13" />
-                  <path d="M0 1975 L2710 1975" stroke-width="13" />
-                  <path d="M0 2155 L2710 2155" stroke-width="13" />
-                  <path d="M0 2335 L2710 2335" stroke-width="13" />
-                  <path d="M0 2515 L2710 2515" stroke-width="13" />
-                  <g data-id="wft2yhk" data-class="clef" class="clef">
-                     <use xlink:href="#E052-l1ba0yms-B052t" transform="translate(117, 2335) scale(0.72, 0.72)" />
-                  </g>
-                  <g data-id="x72gyir" data-class="keySig" class="keySig" />
-                  <g data-id="y67d3s1" data-class="meterSig" class="meterSig">
-                     <use xlink:href="#E083-l1ba0yms-B052t" transform="translate(754, 1975) scale(0.72, 0.72)" />
-                     <use xlink:href="#E084-l1ba0yms-B052t" transform="translate(748, 2335) scale(0.72, 0.72)" />
-                  </g>
-                  <g data-id="d1ulazwl" data-class="layer" class="layer">
-                     <g data-id="enve0ij" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A3-l1ba0yms-B052t" transform="translate(1320, 2425) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="c1544kfq" data-class="dots" class="dots">
-                           <ellipse cx="1636" cy="2425" rx="36" ry="36" />
-                        </g>
-                        <g data-id="bk7aug5" data-class="stem" class="stem">
-                           <path d="M1537 2397 L1537 1795" stroke-width="18" />
-                        </g>
-                        <g data-id="f1kcsawv" data-class="accid" class="accid" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="x1qso3sv" data-class="tempo" class="tempo" xml:lang="it">
-                  <text x="758" y="225" font-size="0px" />
-               </g>
-               <g data-id="eke8sw6" data-class="tie" class="tie">
-                  <path d="M1591,428 C1902,275 2543,275 2855,428 C2534,323 1911,323 1591,428" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
-               </g>
-               <g data-id="c5uuyjx" data-class="tempo" class="tempo" xml:lang="it">
-                  <text x="758" y="1750" font-size="0px" />
-               </g>
-               <g data-id="g17m6rxd" data-class="tie" class="tie">
-                  <path d="M1591,2537 C1911,2644 2534,2644 2855,2537 C2543,2692 1902,2692 1591,2537" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
-               </g>
-               <g data-id="v1kxl6bm" data-class="barLine" class="barLine">
-                  <path d="M2697 270 L2697 990" stroke-width="27" />
-                  <path d="M2697 1795 L2697 2515" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="f15tz1ma" data-class="measure" class="measure">
-               <g data-id="o1aniw2b" data-class="staff" class="staff">
-                  <path d="M2710 270 L4291 270" stroke-width="13" />
-                  <path d="M2710 450 L4291 450" stroke-width="13" />
-                  <path d="M2710 630 L4291 630" stroke-width="13" />
-                  <path d="M2710 810 L4291 810" stroke-width="13" />
-                  <path d="M2710 990 L4291 990" stroke-width="13" />
-                  <g data-id="p5p2wp0" data-class="layer" class="layer">
-                     <g data-id="q1xzd1fg" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A3-l1ba0yms-B052t" transform="translate(2900, 540) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="ev0hi8k" data-class="dots" class="dots">
-                           <ellipse cx="3216" cy="540" rx="36" ry="36" />
-                        </g>
-                        <g data-id="d1j4c5q5" data-class="stem" class="stem">
-                           <path d="M2909 565 L2909 1170" stroke-width="18" />
-                        </g>
-                        <g data-id="r132kgna" data-class="accid" class="accid" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="qpx9n9o" data-class="staff" class="staff">
-                  <path d="M2710 1795 L4291 1795" stroke-width="13" />
-                  <path d="M2710 1975 L4291 1975" stroke-width="13" />
-                  <path d="M2710 2155 L4291 2155" stroke-width="13" />
-                  <path d="M2710 2335 L4291 2335" stroke-width="13" />
-                  <path d="M2710 2515 L4291 2515" stroke-width="13" />
-                  <g data-id="r1imzv7z" data-class="layer" class="layer">
-                     <g data-id="s1twzzoq" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A3-l1ba0yms-B052t" transform="translate(2900, 2425) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="ge2htxe" data-class="dots" class="dots">
-                           <ellipse cx="3216" cy="2425" rx="36" ry="36" />
-                        </g>
-                        <g data-id="fctgii3" data-class="stem" class="stem">
-                           <path d="M3117 2397 L3117 1795" stroke-width="18" />
-                        </g>
-                        <g data-id="t1imagc6" data-class="accid" class="accid" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="naxduxd" data-class="barLine" class="barLine">
-                  <path d="M4278 270 L4278 990" stroke-width="27" />
-                  <path d="M4278 1795 L4278 2515" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="s15degoa" data-class="measure" class="measure">
-               <g data-id="bexen6e" data-class="staff" class="staff">
-                  <path d="M4291 270 L7053 270" stroke-width="13" />
-                  <path d="M4291 450 L7053 450" stroke-width="13" />
-                  <path d="M4291 630 L7053 630" stroke-width="13" />
-                  <path d="M4291 810 L7053 810" stroke-width="13" />
-                  <path d="M4291 990 L7053 990" stroke-width="13" />
-                  <g data-id="c1qzjtja" data-class="layer" class="layer">
-                     <g data-id="d1lzatlq" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(4481, 540) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="hdie3ca" data-class="stem" class="stem">
-                           <path d="M4490 568 L4490 1170" stroke-width="18" />
-                        </g>
-                        <g data-id="e1ndhapw" data-class="accid" class="accid" />
-                        <g data-id="fefj8by" data-class="verse" class="verse">
-                           <title class="labelAttr">1</title>
-                           <g data-id="g132a6lv" data-class="syl" class="syl">
-                              <text x="4391" y="1617" font-size="0px">
-                                 <tspan data-id="h5slhgu" data-class="text" class="text">
-                                    <tspan font-size="405px">pro</tspan>
-                                 </tspan>
-                              </text>
-                              <rect x="5993" y="1514" height="22" width="98" />
-                           </g>
-                        </g>
-                     </g>
-                     <g data-id="ini0uyx" data-class="beam" class="beam">
-                        <polygon points="5190,1170 5670,1215 5670,1125 5190,1080" />
-                        <g data-id="j663k4r" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(5190, 540) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="i1hxwu4u" data-class="stem" class="stem">
-                              <path d="M5199 568 L5199 1152" stroke-width="18" />
-                           </g>
-                           <g data-id="k16gcrxl" data-class="accid" class="accid" />
-                        </g>
-                        <g data-id="l1jnoe3u" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(5652, 630) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="jflf6an" data-class="stem" class="stem">
-                              <path d="M5661 658 L5661 1197" stroke-width="18" />
-                           </g>
-                           <g data-id="m16kvxaa" data-class="accid" class="accid" />
-                        </g>
-                     </g>
-                     <g data-id="n1xrzg0d" data-class="beam" class="beam">
-                        <polygon points="6115,1260 6596,1305 6596,1215 6115,1170" />
-                        <g data-id="ogrigzm" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(6115, 540) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="kkkzlg1" data-class="stem" class="stem">
-                              <path d="M6124 568 L6124 1242" stroke-width="18" />
-                           </g>
-                           <g data-id="p1xssucp" data-class="accid" class="accid" />
-                        </g>
-                        <g data-id="qok8avv" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(6578, 720) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="l1fb5vnm" data-class="stem" class="stem">
-                              <path d="M6587 748 L6587 1287" stroke-width="18" />
-                           </g>
-                           <g data-id="r1tq3mrc" data-class="accid" class="accid" />
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="d1z05fsw" data-class="staff" class="staff">
-                  <path d="M4291 1795 L7053 1795" stroke-width="13" />
-                  <path d="M4291 1975 L7053 1975" stroke-width="13" />
-                  <path d="M4291 2155 L7053 2155" stroke-width="13" />
-                  <path d="M4291 2335 L7053 2335" stroke-width="13" />
-                  <path d="M4291 2515 L7053 2515" stroke-width="13" />
-                  <g data-id="ewoyxbo" data-class="layer" class="layer">
-                     <g data-id="fw2d4va" data-class="mRest" class="mRest">
-                        <use xlink:href="#E4E3-l1ba0yms-B052t" transform="translate(5550, 1975) scale(0.72, 0.72)" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="agi25l1" data-class="barLine" class="barLine">
-                  <path d="M7040 270 L7040 990" stroke-width="27" />
-                  <path d="M7040 1795 L7040 2515" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="s16yg3tf" data-class="measure" class="measure">
-               <g data-id="b1hue8xq" data-class="staff" class="staff">
-                  <path d="M7053 270 L9382 270" stroke-width="13" />
-                  <path d="M7053 450 L9382 450" stroke-width="13" />
-                  <path d="M7053 630 L9382 630" stroke-width="13" />
-                  <path d="M7053 810 L9382 810" stroke-width="13" />
-                  <path d="M7053 990 L9382 990" stroke-width="13" />
-                  <g data-id="csm5ecn" data-class="layer" class="layer">
-                     <g data-id="dv60aoj" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(7243, 810) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="mp414hk" data-class="stem" class="stem">
-                           <path d="M7460 782 L7460 180" stroke-width="18" />
-                        </g>
-                        <g data-id="e1ys92sb" data-class="accid" class="accid" />
-                        <g data-id="f1ijnmjd" data-class="verse" class="verse">
-                           <title class="labelAttr">1</title>
-                           <g data-id="g213xuh" data-class="syl" class="syl">
-                              <text x="7153" y="1617" font-size="0px">
-                                 <tspan data-id="htmpb3p" data-class="text" class="text">
-                                    <tspan font-size="405px">les</tspan>
-                                 </tspan>
-                              </text>
-                           </g>
-                        </g>
-                     </g>
-                     <g data-id="i199cj7a" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(7952, 810) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="n16ysznc" data-class="stem" class="stem">
-                           <path d="M8169 782 L8169 180" stroke-width="18" />
-                        </g>
-                        <g data-id="j1ujei22" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="k13u2wz0" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(8660, 990) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="o1l07h0m" data-class="stem" class="stem">
-                           <path d="M8877 962 L8877 360" stroke-width="18" />
-                        </g>
-                        <g data-id="lqa7lw3" data-class="accid" class="accid" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="phi90ge" data-class="staff" class="staff">
-                  <path d="M7053 1795 L9382 1795" stroke-width="13" />
-                  <path d="M7053 1975 L9382 1975" stroke-width="13" />
-                  <path d="M7053 2155 L9382 2155" stroke-width="13" />
-                  <path d="M7053 2335 L9382 2335" stroke-width="13" />
-                  <path d="M7053 2515 L9382 2515" stroke-width="13" />
-                  <g data-id="q165s5wz" data-class="layer" class="layer">
-                     <g data-id="r1cgoscw" data-class="mRest" class="mRest">
-                        <use xlink:href="#E4E3-l1ba0yms-B052t" transform="translate(8096, 1975) scale(0.72, 0.72)" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="a1idfh2v" data-class="barLine" class="barLine">
-                  <path d="M9369 270 L9369 990" stroke-width="27" />
-                  <path d="M9369 1795 L9369 2515" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="muj50xb" data-class="measure" class="measure">
-               <g data-id="v158onbz" data-class="staff" class="staff">
-                  <path d="M9382 270 L11711 270" stroke-width="13" />
-                  <path d="M9382 450 L11711 450" stroke-width="13" />
-                  <path d="M9382 630 L11711 630" stroke-width="13" />
-                  <path d="M9382 810 L11711 810" stroke-width="13" />
-                  <path d="M9382 990 L11711 990" stroke-width="13" />
-                  <g data-class="ledgerLines" class="ledgerLines below">
-                     <g data-class="lineDash" class="lineDash" data-related="#y1l13w7g">
-                        <path d="M10191 1170 L10597 1170" stroke-width="28" />
-                     </g>
-                  </g>
-                  <g data-id="w1lqn3j7" data-class="layer" class="layer">
-                     <g data-id="xxzivus" data-class="rest" class="rest">
-                        <use xlink:href="#E4E5-l1ba0yms-B052t" transform="translate(9572, 630) scale(0.72, 0.72)" />
-                     </g>
-                     <g data-id="y1l13w7g" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(10281, 1170) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="p1no877w" data-class="stem" class="stem">
-                           <path d="M10498 1142 L10498 540" stroke-width="18" />
-                        </g>
-                        <g data-id="zh4rlw4" data-class="accid" class="accid" />
-                        <g data-id="a1scjead" data-class="verse" class="verse">
-                           <title class="labelAttr">1</title>
-                           <g data-id="b1v4mi8k" data-class="syl" class="syl">
-                              <text x="10191" y="1617" font-size="0px">
-                                 <tspan data-id="cio71dz" data-class="text" class="text">
-                                    <tspan font-size="405px">Hi</tspan>
-                                 </tspan>
-                              </text>
-                              <rect x="10691" y="1514" height="22" width="98" />
-                           </g>
-                        </g>
-                     </g>
-                     <g data-id="d1x9b8nm" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(10989, 990) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="q1pxnukd" data-class="stem" class="stem">
-                           <path d="M11206 962 L11206 360" stroke-width="18" />
-                        </g>
-                        <g data-id="e1cepvku" data-class="accid" class="accid" />
-                        <g data-id="ffewqj3" data-class="verse" class="verse">
-                           <title class="labelAttr">1</title>
-                           <g data-id="g1jqddx4" data-class="syl" class="syl">
-                              <text x="10899" y="1617" font-size="0px">
-                                 <tspan data-id="h1i4vf9z" data-class="text" class="text">
-                                    <tspan font-size="405px">spa</tspan>
-                                 </tspan>
-                              </text>
-                              <rect x="12285" y="1514" height="22" width="98" />
-                           </g>
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="bpzwi18" data-class="staff" class="staff">
-                  <path d="M9382 1795 L11711 1795" stroke-width="13" />
-                  <path d="M9382 1975 L11711 1975" stroke-width="13" />
-                  <path d="M9382 2155 L11711 2155" stroke-width="13" />
-                  <path d="M9382 2335 L11711 2335" stroke-width="13" />
-                  <path d="M9382 2515 L11711 2515" stroke-width="13" />
-                  <g data-id="c1vv3f6" data-class="layer" class="layer">
-                     <g data-id="d1h08qz4" data-class="mRest" class="mRest">
-                        <use xlink:href="#E4E3-l1ba0yms-B052t" transform="translate(10425, 1975) scale(0.72, 0.72)" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="u1lg6hrc" data-class="barLine" class="barLine">
-                  <path d="M11698 270 L11698 990" stroke-width="27" />
-                  <path d="M11698 1795 L11698 2515" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="ii8pxqd" data-class="measure" class="measure">
-               <g data-id="r1hi3f5i" data-class="staff" class="staff">
-                  <path d="M11711 270 L14257 270" stroke-width="13" />
-                  <path d="M11711 450 L14257 450" stroke-width="13" />
-                  <path d="M11711 630 L14257 630" stroke-width="13" />
-                  <path d="M11711 810 L14257 810" stroke-width="13" />
-                  <path d="M11711 990 L14257 990" stroke-width="13" />
-                  <g data-id="s16lca2k" data-class="layer" class="layer">
-                     <g data-id="t16fmrfv" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(11901, 1080) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="r1vfv6ar" data-class="stem" class="stem">
-                           <path d="M12118 1052 L12118 450" stroke-width="18" />
-                        </g>
-                        <g data-id="uwl19ss" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="v56g41q" data-class="rest" class="rest">
-                        <use xlink:href="#E4E5-l1ba0yms-B052t" transform="translate(12610, 630) scale(0.72, 0.72)" />
-                     </g>
-                     <g data-id="w19ipz7h" data-class="beam" class="beam">
-                        <polygon points="13526,90 14007,45 14007,135 13526,180" />
-                        <g data-id="x1jgjicb" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(13318, 720) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="s1w56mdq" data-class="stem" class="stem">
-                              <path d="M13535 692 L13535 108" stroke-width="18" />
-                           </g>
-                           <g data-id="yvishav" data-class="accid" class="accid" />
-                           <g data-id="zoxhy1z" data-class="verse" class="verse">
-                              <title class="labelAttr">1</title>
-                              <g data-id="alwqv1u" data-class="syl" class="syl">
-                                 <text x="13228" y="1617" font-size="0px">
-                                    <tspan data-id="b4ndutc" data-class="text" class="text">
-                                       <tspan font-size="405px">ni</tspan>
-                                    </tspan>
-                                 </text>
-                                 <rect x="14364" y="1514" height="22" width="98" />
-                              </g>
-                           </g>
-                        </g>
-                        <g data-id="cjwliaj" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(13781, 630) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="t16usvrj" data-class="stem" class="stem">
-                              <path d="M13998 602 L13998 63" stroke-width="18" />
-                           </g>
-                           <g data-id="d1a48snf" data-class="accid" class="accid" />
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="n254dwm" data-class="staff" class="staff">
-                  <path d="M11711 1795 L14257 1795" stroke-width="13" />
-                  <path d="M11711 1975 L14257 1975" stroke-width="13" />
-                  <path d="M11711 2155 L14257 2155" stroke-width="13" />
-                  <path d="M11711 2335 L14257 2335" stroke-width="13" />
-                  <path d="M11711 2515 L14257 2515" stroke-width="13" />
-                  <g data-id="okz6x9v" data-class="layer" class="layer">
-                     <g data-id="p1rkgo9j" data-class="mRest" class="mRest">
-                        <use xlink:href="#E4E3-l1ba0yms-B052t" transform="translate(12862, 1975) scale(0.72, 0.72)" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="q1jjubn8" data-class="barLine" class="barLine">
-                  <path d="M14244 270 L14244 990" stroke-width="27" />
-                  <path d="M14244 1795 L14244 2515" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="e1j7wabd" data-class="measure" class="measure">
-               <g data-id="n1hxsjsf" data-class="staff" class="staff">
-                  <path d="M14257 270 L16803 270" stroke-width="13" />
-                  <path d="M14257 450 L16803 450" stroke-width="13" />
-                  <path d="M14257 630 L16803 630" stroke-width="13" />
-                  <path d="M14257 810 L16803 810" stroke-width="13" />
-                  <path d="M14257 990 L16803 990" stroke-width="13" />
-                  <g data-id="oizh9w2" data-class="layer" class="layer">
-                     <g data-id="pe5tdeq" data-class="beam" class="beam">
-                        <polygon points="14447,1260 14927,1305 14927,1215 14447,1170" />
-                        <g data-id="qccwzq" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(14447, 540) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="uoweruy" data-class="stem" class="stem">
-                              <path d="M14456 568 L14456 1242" stroke-width="18" />
-                           </g>
-                           <g data-id="r1kqwaz6" data-class="accid" class="accid" />
-                        </g>
-                        <g data-id="srtiklv" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(14909, 720) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="v1vphaku" data-class="stem" class="stem">
-                              <path d="M14918 748 L14918 1287" stroke-width="18" />
-                           </g>
-                           <g data-id="tns2upf" data-class="accid" class="accid" />
-                        </g>
-                     </g>
-                     <g data-id="u11f5x7i" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(15372, 810) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="wced35" data-class="stem" class="stem">
-                           <path d="M15589 782 L15589 180" stroke-width="18" />
-                        </g>
-                        <g data-id="v41gdl9" data-class="accid" class="accid" />
-                        <g data-id="w18qdtct" data-class="verse" class="verse">
-                           <title class="labelAttr">1</title>
-                           <g data-id="xkvxo5i" data-class="syl" class="syl">
-                              <text x="15282" y="1617" font-size="0px">
-                                 <tspan data-id="y1sauss6" data-class="text" class="text">
-                                    <tspan font-size="405px">e,</tspan>
-                                 </tspan>
-                              </text>
-                           </g>
-                        </g>
-                     </g>
-                     <g data-id="zov87br" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(16081, 450) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="x27bmq1" data-class="stem" class="stem">
-                           <path d="M16090 478 L16090 1080" stroke-width="18" />
-                        </g>
-                        <g data-id="a1l6ghnf" data-class="accid" class="accid" />
-                        <g data-id="b1fqeijv" data-class="verse" class="verse">
-                           <title class="labelAttr">1</title>
-                           <g data-id="c1n1oxp4" data-class="syl" class="syl">
-                              <text x="15991" y="1617" font-size="0px">
-                                 <tspan data-id="dplsxs7" data-class="text" class="text">
-                                    <tspan font-size="405px">pa</tspan>
-                                 </tspan>
-                              </text>
-                              <rect x="16589" y="1514" height="22" width="98" />
-                           </g>
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="z11ufdcc" data-class="staff" class="staff">
-                  <path d="M14257 1795 L16803 1795" stroke-width="13" />
-                  <path d="M14257 1975 L16803 1975" stroke-width="13" />
-                  <path d="M14257 2155 L16803 2155" stroke-width="13" />
-                  <path d="M14257 2335 L16803 2335" stroke-width="13" />
-                  <path d="M14257 2515 L16803 2515" stroke-width="13" />
-                  <g data-id="a123goqr" data-class="layer" class="layer">
-                     <g data-id="b1vnm6rv" data-class="mRest" class="mRest">
-                        <use xlink:href="#E4E3-l1ba0yms-B052t" transform="translate(15408, 1975) scale(0.72, 0.72)" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="e167btyi" data-class="tie" class="tie">
-                  <path d="M16352,405 C16434,251 16649,251 16732,405 C16624,300 16459,300 16352,405" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
-               </g>
-               <g data-id="m13sqfra" data-class="barLine" class="barLine">
-                  <path d="M16790 270 L16790 990" stroke-width="27" />
-                  <path d="M16790 1795 L16790 2515" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="ph7ghlu" data-class="sb" class="sb" />
-         </g>
-         <g data-id="w147m53o" data-class="system" class="system">
-            <path d="M13 3785 L13 5994" stroke-width="27" />
-            <g data-id="f29vmiw" data-class="measure" class="measure">
-               <g data-id="o41o939" data-class="mNum" class="mNum autogenerated">
-                  <text y="3542" text-anchor="middle" font-size="0px">
-                     <tspan data-id="p2h0kjq" data-class="text" class="text">
-                        <tspan font-size="324px">8</tspan>
-                     </tspan>
-                  </text>
-               </g>
-               <g data-id="o1jus75t" data-class="staff" class="staff">
-                  <path d="M0 3785 L3299 3785" stroke-width="13" />
-                  <path d="M0 3965 L3299 3965" stroke-width="13" />
-                  <path d="M0 4145 L3299 4145" stroke-width="13" />
-                  <path d="M0 4325 L3299 4325" stroke-width="13" />
-                  <path d="M0 4505 L3299 4505" stroke-width="13" />
-                  <g data-id="xurrh64" data-class="clef" class="clef">
-                     <use xlink:href="#E050-l1ba0yms-B052t" transform="translate(117, 4325) scale(0.72, 0.72)" />
-                  </g>
-                  <g data-id="y1uhi5mq" data-class="keySig" class="keySig" />
-                  <g data-id="qfigi4" data-class="layer" class="layer">
-                     <g data-id="r1gvtvfn" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(852, 3965) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="yn6ipua" data-class="stem" class="stem">
-                           <path d="M861 3993 L861 4595" stroke-width="18" />
-                           <g data-id="z1mdjond" data-class="flag" class="flag">
-                              <use xlink:href="#E241-l1ba0yms-B052t" transform="translate(852, 4595) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="s12htf0x" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="t1fcbju7" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(1292, 4055) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="a17a58y0" data-class="stem" class="stem">
-                           <path d="M1301 4083 L1301 4685" stroke-width="18" />
-                        </g>
-                        <g data-id="ufyih2u" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="v158npgm" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(1966, 4145) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="bag6c6s" data-class="stem" class="stem">
-                           <path d="M1975 4173 L1975 4745" stroke-width="18" />
-                           <g data-id="c5tmdpb" data-class="flag" class="flag">
-                              <use xlink:href="#E241-l1ba0yms-B052t" transform="translate(1966, 4745) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="wjoinco" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="x15hej3t" data-class="beam" class="beam">
-                        <polygon points="2406,4775 2864,4820 2864,4730 2406,4685" />
-                        <g data-id="y15d8gz" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(2406, 4055) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="d1an931t" data-class="stem" class="stem">
-                              <path d="M2415 4083 L2415 4757" stroke-width="18" />
-                           </g>
-                           <g data-id="zy03vhj" data-class="accid" class="accid" />
-                        </g>
-                        <g data-id="a1x4xhiw" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(2846, 4235) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="e1x64zw8" data-class="stem" class="stem">
-                              <path d="M2855 4263 L2855 4802" stroke-width="18" />
-                           </g>
-                           <g data-id="b1sji8v6" data-class="accid" class="accid" />
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="ledch9m" data-class="staff" class="staff">
-                  <path d="M0 5274 L3299 5274" stroke-width="13" />
-                  <path d="M0 5454 L3299 5454" stroke-width="13" />
-                  <path d="M0 5634 L3299 5634" stroke-width="13" />
-                  <path d="M0 5814 L3299 5814" stroke-width="13" />
-                  <path d="M0 5994 L3299 5994" stroke-width="13" />
-                  <g data-id="z19anka9" data-class="clef" class="clef">
-                     <use xlink:href="#E052-l1ba0yms-B052t" transform="translate(117, 5814) scale(0.72, 0.72)" />
-                  </g>
-                  <g data-id="aj3bx23" data-class="keySig" class="keySig" />
-                  <g data-id="m2mxqhz" data-class="layer" class="layer">
-                     <g data-id="nvmruht" data-class="mRest" class="mRest">
-                        <use xlink:href="#E4E3-l1ba0yms-B052t" transform="translate(1864, 5454) scale(0.72, 0.72)" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="nhr4qvj" data-class="barLine" class="barLine">
-                  <path d="M3286 3785 L3286 4505" stroke-width="27" />
-                  <path d="M3286 5274 L3286 5994" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="ca4y42o" data-class="measure" class="measure">
-               <g data-id="l1ke5uns" data-class="staff" class="staff">
-                  <path d="M3299 3785 L5514 3785" stroke-width="13" />
-                  <path d="M3299 3965 L5514 3965" stroke-width="13" />
-                  <path d="M3299 4145 L5514 4145" stroke-width="13" />
-                  <path d="M3299 4325 L5514 4325" stroke-width="13" />
-                  <path d="M3299 4505 L5514 4505" stroke-width="13" />
-                  <g data-id="mcwbu74" data-class="layer" class="layer">
-                     <g data-id="nvg9uer" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(3479, 4325) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="f1nvzxpw" data-class="stem" class="stem">
-                           <path d="M3696 4297 L3696 3695" stroke-width="18" />
-                        </g>
-                        <g data-id="oen46x7" data-class="accid" class="accid" />
-                        <g data-id="pb7xo0l" data-class="verse" class="verse">
-                           <title class="labelAttr">1</title>
-                           <g data-id="q15jo0um" data-class="syl" class="syl">
-                              <text x="3389" y="5132" font-size="0px">
-                                 <tspan data-id="rtsapy5" data-class="text" class="text">
-                                    <tspan font-size="405px">vor</tspan>
-                                 </tspan>
-                              </text>
-                           </g>
-                        </g>
-                     </g>
-                     <g data-id="s5u5n1d" data-class="rest" class="rest">
-                        <use xlink:href="#E4E5-l1ba0yms-B052t" transform="translate(4153, 4145) scale(0.72, 0.72)" />
-                     </g>
-                     <g data-id="tmu2ceb" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(4827, 4235) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="g15fg5lw" data-class="stem" class="stem">
-                           <path d="M5044 4207 L5044 3605" stroke-width="18" />
-                        </g>
-                        <g data-id="u7cfo4i" data-class="accid" class="accid" />
-                        <g data-id="vedslv0" data-class="verse" class="verse">
-                           <title class="labelAttr">1</title>
-                           <g data-id="w13u5uzt" data-class="syl" class="syl">
-                              <text x="4737" y="5132" font-size="0px">
-                                 <tspan data-id="x1uegua7" data-class="text" class="text">
-                                    <tspan font-size="405px">in</tspan>
-                                 </tspan>
-                              </text>
-                              <rect x="5833" y="5029" height="22" width="98" />
-                           </g>
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="x1erosw9" data-class="staff" class="staff">
-                  <path d="M3299 5274 L5514 5274" stroke-width="13" />
-                  <path d="M3299 5454 L5514 5454" stroke-width="13" />
-                  <path d="M3299 5634 L5514 5634" stroke-width="13" />
-                  <path d="M3299 5814 L5514 5814" stroke-width="13" />
-                  <path d="M3299 5994 L5514 5994" stroke-width="13" />
-                  <g data-id="y1c956sv" data-class="layer" class="layer">
-                     <g data-id="zrp33ma" data-class="mRest" class="mRest">
-                        <use xlink:href="#E4E3-l1ba0yms-B052t" transform="translate(4285, 5454) scale(0.72, 0.72)" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="k597cqd" data-class="barLine" class="barLine">
-                  <path d="M5501 3785 L5501 4505" stroke-width="27" />
-                  <path d="M5501 5274 L5501 5994" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="yasc6c1" data-class="measure" class="measure">
-               <g data-id="h18c5ui9" data-class="staff" class="staff">
-                  <path d="M5514 3785 L8282 3785" stroke-width="13" />
-                  <path d="M5514 3965 L8282 3965" stroke-width="13" />
-                  <path d="M5514 4145 L8282 4145" stroke-width="13" />
-                  <path d="M5514 4325 L8282 4325" stroke-width="13" />
-                  <path d="M5514 4505 L8282 4505" stroke-width="13" />
-                  <g data-id="ix5al97" data-class="layer" class="layer">
-                     <g data-id="j19rwabk" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(5694, 4325) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="htlt16l" data-class="stem" class="stem">
-                           <path d="M5911 4297 L5911 3695" stroke-width="18" />
-                        </g>
-                        <g data-id="k1b3f4yy" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="l8cjljq" data-class="rest" class="rest">
-                        <use xlink:href="#E4E6-l1ba0yms-B052t" transform="translate(6368, 4145) scale(0.72, 0.72)" />
-                     </g>
-                     <g data-id="m1vy73ub" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(6808, 4055) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="i19tv4gw" data-class="stem" class="stem">
-                           <path d="M6817 4083 L6817 4685" stroke-width="18" />
-                           <g data-id="jyarzn0" data-class="flag" class="flag">
-                              <use xlink:href="#E241-l1ba0yms-B052t" transform="translate(6808, 4685) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="nqqhki3" data-class="accid" class="accid" />
-                        <g data-id="outql1i" data-class="verse" class="verse">
-                           <title class="labelAttr">1</title>
-                           <g data-id="p1r6ey05" data-class="syl" class="syl">
-                              <text x="6712" y="5132" font-size="0px">
-                                 <tspan data-id="q7d3zs2" data-class="text" class="text">
-                                    <tspan font-size="405px">fi</tspan>
-                                 </tspan>
-                              </text>
-                              <rect x="7010" y="5029" height="22" width="98" />
-                           </g>
-                        </g>
-                     </g>
-                     <g data-id="r1umg4gv" data-class="beam" class="beam">
-                        <polygon points="7456,3650 8055,3560 8055,3650 7456,3740" />
-                        <g data-id="s8wj80e" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(7248, 4235) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="k1jn6u8t" data-class="stem" class="stem">
-                              <path d="M7465 4207 L7465 3668" stroke-width="18" />
-                           </g>
-                           <g data-id="t1pusyk" data-class="accid" class="accid" />
-                           <g data-id="ubcfr46" data-class="verse" class="verse">
-                              <title class="labelAttr">1</title>
-                              <g data-id="vfyo6sh" data-class="syl" class="syl">
-                                 <text x="7158" y="5132" font-size="0px">
-                                    <tspan data-id="w12mrsy5" data-class="text" class="text">
-                                       <tspan font-size="405px">de</tspan>
-                                    </tspan>
-                                 </text>
-                                 <rect x="7591" y="5029" height="22" width="98" />
-                              </g>
-                           </g>
-                        </g>
-                        <g data-id="x1tq814z" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-l1ba0yms-B052t" transform="translate(7829, 4145) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="l15amubl" data-class="stem" class="stem">
-                              <path d="M8046 4117 L8046 3578" stroke-width="18" />
-                           </g>
-                           <g data-id="y1395smu" data-class="accid" class="accid" />
-                           <g data-id="z1k0jikq" data-class="verse" class="verse">
-                              <title class="labelAttr">1</title>
-                              <g data-id="a1q5ft0o" data-class="syl" class="syl">
-                                 <text x="7739" y="5132" font-size="0px">
-                                    <tspan data-id="bltzrce" data-class="text" class="text">
-                                       <tspan font-size="405px">li</tspan>
-                                    </tspan>
-                                 </text>
-                                 <rect x="8119" y="5029" height="22" width="98" />
-                              </g>
-                           </g>
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="jqkp1hb" data-class="staff" class="staff">
-                  <path d="M5514 5274 L8282 5274" stroke-width="13" />
-                  <path d="M5514 5454 L8282 5454" stroke-width="13" />
-                  <path d="M5514 5634 L8282 5634" stroke-width="13" />
-                  <path d="M5514 5814 L8282 5814" stroke-width="13" />
-                  <path d="M5514 5994 L8282 5994" stroke-width="13" />
-                  <g data-id="k45wgdi" data-class="layer" class="layer">
-                     <g data-id="lyrphc7" data-class="mRest" class="mRest">
-                        <use xlink:href="#E4E3-l1ba0yms-B052t" transform="translate(6776, 5454) scale(0.72, 0.72)" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="g1rxvk96" data-class="barLine" class="barLine">
-                  <path d="M8269 3785 L8269 4505" stroke-width="27" />
-                  <path d="M8269 5274 L8269 5994" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="c16123w2" data-class="measure" class="measure">
-               <g data-id="l1b8odyp" data-class="staff" class="staff">
-                  <path d="M8282 3785 L9785 3785" stroke-width="13" />
-                  <path d="M8282 3965 L9785 3965" stroke-width="13" />
-                  <path d="M8282 4145 L9785 4145" stroke-width="13" />
-                  <path d="M8282 4325 L9785 4325" stroke-width="13" />
-                  <path d="M8282 4505 L9785 4505" stroke-width="13" />
-                  <g data-id="m1bj4un6" data-class="layer" class="layer">
-                     <g data-id="n1rnl3ek" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A3-l1ba0yms-B052t" transform="translate(8462, 4055) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="nj2kq7c" data-class="dots" class="dots">
-                           <ellipse cx="8778" cy="4055" rx="36" ry="36" />
-                        </g>
-                        <g data-id="mwzbpcf" data-class="stem" class="stem">
-                           <path d="M8471 4080 L8471 4685" stroke-width="18" />
-                        </g>
-                        <g data-id="ot1q2f5" data-class="accid" class="accid" />
-                        <g data-id="p1v0305d" data-class="verse" class="verse">
-                           <title class="labelAttr">1</title>
-                           <g data-id="q1ai4ak4" data-class="syl" class="syl">
-                              <text x="8372" y="5132" font-size="0px">
-                                 <tspan data-id="r18btfw7" data-class="text" class="text">
-                                    <tspan font-size="405px">um,</tspan>
-                                 </tspan>
-                              </text>
-                           </g>
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="v2uja3k" data-class="staff" class="staff">
-                  <path d="M8282 5274 L9785 5274" stroke-width="13" />
-                  <path d="M8282 5454 L9785 5454" stroke-width="13" />
-                  <path d="M8282 5634 L9785 5634" stroke-width="13" />
-                  <path d="M8282 5814 L9785 5814" stroke-width="13" />
-                  <path d="M8282 5994 L9785 5994" stroke-width="13" />
-                  <g data-id="wg2sese" data-class="layer" class="layer">
-                     <g data-id="x1oxt5jn" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A3-l1ba0yms-B052t" transform="translate(8462, 5904) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="p1epn2e2" data-class="dots" class="dots">
-                           <ellipse cx="8778" cy="5904" rx="36" ry="36" />
-                        </g>
-                        <g data-id="oeviaxr" data-class="stem" class="stem">
-                           <path d="M8679 5876 L8679 5274" stroke-width="18" />
-                        </g>
-                        <g data-id="yta9ilz" data-class="accid" class="accid" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="sj28ptt" data-class="tie" class="tie">
-                  <path d="M8733,3943 C9024,3790 9625,3790 9920,3943 C9615,3838 9034,3838 8733,3943" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
-               </g>
-               <g data-id="z15xrmc" data-class="tie" class="tie">
-                  <path d="M8733,6016 C9033,6123 9616,6123 9920,6016 C9626,6171 9023,6171 8733,6016" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
-               </g>
-               <g data-id="k1tia4if" data-class="barLine" class="barLine">
-                  <path d="M9772 3785 L9772 4505" stroke-width="27" />
-                  <path d="M9772 5274 L9772 5994" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="t17yxth9" data-class="measure" class="measure">
-               <g data-id="c1oq8tth" data-class="staff" class="staff">
-                  <path d="M9785 3785 L11288 3785" stroke-width="13" />
-                  <path d="M9785 3965 L11288 3965" stroke-width="13" />
-                  <path d="M9785 4145 L11288 4145" stroke-width="13" />
-                  <path d="M9785 4325 L11288 4325" stroke-width="13" />
-                  <path d="M9785 4505 L11288 4505" stroke-width="13" />
-                  <g data-id="d1knnhxq" data-class="layer" class="layer">
-                     <g data-id="ev8cit8" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A3-l1ba0yms-B052t" transform="translate(9965, 4055) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="r1qqhuk0" data-class="dots" class="dots">
-                           <ellipse cx="10281" cy="4055" rx="36" ry="36" />
-                        </g>
-                        <g data-id="q17vmvrb" data-class="stem" class="stem">
-                           <path d="M9974 4080 L9974 4685" stroke-width="18" />
-                        </g>
-                        <g data-id="f1hx4xjt" data-class="accid" class="accid" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="jl795if" data-class="staff" class="staff">
-                  <path d="M9785 5274 L11288 5274" stroke-width="13" />
-                  <path d="M9785 5454 L11288 5454" stroke-width="13" />
-                  <path d="M9785 5634 L11288 5634" stroke-width="13" />
-                  <path d="M9785 5814 L11288 5814" stroke-width="13" />
-                  <path d="M9785 5994 L11288 5994" stroke-width="13" />
-                  <g data-id="k1x4q1w3" data-class="layer" class="layer">
-                     <g data-id="lfueezf" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A3-l1ba0yms-B052t" transform="translate(9965, 5904) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="tmh9jvu" data-class="dots" class="dots">
-                           <ellipse cx="10281" cy="5904" rx="36" ry="36" />
-                        </g>
-                        <g data-id="sgcjyo1" data-class="stem" class="stem">
-                           <path d="M10182 5876 L10182 5274" stroke-width="18" />
-                        </g>
-                        <g data-id="mmovsbq" data-class="accid" class="accid" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="b1x2b0as" data-class="barLine" class="barLine">
-                  <path d="M11275 3785 L11275 4505" stroke-width="27" />
-                  <path d="M11275 5274 L11275 5994" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="w193exma" data-class="systemMilestoneEnd" class="systemMilestoneEnd n1raka88" />
-            <g data-id="x1qsxtfk" data-class="systemMilestoneEnd" class="systemMilestoneEnd yvik3wr" />
-            <g data-id="c1n1oxp4" data-class="syl" class="syl id-c1n1oxp4 spanning">
-               <rect x="1291" y="5029" height="22" width="98" />
-               <rect x="2491" y="5029" height="22" width="98" />
-            </g>
-            <g data-id="e167btyi" data-class="tie" class="tie id-e167btyi spanning">
-               <path d="M672,3830 C731,3677 904,3677 965,3830 C876,3725 759,3725 672,3830" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
-            </g>
-         </g>
-         <g data-id="yyptihd" data-class="pageMilestoneEnd" class="pageMilestoneEnd w14okiq5" />
-         <g data-id="z1txtg3f" data-class="pageMilestoneEnd" class="pageMilestoneEnd vpqf4qi" />
-      </g>
-   </svg>
-</svg>
-</figure>
-</tac-brano>
-
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa si impara sentendolo</span>
-      <p>Che a due voci ogni intervallo è <strong>esposto</strong>: non c&rsquo;è una terza voce che copra una quinta scoperta o una dissonanza mal preparata.</p>
-      <p>E che le due voci non sono simmetriche: una fa da base e l&rsquo;altra si muove — proprio come il vostro canto fermo e il vostro contrappunto.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Una differenza da non ignorare</span>
-      <p>Questa musica è di due secoli <strong>prima</strong> di Fux, e i suoi ritardi non seguono ancora tutte le regole della quarta specie. Sentitela come il terreno da cui la regola è venuta, non come un modello da copiare.</p>
-    </div>
-
-    <p class="didascalia">In seconda avete studiato i modi su musiche come questa. Torna qui per un&rsquo;altra ragione — la testura a due voci — e tornerà in quarta per una terza. <strong>Un brano non appartiene all&rsquo;argomento per cui lo si è incontrato la prima volta.</strong></p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La lista di controllo, in sette righe">
-  <div class="slide-interna">
-    <h2>Da passare prima di consegnare</h2>
-
-    <tac-stave clef="treble" time="4/4" caption="La chiusa obbligata: 7-6 sul penultimo, e la sensibile sale" notes="d/5+e/4:w | c/5+e/4:w | c/5+f/4:w" width="470" tempo="42" play></tac-stave>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Le sette domande, in quest&rsquo;ordine</span>
-      <p><strong>1</strong> &middot; Ogni dissonanza è <strong>preparata</strong> dalla stessa nota, consonante, di durata almeno pari?<br>
-      <strong>2</strong> &middot; Ogni dissonanza <strong>scende di un grado</strong>?<br>
-      <strong>3</strong> &middot; La sincope è <strong>continua</strong>, o l&rsquo;interruzione è in un punto ammesso?<br>
-      <strong>4</strong> &middot; Ci sono <strong>quinte o ottave</strong> fra le note che contano davvero, cioè le seconde metà?<br>
-      <strong>5</strong> &middot; La <strong>penultima</strong> battuta ha il ritardo che porta alla cadenza?<br>
-      <strong>6</strong> &middot; La linea ha un <strong>culmine solo</strong>, e non due?<br>
-      <strong>7</strong> &middot; Cantandola, sta dentro una voce sola?</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Perché quest&rsquo;ordine e non un altro</span>
-      <p>Le prime tre riguardano <strong>la specie</strong>, e un errore lì rende inutile controllare il resto. Le altre quattro riguardano la <strong>musica</strong>, e si giudicano solo su un esercizio già corretto.</p>
-      <p>Controllare il culmine di una linea piena di ritardi sbagliati è tempo perso due volte.</p>
-    </div>
-
-    <p class="didascalia">Una lista di controllo vale se è <strong>ordinata</strong> e se è <strong>corta</strong>. Sette punti si tengono a mente dopo tre compiti; venti punti si smette di leggerli dopo il primo.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Officina, seconda parte">
-  <div class="slide-interna">
-    <h2>E adesso uno vero</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">A coppie, 12 minuti</span>
-      <p>Aprite lo spartito che state studiando e cercate <strong>un ritardo</strong>. Quando lo trovate, scrivete tre cose:</p>
-      <p><strong>1.</strong> battuta e voce. <strong>2.</strong> l&rsquo;intervallo della dissonanza e quello della risoluzione. <strong>3.</strong> dov&rsquo;&egrave; la preparazione, cio&egrave; da dove viene quella nota.</p>
-    </div>
-
-    <p>Il punto 3 &egrave; quello che distingue un ritardo da un&rsquo;appoggiatura, e nella met&agrave; dei casi vi far&agrave; cambiare idea su quello che avevate trovato.</p>
-
-    <p class="didascalia">Se non lo trovate, scrivete <strong>dove avete cercato</strong>. Un pezzo senza ritardi esiste, ed &egrave; interessante quanto uno che ne &egrave; pieno &mdash; ma bisogna aver guardato per poterlo dire.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Dove cercare">
-  <div class="slide-interna">
-    <h2>Tre posti dove guardare per primi</h2>
-
-    <tac-brano organico="archi" titolo="A. Corelli, Sonata op. 3 n. 1, Grave" metronomo youtube="X8en712_42s" mappa-video='{"eventi":[[1,9569],[2,17518],[3,25319],[4,34385],[5,41918],[6,49935],[7,57802],[8,66001],[9,73752],[10,81552],[11,89452],[12,97651],[13,105603],[14,113187],[15,120919],[16,128469],[17,136735],[18,146887]],"durata":163000}' esecutore="Ensemble Aurora" partitura="../../_assets/spartiti/A09_corelli.png" riquadri='[[1,26.73,25.96,21.39,11.88],[2,48.12,25.96,13.96,11.88],[3,62.08,25.96,16.14,11.88],[4,78.22,25.96,15.45,11.88],[5,6.53,43.74,26.04,11.88],[6,32.57,43.74,20.59,11.88],[7,53.17,43.74,18.32,11.88],[8,71.49,43.74,22.18,11.88],[9,6.44,61.06,22.18,12.33],[10,28.61,61.06,16.34,12.33],[11,44.95,61.06,15.94,12.33],[12,60.89,61.06,16.83,12.33],[13,77.72,61.06,15.94,12.33],[14,6.53,79.17,21.68,12.52],[15,28.22,79.17,15.94,12.52],[16,44.16,79.17,16.93,12.52],[17,61.09,79.17,16.04,12.52],[18,77.13,79.17,10.69,12.52],[19,87.82,79.17,5.84,12.52]]' inciso="../../_assets/incisioni/A09_corelli.mp3" mappa='{"durata":54465,"eventi":[[0,0],[1,5217],[2,10435],[3,15652],[4,20870],[5,26087],[6,31304],[7,36522],[8,41739],[9,46957]]}' da-battuta="1">
+    <tac-brano organico="archi" titolo="A. Corelli, Sonata a tre op. 3 n. 1, Grave" metronomo youtube="X8en712_42s" mappa-video='{"eventi":[[1,9569],[2,17518],[3,25319],[4,34385],[5,41918],[6,49935],[7,57802],[8,66001],[9,73752],[10,81552],[11,89452],[12,97651],[13,105603],[14,113187],[15,120919],[16,128469],[17,136735],[18,146887]],"durata":163000}' esecutore="Ensemble Aurora" partitura="../../_assets/spartiti/A09_corelli.png" riquadri='[[1,26.73,25.96,21.39,11.88],[2,48.12,25.96,13.96,11.88],[3,62.08,25.96,16.14,11.88],[4,78.22,25.96,15.45,11.88],[5,6.53,43.74,26.04,11.88],[6,32.57,43.74,20.59,11.88],[7,53.17,43.74,18.32,11.88],[8,71.49,43.74,22.18,11.88],[9,6.44,61.06,22.18,12.33],[10,28.61,61.06,16.34,12.33],[11,44.95,61.06,15.94,12.33],[12,60.89,61.06,16.83,12.33],[13,77.72,61.06,15.94,12.33],[14,6.53,79.17,21.68,12.52],[15,28.22,79.17,15.94,12.52],[16,44.16,79.17,16.93,12.52],[17,61.09,79.17,16.04,12.52],[18,77.13,79.17,10.69,12.52],[19,87.82,79.17,5.84,12.52]]' inciso="../../_assets/incisioni/A09_corelli.mp3" mappa='{"durata":54465,"eventi":[[0,0],[1,5217],[2,10435],[3,15652],[4,20870],[5,26087],[6,31304],[7,36522],[8,41739],[9,46957]]}' da-battuta="1">
 <script type="application/json">{"titolo":"A. Corelli, Sonata op. 3 n. 1, Grave","metro":"4/4","bpm":46,"battute":10,"anacrusi":0.0,"voci":[[[0.0,1.5,84],[1.5,0.5,84],[2.0,1.0,82],[3.0,1.0,81],[4.0,2.0,79],[6.0,0.5,81],[6.5,0.5,82],[7.0,1.0,84],[8.0,0.5,84],[8.5,0.5,77],[9.0,2.0,82],[11.0,1.0,81],[12.0,2.0,79],[14.0,2.0,77],[16.0,1.5,81],[17.5,0.5,81],[18.0,1.5,79],[19.5,0.25,81],[19.75,0.25,79],[20.0,1.5,77],[21.5,0.25,79],[21.75,0.25,77],[22.0,1.5,76],[23.5,0.5,79],[24.0,0.5,81],[24.5,0.5,74],[25.0,0.5,74],[25.5,0.5,74],[26.0,0.5,74],[26.5,0.5,72],[27.5,0.5,79],[28.0,0.25,81],[28.25,0.25,79],[28.5,0.25,77],[28.75,0.25,76],[29.0,1.0,74],[30.0,1.0,72],[31.0,1.0,77],[32.0,1.0,77],[33.0,1.0,76],[34.0,2.0,81],[36.0,1.0,81],[37.0,2.0,79],[39.0,1.0,77]],[[0.0,1.5,81],[1.5,0.5,81],[2.0,1.0,79],[3.0,1.0,77],[4.0,2.0,76],[6.0,1.5,77],[7.5,0.5,76],[8.0,1.5,74],[9.5,0.5,79],[10.0,0.5,76],[10.5,0.5,72],[11.0,1.0,77],[12.0,1.0,77],[13.0,0.75,77],[13.75,0.25,76],[14.0,2.0,77],[16.0,1.0,84],[17.0,1.0,77],[18.0,0.5,77],[18.5,0.25,76],[18.75,0.25,74],[19.0,1.0,76],[20.0,0.5,76],[20.5,0.5,69],[21.0,1.0,74],[22.0,0.5,74],[22.5,0.5,67],[23.0,1.0,72],[24.0,1.0,72],[25.0,1.0,72],[26.0,1.0,72],[27.5,0.5,76],[28.0,0.25,69],[28.25,0.25,71],[28.5,0.5,72],[29.0,0.75,72],[29.75,0.25,71],[30.0,1.0,72],[32.0,3.0,79],[35.0,1.0,77],[36.0,2.0,82],[38.0,2.0,81]],[[0.0,1.5,53],[1.5,0.5,53],[2.0,1.0,55],[3.0,0.5,57],[3.5,0.5,58],[4.0,2.0,60],[6.0,1.0,57],[7.0,1.0,45],[8.0,1.5,46],[9.5,0.5,46],[10.0,0.5,48],[10.5,0.5,60],[11.0,0.5,62],[11.5,0.5,57],[12.0,0.5,58],[12.5,0.5,55],[13.0,0.5,60],[13.5,0.5,48],[14.0,2.0,53],[16.0,0.5,53],[16.5,0.5,55],[17.0,0.5,57],[17.5,0.5,53],[18.0,0.5,60],[18.5,0.5,48],[19.0,0.5,52],[19.5,0.5,48],[20.0,0.5,50],[20.5,0.5,48],[21.0,0.5,47],[21.5,0.5,43],[22.0,1.5,48],[23.5,0.5,52],[24.0,1.0,53],[25.0,1.0,55],[26.0,1.0,57],[27.0,1.0,52],[28.0,1.0,53],[29.0,1.0,55],[30.0,0.5,48],[30.5,0.5,60],[31.0,0.5,57],[31.5,0.5,53],[32.0,0.5,58],[32.5,0.5,55],[33.0,0.5,60],[33.5,0.5,48],[34.0,0.5,53],[34.5,0.5,55],[35.0,0.5,57],[35.5,0.5,53],[36.0,0.5,50],[36.5,0.5,50],[37.0,0.5,52],[37.5,0.5,48],[38.0,0.5,53],[38.5,0.5,55],[39.0,0.5,57],[39.5,0.5,45]]]}</script>
 </tac-brano>
-
-    <p>Il Grave che avete gi&agrave; aperto tre volte: sonate da chiesa a tre, stampate a <strong>Roma nel 1689</strong>. Un adagio di Corelli &egrave; il posto pi&ugrave; denso di ritardi che si possa mettere in mano a una terza, e per una ragione di mestiere: due violini che si scambiano dissonanze preparate sono <em>il</em> suono della sonata a tre.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Se non sapete da dove cominciare</span>
-      <p><strong>Le cadenze</strong> &mdash; poco prima di ogni chiusa importante. &Egrave; il posto pi&ugrave; affollato di tutti.<br>
-      <strong>Dove il basso sta fermo</strong> e sopra qualcosa si muove: se una voce resta e le altre cambiano, guardate quella.<br>
-      <strong>Dove c&rsquo;&egrave; una legatura</strong> che scavalca una stanghetta. Non tutte sono ritardi, ma tutti i ritardi scritti in contrappunto lo sono.</p>
+    <tac-stave time="4/4"
+           keysig="F"
+           caption="A. Corelli, op. 3 n. 1, Grave, bb. 8–12 (corpus music21): violini sul rigo acuto, continuo sul grave"
+           soprano="a/5:16 g/5:16 f/5:16 e/5:16 d/5:q c/5:q f/5:q~ | f/5:q e/5:q a/5:h~ | a/5:q g/5:h f/5:q~ | f/5:q e/5:q~ e/5:8 a/4:8 d/5:q~ | d/5:q d/5:8. c#/5:16 d/5:q b/4:q"
+           contralto="a/4:16 bn/4:16 c/5:8 c/5:8. bn/4:16 c/5:q r:q | g/5:h. f/5:q | b/5:h a/5:h | g/5:h f/5:q. a/5:8 | b/5:8 e/5:8 e/5:q d/5:h"
+           basso="f/3:q g/3:q c/3:8 c/4:8 a/3:8 f/3:8 | b/3:8 g/3:8 c/4:8 c/3:8 f/3:8 g/3:8 a/3:8 f/3:8 | d/3:8 d/3:8 e/3:8 c/3:8 f/3:8 g/3:8 a/3:8 a/2:8 | bn/2:q c#/3:q d/3:q. f/3:8 | g/3:8 e/3:8 a/3:8 a/2:8 d/3:q r:q"
+           segna="b2=9–6 · b3=6/5–5, poi 9–6 · b4=6/5–6/5, poi 9–8 · b5=cadenza in re minore"
+           width="900"
+           tempo="46" play></tac-stave>
+    <div class="analisi-prosa">
+      <p>Le cifre dell&rsquo;edizione per il basso continuo (Joachim&ndash;Chrysander) segnano la catena: 9&ndash;6 alla b.&nbsp;9; 6/5, 5, 9&ndash;6 alla b.&nbsp;10; 6/5, 6/5, 9&ndash;8 alla b.&nbsp;11. Sul primo tempo della b.&nbsp;10 il violino I tiene il <em>la</em> mentre il violino II attacca il <em>si&#9837;</em>: sopra il <em>re</em> del basso &egrave; un IV<span class="cifrata"><sup>6</sup><sub>5</sub></span> di fa, e il <em>la</em> &egrave; la sua settima, preparata sulla battuta prima. Sul secondo tempo il <em>la</em> scende al <em>sol</em> e il violino II tiene il <em>si&#9837;</em>, quinta diminuita sopra il <em>mi</em> (il VII); sul terzo il <em>si&#9837;</em> scende al <em>la</em> e il violino I tiene il <em>sol</em>, nona sopra il <em>fa</em>, che scende al <em>fa</em> quando il basso passa al <em>la</em>: IV<span class="cifrata"><sup>6</sup><sub>5</sub></span>&ndash;VII&ndash;I.</p>
+      <p>La b.&nbsp;11 ripete la b.&nbsp;10 una terza sotto. Il basso sale <em>si&#9838;</em>&ndash;<em>do&#9839;</em>&ndash;<em>re</em> come prima era salito <em>re</em>&ndash;<em>mi</em>&ndash;<em>fa</em>, e i due violini ripetono lo scambio una terza pi&ugrave; in basso (<em>fa</em> contro <em>sol</em>, poi <em>mi</em> contro <em>sol</em>, poi la nona <em>mi</em> sopra il <em>re</em>): &egrave; la ripresa del modello in re minore, con il sesto e il settimo grado alzati. La nona della b.&nbsp;11 scende all&rsquo;ottava passando per il <em>la</em>, e la b.&nbsp;12 chiude la cadenza nella tonalit&agrave; nuova. In due battute la catena &egrave; insieme contrappunto di quarta specie, successione di ritardi e modulazione alla relativa.</p>
     </div>
 
-    <p class="didascalia">Nel repertorio barocco il terzo criterio da solo ne trova nove su dieci. Nel repertorio classico e romantico meno: l&igrave; il ritardo &egrave; spesso ribattuto, come nel corale di ieri.</p>
+    <div class="riquadro attenzione">
+      <span class="etichetta">L&rsquo;errore tipico</span>
+      <p>Leggere la catena una voce alla volta. Ciascun violino, da solo, &egrave; una linea che scende per grado con qualche nota legata; la dissonanza nasce soltanto fra i due, o fra uno dei due e il basso, e cambia voce a ogni tempo. Si analizza tempo per tempo: chi tiene, chi attacca, contro chi &egrave; dissonante la nota tenuta.</p>
+    </div>
   </div>
 </section>
-
-<section class="slide" data-titolo="L&rsquo;errore da non fare">
+<section class="slide" data-titolo="Lavoro guidato" data-in-classe>
   <div class="slide-interna">
-    <h2>L&rsquo;errore da non fare, e capita a tutti</h2>
+    <h2>Lavoro guidato: una catena di 7&ndash;6 su dieci battute</h2>
 
-    <div class="riquadro errore">
-      <span class="etichetta">Chiamare ritardo ogni nota lunga</span>
-      <p>Si trova una nota che dura e si dichiara un ritardo. Ma se sul tempo forte quella nota &egrave; <strong>consonante</strong>, non c&rsquo;&egrave; nessun ritardo: c&rsquo;&egrave; una nota tenuta, che &egrave; una cosa normale.</p>
+    <div class="riquadro compito">
+      <span class="etichetta">Guidato &middot; 12 minuti</span>
+      <ol class="spaziato">
+        <li>Sopra il basso dato scrivere la voce superiore: pausa di minima e <em>sol</em><sub>5</sub> alla b.&nbsp;1, sesta (composta) sopra il <em>si</em>.</li>
+        <li>Da l&igrave;, una catena di 7&ndash;6: ogni minima del tempo debole &egrave; la sesta sopra il basso ed &egrave; legata alla battuta dopo, dove diventa settima.</li>
+        <li>Sotto ogni battuta scrivere la cifra; poi, soppressa la sincope, controllare che restino seste parallele.</li>
+        <li>Chiudere alla b.&nbsp;10 sull&rsquo;ottava, arrivando dal <em>fa&#9839;</em>.</li>
+      </ol>
     </div>
-
-    <div class="riquadro regola">
-      <span class="etichetta">Le due domande, in ordine</span>
-      <p><strong>1.</strong> Sul tempo forte, quella nota &egrave; dissonante col basso? Se no, si chiude qui.<br>
-      <strong>2.</strong> Se s&igrave;: da dove viene, e dove va? Deve venire da una consonanza e scendere di un grado.</p>
-    </div>
-
-    <p class="didascalia">La prima domanda scarta i tre quarti dei falsi allarmi, e costa cinque secondi. Farla per seconda &egrave; il modo pi&ugrave; efficiente di perdere tempo.</p>
+    <tac-stave clef="bass"
+           time="4/4"
+           keysig="G"
+           caption="Il basso dato, sol maggiore, 10 bb."
+           notes="b/3:w | a/3:w | g/3:w | f/3:w | e/3:w | d/3:w | c/3:w | b/2:w | a/2:w | g/2:w"
+           width="900"
+           tempo="52" play></tac-stave>
+    <tac-chiuso invito="La soluzione &mdash; si apre alla correzione" sale="WH1nWfC3yoeJu3LZ0iNgyg==" iv="NjkCt0Pfs5uRrV0K" dati="7XmN546IbqhkByjmkQ/gGHryPh+O3CHF9vY+P00gPn3aZlSLUIN6bpOgQOdImexYsqALa0ax+ktEIT/HlrOO50fo1CtWUX14MmWirwJhkSyUKAZ7oU/SASYiX0G9l4KyKoI2cXa8px3P8DZmY8zFkWEPuAyQY4wLhANmqBRfuGzg/3cq9tduvjZ88Ov//V9KWBKXhy4bACqDuSxH/8t/JGToalNTY4pWnkrH5PGviAk7vHqrzCcWVmG/R/dJjtwOtNwk9qVfIls/0+7Qp/4xI4hkh5NzXd7FCeqe15WgExvqaQvrsiePFRkp1KwWKaDzRhQ8aZ5LW1e+lXBo5wgyIChszW72rDAnF2lq9l8nVe1F5OpZBX+I+CcfFTxHzEN55ndgiAFHguM288CQ/4NAuqcE/UJNZno9yOmhBT5Zvl3jGy97emdspToA/Kof6OzBbe5zsnBkPG99oJTvWWvxG2rArFWfx0knGzo2b8nvJgBEk5qCBz3L+ypuvIbVw32ly2TFWGPVtmuyRXm8wHETnw7hKJ/sYqFs6JVb8DyAUAxOChWzb5tnZ04nt0dt8uGCKz93VBZKAfsYJBB5LAuEjgV3bPRviFjk8tG0mCre7uHj58PA9qqzgRnVplqMaBovxb0mGSN5ENpFHrfpR0BS+EbwNnNfHO7Oj9njZOCpmdFY+9zF5Cx9MXx5UdPPqhm6dqnV1Y9K/YSCIsZrQye+g3GLFJmFYRWMCnLUchYb6efgVgcHP8DPpt6Lbkk5AyzJ6KlRy8gmiZKwRAEpONMEc5a1m0TqyxS/BHa5B687OvBe8aY7fAO9SlxVjqIEHlwmsr9nzHz+Rp5wY2e7A+lEhLdQW2mytKr94o6H3RyqgbxAbC3xi2X5Nrcar+zB/pOY43eLvM2FQc5FBGU9Gk9paDdxvlgU1oCoeBx/Nl7cJpLa2pG5o2jFt/M4SVx0/LK4XUTFcN1/e11USxhAkB5eAsOhUl3xfOOqCcdNtnMjUV9w6QthPuGl/c3+IHH83pV1Y+N+OX0dcVOm2MmWfTrKDE8/PY8aCdm1gnhFZ+EnjQQuBkT1cR9dPwWP85+7rqLPpwkL6PeVsY66JSjbUKC/rSNTr5Ih5G4m90Qj4jaxIdjtHX5QLh0vjIchYm4IiCyG6SBxTQf653J4lpl0OgiBWtyeZrC3gNLSCOWSSWGyb3aj46+WDY1tTSd2M8Xv1Q3ABFY7sus/xx9Rjzmo/eq/QSa5GXs="></tac-chiuso>
   </div>
 </section>
-
-<section class="slide" data-titolo="Che cosa portiamo a casa">
+<section class="slide" data-titolo="Sintesi">
   <div class="slide-interna">
-    <h2>Che cosa portiamo a casa</h2>
+    <h2>Sintesi</h2>
 
-    <div class="riquadro definizione">
-      <span class="etichetta">Le tre cose di oggi</span>
-      <p><strong>La quarta specie si scrive a ritroso</strong>: ogni nota &egrave; vincolata da quella dopo.<br>
-      <strong>Le parallele si controllano sopprimendo le sincopi</strong>, e sui tempi forti sono permesse.<br>
-      <strong>Una nota lunga non &egrave; un ritardo</strong> finch&eacute; non &egrave; dissonante sul forte.</p>
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">La catena</span>
+        <p>La risoluzione di ogni ritardo prepara il successivo. Seste parallele con la voce superiore sincopata: 7&ndash;6. Terze o decime con la voce inferiore sincopata: 2&ndash;3. Non si concatenano 9&ndash;8 (ottave) n&eacute; 4&ndash;5 (quinte). Negli esercizi, non pi&ugrave; di tre ritardi uguali di seguito.</p>
+      </div>
+      <div class="riquadro definizione">
+        <span class="etichetta">La progressione di Corelli</span>
+        <p>Due violini a distanza di seconda o di terza, ciascuno tiene la nota mentre l&rsquo;altro attacca: sul basso il modello IV<span class="cifrata"><sup>6</sup><sub>5</sub></span>&ndash;VII&ndash;I, ripetuto una terza sotto, porta da fa a re minore (Grave, bb.&nbsp;9&ndash;12).</p>
+      </div>
     </div>
 
-    <p>E l&rsquo;unit&agrave; &egrave; quasi finita. Restava una domanda dall&rsquo;ora 31, e adesso avete la risposta: davanti a una dissonanza, <strong>da dove viene?</strong> Dal disegno, o dal fatto che una nota &egrave; rimasta ferma.</p>
-
-    <p class="didascalia">L&rsquo;ora prossima si canta: canone alla mente a due voci, venti minuti, e poi le interrogazioni. &Egrave; la stessa cosa di oggi fatta senza carta, ed &egrave; molto pi&ugrave; difficile.</p>
+    <p class="didascalia">Per casa, una catena di 2&ndash;3 sotto una voce data in re maggiore, con la versione senza sincope. L&rsquo;ora si chiude con il solfeggio parlato, cantato e ritmico, in fondo alla pagina. Lezione 5: l&rsquo;officina, la quarta specie sul canto dato e un basso di sedici battute con ritardi.</p>
   </div>
 </section>
-
 <section class="slide compiti-slide" data-titolo="Compiti · lo scritto" data-segno
          style="--segno: url('../../_assets/segni/segno-24.png')">
   <div class="slide-interna">
     <p class="compiti-occhiello">Compiti per la prossima volta</p>
-    <h2>1 &middot; Scritto: Quarta specie, sopra e sotto</h2>
+    <h2>1 &middot; Scritto: Una catena di 2–3 nel basso, in re maggiore (dieci battute)</h2>
     <div class="riquadro compito">
-      <p>Il canto dato dell&rsquo;officina, <strong>due volte</strong>: una col contrappunto <strong>sopra</strong> e una col contrappunto <strong>sotto</strong>.</p>
-      <p>Si scrive <strong>a ritroso</strong>, dall&rsquo;ultima battuta. Segna a margine, per ogni battuta, l&rsquo;intervallo sul tempo forte, e cerchia le dissonanze. Alla fine sopprimi le sincopi e ricontrolla: se la versione senza sincopi ha quinte o ottave parallele, le ha anche quella con.</p>
+      <p>Sotto la voce data (re maggiore, dieci semibrevi che scendono per grado) scrivere il basso in sincopi: pausa di minima e <em>re</em><sub>4</sub> alla b.&nbsp;1, decima sotto il <em>fa&#9839;</em>; poi una catena di 2&ndash;3 (alla decima, 9&ndash;10) fino alla b.&nbsp;9, e il <em>re</em> finale.</p>
+      <p>Sotto ogni battuta la cifra (9&ndash;10). Poi, su un secondo rigo, la stessa catena con la sincope soppressa: si tolgono le note tenute e restano le risoluzioni. Che intervallo resta fra le due voci, battuta per battuta? Perch&eacute; una catena di 9&ndash;8 non si potrebbe scrivere nello stesso modo?</p>
     </div>
-    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C3-U5-L5-01</strong>.</p>
+    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C3-U5-L4-04</strong>.</p>
   </div>
 </section>
 
@@ -1733,20 +310,20 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <h2>2 &middot; Solfeggio e 3 &middot; dettato</h2>
     <div class="riquadro compito">
       <span class="etichetta">2 &middot; Solfeggio, dal quaderno di lettura</span>
-      <p><a href="../materiali/solfeggi-classe-3.html#n298"><strong>n.&nbsp;298</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n299"><strong>n.&nbsp;299</strong></a> <em>parlato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-3.html#n300"><strong>n.&nbsp;300</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n301"><strong>n.&nbsp;301</strong></a> <em>cantato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-3.html#n302"><strong>n.&nbsp;302</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n303"><strong>n.&nbsp;303</strong></a> <em>ritmico</em></p>
+      <p><a href="../materiali/solfeggi-classe-3.html#n288"><strong>n.&nbsp;288</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n289"><strong>n.&nbsp;289</strong></a> <em>parlato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-3.html#n290"><strong>n.&nbsp;290</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n291"><strong>n.&nbsp;291</strong></a> <em>cantato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-3.html#n292"><strong>n.&nbsp;292</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n293"><strong>n.&nbsp;293</strong></a> <em>ritmico</em></p>
       <p class="rimando">Ogni pezzo a tempo, senza fermarti: il parlato a nomi, il cantato prendendo il primo suono dalla tastiera, il ritmico battendo la pulsazione.</p>
     </div>
-    <div class="riquadro compito dettato-casa" id="C3-D-U05-L5">
-      <span class="etichetta">3 &middot; Dettato <span class="dettato-sigla">C3-D-U05-L5</span></span>
-      <p>Scrivi <strong>la melodia</strong> sul quaderno, in chiave di violino: otto battute in 2/2, do maggiore. Il primo suono è <strong>mi</strong>. Prima il riferimento, poi tutto due volte, ogni coppia di battute due volte, il collegamento 1–4, 3–6 e 5–8, e tutto per controllare.</p>
+    <div class="riquadro compito dettato-casa" id="C3-D-U05-L4">
+      <span class="etichetta">3 &middot; Dettato <span class="dettato-sigla">C3-D-U05-L4</span></span>
+      <p>Scrivi <strong>la linea del basso</strong> sul quaderno, in chiave di basso: otto battute in 4/4, fa maggiore. Il primo suono è <strong>la</strong>. Prima il riferimento, poi tutto due volte, ogni coppia di battute due volte, il collegamento 1–4, 3–6 e 5–8, e tutto per controllare.</p>
       <div class="dettato-ascolti">
         <div><p class="didascalia">Il riferimento: accordo di tonica e primo suono</p>
-          <tac-stave nascondi riferimento clef="treble" time="2/2" keysig="C" notes="c/4:q e/4:q g/4:q c/5:q | e/4:w" tempo="80" play></tac-stave></div>
+          <tac-stave nascondi riferimento clef="bass" time="4/4" keysig="F" notes="f/3:q a/3:q c/4:q f/4:q | a/3:w" tempo="80" play></tac-stave></div>
         <div><p class="didascalia">Il dettato &middot; otto battute</p>
-          <tac-stave nascondi cifrato guidato="melodico" clef="treble" time="2/2" keysig="C" notes="dzo0L2MgfCBxOjQvZCA4OjQvZSA4OjQvZCBxOjQvZyBxOjQvZyB8IHE6NC9lIHE6NC9lIHE6NC9jIHE6NC9jIHwgcTo0L2UgcTo0L2UgcTo0L2cgcTo0L2cgfCA4OjQvYSA4OjQvYSBxOjQvYiBoOjQvZyB8IDg6NC9mIDYxOjQvZyA2MTo0L2EgODo0L2IgODo1L2MgODo0L2EgODo0L2cgcTo0L2YgfCA2MTo0L2cgNjE6NC9hIDYxOjQvYiA2MTo0L2EgNjE6NC9nIC44OjQvZiBxOjQvYSBxOjQvZiB8IGg6NC9lIHE6NC9nIHE6NC9l" tempo="60" play></tac-stave></div>
+          <tac-stave nascondi cifrato guidato="basso" clef="bass" time="4/4" keysig="F" notes="dzozL2YgfCBoOjMvZyA2MTozL2EgNjE6My9nIDYxOjMvZiA2MTozL2UgcTozL2cgfCBoOjMvYSBxOjMvYSBxOjMvZiB8IDYxOjMvZyAuODozL2EgcTozL2EgcTozL2YgODozL2cgODozL2EgfCBoOjMvZSBxOjMvZyA2MTozL2EgLjg6My9nIHwgdzo0L2QgfCA4OjQvYyA4OjMvYmIgcTozL2JiIDYxOjQvYyAuODo0L2QgcTozL2JiIHwgaDo0L2MgaDozL2E=" tempo="60" play></tac-stave></div>
       </div>
       <p class="rimando">Le sezioni (riferimento, tutto, le coppie, il collegamento) si ascoltano una per una e si ripetono quanto serve; le <strong>fasi</strong> fanno la procedura della classe, con gli annunci e le pause, da qualunque punto.</p>
-      <p class="rimando">Sul quaderno scrivi in testa la sigla <strong>C3-D-U05-L5</strong>. Si corregge all&rsquo;inizio della prossima lezione.</p>
+      <p class="rimando">Sul quaderno scrivi in testa la sigla <strong>C3-D-U05-L4</strong>. Si corregge all&rsquo;inizio della prossima lezione.</p>
     </div>
   </div>
 </section>
@@ -1756,30 +333,30 @@ try { module = undefined; exports = undefined; } catch (e) {}
   <div class="slide-interna">
     <p class="compiti-occhiello">Compiti per la prossima volta</p>
     <h2>Scrittura: contrappunto e armonia</h2>
-    <div class="riquadro compito scrittura-casa" id="C3-CP-U05-L5">
-      <span class="etichetta">4 &middot; Contrappunto <span class="dettato-sigla">C3-CP-U05-L5</span></span>
-      <p>Scrivi un contrappunto di <strong>quarta specie (la sincope)</strong> sopra il canto fermo, in modo misolidio (finale sol): dieci battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
-      <tac-stave caption="Il canto fermo" clef="bass" time="4/4" notes="g/3:w | a/3:w | g/3:w | d/4:w | c/4:w | b/3:w | g/3:w | c/4:w | a/3:w | g/3:w" tempo="72" play></tac-stave>
-      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-CP-U05-L5</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="BT4VyZywnbS/3kK5Vwkw4A==" iv="AxICUnvpRGQFWbZr" dati="aqRMYS6RT+JfctfzkPMbHiTCRJulM6qav/zBIPyen8w6khEPx9wJmdaM3o4a0N4aR1+QZGdP7jA/GYFFBxsXwU+zlgnqo6EygPN1qWo7rOO6w8lzahwuK7AKi3qb4FjVPVK7p+OhJ/t7ynMK5j0XpMyb7VSZbDuqqUXjco/3lrbcp0jpEfltec9xIIUHvVajtXNBJMQChT4qsayLv8LpjZhJfehcc7HeyiiRHYsC65Y79xXimOXmeySwoEfPtGjDaZfLBdGekzRY/0GBFVORYElyECYtSGqcGWdnoY/ODBjBHkslvXeTWE3ugGkt4kTRuWM8Z2tHXyWnLX0XOFHJhtdYArFkDbf9onzWDwLOdb3PE1WFUFDFR1zFtMuTGU6Z+oM4B9+V0IzFqy8idPqw1rUIde5SBYhQZZsOjhqHR8Dwrj8f/f7skekurZfNOjV5W11cCXv55liovGcZp6fbKQ=="></tac-chiuso>
+    <div class="riquadro compito scrittura-casa" id="C3-CP-U05-L4">
+      <span class="etichetta">4 &middot; Contrappunto <span class="dettato-sigla">C3-CP-U05-L4</span></span>
+      <p>Scrivi un contrappunto di <strong>quarta specie (la sincope)</strong> sopra il canto fermo, in modo dorico (finale re): dieci battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
+      <tac-stave caption="Il canto fermo" clef="bass" time="4/4" notes="d/3:w | c/3:w | b/2:w | a/2:w | c/3:w | b/2:w | a/2:w | d/3:w | e/3:w | d/3:w" tempo="72" play></tac-stave>
+      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-CP-U05-L4</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="Su8qJhzdGmNz2E+EoAOjAg==" iv="SfPYEFW5L4Vh5lVG" dati="guZeAcDlzzwZPgGtTkGdjzqyLnvrIQe10yG2jtGSDdjJMEQNR+n5tv1CP6ZTtv2lvuJEejxcrrk5s0IR8wO2jbozOiBA9/7huNs974DDaxYI8TyOm6K3W6SuSO2rgiWcRf8AfQr2bRzs8B802a7YEb+5KwYmNnyhFbfVPuw1XNvE7YrCGRAV7xGmi/K1/A4Oe+nUfMk4Z553bb0ZG71gP4OLJxIzJwpzoWFn0IT+0Ro0b4Tp+Wi3rKnfW6yfie5hdOMdvIykW611RhOXz5kaw2DRX/NO4wsuFaD35t/+aY1VS09tG573Yk1l98AllvmImBS6gCyQKzzHgS4sctCE1PIIngi19X+FRnu+kQpt8mYYUsJfWm/X8AH876+2WZ/AMM9KT+xpFpshbjn6V0DxZdGcah848EtxrO0ZUYHsmG/c7BJM2hgEkeuI+cwx7GGBRDpk6h/d6pT4+nK73ablhA=="></tac-chiuso>
     </div>
-    <div class="riquadro compito scrittura-casa" id="C3-BD-U05-L5">
-      <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C3-BD-U05-L5</span></span>
-      <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: otto battute in 4/4, la maggiore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: le triadi principali in tutti i rivolti, la quarta e sesta di cadenza, il vii°6.</p>
-      <tac-stave caption="Il basso" clef="bass" keysig="A" time="4/4" notes="a/2:h d/3:h | b/2:h c/3:h | d/3:h b/2:h | a/2:h d/3:h | b/2:h c/3:h | d/3:w | e/3:h e/2:h | a/2:w" tempo="60" play></tac-stave>
-      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-BD-U05-L5</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="bz08IXaDJceUnblVeqbicg==" iv="nhImctdAGItnAdyS" dati="ZeSljMtKyp+RWd+0/I3XxpvqTWXBy5hshBDL+A9HUXSFmDOnVzdAfM2zBKe/Q1SjkC0uN9o15sC+IQIjfWDIRnyprf1bLKvObnWFz9tul/eaLRMFHsPCqTxacUIv7Jj5dlD4MMb887/NJ5667DrM4slPuFKTasraQyAG+58LetImtmyStI/4XSd/CaNde9q7HJX8yJrwopxxL/G/65KBB8bUCnt0nYxl7mczGfDWdO4VuqSMRanlRILzwTkaVWaFg5ulWfhmgPyniS5y/mceyZ5Vk2fAMY1hTc9CzjSRUD0ac2fzLwEKCT01pf81gMi5OAKl8txS/bgRuuRNNDom0sEhjbSPS03+pNuXoj5V9M5vvTGgPNSWIvYVb9oHr0Z45LC47F/WD4A/p7da75Ia5wE0Rcv0pbvjT7dwEVUycQbTaqinTaEh4PQHOr0yUb1+MPFizKiVLzE0np4lDgsKfmBc4X3c5zjmoDh6K4FnUB96zSHGlb3PnH1aRDZvmndz8REGi2171XeAPZSDRgJ4xWAypkgABIIdlJRjRLhEF5TQHspsBZkMfl2msgojrE3Mf7Vz8tylbTzGDgpKvqXTqKlTvZuCZVWG47NLNiihY9jqIfrmHVKafuzSj4oNOb12DUlpY+6LtRGbrmsspJ9vrdV8vb6hpLhdeJRDlJb165m9rEh6f30lfescj2SvDC9QouAxtoJTDMOJ0LVj1xKKPY8AkoWTBak8KvogNGUnRWnbE8DIPt7JJh9RdqEX02sxS0jx+nnK23ggGZ4FOBNRTM5T62sPD5WzJAR/CFq/RkMVaRoDryXN/WJ6akYZJylaedi2Sw5ImUxjDcT6Z5/SueRN9sXX1hZCmGwHeR9Jc+ovC9Kp"></tac-chiuso>
+    <div class="riquadro compito scrittura-casa" id="C3-BD-U05-L4">
+      <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C3-BD-U05-L4</span></span>
+      <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: otto battute in 4/4, mi minore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: le triadi principali in tutti i rivolti, la quarta e sesta di cadenza, il vii°6.</p>
+      <tac-stave caption="Il basso" clef="bass" keysig="G" time="4/4" notes="e/3:h a/2:h | f/2:h e/2:h | a/2:h b/2:h | g/2:w | a/2:h f/2:h | e/2:w | a/2:h b/2:h | e/3:w" tempo="60" play></tac-stave>
+      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-BD-U05-L4</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="1eJKpSCl/j6NBDbuyNghsQ==" iv="QQqgd1YZopLyLMgN" dati="SIP4FlJS6ITCLRrcgdTBBvoszIK2jr9wmDl1rGET+LdpodRt4VQDym+lf2oF4aGotk43z1dLeX4tlIw+3piZoPxUXofq6SfOcJRhZZs+Ta193VhlHtvhIbHZS68bGLor0vTU4F7ZMeqlogQqphou8gqGNcDtGg3tnW8OmyZ8RRzN11Dk57FquaQoP1Dn29elsjYLJkKuhJI0+57MGy6w499wBstSipqHqlB3cP5U+h841QVnMq2ucqtWaTZY2h3XkdUf/I8VuIS4/xy7hjmecO93LfL8YAfDvLUz4T1vsW4XjEeH6LDdE8K5yoFJ9xGq/3NUWTNQlSaf+SBnwLGHV0XCcxJgB936qSvMUP5I3O+ansXDPRATtKKbGaNaXmoKukZoYbJZWi/j/d9i1FHQbslrX2k9dkYJzASYLWpT8erspHSVlYWczA+2r4mzXXVE25nfHY010wgDcTnW02Aoa5CfrqPoMJfPn9IvxEumznx9FOcsa485fTxsO39cdNV8aIC2bXUG4lu1Fx4EulYAPHjpwUz+SfxE8LOC+OdaPmj+jNmmaV85tjZ0k/0v94zejtKj9tapq6jg8PZen5xW+M/HVPlymfMEQVRU+1eSzppaWnY6YdFLZnh4dsgBH4r4087axgEI5hzrjTi2A8vnEbbwJVsPt0tcnkra6NRpUZrbp8siEJye4w6HjQOD1AGdNHi+kzDAy91f7UeQuP10xQnQod1jQAwFY/8dmvBTiB4oH/nyqjOKUhVJYnpRBnIMxDW3Q20O1qfzamcQZJBfhIcpABpuKiTV1HGW0LcHmVZyLypJXnNYzGtdzRQE6FXUrlCL"></tac-chiuso>
     </div>
-    <div class="riquadro compito scrittura-casa" id="C3-CD-U05-L5">
-      <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C3-CD-U05-L5</span></span>
-      <p>Armonizza a quattro parti il <strong>canto dato</strong>: otto battute in 4/4, la minore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: le triadi principali in tutti i rivolti, la quarta e sesta di cadenza, il vii°6.</p>
-      <tac-stave caption="Il canto dato" clef="treble" keysig="C" time="4/4" notes="c/5:w | d/5:h b/4:h | e/5:w | d/5:h b/4:h | e/5:w | d/5:w | c/5:h b/4:h | a/4:w" tempo="66" play></tac-stave>
-      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-CD-U05-L5</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="39CF5jkt8RP/Pu76BgWx4Q==" iv="yYOYcwI29zWVcDtO" dati="LG+hzKUD3X5+07YWQm7BcgyfC6kDVxCyUNwg5BE2jCFq6B16opucA/xxSjPZ+9GVN+iN9pvq7AqFiIU8Po/HmVWxG9xANEGKGoWxnFc5iDn2xC8Qj9DzFyVtUCgZlW/pPJKrtGGHeyTg84ax80SsmUPBy2gIWv2AsijWJu6l3tPPLYgMXGrx2HmW4Cfiptaf5Yh449OkTAC4bqpXW2OQGmfjloDFSzmBAYganxiXGmgim3Ir1VV8Jn+lX/pkHFDPizag15sbRvWK6OKX3il/3XlTkiFo0RpYG5MO2KnSgRedwzMTn4GNM+GGW/24K0vMQuVQH9EUCdE6xw4YTuJ65KZV2pa+zUtbMFEmhmBL+aH1URaFUCWes8hO90HdXODLC2kZKxXVmIrz/xALW3vpzbJ3y8zMCxV0K4Aq87UTtDEGrqqN/yKYm28Ki3L8FQSkmgaE49tWitPdTIjKRVyD8orq8A0r9LYtosk13cHtEMFu2DihMIOM82IXiTQAAoM2ay3Gaie8Yo/BCrEs36j6lZyKAHUB7Dl2H411Zd8EguDTJBaWCS1FUPf17ardyxgSvVi77Gqtj0N97ljdZZP6IuSvK164BcIUBbNm91YfHTQ36YvIPz8FOAnE0HkKSjhKBR2kcEn1G70z0v+C0sva91/qVC/ZWdvhsCbzdFugPuxgoglw9ndJIlp3kLQnPFv2BTcMyoVZYYmsFrBxuAUUZPkQOOeMrxIJ7MZIV/Jm6Bs="></tac-chiuso>
+    <div class="riquadro compito scrittura-casa" id="C3-CD-U05-L4">
+      <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C3-CD-U05-L4</span></span>
+      <p>Armonizza a quattro parti il <strong>canto dato</strong>: otto battute in 4/4, re maggiore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: le triadi principali in tutti i rivolti, la quarta e sesta di cadenza, il vii°6.</p>
+      <tac-stave caption="Il canto dato" clef="treble" keysig="D" time="4/4" notes="d/5:w | d/5:w | c/5:w | d/5:h d/5:h | e/5:w | f/5:w | d/5:h c/5:h | d/5:w" tempo="66" play></tac-stave>
+      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-CD-U05-L4</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="O5RmT5DqU0d1zCyNA8r0yw==" iv="uWGZjkivu1w4h5S1" dati="2YqCcWIanLJOQAdJgE0OyV+Iko5IgmXEdDYAbcNRlD0QJhKOm0n+a/j0asDEIMAPMfxzslXzVFIOFMgPJMC1ZMsPHxBQG7SwwbJXeWbYKanWMYevRoX1uAYZgGX8m1w3e6TpTQ0HWH2ZV6vnZ7aqHd6qABP/7GLsGOwpPKOwwI6glPYxzXC9DY8fGvo3ufwct1Zjg1oX/e0imfydAHvh5KOvXV8N/CXLRkHFu4bPR6F2WtG19fy/NmaQ466nCdTLfj6Dc70vpX7VqdzwAsd5sh5QYfZFJSrGtfNGE9ojXD46HIVub+6VGP65EWJgh9YrybQWFiMWpQy+9Y9326KkqNQmo8miClhNwsgpmtQWAVLOTtJ5IBJJ5vk2o4OxU0i3/YHIQw7VbHPD+tOglzXsvzRA+4o54bZjxGrzUeSg1pjhV/VknzsJXuHcC6sMg+d5LESxDFmsMOwupkltfG6UOjE3Z5OMmMvHJOjfNTWNREL8y33thhs6f5K4iyYWPEzvwf6ZSTFvZhRCpBEDMPs8J1FBwgBEdEokDq+ijW3n0WPQiKaFc6TjGlMg12xpuEwsIqyoz54SWu53QLtYPlXvGc79S0Rv2A62beo+V/84oxZ1mqaE9ibIOA4hbLr64K1PLKlOM2F7lU510OQ6KtWcNZ8DVQdcsgJJv+DrQTNhAzTreW5Yd1PoIuZd+J1bqyBeierr"></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Quarta specie, sopra e sotto (Workbook, esercizio C3-U5-L5-01), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 298, 299; cantato n. 300, 301; ritmico n. 302, 303 (a tempo, senza fermarsi). Dettato C3-D-U05-L5 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di quarta specie sul canto fermo (C3-CP-U05-L5). Basso senza numeri da realizzare a quattro parti (C3-BD-U05-L5). Canto dato da armonizzare a quattro parti (C3-CD-U05-L5).</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Una catena di 2–3 nel basso, in re maggiore (dieci battute) (Workbook, esercizio C3-U5-L4-04), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 288, 289; cantato n. 290, 291; ritmico n. 292, 293 (a tempo, senza fermarsi). Dettato C3-D-U05-L4 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di quarta specie sul canto fermo (C3-CP-U05-L4). Basso senza numeri da realizzare a quattro parti (C3-BD-U05-L4). Canto dato da armonizzare a quattro parti (C3-CD-U05-L4).</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>
@@ -1790,7 +367,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: parlato</h2>
     <p>A nomi, a tempo, con la mano che batte. Chi si ferma riparte dalla battuta dopo.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n294">Apri il n.&nbsp;294 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di contralto &middot; 4/4</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n284">Apri il n.&nbsp;284 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di tenore &middot; 2/4</span></p>
   </div>
 </section>
 
@@ -1799,8 +376,8 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: cantato</h2>
     <p>Si prende il tono dalla tastiera, si canta insieme; poi a gruppi.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n295">Apri il n.&nbsp;295 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 2/4 &middot; la minore</span></p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n296">Apri il n.&nbsp;296 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 3/4 &middot; mi minore</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n285">Apri il n.&nbsp;285 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 2/4 &middot; re minore</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n286">Apri il n.&nbsp;286 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 4/4 &middot; fa maggiore</span></p>
   </div>
 </section>
 
@@ -1809,18 +386,10 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: ritmico</h2>
     <p>Tutti insieme, battendo la pulsazione. Poi a file, due battute a testa.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n297">Apri il n.&nbsp;297 nel quaderno di lettura &#8599;</a> <span class="rimando">2/2</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n287">Apri il n.&nbsp;287 nel quaderno di lettura &#8599;</a> <span class="rimando">4/4</span></p>
   </div>
 </section>
 
-<section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
-  <div class="slide-interna">
-    <p class="compiti-occhiello">In classe</p>
-    <h2>Scriviamo adesso: Un ritardo trovato da te</h2>
-    <p>Nello spartito che stai studiando, trova <strong>due ritardi</strong> e scrivili su un foglio: battuta, voce, intervallo della dissonanza e della risoluzione, e da dove viene la preparazione.</p>
-    <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna.</p>
-  </div>
-</section>
 
 
 </div>

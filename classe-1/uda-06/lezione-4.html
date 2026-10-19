@@ -42,53 +42,41 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=b43da6be" defer></script>
+<script src="../../_assets/js/tac-core.js?v=621f9506" defer></script>
 </head>
 <body>
 <div id="tac-deck">
-<!-- 16/10/2026: piano nuovo della 1ª. Questa lezione era la U6 L4 del piano vecchio («Perché la settima si alza»); ora è la U6 L4, ora 37 di 90 («I, IV e V in minore: la sensibile a quattro parti»). Il testo va rivisto quando arriva in calendario: rimandi a ore e unità del piano vecchio, e l'argomento nuovo. -->
+<!-- 16/10/2026: piano nuovo della 1ª. Questa lezione era la U6 L4 del piano vecchio («Perché la settima si alza»); ora è la U6 L4, ora 37 di 90, martedì 15/12 («I, IV e V in minore: la sensibile a quattro parti»). RISCRITTA: vedi il commento qui sotto. -->
 
 <!-- ══════════════════════════════════════════════════════════════════
-     LEZIONE 4 · Perché la settima si alza
-     Unità 6, ora 37 di 90 · classe 1ª · teoria
+     LEZIONE 4 · I, IV e V in minore: la sensibile a quattro parti
+     Unità 6, ora 37 di 90 · classe 1ª · teoria · martedì 15/12
 
-     ══ ORA INTERA ══
-     Niente coda. Otto slide, cinquanta minuti.
+     ══ 16/10/2026 · PIANO NUOVO, RISCRITTA ══
+     L'argomento è nuovo: la vecchia U6 L4 spiegava perché il settimo si
+     alza e la seconda eccedente, che ora sono nella L2. Qui la scrittura
+     a quattro parti dell'UdA 5 (estensioni, raddoppi, nota comune e moto
+     contrario, la sensibile) passa al modo minore:
+      · le triadi: i e iv minori, V maggiore con la sensibile alterata
+        (Piston pp. 40, 45; Zanettovich p. 85);
+      · la sensibile a quattro parti: il segno in ogni accordo di V, mai
+        raddoppiata, al soprano sale; interna può scendere di terza, con
+        il motivo dichiarato (come nella U5 L2);
+      · IV–V: il VI grado scende al V, non sale alla sensibile (seconda
+        eccedente); il moto contrario la evita da sé;
+      · esempi di otto battute su due righi, realizzati e controllati con
+        scratchpad/c1u6/real6.py e m6.py (quinte, ottave, nascoste,
+        seconde eccedenti, quarte diminuite, raddoppi, estensioni); il
+        corale BWV 111/6, bb. 3–5, dal corpus music21 (bach/bwv111.6):
+        nella b. 4 il sol♯ del contralto, nella b. 5 il mi;
+      · tolti il tono colloquiale, i doppioni delle slide vecchie («Il
+        prezzo», «Le tre forme, insieme», «Chi ha deciso, e quando») e
+        gli ascolti A08 e A12.
 
-     ══ CHE COSA FA QUESTA LEZIONE, E CHE COSA HA FATTO LA 2 ══
-     La lezione 2 ha dato il fatto: il settimo si alza, ecco come si
-     scrive. Questa dà la ragione e la conseguenza, e non ripete il
-     fatto.
-
-     LA RAGIONE. Un semitono tira e un tono no. Non è un'opinione: è la
-     stessa cosa che regge la regola dell'ultimo diesis (unità 5, lezione
-     4 — «l'ultimo diesis è la sensibile»), ed è il motivo per cui in
-     unità 4 la sensibile ha un nome mentre il II e il VI non ce l'hanno.
-
-     Qui la si può finalmente girare al contrario: **se una tonalità non
-     ce l'ha, se la costruisce**.
-
-     LA CONSEGUENZA, ed è la scoperta della lezione. Fra il sesto e il
-     settimo grado, adesso, c'è un tono e mezzo. Zanettovich: la minore
-     armonica «risolve un problema armonico e ne apre uno melodico».
-
-     La classe questo problema l'ha già incontrato cantando, alla lezione
-     3, e se l'è scritto sul quaderno. Qui si apre quel quaderno.
-
-     ══ IL LIMITE DI ONESTÀ ══
-     La ragione vera della sensibile è armonica: sta nell'accordo di
-     dominante, che è l'unità 8 per le triadi e l'unità 10 per le
-     funzioni. Qui l'argomento resta melodico — la frase arriva o non
-     arriva — e si dice apertamente che c'è dell'altro e quando verrà.
-
-     Fingere di spiegarlo adesso vorrebbe dire dare una versione che poi
-     va disfatta. Meglio un debito dichiarato.
-
-     ══ IL NOME «SECONDA ECCEDENTE» ══
-     Si dà, ma non si classifica: gli intervalli sono l'unità 7. Qui si
-     dice che si chiama così, si misura in toni e semitoni — un tono e
-     mezzo — e si nota che è un intervallo che nella scala maggiore non
-     esiste da nessuna parte.
+     ══ TEMPI ══
+     La prima mezz'ora è la restituzione della V2 (2/12). Restano circa
+     20 minuti: le triadi 5', la sensibile con il corale (A29) 8', IV–V
+     6', sintesi 1'. Il basso in mi minore è il compito per casa.
      ══════════════════════════════════════════════════════════════════ -->
 
 <section class="slide attiva copertina foto" data-titolo="Copertina"
@@ -96,641 +84,134 @@ try { module = undefined; exports = undefined; } catch (e) {}
                 --cop-a:#2b0f1a; --cop-b:#9f1239; --cop-c:#fda4af">
   <div class="slide-interna">
     <div class="occhiello">Il modo minore e la prima specie &middot; UdA 6 &middot; Lezione 4 di 9</div>
-    <h1>Abbiamo aggiustato una cosa e ne abbiamo rotta un&rsquo;altra</h1>
-    <p class="sottotitolo">Perch&eacute; quel settimo grado deve salire, e che cosa &egrave; successo alla scala quando &egrave; salito.</p>
-
+    <h1>Le quattro parti in minore</h1>
+    <p class="sottotitolo">Tonica e sottodominante minori, dominante maggiore: la sensibile si scrive in ogni accordo di V, e il collegamento IV&ndash;V evita la seconda eccedente.</p>
     <blockquote class="aforisma">
-      <p>Se la scala minore armonica risolve un problema armonico, ne apre uno melodico.</p>
-      <cite>Daniele Zanettovich, <em>Elementi fondamentali di teoria e di ortografia musicale</em>, cap.&nbsp;27, p.&nbsp;86</cite>
+      <p>Se la triade di dominante compare prima del I minore, essa è quasi sempre maggiore, con la sensibile che sale alla tonica.</p>
+      <cite>Walter Piston, <em>Armonia</em>, p.&nbsp;40</cite>
     </blockquote>
-
     <div class="meta-copertina">
-      <span>1 ora</span>
+      <span>20 minuti</span>
       <span>Teoria</span>
-      <span>Sensibile &middot; Seconda eccedente</span>
+      <span>Quattro parti</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="La domanda del quaderno">
+<section class="slide" data-titolo="Le tre triadi in minore">
   <div class="slide-interna">
-    <h2>Riapriamo il quaderno di ieri</h2>
-
-    <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
-         «importantissimo»). D&rsquo;Urso, Odone, <em>Il linguaggio della musica</em> &mdash; volume unico per il primo biennio; pagine dall'indice rilevato. -->
-    <div class="riquadro libro">
-      <span class="etichetta">Sul tuo libro</span>
-      <p><span class="lez">B2</span><strong>Tonica e dominante. LA, MI e RE minore</strong>, pp. 130&ndash;133</p>
-      <p>Sezione B, unit&agrave; 2, lezione 6 &laquo;La sensibile nel modo minore&raquo;: perch&eacute; il settimo si alza, sentito prima che spiegato. La regola scritta &egrave; nella sezione C, unit&agrave; 2, lezione 5 (pp. 230&ndash;233).</p>
-    </div>
+    <h2>I, IV e V in minore</h2>
 
     <div class="riquadro definizione">
-      <span class="etichetta">Quello che vi eravate scritti</span>
-      <p class="grande">&laquo;fa &rarr; sol&#9839;: perch&eacute; &egrave; cos&igrave; difficile?&raquo;</p>
+      <span class="etichetta">Piston, <em>Armonia</em>, p.&nbsp;40</span>
+      <p>«Ciò che distingue la musica nel modo minore è il fatto che la triade di tonica è sempre minore; la forma delle altre triadi è piuttosto variabile.» Con la scala armonica le tre triadi principali sono: <strong>i</strong> minore (la&ndash;do&ndash;mi), <strong>iv</strong> minore (re&ndash;fa&ndash;la), <strong>V</strong> maggiore (mi&ndash;sol♯&ndash;si); il numero minuscolo indica una triade minore. La triade di V costruita sulla naturale è minore e contiene la sottotonica: davanti alla tonica «non riesce convincente quale formula di conclusione» (Zanettovich, p.&nbsp;85).</p>
     </div>
-
-    <p>La risposta arriva a met&agrave; di questa lezione. Prima serve rispondere a una domanda che viene prima: <strong>perch&eacute; quel <em>sol</em> deve diventare <em>sol</em>&#9839;?</strong></p>
-
-    <p class="didascalia">Le due domande sono la stessa domanda vista dai due lati.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Un semitono tira">
-  <div class="slide-interna">
-    <h2>Un semitono tira. Un tono sta fermo.</h2>
-
-    <p>&Egrave; la cosa che sapete dall&rsquo;unit&agrave; 4, e che avete sentito cantando.</p>
-
-    <tac-stave clef="treble" time="4/4" caption="Un semitono sotto la tonica: tira" notes="g#/5:h a/5:h" width="280" tempo="46" play></tac-stave>
-
-    <tac-stave clef="treble" time="4/4" caption="Un tono sotto la tonica: non tira" notes="g/5:h a/5:h" width="280" tempo="46" play></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Perch&eacute;</span>
-      <p>Il semitono &egrave; la distanza <strong>pi&ugrave; piccola</strong> del nostro sistema: due suoni a un semitono sono cos&igrave; vicini che l&rsquo;orecchio li sente come <strong>uno che vuole diventare l&rsquo;altro</strong>. Col tono c&rsquo;&egrave; spazio, e lo spazio toglie l&rsquo;urgenza.</p>
-    </div>
-
-    <p class="didascalia">Nell&rsquo;unit&agrave; 4 avete imparato che la sensibile &laquo;tira&raquo;. Oggi si capisce che tira <strong>perch&eacute; &egrave; vicina</strong>, non perch&eacute; si chiama cos&igrave;.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La regola al contrario">
-  <div class="slide-interna">
-    <h2>Il maggiore ce l&rsquo;ha gi&agrave;. Il minore se la fa.</h2>
-
-    <div class="colonne">
-      <div class="riquadro definizione">
-        <span class="etichetta">Nella scala maggiore</span>
-        <p>Il settimo grado sta gi&agrave; a un semitono dalla tonica: la formula T T S T T T <strong>S</strong> lo mette l&igrave; da sola.</p>
-      </div>
-      <div class="riquadro attenzione">
-        <span class="etichetta">Nella minore naturale</span>
-        <p>Il settimo grado sta a un tono. Se la tonalit&agrave; vuole una sensibile, <strong>se la deve costruire</strong>.</p>
-      </div>
-    </div>
-
-    <p>E questo spiega una cosa che avete gi&agrave; usato: nell&rsquo;unit&agrave; scorsa, la regola dell&rsquo;<strong>ultimo diesis</strong>. L&rsquo;ultimo diesis dell&rsquo;armatura &egrave; la sensibile, cio&egrave; un semitono sotto la tonica.</p>
-
-    <p class="didascalia">La sensibile non &egrave; un ornamento del sistema: &egrave; il pezzo che fa funzionare la fine delle frasi. Dove non c&rsquo;&egrave; si mette.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa si è aperto">
-  <div class="slide-interna">
-    <h2>E adesso guardate che cosa si &egrave; aperto</h2>
-
-    <p>Alzando il <em>sol</em> abbiamo accorciato la distanza dalla tonica. Ma dall&rsquo;altra parte l&rsquo;abbiamo <strong>allungata</strong>.</p>
-
-    <tac-stave clef="treble" time="4/4" caption="Nella naturale: fa → sol, un tono" notes="f/5:h g/5:h" width="280" tempo="46" play></tac-stave>
-
-    <tac-stave clef="treble" time="4/4" caption="Nell'armonica: fa → sol♯, un tono e mezzo" notes="f/5:h g#/5:h" width="280" tempo="46" play></tac-stave>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Un tono e mezzo, fra due gradi vicini</span>
-      <p>In tutta la scala maggiore un salto cos&igrave; <strong>non esiste</strong>: fra due gradi accanto c&rsquo;&egrave; o un tono o un semitono, mai un tono e mezzo. &Egrave; una distanza nuova, e la voce non la conosce.</p>
-    </div>
-
-    <p class="didascalia">Ecco perch&eacute; ieri quel passaggio non veniva. Non era difficile: era <strong>estraneo</strong>.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Come si chiama">
-  <div class="slide-interna">
-    <h2>Come si chiama, e perch&eacute; il nome sembra strano</h2>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Seconda eccedente</span>
-      <p>Si chiama <strong>seconda</strong> perch&eacute; sono due lettere vicine &mdash; <em>fa</em> e <em>sol</em>, sesto e settimo grado. Si chiama <strong>eccedente</strong> perch&eacute; &egrave; pi&ugrave; larga di quanto una seconda dovrebbe essere.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Attenzione al trabocchetto</span>
-      <p><em>fa</em> &rarr; <em>sol</em>&#9839; suona come <em>fa</em> &rarr; <em>la</em>&#9837;, cio&egrave; come una terza. Ma <strong>non lo &egrave;</strong>: le lettere sono due, non tre. La scala di la minore ha una lettera per grado, e non pu&ograve; saltare il sol.</p>
-    </div>
-
-    <p class="didascalia">La classificazione completa degli intervalli &egrave; l&rsquo;unit&agrave; 7. Qui basta il nome e la misura: <strong>un tono e mezzo</strong>.</p>
-  </div>
-</section>
-
-<section class="slide perc esercizio" data-titolo="Proviamo · vero o falso &middot; perch&eacute; si alza" data-segno
-         style="--segno: url('../../_assets/segni/segno-18.png')">
-  <div class="slide-interna">
-    <h2>Vero o falso &middot; perch&eacute; si alza</h2>
-    <div class="riquadro compito">
-      <span class="etichetta">Proviamo · 6 minuti</span>
-      <p>Cinque affermazioni sulla sensibile e su quello che costa averla.</p>
-    </div>
-    <tac-quiz quante="5">
-[
- {
-  "d": "Il semitono è la distanza più piccola del nostro sistema.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero, ed è per questo che tira: due suoni così vicini l'orecchio li sente come uno che vuole diventare l'altro.",
-  "da": "Un semitono tira"
- },
- {
-  "d": "Nella scala maggiore il settimo grado è già a un semitono dalla tonica.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero: la formula T T S T T T S ce lo mette da sola. Il minore invece se la deve costruire, la sensibile.",
-  "da": "La regola al contrario"
- },
- {
-  "d": "Alzando il settimo grado la distanza fra sesto e settimo diventa un tono e mezzo.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero, e si chiama <strong>seconda eccedente</strong>.",
-  "da": "Che cosa si è aperto"
- },
- {
-  "d": "Nella scala maggiore esiste un punto in cui due gradi vicini distano un tono e mezzo.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 1,
-  "spiega": "Falso: fra due gradi accanto c'è o un tono o un semitono, mai un tono e mezzo.",
-  "da": "Che cosa si è aperto"
- },
- {
-  "d": "fa &rarr; sol&#9839; e fa &rarr; la&#9837; sono lo stesso intervallo.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 1,
-  "spiega": "Falso. Suonano uguali sul pianoforte, ma il primo ha due lettere e il secondo tre: uno è una seconda, l'altro una terza.",
-  "da": "Come si chiama"
- },
- {
-  "d": "Si chiama «seconda» perché le lettere coinvolte sono due.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero: fa e sol, sesto e settimo grado. «Eccedente» perché è più larga di quanto una seconda dovrebbe essere.",
-  "da": "Come si chiama"
- },
- {
-  "d": "La sensibile della scala maggiore e quella della minore armonica stanno tutte e due a un semitono dalla tonica.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero: è la stessa distanza. La differenza è che nel maggiore c'è per costruzione, nel minore bisogna farcela stare.",
-  "da": "La regola al contrario"
- },
- {
-  "d": "La seconda eccedente cade sempre fra il sesto e il settimo grado.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero come <strong>gradi</strong>. Come note cambia da tonalità a tonalità, ed è la differenza che conta.",
-  "da": "Che cosa si è aperto"
- },
- {
-  "d": "«Alzare di un semitono» vuol dire sempre mettere un diesis.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 1,
-  "spiega": "Falso: dipende da dove si parte. Da una nota bemolle si alza con un bequadro, da una diesis con un doppio diesis.",
-  "da": "La regola al contrario"
- },
- {
-  "d": "L'ultimo diesis di un'armatura è la sensibile della tonalità maggiore.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero, ed è la regola dell'unità 5. Adesso sapete perché funziona.",
-  "da": "La regola al contrario"
- },
- {
-  "d": "La sensibile si chiama così perché è la nota più difficile da cantare.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 1,
-  "spiega": "Falso: perché è <strong>sensibile alla tonica</strong>, cioè tira verso di lei. La difficoltà è un'altra cosa.",
-  "da": "Un semitono tira"
- },
- {
-  "d": "Un tono sotto la tonica tira quanto un semitono.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 1,
-  "spiega": "Falso: col tono c'è spazio, e lo spazio toglie l'urgenza.",
-  "da": "Un semitono tira"
- },
- {
-  "d": "La seconda eccedente si sente difficile perché è un intervallo estraneo alla scala maggiore.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 0,
-  "spiega": "Vero: la voce non l'ha mai incontrata prima, e non sa dove atterrare.",
-  "da": "Che cosa si è aperto"
- },
- {
-  "d": "Alzare il settimo grado risolve un problema e non ne crea nessuno.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 1,
-  "spiega": "Falso: risolve un problema armonico e ne apre uno melodico. È esattamente la ragione per cui esiste una terza scala minore.",
-  "da": "Che cosa si è aperto"
- },
- {
-  "d": "La ragione completa per cui serve la sensibile è melodica.",
-  "o": [
-   "Vero",
-   "Falso"
-  ],
-  "c": 1,
-  "spiega": "Falso: la ragione completa è <strong>armonica</strong>, e sta nell'accordo di dominante. La vedremo all'unità 10.",
-  "da": "La regola al contrario"
- }
-]
-    </tac-quiz>
-  </div>
-</section>
-
-<section class="slide perc esercizio" data-titolo="Proviamo &middot; trovare la seconda eccedente" data-segno
-         style="--segno: url('../../_assets/segni/segno-14.png')">
-  <div class="slide-interna">
-    <h2>Dove cade, nelle altre minori</h2>
-    <div class="riquadro compito">
-      <span class="etichetta">Proviamo &middot; 10 minuti</span>
-      <p>Scrivete la minore <strong>armonica</strong> di <em>re</em>, di <em>mi</em> e di <em>sol</em>. Per ciascuna cerchiate la <strong>seconda eccedente</strong> e scrivete fra quali due note cade.</p>
-    </div>
-    <div class="riquadro studio">
-      <span class="etichetta">La domanda che chiude l&rsquo;esercizio</span>
-      <p>Cade sempre fra gli stessi due <strong>gradi</strong>? E fra le stesse due <strong>note</strong>? Sono due domande diverse, e le risposte sono diverse.</p>
-    </div>
-    <p class="didascalia">Chi finisce prima provi anche <em>do</em> minore, che ha tre bemolli in armatura: l&igrave; il settimo grado si alza con un <strong>bequadro</strong>, non con un diesis.</p>
-  </div>
-</section>
-
-<!-- Otto slide aggiunte il 24 agosto per lo standard di profondità.
-     Fonte per le tre forme: Carlo Marenco, «Manuale d'armonia», che le
-     definisce così — naturale «priva di distanza semitonale tra il VII
-     e l'VIII grado»; melodica «con VI e VII grado innalzati ascendendo
-     e naturali discendendo»; armonica «con VII grado innalzato sia
-     nella forma ascendente che discendente, ovvero a sensibilizzazione
-     fissa».
-
-     NON si nominano i modi ecclesiastici né la musica ficta: sono
-     classe 2, unità 4. -->
-<section class="slide" data-titolo="Perch&eacute; alzarlo">
-  <div class="slide-interna">
-    <h2>Che cosa ci guadagniamo, alzando il settimo</h2>
-
-    <p>Nella lezione scorsa avete sentito che il minore naturale, in fondo, non tira. Alzando il settimo grado di un semitono quella spinta torna &mdash; ed &egrave; esattamente la stessa che c&rsquo;&egrave; nel maggiore.</p>
 
     <tac-stave clef="treble" time="4/4"
-               caption="La minore: con il sol naturale non chiude, con il sol&#9839; s&igrave;"
-               notes="f/4:q g/4:q a/4:h | f/4:q g#/4:q a/4:h"
-               width="700" tempo="56" play slow></tac-stave>
+               caption="La minore: i, iv, v con la sottotonica, V con la sensibile, i"
+               notes="e/4+a/4+c/5:w | f/4+a/4+d/5:w | e/4+g/4+b/4:w | e/4+g#/4+b/4:w | e/4+a/4+c/5:w"
+               bass="a/2:w | d/3:w | e/3:w | e/3:w | a/2:w"
+               cifre="i &middot; iv &middot; v &middot; V &middot; i"
+               width="660" tempo="50" play slow></tac-stave>
 
-    <div class="riquadro definizione">
-      <span class="etichetta">Il nome della cosa</span>
-      <p>Quel settimo grado alzato &egrave; la <strong>sensibile</strong>: la stessa che nel maggiore c&rsquo;&egrave; gi&agrave; per natura. Nel minore va <strong>messa</strong>.</p>
-
-<p class="didascalia">Questa abitudine ad alzare il settimo grado si consolida fra il <strong>Seicento</strong> e il <strong>Settecento</strong>, insieme al sistema tonale che conoscete: nella musica dei secoli precedenti la spinta finale si otteneva in altri modi, e ne parlerete in seconda.</p>
+    <div class="riquadro attenzione">
+      <span class="etichetta">L’errore tipico</span>
+      <p>Scrivere il V con le note dell’armatura. In la minore il V è mi&ndash;sol♯&ndash;si: il sol♯ non è in chiave, e va scritto davanti alla nota <strong>in ogni accordo di V</strong>, nella voce che lo canta. In re minore la sensibile è do♯, in mi minore re♯, in sol minore fa♯.</p>
     </div>
-
-    <p>Marenco chiama questa forma <em>&laquo;a sensibilizzazione fissa&raquo;</em>: il settimo grado &egrave; alzato <strong>sempre</strong>, salendo e scendendo. &Egrave; la scala <strong>minore armonica</strong>.</p>
-
-    <p class="didascalia">Il nome dice a che cosa serve: <em>armonica</em> perch&eacute; nasce da un&rsquo;esigenza dell&rsquo;armonia, cio&egrave; di come si combinano i suoni. Il perch&eacute; preciso lo capirete nell&rsquo;unit&agrave; 10, quando gli accordi avranno un nome.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Il prezzo">
+<section class="slide" data-titolo="La sensibile a quattro parti">
   <div class="slide-interna">
-    <h2>E che cosa ci abbiamo rimesso</h2>
+    <h2>La sensibile a quattro parti</h2>
 
-    <p>Aggiustare una cosa ne ha rotta un&rsquo;altra, ed &egrave; il titolo di quest&rsquo;ora. Guardate i due gradi <em>prima</em> del settimo.</p>
+    <div class="riquadro definizione">
+      <span class="etichetta">Le regole dell’UdA 5, in minore</span>
+      <p>La sensibile <strong>non si raddoppia</strong>. Al <strong>soprano</strong> sale sempre alla tonica. In una parte interna di norma sale; può scendere di terza al V grado per completare l’accordo di tonica, e il motivo si scrive accanto (Piston, pp.&nbsp;31&ndash;32). Tutte le altre regole della condotta delle parti «valgono anche per il modo minore» (Piston, p.&nbsp;45).</p>
+    </div>
 
     <tac-stave clef="treble" time="4/4"
-               caption="Fra fa e sol&#9839; il passo &egrave; pi&ugrave; largo di un tono: si sente subito"
-               notes="e/4:q f/4:q g#/4:q a/4:q | a/4:q g#/4:q f/4:q e/4:q"
-               width="740" tempo="56" play slow></tac-stave>
+               caption="La minore, otto battute: dove compare il V, compare il sol♯"
+               soprano="e/5:h f/5:h | e/5:h e/5:h | d/5:h b/4:h | c/5:w | c/5:h b/4:h | c/5:h d/5:h | b/4:h g#/4:h | a/4:w"
+               contralto="a/4:h a/4:h | g#/4:h a/4:h | f/4:h e/4:h | e/4:w | e/4:h e/4:h | e/4:h f/4:h | e/4:h e/4:h | e/4:w"
+               tenore="c/4:h d/4:h | b/3:h c/4:h | a/3:h g#/3:h | a/3:w | a/3:h g#/3:h | a/3:h a/3:h | g#/3:h b/3:h | c/4:w"
+               basso="a/2:h d/3:h | e/3:h a/2:h | d/3:h e/3:h | a/2:w | a/2:h e/3:h | a/2:h d/3:h | e/3:h e/3:h | a/2:w"
+               cifre="i &middot; iv &middot; V &middot; i &middot; iv &middot; V &middot; i &middot; i &middot; V &middot; i &middot; iv &middot; V &middot; V &middot; i"
+               segna="b2=V–i: sol♯ al contralto · b3=iv–V: sol♯ al tenore · b7.2=sol♯ al soprano"
+               width="900" tempo="56" play slow></tac-stave>
 
-    <div class="riquadro attenzione">
-      <span class="etichetta">Il passo che si &egrave; allargato</span>
-      <p>Fra il <strong>sesto</strong> e il <strong>settimo</strong> grado c&rsquo;&egrave; ora un tono e mezzo: pi&ugrave; largo di qualunque altro passo della scala. Cantandolo si sente che &laquo;non &egrave; un passo&raquo;, ma quasi un salto.</p>
-    </div>
+    <p>Nella b.&nbsp;7 il basso ripete il <em>mi</em> e il V cambia posizione: la sensibile passa dal tenore al soprano e sale al <em>la</em> finale. Fra iv e V (bb.&nbsp;3 e 6&ndash;7) le parti superiori scendono mentre il basso sale.</p>
 
-    <p>Ha un nome tecnico &mdash; <strong>seconda eccedente</strong> &mdash; e lo studierete per bene nell&rsquo;unit&agrave; 7, con tutti gli altri intervalli. Oggi conta il fatto: <strong>&egrave; scomodo da cantare</strong>, e per secoli si &egrave; cercato di evitarlo.</p>
-
-    <p class="didascalia">Ed &egrave; la ragione per cui esiste una <strong>terza</strong> forma della scala minore, che vedrete nella lezione 5. Le tre minori non sono tre capricci: sono tre soluzioni a un problema che si sposta.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Le tre forme, insieme">
-  <div class="slide-interna">
-    <h2>Le tre, messe in fila</h2>
-
-    <div class="colonne3">
-      <div class="scheda">
-        <h3>Naturale</h3>
-        <p>Nessuna alterazione oltre l&rsquo;armatura. Fra VII e VIII c&rsquo;&egrave; un <strong>tono</strong>: niente sensibile.</p>
-      </div>
-      <div class="scheda">
-        <h3>Armonica</h3>
-        <p>Settimo grado <strong>sempre alzato</strong>, salendo e scendendo. C&rsquo;&egrave; la sensibile, e c&rsquo;&egrave; il passo largo.</p>
-      </div>
-      <div class="scheda">
-        <h3>Melodica</h3>
-        <p>Sesto <em>e</em> settimo alzati <strong>salendo</strong>, naturali <strong>scendendo</strong>. &Egrave; la lezione 5.</p>
-      </div>
-    </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Come tenerle a mente senza confonderle</span>
-      <p>Si ricordano dal <strong>problema che risolvono</strong>, non dall&rsquo;elenco delle alterazioni:<br>
-      la naturale &egrave; quella dell&rsquo;armatura e basta;<br>
-      l&rsquo;armonica risolve la <strong>chiusa</strong>, e paga con un passo scomodo;<br>
-      la melodica risolve il <strong>passo scomodo</strong>, e paga con due forme diverse.</p>
-    </div>
-
-    <p class="didascalia">Nessuna delle tre &egrave; &laquo;quella giusta&raquo;. Sono tre attrezzi, e in un brano vero si trovano <strong>mescolate</strong>: il compositore usa quella che gli serve in quel punto.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Su un brano vero">
-  <div class="slide-interna">
-    <h2>Andiamo a vedere che cosa fa un compositore</h2>
+    <tac-stave clef="treble" time="4/4" data-reale
+               caption="J. S. Bach, corale BWV 111/6, bb. 3–5"
+               soprano="b/4:q a/4:q d/5:q. c/5:8 | b/4:q c/5:q b/4:q b/4:q | a/4:h. e/4:q"
+               contralto="g/4:q f/4:8 e/4:8 d/4:8 e/4:8 e/4:8 f#/4:8 | g#/4:q a/4:q. g#/4:16 f#/4:16 g#/4:q | e/4:h. c/4:q"
+               tenore="d/4:q d/4:q a/3:8 b/3:8 c/4:8 d/4:8 | e/4:h. d/4:16 c/4:16 d/4:8 | c/4:h. a/3:q"
+               basso="g/3:q d/3:8 e/3:8 f#/3:8 g#/3:8 a/3:q | e/3:8 d/3:8 c/3:8 d/3:8 e/3:h | a/2:h. a/3:q"
+               segna="b2=V: sol♯ al contralto · b3=i: il contralto sul mi"
+               width="700" tempo="54" play slow></tac-stave>
 
     <div class="riquadro compito">
-      <span class="etichetta">Tutti insieme, 7 minuti</span>
-      <ol class="spaziato">
-        <li>Nella partitura, cercate le <strong>alterazioni scritte davanti alle note</strong> &mdash; non quelle in armatura.</li>
-        <li>Sono quasi tutte sullo stesso grado. Quale?</li>
-        <li>Dove cadono: in mezzo alla frase o <strong>verso la fine</strong>?</li>
-      </ol>
+      <span class="etichetta">Ascolto &middot; 3 minuti</span>
+      <p>Alla fine della prima frase il basso va da mi (b.&nbsp;4) a la (b.&nbsp;5). Il contralto canta il sol♯ sull’ultimo movimento della b.&nbsp;4 e scende al <em>mi</em>: l’accordo di tonica della b.&nbsp;5, dal basso la&ndash;do&ndash;mi&ndash;la, risulta completo. È la sensibile interna che scende di terza, con il motivo della regola. Ascoltare il punto e cantare sottovoce il contralto.</p>
     </div>
 
-    <tac-brano organico="archi" titolo="Schubert, &laquo;Der Lindenbaum&raquo;, da Winterreise" metronomo youtube="jyxMMg6bxrg" esecutore="Dietrich Fischer-Dieskau · Gerald Moore" partitura="../../_assets/spartiti/A08_schubert.png" inciso="../../_assets/incisioni/A08_schubert.mp3" mappa='{"durata":29648,"eventi":[[0,0],[1,1800],[2,3600],[3,5400],[4,7200],[5,9000],[6,10800],[7,12600],[8,14400],[9,16200],[10,18000],[11,19800],[12,21600],[13,23400],[14,25200]]}' da-battuta="1">
-<script type="application/json">{"titolo":"F. Schubert, «Der Lindenbaum», da Winterreise","metro":"3/4","bpm":100,"battute":15,"anacrusi":0.0,"voci":[[[23.5,0.5,71],[24.0,1.5,71],[25.5,0.5,68],[26.0,0.5,68],[26.5,0.5,68],[27.0,1.0,68],[28.0,1.0,64],[29.5,0.5,64],[30.0,1.5,66],[31.5,0.5,68],[32.0,0.332,69],[32.332,0.332,68],[32.6641,0.3359,66],[33.0,2.0,64],[35.5,0.5,71],[36.0,1.5,71],[37.5,0.5,68],[38.0,0.5,68],[38.5,0.5,68],[39.0,1.0,68],[40.0,1.0,64],[41.5,0.5,64],[42.0,1.5,66],[43.5,0.5,68],[44.0,0.332,69],[44.332,0.332,68],[44.6641,0.3359,66]],[[0.0,0.1641,56],[0.1641,0.168,64],[0.332,0.168,56],[0.5,0.1641,54],[0.6641,0.168,63],[0.832,0.168,54],[1.0,0.1641,56],[1.1641,0.168,64],[1.332,0.168,56],[1.5,0.1641,59],[1.6641,0.168,68],[1.832,0.168,59],[2.0,0.1641,57],[2.1641,0.168,66],[2.332,0.168,57],[2.5,0.1641,56],[2.6641,0.168,64],[2.832,0.168,56],[3.0,0.75,54],[3.0,0.75,59],[3.75,0.25,73],[4.0,2.0,71],[6.0,0.1641,68],[6.1641,0.168,76],[6.332,0.168,68],[6.5,0.1641,66],[6.6641,0.168,75],[6.832,0.168,66],[7.0,0.1641,68],[7.1641,0.168,76],[7.332,0.168,68],[7.5,0.1641,71],[7.6641,0.168,80],[7.832,0.168,71],[8.0,0.1641,69],[8.1641,0.168,78],[8.332,0.168,69],[8.5,0.1641,68],[8.6641,0.168,76],[8.832,0.168,68],[9.0,0.1641,66],[9.1641,0.168,75],[9.332,0.168,66],[9.5,0.1641,64],[9.6641,0.168,73],[9.832,0.168,64],[10.0,0.1641,63],[10.1641,0.168,71],[10.332,0.168,63],[10.5,0.1641,61],[10.6641,0.168,69],[10.832,0.168,61],[11.0,0.1641,59],[11.1641,0.168,68],[11.332,0.168,59],[11.5,0.1641,57],[11.6641,0.168,66],[11.832,0.168,57],[12.0,0.1641,56],[12.1641,0.168,64],[12.332,0.168,56],[12.5,0.1641,57],[12.6641,0.168,66],[12.832,0.168,57],[13.0,0.1641,56],[13.1641,0.168,64],[13.332,0.168,56],[13.5,0.1641,57],[13.6641,0.168,66],[13.832,0.168,57],[14.0,0.1641,56],[14.1641,0.168,64],[14.332,0.168,56],[14.5,0.1641,62],[14.6641,0.168,65],[14.832,0.168,62],[15.0,0.1641,61],[15.1641,0.168,66],[15.332,0.168,61],[15.5,0.1641,65],[15.5,0.1641,68],[15.6641,0.168,61],[15.832,0.168,65],[15.832,0.168,68],[16.0,0.5,66],[16.0,0.5,69],[16.5,0.5,61],[16.5,0.5,66],[16.5,0.5,69],[17.0,0.5,63],[17.0,0.5,66],[17.0,0.5,69],[17.5,0.5,64],[17.5,0.5,66],[17.5,0.5,69],[18.0,0.75,66],[18.0,0.75,69],[18.75,0.125,64],[18.75,0.125,68],[18.875,0.125,59],[18.875,0.125,66],[19.0,2.0,59],[19.0,2.0,66],[21.0,0.75,66],[21.0,0.75,69],[21.75,0.125,64],[21.75,0.125,68],[21.875,0.125,59],[21.875,0.125,66],[22.0,1.5,59],[22.0,1.5,66],[23.5,0.5,59],[23.5,0.5,68],[23.5,0.5,71],[24.0,1.5,59],[24.0,1.5,68],[24.0,1.5,71],[25.5,0.5,59],[25.5,0.5,64],[25.5,0.5,68],[26.0,0.5,59],[26.0,0.5,64],[26.0,0.5,68],[26.5,0.5,59],[26.5,0.5,64],[26.5,0.5,68],[27.0,1.0,59],[27.0,1.0,64],[27.0,1.0,68],[28.0,1.0,56],[28.0,1.0,59],[28.0,1.0,64],[29.5,0.5,59],[29.5,0.5,64],[30.0,2.0,59],[30.0,2.0,64],[30.0,2.0,66],[32.0,1.0,59],[32.0,1.0,63],[32.0,1.0,66],[33.0,0.5,56],[33.0,0.5,59],[33.0,0.5,64],[33.5,0.5,68],[33.5,0.5,71],[34.0,0.5,64],[34.0,0.5,68],[34.5,0.5,68],[34.5,0.5,71],[35.0,0.5,66],[35.0,0.5,69],[35.5,0.5,59],[35.5,0.5,66],[36.0,0.5,56],[36.0,0.5,64],[36.5,1.0,59],[36.5,1.0,68],[36.5,1.0,71],[37.5,0.5,59],[37.5,0.5,64],[37.5,0.5,68],[38.0,0.5,59],[38.0,0.5,64],[38.0,0.5,68],[38.5,0.5,59],[38.5,0.5,64],[38.5,0.5,68],[39.0,1.0,59],[39.0,1.0,64],[39.0,1.0,68],[40.0,1.0,56],[40.0,1.0,59],[40.0,1.0,64],[41.5,0.5,59],[41.5,0.5,64],[42.0,2.0,59],[42.0,2.0,64],[42.0,2.0,66],[44.0,1.0,59],[44.0,1.0,63],[44.0,1.0,66]],[[0.0,3.0,40],[0.0,3.0,47],[3.0,0.5,35],[3.0,0.5,47],[6.0,3.0,52],[6.0,3.0,59],[9.0,0.5,47],[9.0,0.5,59],[9.75,0.25,49],[10.0,1.5,47],[11.5,0.5,48],[12.0,0.5,49],[12.5,0.5,48],[13.0,0.5,49],[13.5,0.5,48],[14.0,0.5,49],[14.5,0.5,47],[15.0,0.5,45],[15.5,0.5,44],[16.0,0.5,42],[16.5,0.5,40],[17.0,0.5,39],[17.5,0.5,37],[18.0,3.0,35],[21.0,2.0,35],[23.0,0.5,35],[23.5,0.5,40],[23.5,0.5,52],[24.0,1.5,40],[24.0,1.5,52],[25.5,0.5,40],[26.0,0.5,44],[26.5,0.5,47],[27.0,2.0,52],[29.5,0.5,44],[30.0,2.0,47],[32.0,1.0,47],[33.0,0.5,40],[33.5,0.5,56],[33.5,0.5,59],[34.0,0.5,52],[34.0,0.5,56],[34.5,0.5,56],[34.5,0.5,59],[35.0,0.5,54],[35.0,0.5,57],[35.5,0.5,47],[35.5,0.5,51],[36.0,0.5,40],[36.0,0.5,44],[36.0,0.5,52],[36.5,1.0,52],[37.5,0.5,40],[38.0,0.5,44],[38.5,0.5,47],[39.0,2.0,52],[41.5,0.5,44],[42.0,2.0,47],[44.0,1.0,47]]]}</script>
-</tac-brano>
-
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa dovreste trovare</span>
-      <p>Che le alterazioni si concentrano <strong>dove la frase chiude</strong>. Non sono sparse: servono a un lavoro preciso, quello che avete visto nella prima slide di oggi.</p>
-    </div>
-
-    <p class="didascalia">Questo &egrave; il primo esercizio di analisi che riguarda le <strong>alterazioni</strong>, e la domanda che avete imparato oggi &mdash; &laquo;dove cadono?&raquo; &mdash; vale per tutta la musica tonale: le alterazioni non stanno mai a caso.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Nell&rsquo;armatura no">
-  <div class="slide-interna">
-    <h2>Perch&eacute; la sensibile non si scrive in armatura</h2>
-
-    <p>Domanda ragionevole: se in la minore il <em>sol</em> &egrave; quasi sempre diesis, perch&eacute; non metterlo in chiave una volta per tutte?</p>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Perch&eacute; non si fa</span>
-      <p>Perch&eacute; l&rsquo;armatura dice <strong>qual &egrave; la tonalit&agrave;</strong>, e la tonalit&agrave; di la minore ha l&rsquo;armatura di do maggiore: nessun segno. Metterci un sol&#9839; la trasformerebbe in un&rsquo;altra tonalit&agrave;.</p>
-    </div>
-
-    <p>E poi perch&eacute; la sensibile <strong>non c&rsquo;&egrave; sempre</strong>: nella forma naturale non si alza, in quella melodica si alza solo salendo. Un segno fisso in chiave direbbe una cosa falsa due volte su tre.</p>
-
-    <div class="riquadro studio">
-      <span class="etichetta">La conseguenza pratica</span>
-      <p>In un brano in minore vedrete <strong>molte alterazioni davanti alle note</strong>, e non &egrave; disordine: &egrave; la forma normale della scrittura in minore. Serve a dire, volta per volta, quale delle tre forme si sta usando.</p>
-    </div>
-
-    <p class="didascalia">&Egrave; anche il motivo per cui un pezzo in minore, a colpo d&rsquo;occhio, sembra pi&ugrave; &laquo;pieno&raquo; di uno in maggiore. Non &egrave; pi&ugrave; difficile: &egrave; che dichiara di continuo una cosa che il maggiore ha gi&agrave; in chiave.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Le altre minori">
-  <div class="slide-interna">
-    <h2>La stessa cosa nelle altre tonalit&agrave;</h2>
-
-    <p>La minore &egrave; comoda perch&eacute; non ha armatura. Ma la regola vale dappertutto, e il conto si fa sempre allo stesso modo.</p>
-
-    <tac-stave clef="treble" time="4/4" keysig="Em"
-               caption="Mi minore armonica: un diesis in armatura, e il re&#9839; scritto davanti"
-               notes="e/4:q f/4:q g/4:q a/4:q | b/4:q c/5:q d#/5:q e/5:q"
-               width="740" tempo="58" play slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">La procedura, sempre uguale</span>
-      <ol class="spaziato">
-        <li>Si scrive la scala <strong>con la sola armatura</strong>: &egrave; la naturale.</li>
-        <li>Si guarda il <strong>settimo grado</strong> e lo si alza di un semitono.</li>
-        <li>Se era gi&agrave; alterato in armatura, si alza <strong>lo stesso</strong>: pu&ograve; venire un doppio diesis.</li>
-      </ol>
-    </div>
-
-    <p class="didascalia">Il terzo caso non capiter&agrave; quest&rsquo;anno &mdash; succede solo nelle tonalit&agrave; con molte alterazioni &mdash; ma sapere che la regola non si ferma l&igrave; &egrave; parte del capirla.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Gli errori tipici">
-  <div class="slide-interna">
-    <h2>I tre errori di stasera</h2>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">1 &middot; Alzare il settimo <em>anche</em> nell&rsquo;armatura</span>
-      <p>Si scrive la scala giusta e si aggiunge il segno in chiave. Il risultato &egrave; una tonalit&agrave; diversa da quella dichiarata.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">2 &middot; Contare il settimo grado dalla nota sbagliata</span>
-      <p>In mi minore il settimo grado &egrave; il <em>re</em>, non il <em>si</em>. Si conta <strong>dalla tonica della minore</strong>, non da quella della relativa maggiore.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">3 &middot; Alzare di un tono invece che di un semitono</span>
-      <p>Da sol si arriva a sol&#9839;, non a la &mdash; che &egrave; gi&agrave; la tonica. La sensibile deve stare <strong>appiccicata</strong> alla tonica: se ci arriva prima, non &egrave; sensibile.</p>
-    </div>
-
-    <p class="didascalia">Il secondo &egrave; il pi&ugrave; frequente, e viene dal fatto che avete appena imparato le relative. Le due scale hanno le stesse note ma <strong>gradi diversi</strong>: il numero cambia significato a seconda della casa in cui si &egrave;.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Da fare a casa">
-  <div class="slide-interna">
-    <h2>Il compito: tre minori armoniche</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Da consegnare</span>
-      <p>Sul quaderno, scrivi la scala <strong>minore armonica</strong> di <em>la</em>, <em>mi</em> e <em>re</em>. Per ciascuna:</p>
-      <ol class="spaziato">
-        <li>l&rsquo;armatura giusta in cima;</li>
-        <li>il <strong>settimo grado alzato</strong>, con il segno davanti alla nota;</li>
-        <li>una freccia sul passo <strong>largo</strong>, fra sesto e settimo grado.</li>
-      </ol>
-    </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">E poi cantale</span>
-      <p>Suona la tonica e canta le tre scale. Quando arrivi al passo largo, <strong>fermati un istante</strong> prima di farlo: &egrave; il modo per prenderlo giusto invece di scivolarci sopra.</p>
-      <p>Se ti viene difficile, non stai sbagliando: &egrave; scomodo davvero, e nella lezione 5 vedremo la soluzione che i musicisti hanno trovato.</p>
-    </div>
-
-    <p class="didascalia">Le tre tonalit&agrave; sono scelte apposta: la minore non ha armatura, mi minore ha un diesis, re minore un bemolle. Se il conto funziona in tutti e tre i casi, hai capito la regola e non l&rsquo;hai imparata su un esempio.</p>
-  </div>
-</section>
-
-<!-- ───────────────────────────────────────────────────────────────────
-     Quattro slide aggiunte il 5 settembre 2026, con due musiche vere
-     in più (A29, A12). L'ora spiega PERCHÉ la settima si alza e lo fa
-     tutto sulla lavagna: la dimostrazione decisiva — che nella musica
-     vera quel segno torna decine di volte, e sempre nello stesso posto
-     — non c'era. Adesso c'è, ed è contata sul file: quattordici sol
-     diesis in un corale di tredici battute.
-     ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="La prova, contata">
-  <div class="slide-interna">
-    <h2>Se la regola &egrave; vera, si deve vedere sulla carta</h2>
-
-    <p>Abbiamo detto che il settimo grado si alza <strong>per chiudere</strong>. Se &egrave; vero, in una musica vera in minore quel segno deve comparire <strong>molte volte</strong>, e sempre vicino alle chiuse. Controlliamo.</p>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Tutti insieme, 4 minuti</span>
-      <p>Ascoltate seguendo la voce pi&ugrave; grave e alzate la mano <strong>dove la musica si ferma</strong>, cio&egrave; alla fine di ogni verso. Poi riascoltate cercando il sol diesis: cade quasi sempre <strong>appena prima</strong> di quei punti.</p>
-    </div>
-
-    <tac-brano organico="voci" titolo="Bach, corale BWV 111/6 in la minore"
-               metronomo youtube="JCs4HJ7ea4Q" esecutore="English Baroque Soloists" partitura="../../_assets/spartiti/A29_bach-111-6.svg" inciso="../../_assets/incisioni/A29_bach_111_6.mp3" mappa='{"durata":56711,"eventi":[[0,0],[1,1111],[2,5556],[3,10000],[4,14444],[5,18889],[6,23333],[7,27778],[8,32222],[9,36667],[10,41111],[11,45556],[12,50000]]}'>
+    <tac-brano organico="voci" titolo="J. S. Bach, corale BWV 111/6, in la minore" metronomo youtube="JCs4HJ7ea4Q" esecutore="English Baroque Soloists" partitura="../../_assets/spartiti/A29_bach-111-6.svg" inciso="../../_assets/incisioni/A29_bach_111_6.mp3" mappa='{"durata":56711,"eventi":[[0,0],[1,1111],[2,5556],[3,10000],[4,14444],[5,18889],[6,23333],[7,27778],[8,32222],[9,36667],[10,41111],[11,45556],[12,50000]]}'>
 <script type="application/json">{"titolo":"J. S. Bach, Corale BWV 111/6 in la minore — il settimo grado alzato","metro":"4/4","bpm":54,"battute":13,"anacrusi":1.0,"voci":[[[0.0,1.0,64],[1.0,1.0,67],[2.0,1.0,69],[3.0,1.0,67],[4.0,1.0,72],[5.0,1.0,72],[6.0,1.0,71],[7.0,1.0,72],[8.0,1.0,72],[9.0,1.0,71],[10.0,1.0,69],[11.0,1.5,74],[12.5,0.5,72],[13.0,1.0,71],[14.0,1.0,72],[15.0,1.0,71],[16.0,1.0,71],[17.0,3.0,69],[20.0,1.0,64],[21.0,1.0,67],[22.0,1.0,69],[23.0,1.0,67],[24.0,1.0,72],[25.0,1.0,72],[26.0,1.0,71],[27.0,1.0,72],[28.0,1.0,72],[29.0,1.0,71],[30.0,1.0,69],[31.0,1.5,74],[32.5,0.5,72],[33.0,1.0,71],[34.0,1.0,72],[35.0,1.0,71],[36.0,1.0,71],[37.0,3.0,69],[40.0,1.0,69],[41.0,1.0,69],[42.0,1.0,69],[43.0,1.5,71],[44.5,0.5,69],[45.0,1.0,71],[46.0,1.0,67],[47.0,1.0,67],[48.0,1.0,66]],[[0.0,1.0,60],[1.0,1.0,60],[2.0,0.5,60],[2.5,0.5,62],[3.0,0.5,64],[3.5,0.5,65],[4.0,1.0,67],[5.0,1.0,67],[6.0,1.0,67],[7.0,1.0,67],[8.0,1.0,67],[9.0,1.0,67],[10.0,0.5,65],[10.5,0.5,64],[11.0,0.5,62],[11.5,0.5,64],[12.0,0.5,64],[12.5,0.5,66],[13.0,1.0,68],[14.0,1.5,69],[15.5,0.25,68],[15.75,0.25,66],[16.0,1.0,68],[17.0,3.0,64],[20.0,1.0,60],[21.0,1.0,60],[22.0,0.5,60],[22.5,0.5,62],[23.0,0.5,64],[23.5,0.5,65],[24.0,1.0,67],[25.0,1.0,67],[26.0,1.0,67],[27.0,1.0,67],[28.0,1.0,67],[29.0,1.0,67],[30.0,0.5,65],[30.5,0.5,64],[31.0,0.5,62],[31.5,0.5,64],[32.0,0.5,64],[32.5,0.5,66],[33.0,1.0,68],[34.0,1.5,69],[35.5,0.25,68],[35.75,0.25,66],[36.0,1.0,68],[37.0,3.0,64],[40.0,1.0,64],[41.0,1.5,62],[42.5,0.5,66],[43.0,1.5,67],[44.5,0.5,69],[45.0,1.0,67],[46.0,0.5,67],[46.5,0.5,66],[47.0,1.0,64],[48.0,1.0,62]],[[0.0,1.0,57],[1.0,1.0,55],[2.0,1.0,60],[3.0,1.0,60],[4.0,0.5,60],[4.5,0.5,62],[5.0,0.5,64],[5.5,0.5,62],[6.0,1.0,62],[7.0,1.0,64],[8.0,1.0,64],[9.0,1.0,62],[10.0,1.0,62],[11.0,0.5,57],[11.5,0.5,59],[12.0,0.5,60],[12.5,0.5,62],[13.0,3.0,64],[16.0,0.25,62],[16.25,0.25,60],[16.5,0.5,62],[17.0,3.0,60],[20.0,1.0,57],[21.0,1.0,55],[22.0,1.0,60],[23.0,1.0,60],[24.0,0.5,60],[24.5,0.5,62],[25.0,0.5,64],[25.5,0.5,62],[26.0,1.0,62],[27.0,1.0,64],[28.0,1.0,64],[29.0,1.0,62],[30.0,1.0,62],[31.0,0.5,57],[31.5,0.5,59],[32.0,0.5,60],[32.5,0.5,62],[33.0,3.0,64],[36.0,0.25,62],[36.25,0.25,60],[36.5,0.5,62],[37.0,3.0,60],[40.0,1.0,60],[41.0,0.5,60],[41.5,0.5,57],[42.0,1.0,62],[43.0,1.5,62],[44.5,0.5,63],[45.0,1.0,64],[46.0,1.0,59],[47.0,1.0,60],[48.0,1.0,57]],[[0.0,1.0,57],[1.0,1.0,52],[2.0,1.0,53],[3.0,0.5,48],[3.5,0.5,50],[4.0,0.5,52],[4.5,0.5,53],[5.0,1.0,55],[6.0,1.0,43],[7.0,1.0,48],[8.0,1.0,48],[9.0,1.0,55],[10.0,0.5,50],[10.5,0.5,52],[11.0,0.5,54],[11.5,0.5,56],[12.0,1.0,57],[13.0,0.5,52],[13.5,0.5,50],[14.0,0.5,48],[14.5,0.5,50],[15.0,2.0,52],[17.0,3.0,45],[20.0,1.0,57],[21.0,1.0,52],[22.0,1.0,53],[23.0,0.5,48],[23.5,0.5,50],[24.0,0.5,52],[24.5,0.5,53],[25.0,1.0,55],[26.0,1.0,43],[27.0,1.0,48],[28.0,1.0,48],[29.0,1.0,55],[30.0,0.5,50],[30.5,0.5,52],[31.0,0.5,54],[31.5,0.5,56],[32.0,1.0,57],[33.0,0.5,52],[33.5,0.5,50],[34.0,0.5,48],[34.5,0.5,50],[35.0,2.0,52],[37.0,3.0,45],[40.0,0.5,57],[40.5,0.5,55],[41.0,0.5,54],[41.5,0.5,52],[42.0,0.5,54],[42.5,0.5,50],[43.0,0.5,55],[43.5,0.5,57],[44.0,0.5,55],[44.5,0.5,54],[45.0,0.5,52],[45.5,0.5,54],[46.0,0.5,52],[46.5,0.5,50],[47.0,0.5,48],[47.5,0.5,45],[48.0,1.0,50]]]}</script>
 </tac-brano>
 
+  </div>
+</section>
+
+<section class="slide" data-titolo="IV–V in minore">
+  <div class="slide-interna">
+    <h2>Il collegamento IV&ndash;V in minore</h2>
+
     <div class="riquadro definizione">
-      <span class="etichetta">Il conto, misurato sul file della partitura</span>
-      <p>Tredici battute, armatura vuota, la minore. <strong>Sol diesis: quattordici volte.</strong> Fa diesis: diciotto. Re diesis: una.</p>
-      <p>Il sol diesis non &egrave; un colore occasionale: &egrave; presente in media <strong>una volta per battuta</strong>. Nessuna nota &laquo;di passaggio&raquo; si comporta cos&igrave;.</p>
-
-    </div>
-  </div>
-</section>
-
-<section class="slide perc" data-titolo="Anche in do minore">
-  <div class="slide-interna">
-    <h2>La stessa cosa, in un&rsquo;altra tonalit&agrave; e in un altro secolo</h2>
-
-    <p>Un caso solo non dimostra niente. Ecco lo stesso fenomeno in <strong>do minore</strong> &mdash; tre bemolli in armatura &mdash; e in una musica che non &egrave; un corale.</p>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Ad occhi chiusi, 3 minuti</span>
-      <p>Ascoltate le ultime battute. La penultima nota della voce acuta <strong>tira</strong> verso l&rsquo;ultima e non si potrebbe fermare l&igrave;: quello &egrave; il <em>si</em> naturale, cio&egrave; il settimo grado alzato di do minore. Se Bach avesse lasciato il si bemolle dell&rsquo;armatura, la fuga non finirebbe.</p>
+      <span class="etichetta">La regola</span>
+      <p>iv e V non hanno note comuni: le tre parti superiori si muovono per <strong>moto contrario</strong> al basso (UdA 5, lezione 2). In minore la regola ha un motivo in più: la voce che ha il <strong>VI grado</strong> (in re minore il si♭) scende al V (la). Se salisse alla sensibile (do♯) farebbe una seconda eccedente. Piston: in minore la condotta delle parti comporta «la necessità di evitare il movimento di seconda eccedente» (p.&nbsp;45).</p>
     </div>
 
-    <tac-brano organico="tastiera" titolo="Bach, Fuga in do minore BWV 847 &mdash; la chiusa"
-               metronomo youtube="1XJgy8W0P6Y" esecutore="Robert Hill, clavicembalo" partitura="../../_assets/spartiti/A12_bach-847.png" inciso="../../_assets/incisioni/A12_bach_847.mp3" mappa='{"durata":24920,"eventi":[[0,0],[1,3158],[2,6316],[3,9474],[4,12632],[5,15789],[6,18947]]}' da-battuta="25">
-<script type="application/json">{"titolo":"J. S. Bach, Fuga in do minore BWV 847, la chiusa","metro":"4/4","bpm":76,"battute":7,"anacrusi":0.0,"voci":[[[0.0,0.5,65],[0.5,0.25,74],[0.75,0.25,72],[1.0,0.5,74],[1.5,0.5,65],[2.0,0.5,63],[2.5,0.25,75],[2.75,0.25,74],[3.0,0.5,75],[3.5,0.5,67],[4.0,0.5,65],[4.5,0.25,77],[4.75,0.25,75],[5.0,0.5,77],[5.5,0.5,68],[6.0,0.25,67],[6.25,0.25,77],[6.5,0.25,75],[6.75,0.25,74],[7.0,0.25,72],[7.25,0.25,71],[7.5,0.25,69],[7.75,0.25,67],[8.0,0.5,72],[8.5,0.5,77],[9.0,0.5,75],[9.5,0.5,74],[10.5,0.5,68],[11.0,0.5,67],[11.5,0.5,65],[12.0,0.5,67],[12.5,0.25,65],[12.75,0.25,63],[13.0,0.5,65],[13.5,0.5,62],[14.0,0.5,68],[14.5,0.5,67],[15.5,0.5,69],[16.0,0.5,71],[16.5,0.5,72],[17.0,0.25,65],[17.25,0.25,63],[17.5,0.25,62],[17.75,0.25,60],[18.0,0.5,60],[18.5,0.25,72],[18.75,0.25,71],[19.0,0.5,72],[19.5,0.5,67],[20.0,0.5,68],[20.5,0.25,72],[20.75,0.25,71],[21.0,0.5,72],[21.5,0.5,71],[21.5,0.5,74],[22.0,0.5,67],[22.5,0.25,72],[22.75,0.25,71],[23.0,0.5,72],[23.5,0.5,74],[24.0,0.25,65],[24.25,0.25,67],[24.5,1.0,68],[25.5,0.25,67],[25.75,0.25,65],[26.0,2.0,64]],[[0.0,0.5,59],[1.5,0.5,59],[2.0,0.5,60],[3.5,0.5,63],[4.0,0.5,62],[5.5,0.5,65],[6.0,0.5,65],[7.5,0.5,65],[8.0,0.5,63],[8.5,0.5,68],[9.0,0.5,67],[9.5,0.5,65],[10.0,0.5,63],[10.5,0.5,62],[11.0,0.5,63],[11.5,0.5,65],[12.0,0.5,59],[12.5,0.5,60],[13.0,0.5,62],[13.5,0.5,59],[14.0,0.5,59],[14.5,0.5,60],[15.5,0.5,60],[16.0,0.25,65],[16.25,0.25,62],[16.5,0.25,63],[16.75,0.25,60],[17.0,0.5,60],[17.5,0.5,59],[18.0,1.0,60],[19.5,0.5,64],[20.0,1.0,65],[21.5,0.5,65],[21.5,0.5,68],[22.0,0.5,65],[22.5,0.25,63],[22.75,0.25,62],[23.0,0.5,63],[23.5,0.5,65],[23.5,0.5,68],[24.0,0.5,59],[24.0,0.5,62],[25.0,0.5,59],[25.0,0.5,62],[26.0,2.0,55],[26.0,2.0,60]],[[0.0,1.0,43],[2.25,0.25,43],[2.5,0.25,45],[2.75,0.25,47],[3.0,0.25,48],[3.25,0.25,50],[3.5,0.25,51],[3.75,0.25,53],[4.0,0.25,55],[4.25,0.25,53],[4.5,0.25,56],[4.75,0.25,55],[5.0,0.25,53],[5.25,0.25,51],[5.5,0.25,50],[5.75,0.25,48],[6.0,0.5,47],[6.5,0.25,48],[6.75,0.25,47],[7.0,0.5,48],[7.5,0.5,43],[8.0,0.5,44],[8.5,0.25,48],[8.75,0.25,47],[9.0,0.5,48],[9.5,0.5,50],[10.0,0.5,43],[10.5,0.25,48],[10.75,0.25,47],[11.0,0.5,48],[11.5,0.5,50],[12.0,0.25,41],[12.25,0.25,43],[12.5,1.0,44],[13.5,0.25,43],[13.75,0.25,41],[14.0,1.0,39],[15.5,0.5,51],[16.0,0.5,50],[16.5,0.5,48],[17.0,0.5,55],[17.5,0.5,43],[18.0,2.0,36],[18.0,2.0,48],[20.0,4.0,36],[20.0,4.0,48],[24.0,4.0,36],[24.0,4.0,48]]]}</script>
-</tac-brano>
+    <tac-stave clef="treble" time="4/4" keysig="Dm" data-errori
+               caption="Sbagliato: re minore, tre errori"
+               soprano="d/5:w | d/5:w | c/5:w | d/5:w | d/5:w | a/4:w | c#/5:w | d/5:w"
+               contralto="a/4:w | b/4:w | a/4:w | a/4:w | g/4:w | e/4:w | e/4:w | f/4:w"
+               tenore="f/4:w | g/4:w | e/4:w | f/4:w | b/3:w | c#/4:w | c#/4:w | d/4:w"
+               basso="d/3:w | g/2:w | a/2:w | d/3:w | g/3:w | a/3:w | a/2:w | d/3:w"
+               cifre="i &middot; iv &middot; V &middot; i &middot; iv &middot; V &middot; V &middot; i"
+               width="900" tempo="56" play slow></tac-stave>
 
-
-    <div class="riquadro studio">
-      <span class="etichetta">Che cosa avete appena verificato</span>
-      <p>Che la regola non dipende dalla tonalit&agrave; n&eacute; dal genere: in la minore si alza il sol, in do minore si alza il si, in re minore si alzer&agrave; il do. Cambia il <strong>nome</strong> della nota, non il <strong>grado</strong>.</p>
-      <p>&Egrave; il motivo per cui in questo corso si ragiona sempre per gradi &mdash; primo, quinto, settimo &mdash; e non per nomi. I nomi cambiano dodici volte; i gradi mai.</p>
-    </div>
-
-    <p class="didascalia">Nella fuga sentirete anche qualche <em>la</em> naturale: &egrave; il sesto alzato, cio&egrave; la melodica. Anche quella arriva alla lezione 5, e anche quella non &egrave; un&rsquo;invenzione dei manuali.</p>
-  </div>
-</section>
-
-<section class="slide off" data-titolo="Chi ha deciso, e quando">
-  <div class="slide-interna">
-    <h2>Nessuno l&rsquo;ha deciso a tavolino</h2>
-
-    <p>Una domanda che vale la pena farsi: se alzare la settima serve tanto, <strong>perch&eacute; non l&rsquo;hanno messa in armatura</strong> e via? La risposta &egrave; storica, e dice qualcosa su come nascono le regole.</p>
-
-    <div class="affianca">
-      <div class="riquadro definizione">
-        <span class="etichetta">Prima venne la pratica</span>
-        <p>Per secoli i cantori <strong>alzavano la nota mentre cantavano</strong>, senza che nessuno la scrivesse: &egrave; la <em>musica ficta</em> che avete incontrato nell&rsquo;unit&agrave; 3. La regola esisteva nelle mani prima che sulla carta.</p>
-      </div>
-      <div class="riquadro">
-        <span class="etichetta">Poi si cominci&ograve; a scriverla</span>
-        <p>Quando la musica si fece pi&ugrave; complicata, lasciarlo all&rsquo;esecutore divenne rischioso, e il segno cominci&ograve; a comparire <strong>davanti alla nota</strong> &mdash; dove serviva, e solo l&igrave;.</p>
-      </div>
-    </div>
+    <tac-stave clef="treble" time="4/4" keysig="Dm"
+               caption="Corretto: in ogni iv–V il si♭ scende al la"
+               soprano="d/5:w | d/5:w | c#/5:w | d/5:w | b/4:w | a/4:w | c#/5:w | d/5:w"
+               contralto="a/4:w | b/4:w | a/4:w | a/4:w | g/4:w | e/4:w | e/4:w | f/4:w"
+               tenore="f/4:w | g/4:w | e/4:w | f/4:w | d/4:w | c#/4:w | a/3:w | a/3:w"
+               basso="d/3:w | g/2:w | a/2:w | d/3:w | g/3:w | a/3:w | a/2:w | d/3:w"
+               cifre="i &middot; iv &middot; V &middot; i &middot; iv &middot; V &middot; V &middot; i"
+               segna="b2-b3=si♭–la · b5-b6=si♭–la"
+               width="900" tempo="56" play slow></tac-stave>
 
     <div class="riquadro attenzione">
-      <span class="etichetta">E perch&eacute; non finì mai in armatura</span>
-      <p>Perch&eacute; l&rsquo;armatura dice quello che vale <strong>sempre</strong>, e questa alterazione non vale sempre: serve alle chiuse e alle salite, non alle discese. Metterla in armatura obbligherebbe a scrivere un bequadro tutte le altre volte &mdash; pi&ugrave; segni, non meno.</p>
-    </div>
-
-    <p class="didascalia">Quindi la notazione ha fatto la scelta economica, come sempre: si scrive <strong>l&rsquo;eccezione</strong>, non la regola. Lo stesso principio dei tagli addizionali e del segno d&rsquo;ottava.</p>
-  </div>
-</section>
-
-<section class="slide off" data-titolo="Che cosa succede all&rsquo;accordo">
-  <div class="slide-interna">
-    <h2>Che cosa cambia sotto, quando si alza quella nota</h2>
-
-    <p>Finora abbiamo guardato la <strong>melodia</strong>. Ma il settimo grado alzato non serve solo a chi canta la linea: cambia l&rsquo;accordo che sta sotto, ed &egrave; per quello che esiste davvero.</p>
-
-    <!-- ⚠ `tastiera` non è una scorciatoia per zittire il controllo:
-         questo rigo NON è scrittura a quattro parti. È l'accordo di
-         dominante suonato al pianoforte per farlo sentire, e le voci
-         non hanno una condotta da leggere — la classe le triadi le
-         incontra nell'unità 8, e la condotta in terza. Segnalato da
-         `_notazione.py` il 5 settembre 2026, e aveva ragione a
-         chiederlo. -->
-    <tac-stave clef="treble" time="4/4" tastiera
-               caption="L&rsquo;accordo sul quinto grado di la minore, al pianoforte: prima con il sol, poi con il sol diesis"
-               notes="e/4+g/4:h e/4+g/4:h | e/4+g#/4:h e/4+g#/4:h"
-               bass="e/3:h e/3:h | e/3:h e/3:h"
-               width="700" tempo="52" play slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">La differenza, in una riga</span>
-      <p>Con il sol naturale, l&rsquo;accordo sul quinto grado &egrave; <strong>minore</strong> e non tira. Con il sol diesis diventa <strong>maggiore</strong>, e tira verso la tonica esattamente come nel modo maggiore.</p>
-      <p>Ecco perch&eacute; si chiama <em>armonica</em>: la scala &egrave; stata aggiustata <strong>per l&rsquo;armonia</strong>, non per la melodia. La melodia, semmai, ci ha rimesso &mdash; il salto scomodo &egrave; il prezzo.</p>
-
-<p class="didascalia">Questo &egrave; il primo momento del corso in cui una scelta <strong>melodica</strong> e una scelta <strong>armonica</strong> si contraddicono, e vince l&rsquo;armonia. Ne vedrete molti altri dalla terza in poi, e quasi sempre finisce cos&igrave;.</p>
+      <span class="etichetta">Gli errori della versione sbagliata</span>
+      <p><strong>B.&nbsp;3</strong>: il do del soprano è senza diesis; il V è minore e la frase non conclude. <strong>Bb.&nbsp;5&ndash;6</strong>: il tenore sale si♭&ndash;do♯, seconda eccedente. <strong>Bb.&nbsp;7&ndash;8</strong>: il do♯ è raddoppiato (soprano e tenore) e le due sensibili salgono al re: ottave consecutive fra soprano e tenore, conseguenza del raddoppio; in più tutte e quattro le parti salgono insieme.</p>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Che cosa portiamo a casa">
+<section class="slide" data-titolo="Sintesi">
   <div class="slide-interna">
-    <h2>Che cosa portiamo a casa</h2>
-
+    <h2>Sintesi</h2>
     <div class="colonne">
       <div class="riquadro definizione">
-        <span class="etichetta">Perch&eacute; si alza</span>
-        <p>Per avere la <strong>sensibile</strong>, cio&egrave; un semitono sotto la tonica. Il maggiore ce l&rsquo;ha per costruzione, il minore se la deve fare.</p>
+        <span class="etichetta">Le triadi</span>
+        <p>i e iv minori, V maggiore. Il segno della sensibile si scrive in ogni accordo di V, nella voce che la canta.</p>
       </div>
-      <div class="riquadro attenzione">
-        <span class="etichetta">Che cosa costa</span>
-        <p>Una <strong>seconda eccedente</strong> fra sesto e settimo grado: un tono e mezzo, una distanza che nella scala maggiore non c&rsquo;&egrave;.</p>
+      <div class="riquadro definizione">
+        <span class="etichetta">La condotta</span>
+        <p>Sensibile mai raddoppiata; al soprano sale. Fra iv e V moto contrario: il VI grado scende al V, mai alla sensibile.</p>
       </div>
     </div>
-
-    <p class="didascalia">La prossima ora si chiude anche questo buco, e la scala cambia un&rsquo;altra volta. Sar&agrave; la <strong>terza</strong> e ultima forma della minore &mdash; e sar&agrave; l&rsquo;unica che si comporta in modo diverso salendo e scendendo.</p>
+    <p class="didascalia">Per casa, un basso senza numeri di otto battute in mi minore. Domani la prima specie in minore. La lezione si chiude con il solfeggio: parlato, cantato e ritmico.</p>
   </div>
 </section>
 
@@ -738,12 +219,12 @@ try { module = undefined; exports = undefined; } catch (e) {}
          style="--segno: url('../../_assets/segni/segno-24.png')">
   <div class="slide-interna">
     <p class="compiti-occhiello">Compiti per la prossima volta</p>
-    <h2>1 &middot; Scritto: La sensibile, e dove si scrive</h2>
+    <h2>1 &middot; Scritto: Un basso senza numeri in mi minore</h2>
     <div class="riquadro compito">
-      <p>Riscrivi le tre scale di ieri in forma <strong>armonica</strong>: stessa armatura, e il settimo grado alzato.</p>
-      <p>L&rsquo;alterazione va <strong>davanti alla nota</strong>, dentro la battuta. In armatura non ci va <strong>mai</strong>: se ce la metti, stai scrivendo un&rsquo;altra tonalit&agrave;.</p>
+      <p>Realizza a quattro parti il basso di <strong>otto battute in mi minore</strong>, con i, iv e V allo stato fondamentale.</p>
+      <p>Ordine di lavoro (UdA 5, lezione 4): i gradi sotto il basso; il re&#9839; in ogni accordo di V, davanti alla nota; la prima posizione (soprano sul si4); i collegamenti: basso per salto, nota comune tenuta; basso per grado (iv&ndash;V), moto contrario, e il do scende al si, mai al re&#9839;. Nella b.&nbsp;7 il basso ripete il si: cambio di posizione. Controllo finale delle sei coppie di voci.</p>
     </div>
-    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C1-U6-L4-01</strong>.</p>
+    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C1-U6-L4-11</strong>.</p>
   </div>
 </section>
 
@@ -782,18 +263,18 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Continua la <strong>melodia</strong> fino a <strong>otto battute</strong>, in <strong>re minore armonica</strong>, chiave di violino, metro 3/4: le prime due sono date. Muoviti soprattutto per grado congiunto, e dopo un salto di quarta o più torna indietro per grado; il settimo grado alzato (do&#9839;) sale sempre alla tonica; chiudi sulla <strong>tonica</strong>, arrivandoci per grado. Ogni battuta piena, l&rsquo;ultima con una nota sola. Poi cantala o suonala.</p>
       <tac-stave caption="Le prime due battute" clef="treble" keysig="F" time="3/4" notes="f/4:q g/4:h | f/4:8 g/4:8 f/4:q f/4:q" tempo="72" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C1-ME-U06-L4</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="BIoekyCEYKRf3bmZKV62QQ==" iv="GCD5YoTv5wrzrmzW" dati="QQRG8UnXrciBjiqW4GF39XvtBIV7pSJg6uqBqVneavNOjlhJdBXGDVfNh0TOGlOYBGoCG349Hh4bPSFMl2qZeVOauXgtDx+knplVJeI0lirliJHityYACK6k1HudOQB6nLnpdXnO3eXiUdX1sPcPqHqD9g7il8VDIEiyPFhnHnOT0c5ngXiJQ+0rR+5sI536Cq2OKSs6c8BZoyA8w7hB40ZmxKmVCMsD1NJK+Tksz+Fnk6gqCgDsJ9AuGKiwGk0Ku3sWmagPNMPByiiug0Mjhx24YhAQmerT0kjIDVLXaecTqTdpbq+5whMbDurtx+UPEdcgEHJbuW47WyYke3HmrMTkrbK+kC15yA9Ro2xKZbMYz4NLHv9qEqwXJqcGqNm6iZWSw+mEMytjeJmLaFnZPFLVvRZ89oYERh2KOnMmn+cn9wTHdUNd93SUXCey"></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="Ptx2vGTVWL14/7e85555mA==" iv="hoiKo8tt9Q1K1bkR" dati="AHYhype3/VBHr7+h5hLEIpObLIbwuo0hlke7JU06XWz8AxqRzI3z4rHfjoEhD5nNk3HBXXwE4Z2bKi+tcOCh/sGIobvGb/+AYByq21SMeZECWepF8Q/dclqlAFQVVyEwoDaJWQIgxY45tb8JxTXn2PTGpU6CmnJXzua3vuSLIqDQ+KMe98ELMWbuczOVVgyfhLmUzg8+MzwU1hKCJwBsEHMnsBdzJfzs8F7N4QyX9LnU9NXf1ZmEcLn9Rqp2CJgCjBnP9SDbvmD20Teqr/tl6OtmDxF8SpaKiHTOaxA5C/vtB22MNeZeFwMYCZuJ+aF4zJ4vhDwbi5GyDD3LRcovD4j8rhLE0Y2oxXRXmAX5JjPbOhJrL9H9EE0uq/B8nZzWvuC2kQj3kSVsIg30ZfiQkacTHiv+pQTZhVUNZfHVccGnHVlGs5N9Zm4tTE7i"></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C1-BS-U06-L4">
       <span class="etichetta">5 &middot; Il basso sotto la melodia <span class="dettato-sigla">C1-BS-U06-L4</span></span>
       <p>Sotto la melodia scrivi il <strong>basso</strong>, in chiave di basso: <strong>una nota per battuta</strong>, lunga quanto la battuta. La melodia è in <strong>la minore armonica</strong>, metro 3/4. Per ogni battuta scegli fra la <strong>tonica</strong> (I: la&ndash;do&ndash;mi) e la <strong>dominante</strong> (V: mi&ndash;sol&#9839;&ndash;si): guarda la nota sul tempo forte e le note più lunghe, e prendi l&rsquo;accordo che le contiene; scrivi sotto il numero romano. La prima e l&rsquo;ultima battuta sono sulla tonica, la penultima sulla dominante.</p>
       <tac-stave caption="La melodia" clef="treble" keysig="C" time="3/4" notes="a/3:q e/4:8 d/4:8 e/4:q | c/4:q d/4:8 c/4:8 a/4:q | g#/4:q a/4:q b/4:q | b/4:q g#/4:8 a/4:8 b/4:q | c/5:h a/4:q | b/4:q a/4:q b/4:8 c/5:8 | b/4:h b/4:q | a/4:h." tempo="66" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C1-BS-U06-L4</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="TAjqokyZKG3VddQYCVTo2g==" iv="nlP41DqgrhBQ4mni" dati="FIzdiwlG2jUTEKD/DIQhtR6VcZyHs9s2WHFdXmksx0I4ar52PnyARkNj2dqA9RlPmIq1IQVn54712SDCUaC/Mh9KlOqlMLWtmNp6UPCIu+rlXkBv3vKNJFPWtpcfRumgBd/5nCACIgBezM2FfhcnUzUkHW6OmkvqbUoij+2ocZ905HslMgHaaQsLWDhE5/tkgpO+MrQ1JXzpC/9LaO0rlQltOHQ3MTHVYCx6bD1IMK47uDRSTfCmHIvt4x+/OhziGSbptEcf5hQkYZbQCo7zrEAw0fzpcuQ99rX72mlNczunoupKSnn5JQhAMttIqwChznhxt3UZaHdXC2jFoPyChgA9MeHHKxeh6hVSh+bq5EodM1LsFMaOR9/0nY+30b1iQ3ZxFIkwtsX/Kxo4a+tMKa9XzzFQVNr1rlK6hCd31VJInicEEoSqN2KnGmAqy9lAvC1SSDikvdjne6iVDw1IdfkKoZQ/o/+/OFEV9JR6nO+pr5738A/niOkxn0sp0btlluxo3Zzh9oe5B9yO8KsWFTno0xZXvcUjktrpeVX45tW3cvW8YJY="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="EeEk2iRx/brBVZuEt46jZQ==" iv="dDBRST5xTJa4hfdm" dati="BdrtOSp0NZ3Ve7Al6MzR350jR4IPG6jhGbf7PTNjdL8DzJEowm7ck8prdzvSnRhPFIxAAaPgV3/SQQQWgj4f52kDWneeV7jE33zdd6JW36k14Djsmg/B3Wl1z4guGKrR3trb0kw4AFlVyK2fGQ+BeiqgEl/21o45MLplcqfKYuILu99ADjcLIsSxVBAN9EHyRiQPxsQneBUnDed/D357Sh9uUYbGwqvPlX+8onoFf7wQ8MuVvn0F+vZ7caRWyC+Q6zcvT9mkoLscnK6ETHnf3IR0Jy27yBOp5gJRrq9rpujA0o6ktJ8rdKaXxWH9ARCtgQIxJTZSw32XTh1lZymYzMypaLvkTyr2Hoc+JKgGfX3YGRPA1ez0asHtb5+6xiThB9b/yuKBr3qXm39tMbupuGKV9+wTVGA8DplsXhhpYA4laN9jBmv5s5vr5Bq7fSMKESeEgOudt4LiFGGx0WLs1IcHyozavx4BqpgPRIJt2zMHbLVfHUweHAZCskWtUuqzacvYNUVGBCUM9upNu3fWDtHRsos25liRcSAdNlTWtsOjIldN7jI="></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: La sensibile, e dove si scrive (Workbook, esercizio C1-U6-L4-01), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 336, 337; cantato n. 338, 339; ritmico n. 340, 341 (a tempo, senza fermarsi). Dettato C1-D-U06-L4 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Melodia da continuare fino a otto battute (C1-ME-U06-L4). Basso sotto la melodia, una nota per battuta (C1-BS-U06-L4).</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Un basso senza numeri in mi minore (Workbook, esercizio C1-U6-L4-11), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 336, 337; cantato n. 338, 339; ritmico n. 340, 341 (a tempo, senza fermarsi). Dettato C1-D-U06-L4 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Melodia da continuare fino a otto battute (C1-ME-U06-L4). Basso sotto la melodia, una nota per battuta (C1-BS-U06-L4).</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>
@@ -830,9 +311,9 @@ try { module = undefined; exports = undefined; } catch (e) {}
 <section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
   <div class="slide-interna">
     <p class="compiti-occhiello">In classe</p>
-    <h2>Scriviamo adesso: Alzare il settimo dove i bemolli ci sono già</h2>
-    <p>Scrivi la minore <strong>armonica</strong> di <em>sol</em> e di <em>do</em>, e cerchia il segno con cui hai alzato il settimo grado.</p>
-    <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna.</p>
+    <h2>Cominciamo il compito: Un basso senza numeri in mi minore</h2>
+    <p>Realizza a quattro parti il basso di <strong>otto battute in mi minore</strong>, con i, iv e V allo stato fondamentale.</p>
+    <p class="rimando">Dieci minuti insieme sul quaderno, alla lavagna il primo punto; il resto &egrave; il compito per casa.</p>
   </div>
 </section>
 

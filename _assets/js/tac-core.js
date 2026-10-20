@@ -1041,6 +1041,14 @@
      I gruppi si fanno contando fino a tre. Un gruppo che resta a due o
      a uno non diventa una terzina: si scarta, e la battuta non tornerà.
      È voluto — vedi il commento sulla « t » in `leggiNote`. */
+  /* ⚠ 20 ottobre 2026: LE TERZINE E L'ARROTONDAMENTO. Tre crome di terzina
+     valgono 1/3 + 1/3 + 1/3, che in virgola mobile fa 1,0000000000000002:
+     `Math.ceil` ne faceva un battito in più, la voce acuta risultava di 13
+     battiti e il basso di 12, e VexFlow rifiutava il rigo intero
+     («TickMismatch»): pentagramma vuoto, segni e ascolto compresi. Trovato
+     in prima (U7 L7, Beethoven op. 18 n. 1; U8 L6) cercando perché i segni
+     non comparivano. Ogni `numBeats` adesso toglie un milionesimo prima di
+     arrotondare. */
   function costruisciTerzine(VF, dati, note) {
     const gruppi = [];
     let g = [];
@@ -1145,10 +1153,24 @@
                  nota: m[3] ? parseInt(m[3], 10) : null };
       }
       const da = punto(parti[0]);
-      if (!da) return null;
+      /* un pezzo senza posizione è il seguito dell'etichetta di prima
+         (v. sotto): si conserva il testo intero */
+      if (!da) return { orfano: pezzo.trim() };
       return { da: da, a: parti[1] ? punto(parti[1]) : null,
                testo: etichetta };
-    }).filter(Boolean);
+    }).reduce(function (out, s) {
+      /* ⚠ 20 ottobre 2026: «b3=fa♯ (T) · sol♯ (A)» è UN segno con
+         un'etichetta che contiene il separatore. Prima il secondo pezzo
+         diventava un segno senza posizione e si perdeva (in quarta e in
+         quinta una trentina di etichette mozzate). Adesso si riattacca
+         all'etichetta del segno che lo precede. */
+      if (s.orfano !== undefined) {
+        if (out.length && s.orfano) out[out.length - 1].testo += ' · ' + s.orfano;
+        return out;
+      }
+      out.push(s);
+      return out;
+    }, []);
   }
 
   /* Da un punto («b3.2», «n5») all'intervallo di indici dentro `dati`.
@@ -1167,7 +1189,7 @@
      musicista invece di quello del disegnatore.
 
      Chi voglia segnare una pausa segna la battuta intera. */
-  function indiciDelSegno(dati, punto) {
+  function indiciDelSegno(dati, punto, metro) {
     const battuta = [];      // battuta di ciascun indice
     const nellaBattuta = []; // quantesimo SUONO dentro la sua battuta
     const progressiva = [];  // quantesimo suono del rigo
@@ -1189,6 +1211,29 @@
       } else {
         if (battuta[i] !== punto.numero) continue;
         if (punto.nota === null || nellaBattuta[i] === punto.nota) dentroA.push(i);
+      }
+    }
+    /* ⚠ 20 ottobre 2026: «b7.3» SU UNA BATTUTA DI DUE SUONI. In molte
+       lezioni il numero dopo il punto è il TEMPO della battuta, non il
+       suono: «b7.3=V7» sotto «la minima, sol semiminima» voleva il sol
+       del terzo tempo. Il terzo suono non c'è, e il segno non si
+       disegnava affatto, senza errore (in seconda più di cento segni
+       spariti). Quando il suono chiesto non esiste, si legge come tempo:
+       si segna il suono che risuona su quel tempo. Il tempo è la
+       semiminima, la croma con il metro in ottavi, la minima con il
+       metro in mezzi. Dove il suono esiste non cambia niente. */
+    if (!dentroA.length && punto.tipo === 'b' && punto.nota !== null) {
+      const den = parseInt(String(metro || '').split('/')[1], 10);
+      const perTempo = den === 8 ? 0.5 : den === 2 ? 2 : 1;   // in semiminime
+      const attacco = (punto.nota - 1) * perTempo;
+      let pos = 0;
+      for (let i = 0; i < dati.length; i++) {
+        if (battuta[i] !== punto.numero) continue;
+        const durata = dati[i].battiti || 0;
+        if (nellaBattuta[i] !== null && attacco >= pos - 1e-6 && attacco < pos + durata - 1e-6) {
+          dentroA.push(i); break;
+        }
+        pos += durata;
       }
     }
     return dentroA;
@@ -1542,7 +1587,7 @@
             return sn;
           });
           const totB = this._datiB.reduce((a, d) => a + d.battiti, 0);
-          const vB = new VF.Voice({ numBeats: Math.max(1, Math.ceil(totB)), beatValue: 4 });
+          const vB = new VF.Voice({ numBeats: Math.max(1, Math.ceil(totB - 1e-6)), beatValue: 4 });
           vB.setMode(VF.VoiceMode.SOFT);
           vB.addTickables(noteB);
           const perGruppoB = parseInt(this.getAttribute('travatura') || '', 10);
@@ -1654,7 +1699,7 @@
             return sn;
           });
           const tot = dV.reduce((a, d) => a + d.battiti, 0);
-          const vv = new VF.Voice({ numBeats: Math.max(1, Math.ceil(tot)), beatValue: 4 });
+          const vv = new VF.Voice({ numBeats: Math.max(1, Math.ceil(tot - 1e-6)), beatValue: 4 });
           vv.setMode(VF.VoiceMode.SOFT);
           vv.addTickables(noteV);
           vociInterne.push({ nome: nome, dati: dV, note: noteV, voce: vv, rigo: rigo });
@@ -1693,7 +1738,7 @@
         const terzine = costruisciTerzine(VF, dati, note);
 
         const totale = dati.reduce((s, d) => s + d.battiti, 0);
-        const voce = new VF.Voice({ numBeats: Math.max(1, Math.ceil(totale)), beatValue: 4 });
+        const voce = new VF.Voice({ numBeats: Math.max(1, Math.ceil(totale - 1e-6)), beatValue: 4 });
         voce.setMode(VF.VoiceMode.SOFT);
         voce.addTickables(note);
 
@@ -2346,8 +2391,14 @@
       if (!svg) return;
       const NS = 'http://www.w3.org/2000/svg';
 
+      /* ⚠ 20 ottobre 2026: la cifra si centra sulla TESTA della nota.
+         `getAbsoluteX` è il bordo sinistro della testa, e con
+         `text-anchor: middle` ogni cifra e ogni sigla stava mezza testa a
+         sinistra della sua nota (v. `disegnaSegni`, stesso giorno). */
       function ics(n) {
         if (!n) return null;
+        try { const a = n.getNoteHeadBeginX(), b = n.getNoteHeadEndX();
+              if (isFinite(a) && isFinite(b) && b > a) return (a + b) / 2; } catch (e) {}
         try { if (typeof n.getAbsoluteX === 'function') {
                 const v = n.getAbsoluteX(); if (isFinite(v)) return v; } } catch (e) {}
         try { const b = n.getBoundingBox();
@@ -2560,27 +2611,81 @@
         return null;
       }
 
+      /* ⚠ 20 ottobre 2026, Andrea (prima): «trovo le indicazioni grafiche
+         che a volte non sono centrate sulle note giuste. Sia i cerchietti
+         che segnalano le note che i quadrati che segnalano i passaggi fra
+         note». Misurato su tutte le pagine di prima: `getAbsoluteX` non è
+         il centro della nota, è il BORDO SINISTRO della testa. Il
+         cerchietto, centrato lì, stava mezza testa a sinistra (6 unità, 8
+         su una semibreve); su un rigo fitto finiva fra due note. La fascia
+         aggiungeva 9 a sinistra e 16 «a occhio» a destra, cioè 4 oltre
+         l'ultima testa, e tagliava fuori le alterazioni della prima nota.
+         Adesso si chiedono a VexFlow i bordi veri della testa
+         (`getNoteHeadBeginX/EndX`) e lo spazio di alterazioni, punti e
+         teste spostate (`getMetrics`): il cerchio si centra sulle teste,
+         la fascia comprende anche l'inchiostro accanto, con lo stesso
+         margine dai due lati. */
+      function testa(n) {
+        if (!n) return null;
+        let a = null, b = null;
+        try { a = n.getNoteHeadBeginX(); b = n.getNoteHeadEndX(); } catch (e) {}
+        if (!(isFinite(a) && isFinite(b) && b > a)) {
+          const x = ics(n);
+          if (x === null) return null;
+          a = x; b = x + 11.8;
+        }
+        let ts = 0, td = 0, ms = 0, md = 0;
+        try {
+          const m = n.getMetrics();
+          ts = m.leftDisplacedHeadPx || 0; td = m.rightDisplacedHeadPx || 0;
+          /* alterazioni e punti sì, una sillaba lunga sotto il rigo no */
+          ms = Math.min(m.modLeftPx || 0, 44); md = Math.min(m.modRightPx || 0, 14);
+        } catch (e) {}
+        return { a: a - ts, b: b + td, sin: a - ts - ms, des: b + td + md };
+      }
+
       let cima = 30, fondo = 100;
       try { cima = stave.getYForLine(0); fondo = stave.getYForLine(4); } catch (e) {}
 
       const gruppi = [];
       const etichette = [];
       this._segni.forEach((s, k) => {
-        const a = indiciDelSegno(dati, s.da);
-        const b = s.a ? indiciDelSegno(dati, s.a) : a;
+        const metro = this.getAttribute('time');
+        const a = indiciDelSegno(dati, s.da, metro);
+        const b = s.a ? indiciDelSegno(dati, s.a, metro) : a;
         if (!a.length || !b.length) return;
         const primo = a[0], ultimo = b[b.length - 1];
-        const x1 = ics(note[primo]), x2 = ics(note[ultimo]);
-        if (x1 === null || x2 === null) return;
+        const t1 = testa(note[primo]), t2 = testa(note[ultimo]);
+        if (!t1 || !t2) return;
         const solaNota = (primo === ultimo);
 
         const g = document.createElementNS(NS, 'g');
         g.setAttribute('class', 'tac-segno');
         g.setAttribute('data-segno', String(k + 1));
 
-        const sx = Math.min(x1, x2) - (solaNota ? 11 : 9);
-        const dx = Math.max(x1, x2) + (solaNota ? 11 : 16);
-        const su = cima - 10, giu = fondo + 10;
+        /* il cerchio: centro sulle teste, raggio almeno 11, mezza testa
+           più 5 di aria; la fascia: dall'alterazione della prima al punto
+           dell'ultima, 6 di aria per parte */
+        const cxT = (t1.a + t1.b) / 2;
+        const rxT = Math.max(11, (t1.b - t1.a) / 2 + 5);
+        const sx = solaNota ? cxT - rxT : Math.min(t1.sin, t2.sin) - 6;
+        const dx = solaNota ? cxT + rxT : Math.max(t1.des, t2.des) + 6;
+        /* ⚠ 20 ottobre 2026: la fascia comprende anche le note fuori dal
+           rigo. Prima andava sempre da dieci sopra la prima riga a dieci
+           sotto la quinta: nel registro acuto di prima (U3, «quarantanove
+           tagli addizionali») le teste restavano fuori dalla fascia che le
+           doveva segnare. Si chiede a VexFlow l'altezza delle teste del
+           tratto, come fa già il cerchietto. */
+        let su = cima - 10, giu = fondo + 10;
+        for (let q = primo; q <= ultimo; q++) {
+          try {
+            const ys = (note[q] && typeof note[q].getYs === 'function') ? note[q].getYs() : null;
+            if (!ys || !ys.length || (dati[q] && dati[q].pausa)) continue;
+            su = Math.min(su, Math.min.apply(null, ys) - 10);
+            giu = Math.max(giu, Math.max.apply(null, ys) + 10);
+          } catch (e) {}
+        }
+        let alto = su;          // dove comincia, in alto, il segno vero e proprio
 
         if (solaNota) {
           /* ⚠ IL CERCHIETTO STA INTORNO ALLA TESTA, NON INTORNO AL RIGO.
@@ -2638,8 +2743,16 @@
              pentagramma indica il pentagramma, non la nota. */
           const f = document.createElementNS(NS, 'path');
           const cx = (sx + dx) / 2;
-          const punta = Math.max(su - 5, cy - ry - 4);
+          /* ⚠ 20 ottobre 2026: era `Math.max(su - 5, cy - ry - 4)`. Giusto
+             per le note nel rigo e sotto, sbagliato per quelle sopra: lì
+             vinceva `su - 5`, la punta finiva sotto il bordo del
+             cerchietto, la freccia attraversava la testa e il numero le
+             stava addosso. Adesso la punta è sempre appena sopra il
+             cerchietto, e la coda parte sopra il rigo o, se la nota è
+             più in alto, venti sopra la punta. */
+          const punta = cy - ry - 4;
           const coda = Math.min(punta - 20, su - 24);
+          alto = coda;
           f.setAttribute('d', 'M ' + cx + ' ' + coda +
                               ' L ' + cx + ' ' + (punta - 1) +
                               ' M ' + (cx - 5) + ' ' + (punta - 7) +
@@ -2677,7 +2790,7 @@
            intera sta sotto, nella legenda in testo normale (o, a passi,
            nella riga che dice il segno acceso). */
         {
-          const cx = (sx + dx) / 2, cy = su - (solaNota ? 32 : 27);
+          const cx = (sx + dx) / 2, cy = solaNota ? alto - 11 : su - 27;
           const o = document.createElementNS(NS, 'circle');
           o.setAttribute('cx', cx); o.setAttribute('cy', cy); o.setAttribute('r', '9');
           o.setAttribute('fill', 'var(--segno, #b45309)');
@@ -6449,7 +6562,7 @@
             return sn;
           });
           const tot = dati.reduce((a, d) => a + d.battiti, 0);
-          const voce = new VF.Voice({ numBeats: Math.max(1, Math.ceil(tot)), beatValue: 4 });
+          const voce = new VF.Voice({ numBeats: Math.max(1, Math.ceil(tot - 1e-6)), beatValue: 4 });
           voce.setMode(VF.VoiceMode.SOFT);
           voce.addTickables(note);
           const trav = VF.Beam.generateBeams(note.filter((n, j) => !dati[j].pausa));

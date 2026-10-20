@@ -46,473 +46,242 @@ try { module = undefined; exports = undefined; } catch (e) {}
 </head>
 <body>
 <div id="tac-deck">
-<!-- 16/10/2026: piano nuovo della 4ª. Era la U9 L3 del piano vecchio; ora è la U6 L2, ora 38 di 90 («Dettato armonico modulante alla dominante»). Da riscrivere per il titolo nuovo. -->
-
 <!-- ══════════════════════════════════════════════════════════════════
-     LEZIONE 3 · Dettato melodico modulante
-     Unità 9, ora 63 di 90 · classe 4ª · percezione · ORA INTERA
+     LEZIONE 2 · Dettato armonico modulante alla dominante
+     Unità 6, ora 38 di 90 · venerdì 18 dicembre (seconda ora; la prima è
+     la lezione 1) · classe 4ª · percezione. Ora di dettato di verifica
+     (registro.ore_dettato: 38).
 
-     PAROLE CHIAVE: dettato modulante · suono caratteristico all'orecchio
-     · semitono nuovo · cadenza · ricontare i gradi.
+     ══ 16/10/2026 · PIANO NUOVO DELLA 4ª, RISCRITTA (20/10) ══
+     Il file copiato qui il 16/10 era la U9 L3 del piano vecchio
+     («Dettato melodico modulante»): un dettato melodico, non armonico.
+     La lezione è stata riscritta per intero sul modello della U5 L3
+     (stesso tipo di ora): criterio d'ascolto, allenamento, repertorio,
+     foglio, dettato, correzione, lavoro guidato.
+     ⚠ Per il coordinatore: in dettati_verifica.json la voce C4-DV-38
+     («Dettato armonico modulante alla dominante», fa maggiore) non
+     modula: i suoi sedici gradi sono tutti di fa e il campo «limite» lo
+     dichiara. Questa lezione descrive il suo dettato, scritto qui: fa
+     maggiore, otto battute, due accordi per battuta, perno sul vi alla
+     b. 4, si♮ al soprano della b. 5, cadenza perfetta in do. Va messo
+     al posto di C4-DV-38 (i dati sono in NOTE.md).
+      · Fonti del criterio: D'Urso–Bertolini, 4° anno, lez. 47, p. 124
+        (riconoscere una successione «tonicizzata o modulante») e p. 125
+        (le strategie del dettato: memorizzare la tonica, cantare la nota
+        iniziale); Piston, Armonia, p. 216 (la dominante nuova arriva
+        dopo il perno: l'ascoltatore riconosce il perno a cose fatte).
+      · Allenamento e dettato scritti per la lezione, controllati con lo
+        script delle durate e della condotta; per casa il dettato
+        trasportato in sol maggiore.
+      · In musica vera: Bach, BWV 154/8 (A17), bb. 1–8, dal corpus
+        music21; ascolto anche di K 545 (C02), già sentito all'ora 37.
 
-     ⚠ LE SAGOME SÌ, LA MELODIA NO.
-     Qui si mostrano le FORME tipiche, non il dettato di oggi: quello sta
-     in dettati.py e va sentito, non letto. Mostrarlo qui vorrebbe dire
-     regalarlo alla classe che guarda lo schermo.
-
-     ══ L'ORDINE È VOLUTO: SI SENTE PRIMA DI SAPERE ══
-     Quest'ora viene prima dell'ora 64 (i toni lontani) apposta. Chi ha
-     scritto sotto dettato il punto in cui il tono cambia non ha bisogno
-     che gli si spieghi che cos'è un suono caratteristico: lo ha già
-     sentito, e gli manca solo il nome.
-
-     ⚠ IL VERO ERRORE DEL DETTATO MODULANTE non è sbagliare la nota
-     alterata: è CONTINUARE A CONTARE I GRADI DALLA VECCHIA TONICA. Chi
-     lo fa scrive tutto giusto per quattro battute e tutto storto per le
-     altre quattro.
+     ══ TEMPI ══
+     Ora intera, 50 minuti, nessuna coda (è un'ora di dettato).
+     Criterio 6', allenamento 8', repertorio 7', foglio e fasi 4',
+     dettato 12', correzione 7', lavoro guidato 4', sintesi 2'.
      ══════════════════════════════════════════════════════════════════ -->
 
-<!-- Riordinata il 30/09/2026: fusi i due «Il foglio» e i due «Dopo il dettato»; il riscaldamento su Haydn dopo «Il primo ascolto», il corale in si minore dopo il corale BWV 347, Mozart (la regola del quattro) dopo «Dopo il dettato». -->
-
 <section class="slide attiva copertina foto" data-titolo="Copertina"
-         style="--foto: url('../../_assets/copertine/c4u9-lezione-3.jpg?v=1c3ce547');
+         style="--foto: url('../../_assets/copertine/c4u6-lezione-2.jpg?v=f835347d');
                 --cop-a:#134e4a; --cop-b:#0d9488; --cop-c:#99f6e4">
   <div class="slide-interna">
     <div class="occhiello">Modulare ai toni vicini, per iscritto &middot; UdA 6 &middot; Lezione 2 di 9</div>
-    <h1>Sentire il momento in cui cambia</h1>
-    <p class="sottotitolo">Un dettato che modula non &egrave; un dettato pi&ugrave; difficile: &egrave; un dettato in cui, a met&agrave;, bisogna smettere di contare da dove si contava.</p>
+    <h1>Dettato armonico modulante alla dominante</h1>
+    <p class="sottotitolo">Il perno non si sente: si riconosce dopo, quando arriva la sensibile nuova e la cadenza la conferma. Il dettato si scrive con due strisce di funzioni, una per tonalità, e il perno sta su tutte e due.</p>
     <blockquote class="aforisma">
-      <p>Il suono caratteristico principale &egrave; quello che <strong>pi&ugrave; di tutti evidenzia la nuova tonalit&agrave;</strong> rispetto alla precedente.</p>
-      <cite>Carlo Marenco, <em>Manuale d&rsquo;armonia</em>, p.&nbsp;95</cite>
+      <p>La comparsa della dominante nella nuova tonalità deve verificarsi più avanti, quando tale tonalità deve essere confermata per l’ascoltatore.</p>
+      <cite>W. Piston, <em>Armonia</em>, p.&nbsp;216</cite>
     </blockquote>
-
     <div class="meta-copertina">
       <span>50 minuti</span>
       <span>Percezione</span>
-      <span>J. S. Bach</span>
+      <span>Fa maggiore</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Che cosa cambia">
+<section class="slide" data-titolo="Che cosa si ascolta">
   <div class="slide-interna">
-    <h2>Che cosa cambia rispetto ai dettati di sempre</h2>
+    <h2>Che cosa si ascolta, e in quale ordine</h2>
 
     <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
-         «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 4&deg; anno; pagine dall'indice rilevato. -->
+         «importantissimo»). D. D'Urso, C. Bertolini, Il linguaggio della musica, 4° anno. -->
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
-      <p><span class="lez">A10</span><strong>Modulazione alla dominante del maggiore</strong>, pp. 112&ndash;125</p>
-      <p>Sezione A, unit&agrave; 10, lezione 47 &laquo;Ascolto, riconoscimento &amp; improvvisazione&raquo; (e lezione 52 per il minore, pp. 126&ndash;137): riconoscere all&rsquo;ascolto lo spostamento alla dominante.</p>
+      <p><span class="lez">A10</span>Lezione 47, &laquo;Ascolto, riconoscimento &amp; improvvisazione&raquo;, pp.&nbsp;124&ndash;125: quattro frammenti di corale in cui indicare la tonalit&agrave; e &laquo;la successione, tonicizzata o modulante&raquo;, e il dettato a tre parti dello Scherzo del Trio op.&nbsp;9 n.&nbsp;1 di Beethoven.</p>
     </div>
-
-    <p>Fino a oggi, in un dettato melodico, c&rsquo;era un punto fermo che non si muoveva mai: <strong>la tonica</strong>. Qualunque cosa succedesse, il do restava il do, e ogni nota si misurava da l&igrave;.</p>
-
-    <p>Oggi quel punto fermo si sposta a met&agrave; strada. La melodia comincia in un tono e finisce in un altro, e chi continua a misurare dalla tonica di partenza scrive note che non ci sono.</p>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">L&rsquo;errore che costa di pi&ugrave;</span>
-      <p>Non &egrave; sbagliare l&rsquo;alterazione. &Egrave; <strong>continuare a contare i gradi dalla vecchia tonica</strong>: si scrive giusto per quattro battute e storto per le altre quattro, e ci si accorge solo alla fine.</p>
-    </div>
-
-    <p class="didascalia">La buona notizia &egrave; che il punto in cui il tono si sposta si <em>sente</em>, e si sente bene. Oggi impariamo a riconoscerlo.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La regola">
-  <div class="slide-interna">
-    <h2>Si scrive quello che si sente, non quello che si capisce</h2>
-
-    <p>Regola vecchia, che oggi conta doppio. In un dettato modulante c&rsquo;&egrave; una tentazione forte: capire dove si sta andando e poi <strong>dedurre</strong> le note dal ragionamento invece di sentirle.</p>
-
-    <p>Funziona per due battute e poi crolla, perch&eacute; la deduzione &egrave; pi&ugrave; lenta dell&rsquo;ascolto. Alla terza battuta si &egrave; ancora a ragionare sulla prima, e nel frattempo il dettato &egrave; finito.</p>
-
-    <p>L&rsquo;analisi serve <strong>dopo</strong>, per controllare: quando la melodia &egrave; scritta, si guarda se le alterazioni che si sono messe stanno tutte nello stesso tono. Se una &egrave; fuori posto, si sa dove riascoltare.</p>
-
-    <p class="didascalia">Prima l&rsquo;orecchio, poi la testa. Se si invertono, il dettato non si finisce.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="I tre ascolti">
-  <div class="slide-interna">
-    <h2>Tre ascolti, e ciascuno ha un compito</h2>
-
-    <ol>
-      <li><strong>Il primo: la forma.</strong> Non si scrive nessuna nota. Si contano le battute, si segna dove respira, e si mette una crocetta dove si sente che <em>qualcosa &egrave; cambiato</em>.</li>
-      <li><strong>Il secondo: le note della prima met&agrave;</strong>, cio&egrave; fino alla crocetta. L&igrave; si &egrave; ancora nel tono di partenza, e si scrive come sempre.</li>
-      <li><strong>Il terzo: le note della seconda met&agrave;</strong>, contando dalla <em>nuova</em> tonica. La cadenza finale dice qual &egrave;: si parte dalla fine.</li>
-    </ol>
-
-    <p>Il primo ascolto sembra tempo perso e non lo &egrave;: la crocetta &egrave; quello che impedisce l&rsquo;errore della slide precedente. Chi comincia a scrivere note dal primo ascolto la crocetta non ce l&rsquo;ha, e non sapr&agrave; mai dove smettere di contare da prima.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il primo ascolto">
-  <div class="slide-interna">
-    <h2>Che cosa si sente al primo ascolto</h2>
-
-    <p>Una modulazione, all&rsquo;orecchio, non arriva come una nota strana. Arriva come <strong>un cambio di aria</strong>: per qualche secondo la melodia sembra girare intorno a una nota diversa, e le note che prima suonavano stabili adesso sembrano di passaggio.</p>
-
-    <p>Il segnale &egrave; quasi sempre lo stesso: compare un <strong>semitono che prima non c&rsquo;era</strong>. In un pezzo che va da do a sol, il semitono nuovo &egrave; fa&sharp;&ndash;sol, e prende il posto del si&ndash;do di prima.</p>
-
-    <p>Non serve saperne il nome per sentirlo: serve accorgersi che <em>adesso il pezzo tira verso un&rsquo;altra nota</em>. Quella &egrave; la crocetta.</p>
-
-    <p class="didascalia">Chi suona uno strumento lo sa gi&agrave;: si sente nelle dita, prima ancora che nella testa.</p>
-  </div>
-</section>
-
-<!-- ───────────────────────────────────────────────────────────────────
-     Quattro slide, due con musica vera. L'ora è il dettato con
-     modulazione e ha una slide «Musica vera» senza brani. Mancavano i
-     due casi che tarano l'esercizio: una modulazione in un pezzo
-     strumentale breve, dove la si sente arrivare, e una in un corale,
-     dove è compressa in due battute.
-     ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="Musica vera: la modulazione che si sente arrivare">
-  <div class="slide-interna">
-    <h2>Otto battute, e il cambio a metà</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Riscaldamento &middot; 6 minuti</span>
-      <p>Due ascolti. Una crocetta nel punto in cui vi sembra che la musica <strong>abbia cambiato casa</strong>. Non serve dire quale.</p>
-    </div>
-
-    <tac-brano organico="archi" titolo="Haydn, Quartetto op. 1 n. 1, II — Minuetto e Trio"
-               metronomo youtube="ozjtNgZGSV4" esecutore="Aeolian String Quartet" partitura="../../_assets/spartiti/C03_haydn-minuetto-op1.png" inciso="../../_assets/incisioni/C03_haydn_minuetto_op1.mp3" mappa='{"durata":13453,"eventi":[[0,0],[1,1364],[2,2727],[3,4091],[4,5455],[5,6818],[6,8182],[7,9545]]}' da-battuta="1">
-<script type="application/json">{"titolo":"F. J. Haydn, Quartetto op. 1 n. 1, II — Minuetto e Trio","metro":"3/4","bpm":132,"battute":8,"anacrusi":0.0,"voci":[[[0.0,2.0,70],[2.0,1.0,82],[3.0,0.5,84],[3.5,0.5,81],[4.0,0.5,81],[4.5,0.5,79],[5.0,0.5,81],[5.5,0.5,77],[6.0,2.0,77],[8.0,1.0,78],[9.0,1.0,81],[11.0,0.3333,82],[11.3333,0.3333,79],[11.6667,0.3333,75],[12.0,1.0,74],[14.0,0.3333,75],[14.3333,0.3333,72],[14.6667,0.3333,69],[15.0,1.0,70],[17.0,0.3333,74],[17.3333,0.3333,70],[17.6667,0.3333,67],[18.0,2.0,65],[20.0,0.125,63],[20.125,0.125,65],[20.25,0.125,63],[20.375,0.125,65],[20.5,0.125,63],[20.625,0.125,65],[20.75,0.125,63],[20.875,0.125,65],[21.0,1.0,62],[22.0,1.0,70],[23.0,0.3333,74],[23.3333,0.3333,70],[23.6667,0.3333,67]],[[0.0,2.0,62],[2.0,1.0,67],[3.0,0.5,67],[3.5,0.5,65],[4.0,0.5,65],[4.5,0.5,63],[5.0,0.5,63],[5.5,0.5,62],[6.0,1.0,62],[7.0,1.0,62],[8.0,1.0,62],[9.0,1.0,63],[10.0,1.0,63],[11.0,1.0,67],[12.0,1.0,65],[13.0,1.0,65],[14.0,0.3333,67],[14.3333,0.3333,63],[14.6667,0.3333,60],[15.0,1.0,62],[18.0,2.0,62],[20.0,1.0,60],[21.0,1.0,58]],[[0.0,1.0,58],[1.0,1.0,58],[2.0,1.0,58],[3.0,1.0,58],[4.0,1.0,58],[5.0,1.0,58],[6.0,1.0,58],[7.0,1.0,58],[8.0,1.0,58],[9.0,1.0,58],[10.0,1.0,58],[11.0,1.0,58],[12.0,1.0,58],[13.0,1.0,58],[14.0,1.0,58],[15.0,1.0,58],[18.0,1.0,65],[19.0,1.0,65],[20.0,1.0,65],[21.0,1.0,58]],[[0.0,1.0,46],[1.0,1.0,46],[2.0,1.0,46],[3.0,1.0,46],[4.0,1.0,46],[5.0,1.0,46],[6.0,1.0,46],[7.0,1.0,46],[8.0,1.0,46],[9.0,1.0,46],[10.0,1.0,46],[11.0,1.0,46],[12.0,1.0,46],[13.0,1.0,46],[14.0,1.0,46],[15.0,1.0,46],[18.0,1.0,53],[19.0,1.0,53],[20.0,1.0,53],[21.0,1.0,46]]]}</script>
-</tac-brano>
-
 
     <div class="riquadro definizione">
-      <span class="etichetta">Che cosa si sente per primo</span>
-      <p>Non l&rsquo;accordo nuovo: la <strong>nota nuova</strong>. Una sensibile che prima non c&rsquo;era è il primo segnale, e arriva prima della cadenza che la conferma.</p>
-      <p>Nel dettato si segna quella, e la tonalità si deduce: la nota alterata è la sensibile di dove si sta andando.</p>
+      <span class="etichetta">Il fatto da ascoltare</span>
+      <p>La modulazione alla dominante si sente in tre momenti. <strong>La sensibile nuova</strong>, il 4+ del tono d&rsquo;impianto, sale di semitono alla tonica nuova: spesso &egrave; nel basso o in una voce interna, raramente nel soprano. <strong>La cadenza</strong> che segue chiude nel tono nuovo. <strong>Il perno</strong> si riconosce per ultimo, tornando indietro: &egrave; l&rsquo;ultimo accordo che apparteneva ancora a tutti e due i toni (Piston, p.&nbsp;216). Il libro consiglia di memorizzare l&rsquo;accordo di tonica che precede l&rsquo;ascolto e di cantare la nota iniziale di ogni voce prima di trascriverla (D&rsquo;Urso, Bertolini, p.&nbsp;125).</p>
     </div>
 
-    <div class="riquadro studio">
-      <span class="etichetta">I tre ascolti, e che cosa si fa in ciascuno</span>
-      <p><strong>1</strong> &middot; Solo la <strong>crocetta</strong>: dove cambia. Non si scrive una nota.<br>
-      <strong>2</strong> &middot; Il <strong>basso</strong>, tutto, e le alterazioni.<br>
-      <strong>3</strong> &middot; La <strong>cadenza</strong> nuova: che grado chiude.</p>
-    </div>
-
-    <p class="didascalia">In un ascolto complesso conviene cercare <strong>una cosa per volta</strong>, e cominciare da quella che si sente meglio. Chi cerca tutto insieme trova la parte facile e perde il resto.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La sagoma del cambio">
-  <div class="slide-interna">
-    <h2>La sagoma che compare quasi sempre</h2>
-
-    <tac-stave clef="treble" time="4/4"
-               notes="e/5:q f#/5:q g/5:q f#/5:q | g/5:w"
-               caption="Il semitono nuovo: fa&sharp;&ndash;sol, che in do maggiore non pu&ograve; esistere"
-               width="700" tempo="60" play></tac-stave>
-
-    <p>Due note, ed &egrave; tutto quello che serve. Il fa&sharp; che sale al sol e ci resta &egrave; il modo pi&ugrave; comune con cui una melodia dice &laquo;adesso siamo in sol&raquo;.</p>
+    <table class="tabella">
+      <thead><tr><th>Che cosa si sente</th><th>Che cosa &egrave;</th></tr></thead>
+      <tbody>
+        <tr><td>il 4+ sale al 5, e poco dopo torna il 4&#9838;</td><td>tonicizzazione del V: la frase chiude nel tono d&rsquo;impianto</td></tr>
+        <tr><td>il 4+ sale al 5 e resta; la cadenza chiude sul V</td><td>modulazione alla dominante</td></tr>
+        <tr><td>nessun 4+; la frase si ferma sul V</td><td>semicadenza nel tono d&rsquo;impianto</td></tr>
+      </tbody>
+    </table>
 
     <div class="riquadro attenzione">
-      <span class="etichetta">Ma oggi il salto &egrave; pi&ugrave; largo</span>
-      <p>Do&rarr;sol &egrave; il caso pi&ugrave; facile: <strong>una</strong> alterazione di differenza. Nel dettato di stamattina la distanza &egrave; di <strong>quattro</strong>, e le note nuove da sentire sono <strong>due</strong>, non una. Il meccanismo &egrave; identico; quello che cambia &egrave; quanto lontano si va.</p>
+      <span class="etichetta">Gli errori tipici</span>
+      <p><strong>Continuare a contare nel tono d&rsquo;impianto</strong> dopo la modulazione: in un dettato da fa a do la cadenza finale V<sup>7</sup>&ndash;I di do, letta in fa, diventa V<sup>7</sup>/V&ndash;V, e la seconda met&agrave; delle funzioni esce sbagliata. <strong>Scambiare la semicadenza per una modulazione</strong>: senza il 4+ il V resta un V. <strong>Cercare il perno al primo ascolto</strong>: si trova solo dopo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide perc" data-titolo="L&rsquo;allenamento">
+  <div class="slide-interna">
+    <h2>L&rsquo;allenamento: tonicizzare o modulare</h2>
+
+    <div class="righe">
+  <tac-stave clef="treble"
+               time="4/4"
+               keysig="G"
+               caption="Otto battute d’allenamento, sol maggiore: la prima frase tonicizza il V e torna, la seconda modula (scritto per la lezione)"
+               soprano="b/4:h c/5:h | e/5:h d/5:h | d/5:h c/5:h | b/4:w"
+               contralto="d/4:h e/4:h | g/4:h f/4:h | g/4:h d/4:h | d/4:w"
+               tenore="g/3:h g/3:h | a/3:h a/3:h | g/3:h f/3:h | g/3:w"
+               basso="g/2:h c/3:h | c#/3:h d/3:h | b/2:h d/3:h | g/2:w"
+               cifre="I &middot; IV &middot; V65/V &middot; V &middot; I6 &middot; V7 &middot; I"
+               segna="b2=do♯ (B): V65/V – V · b3=do♮: I6 – V7 · b4=cadenza in sol"
+               width="1000"
+               tempo="56" play></tac-stave>
+  <tac-stave clef="treble"
+               keysig="G"
+               soprano="b/4:h b/4:h | c#/5:h d/5:h | d/5:h c#/5:h | d/5:w"
+               contralto="d/4:h e/4:h | g/4:h f/4:h | g/4:h g/4:h | f/4:w"
+               tenore="g/3:h g/3:h | a/3:h a/3:h | b/3:h a/3:h | a/3:w"
+               basso="g/2:h e/3:h | a/2:h d/3:h | g/2:h a/2:h | d/3:w"
+               cifre="I &middot; vi=ii &middot; V7 &middot; I &middot; IV &middot; V7 &middot; I"
+               segna="b1=perno: vi = ii di re · b2=do♯: V7 di re – I · b4=cadenza in re"
+               width="1000"></tac-stave>
     </div>
 
-    <p>Confrontatela con la stessa figura senza alterazione:</p>
-
-    <tac-stave clef="treble" time="4/4"
-               notes="e/5:q f/5:q g/5:q f/5:q | e/5:w"
-               caption="La stessa sagoma col fa naturale: qui non si &egrave; andati da nessuna parte, e infatti si torna sul mi"
-               width="700" tempo="60" play></tac-stave>
-
-    <p class="didascalia">Ascoltatele di fila due volte. La differenza &egrave; una nota, e la sensazione &egrave; completamente diversa.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La cadenza">
-  <div class="slide-interna">
-    <h2>Il secondo segno: dove si posa</h2>
-
-    <p>L&rsquo;alterazione dice <em>dove si sta andando</em>. La <strong>cadenza</strong> dice se ci si &egrave; arrivati. Sono due informazioni diverse e servono tutte e due.</p>
-
-    <tac-stave clef="treble" time="4/4"
-               notes="a/4:q b/4:q c/5:q d/5:q | d/5:h g/4:h"
-               caption="Una chiusa su sol: la melodia scende di quinta e si ferma, ed &egrave; il gesto di una cadenza"
-               width="740" tempo="60" play></tac-stave>
-
-    <p>In una melodia sola non si sentono gli accordi, ma la cadenza si sente lo stesso: la melodia <strong>rallenta il movimento</strong>, arriva su una nota lunga e ci si ferma. Quella nota lunga, nove volte su dieci, &egrave; la tonica nuova.</p>
-
-    <p class="didascalia">Ed &egrave; per questo che il terzo ascolto si fa <strong>partendo dalla fine</strong>: l&rsquo;ultima nota vi dice in che tono contare tutte le altre.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Ricontare">
-  <div class="slide-interna">
-    <h2>Ricontare i gradi, ed &egrave; la cosa difficile</h2>
-
-    <p>Il momento peggiore del dettato modulante &egrave; quello in cui bisogna cambiare metro di misura mentre si sta scrivendo. La melodia va avanti e voi dovete, in un secondo, smettere di pensare &laquo;terzo grado di do&raquo; e cominciare a pensare &laquo;sesto grado di sol&raquo;.</p>
-
-    <tac-stave clef="treble" time="4/4"
-               notes="c/5:q d/5:q e/5:q d/5:q | c/5:q b/4:q a/4:q b/4:q"
-               caption="La stessa nota, due nomi: il do &egrave; primo grado prima e quarto grado dopo"
-               width="740" tempo="60" play></tac-stave>
-
-    <p>La nota non &egrave; cambiata. &Egrave; cambiato il <strong>numero</strong> che le date, e con esso tutto quello che vi aspettate che faccia. Un quarto grado tende a scendere; una tonica sta ferma. La stessa altezza si comporta in due modi.</p>
-
-    <p class="didascalia">Questo &egrave; il vero contenuto dell&rsquo;ora, ed &egrave; anche il motivo per cui il dettato modulante si fa in quarta e non in seconda.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Musica vera">
-  <div class="slide-interna">
-    <h2>Sentitelo in un corale</h2>
-
-    <p>Il soprano della prima frase del corale <strong>BWV&nbsp;347</strong> di Bach, che avete gi&agrave; visto luned&igrave;. Sta in la maggiore e chiude in mi:</p>
-
-    <tac-stave clef="treble" time="4/4"
-               notes="a/4:q a/4:q a/4:q b/4:q | g/4:q f#/4:q e/4:q r:q"
-               caption="J. S. Bach, corale BWV 347: il soprano non ha nessuna alterazione nuova, eppure la frase modula"
-               width="740" tempo="60" play></tac-stave>
-
-    <p>⚠ E qui c&rsquo;&egrave; una cosa importante: <strong>nel soprano il re&sharp; non c&rsquo;&egrave;</strong>. La modulazione sta nelle voci di sotto, e la melodia da sola non la dichiara. Chi scrive solo il soprano sente che qualcosa &egrave; cambiato ma non trova nessuna nota da alterare.</p>
-
-    <p>&Egrave; il caso pi&ugrave; scomodo, ed &egrave; frequente. Quando succede, l&rsquo;unico segno rimasto &egrave; il secondo: <strong>dove si posa la frase</strong>. Questa si posa sul mi, e il mi non era la tonica.</p>
-  </div>
-</section>
-
-<section class="slide perc" data-titolo="E la stessa cosa, compressa">
-  <div class="slide-interna">
-    <h2>Due battute per modulare, in un corale</h2>
+    <p>Le due frasi cominciano allo stesso modo. Nella prima il do&#9839; del basso (b.&nbsp;2) sale al re, e alla b.&nbsp;3 il do&#9838; del V<sup>7</sup> di sol lo annulla: la frase chiude in sol. Nella seconda il do&#9839; entra nel V<sup>7</sup> di re, alla b.&nbsp;6, e non viene pi&ugrave; annullato; la cadenza delle bb.&nbsp;7&ndash;8 &egrave; in re. Il perno &egrave; il mi minore della b.&nbsp;5.</p>
 
     <div class="riquadro compito">
-      <span class="etichetta">Ascolto &middot; 6 minuti</span>
-      <p>Due ascolti, un verso per volta. Stessa consegna: dove cambia casa. È più facile o più difficile che nel minuetto?</p>
+      <span class="etichetta">Ascolto &middot; 8 minuti</span>
+      <p>Senza guardare il rigo, due ascolti per frase. Per ogni frase: tonicizzata o modulante; la battuta del do&#9839;; il tono della cadenza finale. Poi un ascolto con il rigo davanti, e la correzione.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide perc" data-titolo="Nel repertorio">
+  <div class="slide-interna">
+    <h2>Nel repertorio: tre versi di corale, da re a la e ritorno</h2>
+
+    <div class="righe">
+  <tac-stave clef="treble"
+               time="4/4"
+               keysig="D"
+               caption="J. S. Bach, corale BWV 154/8, re maggiore, bb. 1–8: i versi 1–3 (dal corpus music21; le bb. 5–6 del corpus, corona e levare, sono riunite in una battuta; alla b. 8 la pausa sostituisce il levare del verso 4)"
+               soprano="a/4:q a/4:q b/4:q b/4:q | c/5:q c/5:q d/5:h | e/5:q e/5:q d/5:q d/5:q | c/5:q b/4:8 c/5:16 d/5:16 b/4:h"
+               contralto="f/4:8 g/4:8 a/4:q~ a/4:q g/4:q | g/4:8 e/4:8 a/4:8 g/4:8 f/4:h | a/4:q a/4:q a/4:q g#/4:8 f/4:8 | e/4:q e/4:q f/4:q e/4:q"
+               tenore="d/4:q d/4:q d/4:q e/4:q | e/4:q a/3:q a/3:h | c/4:q c/4:q c/4:q b/3:q~ | b/3:8 a/3:8 a/3:q a/3:q g#/3:q"
+               basso="d/3:8 e/3:8 f/3:8 d/3:8 g/3:8 f/3:8 g/3:8 e/3:8 | a/3:8 g/3:8 f/3:8 e/3:8 d/3:h | a/2:8 b/2:8 c/3:8 a/2:8 b/2:8 c/3:8 d/3:8 b/2:8 | c/3:8 d/3:8 e/3:8 c/3:8 d/3:8 b/2:8 e/3:8 e/2:8"
+               segna="b1=re: I – I6 – IV – ii6 · b2=V7 (basso di passaggio) – I · b3=perno: I di la = V di re · sol♯ (A) · b4=la: I6 – ii65 – V"
+               width="1000"
+               tempo="60" play></tac-stave>
+  <tac-stave clef="treble"
+               keysig="D"
+               soprano="a/4:h a/4:q a/4:q | b/4:q b/4:q a/4:q g/4:q | f/4:h r:h"
+               contralto="e/4:h f/4:8 g/4:8 a/4:q | a/4:q g/4:q. f/4:q e/4:8 | d/4:h r:h"
+               tenore="c/4:h d/4:q d/4:q | d/4:q e/4:q e/4:8 c/4:8 d/4:8 a/3:8 | a/3:h r:h"
+               basso="a/2:h d/3:8 e/3:8 f/3:8 d/3:8 | g/3:8 f/3:8 e/3:8 d/3:8 c/3:8 a/2:8 b/2:8 c/3:8 | d/3:h r:h"
+               segna="b1=cadenza in la · re: I · b2=IV – ii – V65 – IV6 – V65 · b3=cadenza in re"
+               width="1000"></tac-stave>
     </div>
 
-    <tac-brano organico="voci" titolo="Bach, corale BWV 103/6 in si minore"
-               metronomo youtube="BhULa14PQdU" esecutore="Amsterdam Baroque · Ton Koopman" partitura="../../_assets/spartiti/A42_bach-103-6.png" inciso="../../_assets/incisioni/A42_bach_103_6.mp3" mappa='{"durata":73508,"eventi":[[0,0],[1,1111],[2,5556],[3,10000],[4,14444],[0,17778],[1,18889],[2,23333],[3,27778],[4,32222],[5,35556],[6,36667],[7,41111],[8,45556],[9,50000],[10,53333],[11,54444],[12,58889],[13,63333],[14,67778]]}'>
-<script type="application/json">{"titolo":"J. S. Bach, Corale BWV 103/6 in si minore","metro":"4/4","bpm":54,"battute":13,"anacrusi":1.0,"voci":[[[0.0,0.5,66],[0.5,0.5,67],[1.0,1.0,69],[2.0,1.0,71],[3.0,1.0,69],[4.0,1.0,74],[5.0,1.0,74],[6.0,1.0,73],[7.0,1.0,74],[8.0,1.0,74],[9.0,1.0,73],[10.0,1.0,71],[11.0,1.0,76],[12.0,0.5,74],[12.5,0.5,73],[13.0,1.0,71],[13.0,2.0,73],[15.0,1.0,71],[17.0,1.0,71],[18.0,0.5,71],[18.5,0.25,73],[18.75,0.25,74],[19.0,0.5,73],[19.5,0.5,71],[20.0,1.0,69],[21.0,1.0,69],[22.0,1.0,68],[23.0,1.0,69],[24.0,1.0,69],[25.0,1.0,71],[26.0,1.0,73],[27.0,1.0,74],[28.0,1.0,73],[29.0,0.5,66],[29.0,2.0,71],[29.5,0.5,67],[31.0,1.0,73],[33.0,1.0,69],[34.0,1.0,71],[35.0,1.0,69],[36.0,1.0,74],[37.0,1.0,74],[38.0,1.0,73],[39.0,1.0,74],[40.0,1.0,74],[41.0,1.0,73],[42.0,1.0,71],[43.0,1.0,76],[44.0,0.5,74],[44.5,0.5,73],[45.0,2.0,73],[47.0,1.0,71]],[[0.0,1.0,62],[1.0,1.0,62],[2.0,1.0,62],[3.0,1.0,62],[4.0,0.5,62],[4.5,0.5,64],[5.0,0.5,66],[5.5,0.5,67],[6.0,1.0,64],[7.0,1.0,66],[8.0,1.0,66],[9.0,0.5,66],[9.5,0.5,64],[10.0,1.0,62],[11.0,1.0,67],[12.0,0.5,66],[12.5,0.5,68],[13.0,0.5,70],[13.0,1.0,66],[13.5,1.0,71],[14.5,0.5,70],[15.0,1.0,66],[17.0,0.5,64],[17.5,0.5,66],[18.0,1.0,68],[19.0,1.0,69],[20.0,1.0,64],[21.0,1.0,64],[22.0,1.0,64],[23.0,1.0,64],[24.0,1.0,66],[25.0,1.0,66],[26.0,1.0,66],[27.0,1.0,66],[28.0,1.0,64],[29.0,0.5,62],[29.0,1.0,62],[29.5,0.5,64],[30.0,0.5,61],[30.5,0.5,59],[31.0,1.0,66],[33.0,1.0,66],[34.0,1.0,67],[35.0,0.5,62],[35.5,0.5,64],[36.0,0.5,66],[36.5,0.5,67],[37.0,0.5,69],[37.5,0.5,64],[38.0,0.5,66],[38.5,0.5,67],[39.0,1.0,66],[40.0,1.0,71],[41.0,0.5,64],[41.5,0.5,66],[42.0,0.5,67],[42.5,0.5,69],[43.0,0.5,71],[43.5,0.25,69],[43.75,0.25,67],[44.0,1.0,66],[45.0,0.5,66],[45.5,0.5,67],[46.0,0.5,66],[46.5,0.5,64],[47.0,1.0,63]],[[0.0,1.0,59],[1.0,1.0,57],[2.0,1.0,55],[3.0,0.5,54],[3.5,0.5,55],[4.0,0.5,57],[4.5,0.5,59],[5.0,1.0,57],[6.0,1.0,57],[7.0,1.0,57],[8.0,1.0,59],[9.0,1.0,58],[10.0,1.0,59],[11.0,0.5,59],[11.5,0.5,61],[12.0,0.5,62],[12.5,0.5,64],[13.0,0.5,62],[13.0,0.5,66],[13.5,0.5,61],[13.5,0.5,61],[14.0,0.5,66],[14.5,0.5,64],[15.0,1.0,62],[17.0,1.0,59],[18.0,1.0,64],[19.0,0.5,64],[19.5,0.5,62],[20.0,1.0,61],[21.0,1.0,59],[22.0,0.5,61],[22.5,0.5,62],[23.0,1.0,61],[24.0,0.5,62],[24.5,0.5,61],[25.0,1.0,59],[26.0,1.0,64],[27.0,0.5,62],[27.5,0.5,61],[28.0,0.5,59],[28.5,0.5,58],[29.0,1.0,59],[29.0,1.0,66],[30.0,1.0,64],[31.0,1.0,58],[33.0,1.0,61],[34.0,0.5,62],[34.5,0.5,64],[35.0,1.0,66],[36.0,1.0,57],[37.0,0.5,57],[37.5,0.5,59],[38.0,1.0,57],[39.0,1.0,57],[40.0,0.5,57],[40.5,0.5,56],[41.0,1.0,57],[42.0,1.0,59],[43.0,0.5,59],[43.5,0.5,61],[44.0,0.5,62],[44.5,0.5,56],[45.0,0.5,58],[45.5,1.0,59],[46.5,0.5,58],[47.0,1.0,54]],[[0.0,1.0,59],[1.0,1.0,54],[2.0,1.0,55],[3.0,0.5,50],[3.5,0.5,52],[4.0,0.5,54],[4.5,0.5,55],[5.0,1.0,57],[6.0,1.0,45],[7.0,1.0,50],[8.0,1.0,47],[9.0,1.0,54],[10.0,0.5,55],[10.5,0.5,54],[11.0,1.0,52],[12.0,1.0,59],[13.0,0.5,59],[13.0,2.0,54],[13.5,0.5,57],[15.0,1.0,47],[17.0,0.5,56],[17.5,0.5,54],[18.0,1.0,52],[19.0,0.5,45],[19.5,0.5,47],[20.0,0.5,49],[20.5,0.5,50],[21.0,0.5,52],[21.5,0.5,50],[22.0,1.0,52],[23.0,1.0,45],[24.0,0.5,50],[24.5,0.5,52],[25.0,0.5,50],[25.5,0.5,49],[26.0,0.5,47],[26.5,0.5,46],[27.0,1.0,47],[28.0,1.0,49],[29.0,1.0,50],[29.0,1.0,59],[30.0,1.0,55],[31.0,1.0,54],[33.0,1.0,57],[34.0,1.0,55],[35.0,1.0,54],[36.0,0.5,52],[36.5,0.5,50],[37.0,0.5,57],[37.5,0.5,55],[38.0,1.0,57],[39.0,1.0,50],[40.0,1.0,47],[41.0,1.0,45],[42.0,0.5,52],[42.5,0.5,54],[43.0,0.5,55],[43.5,0.5,57],[44.0,1.0,59],[45.0,0.5,54],[45.5,0.5,52],[46.0,1.0,54],[47.0,1.0,47]]]}</script>
+    <div class="riquadro compito">
+      <span class="etichetta">Ascolto &middot; 5 minuti</span>
+      <p>Due ascolti delle bb.&nbsp;1&ndash;8 seguendo il contralto. Alzare la mano sul sol&#9839;; al secondo ascolto scrivere il tono di ciascuna delle tre corone.</p>
+    </div>
+
+    <tac-brano organico="voci" titolo="J. S. Bach, corale BWV 154/8, re maggiore" metronomo youtube="HFjROKbHsLc" esecutore="Gächinger Kantorei Stuttgart · Helmuth Rilling" partitura="../../_assets/spartiti/A17_bach-sequenze.png" inciso="../../_assets/incisioni/A17_bach_sequenze.mp3" mappa='{"durata":20009,"eventi":[[0,0],[1,4000],[2,8000],[3,12000],[4,16000]]}' da-battuta="1">
+<script type="application/json">{"titolo":"J. S. Bach, Corale BWV 154/8, la sequenza del basso (bb. 1–5)","metro":"4/4","bpm":60,"battute":5,"anacrusi":0.0,"voci":[[[0.0,1.0,69],[1.0,1.0,69],[2.0,1.0,71],[3.0,1.0,71],[4.0,1.0,73],[5.0,1.0,73],[6.0,2.0,74],[8.0,1.0,76],[9.0,1.0,76],[10.0,1.0,74],[11.0,1.0,74],[12.0,1.0,73],[13.0,0.5,71],[13.5,0.25,73],[13.75,0.25,74],[14.0,2.0,71],[16.0,2.0,69]],[[0.0,0.5,66],[0.5,0.5,67],[1.0,1.0,69],[2.0,1.0,69],[3.0,1.0,67],[4.0,0.5,67],[4.5,0.5,64],[5.0,0.5,69],[5.5,0.5,67],[6.0,2.0,66],[8.0,1.0,69],[9.0,1.0,69],[10.0,1.0,69],[11.0,0.5,68],[11.5,0.5,66],[12.0,1.0,64],[13.0,1.0,64],[14.0,1.0,66],[15.0,1.0,64],[16.0,2.0,64]],[[0.0,1.0,62],[1.0,1.0,62],[2.0,1.0,62],[3.0,1.0,64],[4.0,1.0,64],[5.0,1.0,57],[6.0,2.0,57],[8.0,1.0,61],[9.0,1.0,61],[10.0,1.0,61],[11.0,1.0,59],[12.0,0.5,59],[12.5,0.5,57],[13.0,1.0,57],[14.0,1.0,57],[15.0,1.0,56],[16.0,2.0,61]],[[0.0,0.5,50],[0.5,0.5,52],[1.0,0.5,54],[1.5,0.5,50],[2.0,0.5,55],[2.5,0.5,54],[3.0,0.5,55],[3.5,0.5,52],[4.0,0.5,57],[4.5,0.5,55],[5.0,0.5,54],[5.5,0.5,52],[6.0,2.0,50],[8.0,0.5,45],[8.5,0.5,47],[9.0,0.5,49],[9.5,0.5,45],[10.0,0.5,47],[10.5,0.5,49],[11.0,0.5,50],[11.5,0.5,47],[12.0,0.5,49],[12.5,0.5,50],[13.0,0.5,52],[13.5,0.5,49],[14.0,0.5,50],[14.5,0.5,47],[15.0,0.5,52],[15.5,0.5,40],[16.0,2.0,45]]]}</script>
 </tac-brano>
 
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Perché nel corale è più difficile</span>
-      <p>Perché il cambio dura <strong>due accordi</strong>, non otto battute. Non c&rsquo;è tempo per abituarsi alla tonalità nuova: si arriva, si chiude, e si riparte da un&rsquo;altra parte.</p>
-      <p>E perché il corale è già in minore con due diesis: una alterazione in più si nota meno.</p>
+    <div class="analisi-prosa">
+      <p>Il primo verso &egrave; tutto in re: I, I<sup>6</sup>, IV, ii<sup>6</sup>, e un V<sup>7</sup> sotto il quale il basso scende per crome la&ndash;sol&ndash;fa&#9839;&ndash;mi fino al re della corona. Il secondo verso comincia sul la maggiore, che dopo la cadenza in re suona come una dominante: per la b.&nbsp;3 resta ambiguo. Il sol&#9839; arriva sull&rsquo;ultimo movimento della b.&nbsp;3, nel contralto (re&ndash;sol&#9839;&ndash;si sul re del basso), e da l&igrave; la musica &egrave; in la: I<sup>6</sup>, ii<span class="cifrata"><sup>6</sup><sub>5</sub></span>, V, e la cadenza perfetta della b.&nbsp;5. Il la maggiore della b.&nbsp;3 era il perno, V di re e I di la. Il terzo verso riparte da re: il la maggiore della corona diventa subito la dominante, e il verso chiude con V<span class="cifrata"><sup>6</sup><sub>5</sub></span>&ndash;I in re.</p>
     </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Che cosa cambia nella strategia</span>
-      <p>Non si aspetta di «sentire» la tonalità nuova: non c&rsquo;è tempo. Si segna la <strong>nota estranea</strong> e si conta un semitono sopra.</p>
-      <p>È un calcolo, e nei corali è più affidabile dell&rsquo;impressione.</p>
-    </div>
-
-    <p class="didascalia">Quando un fenomeno è troppo breve per essere percepito come tale, lo si riconosce dai suoi <strong>segni</strong> invece che dal suo effetto. È un cambio di metodo, e va dichiarato invece di lasciare che ognuno lo scopra sbagliando.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Perch&eacute; si riconosce">
-  <div class="slide-interna">
-    <h2>Perch&eacute; questo suono lo riconoscete gi&agrave;</h2>
-
-    <p>C&rsquo;&egrave; un motivo per cui la modulazione alla dominante si sente cos&igrave; bene anche senza averla mai studiata: <strong>&egrave; il gesto pi&ugrave; ripetuto della musica europea</strong>.</p>
-
-    <p>Per tutto il Settecento e l&rsquo;Ottocento la forma sonata l&rsquo;ha resa quasi obbligatoria: in un pezzo in maggiore, il secondo tema sta alla dominante, e ci si arriva sempre nello stesso modo. Chi ha ascoltato dieci sonate di Mozart o di Haydn ha sentito quel passaggio cento volte, e l&rsquo;orecchio se n&rsquo;&egrave; fatto un&rsquo;abitudine.</p>
-
-    <p>Nel Cinquecento non era cos&igrave;, e nel Novecento smetter&agrave; di esserlo. Ma la musica su cui si &egrave; formato il vostro orecchio &mdash; le canzoni comprese &mdash; sta quasi tutta dentro quei due secoli.</p>
-
-    <p class="didascalia">All&rsquo;unit&agrave;&nbsp;10 studieremo la forma sonata, e vi accorgerete di aver gi&agrave; imparato oggi la cosa che la tiene insieme.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il primo errore">
-  <div class="slide-interna">
-    <h2>Primo errore: l&rsquo;alterazione nel posto sbagliato</h2>
-
-    <p>Si sente che c&rsquo;&egrave; un&rsquo;alterazione, si sente anche quale, e la si scrive una nota prima o una nota dopo. Il risultato &egrave; una melodia che nessuno canterebbe:</p>
-
-    <tac-stave clef="treble" time="4/4"
-               notes="e/5:q f/5:q g#/5:q f/5:q | g/5:w"
-               caption="L&rsquo;alterazione spostata di una nota: nasce un intervallo che non si canta, ed &egrave; il segnale che qualcosa non torna"
-               width="700" tempo="60" play></tac-stave>
-
-    <p>La buona notizia &egrave; che <strong>l&rsquo;errore si vede da solo</strong>: fra il fa e il sol&sharp; c&rsquo;&egrave; una seconda eccedente, e le seconde eccedenti in una melodia tonale semplice non ci sono quasi mai. Se ve ne trovate una scritta, avete spostato l&rsquo;alterazione.</p>
-
-    <p class="didascalia">Rileggere la propria melodia cercando gli intervalli impossibili &egrave; il controllo pi&ugrave; veloce che esista.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il secondo errore">
-  <div class="slide-interna">
-    <h2>Secondo errore: modulare troppo presto</h2>
-
-    <p>L&rsquo;opposto del primo, e nasce da uno studente diligente. Si sa che la melodia moduler&agrave;, quindi si comincia a sentire il tono nuovo dalla terza battuta, prima che ci sia.</p>
-
-    <p>Si scrivono alterazioni che non ci sono, e si &laquo;corregge&raquo; quello che l&rsquo;orecchio aveva sentito bene. &Egrave; un errore che nasce dal <em>sapere troppo</em>, e per questo colpisce chi ha studiato.</p>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Il rimedio</span>
-      <p>La crocetta del primo ascolto. Se &egrave; alla battuta&nbsp;6, prima della battuta&nbsp;6 <strong>non si scrive nessuna alterazione</strong>, qualunque cosa sembri.</p>
-    </div>
-
-    <p class="didascalia">Fidarsi della propria crocetta &egrave; difficile e va allenato: &egrave; il motivo per cui il primo ascolto si fa senza penna in mano.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il ritmo">
-  <div class="slide-interna">
-    <h2>E intanto il ritmo non aspetta</h2>
-
-    <p>Mentre si insegue il cambio di tono, il ritmo continua, e il rischio &egrave; di scrivere le altezze giuste su durate sbagliate. Il dettato di oggi &egrave; in <strong>sei ottavi</strong>, e le sagome sono due sole:</p>
-
-    <tac-stave clef="treble" time="6/8"
-               notes="c/5:8 c/5:8 c/5:8 c/5:8 c/5:8 c/5:8 | c/5:q. c/5:q."
-               caption="Le uniche due sagome ritmiche del dettato di oggi: sei crome, oppure due note lunghe"
-               width="740" tempo="60" play></tac-stave>
-
-    <p>Crome e quarti puntati, niente altro. E soprattutto: <strong>due movimenti per battuta, non sei</strong>. Chi conta sei impulsi a sessanta non ci sta, e perde le battute fatte di sole crome.</p>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Si battono due colpi</span>
-      <p>Il numero in alto dice quante crome ci sono, non quanti movimenti. In sei ottavi si batte <strong>due</strong>, e ogni movimento vale <strong>tre</strong> crome: &egrave; l&rsquo;inganno dei tempi composti, e a quest&rsquo;ora non deve pi&ugrave; ingannare nessuno.</p>
-    </div>
-
-    <p class="didascalia">Nel dettato dell&rsquo;unit&agrave;&nbsp;10 il ritmo torner&agrave; a complicarsi ancora: cinque ottavi, e il raggruppamento da decidere. Oggi no.</p>
   </div>
 </section>
 
 <section class="slide" data-titolo="Il foglio">
   <div class="slide-interna">
-    <h2>Che cosa c&rsquo;&egrave; gi&agrave; scritto sul foglio</h2>
-
-    <p>Sul foglio trovate la <strong>chiave</strong>, l&rsquo;<strong>armatura di partenza</strong>, il <strong>metro</strong> e la <strong>prima nota</strong>. Le battute sono gi&agrave; tracciate.</p>
+    <h2>Il foglio, le due strisce, le fasi</h2>
 
     <div class="riquadro definizione">
-      <span class="etichetta">Attenzione a una cosa</span>
-      <p>L&rsquo;armatura resta <strong>quella di partenza per tutto il dettato</strong>. La modulazione si scrive con le alterazioni davanti alle note, non cambiando l&rsquo;armatura a met&agrave; pagina.</p>
+      <span class="etichetta">Il foglio</span>
+      <p>Otto caselle, una per battuta, ciascuna divisa in due: due accordi per battuta. Sotto le caselle <strong>due strisce</strong>: nella prima le funzioni (T, S, D) nel tono d&rsquo;impianto, nella seconda quelle nel tono d&rsquo;arrivo. Si scrive nella prima fino al perno, nella seconda dal perno in poi; il perno si scrive in tutte e due. Una crocetta sulla casella in cui si sente la sensibile nuova.</p>
     </div>
 
-    <p>&Egrave; la convenzione normale per un passaggio breve, ed &egrave; anche quella che vi trovate davanti in qualunque spartito: si cambia l&rsquo;armatura solo quando il tono nuovo dura a lungo, e otto battute non sono a lungo.</p>
-
-    <p class="didascalia">Chi cambia armatura a met&agrave; non sbaglia la musica, ma sbaglia la scrittura &mdash; e la scrittura si corregge.</p>
-
-<tac-stave clef="bass" time="4/4" caption="Il basso, e sopra la riga delle alterazioni: si scrivono lì, non fra le note" notes="d/3:w g/2:w a#/2:w b/2:w" width="500" tempo="46" play></tac-stave>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Le righe, e in che ordine si riempiono</span>
-      <p><strong>1</strong> &middot; numero di battuta.<br>
-      <strong>2</strong> &middot; il <strong>basso</strong>.<br>
-      <strong>3</strong> &middot; le <strong>alterazioni</strong> estranee, con una crocetta sulla battuta.<br>
-      <strong>4</strong> &middot; la <strong>tonalità</strong>, scritta solo dove cambia — non a ogni battuta.</p>
-    </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Perché la tonalità solo dove cambia</span>
-      <p>Perché quello che si sta misurando sono i <strong>cambi</strong>, non gli stati. Una riga con la tonalità in ogni battuta nasconde proprio l&rsquo;informazione che cerca.</p>
-      <p>Tre o quattro sigle su sedici battute: se ce ne sono dodici, quasi certamente si sono contate tonicizzazioni.</p>
-    </div>
+    <ol>
+      <li><strong>Primo ascolto.</strong> Senza scrivere: tonalit&agrave;, metro, il tono della cadenza finale.</li>
+      <li><strong>Secondo ascolto.</strong> La crocetta sulla sensibile nuova; la cadenza delle bb.&nbsp;3&ndash;4.</li>
+      <li><strong>Terzo ascolto.</strong> Le funzioni, prima striscia fino alla crocetta.</li>
+      <li><strong>Quarto ascolto.</strong> La seconda striscia; poi, tornando indietro dalla crocetta, il perno.</li>
+    </ol>
 
     <div class="riquadro attenzione">
-      <span class="etichetta">Come ci si corregge</span>
-      <p>Si guarda se le crocette cadono <strong>prima</strong> dei cambi di tonalità. Se una crocetta non è seguita da un cambio, era una tonicizzazione; se un cambio non ha una crocetta prima, manca un&rsquo;alterazione.</p>
-      <p>È un controllo interno al foglio: si fa senza riascoltare.</p>
+      <span class="etichetta">L&rsquo;errore tipico</span>
+      <p><strong>Spostarsi nella seconda striscia troppo tardi</strong>, alla cadenza. Il tono cambia al perno: l&rsquo;accordo prima della sensibile nuova ha gi&agrave; due nomi.</p>
     </div>
-
-    <p class="didascalia">Un foglio ben disposto <strong>contiene i propri controlli</strong>. Le due righe qui sopra sono ridondanti apposta: l&rsquo;una verifica l&rsquo;altra, ed è per questo che ci sono tutte e due.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Come ci si corregge">
+<section class="slide" data-titolo="Il dettato">
   <div class="slide-interna">
-    <h2>Tre controlli, prima di consegnare</h2>
+    <h2>Il dettato di oggi</h2>
 
-    <p><strong>1</strong>&nbsp;&nbsp;<em>Le battute tornano?</em> Si contano i movimenti battuta per battuta. &Egrave; il controllo pi&ugrave; noioso ed &egrave; quello che trova pi&ugrave; errori.</p>
-
-    <p><strong>2</strong>&nbsp;&nbsp;<em>Ci sono intervalli che non si cantano?</em> Seconde eccedenti, tritoni scoperti, salti oltre l&rsquo;ottava. Se ce n&rsquo;&egrave; uno, quasi sempre &egrave; un&rsquo;alterazione fuori posto.</p>
-
-    <p><strong>3</strong>&nbsp;&nbsp;<em>Le alterazioni stanno tutte nello stesso tono?</em> Se avete scritto un fa&sharp; e un si&flat;, uno dei due &egrave; sbagliato: appartengono a due toni che non sono vicini fra loro.</p>
-
-    <p class="didascalia">Sono gli stessi tre controlli che il programma fa sul quaderno dei solfeggi. Farli a mano su otto battute costa due minuti.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Dopo il dettato">
-  <div class="slide-interna">
-    <h2>Cinque minuti che valgono l&rsquo;ora</h2>
-
-    <p>Alla fine, prima di correggere, si fa una cosa sola: <strong>si cerchia la nota in cui il tono cambia</strong> e si scrive accanto il nome del tono d&rsquo;arrivo.</p>
-
-    <p>Chi ha la crocetta nel punto giusto ha capito il dettato anche se ha sbagliato tre altezze. Chi ha tutte le note giuste ma non sa dire dove ha modulato ha copiato bene senza aver sentito niente &mdash; e alla verifica non funzioner&agrave;.</p>
-
-    <p class="didascalia">La domanda &laquo;dove modula?&raquo; vale, nel voto, quanto met&agrave; delle note.</p>
-
-<tac-stave clef="bass" time="4/4" caption="La sensibile nuova al basso: se si scrive un grado sotto, tutta la modulazione si perde" notes="a#/2:h b/2:h" width="290" tempo="46" play></tac-stave>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Primo errore &middot; la modulazione non vista</span>
-      <p>Si scrive tutto nella tonalità di partenza, con le alterazioni segnate come accidenti. Il basso torna, i gradi no.</p>
-      <p>È il segno che si è ascoltato <strong>accordo per accordo</strong> senza mai guardare l&rsquo;insieme. Rimedio: il primo ascolto senza scrivere.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Secondo errore &middot; la modulazione inventata</span>
-      <p>Si segna un cambio di tonalità su ogni alterazione. Escono cinque modulazioni in otto battute, che nessuna musica fa.</p>
-      <p>Rimedio: la regola del <strong>quattro</strong> — se dopo l&rsquo;alterazione la musica non resta almeno quattro battute, era una tonicizzazione.</p>
-    </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Che cosa hanno in comune</span>
-      <p>Tutti e due nascono dall&rsquo;<strong>ascoltare troppo da vicino</strong>. Il primo non vede il quadro, il secondo lo vede troppo spesso. La cura è la stessa: un ascolto speso a guardare l&rsquo;insieme.</p>
-    </div>
-
-    <p class="didascalia">Gli errori opposti hanno spesso la stessa causa. Quando due sbagli contrari compaiono nella stessa classe, conviene cercare <strong>una sola cosa mancante</strong> invece di due rimedi.</p>
-  </div>
-</section>
-
-<!-- Una terza musica: le due di quest'ora sono un minuetto e un corale,
-     tutti e due con modulazioni brevi. Mancava il caso in cui la
-     modulazione dura, che è quello su cui la regola del quattro si
-     verifica invece di essere creduta. -->
-<section class="slide perc" data-titolo="La modulazione che dura">
-  <div class="slide-interna">
-    <h2>Il caso in cui la regola del quattro si vede</h2>
+    <p>Fa maggiore, quattro quarti, otto battute, due accordi per battuta, quattro parti. Si comincia dall&rsquo;accordo di tonica, suonato una volta prima del primo ascolto.</p>
 
     <div class="riquadro compito">
-      <span class="etichetta">Ascolto con l&rsquo;orologio &middot; 6 minuti</span>
-      <p>Due ascolti. Dal momento in cui sentite l&rsquo;alterazione nuova, <strong>contate le battute</strong> fino alla fine.</p>
+      <span class="etichetta">Dettato &middot; 12 minuti</span>
+      <p>Quattro ascolti, con le fasi della slide precedente. Sul foglio: le due strisce di funzioni, la crocetta, il perno, il tono della cadenza finale.</p>
     </div>
 
-    <tac-brano organico="tastiera" titolo="Mozart, Sonata K 545, I — l&rsquo;esposizione"
-               metronomo youtube="4xeAsc6m35w" esecutore="Lang Lang, pianoforte (Steinway & Sons)" partitura="../../_assets/spartiti/C02_mozart-k545-esposizione.png" inciso="../../_assets/incisioni/C02_mozart_k545_esposizione.mp3" mappa='{"durata":25861,"eventi":[[0,0],[1,2000],[2,4000],[3,6000],[4,8000],[5,10000],[6,12000],[7,14000],[8,16000],[9,18000],[10,20000],[11,22000]]}' da-battuta="1">
-<script type="application/json">{"titolo":"W. A. Mozart, Sonata K 545, I movimento — l’esposizione, che chiude in dominante","metro":"4/4","bpm":120,"battute":12,"anacrusi":0.0,"voci":[[[0.0,2.0,72],[2.0,1.0,76],[3.0,1.0,79],[4.0,1.5,71],[5.5,0.25,72],[5.75,0.25,74],[6.0,1.0,72],[8.0,2.0,81],[10.0,1.0,79],[11.0,1.0,84],[12.0,1.0,79],[13.0,0.125,77],[13.125,0.125,79],[13.25,0.125,77],[13.375,0.125,79],[13.5,0.25,76],[13.75,0.25,77],[14.0,1.0,76],[16.0,0.5,69],[16.5,0.25,71],[16.75,0.25,72],[17.0,0.25,74],[17.25,0.25,76],[17.5,0.25,77],[17.75,0.25,79],[18.0,0.25,81],[18.25,0.25,79],[18.5,0.25,77],[18.75,0.25,76],[19.0,0.25,74],[19.25,0.25,72],[19.5,0.25,71],[19.75,0.25,69],[20.0,0.5,67],[20.5,0.25,69],[20.75,0.25,71],[21.0,0.25,72],[21.25,0.25,74],[21.5,0.25,76],[21.75,0.25,77],[22.0,0.25,79],[22.25,0.25,77],[22.5,0.25,76],[22.75,0.25,74],[23.0,0.25,72],[23.25,0.25,71],[23.5,0.25,69],[23.75,0.25,67],[24.0,0.5,65],[24.5,0.25,67],[24.75,0.25,69],[25.0,0.25,71],[25.25,0.25,72],[25.5,0.25,74],[25.75,0.25,76],[26.0,0.25,77],[26.25,0.25,76],[26.5,0.25,74],[26.75,0.25,72],[27.0,0.25,71],[27.25,0.25,69],[27.5,0.25,67],[27.75,0.25,65],[28.0,0.5,64],[28.5,0.25,65],[28.75,0.25,67],[29.0,0.25,69],[29.25,0.25,71],[29.5,0.25,72],[29.75,0.25,74],[30.0,0.25,76],[30.25,0.25,74],[30.5,0.25,72],[30.75,0.25,71],[31.0,0.25,69],[31.25,0.25,67],[31.5,0.25,65],[31.75,0.25,64],[32.0,0.5,62],[32.5,0.25,64],[32.75,0.25,65],[33.0,0.25,67],[33.25,0.25,69],[33.5,0.25,71],[33.75,0.25,73],[34.0,0.25,74],[34.25,0.25,69],[34.5,0.25,71],[34.75,0.25,73],[35.0,0.25,74],[35.25,0.25,76],[35.5,0.25,77],[35.75,0.25,79],[36.0,0.25,81],[36.25,0.25,83],[36.5,0.25,84],[36.75,0.25,83],[37.0,0.25,81],[37.25,0.25,79],[37.5,0.25,77],[37.75,0.25,76],[38.0,0.25,77],[38.25,0.25,79],[38.5,0.25,81],[38.75,0.25,79],[39.0,0.25,77],[39.25,0.25,76],[39.5,0.25,74],[39.75,0.25,72],[40.0,0.5,71],[40.5,0.5,79],[41.0,0.5,76],[41.5,0.5,72],[42.0,0.5,74],[42.5,0.5,79],[43.0,0.5,76],[43.5,0.5,72],[44.0,1.0,74],[45.0,1.0,71],[45.0,1.0,74],[45.0,1.0,79],[46.0,1.0,67]],[[0.0,0.5,60],[0.5,0.5,67],[1.0,0.5,64],[1.5,0.5,67],[2.0,0.5,60],[2.5,0.5,67],[3.0,0.5,64],[3.5,0.5,67],[4.0,0.5,62],[4.5,0.5,67],[5.0,0.5,65],[5.5,0.5,67],[6.0,0.5,60],[6.5,0.5,67],[7.0,0.5,64],[7.5,0.5,67],[8.0,0.5,60],[8.5,0.5,69],[9.0,0.5,65],[9.5,0.5,69],[10.0,0.5,60],[10.5,0.5,67],[11.0,0.5,64],[11.5,0.5,67],[12.0,0.5,59],[12.5,0.5,67],[13.0,0.5,62],[13.5,0.5,67],[14.0,0.5,60],[14.5,0.5,67],[15.0,0.5,64],[15.5,0.5,67],[16.0,1.0,65],[19.0,1.0,53],[19.0,1.0,60],[20.0,1.0,52],[20.0,1.0,60],[23.0,1.0,52],[23.0,1.0,60],[24.0,1.0,50],[24.0,1.0,59],[27.0,1.0,50],[27.0,1.0,59],[28.0,1.0,48],[28.0,1.0,60],[31.0,1.0,48],[31.0,1.0,52],[32.0,4.0,53],[32.0,4.0,57],[36.0,1.5,53],[37.5,0.5,55],[38.0,1.5,57],[39.5,0.5,54],[40.0,0.25,43],[40.25,0.25,47],[40.5,0.25,50],[40.75,0.25,55],[41.0,0.25,43],[41.25,0.25,48],[41.5,0.25,52],[41.75,0.25,55],[42.0,0.25,43],[42.25,0.25,47],[42.5,0.25,50],[42.75,0.25,55],[43.0,0.25,43],[43.25,0.25,48],[43.5,0.25,52],[43.75,0.25,55],[44.0,1.0,43],[45.0,1.0,55],[46.0,1.0,43]]]}</script>
-</tac-brano>
-
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa mostra il conto</span>
-      <p>Che qui la nuova tonalità dura <strong>più della metà del brano</strong>. Non è un passaggio: è metà del pezzo, ed è la definizione di un&rsquo;esposizione di sonata.</p>
-      <p>Nei due esempi di prima duravano due e quattro battute. La differenza di scala è di venti volte.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Perché serve vedere i due estremi</span>
-      <p>Perché la regola del quattro è una <strong>soglia</strong>, e una soglia si impara vedendo che cosa sta chiaramente sopra e chiaramente sotto. In mezzo resta una zona grigia, e resterà.</p>
-    </div>
-
-    <p class="didascalia">Ogni soglia numerica in analisi è una <strong>convenzione utile</strong>, non un fatto. Serve a rendere confrontabili le letture di persone diverse, ed è per questo che va dichiarata.</p>
+    <tac-chiuso invito="La soluzione del dettato e la correzione &mdash; si aprono dopo il dettato" sale="YI7pGJns17kOK4WL0Jr9rw==" iv="Yis6GFAMijfkIdvw" dati="VC9udjas/yQ1JQ0acQyG57tCdkliw6Kgr5PssZF949Z7v0AzFb99tHFoHdBX68CCnshFyo3bqHondtT+Hip9wIgowVHrqRTPWi65eW80jHejkA+V2uUFbaWVFZqWEaeTFp5p1lCKVHKUXB7uPCj0yOETByOWS981Z+2wtt0WXLreEill4EA69upD3qctwCZ3jIsOybetmyqLfExI70HBfZs4eNEqnzFN6WRHj1JTgzOLCd1oUYTos3yywS0r6mkYHxi71WGnlsnSWB771DQXGtb9T5yE27XGZjaLaTxkS667bGtMkwrbYhrp4mvJpZJBpFabPZkRbSOQnq6X3yKKApIK+EyPbYYKmAgLpGr8Uh0YE+4C/4VEICGXuZnz6Mu20eHltB+H246PlVr4SF/IDBgV5Lcb10yZ0CDHjDDfUgEm+9uRHgrNwr3QBprL8ISfHeyeZIMO6Sf6Ybj/BmFXF2aP7KaIpdML/9ZSOdN0krJrH6OFe9FzkvNGnVqJ2fV4kRZdPpGBLwaRejt5vVVWdSmSPTTTFd7VjxpKAMwl1XjLCjC02gsvbEB0LTA+3AiybwnEIbiP+rk70BhSjTUcCvE6CBm76hIUFqilzWLuE3Ybz6yOPsvNmad64JZ5so3Uh95R8TEMVHkLP1pKJfTIa3nYH1NL+byEqbcLv2sv7+4VY2SnwM1qQvnF8zd+HjWGFb7o0a0R6uZNEhAnXIZndMtZvGJwVW1SvMcnWshUyNeBWLIrQgF8TSJvmJg2szvFgz4T5z+p+TCIgag2dbTu67aCl3/91Mz140WPrGzzTA2G6M8KKGJX24MUdZnpqk14vc/we8LJlPGUa1PnfGknEN0ZBY5CC+nJbgrnryk5i7QdWaYYle827Lp15P/x1J5/A745bFed0XvK0Pt3EOAQZ93ZoEMdTOSX0/DhgpeCljLXmwU12FS6wABAxVuBoNvq7aTN/KYM/l0HQI9DOcBbHZ+1ru6wmeDL/GfmToMYzBcyapArBx7eOLt8Tx3BOpW9DtIAw7QIHC3Z0sC/GIuPX/U/a84hC/d509NO622puNylQpTIB326N9CZUzvVh8Qql6XqhuC/NDpi4xobPUKV3gkOWR9alLWfayiAmVCs5UZFZ/TlfKlxcJkVYXuSfgXEqA+DMeQqHw8b8eTqVzdjatNVuTdgO3Wq1xlx9M8IX88dk6uZJfV/hY4xV82YBWafKwuYXZ9pALj/1Gmlli+zPoY57ZrhmMv98EpWs4aJaMv7ZIa/qAt1QnHegehMAgmxf2JEI5VKtYLQLv/kaoVdj9OmTOmQnFsfCEnDfhOGUQHG0C5TP+jtuzHMOAgUDLmPg2x1kZwWt9RJyOfdUVkgHYlYZNjvTqjNa5Mr0S7DAww1QlWJEEtMUxG9PptaaLHQ8rJaHThWcxSP9bRtuntvTwEJOMvCpxVrOwzUwgKTa5RwQ7EbEPBQBIiLauCzQhqQdcy02A5xZqbaCDmt/Mx815VvQimuObhNKlHjpsRDRNOedRcp2VZaHvL2qfHgxoQfxhWqb9VPYKvmNplSmGr3LiCwJteuJEpP0RL2RQyWiRCsGsjq96DXJajNFZy9rQIsck54KCEzztmCC0y4lvI7gnoK73buRWgGlFDUEAcxJiO6f0UjBOtU44HWKH5U8q0MMIAphaUefFHIOdAA1HC/JuAH5hQzJkScildibDTK6IEb2WuXJzq5yDHNOLq/8S//4gEFgVt4jNwdjdujzQzymosXpBq9+aRPt6ABB+V/dwI4c+VSQT2DNZpeivRtHVaahxw8+mBzW5uWEY52VdLT65zOdNP5+p13ymBWaBJ9UjLecKx2icJVjWl8Pcw1ZwYY1hkn2/jR9UBSSW01tL3ezPbLr0KDoxdwy1+EcGcNpWVioktdaSz3c/ImdxoDtk0w77IcEmXCpZ3PAV2gyCWtKLHlNBXutKFK9yAxrwsxckDUxjQkCp83gbXsLmg7uohSf/vMaHOa/m04Q1gyW6RmRYYXhMph9+My+siPND6gqpexSeksSvKFi0IADcohRK3+ZJnNRh4Be6gN50+yLs4LBqcty+V+kWErC8shHBp0mrICzhahMsCLHPsLBKYUwY+c066dCa95NtgY09PuDVVFhc0m5RToNSWh/MgDeg0aJjQF34e3Yakndct6ZoLv4638RSW/5rvRfyxgianpk78KEMQM9UfbkAFQi1PUCKmI3/AhrO8gPMj5NoWkWKKaPxyJIIh4qcj6yfu2dSpgmLI1Ww/HjyspZz7OwSPVq1vFqjTVWhIf39Ld3Qq9KeUZZjEaE0U9G76bjFQ2f37GSUI13OFBYtCan8HKu91Q3Pj24n+tU+SaCZwts8ZNFlM30Rjq6+vYE0nxbanGObLIzCVGprBTJmC3m78lnnjKkLcqKh8OjLpgJ02Kbnk9LmRptiVCIM0AAiaG01KFab6s16HrWuXptz+fm1hUbe/ljUeK4y+0dItIK5DsWWhi7zyU0/kKkOXkfZqfC1LUeKNPwOTL/oSz+JRyg49RUw4fVhbEqe7MeNboh/GBEA+gbsN34AM6dspvcyWkQTfYVeXjhOUf92EVsbvXEHEbodJm6FIYWk4LoyByGB1u0PXcOCyCMHd5X8DCKCo7VrTn5ibJFzBn2YE4m3yEYPDJ9xlCfYoDTzYeM/Acrk+QgfdvXSX/w8WfcU9hm6Q+ZD5lfJmEcgffQYvWK2b0iyDn7Ks6Bp20c3KvAsVoqRqhZgknlf4QT7P9sVuFNIQkFa2yTDLnW+asb2Rh/5CEHkX/IFdGSGfez95FdrDSSCFVD8CllhhoQrRKS//S4GMncIfsjIjzWlI8st6NIN4xYDAZi0cis6Yz9ARzsOTlifRv/yLIW0cavzVyXw0U5XCTBzEXcJurN1Blnha2WQLQUSyipR2AkGqeRdn7RSIUXmOXP55u9aIsTyLKEUpnFjMZ+dBG0KK36gw6B1NrihpKuIx29bXwDXc5v+QK+bnHPoANKdNy79gJwtHW82mqDeiVjs38c8PDALo3EWB599hVeh3YgQfiVDIVb+pM3zA9rHsFOpZqL5rnOJQyPesHwSLcFdms4fEYf9j7WDBE/Kct5p4XUMpKHQ=="></tac-chiuso>
   </div>
 </section>
 
-<section class="slide" data-titolo="Che cosa portiamo a casa">
+<section class="slide" data-titolo="Lavoro guidato" data-in-classe>
   <div class="slide-interna">
-    <h2>Una crocetta, e poi si conta da capo</h2>
+    <h2>Lavoro guidato: dall&rsquo;ascolto alla scrittura</h2>
 
-    <div class="riquadro definizione">
-      <span class="etichetta">Da tenere</span>
-      <p>Primo ascolto senza penna, per trovare <strong>dove</strong> cambia. Poi le note prima della crocetta, contando dalla vecchia tonica. Poi le note dopo, contando dalla nuova &mdash; che &egrave; quella su cui la melodia si posa.</p>
+    <div class="riquadro compito">
+      <span class="etichetta">In classe &middot; 4 minuti</span>
+      <p>Scrivere sul quaderno il basso del dettato e sotto la cifratura con la doppia sigla al perno. A casa il dettato intero, a quattro parti, trasportato in sol maggiore.</p>
     </div>
 
-    <p>Marted&igrave; l&rsquo;ora&nbsp;64 chiede la stessa cosa in un caso pi&ugrave; scomodo: i toni lontani, dove l&rsquo;accordo comune non esiste. Ma la domanda resta questa: <em>dove cambia, e come lo so?</em></p>
+    <p>Il basso del dettato non porta il suono nuovo: fa, mi, fa, si&#9837;, si&#9837;, do, fa, re, sol, do&hellip; Il si&#9838; sta nel soprano. Per questo la modulazione si scrive dalle funzioni, non dalle note del basso.</p>
+  </div>
+</section>
 
-    <p class="didascalia">Avete sentito il suono caratteristico prima di sapere come si chiama. &Egrave; l&rsquo;ordine giusto, ed &egrave; il motivo per cui quest&rsquo;ora sta qui e non dopo.</p>
+<section class="slide" data-titolo="Sintesi">
+  <div class="slide-interna">
+    <h2>Sintesi</h2>
+
+    <div class="colonne3">
+      <div class="riquadro definizione">
+        <span class="etichetta">La sensibile nuova</span>
+        <p>Il 4+ del tono d&rsquo;impianto che sale: in una voce interna, al basso, a volte al soprano. Si segna con una crocetta.</p>
+      </div>
+      <div class="riquadro definizione">
+        <span class="etichetta">La cadenza</span>
+        <p>Decide fra tonicizzazione e modulazione: se chiude nel tono nuovo, si &egrave; modulato.</p>
+      </div>
+      <div class="riquadro definizione">
+        <span class="etichetta">Il perno</span>
+        <p>Si trova per ultimo, tornando indietro: ha due sigle, e sul foglio sta in tutte e due le strisce.</p>
+      </div>
+    </div>
+
+    <p class="didascalia">La lezione si chiude con il solfeggio (parlato, cantato, ritmico) e con il dettato trasportato per casa. L&rsquo;ora 39 porta la modulazione nel modo minore: alla relativa maggiore e alla dominante minore.</p>
   </div>
 </section>
 
@@ -551,21 +320,21 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Scrivi un contrappunto di <strong>quinta specie (il contrappunto fiorito)</strong> sotto il canto fermo, in modo ionico (finale do): undici battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
       <tac-stave caption="Il canto fermo" clef="treble" time="4/4" notes="c/4:w | b/3:w | a/3:w | g/3:w | c/4:w | g/3:w | a/3:w | c/4:w | b/3:w | d/4:w | c/4:w" tempo="72" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C4-CP-U06-L2</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="0R8Ke5YKE9Koa+Hqdd/5QA==" iv="1dwKJJZqN0MjjH5O" dati="oUUTd6T/mxcM64V5rykSGnEjnFdCv5I6FmV0wjQscBjLyyOVsHnymLYv5/htPCfIJSr8HvXNps+aekGiLJ+jOc9vC6tUfehD6UJC+vFCDWyb+YQJAgugymZ1E3G5Mr1xLZxKCjApeudqbqTqcKW2UG8WPJjQ3uYWk+ahSpahZJhYI8frxLyxcsoBh1tz0HWQHivOn6sj/AsvByMZi9Gcx6r71o0EF7Z/xT+3wBxNWXgbu03gfwBf6YmcEYmYtOmkM1ummgUIYstUrGL/w9JKxjbmyOyuRTUwNcpxTrtFdLE9udDu7sLJh4DzQbXpbXI0NAX0Zq/fY9Z3eixqnd2urYe+PW8PcUdx9JqXJUNMvzV/GhrJumSpluyO6lUgcHbdwHTpyo+ypnxRtwTgwcP3eTkeEGgWLvf90TZWaT4gKXpqs8JheghGKfSH+un0pov7tJ/SAN5Qeh+pi2fg6nbYv5yTdZDCr42akDiD4q8zb+ZI5RsbtYi8NzK1tpYxTIy2LI4hNcTfou8YPEW4aDwgniPkGgQ="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="0+L9isfSVBR1DXNy5HoybQ==" iv="FqQHlOOPX2YrpR2D" dati="K0fwsFhiJNxHBLcp37LalgE8rSfGzp/qjhCS4TxMG32PGwmVeDJDtRzvR4kdLTwvXU0kxHy9cLhdvZ9c9K4oXVTzXjwLFYhRQTFEtfAoNRcDJRDC9LbfCjSaOZbPI3Ni5vnWXrJSQk1k9uK5lSyv1ZKJmCBNrCMvXAsWHMZPc3ZYFYjCAmTKIzNkDKHy55tzYsNoF4caut7rHL2yQq5u1smtZ/tw3r9Ep4yqf1w5LnEitHP6qfjPD9EWqsA1/iAMJ++/oTLh5bPfVLOQ/Pw6VHRElEP9dNulUjnOcFAhpdxeqcnntdeiiLPUL4V3duQuws+wXHeHcXiaDXNedAJlmzn3aLKgRPEKUWgL0oEFKM04MIR9C0xA+msbswPxqLbEAXGSC2MnW7xIik7BifUnzRJfkJhjeCYEHqna9fHWg7txllvYXSyiojBEgL4vRQ1k1VFch1QNOuqVXjAEt0l5YJ13XeCM/pwcRTSEPzWXT1AWuD/HxLLBOFMw5rr3QIYNK1w6PjynFXPbqo4o+aWj8SccV7c="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C4-BD-U06-L2">
       <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C4-BD-U06-L2</span></span>
       <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: dieci battute in 4/4, re maggiore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: anche le settime secondarie (ii7) e la V7 della dominante.</p>
       <tac-stave caption="Il basso" clef="bass" keysig="D" time="4/4" notes="d/3:h e/3:h | a/3:h f/3:h | e/3:h d/3:h | g/3:h e/3:h | d/3:w | e/3:h a/3:h | f/3:h e/3:h | a/2:h b/2:h | g/2:h a/2:h | d/3:w" tempo="60" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C4-BD-U06-L2</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="p6MFwiNKk5osQUnq/53neg==" iv="98ct9uwl9jcMRZVf" dati="sdy4TmqwMgDcCHTNKelGpoDqEwv/QDWglzf8WoOD1JKOz0Q/V/9qcom0BA6ypqvaUsVtliHQyRjAhHApL/vYFNHY4w3fCPvrEPoi1oTkqpwVIbb6xinsHdbWJPdPgChB3W2Wu0YW/HpqQR7WKh4uGCZyS/cL3hytJjw5DBtHkB+2txhFYSekP8RrMp8djPcvOVPZ+VZaEMjstOzQv64zIqJeGKH77zaGaW8f87SY/3jrnjmLWxN7y/A+AavaYq+t8KqHDL/lWNu19NBD/EAHvFlP6FqVaCUYC1HNksbZ6DxFmD71j3Jrq146UfhcDnNYqZgcESR8yseuaUKLb13Hjo5J3vUtg/37OU9upD9bCUELS0GNvTkl9yig40N923/Pn1zxYMTzeFUeU8FrivD0joR+38fBvZitdelPYZpqcYPUQFgpmsyMRiArTU0rTHrBPJq4cnXntoXN5dufVxFwVO0bIr6dAqH0r90/Nni5N3o/Bxx8bwtldV4GI6whH74AmeXG4WjRopWKIoZF1IhtagHDxjxXfCATc1zKZbZs5RnOlUIe011vA5y1ujWk4p5ZmwPmFN6p3pUfxB8kIQdupi8qJCG3TUwSV8VcwL8ZGZOvOYiZdpje4ODA6SGQHmyH72klV6XAmENCAfGe5kyAYO5NBsedKA82Dv3u1DEiqdCjm0+6mOLSgdfwG1/+SxFSvka7HXv771jW2f301F5ba9uKZeHiNNBvVn5OSfWH/2yP0FTcFfbyNupWL/JIiPqmZ30CQNZqpd/2gaNCuHvwuTZSU2xtAOJ+kVu1hhT05GMmmm16eZOFJNx+JjuZphwAEFGJB9xAwiWsc0kZZO6rzvWMU9PfRnS/9zPrFvz3QGUSE0fjeitos62h+/P+tMu9mzXVFo519hdusUaZqDvIdyVaCR/oR4JooQ74rVBltO0unwTxHoh0FQMasmnWHuPeoahHBzV+dHrw0zdcBB3qFNfDSzTNhV+YBDf3HewtJPtraaF0Hz21qJ3T0NnEIL1Z7HOClpH3hE+8Y+WxQR3lIG2GQ7ouP/QHcHfG"></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="Z4REjb2Fg4Q0ZMc9MKJPHQ==" iv="dbbu35G0D5W5A27z" dati="m6i/m5SluTh2UFMEygpYV2a6lSUg2vWNOGf/8ofHQ1+dTlcwlVee9Sf2vYdCdGICaA/x5Kno25so7K9dX65kxI4XN6WiBz70SO3InGEnXt7/CDHvwL37YDsi+DEdmCURkTJiQ1dWW9KrnxRHlgXvvOL1fipDrIJIu4/m28qP/NpN+g3S2uOegOOlNNwicVX4JqBINwwQ7cR8/8cIFf6c3qJPF0/ibbS7Nqh2fxzRPTUZcBhVmilHXfvG5jP7GUzyMtqEl9fLNqR92AX3hPDHxy5pcx+wHELF7dKOZSZSpbFzUx95LmxlIVIr4p1AVU9o+0eLWFx01SHdnze2kHZk0rk24mou55+12VIEO7Ho5asTmTiwiFixhI7EVZF5wXDPTnYblS1nl8iXWm4jodurIQKEBXQIW+5f8kZiZUbBZeS4AHxMUK1sTtcvAbhmstmjwafkShS5rfrAnWIQDXzJLrbwH/gWozu8adtxRQMtJqH0XJHEZbz179z45gWJt/Al1UXPN7ettXLoe6oXmllME66eXncwjXIYGCcHfnYYaSd4G+GeuSbTFoeI4yXddWwfzz325kweQJVpu81JIexeodUEHe4Bo2/GnTtxDE87ZoGuuXxxqv6yVNM5Si0vAtG5BZb/XOqrrqgst+RZztiyPIGKQP7uk+caPC9AoGae8MkBubhPWMsVOtn4ykZQ3G2vSOWoSuEdyaqJQAt3I6XTan7uP87mSQK5cu/lp7b/acBarVTCHPc+4V6SC9z5ugXKqbZ2MCroTxT4ow6l0hN2SldIwKiC5ZsXEZX+cDAjM99FP+7PfLJN0Hkf7I2yJQafMEG0b52fvyNaT+pmRbD8FTFisWKhKgHxgwLlcxb+HQcgtlNX4OQ2KMZiOlROyEVJEevjV6wUn3CfRHEK1u5c9jKedFYfktto608hZlnBQQd0JxtQn/A7tc4m/2jjPk0UwlJ6OK49t2KWTf0bSjrLuKATQ3HKExEfH0WwZage/esFLrjqQZ6ukfnLV/qhCCexVlWKPtRbwPUR6BXpdNJjQUZ/wqbq4axXW4+8"></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C4-CD-U06-L2">
       <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C4-CD-U06-L2</span></span>
       <p>Armonizza a quattro parti il <strong>canto dato</strong>: dieci battute in 4/4, mi♭ maggiore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: anche le settime secondarie (ii7) e la V7 della dominante.</p>
       <tac-stave caption="Il canto dato" clef="treble" keysig="Eb" time="4/4" notes="e/5:h c/5:h | a/4:h g/4:h | f/4:w | f/4:w | e/4:w | a/4:h c/5:h | b/4:h c/5:h | d/5:h e/5:h | e/5:h d/5:h | e/5:w" tempo="66" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C4-CD-U06-L2</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="cpI/fFxZU8GrnXlfzfUoCQ==" iv="NbMTGVdGmzf82z6/" dati="VJ6GUgfFmvQ5IijDalS8Ba/zo0x0XrIwfZSdq6MMsR71LmJ/T5YUXOzvZb5JrImWwY6N6rwj22INGcN++VXgYWcnSOSu7Pyu7CMq50llOkDYnq8myU2RBE7kL2diFR92XtejvK/lMnxd4S5ACx5UdRm1IxUd6132wRaXGGzeB26aFAclJ2xScPFjTgFMUMYzt6/WPJXIL39ph5XJ1/eI9dFxu/unOK+v0aaqJPY+33KnboWbhJpbN6506y2FGGDaP+zvG3R1KKr+D2RABPPKeJxVowUTOkGFSCau+k9i+0Lbw6nW6PyFOp4BBTBRkA9Q3YPqXWxVLsGCzttoMvTyiTa4SoCT38GaW1L+4b2QcZjSXDTPHYd6T6iFfdfwLZfWQFMPAixLspOH2zMzrEJhOcz+y6rzNobIZgHxDZGmduvHsPFIEV708dWeqS8Fxx3gc3W6yjNsEci87WplXamjt9ZuEtSgcUhN1TSbNDaaNtYqJzA3SNhP04XamWZedZGhIZIt1MAV38CHASlkMZqFMjU1beusFjCEUMaaBFwyBSNoqb61xnsACO1erY1x/7bESOf47UKqtmUuPp7wcN3OJ986sOo1qkmt/U2yJ+g3IIsWXOAsGsjiocWBG3o+REosspL8yHkzmX+/nWu+28JUZzhBVljWL97Xnw8WX8iFjOwXU+Rta+cvCFSpfQ6zm95Vna7+1QVrzNEGIpeE0n3dyjoIpPon+YBvK94U0OIs3rlIiicoEfj0rZktzOa3g1VrqLelyEJDQ5Rb+9JfkPIpqwTXLGEJTgVk4gE571QYl25Ar6i5jmsSJMmIr47GAoKljUeZrElShOiGEBzzDr+L5jyyHPgiBnRxvuDaYzEUl2dOFMU/dMeCy4Py8K6/dx/xOzu/NhXb8+HvVNzZ7yYLeFuatwalCTETHlS6Q9tArNZ1EntnImHGFgv0nTdckCuo80dmp8PpHwb+hnqSCA8="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="52DLc+TvNEu5Kg9Nh+Yxpg==" iv="k7s/Awg7S6BYBGZB" dati="E/V0f01jIW3xD5Kvsq0TikZJ4fyVDl3xU/+tCNUXLCZNWWc8eRlp71hT/z1cnJ/M7CO7DlifPdNd+xN67JsWlxG2YliMQDXtvOXbONhlaO6ay0lhVYSOB8s5qcuiaEdMwM8cyuKk4DZKa35MApUYRu6MUkeXGZ8KVXVCs4DV14td2VAuqgrdJKiWa79pcBam+RucyLmRcPSE9WJmmpJni/RBLTjZtSB2R7DGdTIMxbaTe9gmdI393Q1flbb1v5pmlrBOXepoi2d1K9lAX7rr5ArqfK29stRnXpJ4wkcFIqP7AW2E6NrVUZ+bx8i4HGJEsXhphExonAY1ThJ5PUrjmgKGqclJCBSdOtqn+Cv5astlm2yGNxhWzI1kL7tfIHmWCBWPNAsU4rXcdrhpQ5bzfTruDtGXpB6QIms0gcdDE9Y0qjXy3nFM6arGdTtC0kBmvlWihBg4ENKlDmIk1imUNpfGRvdIT7ihIyLBrfkV/qrKRbjAvsTvplA5C4E1u0o7uA1JaTKctQUDf047g3dwksKHhzZNaHLu4864dLSDprsAo1fqQaFQ3sK/Dw4NRKIhG/HcYkbkj7RXc88UAkZQkR52PGGS5XZHS2LnABmCBzwXIMhOys4nynfga8Ew6ZB77j3aca5QRO0D719Dz+CyUHDlEJHRzMdN2mQ0v5hmb7SniwSUhdr2EQqocUcRlfLDIVMPhUq7qB1oSimcZCsi7JVPAa0xHE8sYhIQx3k+0hhGhfAodPm74u9juRpCnMHiHDENkU/UNxaVTdFX58EGZ+OOVIJPlEIPXMWw//hII1VFUQKfzB/92U+sWp4kGmpErgrNRtMACxrXSirStVRVj6reYje8vQ+nJz94TZ+SK0T7K89HZR3waslVpwLU3x2Eit7D8d5Bt7eVeMim++sE0Ata5Ne9LqZnqXTp1lpWMUr2yIRySAJvyylcDSfakwfmF7330wHaAfGqDr12XXA="></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>

@@ -46,530 +46,252 @@ try { module = undefined; exports = undefined; } catch (e) {}
 </head>
 <body>
 <div id="tac-deck">
-<!-- 16/10/2026: piano nuovo della 1ª. Questa lezione era la U10 L7 del piano vecchio («Riconoscere le funzioni all'ascolto»); ora è la U7 L6, ora 48 di 90 («Dettato armonico: tonica, sottodominante, dominante»). Il testo va rivisto quando arriva in calendario: rimandi a ore e unità del piano vecchio, e l'argomento nuovo. -->
+<!-- 16/10/2026: piano nuovo della 1ª. Questa lezione era la U10 L7 del piano vecchio («Riconoscere le funzioni all’ascolto»); ora è la U7 L6, ora 48 di 90, lunedì 25/1/2027 («Dettato armonico: tonica, sottodominante, dominante»). RISCRITTA il 20/10/2026 (commento datato 16/10/2026 come le altre lezioni del piano nuovo): vedi il commento qui sotto. -->
 
 <!-- ══════════════════════════════════════════════════════════════════
-     LEZIONE 7 · Riconoscere le funzioni all'ascolto
-     Unità 10, ora 73 di 90 · classe 1ª · teoria
+     LEZIONE 6 · Dettato armonico: tonica, sottodominante, dominante
+     Unità 7, ora 48 di 90 · lunedì 25/1/2027 · classe 1ª · ORA DI PERCEZIONE
+     È un’ora di DETTATO DI VERIFICA (registro.ore_dettato(1)): niente
+     coda di orali. ⚠ Il dettato di verifica di questa ora in dettati.py
+     (C1-U7-L6, «Dettato a salti») è RITMICO-MELODICO, non armonico: la
+     slide «Il dettato di verifica» lo dice senza metro né tonalità. Da
+     decidere con Andrea se il dettato di verifica va cambiato (vedi
+     NOTE.md).
 
-     ══ ORA INTERA ══
-     Dieci slide. È tipizzata «teoria» nel piano ma si ascolta per
-     trenta minuti: è la gemella dell'unità 4, lezione 7, «Riconoscere
-     tonica e dominante in un brano», che era anche lei di teoria.
+     ══ 16/10/2026 · PIANO NUOVO, RISCRITTA ══
+     La vecchia U10 L7 (venti slide, tono colloquiale, «la promessa di due
+     settimane fa», «i due tranelli», dodici ascolti a mano alzata) è
+     riscritta sul modello della U5 L3 (dettato armonico con T e D), di
+     cui questa ora è il seguito: si aggiunge la S.
+      · definizioni: libro C14 p. 316 (le tre funzioni); libro B8 pp.
+        178–181 (successioni con la sottodominante); Procaccioli p. 35
+        (la plagale), Piston p. 173;
+      · due esempi di otto battute a quattro parti, un accordo per
+        battuta (do e sol maggiore), con le lettere T, S, D;
+        realizzati con real7.py e controllati con c7.py;
+      · la procedura della U5 L3 con il controllo delle successioni:
+        S–D, S–T possibili, D–S evitata;
+      · dettato di esercitazione: fa maggiore, otto battute, T S T D |
+        T S D T (soluzione chiusa; in aula si suona dal foglio del
+        docente);
+      · ascolto: A17, BWV 154/8, bb. 1–5 (corpus music21 bach/bwv154.8):
+        b. 1 T sul primo movimento e S (sol al basso) sul terzo; b. 2 D
+        (la) e T (re); b. 5 il verso si ferma sulla D. Tolti A07, A08,
+        A13.
 
-     ══ LA PROMESSA CHE SI PAGA, ED È RECENTE ══
-     Unità 9, lezione 8, slide «La stessa nota, due colori»: si teneva un
-     mi e si cambiava l'accordo sotto, e la classe sentiva il carattere
-     cambiare. Nelle note interne stava scritto «la spiegazione è
-     l'unità 10».
-
-     La spiegazione è: quel mi cambia **funzione**. Sopra la tonica è la
-     terza dell'accordo — sta a casa sua. Sopra la dominante è una nota
-     estranea. La nota non è cambiata: è cambiato il mestiere che fa.
-
-     ══ CHE COSA SI ASCOLTA DAVVERO, ED È IL BASSO ══
-     La classe cercherà di riconoscere l'accordo intero. Non funziona, e
-     non serve. L'informazione sta quasi tutta nella **nota più grave**:
-     do → tonica, fa → sottodominante, sol → dominante.
-
-     È la stessa economia di tutto l'anno: non si ascolta l'oggetto, si
-     ascolta la cosa che lo decide. La terza per le triadi (unità 8), il
-     tritono per la dominante (unità 9), il basso qui.
-
-     ══ IL DUBBIO CHE RESTA, E IL RIMEDIO ══
-     Fra I e IV. Hanno il **do** in comune e sono tutte e due tranquille;
-     il basso le separa, ma se il basso non si sente bene si è fermi.
-
-     Il rimedio è la domanda funzionale: **si potrebbe finire qui?** Sul
-     I sì, sul IV no — il IV è lontano da casa, non è casa.
-
-     ══ CHE COSA NON ENTRA ══
-     Le note estranee. Quando un accordo suona con dentro una nota che
-     non gli appartiene — passaggio, appoggiatura, ritardo — la classe
-     sentirà che «c'è qualcosa in più». Si dice che esiste e si rimanda
-     alla seconda, come promesso all'unità 9.
+     ══ TEMPI · 50 minuti ══
+     Presentazione 18': tre funzioni 3', la S all’ascolto 5', quanto
+     dura una funzione 3', la procedura 3', il corale 4'. Dettato di
+     esercitazione 12' e correzione 4'. Dettato di verifica 13'. Margine 3'.
      ══════════════════════════════════════════════════════════════════ -->
 
-<!-- Riordinata il 30/09/2026: metodo (basso, tre passi, dubbio I/IV, note estranee, probabilità, tranelli) prima degli esercizi; ascolti dopo; fuse le due slide sull'allenamento a casa; l'«effetto che non se ne va» detto una volta sola -->
 <section class="slide attiva copertina foto" data-titolo="Copertina"
          style="--foto: url('../../_assets/copertine/c1u10-lezione-7.jpg?v=f1a1d606');
                 --cop-a:#25150a; --cop-b:#c2610c; --cop-c:#ffedd5">
   <div class="slide-interna">
     <div class="occhiello">La cadenza, il periodo e il primo rivolto &middot; UdA 7 &middot; Lezione 6 di 9</div>
-    <h1>Si ascolta il basso, non l&rsquo;accordo</h1>
-    <p class="sottotitolo">Come la terza per le triadi e il tritono per la dominante: c&rsquo;&egrave; sempre <strong>una cosa sola</strong> da sentire.</p>
-
+    <h1>Tonica, sottodominante, dominante</h1>
+    <p class="sottotitolo">Il dettato armonico con tre lettere: T, S, D. La sottodominante prepara la tensione, la dominante la porta, la tonica la scioglie.</p>
     <blockquote class="aforisma">
-      <p>&Egrave; necessario che questo avvenga secondo un ben preciso principio di <em>relazioni di forze</em>.</p>
-      <cite>Stefano Procaccioli, <em>Introduzione all&rsquo;analisi formale</em>, p.&nbsp;26</cite>
+      <p>Tonica (distensione), sottodominante (preparazione della tensione), dominante (tensione).</p>
+      <cite>D. D’Urso, A. Odone, <em>Il linguaggio della musica</em>, p.&nbsp;316</cite>
     </blockquote>
-
     <div class="meta-copertina">
       <span>1 ora</span>
-      <span>Teoria e ascolto</span>
-      <span>Le funzioni all&rsquo;ascolto</span>
+      <span>Ora di percezione</span>
+      <span>Dettato armonico</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="La promessa di due settimane fa">
+<section class="slide perc" data-titolo="Tre funzioni">
   <div class="slide-interna">
-    <h2>Vi ricordate il <em>mi</em> che cambiava carattere?</h2>
+    <h2>Tre funzioni</h2>
 
-    <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
-         «importantissimo»). D&rsquo;Urso, Odone, <em>Il linguaggio della musica</em> &mdash; volume unico per il primo biennio; pagine dall'indice rilevato. -->
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
-      <p><span class="lez">B8</span><strong>La sottodominante. MI maggiore</strong>, pp. 174&ndash;175 e 178&ndash;181</p>
-      <p>Sezione B, unit&agrave; 8, lezioni 26 e 28 &laquo;La sottodominante&raquo; e &laquo;Successioni armoniche&raquo;: le tre funzioni all&rsquo;orecchio, ascoltando il basso. Il metodo del libro &egrave; quello dell&rsquo;unit&agrave; 1, lezione 1 &laquo;Ascolta e canta con il basso&raquo; (p. 118).</p>
-
+      <p><span class="lez">B8</span><strong>La sottodominante. MI maggiore</strong>, pp. 178&ndash;181</p>
+      <p>Sezione B, unità 8, lezione 28 «Successioni armoniche»: I, IV e V allo stato fondamentale, riconosciuti dal basso. Il libro non ha il dettato armonico; questa è la sua pagina di ascolto.</p>
     </div>
-
     <div class="riquadro definizione">
-      <span class="etichetta">La spiegazione</span>
-      <p>Il mi <strong>cambia funzione</strong>. Sopra la tonica &egrave; la <strong>terza dell&rsquo;accordo</strong>: sta a casa sua, e riposa. Sopra la dominante <strong>non appartiene all&rsquo;accordo</strong>: &egrave; una nota di passaggio, e chiede di muoversi.</p>
+      <span class="etichetta">Definizione</span>
+      <p>Gli accordi di una melodia tonale formano «un vero e proprio percorso musicale che si snoda attraverso le funzioni armoniche del sistema tonale &ndash; tonica (distensione), sottodominante (preparazione della tensione), dominante (tensione)» (libro, p.&nbsp;316). Nel dettato di questa lezione: <strong>T</strong> è l’accordo del I grado, <strong>S</strong> del IV, <strong>D</strong> del V.</p>
     </div>
-
-    <tac-stave clef="treble" time="4/4" caption="Lo stesso mi, sopra due accordi diversi" notes="c/4+e/4+g/4+e/5:h g/4+b/4+d/5+e/5:h" width="480" tempo="42" play slow></tac-stave>
-
     <div class="riquadro attenzione">
-      <span class="etichetta">Unit&agrave; 9, lezione 8</span>
-      <p>&laquo;La nota non &egrave; cambiata. &Egrave; sempre un <em>mi</em>. Quello che &egrave; cambiato &egrave; <strong>che cosa c&rsquo;&egrave; sotto</strong>.&raquo; E vi avevo detto che la spiegazione arrivava adesso.</p>
+      <span class="etichetta">Il foglio</span>
+      <p>Otto caselle, una per battuta, e in ogni casella una lettera: T, S o D. Un accordo per battuta, allo stato fondamentale; se la stessa funzione dura due battute, la lettera si scrive in tutte e due le caselle.</p>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Si ascolta il basso">
+<section class="slide perc" data-titolo="La sottodominante all’ascolto">
   <div class="slide-interna">
-    <h2>Non provate a riconoscere l&rsquo;accordo intero</h2>
+    <h2>La sottodominante all’ascolto</h2>
 
-    <p>Vi verr&agrave; naturale cercare di sentire tutte e tre le note e ricostruire la triade. Non funziona in tempo reale, e soprattutto <strong>non serve</strong>.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">L&rsquo;informazione sta quasi tutta nella nota pi&ugrave; grave</span>
-      <p>Sentite un <strong>do</strong> al basso &rarr; <strong>tonica</strong>.<br>
-      Sentite un <strong>fa</strong> &rarr; <strong>sottodominante</strong>.<br>
-      Sentite un <strong>sol</strong> &rarr; <strong>dominante</strong>.</p>
-    </div>
-
-    <tac-stave clef="bass" time="4/4" caption="Solo i tre bassi. Basta questo per riconoscere il giro" notes="c/3:q f/3:q g/3:q c/3:q" width="380" tempo="52" play></tac-stave>
-
-    <div class="riquadro studio">
-      <span class="etichetta">&Egrave; l&rsquo;economia di tutto l&rsquo;anno</span>
-      <p>La <strong>terza</strong> per riconoscere una triade (unit&agrave; 8). Il <strong>tritono</strong> per riconoscere la dominante (unit&agrave; 9). Il <strong>basso</strong> per riconoscere la funzione. C&rsquo;&egrave; sempre <em>una cosa sola</em> da sentire.</p>
-    </div>
-
-    <p class="didascalia">E c&rsquo;&egrave; una ragione fisica: il basso &egrave; la nota pi&ugrave; grave, quindi la pi&ugrave; forte in termini di armonici, e l&rsquo;orecchio la isola meglio delle altre. Non &egrave; una scorciatoia: &egrave; il modo in cui si ascolta.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="I tre passi">
-  <div class="slide-interna">
-    <h2>Tre domande, e la terza si fa solo se serve</h2>
-
-    <div class="riquadro studio">
-      <span class="etichetta">La procedura</span>
-      <p><strong>1</strong> &middot; in che <strong>tonalit&agrave;</strong> siamo? &rarr; qual &egrave; la nota di casa.<br>
-      <strong>2</strong> &middot; la nota pi&ugrave; <strong>grave</strong>: &egrave; la tonica, la quarta o la quinta?<br>
-      <strong>3</strong> &middot; se non si sente il basso: <strong>si potrebbe finire qui?</strong></p>
-    </div>
-
-    <p>Il passo 1 si fa <strong>una volta sola</strong> all&rsquo;inizio del brano e vale per tutto. I passi 2 e 3 si rifanno a ogni cambio.</p>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Il passo 3 &egrave; la rete di sicurezza</span>
-      <p>Non chiede di riconoscere un accordo: chiede se <strong>ci si pu&ograve; fermare</strong>. &Egrave; la domanda dell&rsquo;unit&agrave; 4, lezione 7 &mdash; &laquo;casa o non casa&raquo; &mdash; e a quest&rsquo;ora dell&rsquo;anno la sapete fare a occhi chiusi.</p>
-    </div>
-
-    <p class="didascalia">Chi salta il passo 1 sbaglia tutto il brano con un errore solo: se si crede in do e si &egrave; in sol, ogni funzione risulta spostata di un posto.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il dubbio fra I e IV">
-  <div class="slide-interna">
-    <h2>Il caso difficile, ed &egrave; sempre lo stesso</h2>
-
-    <tac-stave clef="treble" time="4/4" caption="Tonica e sottodominante: hanno il do in comune, e nessuna delle due tira" notes="c/4+e/4+g/4:h f/4+a/4+c/5:h" width="440" tempo="42" play></tac-stave>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Perch&eacute; si confondono</span>
-      <p>Hanno il <strong>do</strong> in comune. Sono tutte e due <strong>tranquille</strong>: nessuna delle due chiede di muoversi. La dominante si riconosce perch&eacute; tira; queste due no.</p>
-
-    </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">La domanda che le separa</span>
-      <p><strong>Si potrebbe finire qui?</strong><br>
-      Sul <strong>I</strong>: s&igrave;. Un brano che si ferma l&igrave; &egrave; finito.<br>
-      Sul <strong>IV</strong>: no. Non c&rsquo;&egrave; tensione, ma non &egrave; casa: manca ancora qualcosa.</p>
-    </div>
-
-    <p>&Egrave; una differenza sottile e si allena. Nei primi giorni si sbaglia un ascolto su tre; dopo un paio di settimane quasi mai.</p>
-    <p class="didascalia">Chi non ci arriva pu&ograve; usare il basso: do contro fa &egrave; una <strong>quarta</strong>, ed &egrave; un intervallo che sapete misurare dall&rsquo;unit&agrave; 7. Cantate la nota grave e confrontatela con la tonica.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Quando c&rsquo;&egrave; una nota in pi&ugrave;">
-  <div class="slide-interna">
-    <h2>A volte sentirete qualcosa che non torna</h2>
-
-    <tac-stave clef="treble" time="4/4" caption="Una dominante con dentro un mi che non le appartiene" notes="g/4+b/4+d/5+e/5:w" width="300" tempo="42" play></tac-stave>
-
-    <p>Nella musica vera gli accordi non arrivano puliti. Ci sono note che <strong>non appartengono</strong> all&rsquo;accordo e passano di l&igrave;: sono di strada.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa fare, oggi</span>
-      <p><strong>Ignoratele.</strong> Cercate la nota di <strong>basso</strong> e le note che <strong>durano</strong>. Le note estranee sono quasi sempre brevi e di passaggio.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Come si chiamano</span>
-      <p>Nota di <strong>passaggio</strong>, <strong>appoggiatura</strong>, <strong>ritardo</strong>. Ve l&rsquo;avevo promesso all&rsquo;unit&agrave; 9: sono roba di <strong>seconda</strong>, e la promessa resta.</p>
-    </div>
-
-    <p class="didascalia">Sapere che <em>esistono</em> per&ograve; serve gi&agrave; da oggi, perch&eacute; toglie il panico: se una nota non c&rsquo;entra, non vuol dire che avete sbagliato l&rsquo;accordo.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Non tutte sono ugualmente probabili">
-  <div class="slide-interna">
-    <h2>Il vantaggio di sapere che cosa succede di solito</h2>
-
-    <p>C&rsquo;è un aiuto che nessuno dà mai e che vale quanto un mese di esercizi: <strong>le funzioni non si susseguono a caso</strong>, e certe successioni sono molto più frequenti di altre.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le tre regolarità, misurate su repertorio tonale</span>
-      <p><strong>1</strong> &middot; dopo la <strong>dominante</strong> arriva quasi sempre la <strong>tonica</strong>. Quasi mai la sottodominante.<br>
-      <strong>2</strong> &middot; dopo la <strong>sottodominante</strong> arriva la dominante, oppure la tonica.<br>
-      <strong>3</strong> &middot; dopo la <strong>tonica</strong> può arrivare qualunque cosa: è la più libera.</p>
-    </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Come si usa in un ascolto</span>
-      <p>Se avete riconosciuto una dominante e non capite quella dopo, <strong>scrivete tonica</strong>. Non è tirare a indovinare: è usare l&rsquo;informazione che avete. Sbaglierete qualche volta, e molto meno che scegliendo a caso fra tre.</p>
-    </div>
-
-    <p class="didascalia">In quinta questa cosa avrà un nome tecnico e delle statistiche vere dietro. Per adesso tenete il succo: <strong>la musica tonale è prevedibile</strong>, ed è proprio per questo che le sorprese, quando arrivano, si sentono.</p>
-  
-    <!-- C1-005, cercata e letta in rete il 20 settembre 2026.
-         https://www.gutenberg.org/files/27646/27646-h/27646-h.htm -->
-    <blockquote class="citazione">
-      <p>Gli esecutori devono sentire che lui sente, capisce, si commuove: allora la sua emozione passa a quelli che dirige, il suo fuoco interiore li riscalda.</p>
-      <cite>Hector Berlioz, <em>Le chef d&rsquo;orchestre, th&eacute;orie de son art</em>, 1856</cite>
-    </blockquote>
-  </div>
-</section>
-
-<section class="slide" data-titolo="I due tranelli">
-  <div class="slide-interna">
-    <h2>Due casi in cui l&rsquo;orecchio si inganna, e come si scoprono</h2>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Primo &middot; il rivolto</span>
-      <p>La tonica con la <strong>terza al basso</strong> non suona come un arrivo: suona instabile, e tutti la scambiano per qualcos&rsquo;altro. È sempre la tonica, ma <strong>messa in piedi male apposta</strong>, perché la musica non si fermi ancora.</p>
-      <p>Come si scopre: la nota più grave non è la fondamentale, ma le <strong>tre note dell&rsquo;accordo</strong> sono quelle. Se le riconoscete, è lui.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Secondo &middot; il sesto grado al posto della tonica</span>
-      <p>L&rsquo;accordo sul <strong>VI grado</strong> ha due note in comune su tre con la tonica. Quando arriva dove ci si aspettava la tonica, l&rsquo;orecchio ci casca — e in effetti quella è la sua funzione: <strong>sostituirla</strong>.</p>
-      <p>Come si scopre: sembra la tonica ma <strong>è scuro</strong>. In tonalità maggiore, quell&rsquo;accordo è minore.</p>
-    </div>
-
-    <p class="didascalia">Il secondo si chiama <strong>cadenza d&rsquo;inganno</strong> e ha una slide tutta sua nell&rsquo;<strong>unità 11</strong>. Ve lo nomino oggi perché è il tranello più bello che esista: funziona anche su chi lo conosce, ed è il motivo per cui certi finali fanno venire i brividi.</p>
-  </div>
-</section>
-
-<section class="slide perc" data-titolo="Il riscaldamento">
-  <div class="slide-interna">
-    <h2>Cinque minuti prima di ascoltare</h2>
-
-    <p>Non si riconoscono funzioni a freddo: prima si canta il giro, in modo che l&rsquo;orecchio sappia che cosa sta cercando.</p>
-
-    <tac-stave clef="treble" time="4/4"
-               caption="T &ndash; S &ndash; D &ndash; T: il giro cantato, sul basso"
-               notes="c/3:h f/2:h | g/2:h c/3:h"
-               width="740" tempo="52" play slow></tac-stave>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Tutti insieme, 5 minuti</span>
-      <p>Si canta il <strong>basso</strong> del giro, due volte. Poi si canta solo mentalmente mentre io suono gli accordi pieni: bisogna sentire il basso dentro l&rsquo;armonia.</p>
-    </div>
-
-    <p class="didascalia">Cantare il basso prima di ascoltare cambia completamente il riconoscimento: chi ha quel movimento in gola lo <strong>ritrova</strong> dentro l&rsquo;accordo, invece di doverlo cercare. &Egrave; il motivo per cui in questo corso la percezione comincia sempre col canto.</p>
-  </div>
-</section>
-
-<section class="slide perc" data-titolo="I due errori">
-  <div class="slide-interna">
-    <h2>I due errori del riconoscimento</h2>
-
+    <tac-stave clef="treble"
+               time="4/4"
+               caption="Do maggiore, otto battute: sotto ogni accordo la funzione"
+               soprano="e/5:w | f/5:w | d/5:w | e/5:w | f/5:w | e/5:w | d/5:w | c/5:w"
+               contralto="g/4:w | a/4:w | g/4:w | g/4:w | a/4:w | g/4:w | g/4:w | e/4:w"
+               tenore="c/4:w | c/4:w | b/3:w | c/4:w | c/4:w | c/4:w | b/3:w | c/4:w"
+               basso="c/3:w | f/2:w | g/2:w | c/3:w | f/2:w | c/3:w | g/2:w | c/3:w"
+               cifre="T &middot; S &middot; D &middot; T &middot; S &middot; T &middot; D &middot; T"
+               width="900"
+               tempo="60"
+               play
+               slow></tac-stave>
     <div class="colonne">
-      <div class="riquadro attenzione">
-        <span class="etichetta">1 &middot; Confondere S e D</span>
-        <p>Tutte e due &laquo;non sono a casa&raquo;, e chi sente solo questo le scambia. Ma la <strong>D tira</strong> e la <strong>S no</strong>: se aspettando la nota dopo si sente che <em>deve</em> arrivare, era una D.</p>
+      <div class="riquadro definizione">
+        <span class="etichetta">Il basso</span>
+        <p><em>do</em> per la T, <em>fa</em> per la S, <em>sol</em> per la D. Il fa è una quarta sopra (o una quinta sotto) il do; il sol una quinta sopra (o una quarta sotto).</p>
       </div>
-      <div class="riquadro attenzione">
-        <span class="etichetta">2 &middot; Decidere troppo presto</span>
-        <p>Si decide sul primo istante dell&rsquo;accordo, prima che sia finito. Ma un accordo si riconosce <strong>anche da dove va</strong>, e per saperlo bisogna aspettare.</p>
+      <div class="riquadro definizione">
+        <span class="etichetta">Che cosa chiede l’accordo</span>
+        <p>Dopo la T l’ascolto può fermarsi. Dopo la D attende la T. Dopo la S attende ancora: di solito la D (bb.&nbsp;2&ndash;3), a volte la T (bb.&nbsp;5&ndash;6: S&ndash;T, la plagale della lezione 1).</p>
       </div>
     </div>
-
-    <p class="didascalia">Il secondo &egrave; il pi&ugrave; interessante perch&eacute; sembra un difetto di sicurezza e invece &egrave; un difetto di <strong>metodo</strong>: in armonia il significato di un accordo dipende dal contesto, e il contesto include quello che viene dopo. Chi aspetta mezzo secondo in pi&ugrave; sbaglia molto meno.</p>
-  </div>
-</section>
-
-<section class="slide perc esercizio" data-titolo="Proviamo &middot; dodici ascolti" data-segno
-         style="--segno: url('../../_assets/segni/segno-09.png')">
-  <div class="slide-interna">
-    <h2>Dodici accordi, tre risposte possibili</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Dodici ascolti &middot; ognuno due volte</span>
-      <p>Sempre in <strong>do maggiore</strong>, e ve la do all&rsquo;inizio. Per ciascuno scrivete <strong>T</strong>, <strong>S</strong> o <strong>D</strong>.</p>
-    </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">La strategia, in ordine</span>
-      <p><strong>1</strong> &middot; <strong>tira</strong>? &rarr; D, e si &egrave; finito.<br>
-      <strong>2</strong> &middot; se non tira: sentite il <strong>basso</strong>. Do o fa?<br>
-      <strong>3</strong> &middot; se il basso non si sente: <strong>si potrebbe finire qui?</strong></p>
-    </div>
-
-    <p class="didascalia">Correggiamo subito, tutti e dodici. Chi sbaglia una D per una T ha un problema di ascolto; chi confonde T e S ha un problema di <strong>basso</strong>, e si risolve cantandolo.</p>
-  </div>
-</section>
-
-<section class="slide perc esercizio" data-titolo="E adesso dentro un brano" data-segno
-         style="--segno: url('../../_assets/segni/segno-10.png')">
-  <div class="slide-interna">
-    <h2>Dieci minuti su musica vera</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Come si fa</span>
-      <p>Suono un brano breve. Voi tenete il foglio con <strong>otto caselle</strong>, una per battuta, e scrivete <strong>T</strong>, <strong>S</strong> o <strong>D</strong>.</p>
-      <p>Prima molto lento, con me che dico &laquo;adesso&raquo; a ogni cambio. Poi a tempo, e i cambi li trovate voi.</p>
-    </div>
-
     <div class="riquadro attenzione">
-      <span class="etichetta">La differenza rispetto agli accordi sciolti</span>
-      <p>Qui gli accordi <strong>si succedono</strong>, e ognuno vi arriva con quello di prima in orecchio. &Egrave; pi&ugrave; facile, non pi&ugrave; difficile: la <strong>D</strong> si riconosce dal contrasto con la <strong>T</strong> che l&rsquo;ha preceduta.</p>
+      <span class="etichetta">L’errore tipico</span>
+      <p>Scambiare S e T: i due accordi hanno una nota comune (in do maggiore il <em>do</em>) e il soprano può restare fermo. Si decide dal basso: se scende di quinta o sale di quarta dalla tonica, è la S.</p>
     </div>
-
-    <p class="didascalia">Se vi perdete, aspettate una <strong>T</strong>: arriva sempre, e da l&igrave; si ricomincia a contare. &Egrave; la stessa strategia del solfeggio con accompagnamento dell&rsquo;unit&agrave; 9.</p>
   </div>
 </section>
 
-<section class="slide perc" data-titolo="In un brano intero">
+<section class="slide perc" data-titolo="Quanto dura una funzione">
   <div class="slide-interna">
-    <h2>E adesso su un pezzo che non ho scelto per l&rsquo;esercizio</h2>
+    <h2>Quanto dura una funzione</h2>
 
-    <p>Gli esempi di prima erano costruiti per far sentire una cosa per volta. Questo no: &egrave; musica scritta per essere ascoltata, e le funzioni ci sono comunque.</p>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Tutti insieme, 6 minuti</span>
-      <p>Ascoltate una volta senza fare niente. La seconda volta alzate la mano <strong>quando sentite tornare a casa</strong> &mdash; cio&egrave; sulla tonica. Non serve altro.</p>
+    <tac-stave clef="treble"
+               time="4/4"
+               keysig="G"
+               caption="Sol maggiore: la S dura due battute (bb. 2–3) e cambia posizione"
+               soprano="b/4:w | c/5:w | e/5:w | d/5:w | b/4:w | c/5:w | a/4:w | g/4:w"
+               contralto="g/4:w | g/4:w | g/4:w | f/4:w | g/4:w | e/4:w | d/4:w | b/3:w"
+               tenore="d/4:w | e/4:w | c/4:w | a/3:w | g/3:w | g/3:w | f/3:w | g/3:w"
+               basso="g/2:w | c/3:w | c/3:w | d/3:w | g/2:w | c/3:w | d/3:w | g/2:w"
+               cifre="T &middot; S &middot; S &middot; D &middot; T &middot; S &middot; D &middot; T"
+               segna="b2-b3=S S"
+               width="900"
+               tempo="60"
+               play
+               slow></tac-stave>
+    <div class="riquadro studio">
+      <span class="etichetta">Che cosa si osserva</span>
+      <p>Nelle bb.&nbsp;2&ndash;3 il basso resta sul <em>do</em> mentre il soprano sale da do a mi e il tenore scende da mi a do: le note cambiano, la funzione resta. Ogni casella si riempie: S nella b.&nbsp;2, S nella b.&nbsp;3.</p>
     </div>
-
-    <tac-brano organico="voci" titolo="G. F. H&auml;ndel, &laquo;Lascia ch&rsquo;io pianga&raquo;, da Rinaldo" metronomo youtube="EKo_EmfEPWs" mappa-video='{"eventi":[[1,5300],[2,8734],[3,12400],[4,15684],[5,19283],[6,23049],[7,26816],[8,30549],[9,34600],[10,38517],[11,42549],[12,46200],[13,50216],[14,54150],[15,58184],[16,62100],[17,66166],[18,70117],[19,74001],[20,78050],[21,82200],[22,86499],[23,90767],[24,94683],[25,98717],[26,102700],[27,106650],[28,110683],[29,114717],[30,119166],[31,122566],[32,126235],[33,130067],[34,133716],[35,137367],[36,141334],[37,145248]],"durata":334000}' esecutore="Voices of Music · Kirsten Blaise, soprano" partitura="../../_assets/spartiti/A07_handel.png" inciso="../../_assets/incisioni/A07_handel.mp3" mappa='{"durata":44146,"eventi":[[0,0],[1,3462],[2,6923],[3,10385],[4,13846],[5,17308],[6,20769],[7,24231],[8,27692],[9,31154],[10,34615],[11,38077]]}' da-battuta="13">
-<script type="application/json">{"titolo":"G. F. Händel, «Lascia ch'io pianga», da Rinaldo","metro":"3/4","bpm":52,"battute":12,"anacrusi":0.0,"voci":[[[0.0,1.0,66],[1.0,1.0,66],[2.5,0.5,66],[3.0,1.0,67],[4.0,1.0,67],[6.0,1.0,64],[7.0,1.5,69],[8.5,0.5,67],[9.0,1.0,67],[10.0,1.0,66],[12.0,1.0,71],[13.0,1.0,71],[14.0,0.3333,73],[14.3333,0.3333,74],[14.6667,0.3333,76],[15.0,1.0,69],[16.0,1.0,69],[17.5,0.5,74],[18.0,0.75,66],[18.75,0.25,64],[19.0,1.0,66],[20.0,0.75,64],[20.75,0.25,62],[21.0,3.0,62],[24.0,1.0,66],[25.0,1.5,74],[26.5,0.5,71],[27.0,1.0,68],[28.0,1.0,68],[30.0,1.0,71],[31.0,1.5,76],[32.5,0.5,73],[33.0,0.5,69],[33.5,0.5,68],[34.0,1.0,69],[35.5,0.5,74]],[[0.0,1.0,62],[0.0,1.0,66],[1.0,1.0,62],[1.0,1.0,66],[2.5,0.5,62],[2.5,0.5,66],[3.0,1.0,59],[3.0,1.0,62],[3.0,1.0,67],[4.0,1.0,59],[4.0,1.0,62],[4.0,1.0,67],[6.0,1.0,61],[6.0,1.0,64],[7.0,1.5,61],[7.0,1.5,64],[7.0,1.5,69],[8.5,0.5,61],[8.5,0.5,64],[8.5,0.5,67],[9.0,1.0,67],[9.0,2.0,57],[9.0,2.0,62],[10.0,1.0,66],[12.0,1.0,62],[12.0,1.0,67],[12.0,1.0,71],[13.0,1.0,64],[13.0,1.0,67],[13.0,1.0,71],[15.0,1.0,61],[15.0,1.0,64],[15.0,1.0,69],[16.0,1.0,62],[16.0,1.0,66],[16.0,1.0,69],[17.5,0.5,57],[17.5,0.5,62],[17.5,0.5,66],[18.0,0.75,66],[18.0,1.0,59],[18.0,1.0,62],[18.75,0.25,64],[19.0,1.0,62],[19.0,1.0,66],[20.0,0.75,64],[20.0,1.0,61],[20.75,0.25,62],[21.0,3.0,57],[21.0,3.0,62],[24.0,1.0,62],[24.0,1.0,66],[25.0,1.5,74],[25.0,2.0,62],[26.5,0.5,71],[27.0,1.0,59],[27.0,1.0,62],[27.0,1.0,68],[28.0,1.0,59],[28.0,1.0,64],[28.0,1.0,68],[30.0,1.0,68],[30.0,1.0,71],[31.0,1.5,76],[31.0,2.0,64],[32.5,0.5,73],[33.0,1.0,61],[33.0,1.0,64],[33.0,1.0,69],[34.0,1.0,62],[34.0,1.0,66],[34.0,1.0,69],[35.5,0.5,66],[35.5,0.5,74]],[[0.0,1.0,50],[1.0,1.0,50],[2.5,0.5,50],[3.0,1.0,52],[4.0,1.0,52],[6.0,1.0,45],[7.0,1.0,45],[8.5,0.5,45],[9.0,1.0,50],[10.0,0.5,50],[10.5,0.5,49],[11.0,0.5,47],[11.5,0.5,45],[12.0,1.0,43],[13.0,1.0,55],[15.0,1.0,55],[16.0,1.0,54],[17.5,0.5,54],[18.0,1.0,55],[19.0,1.0,57],[20.0,0.75,55],[20.0,1.0,45],[20.75,0.25,54],[21.0,3.0,50],[21.0,3.0,54],[24.0,1.0,50],[25.0,1.5,47],[26.5,0.5,50],[27.0,1.0,52],[28.0,1.0,40],[30.0,1.0,52],[31.0,1.5,49],[31.0,2.0,56],[32.5,0.5,52],[33.0,1.0,54],[34.0,1.0,50],[35.5,0.5,50]]]}</script>
-</tac-brano>
-
-
-    <p class="didascalia">Riconoscere il ritorno alla tonica &egrave; il primo dei tre passi, ed &egrave; quello che funziona anche senza esercizio: l&rsquo;orecchio sa quando una frase &egrave; finita. Gli altri due passi &mdash; distinguere D da S &mdash; si costruiscono sopra questo.</p>
+    <div class="riquadro attenzione">
+      <span class="etichetta">L’errore tipico</span>
+      <p>Lasciare vuota la seconda casella, o spostarvi la lettera dell’accordo successivo: una lettera giusta nella casella sbagliata conta come sbagliata (unità 5, lezione 3).</p>
+    </div>
   </div>
 </section>
 
-<section class="slide perc" data-titolo="I tre passi, visti">
+<section class="slide perc" data-titolo="La procedura">
   <div class="slide-interna">
-    <h2>I tre passi, uno sotto l&rsquo;altro</h2>
+    <h2>La procedura, con tre funzioni</h2>
 
-    <p>Ascoltando si fanno in questo ordine, e ciascuno restringe il campo del successivo.</p>
-
-    <tac-stave tastiera clef="treble" time="4/4"
-               caption="T &ndash; S &ndash; D &ndash; T: prima si trova la T, poi si distinguono le altre due"
-               soprano="e/5:h f/5:h | d/5:h e/5:h"
-               contralto="c/5:h c/5:h | b/4:h c/5:h"
-               tenore="g/4:h a/4:h | g/4:h g/4:h"
-               basso="c/3:h f/2:h | g/2:h c/3:h"
-               width="740" tempo="48" play slow></tac-stave>
-
-    <ol>
-      <li><strong>Siamo a casa o no?</strong> Due risposte possibili, e questa funziona subito.</li>
-      <li><strong>Se non siamo a casa: tira o no?</strong> Se tira &egrave; D, se non tira &egrave; S.</li>
-      <li><strong>Quanto dura?</strong> Si conta, perch&eacute; il foglio si valuta a battute.</li>
-    </ol>
-
-    <p class="didascalia">Notate che il primo passo <strong>non richiede di conoscere le funzioni</strong>: lo sapevate fare a settembre. I tre passi sono costruiti in modo che si cominci sempre da quello che si sa gi&agrave;, e ogni passo tolga possibilit&agrave; al successivo.</p>
-  </div>
-</section>
-
-<!-- ───────────────────────────────────────────────────────────────────
-     Cinque slide aggiunte il 5 settembre 2026, con due musiche vere in
-     più. L'ora insegna a riconoscere le tre funzioni all'ascolto e ha
-     dodici ascolti isolati più un brano. Il difetto era la **densità**:
-     tutti gli esempi sono accordi in tempo lento, e nella musica vera
-     le funzioni arrivano con una melodia sopra che le maschera.
-       · A08 Schubert, «Der Lindenbaum» — melodia lunga, armonia
-         semplicissima: il caso in cui la melodia distrae
-       · A13 Haydn op. 74 n. 1, l'inizio — archi, tempo vivo, funzioni
-         che cambiano in fretta: il caso difficile
-     E mancava il fatto che rende il riconoscimento possibile: la
-     **probabilità**. Non tutte le successioni sono ugualmente comuni,
-     e chi lo sa indovina meglio di chi ascolta meglio.
-     ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="Quando la melodia distrae">
-  <div class="slide-interna">
-    <h2>Armonia semplice, melodia che copre tutto</h2>
-
-    <p>Negli ascolti di poco fa gli accordi erano nudi. Nella musica vera c&rsquo;è quasi sempre una melodia sopra, e la melodia è la cosa che l&rsquo;orecchio segue per prima.</p>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Due ascolti, 5 minuti</span>
-      <p><strong>1</strong> &middot; ascoltate normalmente. Provate a dire le funzioni: quasi nessuno ci riesce.<br>
-      <strong>2</strong> &middot; adesso <strong>ignorate la voce</strong> e seguite solo la mano sinistra. Adesso si riesce.</p>
-
-    </div>
-
-    <tac-brano organico="voci" titolo="Schubert, «Der Lindenbaum» — l'armonia è facile, la melodia la copre"
-               metronomo youtube="jyxMMg6bxrg" esecutore="Dietrich Fischer-Dieskau · Gerald Moore" partitura="../../_assets/spartiti/A08_schubert.png" inciso="../../_assets/incisioni/A08_schubert.mp3" mappa='{"durata":29648,"eventi":[[0,0],[1,1800],[2,3600],[3,5400],[4,7200],[5,9000],[6,10800],[7,12600],[8,14400],[9,16200],[10,18000],[11,19800],[12,21600],[13,23400],[14,25200]]}' da-battuta="1">
-<script type="application/json">{"titolo":"F. Schubert, «Der Lindenbaum», da Winterreise","metro":"3/4","bpm":100,"battute":15,"anacrusi":0.0,"voci":[[[23.5,0.5,71],[24.0,1.5,71],[25.5,0.5,68],[26.0,0.5,68],[26.5,0.5,68],[27.0,1.0,68],[28.0,1.0,64],[29.5,0.5,64],[30.0,1.5,66],[31.5,0.5,68],[32.0,0.332,69],[32.332,0.332,68],[32.6641,0.3359,66],[33.0,2.0,64],[35.5,0.5,71],[36.0,1.5,71],[37.5,0.5,68],[38.0,0.5,68],[38.5,0.5,68],[39.0,1.0,68],[40.0,1.0,64],[41.5,0.5,64],[42.0,1.5,66],[43.5,0.5,68],[44.0,0.332,69],[44.332,0.332,68],[44.6641,0.3359,66]],[[0.0,0.1641,56],[0.1641,0.168,64],[0.332,0.168,56],[0.5,0.1641,54],[0.6641,0.168,63],[0.832,0.168,54],[1.0,0.1641,56],[1.1641,0.168,64],[1.332,0.168,56],[1.5,0.1641,59],[1.6641,0.168,68],[1.832,0.168,59],[2.0,0.1641,57],[2.1641,0.168,66],[2.332,0.168,57],[2.5,0.1641,56],[2.6641,0.168,64],[2.832,0.168,56],[3.0,0.75,54],[3.0,0.75,59],[3.75,0.25,73],[4.0,2.0,71],[6.0,0.1641,68],[6.1641,0.168,76],[6.332,0.168,68],[6.5,0.1641,66],[6.6641,0.168,75],[6.832,0.168,66],[7.0,0.1641,68],[7.1641,0.168,76],[7.332,0.168,68],[7.5,0.1641,71],[7.6641,0.168,80],[7.832,0.168,71],[8.0,0.1641,69],[8.1641,0.168,78],[8.332,0.168,69],[8.5,0.1641,68],[8.6641,0.168,76],[8.832,0.168,68],[9.0,0.1641,66],[9.1641,0.168,75],[9.332,0.168,66],[9.5,0.1641,64],[9.6641,0.168,73],[9.832,0.168,64],[10.0,0.1641,63],[10.1641,0.168,71],[10.332,0.168,63],[10.5,0.1641,61],[10.6641,0.168,69],[10.832,0.168,61],[11.0,0.1641,59],[11.1641,0.168,68],[11.332,0.168,59],[11.5,0.1641,57],[11.6641,0.168,66],[11.832,0.168,57],[12.0,0.1641,56],[12.1641,0.168,64],[12.332,0.168,56],[12.5,0.1641,57],[12.6641,0.168,66],[12.832,0.168,57],[13.0,0.1641,56],[13.1641,0.168,64],[13.332,0.168,56],[13.5,0.1641,57],[13.6641,0.168,66],[13.832,0.168,57],[14.0,0.1641,56],[14.1641,0.168,64],[14.332,0.168,56],[14.5,0.1641,62],[14.6641,0.168,65],[14.832,0.168,62],[15.0,0.1641,61],[15.1641,0.168,66],[15.332,0.168,61],[15.5,0.1641,65],[15.5,0.1641,68],[15.6641,0.168,61],[15.832,0.168,65],[15.832,0.168,68],[16.0,0.5,66],[16.0,0.5,69],[16.5,0.5,61],[16.5,0.5,66],[16.5,0.5,69],[17.0,0.5,63],[17.0,0.5,66],[17.0,0.5,69],[17.5,0.5,64],[17.5,0.5,66],[17.5,0.5,69],[18.0,0.75,66],[18.0,0.75,69],[18.75,0.125,64],[18.75,0.125,68],[18.875,0.125,59],[18.875,0.125,66],[19.0,2.0,59],[19.0,2.0,66],[21.0,0.75,66],[21.0,0.75,69],[21.75,0.125,64],[21.75,0.125,68],[21.875,0.125,59],[21.875,0.125,66],[22.0,1.5,59],[22.0,1.5,66],[23.5,0.5,59],[23.5,0.5,68],[23.5,0.5,71],[24.0,1.5,59],[24.0,1.5,68],[24.0,1.5,71],[25.5,0.5,59],[25.5,0.5,64],[25.5,0.5,68],[26.0,0.5,59],[26.0,0.5,64],[26.0,0.5,68],[26.5,0.5,59],[26.5,0.5,64],[26.5,0.5,68],[27.0,1.0,59],[27.0,1.0,64],[27.0,1.0,68],[28.0,1.0,56],[28.0,1.0,59],[28.0,1.0,64],[29.5,0.5,59],[29.5,0.5,64],[30.0,2.0,59],[30.0,2.0,64],[30.0,2.0,66],[32.0,1.0,59],[32.0,1.0,63],[32.0,1.0,66],[33.0,0.5,56],[33.0,0.5,59],[33.0,0.5,64],[33.5,0.5,68],[33.5,0.5,71],[34.0,0.5,64],[34.0,0.5,68],[34.5,0.5,68],[34.5,0.5,71],[35.0,0.5,66],[35.0,0.5,69],[35.5,0.5,59],[35.5,0.5,66],[36.0,0.5,56],[36.0,0.5,64],[36.5,1.0,59],[36.5,1.0,68],[36.5,1.0,71],[37.5,0.5,59],[37.5,0.5,64],[37.5,0.5,68],[38.0,0.5,59],[38.0,0.5,64],[38.0,0.5,68],[38.5,0.5,59],[38.5,0.5,64],[38.5,0.5,68],[39.0,1.0,59],[39.0,1.0,64],[39.0,1.0,68],[40.0,1.0,56],[40.0,1.0,59],[40.0,1.0,64],[41.5,0.5,59],[41.5,0.5,64],[42.0,2.0,59],[42.0,2.0,64],[42.0,2.0,66],[44.0,1.0,59],[44.0,1.0,63],[44.0,1.0,66]],[[0.0,3.0,40],[0.0,3.0,47],[3.0,0.5,35],[3.0,0.5,47],[6.0,3.0,52],[6.0,3.0,59],[9.0,0.5,47],[9.0,0.5,59],[9.75,0.25,49],[10.0,1.5,47],[11.5,0.5,48],[12.0,0.5,49],[12.5,0.5,48],[13.0,0.5,49],[13.5,0.5,48],[14.0,0.5,49],[14.5,0.5,47],[15.0,0.5,45],[15.5,0.5,44],[16.0,0.5,42],[16.5,0.5,40],[17.0,0.5,39],[17.5,0.5,37],[18.0,3.0,35],[21.0,2.0,35],[23.0,0.5,35],[23.5,0.5,40],[23.5,0.5,52],[24.0,1.5,40],[24.0,1.5,52],[25.5,0.5,40],[26.0,0.5,44],[26.5,0.5,47],[27.0,2.0,52],[29.5,0.5,44],[30.0,2.0,47],[32.0,1.0,47],[33.0,0.5,40],[33.5,0.5,56],[33.5,0.5,59],[34.0,0.5,52],[34.0,0.5,56],[34.5,0.5,56],[34.5,0.5,59],[35.0,0.5,54],[35.0,0.5,57],[35.5,0.5,47],[35.5,0.5,51],[36.0,0.5,40],[36.0,0.5,44],[36.0,0.5,52],[36.5,1.0,52],[37.5,0.5,40],[38.0,0.5,44],[38.5,0.5,47],[39.0,2.0,52],[41.5,0.5,44],[42.0,2.0,47],[44.0,1.0,47]]]}</script>
-</tac-brano>
-
-
+    <tac-stave clef="treble"
+               time="4/4"
+               caption="La fase 0 in do maggiore: la progressione T–S–D–T, poi la tonica da sola"
+               soprano="e/5:w | f/5:w | d/5:w | e/5:w | r:w"
+               contralto="g/4:w | a/4:w | g/4:w | g/4:w | r:w"
+               tenore="c/4:w | c/4:w | b/3:w | c/4:w | r:w"
+               basso="c/3:w | f/2:w | g/2:w | c/3:w | c/3:w"
+               cifre="T &middot; S &middot; D &middot; T &middot; tonica"
+               width="760"
+               tempo="60"
+               play
+               slow></tac-stave>
     <div class="riquadro definizione">
-      <span class="etichetta">Che cosa è successo fra il primo e il secondo</span>
-      <p>Niente, nella musica. È cambiato <strong>dove stava la vostra attenzione</strong>. Riconoscere le funzioni non è una questione di orecchio fine: è saper <strong>spostare l&rsquo;ascolto</strong> su una voce sola a comando.</p>
+      <span class="etichetta">Le fasi, come nell’unità 5</span>
+      <p><strong>0</strong> &middot; il do di riferimento, la progressione, la tonica da sola. <strong>1</strong> &middot; ascolto intero: contare le otto battute, scrivere le lettere sicure. <strong>2</strong> &middot; coppie di battute, due ascolti ciascuna. <strong>3</strong> &middot; collegamento: bb.&nbsp;1&ndash;4 e 5&ndash;8. <strong>4</strong> &middot; verifica con il dito sulle caselle. <strong>5</strong> &middot; controllo.</p>
+    </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">Il controllo, con la S</span>
+      <p>La prima casella è quasi sempre T, l’ultima è T. La penultima è D (autentica) o S (plagale). Dopo una D viene quasi sempre la T: una D seguita da una S nel foglio è da riascoltare.</p>
     </div>
   </div>
 </section>
 
-<section class="slide perc" data-titolo="Il caso veloce">
+<section class="slide perc" data-titolo="In un corale">
   <div class="slide-interna">
-    <h2>E se le funzioni cambiano in fretta</h2>
+    <h2>T, S e D in un corale</h2>
 
+    <div class="righe">
+      <tac-stave clef="treble"
+                 time="4/4"
+                 keysig="D"
+                 data-reale
+                 caption="J. S. Bach, corale BWV 154/8, bb. 1–5"
+                 soprano="a/4:q a/4:q b/4:q b/4:q | c/5:q c/5:q d/5:h | e/5:q e/5:q d/5:q d/5:q | c/5:q b/4:8 c/5:16 d/5:16 b/4:h | a/4:h a/4:q a/4:q"
+                 contralto="f/4:8 g/4:8 a/4:q~ a/4:q g/4:q | g/4:8 e/4:8 a/4:8 g/4:8 f/4:h | a/4:q a/4:q a/4:q g#/4:8 f/4:8 | e/4:q e/4:q f/4:q e/4:q | e/4:h f/4:8 g/4:8 a/4:q"
+                 tenore="d/4:q d/4:q d/4:q e/4:q | e/4:q a/3:q a/3:h | c/4:q c/4:q c/4:q b/3:q~ | b/3:8 a/3:8 a/3:q a/3:q g#/3:q | c/4:h d/4:q d/4:q"
+                 basso="d/3:8 e/3:8 f/3:8 d/3:8 g/3:8 f/3:8 g/3:8 e/3:8 | a/3:8 g/3:8 f/3:8 e/3:8 d/3:h | a/2:8 b/2:8 c/3:8 a/2:8 b/2:8 c/3:8 d/3:8 b/2:8 | c/3:8 d/3:8 e/3:8 c/3:8 d/3:8 b/2:8 e/3:8 e/2:8 | a/2:h d/3:8 e/3:8 f/3:8 d/3:8"
+                 segna="b1.1=T · b1.3=S · b2.1=D · b2.3=T · b5.1=D"
+                 width="900"
+                 tempo="56"
+                 play
+                 slow></tac-stave>
+    </div>
     <div class="riquadro compito">
       <span class="etichetta">Ascolto guidato &middot; 4 minuti</span>
-      <p>Non provate a dire tutte le funzioni. Ditemene <strong>una sola</strong>: quella su cui la frase <strong>si ferma</strong>. Poi, al secondo ascolto, quella con cui <strong>comincia</strong>.</p>
+      <p>Seguire il basso nelle bb.&nbsp;1&ndash;2. Primo movimento: <em>re</em>, T. Terzo movimento della b.&nbsp;1: <em>sol</em>, S. Primo movimento della b.&nbsp;2: <em>la</em>, D. Terzo: di nuovo <em>re</em>, T, e il primo verso finisce. Al secondo ascolto dire a voce T, S, D, T nei quattro punti. Alla b.&nbsp;5 il secondo verso si ferma sul <em>la</em>: D, cadenza sospesa.</p>
     </div>
 
-    <tac-brano organico="archi" titolo="Haydn, Quartetto op. 74 n. 1, l'inizio (bb. 3–6)"
-               metronomo youtube="1YUE_KA4RvQ" esecutore="London Haydn Quartet" partitura="../../_assets/spartiti/A13_haydn-74-1-inizio.png" inciso="../../_assets/incisioni/A13_haydn_74_1_inizio.mp3" mappa='{"durata":24894,"eventi":[[0,0],[1,2727],[2,5455],[3,8182],[4,10909],[5,13636],[6,16364],[7,19091]]}' da-battuta="1">
-<script type="application/json">{"titolo":"F. J. Haydn, Quartetto op. 74 n. 1, l'inizio (bb. 3–6)","metro":"4/4","bpm":88,"battute":8,"anacrusi":0.0,"voci":[[[0.0,4.0,62],[0.0,4.0,71],[4.0,1.0,55],[4.0,1.0,64],[4.0,1.0,72],[8.0,2.0,72],[10.0,2.0,74],[12.0,2.0,71],[14.0,1.0,72],[15.0,1.0,73],[16.0,2.0,74],[18.0,1.0,75],[19.0,1.0,76],[20.0,1.0,79],[21.0,0.125,77],[21.125,0.125,79],[21.25,0.125,77],[21.375,0.125,79],[21.5,0.125,77],[21.625,0.125,79],[21.75,0.125,77],[21.875,0.125,79],[22.0,0.1125,76],[22.125,0.1125,77],[22.25,0.75,76],[23.5,0.5,79],[24.0,0.5,84],[24.5,0.25,88],[24.75,0.25,86],[25.0,0.25,84],[25.25,0.25,83],[25.5,0.25,81],[25.75,0.25,79],[26.0,0.25,77],[26.25,0.25,76],[26.5,0.25,74],[26.75,0.25,72],[27.0,0.25,71],[27.25,0.25,69],[27.5,0.25,67],[27.75,0.25,65],[28.0,2.0,64],[30.0,1.0,62],[31.0,1.0,69]],[[0.0,4.0,55],[0.0,4.0,65],[4.0,1.0,55],[4.0,1.0,64],[8.0,2.0,67],[10.0,2.0,69],[12.0,2.0,65],[14.0,2.0,67],[16.0,1.75,69],[17.75,0.25,71],[18.0,1.0,72],[19.0,1.0,72],[20.0,1.0,72],[21.0,1.0,74],[22.0,1.0,67],[24.0,4.0,55],[28.0,3.0,57],[31.0,0.5,60],[31.5,0.5,62]],[[0.0,4.0,59],[0.0,4.0,62],[4.0,1.0,48],[4.0,1.0,55],[4.0,1.0,64],[8.0,2.0,64],[10.0,2.0,65],[12.0,2.0,62],[14.0,2.0,64],[16.0,2.0,65],[18.0,1.0,66],[19.0,1.0,67],[20.0,1.0,69],[21.0,1.0,71],[22.0,1.0,74],[24.0,4.0,48],[28.0,1.0,48],[29.0,1.0,49],[30.0,2.0,50]],[[0.0,4.0,43],[4.0,1.0,36],[4.0,1.0,48],[8.0,0.5,60],[8.5,0.5,60],[9.0,0.5,60],[9.5,0.5,60],[10.0,0.5,60],[10.5,0.5,60],[11.0,0.5,60],[11.5,0.5,60],[12.0,0.5,60],[12.5,0.5,60],[13.0,0.5,60],[13.5,0.5,60],[14.0,0.5,60],[14.5,0.5,60],[15.0,0.5,60],[15.5,0.5,60],[16.0,0.5,60],[16.5,0.5,60],[17.0,0.5,60],[17.5,0.5,60],[18.0,0.5,60],[18.5,0.5,60],[19.0,0.5,60],[19.5,0.5,60],[20.0,0.5,60],[20.5,0.5,60],[21.0,0.5,60],[21.5,0.5,60],[22.0,1.0,60],[24.0,4.0,40],[28.0,3.0,41],[31.0,1.0,42]]]}</script>
+    <tac-brano organico="voci" titolo="J. S. Bach, corale BWV 154/8, in re maggiore" metronomo youtube="HFjROKbHsLc" esecutore="Gächinger Kantorei Stuttgart · Helmuth Rilling" partitura="../../_assets/spartiti/A17_bach-sequenze.png" inciso="../../_assets/incisioni/A17_bach_sequenze.mp3" mappa='{"durata":20009,"eventi":[[0,0],[1,4000],[2,8000],[3,12000],[4,16000]]}' da-battuta="1">
+<script type="application/json">{"titolo":"J. S. Bach, Corale BWV 154/8, la sequenza del basso (bb. 1–5)","metro":"4/4","bpm":60,"battute":5,"anacrusi":0.0,"voci":[[[0.0,1.0,69],[1.0,1.0,69],[2.0,1.0,71],[3.0,1.0,71],[4.0,1.0,73],[5.0,1.0,73],[6.0,2.0,74],[8.0,1.0,76],[9.0,1.0,76],[10.0,1.0,74],[11.0,1.0,74],[12.0,1.0,73],[13.0,0.5,71],[13.5,0.25,73],[13.75,0.25,74],[14.0,2.0,71],[16.0,2.0,69]],[[0.0,0.5,66],[0.5,0.5,67],[1.0,1.0,69],[2.0,1.0,69],[3.0,1.0,67],[4.0,0.5,67],[4.5,0.5,64],[5.0,0.5,69],[5.5,0.5,67],[6.0,2.0,66],[8.0,1.0,69],[9.0,1.0,69],[10.0,1.0,69],[11.0,0.5,68],[11.5,0.5,66],[12.0,1.0,64],[13.0,1.0,64],[14.0,1.0,66],[15.0,1.0,64],[16.0,2.0,64]],[[0.0,1.0,62],[1.0,1.0,62],[2.0,1.0,62],[3.0,1.0,64],[4.0,1.0,64],[5.0,1.0,57],[6.0,2.0,57],[8.0,1.0,61],[9.0,1.0,61],[10.0,1.0,61],[11.0,1.0,59],[12.0,0.5,59],[12.5,0.5,57],[13.0,1.0,57],[14.0,1.0,57],[15.0,1.0,56],[16.0,2.0,61]],[[0.0,0.5,50],[0.5,0.5,52],[1.0,0.5,54],[1.5,0.5,50],[2.0,0.5,55],[2.5,0.5,54],[3.0,0.5,55],[3.5,0.5,52],[4.0,0.5,57],[4.5,0.5,55],[5.0,0.5,54],[5.5,0.5,52],[6.0,2.0,50],[8.0,0.5,45],[8.5,0.5,47],[9.0,0.5,49],[9.5,0.5,45],[10.0,0.5,47],[10.5,0.5,49],[11.0,0.5,50],[11.5,0.5,47],[12.0,0.5,49],[12.5,0.5,50],[13.0,0.5,52],[13.5,0.5,49],[14.0,0.5,50],[14.5,0.5,47],[15.0,0.5,52],[15.5,0.5,40],[16.0,2.0,45]]]}</script>
 </tac-brano>
 
-
-    <div class="riquadro studio">
-      <span class="etichetta">La strategia, e vale per tutta l&rsquo;analisi all&rsquo;ascolto</span>
-      <p>Si prendono <strong>i punti fermi</strong> — inizio e fine — e poi si riempie in mezzo. Chi parte dall&rsquo;inizio e va avanti nota per nota perde il filo alla terza battuta e non lo ritrova.</p>
-      <p>I punti fermi sono facili proprio perché la musica <strong>ci si appoggia</strong>: durano di più, e c&rsquo;è tempo di sentirli.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Quanto è ragionevole aspettarsi oggi</span>
-      <p>In un tempo vivo, in prima, <strong>due funzioni su quattro</strong> è un buon risultato. Chi le prende tutte probabilmente conosce il pezzo. Non è una gara: è una misura di dove siete.</p>
-    </div>
-
-    <p class="didascalia">Fra tre ore, all&rsquo;<strong>ora 76</strong>, farete l&rsquo;analisi all&rsquo;ascolto di un brano intero con la partitura davanti. È la stessa cosa di oggi con un aiuto in più: gli occhi.</p>
+    <p class="didascalia">Nel corale gli accordi cambiano a ogni movimento, e fra quelli segnati ci sono rivolti, note di passaggio e altri gradi. Nel dettato un accordo dura una battuta; le tre funzioni però sono le stesse.</p>
   </div>
 </section>
 
-<section class="slide perc" data-titolo="Da dove viene">
+<section class="slide perc esercizio" data-titolo="Il dettato di esercitazione">
   <div class="slide-interna">
-    <h2>Perch&eacute; si dice &laquo;funzione&raquo;</h2>
+    <h2>Il dettato di esercitazione: otto battute</h2>
 
-    <p>&Egrave; una parola che ha un&rsquo;origine precisa, e sapere quale aiuta a capire che cosa dice.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">L&rsquo;idea</span>
-      <p>Un accordo non conta per <strong>quali note ha</strong>, ma per <strong>che cosa fa</strong> nella tonalit&agrave;: se sta fermo, se tira, se prepara. Due accordi diversi possono avere la stessa funzione.</p>
+    <div class="riquadro compito">
+      <span class="etichetta">Si scrive &middot; 12 minuti, poi 4 di correzione</span>
+      <p>Sul foglio a otto caselle. Il docente esegue il dettato al pianoforte seguendo la procedura, dalla fase 0 alla verifica. Alla correzione si confronta il foglio con la soluzione casella per casella e si segna a margine se l’errore è uno scambio (S per T, D per S), una ripetizione mancata o una lettera spostata.</p>
     </div>
-
-    <p>Il modo di pensare nasce nel <strong>Settecento</strong> con Rameau, che nel <strong>1722</strong> guarda l&rsquo;armonia come un sistema di rapporti; la parola <em>funzione</em> si afferma nell&rsquo;<strong>Ottocento</strong> con la teoria tedesca, ed &egrave; quella che usiamo ancora.</p>
-
-    <p class="didascalia">Da cui una cosa da tenere presente per i prossimi quattro anni: quando analizzerete un pezzo, la domanda non sar&agrave; mai &laquo;che accordo &egrave;&raquo; &mdash; quello si legge. Sar&agrave; sempre <strong>&laquo;che cosa ci fa l&igrave;&raquo;</strong>.</p>
+    <tac-chiuso invito="La soluzione del dettato &mdash; si apre alla correzione" sale="i5zULkfRx85mWNa5m6ULcg==" iv="6kglfmV4inLEQQt4" dati="I3RuzXVmd+9gqZTdDBFUX6pkkZXNp+RiSyiC2PbYET2HNenOfmQWzsdhoi9dqkY8SuEtt8esIrvBUFmtHUwEa6047Hz/ssBOQc/LEdZ104A8xS7g9dUhe6dNzbLHk4mNADhKf3ni45g6lj0qRGszhhdhfSg7SrbrLoPGQCTbOO9KClZUVSL/yUTFo/Sla6T80x/yrSu32ITg0se8e2IQZFwnC66b0z5LJuTT/V4q4G4MQDGXgsKe1t5AbNIAGUdRrVAfpR5KpTNE2Ev0tGO5CLSqncM41UPbTjLcylYxVOgxFmhEGN2h/TX0vqwpWjAJKCQ7sudYx5dTguHm85M8cc3eypXowCNPDgxDBjMFke+bRJY8pYdrTl1XZwADkzUo/rQi5YGK0in0jtv9b01CoqYA1dJ1vrOg5rYI9dan0z6I5EQuJcoakd34xgmJfwA0GNcJ2KUCZhE2UbfgAT/+U4fy4gU0Ob0vNSFkmTyKsYj3mtU+0gbNNx+i7eptYTx4D0i5LJluzBypMItoO7pxu5Z14pbxLNCJtl18PsVczvF+RMAXUyhVOHu1Is5tYog4yIdhlwrNMsiXtwHqfV4PwqSFwJzCbDrzPpCI4xdZcSQYNKJ3gFfC4WrZTiiUZf+/q+8bbnA/nUnvBJAjFDiDTcwj4ucFZNmkMunLVodlP8WUL5STLs2SUREUzbjFbCuKCBsjoDQMZn3VXNQoVWgVQc4hhu+0/VLHT1Makwlmk21TihaqzyQUC3pc7SCunfZbBr4N4jn438O6caeJrFCN8NmDDxT6hbQznGb+PTY3zMbj/X8osGrAFF3kC9nn8tmdLu7EozCCoiFBCcbSuvKRadaUGG8rvbVgXRVLIFr5ctyukrWyLAJkVAoOhZSjsCTpEgoib7OEq4NFXK09VJ765EupjZQCqHsUWahIUI/Qr9DEMcgSwD+3HHEI0oLzHOy87QgQDTM78PYw9QWRbOqnb2uxFYrHOfGpIBNKomODt3zY+MVFQAD1CXahz2CYzNX6S1xGN1isAzqh1r1ByCu3Z7UKBNDS6hYqmFWNfCEugdwDTYaJau24IwhTjMnlkl4kwWA1BQY9sjx4XEAapMxXUx4vl1L3BM81r/VZZXLBCRe1kMVCgQonqm4p645mObLRimwjCyJPXKsxBZYp13V9m3ZKIO0lRPj290Sy7t1x8DGPtQZaEJbS+VIUMhvsfgCHmwBlArrU2Q/kTTSvawm19SjqM97QpDsa4CE4Y+DfmvBwrnPRaCF1zOGFNwZKvYoqM5trAL8Hqw6T3RdeT2hcdImGEiKsDU4pQMmTheFW/u7J4Z216HJs+puUokB+CMo55fIZIl/Mx3pVNQpYUG4EsXhkKPGiXe5SSKqfVQ3EV/R6C19vlO1vZg7T8SAiblhuMHV3APylx5OyDw=="></tac-chiuso>
   </div>
 </section>
 
-<section class="slide esercizio" data-titolo="Come ci si allena a questo">
+<section class="slide perc" data-titolo="Il dettato di verifica" data-in-classe>
   <div class="slide-interna">
-    <h2>Con qualunque musica, e senza spartito</h2>
+    <h2>Il dettato di verifica</h2>
 
-    <p>Questo è l&rsquo;esercizio più economico di tutto il corso: <strong>non serve niente</strong>, e si può fare mentre si fa altro.</p>
-
-    <div class="colonne3">
-      <div class="scheda"><h3>Con quello che ascolti</h3><p>Una domanda sola: <em>siamo a casa o no?</em> Dieci secondi a brano, e si allena il primo dei tre passi.</p></div>
-      <div class="scheda"><h3>Con lo strumento</h3><p>Si suona il giro T&ndash;S&ndash;D&ndash;T e si canta il basso sopra. Due minuti.</p></div>
-      <div class="scheda"><h3>Con un compagno</h3><p>Uno suona due accordi, l&rsquo;altro dice se il secondo tira o no. &Egrave; il modo pi&ugrave; veloce.</p></div>
+    <div class="riquadro compito">
+      <span class="etichetta">Si scrive &middot; 13 minuti</span>
+      <p>Un dettato ritmico-melodico di otto battute, su un nuovo foglio a quattro righi, con la procedura dell’unità 4, lezione 6: fase 0, metro, coppie di battute, collegamenti, verifica, chiusura. Armatura, metro e primo suono si ricavano dall’ascolto, salvo ciò che il docente indica all’inizio.</p>
     </div>
-    <div class="riquadro studio">
-      <span class="etichetta">Il protocollo</span>
-      <p><strong>1</strong> &middot; una canzone qualunque, di quelle che ascoltate voi.<br>
-      <strong>2</strong> &middot; seguite <strong>solo il basso</strong>. Nella musica registrata è la cosa più forte in assoluto: si sente meglio della voce.<br>
-      <strong>3</strong> &middot; ogni volta che il basso si muove, dite <strong>casa</strong> / <strong>largo</strong> / <strong>teso</strong>.</p>
+    <div class="riquadro procedura">
+      <span class="etichetta">Prima di consegnare</span>
+      <p><strong>1.</strong> L’armatura è scritta su ogni rigo.<br>
+      <strong>2.</strong> Ogni battuta contiene la durata del metro; le battute sono otto.<br>
+      <strong>3.</strong> I salti sono misurati: terza, quarta, quinta, sesta, ottava.<br>
+      <strong>4.</strong> L’ultima nota è la tonica.</p>
     </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Perché funziona meglio degli esercizi</span>
-      <p>Perché la musica che ascoltate per piacere la sentite <strong>venti volte</strong>, e alla quinta cominciate ad accorgervi di cose che alla prima non c&rsquo;erano. Un esercizio lo si sente due volte.</p>
-      <p>E perché nella musica popolare le funzioni sono <strong>poche e lunghe</strong>: c&rsquo;è tempo di pensarci, cosa che in Haydn non c&rsquo;è.</p>
-    </div>
-
-    <p class="didascalia">La prima casella &egrave; quella che rende di pi&ugrave; e non costa niente: non richiede tempo dedicato, solo di <strong>farsi la domanda</strong> mentre si ascolta comunque. E ha un effetto collaterale, che &egrave; la slide dopo.</p>
+    <p class="rimando">Il dettato si riascolta dalla slide <strong>«Il dettato di oggi»</strong>, al termine della lezione: a casa con le sezioni e con le fasi della procedura guidata.</p>
   </div>
 </section>
 
-<section class="slide perc" data-titolo="Che cosa cambia da qui">
+<section class="slide" data-titolo="Sintesi">
   <div class="slide-interna">
-    <h2>Da oggi ascoltate in un altro modo</h2>
-
-    <p>&Egrave; una cosa che succede e che vale la pena annunciare, perch&eacute; altrimenti sorprende: <strong>dopo qualche settimana non si torna indietro</strong>.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa succede</span>
-      <p>Si comincia a sentire <strong>dove torna</strong> una canzone senza averlo deciso. L&rsquo;orecchio si accorge dei punti di appoggio da solo, e non si pu&ograve; pi&ugrave; spegnere.</p>
-    </div>
-
-    <p>Succede a tutti quelli che studiano queste cose, anche quando volevano solo ascoltare musica. C&rsquo;&egrave; chi lo vive come una perdita &mdash; &laquo;non riesco pi&ugrave; ad ascoltare senza analizzare&raquo; &mdash; e per qualche mese &egrave; vero. Poi le due cose smettono di darsi fastidio, e resta solo il fatto che si sente <strong>di pi&ugrave;</strong>.</p>
-
-    <p class="didascalia">Vale la pena saperlo adesso perch&eacute; &egrave; il vero effetto di questo corso, molto pi&ugrave; delle nozioni: quello che imparate non &egrave; un elenco di regole, &egrave; <strong>un modo di ascoltare</strong>. E quello, a differenza delle regole, non si dimentica in estate.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa portiamo a casa">
-  <div class="slide-interna">
-    <h2>Che cosa portiamo a casa</h2>
+    <h2>Sintesi</h2>
 
     <div class="colonne">
       <div class="riquadro definizione">
-        <span class="etichetta">Che cosa si ascolta</span>
-        <p>Il <strong>basso</strong>. Do &rarr; T, fa &rarr; S, sol &rarr; D. Non l&rsquo;accordo intero.</p>
+        <span class="etichetta">Le tre funzioni</span>
+        <p><strong>T</strong>, I grado: riposo. <strong>S</strong>, IV grado: prepara la tensione. <strong>D</strong>, V grado: tensione, attende la T. Il basso è l’indizio più sicuro.</p>
       </div>
-      <div class="riquadro studio">
-        <span class="etichetta">La rete di sicurezza</span>
-        <p><strong>Tira?</strong> &rarr; D. Se no, <strong>si potrebbe finire qui?</strong> &rarr; s&igrave; T, no S.</p>
+      <div class="riquadro definizione">
+        <span class="etichetta">Le successioni</span>
+        <p>T&ndash;S&ndash;D&ndash;T è il percorso tipico. S&ndash;T è la plagale. D&ndash;S si evita.</p>
       </div>
     </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">E la promessa pagata</span>
-      <p>La stessa nota cambia carattere perch&eacute; cambia <strong>funzione</strong>: sopra un accordo appartiene, sopra un altro &egrave; di passaggio. La nota &egrave; la stessa, il rapporto no.</p>
-    </div>
-
-    <p class="didascalia">Domani si fa il contrario: invece di riconoscere le funzioni in una musica che c&rsquo;&egrave; gi&agrave;, le mettete voi sotto un basso che vi do io. Si chiama <strong>armonizzare</strong>.</p>
-  </div>
-</section>
-
-<section class="slide compiti-slide" data-titolo="Compiti · lo scritto" data-segno
-         style="--segno: url('../../_assets/segni/segno-24.png')">
-  <div class="slide-interna">
-    <p class="compiti-occhiello">Compiti per la prossima volta</p>
-    <h2>1 &middot; Scritto: Il giro completo, in tre tonalit&agrave;</h2>
-    <div class="riquadro compito">
-      <p>Scrivi <strong>I &ndash; IV &ndash; V &ndash; I</strong> in do, in fa e in sol maggiore, con l&rsquo;armatura giusta.</p>
-      <p>Poi suonalo al pianoforte in tutte e tre. Scrivi in una riga se suona <strong>uguale</strong> o <strong>diverso</strong>, e perch&eacute;.</p>
-    </div>
-    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C1-U7-L6-01</strong>.</p>
+    <p class="didascalia">Domani la lezione 7: comporre un periodo e armonizzarlo con T, S e D. La lezione si chiude con il solfeggio: parlato, cantato e ritmico.</p>
   </div>
 </section>
 
@@ -580,7 +302,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <h2>2 &middot; Solfeggio e 3 &middot; dettato</h2>
     <div class="riquadro compito">
       <span class="etichetta">2 &middot; Solfeggio, dal quaderno di lettura</span>
-      <p><a href="../materiali/solfeggi-classe-1.html#n426"><strong>n.&nbsp;426</strong></a> e <a href="../materiali/solfeggi-classe-1.html#n427"><strong>n.&nbsp;427</strong></a> <em>parlato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-1.html#n428"><strong>n.&nbsp;428</strong></a> e <a href="../materiali/solfeggi-classe-1.html#n429"><strong>n.&nbsp;429</strong></a> <em>cantato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-1.html#n430"><strong>n.&nbsp;430</strong></a> e <a href="../materiali/solfeggi-classe-1.html#n431"><strong>n.&nbsp;431</strong></a> <em>ritmico</em></p>
+      <p><a href="../materiali/solfeggi-classe-1.html#n446"><strong>n.&nbsp;446</strong></a> e <a href="../materiali/solfeggi-classe-1.html#n447"><strong>n.&nbsp;447</strong></a> <em>parlato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-1.html#n448"><strong>n.&nbsp;448</strong></a> e <a href="../materiali/solfeggi-classe-1.html#n449"><strong>n.&nbsp;449</strong></a> <em>cantato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-1.html#n450"><strong>n.&nbsp;450</strong></a> e <a href="../materiali/solfeggi-classe-1.html#n451"><strong>n.&nbsp;451</strong></a> <em>ritmico</em></p>
       <p class="rimando">Ogni pezzo a tempo, senza fermarti: il parlato a nomi, il cantato prendendo il primo suono dalla tastiera, il ritmico battendo la pulsazione.</p>
     </div>
     <div class="riquadro compito dettato-casa" id="C1-D-U07-L6">
@@ -606,18 +328,18 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Continua la <strong>melodia</strong> fino a <strong>otto battute</strong>, in <strong>si&#9837; maggiore</strong>, chiave di violino, metro 2/4: le prime due sono date. Muoviti soprattutto per grado congiunto, e dopo un salto di quarta o più torna indietro per grado; metti almeno due salti fra la quarta e la sesta; chiudi sulla <strong>tonica</strong>, arrivandoci per grado. Ogni battuta piena, l&rsquo;ultima con una nota sola. Poi cantala o suonala.</p>
       <tac-stave caption="Le prime due battute" clef="treble" keysig="Bb" time="2/4" notes="b/4:8 f/4:8 g/4:8 f/4:8 | a/3:8 b/3:8 c/4:q" tempo="72" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C1-ME-U07-L6</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="zTdFKgZYeDB1fcinVqrr2A==" iv="IW0vIS78+nhoeL/B" dati="ZDGn+Boi++y/bNEsIiD6pFdl7Z/1W5u0tdejJy+l+5xVTLQiRHbrrtHhyD7OQ1tlK8hVjtjkKN84LHAn6SzpLd7Eoj5oW6Pa/KjVS4WhD5tZeI5WqrclyH6PZJwNiW9O9bsNtUIGdqxIh05yO7Bo0KhwblulBPl5d0LUI8CgIDjTjyRjjpvX+aESMoq8XgVKSIZhuwN1K77mQEmkjDgOlbhMfct8ZXOQmgG3xNCK8XfOgRBnCZ6noG52tzdowIoZWFujL3A7tFQ+Ynzg0tX+d3n0lTfuu8+wxVrt67HH14Mtlmx3FdsR8gUrVoXtjDdSA+uhOlUb/ZBw9m5h8Qy4yxCy3kVR7PB2wo+iZc063OnQcNeRg/jMcEIxIakq2Uyq"></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="fvO/7eFspvPt1Zer4/kpQQ==" iv="qWZFZYr6lYNnH/m7" dati="tP2v9Pvir461Hw8+/owOhF4bGEwuksGg7XylPiDrjbjdKXM+Zk5JK+knHOmbqNFef+EIGdLdobb8Bb1l1k+TzFXORlk59ViZCmm+UE1IZR88gGfrQbxM3FgFmVNCkPLdLbFHw/Gs+9AXC+Xo17d6vsr23lBFdzyanmtyD8cAGZId5M6/uvkN8l5u7TAYy3oXhvFy9pX9hP8QH2qgieF1QgCVyIlhYa+hT63xIvWXQ9DBos8hjy0Lu4VXP9c1CSWz52xGlRn3RkVN5jR3EPlwYekRnj/iAYNd0ad5kvh0wl/S/Zc/bjL/mEvbWTYrKBZd/E5t3g9mF+YKgjQ+AfKYhrt0ai1iQgkEyaT+bpaGI99CrHTMON2qQcohdbzbKtjT"></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C1-BS-U07-L6">
       <span class="etichetta">5 &middot; Il basso sotto la melodia <span class="dettato-sigla">C1-BS-U07-L6</span></span>
       <p>Sotto la melodia scrivi il <strong>basso</strong>, in chiave di basso: <strong>una nota per battuta</strong>, lunga quanto la battuta. La melodia è in <strong>si&#9837; maggiore</strong>, metro 3/4. Per ogni battuta scegli fra la <strong>tonica</strong> (I: si&#9837;&ndash;re&ndash;fa) e la <strong>dominante</strong> (V: fa&ndash;la&ndash;do): guarda la nota sul tempo forte e le note più lunghe, e prendi l&rsquo;accordo che le contiene; scrivi sotto il numero romano. La prima e l&rsquo;ultima battuta sono sulla tonica, la penultima sulla dominante.</p>
       <tac-stave caption="La melodia" clef="treble" keysig="Bb" time="3/4" notes="b/3:q c/4:q b/3:q | d/4:8 e/4:8 d/4:q d/4:q | c/4:q a/3:q c/4:q | d/4:q b/3:h | a/3:h a/3:q | c/4:8 b/3:8 a/3:q b/3:q | c/4:q a/3:h | b/3:h." tempo="66" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C1-BS-U07-L6</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="PNksbek8wEpWCfhe2kJrTA==" iv="X/MW9wmis79P3z9y" dati="6TcIyhvyGj88rECAuMIIP3laRGCpWvCK/5MfW9uvrdqLhCwsfr10oQ4wyphgUuhWYLezyYm/SGkrfVpIg6E0Thm+alu1FjMTyKP/2ToA3ozh6CNe5ptQtzwj/i6wcR3fxe7l4Y0c1ER4NCPcd+C517+QSk/KQJVykmOMQ7KdF+t201GcVg0qZ+T3/iNh4kCjHbvuXSlrVt4k7IrVh5+owqO1LFt3Ppkm4596oeb3i72Wmw7BTkVVYP3/ohukO62+xv3fKzLjjICy9YeFfTO03OpYhbdiH8gqt5eJvK1o0rhM6ekETT+wvIuEJ10P5MRRYhj5iPlnGlI74zzvv3iPRkQJMrFPaqt6jIXoABAxOVL2jCKgczoaQgUSLakSd37Pg0fca8YSFp17we5Zi4CMOT8i0fUifo2+J/wYVJg3YHmTno1bubch9Px1vGOL+ajpUgUMB4h46KXzhLDuQadq5ax9+GHyJU6FBs89IP/LftFz2+IcxPyZhY1D0dK54ZLepVU2X5H/D92gSCMbJj3sdSKCcw=="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="M1rqAxSLaGDbRjev0GBv4A==" iv="jy9WwhOW9nKheN9D" dati="PUOmSXjzBPaMqtJU45uyzwF4FAApDN22ut+HAtkSfsd8mAxtkdMBeFCJoc36eAT0m1u43SwbMTL0dlQtBWCKVTJoVByYXAFOrGtHCWIHLTNf8clu2yzzPg35TEOenmTZffEE1XZAX+W3d+HtSyvRX5I/BOStuDDSAANJBrpPznN6VeYWzxbjPvB1/IhzKIog6VNZGQGTIkWQVrK5YAj47+V1M3CZgih/2c4UtnL2QrtQL+R5ZDYYHaSLLfbJ/ymUht70hqSsbQ/MvgHks4m+uUkaTPspRdhFil8DglHV/ftGwgqUqollPaVZuimXEjXzRiHSBjhF8BezKzg79tKixXsd4rjMvMACi+LgQ4CiyDJkHwYGU+XU6KtZRrrmfT6atK0thAaD3Y8aqnTB1NkYLyqikoV6yp08aVEnRJjPCUP7BDirW3e4IbosKZ9+CcGEHcV3M+3QXO7KS+l1dCy8TXg/YiTh6nzmnWGjdRW7/nWjB3UMedaoQ5mzPHBOVlGd2Cpkrh9Mrhgufs/Gl7Ru/fMR4A=="></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Il giro completo, in tre tonalità (Workbook, esercizio C1-U7-L6-01), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 426, 427; cantato n. 428, 429; ritmico n. 430, 431 (a tempo, senza fermarsi). Dettato C1-D-U07-L6 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Melodia da continuare fino a otto battute (C1-ME-U07-L6). Basso sotto la melodia, una nota per battuta (C1-BS-U07-L6).</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Solfeggio dal quaderno di lettura: parlato n. 446, 447; cantato n. 448, 449; ritmico n. 450, 451 (a tempo, senza fermarsi). Dettato C1-D-U07-L6 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Melodia da continuare fino a otto battute (C1-ME-U07-L6). Basso sotto la melodia, una nota per battuta (C1-BS-U07-L6).</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>
@@ -646,7 +368,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: parlato</h2>
     <p>A nomi, a tempo, con la mano che batte. Chi si ferma riparte dalla battuta dopo.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-1.html#n422">Apri il n.&nbsp;422 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di basso &middot; 4/4</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-1.html#n442">Apri il n.&nbsp;442 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di basso &middot; 4/4</span></p>
   </div>
 </section>
 
@@ -655,8 +377,8 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: cantato</h2>
     <p>Si prende il tono dalla tastiera, si canta insieme; poi a gruppi.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-1.html#n423">Apri il n.&nbsp;423 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 4/4 &middot; fa maggiore</span></p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-1.html#n424">Apri il n.&nbsp;424 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 4/4 &middot; fa maggiore</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-1.html#n443">Apri il n.&nbsp;443 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 2/4 &middot; fa maggiore</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-1.html#n444">Apri il n.&nbsp;444 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 2/4 &middot; do maggiore</span></p>
   </div>
 </section>
 
@@ -665,16 +387,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: ritmico</h2>
     <p>Tutti insieme, battendo la pulsazione. Poi a file, due battute a testa.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-1.html#n425">Apri il n.&nbsp;425 nel quaderno di lettura &#8599;</a> <span class="rimando">2/4</span></p>
-  </div>
-</section>
-
-<section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
-  <div class="slide-interna">
-    <p class="compiti-occhiello">In classe</p>
-    <h2>Scriviamo adesso: I bassi delle tre funzioni</h2>
-    <p>Per <em>do</em>, <em>sol</em> e <em>fa</em> maggiore scrivi i <strong>tre bassi</strong> delle funzioni: tonica, sottodominante, dominante.</p>
-    <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna.</p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-1.html#n445">Apri il n.&nbsp;445 nel quaderno di lettura &#8599;</a> <span class="rimando">3/4</span></p>
   </div>
 </section>
 

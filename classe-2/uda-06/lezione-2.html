@@ -46,320 +46,193 @@ try { module = undefined; exports = undefined; } catch (e) {}
 </head>
 <body>
 <div id="tac-deck">
-<!-- 16/10/2026: piano nuovo della 2ª. Era la U9 L5 del piano vecchio; ora è la U6 L2, ora 38 di 90 («Analisi: un corale di Bach, grado per grado»). Da riscrivere per il titolo nuovo. -->
 
 <!-- ══════════════════════════════════════════════════════════════════
-     LEZIONE 5 · Le parallele in un corale vero: cercarle in una pagina di Bach
-     Unità 9, ora 65 di 90 · classe 2ª · teoria
+     LEZIONE 2 · Analisi: un corale di Bach, grado per grado
+     Unità 6, ora 38 di 90 · classe 2ª · analisi · ven 18/12/2026
 
-     ⚠ ORA CON CODA DI ORALE (teoria): **venti minuti**.
+     16/10/2026 · RISCRITTA PER IL PIANO NUOVO DELLA 2ª (lavoro del
+     20/10/2026). Il file di partenza era la U9 L5 del piano vecchio
+     («Le parallele in un corale vero», ora 65), copiata qui il 16/10:
+     una caccia alle quinte su un corale stampato e non proiettato, in
+     tono colloquiale, con la seconda caccia sul BWV 114/7 senza
+     trascrizione. Del piano vecchio resta il metodo di lettura del corale
+     (le voci a due a due, il tenore che suona all'ottava inferiore, le
+     coppie in ordine); l'oggetto dell'ora è nuovo: i gradi.
 
-     PAROLE CHIAVE PER LA BIBLIOTECA:
-        quinte parallele · ottave parallele · corale · Bach · Cappellari
+     CHE COSA È CAMBIATO
+     · All'ora 38 c'è una CODA DI ORALI DI TEORIA (registro,
+       interrogazioni_piano): venti minuti frontali e i due blocchi
+       «Mentre si interroga».
+     · Il corale è il brano guida dell'UdA 6, BWV 101/7 (A41), in re
+       minore, trascritto per intero dal corpus di music21
+       (bach/bwv101.7) e controllato con lo script delle durate. Le sei
+       frasi finiscono dove c'è la corona (bb. 2, 4, 6, 8, 10, 12).
+     · L'analisi grado per grado delle frasi 1–2 sta tutta nella slide
+       (segni sul rigo); le frasi 3 e 6 sono i due «Mentre si interroga»
+       (soluzioni chiuse); la frase 5 è il compito per casa. Il III e il
+       VII compaiono già qui, come I e V del relativo maggiore: si
+       nominano e si rimandano alla U6 L4.
+     · Tolti il tono colloquiale, le slide sulla caccia alle parallele,
+       gli esempi di due battute, i rimandi del piano vecchio («ieri,
+       all'ora 64», «ve l'avevo detto all'ora 62»).
+     · Fonti: R. Dionisi, Studi sul corale, p. 38 (nel corale il minore
+       usa anche la scala melodica), p. 39 (il III armonizza il settimo
+       grado naturale discendente), p. 47 (la settima sul IV grado, con
+       l'esempio di «Nimm von uns»); Marenco, Manuale d'armonia, p. 48
+       (lo schema dei collegamenti); libro: B11, lezione 39, p. 206; C6,
+       lezioni 21–22, pp. 272–275.
+     · Compiti: compiti-c2-u6-l2.json (tolti i due del piano vecchio
+       sulle parallele; nuovi: l'analisi della frase 5 e un basso di
+       9 bb in re minore, per casa).
 
-     ══ VENTI MINUTI BASTANO PERCHÉ NON SI SPIEGA NIENTE ══
-     Le quinte e le ottave parallele la classe le conosce da un anno:
-     prima, unità 10, due ore intere — una per il divieto e una per
-     imparare a trovarle. Poi sono tornate in seconda specie.
-
-     Quindi non è un'ora di spiegazione, è **un'ora di caccia**. E una
-     caccia si può fare in venti minuti.
-
-     ══ IL RISULTATO È IL CONTENUTO, E NON VA ANTICIPATO ══
-     Non se ne trovano. Ed è tutto il punto: in una pagina scritta da un
-     compositore vero, che non aveva nessun professore da accontentare,
-     il divieto è rispettato riga per riga.
-
-     Non lo dico prima. Lascio cercare dieci minuti e poi chiedo «chi ne
-     ha trovata una?». Il silenzio vale più di qualunque affermazione mia.
-
-     ══ E POI LA DOMANDA GIUSTA ══
-     Non «perché Bach obbediva alla regola» — non obbediva a niente, la
-     regola l'hanno scritta dopo guardando lui. La domanda è: **che cosa
-     fa al posto delle parallele?** E la risposta si vede: tiene le note
-     comuni e muove per gradi, cioè fa quello che la classe ha fatto
-     ieri all'ora 64.
-
-     ══ IL CORALE È LATO, E L'HO GIÀ DETTO ALL'ORA 62 ══
-     Due voci sopra e due sotto. Se non l'avessi detto tre ore fa,
-     adesso qualcuno alzerebbe la mano e avrebbe ragione lui.
-
-     ══ QUALE CORALE, E PERCHÉ NON È SULLA SLIDE ══
-     Un corale **a quattro voci sole**, in edizione a stampa, uno a
-     testa. Vanno bene i corali armonizzati di Bach (Riemenschneider,
-     Breitkopf): sono SATB puri, senza parti strumentali sopra.
-
-     **Da non usare**: il corale del catalogo di questo progetto,
-     `A03_bach_corale` (BWV 1/6). Non è un SATB puro: sopra le quattro
-     voci c'è un corno obbligato, e la caccia alle parallele in un
-     tessuto a cinque parti diventa un'altra cosa. Per far vedere che
-     quattro voci hanno quattro passi diversi va benissimo, ed è quello
-     che se ne fa in prima (u1 l5). Per confrontare le voci a due a due,
-     no.
-
-     > *Qui c'era scritto anche che «nel file MusicXML i nomi delle parti
-     > non corrispondono ai registri». Era vero — erano sbagliati tutti e
-     > cinque — ed è stato corretto il 25 agosto: adesso le parti si
-     > chiamano Corno II, Soprano, Contralto, Tenore, Basso, come nella
-     > fonte. Vedi l'errore 53, che è soprattutto sul fatto che questa
-     > nota è rimasta qui per un mese invece di diventare una correzione.*
-
-     E non è proiettato, ma stampato: le parallele si cercano con la
-     matita seguendo le voci con il dito, e su uno schermo non si può.
-
-     ══ L'INSIDIA DEL TENORE ══
-     Nei corali il tenore si scrive in chiave di violino e suona
-     un'ottava sotto. Chi legge le sue note dove sono scritte trova
-     ottave parallele con il contralto che non esistono. Va detto prima
-     della caccia, non dopo — sennò dieci minuti di lavoro finiscono in
-     un falso allarme e la lezione dice il contrario di quello che vuole
-     dire.
+     I TEMPI · CODA DI ORALI DI TEORIA (tre interrogati, 30 minuti)
+     Lezione frontale 20 minuti: il metodo 4', il corale intero con
+     l'ascolto 6', le frasi 1–2 grado per grado 10'. Poi «Mentre si
+     interroga» 1 e 2, 15 + 15 minuti di lavoro individuale, soluzioni
+     chiuse. Chiusura con il solfeggio.
      ══════════════════════════════════════════════════════════════════ -->
 
-<!-- Riordinata il 30/09/2026: «Come si cerca, in pratica» fusa in «Come si cerca» (chiarito che le coppie interne si controllano per ultime, non si saltano); ordine: oggetto → metodo → caccia → risultato → che cosa fa Bach → seconda caccia su A43. -->
-
 <section class="slide attiva copertina foto" data-titolo="Copertina"
-         style="--foto: url('../../_assets/copertine/c2u9-lezione-5.jpg?v=2221b56a');
+         style="--foto: url('../../_assets/copertine/c2u6-lezione-2.jpg?v=5de5d0ad');
                 --cop-a:#0b1020; --cop-b:#1e40af; --cop-c:#bfdbfe">
   <div class="slide-interna">
     <div class="occhiello">Tutti i gradi della scala, e la terza specie &middot; UdA 6 &middot; Lezione 2 di 9</div>
-    <h1>Andiamo a caccia</h1>
-    <p class="sottotitolo">Venti minuti in una pagina di Bach, a cercare quinte e ottave parallele. Il risultato &egrave; il contenuto dell&rsquo;ora.</p>
+    <h1>Un accordo per ogni movimento</h1>
+    <p class="sottotitolo">Il corale BWV&nbsp;101/7 letto grado per grado: le frasi, le cadenze, e i gradi della scala minore che Bach usa davvero.</p>
 
     <blockquote class="aforisma">
-      <p>Il Corale &egrave; una composizione in &laquo;stile severo&raquo; che utilizza sempre armonie tonali, anche quando la melodia da armonizzare sia modale.</p>
-      <cite>Andrea Cappellari, Irlando Danieli, <em>Armonia, analisi e composizione</em>, p. 91</cite>
+      <p>Nel Corale, per&ograve;, non esiste soltanto un problema accordale e l&rsquo;interesse delle linee, cio&egrave; del moto orizzontale, pu&ograve; essere talvolta preminente.</p>
+      <cite>Renato Dionisi, <em>Studi sul corale</em>, p.&nbsp;38</cite>
     </blockquote>
 
     <div class="meta-copertina">
-      <span>20 minuti</span>
-      <span>Teoria</span>
-      <span>Parallele &middot; Corale</span>
+      <span>20 minuti &middot; poi lavoro individuale</span>
+      <span>Analisi</span>
+      <span>Corale &middot; gradi</span>
       <span class="coda-orali">Interrogazioni &middot; teoria e armonia</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="La pagina">
+<section class="slide" data-titolo="Il metodo">
   <div class="slide-interna">
-    <h2>La pagina ve la do stampata</h2>
+    <h2>Il metodo: grado per grado</h2>
 
-    <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
-         «importantissimo»). D&rsquo;Urso, Odone, <em>Il linguaggio della musica</em> &mdash; volume unico per il primo biennio; pagine dall'indice rilevato. -->
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
-      <p><span class="lez">B6</span><strong>Tonica e dominante. MI&#9837; maggiore e DO minore</strong>, pp. 162&ndash;163</p>
-      <p>Sezione B, unit&agrave; 6, lezione 20 &laquo;Il moto parallelo nascosto&raquo;; la regola &egrave; B5, lezione 17 (pp. 156&ndash;157). Il corale di Bach non &egrave; nel libro.</p>
+      <p><span class="lez">B11</span><strong>La tonica relativa nel modo minore</strong>, p.&nbsp;206 &middot; <span class="lez">C6</span><strong>Triadi sui diversi gradi della scala minore</strong>, pp.&nbsp;272&ndash;273</p>
+      <p>Sezione B, unit&agrave; 11, lezione 39; sezione C, unit&agrave; 6, lezioni 21&ndash;22 (le funzioni, pp.&nbsp;274&ndash;275).</p>
     </div>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Sul banco</span>
-      <p>Un <strong>corale di Bach</strong>, quattro voci, una pagina. Con la matita, perch&eacute; ci si scrive sopra.</p>
-    </div>
-
-    <p>Non &egrave; sul sito e non &egrave; proiettato, ed &egrave; una scelta: le parallele si cercano <strong>con la matita in mano</strong>, seguendo le voci con il dito. Su uno schermo non si pu&ograve; fare.</p>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">&Egrave; scritto lato, e ve l&rsquo;avevo detto</span>
-      <p>Due voci nel pentagramma superiore &mdash; soprano e contralto &mdash; e due in quello inferiore, tenore e basso. Noi <strong>scriviamo stretto</strong>; i corali si <strong>leggono lati</strong>.</p>
-      <p>Cappellari, p. 90, lo dice cos&igrave;: &laquo;Nella stesura del corale si utilizza la scrittura a 4 voci a parti late&raquo;.</p>
-    </div>
-
-    <p class="didascalia">Attenzione a una cosa, e vale per tutta l&rsquo;ora: il <strong>tenore</strong> nei corali si scrive in chiave di violino ma suona <strong>un&rsquo;ottava sotto</strong>. Chi legge le sue note dove sono scritte trova ottave parallele che non ci sono.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa si cerca">
-  <div class="slide-interna">
-    <h2>Che cosa stiamo cercando, esattamente</h2>
-
-    <p>Prima di aprire la pagina, mettiamo a fuoco l&rsquo;oggetto della caccia: due voci che si muovono nella stessa direzione arrivando su una quinta o un&rsquo;ottava.</p>
-
-    <tac-stave paralleli-voluti="l’errore è l’argomento della slide" time="4/4"
-               caption="Quinte parallele: le due voci salgono insieme mantenendo la distanza"
-               soprano="g/4:w | a/4:w"
-               basso="c/4:w | d/4:w"
-               width="740" tempo="46" play slow></tac-stave>
-
-    <tac-stave time="4/4"
-               caption="Non sono parallele: la distanza cambia da quinta a sesta"
-               soprano="g/4:w | a/4:w"
-               basso="c/4:w | c/4:w"
-               width="740" tempo="46" play slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le due condizioni</span>
-      <p><strong>Stessa direzione</strong>, e <strong>stesso intervallo perfetto</strong> prima e dopo. Se ne manca una, non sono parallele.</p>
-    </div>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Come si cerca">
-  <div class="slide-interna">
-    <h2>Come si cerca, senza impazzire</h2>
-
-    <p>Sei coppie di voci per ogni cambio d&rsquo;accordo: cercarle tutte a occhio &egrave; impossibile in venti minuti. Serve un ordine.</p>
-
-    <tac-stave time="4/4"
-               caption="Il posto in cui guardare per primo: soprano e basso"
-               soprano="e/5:w | f/5:w"
-               contralto="g/4:w | a/4:w"
-               tenore="c/4:w | c/4:w"
-               basso="a/3:w | b/3:w"
-               width="760" tempo="46" play slow></tac-stave>
 
     <div class="riquadro procedura">
-      <span class="etichetta">Tre passi</span>
-      <p><strong>1.</strong> Si guardano le <strong>voci che si sono mosse</strong> in quel cambio: quelle ferme non fanno parallele con nessuno.<br>
-      <strong>2.</strong> Fra quelle, si tengono solo le coppie che vanno nella <strong>stessa direzione</strong>.<br>
-      <strong>3.</strong> Su quelle si contano gli intervalli, prima e dopo.</p>
+      <span class="etichetta">La procedura</span>
+      <p><strong>1. Le frasi.</strong> Ogni corona chiude una frase: si segna la battuta e l&rsquo;accordo d&rsquo;arrivo.<br>
+      <strong>2. La tonalit&agrave; di ogni frase.</strong> Le alterazioni che compaiono (il <em>do&#9839;</em> di re minore, il <em>sol&#9839;</em> di la minore) e la cadenza dicono dove si &egrave;.<br>
+      <strong>3. Un accordo per movimento.</strong> Si leggono le quattro note dal basso, si dispongono per terze, si trova la fondamentale: grado e stato (5/3, 6, 6/4).<br>
+      <strong>4. Le crome.</strong> Una croma fra due note dello stesso accordo &egrave; di passaggio e non cambia il grado.<br>
+      <strong>5. Il controllo.</strong> La successione si confronta con lo schema dei collegamenti (U6&nbsp;L1): una successione che lo schema non prevede &egrave; di solito un accordo letto male.</p>
     </div>
-
-    <p class="didascalia">Il passo 1 taglia met&agrave; del lavoro: in un cambio d&rsquo;accordo tipico due voci si muovono e due stanno quasi ferme. E il posto pi&ugrave; probabile &egrave; sempre lo stesso, <strong>soprano e basso</strong>, perch&eacute; sono le due che si muovono di pi&ugrave;.</p>
-
-<tac-stave clef="treble" time="4/4" caption="Basso e soprano: la coppia che si sente. Qui si muovono in senso opposto, quindi si salta" notes="c/5+g/4+e/4+c/4:h b/4+g/4+d/4+d/4:h" width="460" tempo="44" play slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le tre mosse, in ordine</span>
-      <p><strong>1</strong> &middot; si guarda <strong>una coppia di voci per volta</strong>, mai tutte e quattro insieme.<br>
-      <strong>2</strong> &middot; per ogni coppia si guarda <strong>la direzione</strong>: se si muovono in senso opposto, si salta e si passa alla coppia dopo.<br>
-      <strong>3</strong> &middot; solo dove vanno nella stessa direzione si guarda <strong>l&rsquo;intervallo</strong>, e solo se è una quinta o un&rsquo;ottava.</p>
-    </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">L&rsquo;ordine delle coppie, e non è indifferente</span>
-      <p><strong>Basso-soprano</strong> per prima: è quella che si sente di più.<br>
-      Poi <strong>basso-tenore</strong> e <strong>basso-contralto</strong>.<br>
-      Le coppie fra voci interne per ultime: &egrave; raro che ci sia un guaio, ma in un esercizio si controllano anche loro.</p>
-      <p>Con questo ordine, in un esercizio normale si controlla <strong>tutto quello che conta in due minuti</strong>.</p>
-    </div>
-
-    <p class="didascalia">Vale la pena scriverlo sul quaderno una volta e non ripensarci più. <strong>Un controllo senza un ordine diventa una rilettura</strong>, e una rilettura trova quello che salta all&rsquo;occhio invece di quello che si sta cercando.</p>
-  
-  </div>
-</section>
-
-<section class="slide" data-titolo="La caccia">
-  <div class="slide-interna">
-    <h2>Dieci minuti. Cercate</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">A coppie, 10 minuti</span>
-      <p>Prendete <strong>due voci alla volta</strong> &mdash; ci sono sei coppie possibili &mdash; e guardate ogni cambio di accordo.</p>
-      <p>Segnate ogni punto in cui le due voci <strong>vanno nella stessa direzione</strong> restando a distanza di <strong>quinta giusta</strong> o di <strong>ottava</strong>.</p>
-    </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Il metodo &egrave; quello dell&rsquo;anno scorso</span>
-      <p>Le parallele <strong>non si sentono</strong>: si guardano. Chi cerca ascoltando non ne trova nemmeno quando ci sono.</p>
-      <p>E si guardano <em>fra due voci per volta</em>. Guardare tutte e quattro insieme &egrave; il modo di non vedere niente.</p>
-    </div>
-
-    <p class="didascalia">Le sei coppie: soprano&ndash;contralto, soprano&ndash;tenore, soprano&ndash;basso, contralto&ndash;tenore, contralto&ndash;basso, tenore&ndash;basso. Dividetevele.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Chi ne ha trovata una">
-  <div class="slide-interna">
-    <h2>Allora: chi ne ha trovata una?</h2>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Il risultato</span>
-      <p><strong>Nessuna.</strong> In una pagina intera, scritta da un compositore che non aveva nessun professore da accontentare.</p>
-    </div>
-
-    <p>Questo &egrave; il contenuto dell&rsquo;ora, e non &egrave; poco: il divieto che avete imparato l&rsquo;anno scorso <strong>non &egrave; una regola di scuola</strong>. Nessuno l&rsquo;ha imposta a Bach. L&rsquo;hanno scritta dopo, guardando lui.</p>
 
     <div class="riquadro attenzione">
-      <span class="etichetta">E adesso la domanda giusta</span>
-      <p>Non &laquo;perch&eacute; Bach obbediva alla regola&raquo;. Ma: <strong>che cosa fa, al posto delle parallele?</strong></p>
+      <span class="etichetta">L&rsquo;errore tipico</span>
+      <p>Prendere il basso per la fondamentale. Alla b.&nbsp;4 il <em>si&#9837;</em> del basso porta prima il VI (<em>si&#9837;&ndash;re&ndash;fa</em>), poi, ottava sotto, il IV&#8310; (<em>sol&ndash;si&#9837;&ndash;re</em>): lo dice il <em>sol</em> del soprano. Nel corale, inoltre, il minore usa anche la scala melodica: &laquo;ogni frammento melodico che colleghi la Sopradominante alla Sensibile deve seguire le indicazioni della scala melodica ascendente&raquo; (Dionisi, <em>Studi sul corale</em>, p.&nbsp;38). Il <em>si</em> naturale della b.&nbsp;6 viene da l&igrave;.</p>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Che cosa fa invece">
+<section class="slide perc" data-titolo="Il corale e le sue frasi">
   <div class="slide-interna">
-    <h2>Fa esattamente quello che avete fatto ieri</h2>
+    <h2>Il corale intero: sei frasi, sei cadenze</h2>
 
-    <div class="colonne">
-      <div class="riquadro definizione">
-        <span class="etichetta">Tiene le note comuni</span>
-        <p>Quando due accordi hanno una nota in comune, resta nella stessa voce. Due voci non possono andare parallele se una sta ferma.</p>
-      </div>
-      <div class="riquadro definizione">
-        <span class="etichetta">Muove per gradi</span>
-        <p>Le voci interne quasi non saltano. Guardate il contralto e il tenore in tutta la pagina: gradi, e ogni tanto una terza.</p>
-      </div>
-      <div class="riquadro definizione">
-        <span class="etichetta">Fa saltare il basso</span>
-        <p>&Egrave; l&rsquo;unico che si muove davvero, e quando lui va gi&ugrave; le altre tendono a salire.</p>
-      </div>
+    <p>Il corale che chiude la cantata &laquo;Nimm von uns, Herr, du treuer Gott&raquo; armonizza la melodia del &laquo;Vater unser im Himmelreich&raquo;. Le frasi sono sei, di due battute ciascuna, e ognuna comincia in levare sul quarto movimento. La 1ª chiude sul I (b.&nbsp;2), la 2ª sul V (b.&nbsp;4, sospesa), la 3ª di nuovo sul I (b.&nbsp;6). La 4ª va al la minore, il V minore della tonalit&agrave; (b.&nbsp;8, con il <em>sol&#9839;</em>), la 5ª al fa maggiore, il relativo (b.&nbsp;10). L&rsquo;ultima torna in re e chiude sull&rsquo;accordo maggiore: la terza piccarda (<em>fa&#9839;</em> al tenore).</p>
+
+    <div class="righe">
+      <tac-stave time="4/4" keysig="F" caption="Bach, corale BWV 101/7, bb. 0–12 (re minore; levare e ultima battuta completati con pause; la frase finisce dove c’è la corona)" soprano="r:h. a/4:q | a/4:q f/4:q g/4:q a/4:q | f/4:q e/4:q d/4:q a/4:q | a/4:q g/4:q c/5:q a/4:q | f/4:q g/4:q a/4:q a/4:q" contralto="r:h. f/4:q | e/4:q d/4:q d/4:q d/4:q | d/4:q c#/4:q a/3:q f/4:q | f/4:q g/4:8 f/4:8 e/4:q f/4:q | d/4:q d/4:q c#/4:q d/4:q" tenore="r:h. d/4:q | a/3:q a/3:q b/3:q a/3:q | b/3:q e/3:q f/3:q d/4:q | c/4:q c/4:q c/4:q c/4:q | b/3:q d/3:q e/3:q f/3:q" basso="r:h. d/3:q | c#/3:q d/3:q b/3:q f/3:q | g/3:q a/3:q d/3:q d/3:8 e/3:8 | f/3:q e/3:q a/3:q f/3:q | b/3:q b/2:q a/2:q d/3:q" segna="b3.3=1ª frase: I · b5.3=2ª: V" width="760" tempo="60" play></tac-stave>
+      <tac-stave keysig="F" soprano="c/5:q d/5:8 e/5:8 f/5:q e/5:q | d/5:q c#/5:q d/5:q d/5:q | e/5:q d/5:q c/5:q bn/4:q | a/4:q bn/4:q a/4:q d/5:q" contralto="e/4:q g/4:q a/4:q g/4:q | f/4:8 g/4:8 a/4:q a/4:q g/4:q | g/4:q f#/4:8 g#/4:8 a/4:q e/4:q | e/4:8 a/4:8 a/4:8 g#/4:8 e/4:q d/4:q" tenore="a/3:q b/3:q c/4:q b/3:8 c/4:8 | d/4:q e/4:q f/4:q bn/3:q | c/4:8 bn/3:8 a/3:q d/4:q d/4:q | c/4:q d/4:q c/4:q g/3:q" basso="a/3:q g/3:q f/3:q g/3:8 a/3:8 | b/3:q a/3:q d/3:q g/3:q | c/3:q d/3:8 e/3:8 f#/3:q g#/3:q | a/3:q e/3:q a/2:q bn/2:q" segna="b2.3=3ª: I · b4.3=4ª: la minore" width="760"></tac-stave>
+      <tac-stave keysig="F" soprano="c/5:q bn/4:q c/5:q a/4:q | a/4:q g/4:q f/4:q a/4:q | b/4:q a/4:8 g/4:8 f/4:q g/4:q | f/4:q e/4:q d/4:q r:q" contralto="e/4:q f/4:q g/4:q f/4:q | f/4:q e/4:q c/4:q d/4:q | d/4:q c#/4:q d/4:q e/4:q | c#/4:8 d/4:q c#/4:8 a/3:q r:q" tenore="g/3:q d/4:q c/4:q c/4:q | d/4:q g/3:q a/3:q a/3:q | g/3:8 f/3:8 e/3:q b/3:h~ | b/3:8 a/3:8 g/3:8 a/3:8 f#/3:q r:q" basso="c/3:q d/3:q e/3:q f/3:q | b/2:q c/3:q f/2:q f#/2:q | g/2:q a/2:q b/2:q a/2:8 g/2:8 | a/2:q a/2:q d/3:q r:q" segna="b2.3=5ª: fa maggiore · b4.3=6ª: I (terza piccarda)" width="760"></tac-stave>
     </div>
-
-    <p>Sono le tre cose dell&rsquo;ora 64. Non una regola in pi&ugrave;: <strong>la stessa</strong>, vista in una pagina che nessuno ha scritto per esercizio.</p>
-
-    <p class="didascalia">Ed &egrave; il motivo per cui le parallele non compaiono: non le ha <em>evitate</em>. Ha condotto quattro linee, e chi conduce quattro linee non le incontra.</p>
-  </div>
-</section>
-
-<!-- ───────────────────────────────────────────────────────────────────
-     Due slide con una musica vera. L'ora si chiama «le parallele in un
-     corale vero: cercarle in una pagina di Bach» e la pagina di Bach
-     era una fotocopia muta. È il secondo titolo dell'anno che promette
-     una musica vera senza averla (il primo era 7.2).
-     ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="La pagina di Bach, che adesso suona">
-  <div class="slide-interna">
-    <h2>La caccia, su una pagina che si può anche sentire</h2>
 
     <div class="riquadro compito">
-      <span class="etichetta">A coppie, sulla partitura &middot; 10 minuti</span>
-      <p>Cercate <strong>quinte e ottave parallele</strong> fra tutte le coppie di voci. Segnate ogni sospetto con la battuta e le due voci.</p>
-      <p>Poi contiamo insieme quante ne avete trovate.</p>
+      <span class="etichetta">Ascolto &middot; 5 minuti</span>
+      <p>Al primo ascolto si alza la mano a ogni corona e si dice se l&rsquo;accordo &egrave; maggiore o minore. Al secondo si segue il basso della 6ª frase (bb.&nbsp;10&ndash;12).</p>
     </div>
 
-    <tac-brano organico="voci" titolo="Bach, corale BWV 114/7 in sol minore"
-               metronomo youtube="5LTG5Y-A1bA" esecutore="Frankfurter Kantorei · Helmuth Rilling" partitura="../../_assets/spartiti/A43_bach-114-7.svg" inciso="../../_assets/incisioni/A43_bach_114_7.mp3" mappa='{"durata":64417,"eventi":[[0,0],[1,1111],[2,5556],[3,10000],[4,14444],[0,17778],[1,18889],[2,23333],[3,27778],[4,32222],[5,35556],[6,36667],[7,41111],[8,45556],[9,50000],[10,54444],[11,58889]]}'>
-<script type="application/json">{"titolo":"J. S. Bach, Corale BWV 114/7 in sol minore","metro":"4/4","bpm":54,"battute":11,"anacrusi":1.0,"voci":[[[0.0,1.0,70],[1.0,1.0,70],[2.0,0.5,67],[2.5,0.5,69],[3.0,0.5,70],[3.5,0.5,72],[4.0,1.0,74],[5.0,1.0,72],[6.0,1.0,72],[7.0,1.0,70],[8.0,1.0,70],[9.0,1.0,69],[10.0,0.5,67],[10.5,0.5,69],[11.0,1.0,70],[12.0,0.5,72],[12.5,0.5,70],[13.0,1.0,72],[13.0,2.0,69],[15.0,1.0,67],[17.0,1.0,74],[18.0,1.0,74],[19.0,0.5,69],[19.5,0.5,70],[20.0,1.0,72],[21.0,1.0,70],[22.0,1.0,70],[23.0,1.0,69],[24.0,1.0,70],[25.0,1.0,72],[26.0,0.5,67],[26.5,0.5,69],[27.0,1.0,70],[28.0,1.0,69],[29.0,1.0,67],[30.0,1.0,67],[31.0,1.0,65],[32.0,1.0,70],[33.0,1.0,69],[34.0,0.5,67],[34.5,0.5,69],[35.0,1.0,70],[36.0,0.5,72],[36.5,0.5,70],[37.0,2.0,69],[39.0,1.0,67]],[[0.0,1.0,67],[1.0,1.0,65],[2.0,1.0,63],[3.0,1.0,62],[4.0,1.0,62],[5.0,1.0,63],[6.0,0.25,63],[6.25,0.25,62],[6.5,0.5,63],[7.0,1.0,62],[8.0,1.0,62],[9.0,0.5,62],[9.5,0.5,72],[10.0,0.5,70],[10.5,0.5,69],[11.0,1.0,67],[12.0,0.5,67],[12.5,0.5,65],[13.0,1.0,63],[13.0,1.0,65],[14.0,0.5,62],[14.5,0.5,60],[15.0,1.0,58],[17.0,1.0,65],[18.0,1.0,65],[19.0,1.5,60],[20.5,0.5,69],[21.0,0.5,69],[21.5,0.25,67],[21.75,0.25,66],[22.0,1.0,67],[23.0,1.0,66],[24.0,1.0,67],[25.0,0.5,67],[25.5,0.5,65],[26.0,1.0,63],[27.0,0.5,62],[27.5,0.5,64],[28.0,1.0,65],[29.0,1.0,65],[30.0,1.0,64],[31.0,1.0,60],[32.0,1.0,62],[33.0,0.5,60],[33.5,0.5,62],[34.0,0.5,64],[34.5,0.5,66],[35.0,1.0,67],[36.0,1.0,67],[37.0,1.0,67],[38.0,1.0,66],[39.0,1.0,62]],[[0.0,1.0,62],[1.0,0.5,62],[1.5,0.5,60],[2.0,1.0,58],[3.0,1.0,58],[4.0,1.0,53],[5.0,1.0,55],[6.0,1.0,57],[7.0,1.0,53],[8.0,1.0,55],[9.0,0.5,54],[9.5,0.5,63],[10.0,0.5,62],[10.5,0.5,60],[11.0,0.5,58],[11.5,0.5,57],[12.0,1.0,55],[13.0,1.0,53],[13.0,1.0,55],[14.0,1.0,54],[15.0,1.0,55],[17.0,1.0,58],[18.0,1.0,58],[19.0,1.0,65],[20.0,0.5,66],[20.5,0.5,57],[21.0,0.5,58],[21.5,0.5,60],[22.0,1.0,62],[23.0,1.0,62],[24.0,1.0,62],[25.0,1.0,55],[26.0,1.0,60],[27.0,1.0,58],[28.0,1.0,60],[29.0,0.5,60],[29.5,0.5,55],[30.0,0.5,60],[30.5,0.5,58],[31.0,1.0,57],[32.0,0.5,53],[32.5,0.5,55],[33.0,0.5,57],[33.5,0.5,58],[34.0,1.0,60],[35.0,1.0,62],[36.0,0.5,60],[36.5,0.5,62],[37.0,0.5,63],[37.5,0.5,57],[38.0,0.5,62],[38.5,0.5,60],[39.0,1.0,59]],[[0.0,1.0,55],[1.0,1.0,50],[2.0,0.5,51],[2.5,0.5,53],[3.0,0.5,55],[3.5,0.5,57],[4.0,1.0,58],[5.0,1.0,51],[6.0,1.0,53],[7.0,1.0,46],[8.0,1.0,43],[9.0,1.0,50],[10.0,0.5,52],[10.5,0.5,54],[11.0,0.5,55],[11.5,0.5,53],[12.0,0.5,51],[12.5,0.5,50],[13.0,1.0,45],[13.0,1.0,48],[14.0,1.0,50],[15.0,1.0,43],[17.0,0.5,46],[17.5,0.5,48],[18.0,0.5,50],[18.5,0.5,51],[19.0,0.5,53],[19.5,0.5,55],[20.0,0.5,57],[20.5,0.5,54],[21.0,0.5,55],[21.5,0.5,57],[22.0,0.5,58],[22.5,0.5,60],[23.0,1.0,62],[24.0,0.5,55],[24.5,0.5,53],[25.0,0.5,51],[25.5,0.5,50],[26.0,1.0,48],[27.0,1.0,43],[28.0,0.5,45],[28.5,0.5,46],[29.0,0.5,48],[29.5,0.5,46],[30.0,1.0,48],[31.0,1.0,41],[32.0,0.5,50],[32.5,0.5,52],[33.0,1.0,53],[34.0,1.0,48],[35.0,0.5,55],[35.5,0.5,53],[36.0,0.5,51],[36.5,0.5,50],[37.0,1.0,48],[38.0,1.0,50],[39.0,1.0,43]]]}</script>
+    <tac-brano organico="voci" titolo="J. S. Bach, corale BWV 101/7, dalla cantata &laquo;Nimm von uns, Herr, du treuer Gott&raquo;" metronomo youtube="b9i5Ak-QX9o" esecutore="Monteverdi Choir · John Eliot Gardiner" partitura="../../_assets/spartiti/A41_bach-101-7.png" inciso="../../_assets/incisioni/A41_bach_101_7.mp3" mappa='{"durata":55614,"eventi":[[0,0],[1,1111],[2,5556],[3,10000],[4,14444],[5,17778],[6,18889],[7,23333],[8,27778],[9,32222],[10,35556],[11,36667],[12,41111],[13,45556],[14,50000]]}'>
+<script type="application/json">{"titolo":"J. S. Bach, Corale BWV 101/7 in re minore","metro":"4/4","bpm":54,"battute":13,"anacrusi":1.0,"voci":[[[0.0,1.0,69],[1.0,1.0,69],[2.0,1.0,65],[3.0,1.0,67],[4.0,1.0,69],[5.0,1.0,65],[6.0,1.0,64],[7.0,1.0,62],[8.0,1.0,69],[9.0,1.0,69],[10.0,1.0,67],[11.0,1.0,72],[12.0,1.0,69],[13.0,1.0,65],[13.0,1.0,69],[14.0,1.0,67],[15.0,1.0,69],[17.0,1.0,72],[18.0,0.5,74],[18.5,0.5,76],[19.0,1.0,77],[20.0,1.0,76],[21.0,1.0,74],[22.0,1.0,73],[23.0,1.0,74],[24.0,1.0,74],[25.0,1.0,76],[26.0,1.0,74],[27.0,1.0,72],[28.0,1.0,71],[29.0,1.0,69],[29.0,1.0,74],[30.0,1.0,71],[31.0,1.0,69],[33.0,1.0,72],[34.0,1.0,71],[35.0,1.0,72],[36.0,1.0,69],[37.0,1.0,69],[38.0,1.0,67],[39.0,1.0,65],[40.0,1.0,69],[41.0,1.0,70],[42.0,0.5,69],[42.5,0.5,67],[43.0,1.0,65],[44.0,1.0,67],[45.0,1.0,65],[46.0,1.0,64],[47.0,1.0,62]],[[0.0,1.0,65],[1.0,1.0,64],[2.0,1.0,62],[3.0,1.0,62],[4.0,1.0,62],[5.0,1.0,62],[6.0,1.0,61],[7.0,1.0,57],[8.0,1.0,65],[9.0,1.0,65],[10.0,0.5,67],[10.5,0.5,65],[11.0,1.0,64],[12.0,1.0,65],[13.0,1.0,62],[13.0,1.0,62],[14.0,1.0,62],[15.0,1.0,61],[17.0,1.0,64],[18.0,1.0,67],[19.0,1.0,69],[20.0,1.0,67],[21.0,0.5,65],[21.5,0.5,67],[22.0,1.0,69],[23.0,1.0,69],[24.0,1.0,67],[25.0,1.0,67],[26.0,0.5,66],[26.5,0.5,68],[27.0,1.0,69],[28.0,1.0,64],[29.0,0.5,64],[29.0,1.0,62],[29.5,0.5,69],[30.0,0.5,69],[30.5,0.5,68],[31.0,1.0,64],[33.0,1.0,64],[34.0,1.0,65],[35.0,1.0,67],[36.0,1.0,65],[37.0,1.0,65],[38.0,1.0,64],[39.0,1.0,60],[40.0,1.0,62],[41.0,1.0,62],[42.0,1.0,61],[43.0,1.0,62],[44.0,1.0,64],[45.0,0.5,61],[45.5,1.0,62],[46.5,0.5,61],[47.0,1.0,57]],[[0.0,1.0,62],[1.0,1.0,57],[2.0,1.0,57],[3.0,1.0,58],[4.0,1.0,57],[5.0,1.0,58],[6.0,1.0,52],[7.0,1.0,53],[8.0,1.0,62],[9.0,1.0,60],[10.0,1.0,60],[11.0,1.0,60],[12.0,1.0,60],[13.0,1.0,53],[13.0,1.0,58],[14.0,1.0,50],[15.0,1.0,52],[17.0,1.0,57],[18.0,1.0,58],[19.0,1.0,60],[20.0,0.5,58],[20.5,0.5,60],[21.0,1.0,62],[22.0,1.0,64],[23.0,1.0,65],[24.0,1.0,59],[25.0,0.5,60],[25.5,0.5,59],[26.0,1.0,57],[27.0,1.0,62],[28.0,1.0,62],[29.0,1.0,55],[29.0,1.0,60],[30.0,1.0,62],[31.0,1.0,60],[33.0,1.0,55],[34.0,1.0,62],[35.0,1.0,60],[36.0,1.0,60],[37.0,1.0,62],[38.0,1.0,55],[39.0,1.0,57],[40.0,1.0,57],[41.0,0.5,55],[41.5,0.5,53],[42.0,1.0,52],[43.0,2.0,58],[45.0,0.5,58],[45.5,0.5,57],[46.0,0.5,55],[46.5,0.5,57],[47.0,1.0,54]],[[0.0,1.0,50],[1.0,1.0,49],[2.0,1.0,50],[3.0,1.0,58],[4.0,1.0,53],[5.0,1.0,55],[6.0,1.0,57],[7.0,1.0,50],[8.0,0.5,50],[8.5,0.5,52],[9.0,1.0,53],[10.0,1.0,52],[11.0,1.0,57],[12.0,1.0,53],[13.0,1.0,50],[13.0,1.0,58],[14.0,1.0,46],[15.0,1.0,45],[17.0,1.0,57],[18.0,1.0,55],[19.0,1.0,53],[20.0,0.5,55],[20.5,0.5,57],[21.0,1.0,58],[22.0,1.0,57],[23.0,1.0,50],[24.0,1.0,55],[25.0,1.0,48],[26.0,0.5,50],[26.5,0.5,52],[27.0,1.0,54],[28.0,1.0,56],[29.0,1.0,47],[29.0,1.0,57],[30.0,1.0,52],[31.0,1.0,45],[33.0,1.0,48],[34.0,1.0,50],[35.0,1.0,52],[36.0,1.0,53],[37.0,1.0,46],[38.0,1.0,48],[39.0,1.0,41],[40.0,1.0,42],[41.0,1.0,43],[42.0,1.0,45],[43.0,1.0,46],[44.0,0.5,45],[44.5,0.5,43],[45.0,1.0,45],[46.0,1.0,45],[47.0,1.0,50]]]}</script>
 </tac-brano>
 
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa troverete, e va detto prima</span>
-      <p><strong>Zero</strong>, o quasi. E questo è il punto dell&rsquo;ora: non si cerca per trovare, si cerca per <strong>imparare a cercare</strong>.</p>
-      <p>Su una pagina in cui non ce ne sono, quello che si allena è il <strong>gesto</strong>: guardare due voci per volta, guardare la direzione prima dell&rsquo;intervallo, saltare le coppie che si muovono in senso opposto.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">E se ne trovate una</span>
-      <p>Portatemela. Succede: nei 371 corali ci sono punti discussi da due secoli, e qualcuno è una parallela vera che Bach ha accettato per ragioni sue.</p>
-      <p>Ma prima ricontrollate <strong>tre cose</strong>: che le due voci si muovano davvero nella stessa direzione, che l&rsquo;intervallo sia lo stesso tutte e due le volte, e che non ci sia una nota di passaggio in mezzo.</p>
-    </div>
-
-    <p class="didascalia">Cercare in una pagina pulita è il modo più veloce di imparare a cercare, e vale in tutti i mestieri in cui si controlla qualcosa. <strong>Chi ha esercitato l&rsquo;occhio dove non c&rsquo;è niente lo ha pronto dove c&rsquo;è.</strong></p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Che cosa portiamo a casa">
+<section class="slide" data-titolo="Frasi 1 e 2">
   <div class="slide-interna">
-    <h2>Che cosa portiamo a casa</h2>
+    <h2>Le frasi 1 e 2, grado per grado</h2>
+
+    <p><strong>Frase 1 (bb.&nbsp;0&ndash;2), re minore.</strong> Il levare &egrave; il I. Alla b.&nbsp;1 il basso sale per grado <em>do&#9839;&ndash;re</em> sotto V&#8310;&ndash;I, poi salta al <em>si&#9837;</em>: il <em>sol</em> del soprano lo fa leggere come IV&#8310;; sul quarto movimento il <em>fa</em> porta il I&#8310;. Alla b.&nbsp;2 il primo accordo &egrave; <em>sol&ndash;si&#9837;&ndash;re&ndash;fa</em>: il IV con la settima, che &laquo;sostituisce la semplice triade sullo stesso grado nelle cadenze composte (la preparazione diretta non &egrave; obbligatoria)&raquo;; Dionisi lo cita proprio da questo corale (<em>Studi sul corale</em>, p.&nbsp;47). Il <em>fa</em> del soprano, la settima, scende al <em>mi</em> del V; poi il I sotto la corona.</p>
+
+    <p><strong>Frase 2 (bb.&nbsp;2&ndash;4).</strong> Comincia in fa maggiore, il relativo: III (<em>fa&ndash;la&ndash;do</em>), VII&#8310; (<em>do&ndash;mi&ndash;sol</em> con il <em>mi</em> al basso: il VII del minore naturale), il V minore (<em>la&ndash;do&ndash;mi</em>) e di nuovo il III. Letti in fa, sono I&ndash;V&#8310;&ndash;III&ndash;I: il III e il VII di re minore sono la tonica e la dominante del relativo maggiore (U6&nbsp;L4). Alla b.&nbsp;4 il <em>si&#9837;</em> porta il VI e poi il IV&#8310;, e la frase si ferma sul V di re minore, con il <em>do&#9839;</em> del contralto: cadenza sospesa.</p>
+
+    <div class="righe">
+      <tac-stave time="4/4" keysig="F" caption="Bach, BWV 101/7, bb. 0–4 (levare completato con pause): un grado per movimento" soprano="r:h. a/4:q | a/4:q f/4:q g/4:q a/4:q | f/4:q e/4:q d/4:q a/4:q | a/4:q g/4:q c/5:q a/4:q | f/4:q g/4:q a/4:q a/4:q" contralto="r:h. f/4:q | e/4:q d/4:q d/4:q d/4:q | d/4:q c#/4:q a/3:q f/4:q | f/4:q g/4:8 f/4:8 e/4:q f/4:q | d/4:q d/4:q c#/4:q d/4:q" tenore="r:h. d/4:q | a/3:q a/3:q b/3:q a/3:q | b/3:q e/3:q f/3:q d/4:q | c/4:q c/4:q c/4:q c/4:q | b/3:q d/3:q e/3:q f/3:q" basso="r:h. d/3:q | c#/3:q d/3:q b/3:q f/3:q | g/3:q a/3:q d/3:q d/3:8 e/3:8 | f/3:q e/3:q a/3:q f/3:q | b/3:q b/2:q a/2:q d/3:q" segna="b1.1=I · b2.1=V⁶ · b2.2=I · b2.3=IV⁶ · b2.4=I⁶ · b3.1=IV⁷ · b3.2=V · b3.3=I · b4.1=III · b4.2=VII⁶ · b4.3=V min. · b4.4=III · b5.1=VI · b5.2=IV⁶ · b5.3=V" width="900" tempo="56" play></tac-stave>
+    </div>
+  </div>
+</section>
+
+<section class="slide esercizio" data-titolo="Mentre si interroga &middot; 1" data-in-classe>
+  <div class="slide-interna">
+    <h2>Mentre si interroga: la frase 3</h2>
+
+    <div class="righe">
+      <tac-stave time="4/4" keysig="F" caption="Bach, BWV 101/7, bb. 4–6: la frase 3 comincia sul quarto movimento della b. 4" soprano="f/4:q g/4:q a/4:q a/4:q | c/5:q d/5:8 e/5:8 f/5:q e/5:q | d/5:q c#/5:q d/5:q d/5:q" contralto="d/4:q d/4:q c#/4:q d/4:q | e/4:q g/4:q a/4:q g/4:q | f/4:8 g/4:8 a/4:q a/4:q g/4:q" tenore="b/3:q d/3:q e/3:q f/3:q | a/3:q b/3:q c/4:q b/3:8 c/4:8 | d/4:q e/4:q f/4:q bn/3:q" basso="b/3:q b/2:q a/2:q d/3:q | a/3:q g/3:q f/3:q g/3:8 a/3:8 | b/3:q a/3:q d/3:q g/3:q" width="760" tempo="56" play></tac-stave>
+    </div>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Da soli &middot; 15 minuti</span>
+      <p><strong>1.</strong> Sotto ogni movimento le quattro note, dal basso (5 minuti). <strong>2.</strong> Grado e stato; le crome di passaggio non si contano (6 minuti). <strong>3.</strong> La cadenza e l&rsquo;accordo sul quarto movimento della b.&nbsp;6, che apre la frase seguente (4 minuti).</p>
+    </div>
+
+    <tac-chiuso invito="La soluzione &mdash; si apre alla correzione" sale="q8PXFQJzM9tpJBlahGlxgg==" iv="u04VkkGaWTSnoEpg" dati="5lzf1l4OHmROT4atU3IJEKh4J26gwbDbaaGHJMyTEwNUxsvwKUcuPXmsPx4VejjWC56/6xevVxMUiWsztuYB4Im2Ez/45ilhk3ZZkHpeYHt23mOuqIbf8H7o7zCPPPE/GixtT3CIWGYWlSXQe+yP7n0fn4wJEOARDc6RSzin50W3oduReijErrCYNQ+qWPCwN912lGrWgT8yahPQ3pyN0z+kISKasVfT69vJaqdw/bE9DRmkjwcouAgElI38g1U5kCBZA2v5DF8zhxw/0FsFIEWkMBb23O1UtP3z7LQvlljyapSVz3vCVcGe56j3089yDjebXV0vLJVT4iB++7x13birmchElz8hyWjC2J27x3AtdZevxzbDWjKir2gTIGVzuJXhv6DepWXgDRaTTe5lVEB51nvt1gT7DE7yDMizB+iI2blag38vVCG8pFdXRRano6DOg1eC8Kwb3jIGTR6cJzUjV/sjTqJjFSjksJkk9RKWHsqRvfiXtypB6P4IP8dZqOL949nuTgsvp8NiJqi8kIW9dEaEx8AH7I7QjeSMpC9LWAOmknYkJ5p+LsKeDgESm1iIRpO29XrkDQONICVOsVK/f/KsHqb3W8IjhwdnT9yRP3sd/oaYNOQjeDqDL6zjfMJsdrcpnzDAmpfWwLIqYqDdjq2i5SpJ5DnBc52CjYh8sloWDV2yCcLRDs47B7x2/tQe1uLR1V45e87x1r3/E+PVIKNiphrRgZ5zvXI3+LvFRQTlXkwrvB6XAzRPKxjO+nzA5b0l+qe3Ger6HDY45acx57Y0fT4nRw2tMmbUZgCZS7DS4TgQBT8FCYCnYcEig5R8T6ChoWCFHBcZUBD/GVNus1Q2qzHXE8+WE+IQCoNU9sUTPmzOlVIykyQyHPt5svqgYuBE3IpSFbxl7h5j9gncoh4eh5zndqdGNe64d+T74V5m4reAgfCbytjWJK5Exam9/SL8FWHElOqZ3Bz5cAwEdNhy46lI7OOmCVJEu3OmfwoWjoYs/g8eKkEiGAbEFz3UC1TxItbzn0+wzipF6xqhKPQ1LvGQU2W4sh02wQsKj3AO3CX/BGr1SJ5hI7S7LK7c9r36C8s4IJYaAt7FZ4H1yaw+a3EtGchysnTgdwvw9MwIIZfgdz4Hf7TYEQ7Id4iMDWzK5SszaJyl3UVHKU2JWudiL3sY+e5fSBT+UuAQ/uWO9oU84CSyRX2uY07W/z5nnk+ABjUImyvWoHO6tSWHCMYuhzswr9Zixr2xGCmCbSInxBddrxiERqqUMh0WBlgK7eFboYdapQFWncwMSJqGZe5iqG+x00/6YHKoMcgRMUCHc/SDBkAoue54AW2eUotrCgLbLT8BnODi5e2X8bEY82suvpRdW+uAfX7e+OihfQvh9nLJawi3SbuYq3Z9gbdCF0JtK6IP0Vg="></tac-chiuso>
+  </div>
+</section>
+
+<section class="slide esercizio" data-titolo="Mentre si interroga &middot; 2" data-in-classe>
+  <div class="slide-interna">
+    <h2>Mentre si interroga: la frase finale</h2>
+
+    <div class="righe">
+      <tac-stave time="4/4" keysig="F" caption="Bach, BWV 101/7, bb. 10–12 (l’ultima battuta completata con una pausa): la frase 6 comincia sul quarto movimento della b. 10" soprano="a/4:q g/4:q f/4:q a/4:q | b/4:q a/4:8 g/4:8 f/4:q g/4:q | f/4:q e/4:q d/4:q r:q" contralto="f/4:q e/4:q c/4:q d/4:q | d/4:q c#/4:q d/4:q e/4:q | c#/4:8 d/4:q c#/4:8 a/3:q r:q" tenore="d/4:q g/3:q a/3:q a/3:q | g/3:8 f/3:8 e/3:q b/3:h~ | b/3:8 a/3:8 g/3:8 a/3:8 f#/3:q r:q" basso="b/2:q c/3:q f/2:q f#/2:q | g/2:q a/2:q b/2:q a/2:8 g/2:8 | a/2:q a/2:q d/3:q r:q" width="760" tempo="56" play></tac-stave>
+    </div>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Da soli &middot; 15 minuti</span>
+      <p>L&rsquo;accordo del levare (b.&nbsp;10, quarto movimento) &egrave; dato: <em>re&ndash;fa&#9839;&ndash;la</em>, il I con la terza maggiore, che porta al IV. <strong>1.</strong> Grado e stato di ogni movimento delle bb.&nbsp;11&ndash;12 (8 minuti). <strong>2.</strong> Le note che non appartengono all&rsquo;accordo: quale voce, quale nota, di passaggio o ritardo (4 minuti). <strong>3.</strong> La cadenza e il suo accordo finale (3 minuti).</p>
+    </div>
+
+    <tac-chiuso invito="La soluzione &mdash; si apre alla correzione" sale="hayRh7jdM6UYHjCbcHOTew==" iv="2qKV8EcalulZDdHZ" dati="wWtVti32/Rh4W57i9NqFEBFS4t7trYjb/mRZDDjAopQonLDG/kxvqIZmGkDs7/OBAU8W8J7JnLOjibDXUpsd3cJHdrwK9xyLtAOZLxv/g0z8fY6uFTJyK61qoektYPG8NPcydu2D2JLoVMw3MX0AJVQqclC7SUYqUPN49JVKnnonhYxAi7mCdXhyieFM+pChKwb3Su0RaI1fTqlAMbJ0GqIXkb5oM7WXgauq3xqFvt/y8JJOTO7YrCZieAY1GiSG5T7/VeEcE6v1QgQi4rseQ3QrmlwvEQzhh3fOL5PyGl8Qk92tobcRVAwLaGqj9fLL4eD6tgOGHB7i578sbu4JcvpnPJ+woGbYoPpCEdmycuBTGcrgStQ5e0bg4FjDRGIDa4Sq52nk3Yxpc7rm297rwKXaJCRlARhzjgPJxx3xvBSW/KGJg2tHKrFXekQHWtqIrGd+ObC6WcX+LFFcsMVHN2A/EBErNlZan9osyOMLqzSpURmfnBz5myvi/yN0dWGx6UtsdjWJozLBqUosV2VUvU2EC5KANbyZLJai4rfJnwafPVCEDd6x31WGuG1OowCmaWuT8twtzRhJVYGtlO4jpJo5xwrYf+cmmsWT2/2zO5BiPsd3E1cpInS1/4KES2/kIiOQiFsikkOWSOvf0y/HSgnWwVpgRIObVAb4RY3VID/jdnTm+Fr5S2i13sC/DNr95knIPLPzpINomv9GsrchDnodA958WOmhsEMTid5/SPPXVXgMowYDMyv+Qm3pZY8QtmCFAdCRYfiDe5RXmtenbFG0t0/Lps1WS++2MaXWUACXFPPTseQ8ezxiKm10eSvbNHUdmPbeTl3ZgAq7FIILnzQ1ZhJ+65I/1KpOh1LmAWc/naaSqDDSdYuJSkTEL1oWQX3FUJSDkKIF/dcqy8w/q0bV0O11d0nHCZQd79yal09G/BOoIfNIg+c5e2gFO+CU60MxhNAV0GmmQgGKrRg2ottSGawN6KQ7PiPdbuH1M63r83Xt2f4cZ0UebcOSdVhWjB3Oe/oAr0m0eAKo5lbeHSDfHjkgUwC9Xap6DEG98SlBaVNNLxCs5K/cKHvY/viYPXVfEFwEJ3Geken21T0YtrFcDx7vGcYVoDsxtjNZyBK0OG14c4TtALJTzYIXVggaPmFhURzucrQGtNxeCQsGQNFi8JDfAX3KcOpxxIFvEdsnbCVblLZcQRJgb95Dlr3qfnIrW0xt6EIjjGLwkcHSHOs9/bxcWpO8kAPk7iuzOSCvrxZ+myIJtO2xLq+lKaXBP4L8T+ZRl5J3VknI6l09QS3azXPvRU/dbYRRUSaHlPIf+8Oe/EZORfQwFICYa5qqmFwE1tSawOTTmNUD3TefqLZYwVM0m8t1PvszJYAvR5N1Nztp7ZcLgBEZrFPHfcTH1dnFCeeWvGOM1Vo+algUkc+AlhUoGg=="></tac-chiuso>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Sintesi">
+  <div class="slide-interna">
+    <h2>Sintesi</h2>
 
     <div class="colonne">
       <div class="riquadro definizione">
-        <span class="etichetta">Il divieto non &egrave; scolastico</span>
-        <p>Una pagina intera di Bach, zero parallele. La regola descrive una pratica, non la comanda.</p>
-      </div>
-      <div class="riquadro definizione">
-        <span class="etichetta">Non si evitano: non si incontrano</span>
-        <p>Chi tiene le note comuni e muove per gradi non ci arriva nemmeno.</p>
-      </div>
-      <div class="riquadro definizione">
         <span class="etichetta">Il metodo</span>
-        <p>Due voci per volta, e si <strong>guarda</strong>. Sono sei coppie.</p>
+        <p>Le frasi e le cadenze, poi la tonalit&agrave; di ogni frase, poi un accordo per movimento letto dal basso; le crome di passaggio non cambiano il grado.</p>
+      </div>
+      <div class="riquadro definizione">
+        <span class="etichetta">Il minore di Bach</span>
+        <p>Accanto al minore armonico (il <em>do&#9839;</em> nel V) ci sono il minore naturale (il VII e il V minore) e il melodico (il <em>si</em> naturale).</p>
+      </div>
+      <div class="riquadro definizione">
+        <span class="etichetta">Tutti i gradi</span>
+        <p>I, IV, V; il II&#8310; e il VI; il III e il VII, che sono la tonica e la dominante del relativo maggiore.</p>
       </div>
     </div>
 
-    <p class="didascalia">La prossima ora &egrave; l&rsquo;ultima dell&rsquo;unit&agrave;, ed &egrave; di percezione: cantiamo il basso di questo corale, tutti insieme, mentre il pianoforte tiene le altre tre.</p>
+    <p class="didascalia">Mercoled&igrave; 23/12, ora 39: la lettura ritmica con sincopi, terzine e duine. La lezione si chiude con il solfeggio parlato, cantato e ritmico.</p>
   </div>
 </section>
 
@@ -367,12 +240,12 @@ try { module = undefined; exports = undefined; } catch (e) {}
          style="--segno: url('../../_assets/segni/segno-24.png')">
   <div class="slide-interna">
     <p class="compiti-occhiello">Compiti per la prossima volta</p>
-    <h2>1 &middot; Scritto: La caccia, su una pagina nuova</h2>
+    <h2>1 &middot; Scritto: Un basso in re minore con il VI e il II&#8310;</h2>
     <div class="riquadro compito">
-      <p>Nella pagina che ti do ci sono <strong>tre</strong> coppie di quinte o ottave parallele. Trovale, e per ciascuna scrivi battuta, le due voci coinvolte, e l&rsquo;intervallo.</p>
-      <p>Usa il metodo dei tre passi: prima le voci che si muovono, poi quelle nella stessa direzione, poi il conto. Segna anche i <strong>falsi allarmi</strong> che hai controllato e scartato.</p>
+      <p>Realizza a quattro parti il basso, con il <em>fa</em> al soprano. <strong>1.</strong> Grado e stato di ogni nota: il <em>sol</em> porta il IV o il II&#8310;, il <em>si&#9837;</em> il VI. <strong>2.</strong> Le voci. <strong>3.</strong> Il controllo: il II&#8310; con la terza raddoppiata, il VI dopo il V con la terza raddoppiata, nessuna seconda eccedente <em>si&#9837;&ndash;do&#9839;</em>.</p>
+      <p>Nel minore il II &egrave; diminuito: primo rivolto, mai la quinta raddoppiata (U6&nbsp;L1).</p>
     </div>
-    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C2-U6-L2-02</strong>.</p>
+    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C2-U6-L2-04</strong>.</p>
   </div>
 </section>
 
@@ -409,11 +282,11 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Scrivi un contrappunto di <strong>seconda specie (due note contro una)</strong> sopra il canto fermo, in modo ionico (finale do): undici battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
       <tac-stave caption="Il canto fermo" clef="bass" time="4/4" notes="c/3:w | f/3:w | g/3:w | a/3:w | c/4:w | g/3:w | f/3:w | e/3:w | c/3:w | d/3:w | c/3:w" tempo="72" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C2-CP-U06-L2</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="ZDyJYdwuLg71Gjc+N/kIzQ==" iv="rIkCve7j/jUQlv/7" dati="fgGkkJCFRHJNbrrTv55ry/p0SrMjdOA5G0SYpe8yrWkdDLWjRHgkRz97FoFYA8nkKNhBoztyq70WiYGNRcpDwaKWa/TImrC8rFpemLStTSbiNiR9lUJJFO7JOOcpLND3ITm1i1jsx1AWkOtZquRETj4xmI7EFQjulXEOWUGviC8OWe2ZkJovuKSiR6TdP29/ykPYocOJARvDuzFSQLDYWYH38Mvn7pbpXP0h6EIiGjLcZk60jV8bBjwclpMaShzqHffiOvDoEqnNRsviVT5dyAEPCUHuP5twHxuJNVLe7X1SEipsfb0SU3dA1DWqiS1oHaRcTJtQpFnyRA6PggLeRkCHeRUMDpjlYDF4PffoJTt/KJRDFF1wDkHXg3BmOLxc5ZjAgYeThu+HdsDxY5Pu03pfO+WuC97qI5n/cXEjoiFXfm9YkhBFGYLJHrpTBWs+DzfGM5fm64/E/680JE1ZN5zMQsvSlrngSYKzdMA="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="ScbRMFqLjr1SHCHfDMMnvw==" iv="kBXT80l7TOS9Im8n" dati="FsAxh5sl83bOHzf/rqVGD+gbKXE40ecd88EBtgBTfv1dEXcj9t2QIdoMQ1TBgABpiO1T5BNSADkVmjuh7VV/BOHbEIFtLWKxRT6g8ql2bEyOjZ9uTafve68N2ddUNGC6+3W3+gPegyiwyQJvKERIE1EPR0LCZEUs+8Ux2DzcDkxjfGPsFrOOAmSgPI/HRF+/dbYRSm94EABpsS2+5Hnv3nhn6FX5mM/opDSli5EPl75SbdomS1HSUrODscgu2kbYRzgQjjvatiZb71nBqxpGOtUHIjtnPalV+/DBFAVU+TWNOzyMr/Sowq2LY1dNu1bouigpwOiVjiyX5aDAGQjyQSiVD1eSQzZuiGjSSYX7kxI4Yk9Be5uoliW5yg2BPvkxiuculrAYZSUXeJJfKqip5wxWlECIYcGJ+ExbuVImERLO7bJTtZnq6awfvqd+BRo565DyidZQQ/sswFORTDlf7GSs7NtFskymkY/6090="></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: La caccia, su una pagina nuova (Workbook, esercizio C2-U6-L2-02), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 340, 341; cantato n. 342, 343; ritmico n. 344, 345 (a tempo, senza fermarsi). Dettato C2-D-U06-L2 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di seconda specie sul canto fermo (C2-CP-U06-L2).</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Un basso in re minore con il VI e il II⁶ (Workbook, esercizio C2-U6-L2-04), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 340, 341; cantato n. 342, 343; ritmico n. 344, 345 (a tempo, senza fermarsi). Dettato C2-D-U06-L2 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di seconda specie sul canto fermo (C2-CP-U06-L2).</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>
@@ -443,16 +316,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: ritmico</h2>
     <p>Tutti insieme, battendo la pulsazione. Poi a file, due battute a testa.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-2.html#n339">Apri il n.&nbsp;339 nel quaderno di lettura &#8599;</a> <span class="rimando">2/2</span></p>
-  </div>
-</section>
-
-<section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
-  <div class="slide-interna">
-    <p class="compiti-occhiello">In classe</p>
-    <h2>Scriviamo adesso: Le sei coppie, su quattro battute</h2>
-    <p>Quattro accordi. Controlla le <strong>sei coppie</strong> di voci, una per volta, e scrivi dove ci sono <strong>quinte o ottave parallele</strong>: fra quali due voci, e fra quali due accordi.</p>
-    <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna.</p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-2.html#n339">Apri il n.&nbsp;339 nel quaderno di lettura &#8599;</a> <span class="rimando">4/4</span></p>
   </div>
 </section>
 

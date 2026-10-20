@@ -44,1689 +44,197 @@ try { module = undefined; exports = undefined; } catch (e) {}
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
 <script src="../../_assets/js/tac-core.js?v=621f9506" defer></script>
 </head>
+
 <body>
 <div id="tac-deck">
 
-
 <!-- ══════════════════════════════════════════════════════════════════
      LEZIONE 10 · Politonalità e ritmo: Stravinskij, «Auguri primaverili»
-     Unità 6, ora 43 di 90 · classe 5ª · ORA INTERA
+     Unità 6, ora 43 di 90 · classe 5ª · analisi · ORA INTERA (50') ·
+     lunedì 18/1/2027, 1ª ora del blocco del lunedì (la 2ª è U6 L11,
+     l'analisi integrale scritta dello stesso brano). Nessuna coda di orali.
 
-     ⚠ L'IMPIANTO DICEVA «FUORI DAL LIBRO», E SI SBAGLIAVA A METÀ.
-     Il conto delle occorrenze diceva «politonal: 0», ed è vero. Ma
-     cercando Stravinskij si trova che il libro lo tratta eccome —
-     dalla parte dell'OTTATONICA, non da quella della politonalità:
-
-       D'Urso 5, p. 251 (misurata) — «ampiamente presente nel repertorio
-       russo e in particolare nella produzione di Nikolaj
-       Rimskij-Korsakov (1844-1908) ed è stato successivamente usato in
-       modo molto consistente da Igor Stravinsky, allievo di
-       Rimskij-Korsakov»
-
-     La lezione parte da lì, e la cosa è più interessante del previsto:
-     il libro dà la chiave per SMONTARE la parola «politonalità».
-
-     ⚠ IL CONTO CHE REGGE L'ORA, calcolato e non riportato: do maggiore
-     {0,4,7} e fa♯ maggiore {6,10,1} stanno TUTTI E DUE dentro la stessa
-     ottatonica, OCT0,1 = {0,1,3,4,6,7,9,10} — e dentro nessuna delle
-     altre due. La loro unione è l'insieme di Forte 6-30B. Verificato
-     con music21.
-
-     ⚠ STRAVINSKIJ NON SI PUÒ PUBBLICARE (morto nel 1971, protetto fino
-     al 2042). La musica vera della pagina è `A28_todesbraut`, la
-     ballata popolare in 7/8 della raccolta Essen: fa sentire il metro
-     dispari senza toccare una nota protetta.
+     16/10/2026 · RISCRITTA il 20/10/2026 sul titolo nuovo. Fino al 15/10
+     era la lezione 7 dell'unità 8 del piano vecchio (ora 60: due triadi
+     a distanza di tritono, l'ottatonica, la ballata «Die Todesbraut» in
+     7/8); copiata qui il 16/10 con i rimandi nuovi. Il commento del 16/10
+     segnalava che la lezione non faceva ascoltare né mostrava una battuta
+     degli «Auguri primaverili». Ora l'ora è costruita sul brano: l'accordo
+     degli Auguri, gli accenti contro il 2/4, i tre strati del n. 14.
+     Della lezione vecchia restano l'ottatonica di D'Urso, Bertolini
+     (p. 251) e la distinzione fra lettura politonale e collezione unica,
+     che qui dà un risultato diverso (l'accordo degli Auguri non è
+     ottatonico: è l'insieme 7-32 di Forte, in Bent).
+     ⚠ LA PARTITURA NON C'È. Il catalogo (E01) ha soltanto la registrazione
+     («libera»: false; nessuna scansione; la Sagra è protetta). Gli esempi
+     sono trascritti nota per nota dagli esempi musicali di C. Galli,
+     Storia della musica 3, pp. 295–296 (pdf della biblioteca, pp. 311–312):
+     n. 13, bb. 1–4 (archi; i corni sono indicati solo con il segno degli
+     accenti, perché nell'esempio sono in notazione trasposta e a quattro
+     parti strette) e n. 14 (le due battute dell'ostinato). Le parti del
+     corno inglese sono riportate a suoni reali (una quinta sotto), il
+     contrabbasso all'ottava sotto. Per gli otto o più battute continue
+     della regola serve la partitura: v. NOTE.md.
+     ⚠ Diritti: Stravinskij è protetto (m. 1971). Le citazioni sono brevi,
+     a scopo di critica e insegnamento, come nel libro di Galli che le
+     riporta; se Andrea preferisce, le due tac-stave si tolgono senza
+     toccare il resto.
+     Fonti: D'Urso, Bertolini, 5° anno, p. 251; C. Galli, Storia della
+     musica 3, pp. 294–296; E. Surian, Manuale IV, p. 60; M. Carrozzo,
+     Storia della musica occidentale 2, pp. 412 e 418; I. Bent, Analisi
+     musicale, Lettura 9 (A. Forte), p. 281.
+     Ascolto: E01, nella pagina.
+     Tempi: 2' copertina · 8' politonalità e accordo degli Auguri · 10'
+     n. 13 · 6' il ritmo · 9' n. 14 · 10' esercizio · 3' soluzione ·
+     2' sintesi = 50'; poi il solfeggio del montaggio.
      ══════════════════════════════════════════════════════════════════ -->
-<!-- 16/10/2026 · rimandi al piano nuovo della quinta (Novecento).
-     Fino al 15/10 era la lezione 7 dell'unità 8 del piano vecchio (ora 60).
-     Nel piano nuovo è U6 L10, ora 43: la precedono Notte trasfigurata, op. 9
-     e Mahler (U6 L6–L9) e la tavola dei sistemi con l'ottatonica (U4 L1); la
-     segue U6 L11 (analisi integrale scritta di «Auguri primaverili»), e
-     Schönberg op. 11 arriva solo con U7 L1. Cambiato: testata; «ora 30» →
-     tavola dei sistemi U4 L1; i due rimandi all'«unità 9» (ritmo armonico,
-     dettato con accompagnamento) resi generali; la sintesi annuncia U6 L11
-     invece dell'«ultima riga della tavola»; «Una cosa da portare all'ora
-     61 / la domanda che apre l'ora prossima» → all'unità 7; frasi brevi col
-     «noi» o in seconda plurale rese impersonali. ⚠ Da vedere: il titolo
-     nuovo nomina «Auguri primaverili», ma la lezione non lo fa ascoltare né
-     ne mostra una battuta (c'è solo la slide «Il 1913»); il riquadro «Il
-     conto che smentisce» della slide perc dice «un accordo alterato… ce
-     n'è una [tonalità], complicata», in contrasto con la tesi della lezione
-     (sei note di una sola ottatonica); la slide perc «Il caso in cui gli
-     strati si sentono» usa Schönberg op. 19 n. 2, che non ha due strati
-     tonali; tre esempi con le due triadi in una chiave sola.
-     Backup: .prima-dei-rimandi-nuovi. -->
 
 <section class="slide attiva copertina foto" data-titolo="Copertina"
          style="--foto: url('../../_assets/copertine/c5u10-lezione-7.jpg?v=8f96c307');
                 --cop-a:#7f1d1d; --cop-b:#dc2626; --cop-c:#fee2e2">
   <div class="slide-interna">
     <div class="occhiello">Il tardo Ottocento e la fine della tonalità &middot; UdA 6 &middot; Lezione 10 di 15</div>
-    <h1>Due accordi insieme, e un metro che non si conta</h1>
-    <p class="sottotitolo">Si chiama politonalit&agrave;, e il nome &egrave; discutibile. Il conto lo dimostra, ed &egrave; l&rsquo;oggetto di questa lezione.</p>
-
+    <h1>Due accordi a un semitono, e un metro che non si conta</h1>
+    <p class="sottotitolo">L’accordo ribattuto degli «Auguri primaverili» sovrappone una triade di fa♭ maggiore e una settima di dominante su mi♭; gli accenti, distribuiti senza regolarità, smentiscono il 2/4 scritto.</p>
     <blockquote class="aforisma">
-      <p>usato in modo molto consistente da Igor Stravinsky, allievo di Rimskij-Korsakov</p>
-      <cite><em>Il linguaggio della musica</em>, 5&deg;&nbsp;anno, p.&nbsp;251</cite>
+      <p>un magnifico gioco di accenti distribuiti irregolarmente tra gli accordi ribattuti che disorientano l’ascoltatore, smentendo di fatto il metro 2/4 senza affermarne un altro al suo posto</p>
+      <cite>M. Carrozzo, <em>Storia della musica occidentale</em>, 2, p.&nbsp;412</cite>
     </blockquote>
-
     <div class="meta-copertina">
-      <span>Ora intera</span>
+      <span>1 ora</span>
       <span>Armonia e ritmo</span>
-      <span>Il Novecento</span>
+      <span>Stravinskij, <em>La sagra della primavera</em> (1913)</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Due triadi insieme">
+<section class="slide" data-titolo="Politonalità e accordo degli Auguri">
   <div class="slide-interna">
-    <h2>Il gesto, prima del nome</h2>
-
-    <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
-         «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 5&deg; anno; pagine dall'indice rilevato. -->
+    <h2>Politonalità, poliaccordo, collezione: tre modi di nominare lo stesso suono</h2>
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
-      <p><span class="lez">B4</span><strong>Oltre la tonalit&agrave;</strong>, pp. 238&ndash;266</p>
-      <p>Sezione B, unit&agrave; 4, lezione B20: il libro tratta Stravinskij dalla parte dell&rsquo;ottatonica, non della politonalit&agrave;, che non nomina. Le due triadi a distanza di tritono stanno tutte dentro quella scala.</p>
+      <p><span class="lez">B4</span><strong>Oltre la tonalità</strong>, Lezione 20 «Il sistema ottatonico», p.&nbsp;251 &middot; D. D’Urso, C. Bertolini, <em>Il linguaggio della musica</em>, 5°&nbsp;anno. Sul libro di storia: laboratorio «La sagra della primavera», pp.&nbsp;294–296 &middot; C. Galli, <em>Storia della musica 3</em>.</p>
     </div>
-
-    <p>Si prendono due triadi <strong>lontane</strong>, e si suonano insieme. Nessuna delle due &egrave; una dissonanza da risolvere: sono due accordi consonanti, sovrapposti.</p>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Do maggiore sotto, fa&#9839; maggiore sopra"
-               notes="c/3+e/3+g/3+f#/4+a#/4+c#/5:w"
-               segna="b1=due triadi maggiori, a distanza di tritono"
-               width="800" tempo="40" play slow></tac-stave>
-
     <div class="riquadro definizione">
-      <span class="etichetta">Perch&eacute; suona come suona</span>
-      <p>Ogni met&agrave; &egrave; <strong>perfettamente consonante</strong>, e l&rsquo;attrito nasce solo dal loro incontro. L&rsquo;orecchio riesce a tenerle separate: sente due cose, non una cosa strana.</p>
+      <span class="etichetta">Definizioni</span>
+      <p><strong>Politonalità.</strong> Sovrapposizione di strati che, presi singolarmente, appartengono a tonalità o ad accordi diversi. Galli legge così l’accordo iniziale degli «Auguri»: «al grave la triade di FA bemolle maggiore alla quale si sovrappone la settima di dominante di LA bemolle maggiore» (p.&nbsp;295). Surian lo descrive come «sovrapposizione di due accordi con la fondamentale a un semitono di distanza» (<em>Manuale</em> IV, p.&nbsp;60).<br>
+      <strong>Collezione.</strong> La stessa sonorità si può descrivere come un insieme unico di altezze. D’Urso e Bertolini ricordano che la scala ottatonica «è stato successivamente usato in modo molto consistente da Igor Stravinsky, allievo di Rimskij-Korsakov» (p.&nbsp;251); ma l’accordo degli Auguri non è ottatonico. Forte lo classifica come insieme 7-32 (in I. Bent, <em>Analisi musicale</em>, Lettura 9, p.&nbsp;281).<br>
+      <strong>Accordo della Sagra.</strong> Carrozzo legge nella parte superiore «un rivolto della settima mi♭–sol–si♭–re♭» e, nella quarta si♭–mi♭ con il mi al basso, l’«accordo della Sagra», arricchito da una triade maggiore su mi (p.&nbsp;418).</p>
     </div>
-
-    <p class="didascalia">&Egrave; il contrario di un accordo alterato. L&agrave; c&rsquo;&egrave; un&rsquo;armonia sola con dentro una nota che tira; qui ci sono due armonie intere, e nessuna delle due tira da nessuna parte.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La distanza">
-  <div class="slide-interna">
-    <h2>La distanza non si sceglie a caso</h2>
-
-    <p>Fra le due triadi la distanza pi&ugrave; usata &egrave; il <strong>tritono</strong>, e non &egrave; un caso: &egrave; la sola distanza che non appartiene a nessuna parentela tonale. Terza, quarta, quinta hanno tutte una storia; il tritono no.</p>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="La stessa sovrapposizione a distanze diverse: quinta, terza, tritono"
-               notes="c/3+e/3+g/3+g/4+b/4+d/5:h c/3+e/3+g/3+e/4+g#/4+b/4:h | c/3+e/3+g/3+f#/4+a#/4+c#/5:w"
-               segna="b1=le prime due si sentono ancora imparentate &middot; b2=questa no"
-               width="840" tempo="42" play slow></tac-stave>
-
-    <p>All&rsquo;ascolto in successione le prime due si lasciano ancora leggere come un accordo solo con qualcosa in pi&ugrave;. La terza no &mdash; e questo, di solito, &egrave; il momento in cui si tira fuori la parola <em>politonalit&agrave;</em>.</p>
-
-    <p class="didascalia">Che &egrave; esattamente il punto in cui conviene fermarsi e contare, invece di accettare il nome.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il conto che smentisce">
-  <div class="slide-interna">
-    <h2>&#9888; Il conto dice un&rsquo;altra cosa</h2>
-
-    <p>Si prendono le sei note e si guarda dove stanno. Do maggiore &egrave; <strong>do&ndash;mi&ndash;sol</strong>; fa&#9839; maggiore &egrave; <strong>fa&#9839;&ndash;la&#9839;&ndash;do&#9839;</strong>. Sei note in tutto.</p>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Le sei note in fila &mdash; e l&rsquo;ottatonica che le contiene tutte"
-               notes="c/4:8 c#/4:8 e/4:8 f#/4:8 g/4:8 a#/4:8 r:q | c/4:8 d/4:8 eb/4:8 e/4:8 f#/4:8 g/4:8 g#/4:8 a#/4:8"
-               segna="b1=le sei note dei due accordi &middot; b2=l'ottatonica che le contiene"
-               width="860" tempo="76" play slow></tac-stave>
-
+    <tac-stave
+       keysig="Eb"
+       time="4/4"
+       caption="L’accordo degli Auguri come lo dispongono gli archi al n.&nbsp;13 (suoni reali): sotto, fa♭–la♭–do♭ (enarmonicamente mi–sol♯–si), sopra mi♭–sol–si♭–re♭. Poi i due strati separati, e la somma ordinata: sette suoni distinti."
+       notes="g/3+b/3+db/4+e/4:w | r:w | g/3+b/3+db/4+e/4:w | e/4:8 fb/4:8 g/4:8 a/4:8 b/4:8 cb/5:8 db/5:8 r:8"
+       bass="fb/2+a/2+cb/3+fb/3:w | fb/2+a/2+cb/3+fb/3:w | r:w | r:w"
+       segna="b1=l’accordo intero · b2=fa♭ maggiore · b3=mi♭7 · b4=mi♭–fa♭–sol–la♭–si♭–do♭–re♭: l’insieme 7-32"
+       width="900"
+       tempo="60" play></tac-stave>
     <div class="riquadro attenzione">
-      <p>Tutte e sei stanno dentro <strong>la stessa scala ottatonica</strong> &mdash; quella della tavola dei sistemi (unit&agrave; 4, lezione 1) &mdash; e dentro <strong>una sola</strong> delle tre. Non sono due tonalit&agrave; sovrapposte: sono <strong>sei note di un&rsquo;unica collezione</strong>, disposte in modo da somigliare a due triadi.</p>
+      <span class="etichetta">L’errore tipico</span>
+      <p>Scrivere che il brano è «in fa♭ maggiore e in la♭ maggiore insieme». La triade di fa♭ e la settima di mi♭ non stabiliscono due tonalità: non hanno cadenze, non si muovono. Si scrive che l’accordo si può scomporre in due strati riconoscibili, e lo si descrive anche come insieme unico di sette suoni.</p>
     </div>
-
-    <p class="didascalia">Questo conto si rifà in due minuti e non si discute: si scrivono le sei note, si scrive l&rsquo;ottatonica, si guarda se ci stanno. Un nome si smonta cos&igrave;, non con un&rsquo;opinione.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Il libro conferma">
+<section class="slide" data-titolo="N. 13: l’accordo ribattuto">
   <div class="slide-interna">
-    <h2>E il libro dice da dove viene</h2>
-
-    <blockquote class="citazione">
-      <p>&egrave; ampiamente presente nel repertorio russo e in particolare nella produzione di Nikolaj Rimskij-Korsakov (1844&ndash;1908) ed &egrave; stato successivamente usato in modo molto consistente da Igor Stravinsky, allievo di Rimskij-Korsakov</p>
-      <cite><em>Il linguaggio della musica</em>, 5&deg;&nbsp;anno, p.&nbsp;251</cite>
-    </blockquote>
-
-    <p>Il libro sta parlando dell&rsquo;<strong>ottatonica</strong>, non della politonalit&agrave;. Ed &egrave; la conferma dall&rsquo;altra parte: dove il conto trova sei note dentro una scala, la tradizione da cui Stravinskij viene quella scala la usava gi&agrave;, e da vent&rsquo;anni.</p>
-
-    <p class="didascalia">Il maestro &egrave; Rimskij-Korsakov, e la trasmissione &egrave; diretta: allievo. Non &egrave; una coincidenza di stile, &egrave; una scuola.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Allora perch&eacute; il nome">
-  <div class="slide-interna">
-    <h2>Allora perch&eacute; si continua a dire &laquo;politonalit&agrave;&raquo;?</h2>
-
-    <p>Perch&eacute; descrive bene <strong>come si sente</strong>, anche se descrive male come &egrave; fatto. Chi ascolta sente due strati; chi conta trova una collezione sola. Tutte e due le descrizioni sono vere, e parlano di cose diverse.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Due livelli, e vanno tenuti distinti</span>
-      <p><strong>Il materiale</strong> &mdash; quali note ci sono: una scala ottatonica.<br>
-      <strong>La disposizione</strong> &mdash; come sono messe: due triadi separate in registro, timbro e ritmo.</p>
-    </div>
-
-    <p>La politonalit&agrave; sta nel secondo livello, non nel primo. &Egrave; un fatto di <strong>presentazione</strong>: le stesse sei note mescolate in un grappolo non suonerebbero affatto come due tonalit&agrave;.</p>
-
-    <p class="didascalia">&Egrave; una distinzione che vale in ogni analisi: che cosa c&rsquo;&egrave;, e come si presenta, sono due domande.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa separa gli strati">
-  <div class="slide-interna">
-    <h2>Che cosa tiene separati due strati</h2>
-
-    <p>Se la differenza sta nella disposizione, vale la pena chiedersi <strong>che cosa</strong>, in pratica, faccia sentire due cose invece di una. Sono tre mezzi, e di solito lavorano insieme.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">I tre separatori</span>
-      <p><strong>il registro</strong> &mdash; uno strato sta in alto, l&rsquo;altro in basso, e in mezzo c&rsquo;&egrave; un buco<br>
-      <strong>il timbro</strong> &mdash; li suonano strumenti diversi, e il colore li distingue prima dell&rsquo;altezza<br>
-      <strong>il ritmo</strong> &mdash; uno si muove e l&rsquo;altro sta fermo, oppure hanno cicli di durata diversa</p>
-    </div>
-
-    <p>Il terzo &egrave; il pi&ugrave; forte dei tre: in una melodia accompagnata la melodia si isola proprio perch&eacute; si muove diversamente da ci&ograve; che ha sotto.</p>
-
-    <p class="didascalia">Togliete i tre separatori &mdash; stesso registro, stesso strumento, stesso ritmo &mdash; e le sei note tornano a essere un accordo solo, difficile da siglare ma uno. La politonalit&agrave; &egrave; fatta di questi tre mezzi.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il ritmo">
-  <div class="slide-interna">
-    <h2>L&rsquo;altra met&agrave; dell&rsquo;ora: il metro che cambia</h2>
-
-    <p>Nella musica tonale studiata negli anni precedenti il metro si dichiara all&rsquo;inizio e resta. Qui cambia, e cambia <strong>spesso</strong> &mdash; a volte a ogni battuta.</p>
-
-    <tac-stave time="5/4" keysig="C"
-               caption="Cinque quarti, dove l&rsquo;orecchio se ne aspetta quattro"
-               notes="c/5:q c/5:q c/5:q c/5:q c/5:q | c/5:q c/5:q c/5:q c/5:q c/5:q"
-               segna="b1=si conta fino a cinque, e poi si ricomincia"
-               width="860" tempo="100" play slow></tac-stave>
-
-    <div class="riquadro attenzione">
-      <p>&#9888; Qui il metro dispari resta lo stesso per due battute, perch&eacute; un rigo solo non pu&ograve; cambiarlo. Sulla partitura vera l&rsquo;indicazione di tempo &egrave; <strong>stampata a ogni battuta</strong> e cambia: 3/4, poi 2/4, poi 5/8, poi 4/4.</p>
-    </div>
-
-    <p class="didascalia">L&rsquo;effetto non &egrave; «non c&rsquo;&egrave; ritmo»: &egrave; che <strong>la pulsazione resta e il raggruppamento no</strong>. La croma dura sempre uguale; quello che cambia &egrave; ogni quante se ne fa un gruppo.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Un pezzo vero">
-  <div class="slide-interna">
-    <h2>E il metro dispari non l&rsquo;ha inventato il Novecento</h2>
-
-    <p>Prima di attribuire a Stravinskij l&rsquo;invenzione del ritmo irregolare, conviene ascoltare che cosa c&rsquo;era gi&agrave;. Questa &egrave; una ballata popolare tedesca, in <strong>7/8</strong>.</p>
-
-    <tac-brano organico="voci"
-               titolo="&laquo;Die Todesbraut&raquo;, ballata in 7/8 &mdash; raccolta Essen"
-               segna="b1=sette ottavi, e la battuta non si divide in due met&agrave; uguali"
-               metronomo cerca="Die Todesbraut Essen Volkslied ballade" inciso="../../_assets/incisioni/A28_todesbraut.mp3" mappa='{"durata":21629,"eventi":[[0,0],[1,312],[2,2500],[3,4688],[4,6875],[5,9062],[6,11250],[7,13438],[8,15625],[9,17812]]}'>
-<script type="application/json">{"titolo":"Canto popolare tedesco (raccolta Essen), «Die Todesbraut», la variante in 7/8","metro":"7/8","bpm":96,"battute":10,"anacrusi":0.5,"voci":[[[0.0,0.5,72],[0.5,2.0,72],[2.5,1.0,67],[3.5,0.5,65],[4.0,1.0,67],[5.0,0.5,68],[5.5,1.0,71],[6.5,1.0,69],[7.5,2.0,67],[9.5,0.5,67],[11.0,1.0,67],[12.0,0.5,68],[12.5,0.5,69],[13.0,1.5,65],[14.5,1.0,67],[15.5,0.5,68],[16.0,0.5,71],[16.5,0.5,69],[17.0,1.0,65],[18.0,2.0,67],[20.0,0.5,67],[21.5,1.0,67],[22.5,0.5,68],[23.0,0.5,69],[23.5,1.5,65],[25.0,1.0,67],[26.0,0.5,68],[26.5,0.5,71],[27.0,0.5,69],[27.5,1.0,65],[28.5,2.0,67],[30.5,0.5,67]]]}</script>
-<figure class="tac-part" data-quale="intera"><svg viewBox="0 0 570 156" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="visible" id="x1lbvtut-A281t">
-   <desc>Engraved by Verovio 6.2.0-43f8060</desc>
-   <defs>
-      <g id="E050-x1lbvtut-A281t">
-         <path transform="scale(1,-1)" d="M441 -245c-23 -4 -48 -6 -76 -6c-59 0 -102 7 -130 20c-88 42 -150 93 -187 154c-26 44 -43 103 -48 176c0 6 -1 13 -1 19c0 54 15 111 45 170c29 57 65 106 110 148s96 85 153 127c-3 16 -8 46 -13 92c-4 43 -5 73 -5 89c0 117 16 172 69 257c34 54 64 82 89 82 c21 0 43 -30 69 -92s39 -115 41 -159v-15c0 -109 -21 -162 -67 -241c-13 -20 -63 -90 -98 -118c-13 -9 -25 -19 -37 -29l31 -181c8 1 18 2 28 2c58 0 102 -12 133 -35c59 -43 92 -104 98 -184c1 -7 1 -15 1 -22c0 -123 -87 -209 -181 -248c8 -57 17 -110 25 -162 c5 -31 6 -58 6 -80c0 -30 -5 -53 -14 -70c-35 -64 -88 -99 -158 -103c-5 0 -11 -1 -16 -1c-37 0 -72 10 -108 27c-50 24 -77 59 -80 105v11c0 29 7 55 20 76c18 28 45 42 79 44h6c49 0 93 -42 97 -87v-9c0 -51 -34 -86 -105 -106c17 -24 51 -36 102 -36c62 0 116 43 140 85 c9 16 13 41 13 74c0 20 -1 42 -5 67c-8 53 -18 106 -26 159zM461 939c-95 0 -135 -175 -135 -286c0 -24 2 -48 5 -71c50 39 92 82 127 128c40 53 60 100 60 140v8c-4 53 -22 81 -55 81h-2zM406 119l54 -326c73 25 110 78 110 161c0 7 0 15 -1 23c-7 95 -57 142 -151 142h-12 zM382 117c-72 -2 -128 -47 -128 -120v-7c2 -46 43 -99 75 -115c-3 -2 -7 -5 -10 -10c-70 33 -116 88 -123 172v11c0 68 44 126 88 159c23 17 49 29 78 36l-29 170c-21 -13 -52 -37 -92 -73c-50 -44 -86 -84 -109 -119c-45 -69 -67 -130 -67 -182v-13c5 -68 35 -127 93 -176 s125 -73 203 -73c25 0 50 3 75 9c-19 111 -36 221 -54 331z" />
-      </g>
-      <g id="E262-x1lbvtut-A281t">
-         <path transform="scale(1,-1)" d="M136 186v169h17v-164l44 14v-91l-44 -14v-165l44 12v-91l-44 -13v-155h-17v150l-76 -22v-155h-17v149l-43 -13v90l43 14v167l-43 -14v92l43 13v169h17v-163zM60 73v-167l76 22v168z" />
-      </g>
-      <g id="E087-x1lbvtut-A281t">
-         <path transform="scale(1,-1)" d="M350 125c-11 -9 -53 -46 -95 -46c-18 2 -33 8 -44 17c-17 19 -33 34 -48 45c-13 11 -27 17 -42 17c-23 0 -45 -22 -64 -66h-37v155h37c4 -18 11 -28 21 -30c8 1 15 3 22 8l10 5l14 10c3 2 14 6 21 7l11 2c8 1 33 1 42 1c39 0 57 -7 90 -43c11 -15 26 -23 44 -26 c27 3 45 29 54 70l38 -1c-1 -9 -11 -88 -29 -124c-5 -13 -12 -28 -21 -46l-33 -60c-55 -92 -69 -162 -69 -270h-174c0 45 11 86 33 122c23 35 59 74 106 117c99 84 113 96 113 136z" />
-      </g>
-      <g id="E088-x1lbvtut-A281t">
-         <path transform="scale(1,-1)" d="M195 -214c76 0 88 58 90 68c0 34 -35 60 -57 73l-52 29c-21 10 -32 17 -34 20c-39 -33 -58 -54 -62 -92c5 -23 23 -98 115 -98zM301 135c0 61 -72 76 -113 76c-40 0 -77 -17 -77 -51c3 -21 15 -38 26 -50c17 -15 33 -26 48 -34l65 -28c34 27 51 56 51 87zM176 -250 c-57 0 -166 26 -166 132c0 47 30 86 89 116c-33 15 -79 60 -79 119c0 79 85 132 178 132h18c5 0 21 1 28 -1c25 0 126 -30 126 -110c0 -37 -23 -76 -69 -116c43 -25 83 -71 83 -119c0 -101 -118 -153 -208 -153z" />
-      </g>
-      <g id="E0A4-x1lbvtut-A281t">
-         <path transform="scale(1,-1)" d="M0 -39c0 68 73 172 200 172c66 0 114 -37 114 -95c0 -84 -106 -171 -218 -171c-64 0 -96 30 -96 94z" />
-      </g>
-      <g id="E241-x1lbvtut-A281t">
-         <path transform="scale(1,-1)" d="M179 646c-4 8 -17 30 -18 33l-4 10c0 3 2 5 5 5s7 -2 13 -7c23 -33 46 -81 66 -132c22 -57 35 -125 35 -163c0 -104 -60 -183 -122 -241c-63 -59 -57 -53 -61 -56c-38 -34 -63 -95 -71 -95h-22v190c40 7 69 11 87 16c88 27 168 95 168 200c0 30 -12 89 -30 138 c-17 47 -31 73 -46 102z" />
-      </g>
-      <g id="E0A3-x1lbvtut-A281t">
-         <path transform="scale(1,-1)" d="M278 64c0 22 -17 39 -43 39c-12 0 -26 -3 -41 -10c-85 -43 -165 -94 -165 -156c5 -25 15 -32 49 -32c67 11 200 95 200 159zM0 -36c0 68 73 174 200 174c66 0 114 -39 114 -97c0 -84 -106 -173 -218 -173c-64 0 -96 32 -96 96z" />
-      </g>
-      <g id="E240-x1lbvtut-A281t">
-         <path transform="scale(1,-1)" d="M179 -646c15 29 29 55 46 102c18 49 30 108 30 138c0 105 -80 173 -168 200c-18 5 -47 9 -87 16v190h22c8 0 33 -61 71 -95c4 -3 -2 3 61 -56c62 -58 122 -137 122 -241c0 -38 -13 -106 -35 -163c-20 -51 -43 -99 -66 -132c-6 -5 -10 -7 -13 -7s-5 2 -5 5l4 10 c1 3 14 25 18 33z" />
-      </g>
-      <g id="E261-x1lbvtut-A281t">
-         <path transform="scale(1,-1)" d="M0 -188v539h18v-191l139 22v-533h-17v186zM18 -100l122 17v176l-122 -19v-174z" />
-      </g>
-      <g id="E260-x1lbvtut-A281t">
-         <path transform="scale(1,-1)" d="M20 110c32 16 54 27 93 27c26 0 35 -3 54 -13c13 -7 24 -20 27 -38l4 -25c0 -28 -16 -57 -45 -89c-23 -25 -39 -44 -65 -68l-88 -79v644h20v-359zM90 106c-32 0 -48 -10 -70 -29v-194c31 31 54 59 71 84c21 32 32 59 32 84c0 9 1 16 1 20c0 14 -3 21 -11 30l-8 3z" />
-      </g>
-      <g id="E4E5-x1lbvtut-A281t">
-         <path transform="scale(1,-1)" d="M107 292c-13 24 -30 49 -52 71c-1 1 0 2 0 3l-2 2c3 3 4 4 6 4c12 0 26 -7 40 -20s44 -40 89 -81c26 -24 28 -29 46 -47c4 -4 8 -9 10 -14c6 -8 8 -16 8 -27c0 -19 -12 -40 -36 -61c-28 -23 -49 -38 -61 -73c-4 -11 -7 -27 -10 -50c13 -43 34 -83 59 -121 c31 -47 59 -79 101 -129c-8 0 -26 7 -54 20l-62 29l-21 6l-23 1c-25 0 -45 -10 -60 -30l-4 -14l-1 -12c0 -33 20 -56 39 -78c8 -9 17 -18 26 -26c17 -15 27 -24 28 -30l-3 -3c-11 5 -19 10 -25 15c-9 3 -37 21 -45 26c-24 14 -45 32 -63 51c-19 21 -37 44 -37 71 c0 63 27 95 80 95c41 0 86 -18 136 -52c-19 26 -37 48 -55 66c-23 23 -48 44 -73 65c-28 23 -47 40 -58 53s-17 26 -18 39c75 64 113 125 113 183c0 27 -7 48 -18 68z" />
-      </g>
-      <g id="E4E6-x1lbvtut-A281t">
-         <path transform="scale(1,-1)" d="M0 123c7 34 33 56 69 60c29 -3 43 -9 53 -29c4 -8 7 -15 10 -22c0 -21 -1 -25 -11 -35c-5 -8 -18 -14 -40 -20l12 -3l15 -1c44 0 97 26 122 56c10 11 18 26 24 42c7 1 15 2 22 3l-140 -424h-36l111 330c-10 -6 -27 -12 -53 -16l-52 -8h-10l-20 1c-1 0 -8 3 -21 6 c-37 9 -55 28 -55 60z" />
-      </g>
-   </defs>
-   <style type="text/css">#x1lbvtut-A281t g.ending, #x1lbvtut-A281t g.fing, #x1lbvtut-A281t g.reh, #x1lbvtut-A281t g.tempo {font-weight:bold;}#x1lbvtut-A281t g.dir, #x1lbvtut-A281t g.dynam, #x1lbvtut-A281t g.mNum {font-style:italic;}#x1lbvtut-A281t g.label {font-weight:normal;}#x1lbvtut-A281t ellipse, #x1lbvtut-A281t path, #x1lbvtut-A281t polygon, #x1lbvtut-A281t polyline, #x1lbvtut-A281t rect {stroke:currentColor}</style>
-   <svg class="definition-scale" color="black" font-family="Times, serif" viewBox="0 0 15000 4100">
-      <g class="page-margin" transform="translate(600, 600)">
-         <g data-id="h18ix09d" data-class="mdiv" class="mdiv pageMilestone" />
-         <g data-id="ie86tk9" data-class="score" class="score pageMilestone" />
-         <g data-id="lm0pf66" data-class="system" class="system">
-            <g data-id="k1kji7fb" data-class="section" class="section systemMilestone" />
-            <g data-id="ae9mrdj" data-class="section" class="section systemMilestone" />
-            <g data-id="x1fdaw5x" data-class="measure" class="measure">
-               <g data-id="g1iz1mly" data-class="staff" class="staff">
-                  <path d="M0 270 L2159 270" stroke-width="13" />
-                  <path d="M0 450 L2159 450" stroke-width="13" />
-                  <path d="M0 630 L2159 630" stroke-width="13" />
-                  <path d="M0 810 L2159 810" stroke-width="13" />
-                  <path d="M0 990 L2159 990" stroke-width="13" />
-                  <g data-id="m1maixue" data-class="clef" class="clef">
-                     <use xlink:href="#E050-x1lbvtut-A281t" transform="translate(90, 810) scale(0.72, 0.72)" />
-                  </g>
-                  <g data-id="nr649fh" data-class="keySig" class="keySig">
-                     <g data-id="o1v9lpau" data-class="keyAccid" class="keyAccid">
-                        <use xlink:href="#E262-x1lbvtut-A281t" transform="translate(735, 270) scale(0.72, 0.72)" />
-                     </g>
-                  </g>
-                  <g data-id="p1rkv0u1" data-class="meterSig" class="meterSig">
-                     <use xlink:href="#E087-x1lbvtut-A281t" transform="translate(1042, 450) scale(0.72, 0.72)" />
-                     <use xlink:href="#E088-x1lbvtut-A281t" transform="translate(1057, 810) scale(0.72, 0.72)" />
-                  </g>
-                  <g data-id="h1h8yf8d" data-class="layer" class="layer">
-                     <g data-id="i1enhvct" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(1629, 540) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="i1sigzjf" data-class="stem" class="stem">
-                           <path d="M1638 568 L1638 1170" stroke-width="18" />
-                           <g data-id="j1gdznra" data-class="flag" class="flag">
-                              <use xlink:href="#E241-x1lbvtut-A281t" transform="translate(1629, 1170) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="j1286atb" data-class="accid" class="accid" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="fuf88yc" data-class="barLine" class="barLine">
-                  <path d="M2146 270 L2146 990" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="k1l4m22g" data-class="measure" class="measure">
-               <g data-id="t13gew3" data-class="staff" class="staff">
-                  <path d="M2159 270 L4910 270" stroke-width="13" />
-                  <path d="M2159 450 L4910 450" stroke-width="13" />
-                  <path d="M2159 630 L4910 630" stroke-width="13" />
-                  <path d="M2159 810 L4910 810" stroke-width="13" />
-                  <path d="M2159 990 L4910 990" stroke-width="13" />
-                  <g data-id="u4opu8j" data-class="layer" class="layer">
-                     <g data-id="v1im06pp" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A3-x1lbvtut-A281t" transform="translate(2352, 540) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="k1nqrq6n" data-class="stem" class="stem">
-                           <path d="M2361 565 L2361 1170" stroke-width="18" />
-                        </g>
-                        <g data-id="w1y8cpiu" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="x79o670" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(3558, 810) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="l1awq1tr" data-class="stem" class="stem">
-                           <path d="M3775 782 L3775 180" stroke-width="18" />
-                        </g>
-                        <g data-id="y2lrb2r" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="z1ksnfte" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(4350, 900) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="m1sxep8q" data-class="stem" class="stem">
-                           <path d="M4567 872 L4567 270" stroke-width="18" />
-                           <g data-id="nqrhbvy" data-class="flag" class="flag">
-                              <use xlink:href="#E240-x1lbvtut-A281t" transform="translate(4558, 270) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="a9q8yli" data-class="accid" class="accid">
-                           <use xlink:href="#E261-x1lbvtut-A281t" transform="translate(4192, 900) scale(0.72, 0.72)" />
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="s1rsj944" data-class="barLine" class="barLine">
-                  <path d="M4897 270 L4897 990" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="b1t3mtt3" data-class="measure" class="measure">
-               <g data-id="k1ceml4g" data-class="staff" class="staff">
-                  <path d="M4910 270 L8024 270" stroke-width="13" />
-                  <path d="M4910 450 L8024 450" stroke-width="13" />
-                  <path d="M4910 630 L8024 630" stroke-width="13" />
-                  <path d="M4910 810 L8024 810" stroke-width="13" />
-                  <path d="M4910 990 L8024 990" stroke-width="13" />
-                  <g data-id="l1ay2mf3" data-class="layer" class="layer">
-                     <g data-id="m1fepe65" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(5103, 810) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="oqfzrlv" data-class="stem" class="stem">
-                           <path d="M5320 782 L5320 180" stroke-width="18" />
-                        </g>
-                        <g data-id="n1p90xow" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="oc6kpzb" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(5895, 720) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="p1vuiu2q" data-class="stem" class="stem">
-                           <path d="M6112 692 L6112 90" stroke-width="18" />
-                           <g data-id="q1fjvsry" data-class="flag" class="flag">
-                              <use xlink:href="#E240-x1lbvtut-A281t" transform="translate(6103, 90) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="p12b56j3" data-class="accid" class="accid">
-                           <use xlink:href="#E260-x1lbvtut-A281t" transform="translate(5708, 720) scale(0.72, 0.72)" />
-                        </g>
-                     </g>
-                     <g data-id="q1je5yu4" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(6427, 630) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="rr2kwky" data-class="stem" class="stem">
-                           <path d="M6436 658 L6436 1230" stroke-width="18" />
-                        </g>
-                        <g data-id="r17btdup" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="s6zc30f" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(7219, 720) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="s1cqy6gd" data-class="stem" class="stem">
-                           <path d="M7436 692 L7436 90" stroke-width="18" />
-                        </g>
-                        <g data-id="t1hsu7on" data-class="accid" class="accid" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="jfqvf9e" data-class="barLine" class="barLine">
-                  <path d="M8011 270 L8011 990" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="u1befx01" data-class="measure" class="measure">
-               <g data-id="d1whjrf4" data-class="staff" class="staff">
-                  <path d="M8024 270 L10760 270" stroke-width="13" />
-                  <path d="M8024 450 L10760 450" stroke-width="13" />
-                  <path d="M8024 630 L10760 630" stroke-width="13" />
-                  <path d="M8024 810 L10760 810" stroke-width="13" />
-                  <path d="M8024 990 L10760 990" stroke-width="13" />
-                  <g data-id="e3pg4wh" data-class="layer" class="layer">
-                     <g data-id="f1ts705u" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A3-x1lbvtut-A281t" transform="translate(8217, 810) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="t1bqdvx9" data-class="stem" class="stem">
-                           <path d="M8434 782 L8434 180" stroke-width="18" />
-                        </g>
-                        <g data-id="gc9r8ln" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="ic5ol7x" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(9423, 810) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="u153hrg0" data-class="stem" class="stem">
-                           <path d="M9640 782 L9640 180" stroke-width="18" />
-                           <g data-id="v1sbj95w" data-class="flag" class="flag">
-                              <use xlink:href="#E240-x1lbvtut-A281t" transform="translate(9631, 180) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="j1quph7s" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="k19ime4l" data-class="rest" class="rest">
-                        <use xlink:href="#E4E5-x1lbvtut-A281t" transform="translate(9955, 630) scale(0.72, 0.72)" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="hehivh9" data-class="tie" class="tie">
-                  <path d="M8488,855 C8716,962 9147,962 9378,855 C9160,1010 8703,1010 8488,855" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
-               </g>
-               <g data-id="c1unlzg7" data-class="barLine" class="barLine">
-                  <path d="M10747 270 L10747 990" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="l1l31yeo" data-class="measure" class="measure">
-               <g data-id="ujqjwi" data-class="staff" class="staff">
-                  <path d="M10760 270 L13802 270" stroke-width="13" />
-                  <path d="M10760 450 L13802 450" stroke-width="13" />
-                  <path d="M10760 630 L13802 630" stroke-width="13" />
-                  <path d="M10760 810 L13802 810" stroke-width="13" />
-                  <path d="M10760 990 L13802 990" stroke-width="13" />
-                  <g data-id="v1dfdzkx" data-class="layer" class="layer">
-                     <g data-id="w1i0hcam" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(10953, 810) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="w1ymhsw" data-class="stem" class="stem">
-                           <path d="M11170 782 L11170 180" stroke-width="18" />
-                        </g>
-                        <g data-id="xyl48ka" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="y1eyq8wk" data-class="beam" class="beam">
-                        <polygon points="11953,90 12488,90 12488,180 11953,180" />
-                        <g data-id="z1rko330" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(11745, 720) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="x1izcfej" data-class="stem" class="stem">
-                              <path d="M11962 692 L11962 108" stroke-width="18" />
-                           </g>
-                           <g data-id="a1o4ovx9" data-class="accid" class="accid">
-                              <use xlink:href="#E260-x1lbvtut-A281t" transform="translate(11558, 720) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="b14rpka1" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(12262, 720) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="y1ms0b6i" data-class="stem" class="stem">
-                              <path d="M12479 692 L12479 108" stroke-width="18" />
-                           </g>
-                           <g data-id="c1ethdvn" data-class="accid" class="accid" />
-                        </g>
-                     </g>
-                     <g data-id="d1g0kyyt" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(12779, 900) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="auls57g" data-class="dots" class="dots">
-                           <ellipse cx="13095" cy="900" rx="36" ry="36" />
-                        </g>
-                        <g data-id="zhhsubf" data-class="stem" class="stem">
-                           <path d="M12996 872 L12996 270" stroke-width="18" />
-                        </g>
-                        <g data-id="e3e1c3x" data-class="accid" class="accid">
-                           <use xlink:href="#E261-x1lbvtut-A281t" transform="translate(12621, 900) scale(0.72, 0.72)" />
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="t152bvaw" data-class="barLine" class="barLine">
-                  <path d="M13789 270 L13789 990" stroke-width="27" />
-               </g>
-            </g>
-         </g>
-         <g data-id="ozyiz5f" data-class="system" class="system">
-            <g data-id="f1nkgd6w" data-class="measure" class="measure">
-               <g data-id="x14sfvce" data-class="mNum" class="mNum autogenerated">
-                  <text y="1848" text-anchor="middle" font-size="0px">
-                     <tspan data-id="y1f4dvtw" data-class="text" class="text">
-                        <tspan font-size="324px">5</tspan>
-                     </tspan>
-                  </text>
-               </g>
-               <g data-id="oxt7wfw" data-class="staff" class="staff">
-                  <path d="M0 2091 L3735 2091" stroke-width="13" />
-                  <path d="M0 2271 L3735 2271" stroke-width="13" />
-                  <path d="M0 2451 L3735 2451" stroke-width="13" />
-                  <path d="M0 2631 L3735 2631" stroke-width="13" />
-                  <path d="M0 2811 L3735 2811" stroke-width="13" />
-                  <g data-id="ud9752" data-class="clef" class="clef">
-                     <use xlink:href="#E050-x1lbvtut-A281t" transform="translate(90, 2631) scale(0.72, 0.72)" />
-                  </g>
-                  <g data-id="v167f5wd" data-class="keySig" class="keySig">
-                     <g data-id="w1qkviad" data-class="keyAccid" class="keyAccid">
-                        <use xlink:href="#E262-x1lbvtut-A281t" transform="translate(735, 2091) scale(0.72, 0.72)" />
-                     </g>
-                  </g>
-                  <g data-id="p1p20hom" data-class="layer" class="layer">
-                     <g data-id="q1t8vt0a" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(1141, 2631) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="b1y4n5hv" data-class="stem" class="stem">
-                           <path d="M1358 2603 L1358 2001" stroke-width="18" />
-                        </g>
-                        <g data-id="r1teg88d" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="s1cqhwev" data-class="beam" class="beam">
-                        <polygon points="1991,1911 2428,1866 2428,1956 1991,2001" />
-                        <g data-id="tz09d1v" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(1783, 2541) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="c59x9pp" data-class="stem" class="stem">
-                              <path d="M2000 2513 L2000 1929" stroke-width="18" />
-                           </g>
-                           <g data-id="u1ywui7p" data-class="accid" class="accid">
-                              <use xlink:href="#E260-x1lbvtut-A281t" transform="translate(1596, 2541) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="v41ij3y" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(2202, 2451) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="d19ux538" data-class="stem" class="stem">
-                              <path d="M2419 2423 L2419 1884" stroke-width="18" />
-                           </g>
-                           <g data-id="w16cojfn" data-class="accid" class="accid" />
-                        </g>
-                     </g>
-                     <g data-id="x1m9akki" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(2620, 2541) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="e15wktxk" data-class="stem" class="stem">
-                           <path d="M2837 2513 L2837 1911" stroke-width="18" />
-                           <g data-id="fei86u2" data-class="flag" class="flag">
-                              <use xlink:href="#E240-x1lbvtut-A281t" transform="translate(2828, 1911) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="ye428jk" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="z9q7wkn" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(3080, 2721) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="gnsh7t7" data-class="stem" class="stem">
-                           <path d="M3297 2693 L3297 2091" stroke-width="18" />
-                        </g>
-                        <g data-id="ah7pgrh" data-class="accid" class="accid">
-                           <use xlink:href="#E261-x1lbvtut-A281t" transform="translate(2922, 2721) scale(0.72, 0.72)" />
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="n4pz86z" data-class="barLine" class="barLine">
-                  <path d="M3722 2091 L3722 2811" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="b1sthk1v" data-class="measure" class="measure">
-               <g data-id="k1bgpzpt" data-class="staff" class="staff">
-                  <path d="M3735 2091 L6023 2091" stroke-width="13" />
-                  <path d="M3735 2271 L6023 2271" stroke-width="13" />
-                  <path d="M3735 2451 L6023 2451" stroke-width="13" />
-                  <path d="M3735 2631 L6023 2631" stroke-width="13" />
-                  <path d="M3735 2811 L6023 2811" stroke-width="13" />
-                  <g data-id="luxl7a5" data-class="layer" class="layer">
-                     <g data-id="mdon9bz" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A3-x1lbvtut-A281t" transform="translate(3910, 2631) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="h1dba7rf" data-class="stem" class="stem">
-                           <path d="M4127 2603 L4127 2001" stroke-width="18" />
-                        </g>
-                        <g data-id="nxskbfs" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="p1njf2if" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(4887, 2631) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="it6jgoq" data-class="stem" class="stem">
-                           <path d="M5104 2603 L5104 2001" stroke-width="18" />
-                           <g data-id="j1jba1dp" data-class="flag" class="flag">
-                              <use xlink:href="#E240-x1lbvtut-A281t" transform="translate(5095, 2001) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="q1dva78u" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="rf4zx3m" data-class="rest" class="rest">
-                        <use xlink:href="#E4E5-x1lbvtut-A281t" transform="translate(5368, 2451) scale(0.72, 0.72)" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="o1dbzijn" data-class="tie" class="tie">
-                  <path d="M4181,2676 C4354,2782 4667,2782 4842,2676 C4684,2831 4337,2831 4181,2676" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
-               </g>
-               <g data-id="j1yv7ki6" data-class="barLine" class="barLine">
-                  <path d="M6010 2091 L6010 2811" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="su4y1uf" data-class="measure" class="measure">
-               <g data-id="b1qomeec" data-class="staff" class="staff">
-                  <path d="M6023 2091 L8550 2091" stroke-width="13" />
-                  <path d="M6023 2271 L8550 2271" stroke-width="13" />
-                  <path d="M6023 2451 L8550 2451" stroke-width="13" />
-                  <path d="M6023 2631 L8550 2631" stroke-width="13" />
-                  <path d="M6023 2811 L8550 2811" stroke-width="13" />
-                  <g data-id="cssf8ae" data-class="layer" class="layer">
-                     <g data-id="d1cui3m" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(6198, 2631) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="k15fr5vf" data-class="stem" class="stem">
-                           <path d="M6415 2603 L6415 2001" stroke-width="18" />
-                        </g>
-                        <g data-id="e1wueuv2" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="fjjjouj" data-class="beam" class="beam">
-                        <polygon points="7048,1911 7485,1911 7485,2001 7048,2001" />
-                        <g data-id="giynh9w" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(6840, 2541) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="l1oqk6np" data-class="stem" class="stem">
-                              <path d="M7057 2513 L7057 1929" stroke-width="18" />
-                           </g>
-                           <g data-id="hff59zk" data-class="accid" class="accid">
-                              <use xlink:href="#E260-x1lbvtut-A281t" transform="translate(6653, 2541) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="i3p0nlp" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(7259, 2541) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="m1dhlnso" data-class="stem" class="stem">
-                              <path d="M7476 2513 L7476 1929" stroke-width="18" />
-                           </g>
-                           <g data-id="j1bp8ik" data-class="accid" class="accid" />
-                        </g>
-                     </g>
-                     <g data-id="kur3pl4" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(7718, 2721) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="o1jzh7xo" data-class="dots" class="dots">
-                           <ellipse cx="8034" cy="2721" rx="36" ry="36" />
-                        </g>
-                        <g data-id="n1fe0qmz" data-class="stem" class="stem">
-                           <path d="M7935 2693 L7935 2091" stroke-width="18" />
-                        </g>
-                        <g data-id="l1plftnu" data-class="accid" class="accid">
-                           <use xlink:href="#E261-x1lbvtut-A281t" transform="translate(7560, 2721) scale(0.72, 0.72)" />
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="a1x0gp6x" data-class="barLine" class="barLine">
-                  <path d="M8537 2091 L8537 2811" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="m1mznoah" data-class="measure" class="measure">
-               <g data-id="v1iif2h4" data-class="staff" class="staff">
-                  <path d="M8550 2091 L11319 2091" stroke-width="13" />
-                  <path d="M8550 2271 L11319 2271" stroke-width="13" />
-                  <path d="M8550 2451 L11319 2451" stroke-width="13" />
-                  <path d="M8550 2631 L11319 2631" stroke-width="13" />
-                  <path d="M8550 2811 L11319 2811" stroke-width="13" />
-                  <g data-id="w3l5vfz" data-class="layer" class="layer">
-                     <g data-id="xuv47od" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(8725, 2631) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="p7f7by4" data-class="stem" class="stem">
-                           <path d="M8942 2603 L8942 2001" stroke-width="18" />
-                        </g>
-                        <g data-id="ykpbepn" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="z1e1a12b" data-class="beam" class="beam">
-                        <polygon points="9575,1911 10012,1866 10012,1956 9575,2001" />
-                        <g data-id="aj8bmto" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(9367, 2541) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="q1oflbdp" data-class="stem" class="stem">
-                              <path d="M9584 2513 L9584 1929" stroke-width="18" />
-                           </g>
-                           <g data-id="b1wg5iab" data-class="accid" class="accid">
-                              <use xlink:href="#E260-x1lbvtut-A281t" transform="translate(9180, 2541) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="c1seuczl" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(9786, 2451) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="r15vsjh9" data-class="stem" class="stem">
-                              <path d="M10003 2423 L10003 1884" stroke-width="18" />
-                           </g>
-                           <g data-id="d1k1trvj" data-class="accid" class="accid" />
-                        </g>
-                     </g>
-                     <g data-id="e14nznmi" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(10204, 2541) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="s1i7urub" data-class="stem" class="stem">
-                           <path d="M10421 2513 L10421 1911" stroke-width="18" />
-                           <g data-id="t1epi6mo" data-class="flag" class="flag">
-                              <use xlink:href="#E240-x1lbvtut-A281t" transform="translate(10412, 1911) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="f1mhx0w4" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="gf42as8" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(10664, 2721) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="ur8i5g8" data-class="stem" class="stem">
-                           <path d="M10881 2693 L10881 2091" stroke-width="18" />
-                        </g>
-                        <g data-id="h1xobb8v" data-class="accid" class="accid">
-                           <use xlink:href="#E261-x1lbvtut-A281t" transform="translate(10506, 2721) scale(0.72, 0.72)" />
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="u5yyxzq" data-class="barLine" class="barLine">
-                  <path d="M11306 2091 L11306 2811" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="ipezk2q" data-class="measure" class="measure">
-               <g data-id="rpbyqbg" data-class="staff" class="staff">
-                  <path d="M11319 2091 L13803 2091" stroke-width="13" />
-                  <path d="M11319 2271 L13803 2271" stroke-width="13" />
-                  <path d="M11319 2451 L13803 2451" stroke-width="13" />
-                  <path d="M11319 2631 L13803 2631" stroke-width="13" />
-                  <path d="M11319 2811 L13803 2811" stroke-width="13" />
-                  <g data-id="s1yufytv" data-class="layer" class="layer">
-                     <g data-id="t10175v6" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A3-x1lbvtut-A281t" transform="translate(11494, 2631) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="vo25fki" data-class="stem" class="stem">
-                           <path d="M11711 2603 L11711 2001" stroke-width="18" />
-                        </g>
-                        <g data-id="u1x10d3k" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="wnk4rnl" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A281t" transform="translate(12471, 2631) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="w1j0ej0g" data-class="stem" class="stem">
-                           <path d="M12688 2603 L12688 2001" stroke-width="18" />
-                           <g data-id="x19l2iot" data-class="flag" class="flag">
-                              <use xlink:href="#E240-x1lbvtut-A281t" transform="translate(12679, 2001) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="xve33ja" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="yacg2hb" data-class="rest" class="rest">
-                        <use xlink:href="#E4E6-x1lbvtut-A281t" transform="translate(12952, 2451) scale(0.72, 0.72)" />
-                     </g>
-                     <g data-id="z8gkr2u" data-class="space" class="space" />
-                  </g>
-               </g>
-               <g data-id="v1z03vzs" data-class="tie" class="tie">
-                  <path d="M11765,2676 C11938,2782 12251,2782 12426,2676 C12268,2831 11921,2831 11765,2676" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
-               </g>
-               <g data-id="q1thrqn" data-class="barLine" class="barLine">
-                  <path d="M13790 2091 L13790 2811" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="jtvbswe" data-class="systemMilestoneEnd" class="systemMilestoneEnd ae9mrdj" />
-            <g data-id="ktxzf7x" data-class="systemMilestoneEnd" class="systemMilestoneEnd k1kji7fb" />
-         </g>
-         <g data-id="lc7jdwk" data-class="pageMilestoneEnd" class="pageMilestoneEnd ie86tk9" />
-         <g data-id="m4aewr2" data-class="pageMilestoneEnd" class="pageMilestoneEnd h18ix09d" />
-      </g>
-   </svg>
-</svg>
-</figure>
-</tac-brano>
-
+    <h2>N.&nbsp;13 &middot; L’accordo ribattuto: archi come percussioni intonate</h2>
+    <tac-brano organico="orchestra" titolo="I. Stravinskij, <em youtube="dcwB67IoefA" esecutore="Igor Stravinskij, direttore (canale ufficiale)" da-battuta="1">La sagra della primavera</em>, I: «Gli àuguri primaverili – Danze delle adolescenti»" in-vista></tac-brano>
+    <tac-stave
+       keysig="Eb"
+       time="2/4"
+       caption="I. Stravinskij, La sagra della primavera, n.&nbsp;13, bb.&nbsp;1–4 (Tempo giusto, 𝅗𝅥&nbsp;=&nbsp;50; f, arco non div., tutti in arcate in giù, sempre stacc.). Riduzione degli archi a suoni reali: rigo superiore violini II (re♭4–mi♭4) e viole (sol3–si♭3); rigo inferiore violoncelli (la♭2–fa♭3) e contrabbassi (fa♭2–do♭3). Gli accenti della b.&nbsp;3 sono degli archi; i corni (otto, a quattro parti) entrano sf sugli stessi ottavi. Trascrizione nota per nota dall’esempio di C. Galli, Storia della musica 3, p.&nbsp;295."
+       notes="g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 | g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 | g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 | g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8"
+       bass="fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 | fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 | fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 | fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8"
+       segna="b1-b2=otto crome uguali: il 2/4 si sente · b3=accenti sul secondo e sul quarto ottavo, corni sf · b4=di nuovo senza accenti"
+       width="900"
+       tempo="100" play></tac-stave>
     <div class="analisi-prosa">
-      <p>Il segno di questa pagina appartiene a un&rsquo;analisi metrica: non riguarda le altezze n&eacute; l&rsquo;armonia, ma il modo in cui le crome si raggruppano dentro la battuta. &Egrave; uno solo, un&rsquo;etichetta posta sulla battuta 1, e si legge come una nota a margine della misura: dice che cosa contiene la battuta e come la si sente. Il segno osserva che la battuta conta sette ottavi e che non si divide in due met&agrave; uguali. &Egrave; la stessa osservazione fatta sul rigo in cinque quarti: la pulsazione resta, la croma dura sempre uguale, e quello che cambia &egrave; il raggruppamento, cio&egrave; ogni quante crome si forma un gruppo.</p>
-      <p>Qui per&ograve; il metro dispari non viene da un compositore del Novecento ma dalla tradizione orale. Nella raccolta Essen questa ballata compare in <strong>quattordici</strong> varianti, con metri diversi: 3/2, 2/2, 4/4, 6/8, 7/8. Lo stesso testo, cantato in luoghi diversi, ha preso metri diversi, e nessuno di quei cantori aveva letto un trattato. Se ne ricava che il Novecento non ha inventato il metro dispari: lo ha portato nella musica scritta e colta, dove per tre secoli era stato tenuto fuori. Non l&rsquo;invenzione, dunque, ma l&rsquo;ammissione.</p>
+      <p>Per quattro battute la stessa sonorità è ripetuta a crome, sedici volte, senza un solo cambiamento di altezza. Gli archi suonano <em>f</em>, «arco (non div.)», ogni croma in arcata in giù e <em>sempre staccato</em>: la scrittura annulla la continuità del suono, e lo strumento ad arco diventa ciò che Galli chiama «percussioni intonate» (p.&nbsp;295) e Surian descrive come impiego «in funzione meramente percussiva» (<em>Manuale</em> IV, p.&nbsp;60). La disposizione separa i due strati per registro: la triade di fa♭ maggiore sta nei violoncelli e nei contrabbassi, fra il fa♭2 e il fa♭3; la settima su mi♭ nelle viole e nei violini secondi, fra il sol3 e il mi♭4. Il semitono fra le due fondamentali (fa♭ e mi♭) diventa così un attrito di registro: il mi♭4 dei violini secondi sta una settima maggiore sopra il fa♭3 dei violoncelli, e il re♭4 una sesta maggiore sopra lo stesso suono.</p>
+      <p>L’armatura di tre bemolli, osserva Galli, non delinea «l’ambito tonale di MI bemolle maggiore»: è «una “facilitazione” semiografica» (p.&nbsp;295). Le prime due battute affermano il 2/4 per pura ripetizione, otto crome uguali; alla b.&nbsp;3 gli accenti cadono sul secondo e sul quarto ottavo, e lì entrano i corni, <em>sf</em>, sugli stessi ottavi. Il seguito, che l’esempio del libro non riporta, moltiplica gli spostamenti: secondo Carrozzo gli accenti, «distribuiti irregolarmente», smentiscono il metro «senza affermarne un altro al suo posto», finché il 2/4 è riaffermato al n.&nbsp;14 «per essere negato ancora 4 misure dopo» (p.&nbsp;412).</p>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="L&rsquo;accento spostato">
+<section class="slide" data-titolo="Il ritmo: accento contro metro">
   <div class="slide-interna">
-    <h2>L&rsquo;altro modo di rompere il metro: l&rsquo;accento</h2>
-
-    <p>Non serve cambiare l&rsquo;indicazione di tempo. Basta <strong>accentare dove non tocca</strong>, e il metro scritto diventa una finzione che si vede sul foglio e non si sente.</p>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Sempre 4/4, e gli accenti cadono ogni tre crome"
-               notes="c/5:8 c/5:8 c/5:8 c/5:8 c/5:8 c/5:8 c/5:8 c/5:8 | c/5:8 c/5:8 c/5:8 c/5:8 c/5:8 c/5:8 c/5:8 c/5:8"
-               segna="b1=accento sulla 1&ordf;, 4&ordf;, 7&ordf; &middot; b2=e il ciclo di tre non torna con quello di otto"
-               width="860" tempo="120" play slow></tac-stave>
-
+    <h2>Il ritmo: l’accento contro il metro</h2>
     <div class="riquadro definizione">
-      <span class="etichetta">Perch&eacute; funziona</span>
-      <p>Tre e otto non hanno divisori in comune: il ciclo degli accenti e quello delle battute si riallineano solo dopo <strong>tre battute</strong>. In mezzo, l&rsquo;ascoltatore sente una pulsazione che scivola.</p>
+      <span class="etichetta">Definizioni</span>
+      <p><strong>Metro.</strong> L’organizzazione regolare delle pulsazioni in battute, dichiarata dall’indicazione di tempo (qui 2/4: due semiminime, quattro crome).<br>
+      <strong>Accento spostato.</strong> Un accento dinamico o d’attacco posto su una suddivisione debole, contro l’accento metrico del primo movimento. Quando gli spostamenti sono rari, il metro resta percepibile e l’accento si sente come sincope; quando sono frequenti e a distanze sempre diverse, il metro scritto smette di essere udibile e resta soltanto la pulsazione della croma.<br>
+      <strong>Metro additivo e metro irregolare.</strong> Nel ritmo bulgaro di Bartók (U5 L2) la battuta è fatta di gruppi disuguali dichiarati; negli «Auguri» l’indicazione resta 2/4 e l’irregolarità è affidata agli accenti. Carrozzo osserva che nel «Rito del rapimento», poco dopo, Stravinskij cambia invece l’indicazione di tempo di battuta in battuta (p.&nbsp;411).</p>
     </div>
-
-    <p class="didascalia">&Egrave; un conto, non un effetto: si sceglie il ciclo, si calcola dopo quanto torna, e si sa in anticipo quanto durer&agrave; lo spiazzamento.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="L&rsquo;ostinato">
-  <div class="slide-interna">
-    <h2>Che cosa tiene insieme tutto questo: l&rsquo;ostinato</h2>
-
-    <p>Se l&rsquo;armonia non ha direzione e il metro non ha regolarit&agrave;, che cosa d&agrave; forma? Una figura breve che <strong>si ripete uguale</strong>, molte volte.</p>
-
-    <tac-stave time="4/4" keysig="C" clef="bass"
-               caption="Una cellula di tre note, ripetuta senza cambiare"
-               notes="c/3:8 g/3:8 eb/3:8 c/3:8 g/3:8 eb/3:8 c/3:8 g/3:8 | eb/3:8 c/3:8 g/3:8 eb/3:8 c/3:8 g/3:8 eb/3:8 c/3:8"
-               segna="b1=tre note che girano &middot; b2=e cadono ogni volta su un movimento diverso"
-               width="860" tempo="108" play slow></tac-stave>
-
-    <div class="riquadro studio">
-      <p>La cellula ha <strong>tre</strong> note e la battuta ne contiene <strong>otto</strong>: ripetendola, ogni giro comincia su un movimento diverso. La ripetizione &egrave; esatta e il risultato non si ripete mai uguale.</p>
+    <div class="analisi-prosa">
+      <p>Nelle bb.&nbsp;1–4 del n.&nbsp;13 gli accenti della b.&nbsp;3 dividono le otto crome della battuta in modo che l’orecchio, dopo sedici crome uguali, percepisce due attacchi forti a distanza di una semiminima ma spostati di una croma: l’accento metrico (primo e terzo ottavo) e l’accento reale (secondo e quarto) non coincidono. È la forma più semplice della sincope. L’effetto disorientante descritto da Carrozzo nasce dalla successione di questi spostamenti a distanze non periodiche, sopra un’armonia immobile: il ritmo è il solo parametro che cambia, e diventa il soggetto del brano.</p>
     </div>
-
-    <p class="didascalia">&Egrave; la risposta pi&ugrave; economica del Novecento al problema della forma: qualcosa torna, e l&rsquo;orecchio si aggrappa a quello. La stessa idea del refrain, ridotta a tre note.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il 1913">
-  <div class="slide-interna">
-    <h2>Il pezzo che ha reso tutto questo famoso</h2>
-
-    <p>Nel <strong>1913</strong> Stravinskij fa rappresentare a Parigi <em>Le Sacre du printemps</em>, e la prima serata &egrave; rimasta celebre per il chiasso che il pubblico ha fatto. Quello che c&rsquo;era dentro &egrave; esattamente il contenuto di quest&rsquo;ora: accordi sovrapposti, metri che cambiano a ogni battuta, accenti spostati, ostinati lunghissimi.</p>
-
     <div class="riquadro attenzione">
-      <p>&#9888; La partitura non &egrave; e non pu&ograve; essere su questa pagina: Stravinskij &egrave; morto nel <strong>1971</strong>, e la sua musica resta protetta fino al 2042. Si ascolta in classe da una registrazione, con l&rsquo;esecutore accreditato.</p>
+      <span class="etichetta">L’errore tipico</span>
+      <p>Scrivere che negli «Auguri» «il tempo cambia continuamente». L’indicazione di tempo resta 2/4; cambiano gli accenti. Si distingue sempre fra metro scritto, raggruppamento prodotto dagli accenti e pulsazione.</p>
     </div>
-
-    <p>Vale la pena tenere separate due cose che di solito si raccontano insieme: <strong>lo scandalo</strong> — che riguarda anche la coreografia, il pubblico, la serata — e <strong>la musica</strong>, che si analizza con gli strumenti che avete adesso.</p>
-
-    <p class="didascalia">Il Novecento &egrave; pieno di prime rappresentazioni turbolente, e sono aneddoti. Il conto delle sei note dentro l&rsquo;ottatonica invece resta vero anche quando la sala &egrave; tranquilla.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Come si riconosce">
+<section class="slide" data-titolo="N. 14: tre strati">
   <div class="slide-interna">
-    <h2>Riconoscerlo su una partitura</h2>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Quattro segni, in ordine di visibilit&agrave;</span>
-      <p><strong>1.</strong> L&rsquo;indicazione di tempo <strong>cambia</strong>, e cambia spesso.<br>
-      <strong>2.</strong> Una figura breve si ripete <strong>identica</strong> per molte battute.<br>
-      <strong>3.</strong> Ci sono <strong>accenti</strong> scritti dove il metro non li prevede.<br>
-      <strong>4.</strong> Due strati hanno armature o alterazioni <strong>diverse</strong>, o stanno in registri separati senza mai mescolarsi.</p>
+    <h2>N.&nbsp;14 &middot; L’ostinato a tre strati</h2>
+    <tac-stave
+       keysig="Eb"
+       time="2/4"
+       caption="I. Stravinskij, La sagra della primavera, n.&nbsp;14, le due battute dell’ostinato. Rigo superiore: corno inglese solo, mf, a suoni reali (la parte è scritta una quinta sopra). Rigo inferiore: fagotti I e II, f, riuniti in una linea (gambi in su: il fagotto I, primo ottavo; il fagotto II, secondo ottavo); violoncelli pizz., meno f (gambi in giù). Trascrizione nota per nota dall’esempio di C. Galli, Storia della musica 3, p.&nbsp;296."
+       soprano="db/4:8 b/3:8 e/4:8 b/3:8 | db/4:8 b/3:8 e/4:8 b/3:8"
+       tenore="g/3:16 en/3:16 c/3:16 g/2:16 en/2:16 g/2:16 bn/2:16 en/3:16 | g/3:16 en/3:16 c/3:16 g/2:16 en/2:16 g/2:16 bn/2:16 en/3:16"
+       basso="en/2:8 g#/2:8 bn/2:8 en/3:8 | g/3:8 en/3:8 c/3:8 g/2:8"
+       segna="b1=corno inglese: re♭–si♭–mi♭, dalla settima su mi♭ · b1=fagotti: do maggiore, poi mi minore · b1=violoncelli: mi maggiore · b2=violoncelli: do maggiore"
+       width="760"
+       tempo="100" play></tac-stave>
+    <div class="analisi-prosa">
+      <p>Al n.&nbsp;14 l’orchestra si riduce a tre strati, ciascuno con il proprio materiale e il proprio valore di base. Il corno inglese, solo, ripete a crome re♭4–si♭3–mi♭4–si♭3: tre suoni della settima su mi♭ del n.&nbsp;13, cioè lo strato superiore dell’accordo degli Auguri, ridotto a una figura melodica. I fagotti arpeggiano a semicrome due triadi a suoni naturali: do maggiore discendente (sol3–mi3–do3–sol2) e mi minore ascendente (mi2–sol2–si2–mi3). I violoncelli, pizzicati, arpeggiano a crome mi maggiore alla prima battuta (mi2–sol♯2–si2–mi3) e do maggiore alla seconda (sol3–mi3–do3–sol2).</p>
+      <p>La lettura politonale qui è più persuasiva che al n.&nbsp;13, perché gli strati sono separati per timbro, registro e ritmo: mi♭ (e si♭, re♭) sopra, do e mi sotto. Ma il dato più interessante è l’attrito interno allo strato grave: alla prima battuta il sol♮2 dei fagotti (quarta semicroma) suona contro il sol♯2 dei violoncelli, e mi minore contro mi maggiore produce lo stesso semitono che separava fa♭ (mi) e mi♭ nell’accordo degli Auguri, spostato su un’altra coppia di suoni. Il n.&nbsp;14 non abbandona il materiale del n.&nbsp;13: lo scompone. La figura ritmica dei fagotti, osserva Galli, «ricompare più volte» nel brano (p.&nbsp;296).</p>
     </div>
-
-    <p>I primi tre si vedono senza leggere una nota. Il quarto chiede di guardare che cosa suona ciascuno strato, ed &egrave; quello che porta al conto delle sei note.</p>
-
-    <p class="didascalia">E poi la verifica che chiude: <strong>scrivete le note dei due strati e cercate una scala che le contenga tutte</strong>. Se la trovate, «politonalit&agrave;» &egrave; una descrizione dell&rsquo;effetto e non della struttura, e nell&rsquo;analisi va detto cos&igrave;.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Al lavoro">
+<section class="slide" data-titolo="Al lavoro" data-in-classe>
   <div class="slide-interna">
-    <h2>Al lavoro &mdash; venticinque minuti, a coppie</h2>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Due esercizi, uno di conto e uno di scrittura</span>
-      <p><strong>1.</strong> Prendete <strong>re maggiore</strong> e <strong>sol&#9839; maggiore</strong>: scrivete le sei note e cercate se stanno tutte in una delle tre ottatoniche.<br>
-      <strong>2.</strong> Poi provate con <strong>do maggiore</strong> e <strong>re maggiore</strong>: la risposta cambia, e la differenza va spiegata.<br>
-      <strong>3.</strong> Scrivete otto battute in 4/4 con una cellula di <strong>cinque</strong> crome ripetuta, e segnate dove il ciclo torna a coincidere con la battuta.</p>
-    </div>
-
-    <p>Il passo 2 &egrave; quello che insegna di pi&ugrave;: due triadi a distanza di tono non stanno nella stessa ottatonica, e allora la sovrapposizione &egrave; davvero un&rsquo;altra cosa. <strong>Il tritono non era un dettaglio di gusto.</strong></p>
-
-    <p class="didascalia">Per il passo 3: cinque e otto si riallineano dopo cinque battute. Chi lo calcola prima di scrivere fa met&agrave; fatica.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa non &egrave;">
-  <div class="slide-interna">
-    <h2>&#9888; Tre cose che sembrano politonalit&agrave; e non lo sono</h2>
-
-    <div class="riquadro studio">
-      <p><strong>Un accordo alterato</strong> &mdash; una nona con la quinta alzata ha molte note e un centro solo. Si sigla, e la sigla funziona.<br>
-      <strong>Un pedale con sopra un&rsquo;armonia estranea</strong> &mdash; il pedale &egrave; una nota, non una tonalit&agrave;: manca il secondo strato.<br>
-      <strong>Una nota di passaggio insistita</strong> &mdash; se una delle due &laquo;tonalit&agrave;&raquo; dura mezza battuta, non &egrave; uno strato.</p>
-    </div>
-
-    <p>La condizione perch&eacute; ci siano due strati &egrave; che <strong>tutti e due durino</strong> e che tutti e due siano <strong>completi</strong>. Due triadi vere, che stanno insieme abbastanza da essere sentite come due.</p>
-
-    <p class="didascalia">Nel dubbio, la prova &egrave; sempre la stessa: togliete uno strato e ascoltate. Se quello che resta &egrave; musica compiuta, gli strati erano due davvero.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa resta">
-  <div class="slide-interna">
-    <h2>Quello che quest&rsquo;ora lascia</h2>
-
-    <p>Due cose, e la seconda vale per tutta l&rsquo;analisi.</p>
-
-    <div class="riquadro studio">
-      <p>Che nel Novecento la <strong>forma</strong> pu&ograve; venire dal ritmo invece che dall&rsquo;armonia: un ostinato, un ciclo di accenti, un metro che cambia sono strumenti di costruzione, non effetti.<br>
-      E che <strong>un nome diffuso non &egrave; un&rsquo;analisi</strong>. «Politonalit&agrave;» descrive un&rsquo;impressione vera e una struttura falsa, e per accorgersene bastano due minuti di conto.</p>
-    </div>
-
-    <p class="didascalia">Nella lezione seguente si scrive l&rsquo;analisi integrale di &laquo;Auguri primaverili&raquo;: il conto delle note, i tre separatori, l&rsquo;ostinato e l&rsquo;accento spostato, applicati al pezzo intero.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Prima di andare">
-  <div class="slide-interna">
-    <h2>Una cosa da portare all&rsquo;unit&agrave; 7</h2>
-
-    <p>La lezione ha mostrato un sistema che <strong>tiene</strong> le triadi: l&rsquo;ottatonica ne contiene otto, e per questo la musica che la usa suona ancora piena di accordi riconoscibili anche senza tonalit&agrave;.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">La domanda che apre l&rsquo;unit&agrave; 7</span>
-      <p>E se invece si togliessero <strong>anche le triadi</strong>? Se nessun accordo dovesse pi&ugrave; somigliare a niente di conosciuto, che cosa resterebbe a tenere insieme un pezzo?</p>
-    </div>
-
-    <p class="didascalia">La risposta di Schönberg &egrave; la pi&ugrave; radicale del Novecento, e arriva in due tempi: prima toglie, e per quindici anni non mette niente al posto; poi inventa la serie.</p>
-  </div>
-</section>
-
-<!-- ───────────────────────────────────────────────────────────────────
-     Quattro slide, due con musica vera. L'ora è sulla politonalità e ha
-     un titolo bellissimo: «Il conto che smentisce». Il conto smentisce
-     il nome — due triadi sovrapposte non sono due tonalità — e la tesi
-     ha bisogno di due casi: uno in cui il conto smentisce e uno in cui
-     gli strati si sentono davvero separati.
-     ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="Il caso in cui gli strati si sentono">
-  <div class="slide-interna">
-    <h2>Che cosa separa davvero due strati</h2>
-
+    <h2>Al lavoro: otto battute di accenti contro il 2/4</h2>
+    <tac-stave
+       keysig="Eb"
+       time="2/4"
+       caption="Dato: otto battute dell’accordo degli Auguri a crome (riduzione a due righi, come al n.&nbsp;13). Gli accenti sono da scrivere."
+       notes="g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 | g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 | g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 | g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 | g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 | g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 | g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 g/3+b/3+db/4+e/4:8 | g/3+b/3+db/4+e/4:q r:q"
+       bass="fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 | fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 | fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 | fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 | fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 | fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 | fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 fb/2+a/2+cb/3+fb/3:8 | fb/2+a/2+cb/3+fb/3:q r:q"
+       width="900"
+       tempo="100" play></tac-stave>
     <div class="riquadro compito">
-      <span class="etichetta">Ascolto &middot; 6 minuti</span>
-      <p>Due ascolti. Sentite <strong>due cose separate</strong>, o un impasto solo? E che cosa le terrebbe separate?</p>
+      <span class="etichetta">Da soli, poi a coppie &middot; 10 minuti</span>
+      <p>Numerare le 28 crome da 1 a 28 e la semiminima finale con 29; scrivere otto accenti: <strong>1.</strong> nessuno sul primo ottavo di battuta, tranne l’ultimo, sulla semiminima della b.&nbsp;8; <strong>2.</strong> le distanze fra accenti consecutivi (in crome) tutte diverse da quella che le precede; <strong>3.</strong> almeno due distanze dispari. Poi una metà della classe batte le crome, l’altra gli accenti.</p>
     </div>
-
-    <tac-brano organico="tastiera" titolo="Schönberg, op. 19 n. 2 — due note e nessun centro"
-               metronomo youtube="KDAsjiq0Bcc" esecutore="Glenn Gould, pianoforte" partitura="../../_assets/spartiti/A25_schoenberg-19-2.png" riquadri='[[1,5.94,10.99,51.18,11.87],[2,57.12,10.99,41.42,11.87],[3,2.2,35.01,50.37,12.14],[4,52.56,35.01,45.97,12.14],[5,2.2,59.97,55.0,11.87],[6,57.2,59.97,41.42,11.87],[7,9.85,85.69,28.72,11.33],[8,38.57,85.69,33.36,11.33],[9,71.93,85.69,26.28,11.33]]' inciso="../../_assets/incisioni/A25_schoenberg_19_2.mp3" mappa='{"durata":30380,"eventi":[[0,0],[1,2000],[2,4000],[3,6000],[4,8000],[5,10000],[6,14800],[7,19600],[8,24400]]}' da-battuta="1">
-<script type="application/json">{"titolo":"A. Schönberg, Sei piccoli pezzi op. 19 n. 2 — la terza che non se ne va","metro":"4/4","bpm":50,"battute":9,"anacrusi":0.0,"voci":[[[7.0,0.5,83],[7.0,0.5,86],[7.5,0.5,66],[8.0,1.5,63],[9.5,0.5,57],[10.0,1.0,60],[11.0,1.0,56],[16.0,0.25,78],[16.0,0.25,82],[16.0,0.25,88],[17.0,0.5,54],[17.0,0.5,58],[22.0,2.0,59],[22.0,2.0,62],[24.0,0.5,59],[24.0,0.5,62],[24.5,0.5,67],[24.5,0.5,71],[26.5,0.5,67],[26.5,0.5,71],[27.0,0.5,67],[27.0,0.5,71],[29.0,0.5,67],[29.0,0.5,71],[31.0,0.5,67],[31.0,0.5,71],[31.5,0.5,67],[31.5,0.5,71],[33.5,0.5,67],[33.5,0.5,71],[34.0,2.0,67],[34.0,2.0,71],[34.0,2.0,75],[34.0,2.0,78],[34.0,2.0,82],[34.0,2.0,86]],[[1.0,0.5,67],[1.0,0.5,71],[1.5,0.5,67],[1.5,0.5,71],[2.0,0.5,67],[2.0,0.5,71],[3.5,0.5,67],[3.5,0.5,71],[5.0,0.5,67],[5.0,0.5,71],[5.5,0.5,67],[5.5,0.5,71],[6.0,0.5,67],[6.0,0.5,71],[7.5,0.5,67],[7.5,0.5,71],[9.0,0.5,67],[9.0,0.5,71],[9.5,0.5,67],[9.5,0.5,71],[10.0,0.5,67],[10.0,0.5,71],[11.5,0.5,67],[11.5,0.5,71],[12.0,0.5,67],[12.0,0.5,71],[12.5,0.5,67],[12.5,0.5,71],[13.0,0.5,72],[13.0,0.5,75],[13.5,0.5,67],[13.5,0.5,71],[14.5,0.5,67],[14.5,0.5,71],[16.0,0.5,72],[16.0,0.5,75],[16.5,1.0,67],[16.5,1.0,71],[17.5,0.5,67],[17.5,0.5,71],[19.0,0.5,67],[19.0,0.5,71],[19.5,0.5,67],[19.5,0.5,71],[20.0,0.5,56],[20.0,0.5,60],[20.5,1.0,57],[20.5,1.0,61],[21.5,0.5,60],[21.5,0.5,63],[22.0,2.0,42],[22.0,2.0,48],[22.0,2.0,51],[22.0,2.0,53],[24.0,0.5,42],[24.0,0.5,48],[24.0,0.5,51],[24.0,0.5,53],[26.0,0.5,53],[26.0,0.5,57],[28.0,0.5,51],[28.0,0.5,55],[30.5,0.5,49],[30.5,0.5,53],[32.5,0.5,48],[32.5,0.5,52]]]}</script>
-</tac-brano>
-
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa separa gli strati, in ordine di forza</span>
-      <p><strong>1. Il registro</strong> &middot; se sono lontani, si sentono separati.<br>
-      <strong>2. Il ritmo</strong> &middot; se uno è fermo e l&rsquo;altro si muove, si separano.<br>
-      <strong>3. Il timbro</strong> &middot; strumenti diversi separano, il pianoforte da solo no.</p>
-      <p>L&rsquo;armonia da sola <strong>non separa</strong>: due triadi lontane suonate insieme nello stesso registro danno un accordo unico, non due strati.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Il conto che smentisce</span>
-      <p>Contando i suoni di due triadi «politonali» si trova <strong>un accordo di sei note</strong>, che si può descrivere come un accordo alterato. Non ci sono due tonalità: ce n&rsquo;è una, complicata.</p>
-      <p>Il nome «politonalità» descrive un&rsquo;intenzione di scrittura, non un fatto percettivo.</p>
-    </div>
-
-    <p class="didascalia">Un nome può descrivere il <strong>modo in cui una cosa è stata scritta</strong> invece di come si sente. Distinguere le due cose è la parte più utile — e più rara — dell&rsquo;analisi del Novecento.</p>
   </div>
 </section>
 
-<section class="slide perc" data-titolo="Il ritmo che separa">
+<section class="slide" data-titolo="La soluzione">
   <div class="slide-interna">
-    <h2>Un ostinato, e l&rsquo;accento spostato</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Ascolto &middot; 6 minuti</span>
-      <p>Due ascolti. Provate a battere un tempo regolare. Dove il conto <strong>non torna</strong>?</p>
-    </div>
-
-    <tac-brano organico="voci" titolo="«Die Todesbraut», la variante in 7/8 — canto popolare tedesco"
-               metronomo cerca="Die Todesbraut Essen Volkslied ballade" inciso="../../_assets/incisioni/A28_todesbraut.mp3" mappa='{"durata":21629,"eventi":[[0,0],[1,312],[2,2500],[3,4688],[4,6875],[5,9062],[6,11250],[7,13438],[8,15625],[9,17812]]}'>
-<script type="application/json">{"titolo":"Canto popolare tedesco (raccolta Essen), «Die Todesbraut», la variante in 7/8","metro":"7/8","bpm":96,"battute":10,"anacrusi":0.5,"voci":[[[0.0,0.5,72],[0.5,2.0,72],[2.5,1.0,67],[3.5,0.5,65],[4.0,1.0,67],[5.0,0.5,68],[5.5,1.0,71],[6.5,1.0,69],[7.5,2.0,67],[9.5,0.5,67],[11.0,1.0,67],[12.0,0.5,68],[12.5,0.5,69],[13.0,1.5,65],[14.5,1.0,67],[15.5,0.5,68],[16.0,0.5,71],[16.5,0.5,69],[17.0,1.0,65],[18.0,2.0,67],[20.0,0.5,67],[21.5,1.0,67],[22.5,0.5,68],[23.0,0.5,69],[23.5,1.5,65],[25.0,1.0,67],[26.0,0.5,68],[26.5,0.5,71],[27.0,0.5,69],[27.5,1.0,65],[28.5,2.0,67],[30.5,0.5,67]]]}</script>
-<figure class="tac-part" data-quale="intera"><svg viewBox="0 0 570 156" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="visible" id="x1lbvtut-A283t">
-   <desc>Engraved by Verovio 6.2.0-43f8060</desc>
-   <defs>
-      <g id="E050-x1lbvtut-A283t">
-         <path transform="scale(1,-1)" d="M441 -245c-23 -4 -48 -6 -76 -6c-59 0 -102 7 -130 20c-88 42 -150 93 -187 154c-26 44 -43 103 -48 176c0 6 -1 13 -1 19c0 54 15 111 45 170c29 57 65 106 110 148s96 85 153 127c-3 16 -8 46 -13 92c-4 43 -5 73 -5 89c0 117 16 172 69 257c34 54 64 82 89 82 c21 0 43 -30 69 -92s39 -115 41 -159v-15c0 -109 -21 -162 -67 -241c-13 -20 -63 -90 -98 -118c-13 -9 -25 -19 -37 -29l31 -181c8 1 18 2 28 2c58 0 102 -12 133 -35c59 -43 92 -104 98 -184c1 -7 1 -15 1 -22c0 -123 -87 -209 -181 -248c8 -57 17 -110 25 -162 c5 -31 6 -58 6 -80c0 -30 -5 -53 -14 -70c-35 -64 -88 -99 -158 -103c-5 0 -11 -1 -16 -1c-37 0 -72 10 -108 27c-50 24 -77 59 -80 105v11c0 29 7 55 20 76c18 28 45 42 79 44h6c49 0 93 -42 97 -87v-9c0 -51 -34 -86 -105 -106c17 -24 51 -36 102 -36c62 0 116 43 140 85 c9 16 13 41 13 74c0 20 -1 42 -5 67c-8 53 -18 106 -26 159zM461 939c-95 0 -135 -175 -135 -286c0 -24 2 -48 5 -71c50 39 92 82 127 128c40 53 60 100 60 140v8c-4 53 -22 81 -55 81h-2zM406 119l54 -326c73 25 110 78 110 161c0 7 0 15 -1 23c-7 95 -57 142 -151 142h-12 zM382 117c-72 -2 -128 -47 -128 -120v-7c2 -46 43 -99 75 -115c-3 -2 -7 -5 -10 -10c-70 33 -116 88 -123 172v11c0 68 44 126 88 159c23 17 49 29 78 36l-29 170c-21 -13 -52 -37 -92 -73c-50 -44 -86 -84 -109 -119c-45 -69 -67 -130 -67 -182v-13c5 -68 35 -127 93 -176 s125 -73 203 -73c25 0 50 3 75 9c-19 111 -36 221 -54 331z" />
-      </g>
-      <g id="E262-x1lbvtut-A283t">
-         <path transform="scale(1,-1)" d="M136 186v169h17v-164l44 14v-91l-44 -14v-165l44 12v-91l-44 -13v-155h-17v150l-76 -22v-155h-17v149l-43 -13v90l43 14v167l-43 -14v92l43 13v169h17v-163zM60 73v-167l76 22v168z" />
-      </g>
-      <g id="E087-x1lbvtut-A283t">
-         <path transform="scale(1,-1)" d="M350 125c-11 -9 -53 -46 -95 -46c-18 2 -33 8 -44 17c-17 19 -33 34 -48 45c-13 11 -27 17 -42 17c-23 0 -45 -22 -64 -66h-37v155h37c4 -18 11 -28 21 -30c8 1 15 3 22 8l10 5l14 10c3 2 14 6 21 7l11 2c8 1 33 1 42 1c39 0 57 -7 90 -43c11 -15 26 -23 44 -26 c27 3 45 29 54 70l38 -1c-1 -9 -11 -88 -29 -124c-5 -13 -12 -28 -21 -46l-33 -60c-55 -92 -69 -162 -69 -270h-174c0 45 11 86 33 122c23 35 59 74 106 117c99 84 113 96 113 136z" />
-      </g>
-      <g id="E088-x1lbvtut-A283t">
-         <path transform="scale(1,-1)" d="M195 -214c76 0 88 58 90 68c0 34 -35 60 -57 73l-52 29c-21 10 -32 17 -34 20c-39 -33 -58 -54 -62 -92c5 -23 23 -98 115 -98zM301 135c0 61 -72 76 -113 76c-40 0 -77 -17 -77 -51c3 -21 15 -38 26 -50c17 -15 33 -26 48 -34l65 -28c34 27 51 56 51 87zM176 -250 c-57 0 -166 26 -166 132c0 47 30 86 89 116c-33 15 -79 60 -79 119c0 79 85 132 178 132h18c5 0 21 1 28 -1c25 0 126 -30 126 -110c0 -37 -23 -76 -69 -116c43 -25 83 -71 83 -119c0 -101 -118 -153 -208 -153z" />
-      </g>
-      <g id="E0A4-x1lbvtut-A283t">
-         <path transform="scale(1,-1)" d="M0 -39c0 68 73 172 200 172c66 0 114 -37 114 -95c0 -84 -106 -171 -218 -171c-64 0 -96 30 -96 94z" />
-      </g>
-      <g id="E241-x1lbvtut-A283t">
-         <path transform="scale(1,-1)" d="M179 646c-4 8 -17 30 -18 33l-4 10c0 3 2 5 5 5s7 -2 13 -7c23 -33 46 -81 66 -132c22 -57 35 -125 35 -163c0 -104 -60 -183 -122 -241c-63 -59 -57 -53 -61 -56c-38 -34 -63 -95 -71 -95h-22v190c40 7 69 11 87 16c88 27 168 95 168 200c0 30 -12 89 -30 138 c-17 47 -31 73 -46 102z" />
-      </g>
-      <g id="E0A3-x1lbvtut-A283t">
-         <path transform="scale(1,-1)" d="M278 64c0 22 -17 39 -43 39c-12 0 -26 -3 -41 -10c-85 -43 -165 -94 -165 -156c5 -25 15 -32 49 -32c67 11 200 95 200 159zM0 -36c0 68 73 174 200 174c66 0 114 -39 114 -97c0 -84 -106 -173 -218 -173c-64 0 -96 32 -96 96z" />
-      </g>
-      <g id="E240-x1lbvtut-A283t">
-         <path transform="scale(1,-1)" d="M179 -646c15 29 29 55 46 102c18 49 30 108 30 138c0 105 -80 173 -168 200c-18 5 -47 9 -87 16v190h22c8 0 33 -61 71 -95c4 -3 -2 3 61 -56c62 -58 122 -137 122 -241c0 -38 -13 -106 -35 -163c-20 -51 -43 -99 -66 -132c-6 -5 -10 -7 -13 -7s-5 2 -5 5l4 10 c1 3 14 25 18 33z" />
-      </g>
-      <g id="E261-x1lbvtut-A283t">
-         <path transform="scale(1,-1)" d="M0 -188v539h18v-191l139 22v-533h-17v186zM18 -100l122 17v176l-122 -19v-174z" />
-      </g>
-      <g id="E260-x1lbvtut-A283t">
-         <path transform="scale(1,-1)" d="M20 110c32 16 54 27 93 27c26 0 35 -3 54 -13c13 -7 24 -20 27 -38l4 -25c0 -28 -16 -57 -45 -89c-23 -25 -39 -44 -65 -68l-88 -79v644h20v-359zM90 106c-32 0 -48 -10 -70 -29v-194c31 31 54 59 71 84c21 32 32 59 32 84c0 9 1 16 1 20c0 14 -3 21 -11 30l-8 3z" />
-      </g>
-      <g id="E4E5-x1lbvtut-A283t">
-         <path transform="scale(1,-1)" d="M107 292c-13 24 -30 49 -52 71c-1 1 0 2 0 3l-2 2c3 3 4 4 6 4c12 0 26 -7 40 -20s44 -40 89 -81c26 -24 28 -29 46 -47c4 -4 8 -9 10 -14c6 -8 8 -16 8 -27c0 -19 -12 -40 -36 -61c-28 -23 -49 -38 -61 -73c-4 -11 -7 -27 -10 -50c13 -43 34 -83 59 -121 c31 -47 59 -79 101 -129c-8 0 -26 7 -54 20l-62 29l-21 6l-23 1c-25 0 -45 -10 -60 -30l-4 -14l-1 -12c0 -33 20 -56 39 -78c8 -9 17 -18 26 -26c17 -15 27 -24 28 -30l-3 -3c-11 5 -19 10 -25 15c-9 3 -37 21 -45 26c-24 14 -45 32 -63 51c-19 21 -37 44 -37 71 c0 63 27 95 80 95c41 0 86 -18 136 -52c-19 26 -37 48 -55 66c-23 23 -48 44 -73 65c-28 23 -47 40 -58 53s-17 26 -18 39c75 64 113 125 113 183c0 27 -7 48 -18 68z" />
-      </g>
-      <g id="E4E6-x1lbvtut-A283t">
-         <path transform="scale(1,-1)" d="M0 123c7 34 33 56 69 60c29 -3 43 -9 53 -29c4 -8 7 -15 10 -22c0 -21 -1 -25 -11 -35c-5 -8 -18 -14 -40 -20l12 -3l15 -1c44 0 97 26 122 56c10 11 18 26 24 42c7 1 15 2 22 3l-140 -424h-36l111 330c-10 -6 -27 -12 -53 -16l-52 -8h-10l-20 1c-1 0 -8 3 -21 6 c-37 9 -55 28 -55 60z" />
-      </g>
-   </defs>
-   <style type="text/css">#x1lbvtut-A283t g.ending, #x1lbvtut-A283t g.fing, #x1lbvtut-A283t g.reh, #x1lbvtut-A283t g.tempo {font-weight:bold;}#x1lbvtut-A283t g.dir, #x1lbvtut-A283t g.dynam, #x1lbvtut-A283t g.mNum {font-style:italic;}#x1lbvtut-A283t g.label {font-weight:normal;}#x1lbvtut-A283t ellipse, #x1lbvtut-A283t path, #x1lbvtut-A283t polygon, #x1lbvtut-A283t polyline, #x1lbvtut-A283t rect {stroke:currentColor}</style>
-   <svg class="definition-scale" color="black" font-family="Times, serif" viewBox="0 0 15000 4100">
-      <g class="page-margin" transform="translate(600, 600)">
-         <g data-id="h18ix09d" data-class="mdiv" class="mdiv pageMilestone" />
-         <g data-id="ie86tk9" data-class="score" class="score pageMilestone" />
-         <g data-id="lm0pf66" data-class="system" class="system">
-            <g data-id="k1kji7fb" data-class="section" class="section systemMilestone" />
-            <g data-id="ae9mrdj" data-class="section" class="section systemMilestone" />
-            <g data-id="x1fdaw5x" data-class="measure" class="measure">
-               <g data-id="g1iz1mly" data-class="staff" class="staff">
-                  <path d="M0 270 L2159 270" stroke-width="13" />
-                  <path d="M0 450 L2159 450" stroke-width="13" />
-                  <path d="M0 630 L2159 630" stroke-width="13" />
-                  <path d="M0 810 L2159 810" stroke-width="13" />
-                  <path d="M0 990 L2159 990" stroke-width="13" />
-                  <g data-id="m1maixue" data-class="clef" class="clef">
-                     <use xlink:href="#E050-x1lbvtut-A283t" transform="translate(90, 810) scale(0.72, 0.72)" />
-                  </g>
-                  <g data-id="nr649fh" data-class="keySig" class="keySig">
-                     <g data-id="o1v9lpau" data-class="keyAccid" class="keyAccid">
-                        <use xlink:href="#E262-x1lbvtut-A283t" transform="translate(735, 270) scale(0.72, 0.72)" />
-                     </g>
-                  </g>
-                  <g data-id="p1rkv0u1" data-class="meterSig" class="meterSig">
-                     <use xlink:href="#E087-x1lbvtut-A283t" transform="translate(1042, 450) scale(0.72, 0.72)" />
-                     <use xlink:href="#E088-x1lbvtut-A283t" transform="translate(1057, 810) scale(0.72, 0.72)" />
-                  </g>
-                  <g data-id="h1h8yf8d" data-class="layer" class="layer">
-                     <g data-id="i1enhvct" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(1629, 540) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="i1sigzjf" data-class="stem" class="stem">
-                           <path d="M1638 568 L1638 1170" stroke-width="18" />
-                           <g data-id="j1gdznra" data-class="flag" class="flag">
-                              <use xlink:href="#E241-x1lbvtut-A283t" transform="translate(1629, 1170) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="j1286atb" data-class="accid" class="accid" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="fuf88yc" data-class="barLine" class="barLine">
-                  <path d="M2146 270 L2146 990" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="k1l4m22g" data-class="measure" class="measure">
-               <g data-id="t13gew3" data-class="staff" class="staff">
-                  <path d="M2159 270 L4910 270" stroke-width="13" />
-                  <path d="M2159 450 L4910 450" stroke-width="13" />
-                  <path d="M2159 630 L4910 630" stroke-width="13" />
-                  <path d="M2159 810 L4910 810" stroke-width="13" />
-                  <path d="M2159 990 L4910 990" stroke-width="13" />
-                  <g data-id="u4opu8j" data-class="layer" class="layer">
-                     <g data-id="v1im06pp" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A3-x1lbvtut-A283t" transform="translate(2352, 540) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="k1nqrq6n" data-class="stem" class="stem">
-                           <path d="M2361 565 L2361 1170" stroke-width="18" />
-                        </g>
-                        <g data-id="w1y8cpiu" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="x79o670" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(3558, 810) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="l1awq1tr" data-class="stem" class="stem">
-                           <path d="M3775 782 L3775 180" stroke-width="18" />
-                        </g>
-                        <g data-id="y2lrb2r" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="z1ksnfte" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(4350, 900) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="m1sxep8q" data-class="stem" class="stem">
-                           <path d="M4567 872 L4567 270" stroke-width="18" />
-                           <g data-id="nqrhbvy" data-class="flag" class="flag">
-                              <use xlink:href="#E240-x1lbvtut-A283t" transform="translate(4558, 270) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="a9q8yli" data-class="accid" class="accid">
-                           <use xlink:href="#E261-x1lbvtut-A283t" transform="translate(4192, 900) scale(0.72, 0.72)" />
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="s1rsj944" data-class="barLine" class="barLine">
-                  <path d="M4897 270 L4897 990" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="b1t3mtt3" data-class="measure" class="measure">
-               <g data-id="k1ceml4g" data-class="staff" class="staff">
-                  <path d="M4910 270 L8024 270" stroke-width="13" />
-                  <path d="M4910 450 L8024 450" stroke-width="13" />
-                  <path d="M4910 630 L8024 630" stroke-width="13" />
-                  <path d="M4910 810 L8024 810" stroke-width="13" />
-                  <path d="M4910 990 L8024 990" stroke-width="13" />
-                  <g data-id="l1ay2mf3" data-class="layer" class="layer">
-                     <g data-id="m1fepe65" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(5103, 810) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="oqfzrlv" data-class="stem" class="stem">
-                           <path d="M5320 782 L5320 180" stroke-width="18" />
-                        </g>
-                        <g data-id="n1p90xow" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="oc6kpzb" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(5895, 720) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="p1vuiu2q" data-class="stem" class="stem">
-                           <path d="M6112 692 L6112 90" stroke-width="18" />
-                           <g data-id="q1fjvsry" data-class="flag" class="flag">
-                              <use xlink:href="#E240-x1lbvtut-A283t" transform="translate(6103, 90) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="p12b56j3" data-class="accid" class="accid">
-                           <use xlink:href="#E260-x1lbvtut-A283t" transform="translate(5708, 720) scale(0.72, 0.72)" />
-                        </g>
-                     </g>
-                     <g data-id="q1je5yu4" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(6427, 630) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="rr2kwky" data-class="stem" class="stem">
-                           <path d="M6436 658 L6436 1230" stroke-width="18" />
-                        </g>
-                        <g data-id="r17btdup" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="s6zc30f" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(7219, 720) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="s1cqy6gd" data-class="stem" class="stem">
-                           <path d="M7436 692 L7436 90" stroke-width="18" />
-                        </g>
-                        <g data-id="t1hsu7on" data-class="accid" class="accid" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="jfqvf9e" data-class="barLine" class="barLine">
-                  <path d="M8011 270 L8011 990" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="u1befx01" data-class="measure" class="measure">
-               <g data-id="d1whjrf4" data-class="staff" class="staff">
-                  <path d="M8024 270 L10760 270" stroke-width="13" />
-                  <path d="M8024 450 L10760 450" stroke-width="13" />
-                  <path d="M8024 630 L10760 630" stroke-width="13" />
-                  <path d="M8024 810 L10760 810" stroke-width="13" />
-                  <path d="M8024 990 L10760 990" stroke-width="13" />
-                  <g data-id="e3pg4wh" data-class="layer" class="layer">
-                     <g data-id="f1ts705u" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A3-x1lbvtut-A283t" transform="translate(8217, 810) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="t1bqdvx9" data-class="stem" class="stem">
-                           <path d="M8434 782 L8434 180" stroke-width="18" />
-                        </g>
-                        <g data-id="gc9r8ln" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="ic5ol7x" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(9423, 810) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="u153hrg0" data-class="stem" class="stem">
-                           <path d="M9640 782 L9640 180" stroke-width="18" />
-                           <g data-id="v1sbj95w" data-class="flag" class="flag">
-                              <use xlink:href="#E240-x1lbvtut-A283t" transform="translate(9631, 180) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="j1quph7s" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="k19ime4l" data-class="rest" class="rest">
-                        <use xlink:href="#E4E5-x1lbvtut-A283t" transform="translate(9955, 630) scale(0.72, 0.72)" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="hehivh9" data-class="tie" class="tie">
-                  <path d="M8488,855 C8716,962 9147,962 9378,855 C9160,1010 8703,1010 8488,855" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
-               </g>
-               <g data-id="c1unlzg7" data-class="barLine" class="barLine">
-                  <path d="M10747 270 L10747 990" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="l1l31yeo" data-class="measure" class="measure">
-               <g data-id="ujqjwi" data-class="staff" class="staff">
-                  <path d="M10760 270 L13802 270" stroke-width="13" />
-                  <path d="M10760 450 L13802 450" stroke-width="13" />
-                  <path d="M10760 630 L13802 630" stroke-width="13" />
-                  <path d="M10760 810 L13802 810" stroke-width="13" />
-                  <path d="M10760 990 L13802 990" stroke-width="13" />
-                  <g data-id="v1dfdzkx" data-class="layer" class="layer">
-                     <g data-id="w1i0hcam" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(10953, 810) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="w1ymhsw" data-class="stem" class="stem">
-                           <path d="M11170 782 L11170 180" stroke-width="18" />
-                        </g>
-                        <g data-id="xyl48ka" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="y1eyq8wk" data-class="beam" class="beam">
-                        <polygon points="11953,90 12488,90 12488,180 11953,180" />
-                        <g data-id="z1rko330" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(11745, 720) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="x1izcfej" data-class="stem" class="stem">
-                              <path d="M11962 692 L11962 108" stroke-width="18" />
-                           </g>
-                           <g data-id="a1o4ovx9" data-class="accid" class="accid">
-                              <use xlink:href="#E260-x1lbvtut-A283t" transform="translate(11558, 720) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="b14rpka1" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(12262, 720) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="y1ms0b6i" data-class="stem" class="stem">
-                              <path d="M12479 692 L12479 108" stroke-width="18" />
-                           </g>
-                           <g data-id="c1ethdvn" data-class="accid" class="accid" />
-                        </g>
-                     </g>
-                     <g data-id="d1g0kyyt" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(12779, 900) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="auls57g" data-class="dots" class="dots">
-                           <ellipse cx="13095" cy="900" rx="36" ry="36" />
-                        </g>
-                        <g data-id="zhhsubf" data-class="stem" class="stem">
-                           <path d="M12996 872 L12996 270" stroke-width="18" />
-                        </g>
-                        <g data-id="e3e1c3x" data-class="accid" class="accid">
-                           <use xlink:href="#E261-x1lbvtut-A283t" transform="translate(12621, 900) scale(0.72, 0.72)" />
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="t152bvaw" data-class="barLine" class="barLine">
-                  <path d="M13789 270 L13789 990" stroke-width="27" />
-               </g>
-            </g>
-         </g>
-         <g data-id="ozyiz5f" data-class="system" class="system">
-            <g data-id="f1nkgd6w" data-class="measure" class="measure">
-               <g data-id="x14sfvce" data-class="mNum" class="mNum autogenerated">
-                  <text y="1848" text-anchor="middle" font-size="0px">
-                     <tspan data-id="y1f4dvtw" data-class="text" class="text">
-                        <tspan font-size="324px">5</tspan>
-                     </tspan>
-                  </text>
-               </g>
-               <g data-id="oxt7wfw" data-class="staff" class="staff">
-                  <path d="M0 2091 L3735 2091" stroke-width="13" />
-                  <path d="M0 2271 L3735 2271" stroke-width="13" />
-                  <path d="M0 2451 L3735 2451" stroke-width="13" />
-                  <path d="M0 2631 L3735 2631" stroke-width="13" />
-                  <path d="M0 2811 L3735 2811" stroke-width="13" />
-                  <g data-id="ud9752" data-class="clef" class="clef">
-                     <use xlink:href="#E050-x1lbvtut-A283t" transform="translate(90, 2631) scale(0.72, 0.72)" />
-                  </g>
-                  <g data-id="v167f5wd" data-class="keySig" class="keySig">
-                     <g data-id="w1qkviad" data-class="keyAccid" class="keyAccid">
-                        <use xlink:href="#E262-x1lbvtut-A283t" transform="translate(735, 2091) scale(0.72, 0.72)" />
-                     </g>
-                  </g>
-                  <g data-id="p1p20hom" data-class="layer" class="layer">
-                     <g data-id="q1t8vt0a" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(1141, 2631) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="b1y4n5hv" data-class="stem" class="stem">
-                           <path d="M1358 2603 L1358 2001" stroke-width="18" />
-                        </g>
-                        <g data-id="r1teg88d" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="s1cqhwev" data-class="beam" class="beam">
-                        <polygon points="1991,1911 2428,1866 2428,1956 1991,2001" />
-                        <g data-id="tz09d1v" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(1783, 2541) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="c59x9pp" data-class="stem" class="stem">
-                              <path d="M2000 2513 L2000 1929" stroke-width="18" />
-                           </g>
-                           <g data-id="u1ywui7p" data-class="accid" class="accid">
-                              <use xlink:href="#E260-x1lbvtut-A283t" transform="translate(1596, 2541) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="v41ij3y" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(2202, 2451) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="d19ux538" data-class="stem" class="stem">
-                              <path d="M2419 2423 L2419 1884" stroke-width="18" />
-                           </g>
-                           <g data-id="w16cojfn" data-class="accid" class="accid" />
-                        </g>
-                     </g>
-                     <g data-id="x1m9akki" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(2620, 2541) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="e15wktxk" data-class="stem" class="stem">
-                           <path d="M2837 2513 L2837 1911" stroke-width="18" />
-                           <g data-id="fei86u2" data-class="flag" class="flag">
-                              <use xlink:href="#E240-x1lbvtut-A283t" transform="translate(2828, 1911) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="ye428jk" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="z9q7wkn" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(3080, 2721) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="gnsh7t7" data-class="stem" class="stem">
-                           <path d="M3297 2693 L3297 2091" stroke-width="18" />
-                        </g>
-                        <g data-id="ah7pgrh" data-class="accid" class="accid">
-                           <use xlink:href="#E261-x1lbvtut-A283t" transform="translate(2922, 2721) scale(0.72, 0.72)" />
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="n4pz86z" data-class="barLine" class="barLine">
-                  <path d="M3722 2091 L3722 2811" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="b1sthk1v" data-class="measure" class="measure">
-               <g data-id="k1bgpzpt" data-class="staff" class="staff">
-                  <path d="M3735 2091 L6023 2091" stroke-width="13" />
-                  <path d="M3735 2271 L6023 2271" stroke-width="13" />
-                  <path d="M3735 2451 L6023 2451" stroke-width="13" />
-                  <path d="M3735 2631 L6023 2631" stroke-width="13" />
-                  <path d="M3735 2811 L6023 2811" stroke-width="13" />
-                  <g data-id="luxl7a5" data-class="layer" class="layer">
-                     <g data-id="mdon9bz" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A3-x1lbvtut-A283t" transform="translate(3910, 2631) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="h1dba7rf" data-class="stem" class="stem">
-                           <path d="M4127 2603 L4127 2001" stroke-width="18" />
-                        </g>
-                        <g data-id="nxskbfs" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="p1njf2if" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(4887, 2631) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="it6jgoq" data-class="stem" class="stem">
-                           <path d="M5104 2603 L5104 2001" stroke-width="18" />
-                           <g data-id="j1jba1dp" data-class="flag" class="flag">
-                              <use xlink:href="#E240-x1lbvtut-A283t" transform="translate(5095, 2001) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="q1dva78u" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="rf4zx3m" data-class="rest" class="rest">
-                        <use xlink:href="#E4E5-x1lbvtut-A283t" transform="translate(5368, 2451) scale(0.72, 0.72)" />
-                     </g>
-                  </g>
-               </g>
-               <g data-id="o1dbzijn" data-class="tie" class="tie">
-                  <path d="M4181,2676 C4354,2782 4667,2782 4842,2676 C4684,2831 4337,2831 4181,2676" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
-               </g>
-               <g data-id="j1yv7ki6" data-class="barLine" class="barLine">
-                  <path d="M6010 2091 L6010 2811" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="su4y1uf" data-class="measure" class="measure">
-               <g data-id="b1qomeec" data-class="staff" class="staff">
-                  <path d="M6023 2091 L8550 2091" stroke-width="13" />
-                  <path d="M6023 2271 L8550 2271" stroke-width="13" />
-                  <path d="M6023 2451 L8550 2451" stroke-width="13" />
-                  <path d="M6023 2631 L8550 2631" stroke-width="13" />
-                  <path d="M6023 2811 L8550 2811" stroke-width="13" />
-                  <g data-id="cssf8ae" data-class="layer" class="layer">
-                     <g data-id="d1cui3m" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(6198, 2631) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="k15fr5vf" data-class="stem" class="stem">
-                           <path d="M6415 2603 L6415 2001" stroke-width="18" />
-                        </g>
-                        <g data-id="e1wueuv2" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="fjjjouj" data-class="beam" class="beam">
-                        <polygon points="7048,1911 7485,1911 7485,2001 7048,2001" />
-                        <g data-id="giynh9w" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(6840, 2541) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="l1oqk6np" data-class="stem" class="stem">
-                              <path d="M7057 2513 L7057 1929" stroke-width="18" />
-                           </g>
-                           <g data-id="hff59zk" data-class="accid" class="accid">
-                              <use xlink:href="#E260-x1lbvtut-A283t" transform="translate(6653, 2541) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="i3p0nlp" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(7259, 2541) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="m1dhlnso" data-class="stem" class="stem">
-                              <path d="M7476 2513 L7476 1929" stroke-width="18" />
-                           </g>
-                           <g data-id="j1bp8ik" data-class="accid" class="accid" />
-                        </g>
-                     </g>
-                     <g data-id="kur3pl4" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(7718, 2721) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="o1jzh7xo" data-class="dots" class="dots">
-                           <ellipse cx="8034" cy="2721" rx="36" ry="36" />
-                        </g>
-                        <g data-id="n1fe0qmz" data-class="stem" class="stem">
-                           <path d="M7935 2693 L7935 2091" stroke-width="18" />
-                        </g>
-                        <g data-id="l1plftnu" data-class="accid" class="accid">
-                           <use xlink:href="#E261-x1lbvtut-A283t" transform="translate(7560, 2721) scale(0.72, 0.72)" />
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="a1x0gp6x" data-class="barLine" class="barLine">
-                  <path d="M8537 2091 L8537 2811" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="m1mznoah" data-class="measure" class="measure">
-               <g data-id="v1iif2h4" data-class="staff" class="staff">
-                  <path d="M8550 2091 L11319 2091" stroke-width="13" />
-                  <path d="M8550 2271 L11319 2271" stroke-width="13" />
-                  <path d="M8550 2451 L11319 2451" stroke-width="13" />
-                  <path d="M8550 2631 L11319 2631" stroke-width="13" />
-                  <path d="M8550 2811 L11319 2811" stroke-width="13" />
-                  <g data-id="w3l5vfz" data-class="layer" class="layer">
-                     <g data-id="xuv47od" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(8725, 2631) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="p7f7by4" data-class="stem" class="stem">
-                           <path d="M8942 2603 L8942 2001" stroke-width="18" />
-                        </g>
-                        <g data-id="ykpbepn" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="z1e1a12b" data-class="beam" class="beam">
-                        <polygon points="9575,1911 10012,1866 10012,1956 9575,2001" />
-                        <g data-id="aj8bmto" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(9367, 2541) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="q1oflbdp" data-class="stem" class="stem">
-                              <path d="M9584 2513 L9584 1929" stroke-width="18" />
-                           </g>
-                           <g data-id="b1wg5iab" data-class="accid" class="accid">
-                              <use xlink:href="#E260-x1lbvtut-A283t" transform="translate(9180, 2541) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="c1seuczl" data-class="note" class="note">
-                           <g data-class="notehead" class="notehead">
-                              <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(9786, 2451) scale(0.72, 0.72)" />
-                           </g>
-                           <g data-id="r15vsjh9" data-class="stem" class="stem">
-                              <path d="M10003 2423 L10003 1884" stroke-width="18" />
-                           </g>
-                           <g data-id="d1k1trvj" data-class="accid" class="accid" />
-                        </g>
-                     </g>
-                     <g data-id="e14nznmi" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(10204, 2541) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="s1i7urub" data-class="stem" class="stem">
-                           <path d="M10421 2513 L10421 1911" stroke-width="18" />
-                           <g data-id="t1epi6mo" data-class="flag" class="flag">
-                              <use xlink:href="#E240-x1lbvtut-A283t" transform="translate(10412, 1911) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="f1mhx0w4" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="gf42as8" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(10664, 2721) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="ur8i5g8" data-class="stem" class="stem">
-                           <path d="M10881 2693 L10881 2091" stroke-width="18" />
-                        </g>
-                        <g data-id="h1xobb8v" data-class="accid" class="accid">
-                           <use xlink:href="#E261-x1lbvtut-A283t" transform="translate(10506, 2721) scale(0.72, 0.72)" />
-                        </g>
-                     </g>
-                  </g>
-               </g>
-               <g data-id="u5yyxzq" data-class="barLine" class="barLine">
-                  <path d="M11306 2091 L11306 2811" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="ipezk2q" data-class="measure" class="measure">
-               <g data-id="rpbyqbg" data-class="staff" class="staff">
-                  <path d="M11319 2091 L13803 2091" stroke-width="13" />
-                  <path d="M11319 2271 L13803 2271" stroke-width="13" />
-                  <path d="M11319 2451 L13803 2451" stroke-width="13" />
-                  <path d="M11319 2631 L13803 2631" stroke-width="13" />
-                  <path d="M11319 2811 L13803 2811" stroke-width="13" />
-                  <g data-id="s1yufytv" data-class="layer" class="layer">
-                     <g data-id="t10175v6" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A3-x1lbvtut-A283t" transform="translate(11494, 2631) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="vo25fki" data-class="stem" class="stem">
-                           <path d="M11711 2603 L11711 2001" stroke-width="18" />
-                        </g>
-                        <g data-id="u1x10d3k" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="wnk4rnl" data-class="note" class="note">
-                        <g data-class="notehead" class="notehead">
-                           <use xlink:href="#E0A4-x1lbvtut-A283t" transform="translate(12471, 2631) scale(0.72, 0.72)" />
-                        </g>
-                        <g data-id="w1j0ej0g" data-class="stem" class="stem">
-                           <path d="M12688 2603 L12688 2001" stroke-width="18" />
-                           <g data-id="x19l2iot" data-class="flag" class="flag">
-                              <use xlink:href="#E240-x1lbvtut-A283t" transform="translate(12679, 2001) scale(0.72, 0.72)" />
-                           </g>
-                        </g>
-                        <g data-id="xve33ja" data-class="accid" class="accid" />
-                     </g>
-                     <g data-id="yacg2hb" data-class="rest" class="rest">
-                        <use xlink:href="#E4E6-x1lbvtut-A283t" transform="translate(12952, 2451) scale(0.72, 0.72)" />
-                     </g>
-                     <g data-id="z8gkr2u" data-class="space" class="space" />
-                  </g>
-               </g>
-               <g data-id="v1z03vzs" data-class="tie" class="tie">
-                  <path d="M11765,2676 C11938,2782 12251,2782 12426,2676 C12268,2831 11921,2831 11765,2676" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
-               </g>
-               <g data-id="q1thrqn" data-class="barLine" class="barLine">
-                  <path d="M13790 2091 L13790 2811" stroke-width="27" />
-               </g>
-            </g>
-            <g data-id="jtvbswe" data-class="systemMilestoneEnd" class="systemMilestoneEnd ae9mrdj" />
-            <g data-id="ktxzf7x" data-class="systemMilestoneEnd" class="systemMilestoneEnd k1kji7fb" />
-         </g>
-         <g data-id="lc7jdwk" data-class="pageMilestoneEnd" class="pageMilestoneEnd ie86tk9" />
-         <g data-id="m4aewr2" data-class="pageMilestoneEnd" class="pageMilestoneEnd h18ix09d" />
-      </g>
-   </svg>
-</svg>
-</figure>
-</tac-brano>
-
-
-    <div class="riquadro definizione">
-      <span class="etichetta">L&rsquo;accento spostato, e l&rsquo;ostinato</span>
-      <p>Un <strong>ostinato</strong> è una figura che si ripete uguale. Se la sua lunghezza non divide la battuta, l&rsquo;accento si sposta a ogni giro, e si formano due pulsazioni sovrapposte.</p>
-      <p>È il modo più economico di ottenere due strati: una figura sola, e una lunghezza che non torna.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Perché il ritmo separa meglio dell&rsquo;armonia</span>
-      <p>Perché due pulsazioni diverse l&rsquo;orecchio le tiene distinte anche nello stesso timbro. Due armonie diverse, no.</p>
-      <p>È una proprietà della percezione, e ha una conseguenza pratica: se si vogliono due strati, si separano nel <strong>tempo</strong>.</p>
-    </div>
-
-    <p class="didascalia">L&rsquo;orecchio separa meglio nel <strong>tempo</strong> che nell&rsquo;altezza. È un dato percettivo, e spiega perché la stratificazione ritmica funziona dove quella armonica non funziona.</p>
+    <h2>Una soluzione, poi si batte</h2>
+    <tac-chiuso invito="Una soluzione possibile &mdash; si apre alla correzione" sale="zY9+GIELzaYVD6nbgAMhtg==" iv="muWPiWfQ49gBNn+U" dati="6caNzwg301DDwKg+yEDPDbRjfZdh1pR/F6V6o5CanLDE0BhOxW+jKL1H2Gbu7ndjk1PrKBJPvpDjlj9loOiCf2DGsPpJV6A88n9ojEAtT8ESGCHjYh2cPQJ/V1P81FvLUa4JpwksmRuMc36RzvZoTHcQu+eJrKVhOcncoKUUzt2n23k+R+XGpwCnnevy2WQn8LLu9ut7yM1KpS3vZHJVo+qHxQms0I0lVztXJT9J40mTZmCnX/C4CNe1g0bZptBBE6AScr1HmDYvB2SbsxIFPlTqi2wg4C6drYFaGtBkV8KKNp7PSX6mGH+H6knxa7ZDEh8+45Qf+mj58/YgivfCOILBc3L6sgLHQB6P2W4LYNYKAFM5T8BFg5rAC0p3VRpFBvvXfdC/9cmew5pT1hbiPCIHPNG7PToRx9EoKRgPA6nqkxOX7h065pxnrL6e7v0Fvvf26SwvUS3NXzVhR9p0MWLZZyYr/hnp/HUFFIhp2GikJEaEXZV5xI/lK0yvjy9YlqU3ikR/NtxP/wjw5661Ah6Po/wB/iCE+5MWIKtDrOMkMWi6PndeIRE4h36msQp93G/lphh2yanWJga8VO5QTtMRfAWMTp9EnpgdrcX+tsN70BT5TmdKvvnbTGwm2bkQADCLkxMjjEiniv/MxiJlZuph7sUVm9ikZ8fEe113zvuMGrchmnXupLYrreWbkeH56eTP7NCI6F2PF3/klVQOup1Fz77xAJYP2P3EfoFgnDmKl3KhV9Y/ijZfFNryG1D/2Rc6jaffFAkUbq8A16ggzoc2uBtKx3FYamuTNOY5aQMtVKmVfdYJaJNlg7nM7pYhKJqcmZLe0gpY9toefk/HQqpydEo6lRZWQ7Ng/ZRHbH789yBaqmIo8kDna/5v9J0tvN2l+wd5+sDERkk12wk1O42LNyICcH7Lcqd2PjCLpnmXY9qazdDDqvmAltdvqoXC7Eg1g3w+bNPAlxHXsJt8kUR/NsYQVxPIJfzfnNGudJ5bJq66fY7mmh2A6eyHu5xn/MUaFJrQ/B5JE3a5jD+T3TcHFZyWZOEw4A1hlgeKnCR+z+iEo9hMhSmfDrONYlNN3lSbovfCqc0CkrFeCGMVUGkN/6wDU6vE1JE4+oGKitFHESlOP1cRZZwOfOXykbFOcUfgr8C4lHkgeBoV9H7wRl8N/WwF9qyKBEdnticTnbcgFcxS3huY/w+Fc/0K0hlYfcwR3K/kVHcfhfI3whhAGMYux24Kw7a9Me0ZjtyabOy9kjWsdLt8e/TxrfFM7lre9NMwbI6t1rZ5GvHWdFKie5TW3n6WgOeCB0WLDFeJonsdwAlDWEYXoObe7D7boPaSUiEcQd9fxaY77OqZssvnmf+vyDU1nLVyi59xX3rEuxedTXoY+t8Fa0b7VA6GelFqrig47XhWMFTLi1LgqAoLnN4SPIGTczRMhV3npq14RzLkfErJBAWuW+B2TZ44bR63xzF4gqRtQ6RAGjDp2tjojNQYGFvTTPgbz+5RW9v0VuBDuzVB7XckBrqgvr7wEzNSn/VXx7GaewqfkHXmfQGtO3iwFM5Zjxc2Mo4A8I0MA7PBdi8Qt0VK2VKmOx5RFiNUtOG+ZzMLNkBxFWfIXoPzp5G3mg9jXoCNl11tviMSfrhQoUVYI9fn9SPBbnP3VaxxgG7/QNqAuV4B8JUdJhLFBfahKb5qoa9eV9NfZqakzk7tTl70/fPF1c6NRwP3rzFs4uASXjdJwD3jxKubOP7uln1DoPjBJKy5bowpAMQNK9tCM8TJpPrcl/yuUPbBiI/4JFIdbsTwf1v7/vQCYDIUAXWGO8iwMdTTX1J8Y5kChC+mJNhieGs/JRUWHlPxmB5/c8wqq3CtBdwlEES7Z9EqEqY27VVrztRa3Okfj6FnsiO0RHh53xlwoRMaXq7UIOsvDf2T5+2Ba643SqsDBxqtmF5UiTj2SlwuyXD9j/1JKg1HrXiIMngxUzO/jrhgwIvu+c+xHmZUMRymQBynVQh7EZDdHJ4JnhuTRQhzRLaFMiYDkPv3bDiixrlTO1lDH9MrytIWD5z9O/SMZkKY6z5GmT735S/vMreY96EV5TwVzZUFj9UYl86EosRBuvQsXOqJrZqk8fj0a9gSClg4SkZHiVJZupV8ADH3s3Iqi4NXh0mkgIpdDMo92+mKZuQKN5T+TRrVrCigL/M0udXtH1Lr7pOS4vsHZWpoYVj9jpFyaYg3Vs87hxgrL4qBpwTnaFTBo7xPrZJD2thMszdYQfbzWhqoc2T5wcistsR+8hxQfz4pB+NaGT+0VkaIqB+kbjjz22a7ldz8Dzz6JFbnb8iWek2JPBbYr25Bf1kP6iUdYxHdDaei/0HSfm/PI8faxrb8XXL6msgp8/cWfeHPcw8zhw0TdppZdegrwyegjg+MFBK9To/GQwPsdwnnSx5dW6WF8SwOfO8iBm5w+yQdtFV/rHR3/bvW7XYkAoYnJd7RJpDEO8dEKKEC5Z00/RJWojXCoZ7a4K+JIdF1PE3Ms29PTS2tUhYRaAKT7aDNGxeKbyIMUM0y09fi7/Mhkg8oWlNxfV+XV7EbYfVJ2K+B5VDNZ4zSLMVYZLFCgjkbRTi+VPoBEV/vHXQylVuuC8dm90eBqU6woZzBo3UTqrTJMLPOk+XJlhoDWYjQDpYPggzsneOkrv0DA7jGAszDc2Dbxpsz2Zd8gFVy/8Efro05CQOSceSnLprVcjCqMCdASq9+1ryMCrc1sjt+D0Pu+TsNhEvS1ckAUKeBX97ruJI3B9WOkh7Iv1gWAsF6zyZkIYUSYuUn0hoPmdCv9AOod+ped9YCN+auV2L4WgB9O0kcArYQgfQbiEYSr29f/g5CH/TkszY4g99ILnsd602DKuSRsudi2Cn7AQzNUI6esCkivweuUMyTI2DOs0DO8MJDLs+kJ102xwLcFIpaO+x+bnvk1KfrWoXRj5PiZm+Ztoz3/5C2IERFZxNgQ1BiAC5d1c2gEu9SOTok0SSxxAUtzC6bRgvSlmlFJ8kuAtUGfhS9DBPEDEg7/18f/WJiftQL6NNL+TWPtpE2MvYBl0jTBsWue986CfBPkNKRWr5tnaWk5K0E7tir"></tac-chiuso>
   </div>
 </section>
 
-<section class="slide" data-titolo="Due triadi insieme, e la distanza">
+<section class="slide" data-titolo="Sintesi">
   <div class="slide-interna">
-    <h2>Che cosa si sente davvero, quando si sovrappongono</h2>
-
-    <tac-stave clef="treble" time="4/4" caption="Due triadi a distanza di tritono: sei note, e l&rsquo;orecchio le prende come un accordo solo" notes="c/5+e/5+g/5:h f#/5+a#/5+c#/6:h" width="460" tempo="52" play></tac-stave>
-
-    <div class="riquadro studio">
-      <span class="etichetta">La distanza, e come si misura</span>
-      <p>Fra le due fondamentali, in <strong>semitoni</strong>. A distanza di tritono le due triadi non hanno note in comune; a distanza di terza ne hanno una.</p>
-      <p>Meno note in comune, più l&rsquo;accordo suona complesso &mdash; e non più «politonale».</p>
+    <h2>Sintesi</h2>
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Che cosa hanno mostrato i nn.&nbsp;13 e 14</span>
+        <p>Un accordo di sette suoni (fa♭ maggiore sotto, settima su mi♭ sopra; l’insieme 7-32), ribattuto a crome dagli archi come da una percussione; accenti che dalla b.&nbsp;3 contraddicono il 2/4 senza sostituirlo con un altro metro; al n.&nbsp;14 tre strati separati per timbro, registro e ritmo, nei quali il semitono dell’accordo iniziale riappare fra sol e sol♯.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">Che cosa vale per ogni analisi</span>
+        <p>«Politonale» descrive un modo di ascoltare la sovrapposizione degli strati; l’analisi scrive anche l’insieme che ne risulta e dice che cosa tiene separati gli strati. Il ritmo si descrive distinguendo il metro scritto, gli accenti e la pulsazione.</p>
+      </div>
     </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Il libro conferma, e allora perché il nome</span>
-      <p>Perché descrive come è stato <strong>composto</strong>: chi scrive pensa a due triadi, ed è un modo comodo di trovare accordi che non si troverebbero altrimenti.</p>
-      <p>Il nome è utile alla scrittura e fuorviante per l&rsquo;analisi. Le due cose possono coesistere, purché si sappia.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Il 1913, e che cosa vuol dire la data</span>
-      <p>La politonalità dichiarata è degli anni Dieci: <strong>Stravinskij</strong>, <strong>Milhaud</strong>. Nessuno dei due è in questa raccolta.</p>
-      <p>Le slide che li descrivono restano; il suono va cercato altrove.</p>
-    </div>
-
-    <p class="didascalia">Un termine può essere <strong>utile a chi compone</strong> e sbagliato per chi analizza. Non è una contraddizione: i due mestieri hanno bisogno di descrizioni diverse dello stesso oggetto.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il ritmo, e come si scrive un ostinato">
-  <div class="slide-interna">
-    <h2>Costruire due pulsazioni con una figura sola</h2>
-
-    <tac-stave clef="bass" time="4/4" caption="Un ostinato di tre ottavi dentro una battuta di quattro quarti: l&rsquo;accento si sposta a ogni giro" notes="c/3:8 g/2:8 e/3:8 c/3:8 g/2:8 e/3:8 c/3:8 g/2:8" width="500" tempo="88" play></tac-stave>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Al lavoro &middot; 15 minuti</span>
-      <p>Scrivete un ostinato di <strong>tre</strong> ottavi in una battuta di 4/4, per otto battute. Poi contate: dopo quante battute l&rsquo;ostinato ricade sul primo tempo?</p>
-      <p>Tre e otto: il minimo comune multiplo è ventiquattro ottavi, cioè <strong>tre battute</strong>. Il ciclo si chiude lì.</p>
-    </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Il conto, ed è aritmetica</span>
-      <p>Il ciclo si chiude al <strong>minimo comune multiplo</strong> fra la lunghezza dell&rsquo;ostinato e quella della battuta. È l&rsquo;unico calcolo che serve, e determina la forma del passaggio.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Come si usa, in composizione</span>
-      <p>Si sceglie la lunghezza dell&rsquo;ostinato <strong>in base a dove si vuole che il ciclo si chiuda</strong>. Un ciclo di tre battute dà una frase; uno di sette dà una deriva.</p>
-    </div>
-
-    <p class="didascalia">Una scelta compositiva può ridursi a un <strong>calcolo elementare</strong>: qui il minimo comune multiplo decide la lunghezza della frase. Sapere il calcolo dà il controllo su una cosa che altrimenti si trova per tentativi.</p>
+    <p class="didascalia">La lezione si chiude con il solfeggio: si battono le crome del n.&nbsp;13 con gli accenti della soluzione, poi si canta l’ostinato del corno inglese (re♭–si♭–mi♭–si♭) sopra do–mi–sol battuto al pianoforte. Nell’ora seguente lo stesso brano è il soggetto dell’analisi integrale scritta.</p>
   </div>
 </section>
 
@@ -1735,12 +243,12 @@ try { module = undefined; exports = undefined; } catch (e) {}
          style="--segno: url('../../_assets/segni/segno-24.png')">
   <div class="slide-interna">
     <p class="compiti-occhiello">Compiti per la prossima volta</p>
-    <h2>1 &middot; Scritto: Una cellula di cinque, dentro una battuta di otto</h2>
+    <h2>1 &middot; Scritto: Due strati alla maniera del n.&nbsp;14</h2>
     <div class="riquadro compito">
-      <p>Scrivi otto battute in 4/4 con una cellula di <strong>cinque crome</strong> ripetuta senza cambiare, e segna dove il ciclo torna a coincidere con la battuta.</p>
-      <p>Calcola prima di scrivere dopo quante battute si riallinea: fa risparmiare met&agrave; della fatica.</p>
+      <p>Sotto l’ostinato dato scrivi a semicrome uno strato grave di <strong>otto battute</strong> in 2/4: una triade arpeggiata per movimento, scelta fra do maggiore, mi minore, mi maggiore e la minore, mai uguale a quella del movimento precedente; in ogni battuta almeno un suono a un semitono da re♭, si♭ o mi♭. Fra il mi2 e il do4.</p>
+      <p>Sopra ogni movimento scrivi il nome della triade. In una riga: quale semitono dell’accordo degli Auguri ritrovi più spesso.</p>
     </div>
-    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C5-U6-L10-02</strong>.</p>
+    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C5-U6-L10-05</strong>.</p>
   </div>
 </section>
 
@@ -1751,7 +259,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <h2>2 &middot; Solfeggio e 3 &middot; dettato</h2>
     <div class="riquadro compito">
       <span class="etichetta">2 &middot; Solfeggio, dal quaderno di lettura</span>
-      <p><a href="../materiali/solfeggi-classe-5.html#n290"><strong>n.&nbsp;290</strong></a> e <a href="../materiali/solfeggi-classe-5.html#n291"><strong>n.&nbsp;291</strong></a> <em>parlato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-5.html#n292"><strong>n.&nbsp;292</strong></a> e <a href="../materiali/solfeggi-classe-5.html#n293"><strong>n.&nbsp;293</strong></a> <em>cantato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-5.html#n294"><strong>n.&nbsp;294</strong></a> e <a href="../materiali/solfeggi-classe-5.html#n295"><strong>n.&nbsp;295</strong></a> <em>ritmico</em></p>
+      <p><a href="../materiali/solfeggi-classe-5.html#n358"><strong>n.&nbsp;358</strong></a> e <a href="../materiali/solfeggi-classe-5.html#n359"><strong>n.&nbsp;359</strong></a> <em>cantato</em></p>
       <p class="rimando">Ogni pezzo a tempo, senza fermarti: il parlato a nomi, il cantato prendendo il primo suono dalla tastiera, il ritmico battendo la pulsazione.</p>
     </div>
     <div class="riquadro compito dettato-casa" id="C5-D-U06-L10">
@@ -1779,25 +287,25 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Scrivi un contrappunto di <strong>terza specie (quattro note contro una)</strong> sopra il canto fermo, in modo eolio (finale la): otto battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
       <tac-stave caption="Il canto fermo" clef="bass" time="4/4" notes="a/3:w | b/3:w | e/4:w | d/4:w | c/4:w | d/4:w | b/3:w | a/3:w" tempo="72" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C5-CP-U06-L10</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="BQCFbrUL3rbPSRJpcYpFhw==" iv="I1vkRq4dqOcZ/luN" dati="ien8VvT/FZFJpkoZA1miSpgo032x6PzNOfbayL248c0fIz2AuF48Usp4FUv+Mq022ALSVDv23lHORruhA9HVzl5sp8IqR94C06mZCvEgZgGWs13mZOWK33mbYVnZhaPcbz6rvAGlrbMveN+Er/8e6reelql+co7Pg6iE0cbBGjveVei9pJDS1Jmky+vIdpeGekU9NidNxIFUkDTFMgR8vZs+fFHxVmw5H4oXHUm+Ws+FMdw2xlbwXXcpEHDPD0CeKv5NcxljH2vxZ0EBgT2F0SZu4HIcLUcwYDc/X2MUoXG9S23ABHSmRZ/89JJHiJHxOHdw7vnB5gKNrqJxKNYP5EtXX3CRqohlMpzPQV+D+BYqGbIbmPl1HmKgd5MGPT/n21Fi7AoERCq4Ja4aHgXJ+exd0T6ymQu8lrjlmI7EV1veG32NjLjkQqsHrK0VN5fKWGCraUR4tU93A6Mz0LdaP7h8/hTjT4OhvAO8T5IOE3ixXTBq6fECbP2GluUwf9rhwCE="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="3OpN8wRBjCexA20EnokuPA==" iv="BqR7WmibF/0dv0oo" dati="FA/1TodPEhUq8C0us6+swdNGwmML6RuctnqUEN6abeoAp+FBYzoNB+oCKzebKPsG8vXzXY0oZwVfgXWVXTsWOlPl7ZFP2Y+dnvSO69ymvCtFLMFLzMf2i4cc8GcBA2XPAeCXvecWcwA4Oofj8bc1a3luncm7C49fcNV0jE+i6YphTwUrkrzU9T6pUw4h3cExyF4O9n+HwBcP1/cO02lT0TjVGqiycepFafqd3d/yDtZZWuzpFc+ap84Z+y0uqwJ34/Mxye9ArjbI1qTiuQ/GRiP6wSulcmK4SJI6DsMPdJ1WWoezpZ+lDKZgDiifMHwzfLRw4+SnNl7riq3sknNc4v2aIGFpFCbcgRzg+1NrDOiW0wNCc4wgTbryN1ESL3LT9YCxHosYdqyPg03hcnGJSZMh6J2wX1Yl8VTT7OFlgOCxXBYmFSTdKo0fWLNu4AViKU4K+2d+1aki+w8CwGnXJUkwEwHGyJc44rdXNz6xkhGgRazwom9ZQgieJqVX/x+67E4="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C5-BD-U06-L10">
       <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C5-BD-U06-L10</span></span>
       <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: sedici battute in 4/4, do maggiore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: tutto quello studiato, e una modulazione a un tono vicino.</p>
       <tac-stave caption="Il basso" clef="bass" keysig="C" time="4/4" notes="c/3:h f/3:h | d/3:h d/3:h | c/3:h d/3:h | g/3:h a/3:h | f/3:h g/3:h | f/3:h e/3:h | c#/3:w | d/3:h f/3:h | e/3:h d/3:h | g/2:w | a/2:h d/3:h | g/3:h c/3:h | f/3:w | d/3:h c/3:h | d/3:h g/3:h | c/4:w" tempo="60" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C5-BD-U06-L10</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="nXE98hHU+ndRRC96VJXDxA==" iv="6cZd3EI9TUJjVWmn" dati="oHBK0H84ERIMSBx2xfAbZrNX3XaB7FrZb0MSy/70BLFFZj0tOuVXVVqZdrrR82gzXfZDtUT5AGGyCVdBMynv/kCYr//YvloVPK5dUZGPb0SPKJXBdpcPIm8dcUWSjrzy72x8eKC73hdY6Ae5E1obMw6cEmOeYYIXrXp7jrItfxXTwkGdJzWqF2rC57lQTG75Gd+LSuT1UxMld/GvwfVh/fZvBZ9h0KHrWBoot5gkUA29LLoOXlbYZeTyws5nWP7a4NK8SiV6DcYswDMYJsJZQ/3aZe2xPvp+7WxM1Mv5oQHukPOwm8aEoQrnEHBcbnL7sdOibmmnQWpxTiRwZ/UTAmKxrqaS70yB4OBarU0TdG5/CHC79eg/JD3WTXH7IV+5PvY3bzMZJ82po0vtICRUsJdwq2CNAsggOmIuW088RTuhYyLNxb2lJSpymm77yw4yCU73mJZVxLFHo3CcVQp0BmKJDpirVAQEDjoayl3RvhYAofuV6bLoXjXREONiZ9sEl1thrRXjcv7tReWIAxV00L4PzyMnzhMSJXTQRaZl7DJz8Vec7GiF45YseZHWEtDTfWGDzw13ZtP5D2HhyJTfZ8UkZV7BBLCDzwOXAh2Yb3RKtXOcI63EGo18BxippL/hcFnTUfZjbD41SHTb/IMbLQWCvT9dH5wPpYKCKO8j6G4VjrtDrv41Y3hhSWnIsDy1nDNmPuk8OiI5lpvJNGoOaR57ogg0ALrAxsofeITgQrxkPiIRUo2Qda/wUd3BIEyzvD7QrSlraEvXBgP5Sd2l23g1CVoMHSIjcycadJfrKZ7VjUihg16mhND6W/1akKztaXP/W0R2aphLM1VcEfu9dtqN1kH848iOlONdHACR+GiWeHJmQqKhoMHn5coyt2CpZtZ0xTBB9+1UPO9qMr0/7mH1O9n6JU6B3aALiCEEySA+4WabdlhvGGTEz9jc8WjMJS4pPv1sWxm7fpDW19MsC8GwpiZDSSrA/VUKPqDJ5IkdtyxOwPJDMtwdAJjR+8L7n45INqT2+XNkazUkg0vTv4ko9gBb5mzAbwNN6S6m3B8/XAWNx3F1wqwuZfCAsAIIa2fwi7UnxbvfVoAEGFlyg+cU6KAleweEHkQiYKlulZhB1KFj9Ybx00logR3a40Ed/gxEuCQE98QDo3vmwErhR+epRznjF1N6/bccEhxtJ6XWzz20BfueFKHtfeLHXJ6tNfaybEBuXD7W74xrXkdrSXDG28STWJgnoKl4v2+RasIFO8stlgdzmS6nyyPkJEfwML66iHkNXQnBHUkTiyfkGRd5cphCjvfRwRvH5vsdMreGw2ZGX/UJ+oobMyF9JjzeeAkHWvuStMMrHw24KRR9GsTWkrw2luSGnQr7itncS+sJInDof2U4oAWEh3RUujmlRl7IoWy/N2irULc2IYRJLwyt0qXqHYByGBc5PuX2vf/LE4Y4eqVHFjKKtXVi1DCbyMkyzfdTq6XHAuRsdl4z10QAcfdKsyMVdDfF6GA1IbZQf5mVvmLTjPkx8kRc"></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="mmap0N6anue/hINBXMlCTA==" iv="0CpmRtjXLqTH3tpu" dati="FR1j7Hq0kCUwh1WQwMXTsGJVl8UClM+CY1aE6qDykfzQ9hRP+Jvmu6ekhLQs5Lj+LYdeK0z2XdJ+wbcE3A7q6kw8sYjOuAaLxcNP8sLtW6AtFfw0wYRXBnuHOGsDnbsaK528J733DUGipz/7Nrj19d0BjwO9C5FI9+3zHDGoe4RHn45uJ3ms3ehg8tnmL4yvF6m2pXIqCZsxlRBNxcNZGOUj4dcT6w+3Ifgvf8OxGlyJdl3qJiEldfFSMo1BSMl+VWWuJQaAzCodtJpclQSKCS8VbbqpYx1+iXX8RWhKFQS4I8oYFGF+MiJjLard05lIuFsL5mjC4oNYT+Z2g+JEHJ7A4VPOTESSTE0Z5tP8MeapJvCgO6lqliJM+gNViplehrws1j+DgjPDqZAXRLetIRlfxP4wJlg37ADpT9BzZetusCZkxHFInCZT8l33ieNv/uZuLXZOwMDn7jzbcMMnz5GJt8XSLWdX6/cxKwSm3XEoPYvxeXjjdYTegtQfhWurVBYl5Bf0arGbHL2RUCGa767nnJP/7dNJ109ej6XB1GQb1BwM6bm3bfgAD45cDZIDvnGMSLK7fKUxBiC96oiY0AZrBPI84nobpUc6vk3Qhqy0nXl28hNqK3XjTdDbKLbDCeVu+jwM8az15JQiQY1qiOnEiNSz5Ld10jlQ2XAM4pduWZbWuzJkaBbPG8PJaiBHrFH3+7+QDEVMYV/RNuzdTZhOhNI7hJ5L7yAppT2bPqlro/XnkooFuthn2Kfc1kdCErAsIGbiElqN/GWWcScaBLYVVcnGbgvCB2wprzOM01syMsTxO3+UDi9HLWK5LDiK6PbqIcuuSpCpTmEI2MIA3UCQE4wETNMNlxGJ6A9Pqa02agtslbyrVG91FI+uVT99PDjWG6ObwGVkOF2XI8Y0gWOk8A19W0fhKvhlBCqYzQcrp4VrILFYp0aOoeOB4x7Ul8S69DrRorAclE2Ki7/st3F72z9bscUjRfbyfCkA5WvGLGeRuELvmLFtqAMwASKsomJqgcAOnBCHPvDN2eYZn9wSJL9dm+Ch0tl4zoJOhooIoCnUTdGW5PG8Gwoin0NOGSi/DJOEV/n/G2UrZPTuo7EFtsL4+zq9kZdBGWZrqD3JO4JxY60jd4anMv8KIR8wGi5xCd3AUUqNl80SqvdtCRcyF360BaE8b6StfEi8tklamvdRE3pHCd/fc1bTPweY2ScDw6iUFhtzIQ0kGmJEZVrBcHxIrJgE6F7Pf1p/fWxdog5dCk5gAmRjqW3I+11YEAkqBfC83MlCgXnFk+WmbOIMvnDkmwFZuPUxyUkCTpJlLlZXO3vh4gcqQF+sLP9hOe70ZqmIOoZDeEYKl97c5nrb3KJrFSDBlRRISyQMI0ZTu+EHZkgdzOknpwgaNNbjS7/5BqgAtJ2cn7Ve8sjz4ieTiVrQ25cWDsJaZsUnyJishnPxvMGaUKwqrlszKu+0MNS6vV5f/BP2oPHgGmKE8m9XtFyJ18rPcQ+anqNhNgKbHNz4EVn/sxmtfX2K"></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C5-CD-U06-L10">
       <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C5-CD-U06-L10</span></span>
       <p>Armonizza a quattro parti il <strong>canto dato</strong>: sedici battute in 4/4, do maggiore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: tutto quello studiato, e una modulazione a un tono vicino.</p>
       <tac-stave caption="Il canto dato" clef="treble" keysig="C" time="4/4" notes="c/5:h a/4:h | b/4:h c/5:h | d/5:h d/5:h | e/5:h d/5:h | d/5:h f/5:h | e/5:h g#/4:h | a/4:h c/5:h | d/5:h d/5:h | c/5:w | a/4:w | d/5:h c/5:h | c/5:w | b/4:w | c/5:h f/5:h | e/5:h d/5:h | c/5:w" tempo="66" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C5-CD-U06-L10</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="6MJVFWVeodLqVdcbroP6BA==" iv="NdJsIch0VZ37Nip/" dati="2b+1RzRKY1eJrU5CMUFSbhOikpaM/Bo64j6aqhRnJtxlxujpUP6c8cNn0CPPEyBl3ZBOUAtAXvmIaVrpTOFhfekOIrO3hPZuqi3WKiXGZy8goOe7dS4rbi1t2b03mA6W4yD8gTXfimui6mc9W0x6o9J0N+DGvMUMKONXPoE96E7VaeEJh2cCvCCaPzsOd5+YEeDtIpVH3wbTs6Rf8/HAm+nkcIvLAoentJ3xYxd8qAUso73gAE0D/BRvAeDyVJX6/b5gRY1QMmlUJDlxEC0De+4gvdaWRrpxqoSxGZCs5JYALmGO6zwWrNx0YTh+HRSSt+2WwdLmjTbQy0+8+Dw4xPt92+R5352nYWj1mNpRyRdBa3v+eiJOkbm48CTTS79z6rhHVU+xvvbOPV10/E28qLwYMDHpvT9/GPPOWcpKibRnYxUVH5W+1Z1a6OAj7bzaikKv4UDj4RdCaIZd2nMSxBakZss8V/upZCxacOL3lffrlvrc07PeuZ+oTiXB7gwhNKw7tSlrk386sfz8hpoOPa62cdXSN422/nY5TbFK9nnyLjEgHKsTpfDbknBa96jKhsECo9CyAaiaFYQGnEGbSzHCQZzV6d38RorhXfB0ARkVQEX3PhjF16yCh1MWaPy/SkFSPHgy9ZYwdiP4LO5jeCLoCXMjIPT2Orn5UWwxzThOvBKd/o7oFdI0k+MItIgYr/NK8abc4hRqCeVfenQxhdArIR3bWB+6X/JG7WhIx/OtcWbY0dORVXBtVifcntFraS5mDdROm/eLjbec3+A/Ffq5YNMyInSsL5eSW9A43hXRqC/WBD8zU+riMH59+YcFAHmZlfoGFhVVn3T6F5LOrlynJpUWLdMaFypBVqMjjlwPwi54aJgQL3jI84ZGPkljaM1/XopD6KU5qONyRJq2hOGDnqESfygQqmthn4fM6MtNqJQXolFY9CDqnsy75zx0OL+Shga2A2Yc1fZcaeKXbtf8XSfJ79fHhy+OPGpbKFb3YCQRTZIiEPL+zSpq4izIN5UB0epXMOhi0ESHi7denAKLKLZ7iDmLs/82flSHT51uOfEtCGSvv++UnykAB4Go57KecjRUsGxhL1NrQWMxCLb9s3So49SfG8at8Eaesxq36wPw8gjluhHJc+lqtpUU9dpNTTSntryxEP5y3NKAn+vJwmG+2kbjlKHMFJWBNeGLcR3h+MKKCPrQeoVE2ki4ThgW2UQNBZP3cAIrBkoXUvodjRx+eSXNd2b/rIFYH69VA46E3DTj7SR3ZtE1lUWrHcQdak/vzRndBSlWrGBqVV75IDQD3BxfBOMkMVtCVQyd9d1lXGr8ARbNZ1+R0Nx2WtiFbFvNA+I3H12Fah88X5mioaqN9BKJP5auY+cUxw/ymUcPP84ilPNC6jrhDMHVVAlxmWofHW3ihx/EZPn+L/H9pirIKRVoZphcXj05JN4Pis9Qpq84CMgsdAvLBeejr3LsN0uN"></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="FYl35LHxN8rdQm9xHyaoWw==" iv="Zqn3xnzPojK944a4" dati="0fJJBRQoo55MoVSkYUmMrvo4Kfx1H1llZmtpotG/c1VhEaRZUx8xBjD2t9C5Q+E76xUDgxf8dVU3DfKQ7WFuAEqCxHZcUKdE5jVkG4lfDcwN0VyqRQterEmiB8utETITeFeRnch6EvkOkxHKlq18qDQ2TKamHQucPlrBR1JyspWKoF//sx4anNmpICm07hpliq2tF8mybZW3aYrghFwaN3NaLjB+zUwOZpi2bcCscQM8jNKdYN4buucK9zYEuZncZ/jjJaEg007udQqorH7X9yPpb6yNm4JtTSA00sWcNA9uBbeVvXRmvmYECzLZ0bIMC0ljhXHaQ9SZJm0LE1Yhfh+Lbp6fPiPIFbH0hFD9+nMAq/KOgYcRraXj6ldYwpdapbJuaYQW6cktjkWpV6hxpvHSDFeXeAWM0rXhZKpMg6J2KO9u9TP0LviI+rUfqu1CvchK56CijnwyE4DaMMsxvpGJ6+C7nCyDzwmGerBwGHEKQeXpqNXNQWgM8zWg8YNIVuFKy0HeD8LET/kI/1Oou/RvrcurVpwj+tQRevV3UBsGDrc1wuEQ4s4vBUtRdG/4Kwnthdzg4WXu8woXAZykoPZSOJqTmlW8sA35zBkZYvBMIhh9h56Ca9+MVRBRRdcjhkcai79SLHlxQp88+Gv8G0xTWMN6TrTOQY7l4rm+tEI58E3846V3+/ZR1l4l07YGgCXEmng2XfcyRm0kgGoMNSnnxN83pQ25kI3vaxPG3ScQx55PiD/HzMmsxIAs05PYts+MGGzoo+xfsjkEIjZvPDpO782w76cqdu6vTF56c0FTdvvzE/ZpRZ4P8YTOXbWZ+Wcd/gDlUIq/uYCwtgRqLJl4gqrH17jN3kLDAq5j+3v+M+nG2bEf0HftDWA44CrHWu0WYAKTxFdeX5d8wM8N2+VAlnvKa0+1jdYzOJb4JofOSt4GdJsp7YwYlCSQQkisDk6rtGxdV7Z2EWPnkDV0pzGf7Xb/3gIIFvNu9OYW/+nnDfl4R7MBtZwddFbMrKdQD3Ic0N1tQDT0rlXjSgyVXhkOinjX31q10SFoxsyCNwucsI2wqadWBq+owOPBwWlMA/rm2JH5HMvNzkkv9XpbprV6wyxORzdDzZd6fOIkUl/SejZb2ds4LHQJNVkc0apdQUyMEzrwOsGLbfq1zQZzlS71hjKRycwM0k0VdcByvCc5y59bz0L0niS5M91rZ9d/QA7sAjrAB9Uv4DOXcA4D5tcUVo21L77KafE6cnVkVozvlntt0Gqz4y8VVVCfjO4xDoYRJv5zR8t3nUFQDwhQg6D9uAZURQd3pNaXfG7TsKI+xXvLFU7LEIFR3uczGX7AxkTTbQegZAchp4BLDFJcEUkj0LWL5tDRYcJu38Pa7ztDLHyTe3IE8cykaSUFz4LVZ0yAImtfwHH7mNmfF1NEhgwkinmhXXauP6TZIiOStyBsTGbBmcQXhI6nbUG+u+jq7NRVtsVX"></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Una cellula di cinque, dentro una battuta di otto (Workbook, esercizio C5-U6-L10-02), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 290, 291; cantato n. 292, 293; ritmico n. 294, 295 (a tempo, senza fermarsi). Dettato C5-D-U06-L10 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di terza specie sul canto fermo (C5-CP-U06-L10). Basso senza numeri da realizzare a quattro parti (C5-BD-U06-L10). Canto dato da armonizzare a quattro parti (C5-CD-U06-L10).</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Due strati alla maniera del n. 14 (Workbook, esercizio C5-U6-L10-05), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: cantato n. 358, 359 (a tempo, senza fermarsi). Dettato C5-D-U06-L10 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di terza specie sul canto fermo (C5-CP-U06-L10). Basso senza numeri da realizzare a quattro parti (C5-BD-U06-L10). Canto dato da armonizzare a quattro parti (C5-CD-U06-L10).</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>
@@ -1821,42 +329,16 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide esercizio insieme-slide" data-titolo="In classe · parlato">
-  <div class="slide-interna">
-    <p class="compiti-occhiello">In classe</p>
-    <h2>Leggiamo insieme: parlato</h2>
-    <p>A nomi, a tempo, con la mano che batte. Chi si ferma riparte dalla battuta dopo.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-5.html#n286">Apri il n.&nbsp;286 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di contralto &middot; 2/2 &middot; re bemolle maggiore</span></p>
-  </div>
-</section>
-
 <section class="slide esercizio insieme-slide" data-titolo="In classe · cantato">
   <div class="slide-interna">
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: cantato</h2>
     <p>Si prende il tono dalla tastiera, si canta insieme; poi a gruppi.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-5.html#n287">Apri il n.&nbsp;287 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 6/8 &middot; la minore</span></p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-5.html#n288">Apri il n.&nbsp;288 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 6/8 &middot; re maggiore</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-5.html#n356">Apri il n.&nbsp;356 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 4/4 &middot; re maggiore</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-5.html#n357">Apri il n.&nbsp;357 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 4/4 &middot; fa maggiore</span></p>
   </div>
 </section>
 
-<section class="slide esercizio insieme-slide" data-titolo="In classe · ritmico">
-  <div class="slide-interna">
-    <p class="compiti-occhiello">In classe</p>
-    <h2>Leggiamo insieme: ritmico</h2>
-    <p>Tutti insieme, battendo la pulsazione. Poi a file, due battute a testa.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-5.html#n289">Apri il n.&nbsp;289 nel quaderno di lettura &#8599;</a> <span class="rimando">12/8</span></p>
-  </div>
-</section>
-
-<section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
-  <div class="slide-interna">
-    <p class="compiti-occhiello">In classe</p>
-    <h2>Scriviamo adesso: I tre separatori</h2>
-    <p>Elenca i tre mezzi che tengono separati due strati sovrapposti, e per ciascuno scrivi che cosa succede se lo togli.</p>
-    <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna.</p>
-  </div>
-</section>
 
 
 </div>

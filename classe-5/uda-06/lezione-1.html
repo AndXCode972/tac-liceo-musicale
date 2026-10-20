@@ -49,329 +49,346 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 <!-- ══════════════════════════════════════════════════════════════════
      LEZIONE 1 · Analisi integrale scritta: Chopin, una mazurka e i suoi alterati
-     Unità 6, ora 34 di 90 · classe 5ª · analisi · ora intera
+     Unità 6, ora 34 di 90 · classe 5ª · analisi · ORA INTERA (50') ·
+     lunedì 7/12/2026, 2ª ora del blocco del lunedì (la 1ª è U5 L4, la
+     restituzione della V2 e il Mikrokosmos). Nessuna coda di orali
+     (interrogazioni.code_di(5, 6): la prima coda dell'unità è all'ora 38).
 
-     (Piano vecchio: era un'ora breve di venti minuti con coda di orale;
-     dal 13/10 è intera, e nel piano nuovo non ospita code.)
-
-     ══ IL BRANO NON È STATO SCELTO: È L'UNICO ══
-     Nel corpus di music21 c'è una sola opera di Chopin, la Mazurka
-     op. 6 n. 2 — do♯ minore, 75 battute, 3/4. Va detto in classe
-     invece di far credere a una selezione fra molte: è una condizione
-     del materiale, e dichiararla insegna qualcosa sul metodo.
-
-     ══ I NUMERI SONO MISURATI ══
-     `03_Materiali/_repertorio/spartiti/alterati_chopin.py`.
-
-     Tre accordi di SESTA FRANCESE — Mi Sol♯ La♯ Do𝄪 — alle bb. 19,
-     20 e 23. Il programma li trova cercando una sesta aumentata fra il
-     basso e una parte superiore, e poi verifica la risoluzione.
-
-     ⚠ E LA RISOLUZIONE CANONICA NON C'È. Il contesto misurato:
-
-         Mi Sol♯ La♯ Do𝄪 → Mi Sol♯ La♯ La♯ → Re♯ Fa𝄪 La♯ Do♯ → Sol♯
-
-     Il Do𝄪 NON sale a Re♯: la voce che lo porta scende al La♯ dentro
-     la stessa battuta. È una figurazione melodica. Il basso invece
-     scende di semitono, e l'accordo risolve sulla dominante della
-     dominante.
-
-     ⚠ LA SLIDE DEVE DIRE QUESTO, NON LA VERSIONE DA MANUALE. Sarebbe
-     comodo scrivere «ecco una sesta aumentata che risolve all'ottava»,
-     e sarebbe falso: il programma l'ha cercata e non l'ha trovata.
-
-     È la SECONDA VOLTA IN DUE UNITÀ che un pezzo vero non fa quello
-     che dice il libro, dopo lo Schubert dell'ora 18. Vale la pena
-     farlo notare: non è sfortuna, è come stanno le cose.
+     16/10/2026 · RISCRITTURA (20/10/2026) sul titolo nuovo dell'ora. Il
+     file era la lezione del piano vecchio (U4 L5, ora 25, «Chopin non
+     legge il manuale»), copiata qui il 16/10 con i soli rimandi aggiornati
+     (backup sul computer: .prima-dei-rimandi-nuovi, .prima-della-quinta-
+     novecento). Che cosa è cambiato:
+     · la lezione è ora un'ANALISI INTEGRALE SCRITTA, come U5 L4: il testo
+       modello è distribuito nelle slide dei quattro piani, con la tabella
+       della forma; la vecchia lezione analizzava solo le bb. 17–24;
+     · tolti la «misura del programma», il «brano non scelto» e i doppi
+       diesis contati: erano espedienti narrativi, e due dati erano errati
+       (le battute sono 72, non 75; alla b. 14 non c'è una «nona antica»
+       che risolve sopra lo stesso basso, ma una nona minore completa, con
+       il trillo, che passa al V7 della b. 15);
+     · tolto l'esercizio «la sesta francese due volte» (era a quattro
+       parti con il basso dato, scritto in un rigo solo con i bicordi):
+       la scrittura sulle seste eccedenti è la lezione 2; resta come
+       compito per casa un basso di otto battute sulla stessa idea
+       (C5-U6-L1-05, nuovo; i tre compiti vecchi C5-U6-L1-01…03, venuti
+       da U4 L7, si tolgono), risolto e controllato;
+     · le trascrizioni sono nuove, su due righi: bb. 1–8 (riduzione a
+       quattro voci), 9–16, 17–24, 33–36, 41–44.
+     Fonti delle trascrizioni: codifica Humdrum di C. S. Sapp dell'edizione
+     Mikuli (Schirmer 1894–1898), corpus di music21 (chopin/mazurka06-2),
+     letta battuta per battuta con uno script; confronto a vista con
+     l'edizione Kullak del catalogo (scansioni/A16_..._kullak, lastra
+     S. 7292), da cui vengono le indicazioni dinamiche e agogiche.
+     Fonti del testo: E. Surian, Manuale di storia della musica, vol. III,
+     pp. 112–113; D. D'Urso, C. Bertolini, Il linguaggio della musica,
+     5° anno, pp. 52–54, 60–61, 270; D. D'Urso, Il linguaggio della
+     musica, 4° anno, pp. 132–135.
+     Ascolto: A16 (Rubinstein), nella pagina.
+     Tempi: 2' copertina · 3' la prova di tipo A · 5' l'ascolto,
+     l'intestazione, la tesi · 7' la scheda, da soli · 22' la correzione
+     sui quattro piani (nove slide che si scorrono: la prosa resta da
+     rileggere a casa) · 8' il paragrafo sulle bb. 25–32, da soli · 3'
+     sintesi; poi il solfeggio del montaggio.
      ══════════════════════════════════════════════════════════════════ -->
-<!-- 16/10/2026 · rimandi al piano nuovo della quinta (Novecento).
-     Fino al 15/10 era la lezione 5 dell'unità 4 del piano vecchio (ora 25).
-     Nel piano nuovo è U6 L1, ora 34: apre l'unità sul tardo Ottocento dopo
-     la V3 (U5); la Mazurka op. 6 n. 2 è già stata ascoltata in U1 L1 e U2 L1
-     (alterazioni senza modulazione); la segue U6 L2 (un basso con napoletana
-     e seste eccedenti). Le note del 13/10 qui sotto parlano del piano
-     vecchio («la prossima ora è la V2», «ora 22»). Cambiato: testata; cit.
-     «La regola dell'ora 21» (che nel piano nuovo è U6 L4, DOPO questa
-     lezione) → «Regola di lettura degli accordi alterati»; «verrà con
-     l'unità 10» → B3 già indicata in U4; «la scheda dell'ora 4» → U1 L4
-     (coincide); tolto il confronto con «lo Schubert dell'ora 18»; «le regole
-     dell'ora 23» → libro A23; titolo e prime frasi in prima persona resi
-     impersonali; aggiunto che la mazurka è già nota da U1–U2; «Che cosa
-     portiamo a casa» → «Sintesi»; la riga finale annuncia U6 L2 invece della
-     V2 «cumulativa». ⚠ Da vedere: il titolo nuovo dice «Analisi integrale
-     scritta», ma la lezione non contiene il testo modello dell'analisi
-     (come U3 L1); il rigo «La risoluzione che non c'è» ha quattro accordi in
-     una chiave sola. Backup: .prima-dei-rimandi-nuovi. -->
-
-<!-- ══════════════════════════════════════════════════════════════════
-     LEZIONE 7 · Analisi integrale: gli alterati in una mazurka di Chopin
-     Unità 4, ora 25 · classe 5ª · analisi
-
-     Rivista il 2 ottobre 2026 (documento 43): il brano è la Mazurka
-     op. 6 n. 2 (A16), quello che il programma ha trovato (non il Preludio
-     op. 28 n. 4 previsto nel piano); aggiunto il lavoro sui quattro piani.
-     ══════════════════════════════════════════════════════════════════ -->
-
-<!-- 13/10/2026 · taratura sull'ora vera. La coda di solfeggio non c'è più:
-     l'ora del 23/11 è intera, copertina da «20 min» a «1 ora». Aggiunti:
-     un'analisi guidata sulle bb. 17–20 dalla partitura (che cosa fanno i
-     doppi diesis, battuta per battuta; 5'); otto battute in la minore con la
-     sesta francese due volte, come il manuale (fa–la–si–re♯ → mi) e come
-     Chopin (do–mi–fa♯–la♯, il la♯ che scende e il basso che scende di
-     semitono sulla dominante della dominante), su basso dato (10',
-     soluzione verificata in tac-chiuso); correzione e canto (5'). La scheda
-     dei quattro piani da 25' a 18'. Corretti: il testo del piano 4 in «Al
-     lavoro» era corrotto (tre versioni incollate dentro «perch&eacute;»):
-     ripristinata la domanda; in «La seconda lettura» due righi con otto
-     tempi in una battuta, e il secondo («gli stessi suoni scritti al
-     contrario») non aveva gli stessi suoni (ora sol♭ → fa → mi); «ogni fa𝄪
-     annuncia una dominante della dominante» è falso alle bb. 17–18, 21–22,
-     41, 43 (nota di volta o di passaggio): detto com'è; dominanti secondarie
-     dalla quarta, non dalla terza; la prossima ora è la V2, non «riconoscerli
-     a colpo d'occhio» (era l'ora 22). Minuti: attività 25 → 38, ora intera
-     ~53'. -->
 
 <section class="slide attiva copertina foto" data-titolo="Copertina"
-         style="--foto: url('../../_assets/copertine/c5u4-lezione-5.jpg?v=6f5ae4ea');
+         style="--foto: url('../../_assets/copertine/c5u6-lezione-1.jpg?v=bbe9fc23');
                 --cop-a:#3b0764; --cop-b:#7e22ce; --cop-c:#e9d5ff">
   <div class="slide-interna">
-    <div class="occhiello">Il tardo Ottocento e la fine della tonalità &middot; UdA 6 &middot; Lezione 1 di 15</div>
-    <h1>Chopin non legge il manuale</h1>
-    <p class="sottotitolo">Tre seste francesi, misurate. E nessuna delle tre risolve come dovrebbe &mdash; il che le rende pi&ugrave; interessanti, non meno.</p>
-
+    <div class="occhiello">Il tardo Ottocento e la fine della tonalit&agrave; &middot; UdA 6 &middot; Lezione 1 di 15</div>
+    <h1>Una mazurka sulla dominante</h1>
+    <p class="sottotitolo">L&rsquo;analisi integrale della Mazurka op.&nbsp;6 n.&nbsp;2 di Chopin: un bordone di dominante che tiene sospesa la tonalit&agrave;, una danza che la afferma ogni otto battute, e gli accordi alterati che lavorano per la dominante.</p>
     <blockquote class="aforisma">
-      <p>Un accordo &egrave; quello che fa, non quello che sembra.</p>
-      <cite>Regola di lettura degli accordi alterati</cite>
+      <p>Pur evitando quasi sempre le citazioni testuali di melodie popolari, Chopin trasfer&igrave; nelle sue Mazurke [&hellip;] molti tratti stilistici della danza polacca, per&ograve; stilizzandoli al massimo mediante un processo elaborativo estremamente raffinato.</p>
+      <cite>E. Surian, <em>Manuale di storia della musica</em>, vol.&nbsp;III, p.&nbsp;112</cite>
     </blockquote>
-
     <div class="meta-copertina">
       <span>1 ora</span>
-      <span>Analisi</span>
-      <span>Mazurka op. 6 n. 2</span>
+      <span>Analisi integrale</span>
+      <span>Mazurka op.&nbsp;6 n.&nbsp;2</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Il brano, e come &egrave; stato scelto">
+<section class="slide" data-titolo="La prova di tipo A">
   <div class="slide-interna">
-    <h2>Il brano non &egrave; stato scelto: &egrave; l&rsquo;unico</h2>
-
-    <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
-         «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 5&deg; anno; pagine dall'indice rilevato. -->
+    <h2>L&rsquo;analisi integrale scritta di un brano tonale dell&rsquo;Ottocento</h2>
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
-      <p><span class="lez">A4</span><strong>Altre armonie dissonanti</strong>, pp. 52&ndash;61</p>
-      <p>Sezione A, unit&agrave; 4, lezione A23, per riconoscere le seste aumentate della mazurka. L&rsquo;analisi di un preludio di Chopin che il libro svolge (B15) sta nell&rsquo;unit&agrave; B3, gi&agrave; indicata nell&rsquo;unit&agrave; 4 (lezioni 3 e 4).</p>
+      <p><span class="lez">A4</span><strong>Altre armonie dissonanti</strong>: la nona di dominante, pp.&nbsp;52&ndash;54; gli accordi alterati e l&rsquo;alterazione del V, pp.&nbsp;60&ndash;61 &middot; <span class="lez">C</span>la seconda prova, p.&nbsp;270 &middot; D. D&rsquo;Urso, C. Bertolini, <em>Il linguaggio della musica</em>, 5&deg;&nbsp;anno (Mondadori Education 2022). Le seste aumentate sono nel volume del 4&deg;&nbsp;anno, lezione 51, pp.&nbsp;132&ndash;135.</p>
     </div>
+    <div class="riquadro definizione">
+      <span class="etichetta">Le regole della scrittura analitica, per un brano tonale</span>
+      <p><strong>1.</strong> Ogni accordo si nomina con il grado, la specie e lo stato (V&#8310;&#8325;, settima di dominante in primo rivolto), e il grado si riferisce al tono in cui l&rsquo;accordo funziona: un accordo che tonicizza un grado si scrive come dominante di quel grado (V&#8310;&#8325;/V). <strong>2.</strong> Una nota alterata si nomina con la sua funzione: sensibile di un grado, nota di volta, nota di passaggio cromatica, nota dell&rsquo;accordo alterato. <strong>3.</strong> Prima il dato con la battuta, poi l&rsquo;interpretazione; se due letture sono possibili, si scrivono tutte e due con la ragione di ciascuna. <strong>4.</strong> Le indicazioni dell&rsquo;autore in corsivo, come stampate, con l&rsquo;edizione da cui si cita.</p>
+    </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">L&rsquo;errore tipico</span>
+      <p>Chiamare &laquo;alterato&raquo; ogni accordo che contiene un diesis in pi&ugrave;. In do&#9839; minore il si&#9839; &egrave; la sensibile, il fa𝄪 la sensibile della dominante, il la&#9839; il sesto grado alzato: sono note di accordi diatonici o di dominanti secondarie. Accordo alterato, nel senso del libro di testo, &egrave; quello che non appartiene a nessuna specie di triade o di settima del sistema, come la sesta eccedente o la settima di dominante con la quinta abbassata (D&rsquo;Urso, Bertolini, pp.&nbsp;60&ndash;61).</p>
+    </div>
+  </div>
+</section>
 
-    <p>Nella raccolta di partiture digitali usata per queste analisi c&rsquo;&egrave; <strong>una sola opera di Chopin</strong>, ed &egrave; questa mazurka, gi&agrave; ascoltata nelle unit&agrave; 1 e 2 come caso di alterazioni che non portano a una modulazione. Qui se ne analizzano gli accordi alterati.</p>
-
-    <tac-brano organico="tastiera" titolo="F. Chopin, Mazurka op. 6 n. 2, le battute alterate"
-               segna="b19=qui il primo accordo alterato &middot; b20=e subito il secondo &middot; b23=e il terzo, uguale ai primi due"
-               metronomo youtube="vt_xIKmnk4I" esecutore="Arthur Rubinstein, pianoforte" partitura="../../_assets/spartiti/A16_chopin-mazurka.png" inciso="../../_assets/incisioni/A16_chopin_mazurka.mp3" mappa='{"durata":13583,"eventi":[[0,0],[1,1364],[2,2727],[3,4091],[4,5455],[5,6818],[6,8182],[7,9545]]}' da-battuta="17">
+<section class="slide perc" data-titolo="L’ascolto e l’intestazione" data-in-classe>
+  <div class="slide-interna">
+    <h2>L&rsquo;ascolto, l&rsquo;intestazione, la tesi</h2>
+    <tac-brano organico="pianoforte" titolo="F. Chopin, Mazurka in do&#9839; minore op.&nbsp;6 n.&nbsp;2" in-vista youtube="vt_xIKmnk4I" esecutore="Arthur Rubinstein, pianoforte" partitura="../../_assets/spartiti/A16_chopin-mazurka.png" inciso="../../_assets/incisioni/A16_chopin_mazurka.mp3" mappa='{"durata":13583,"eventi":[[0,0],[1,1364],[2,2727],[3,4091],[4,5455],[5,6818],[6,8182],[7,9545]]}' da-battuta="17">
 <script type="application/json">{"titolo":"F. Chopin, Mazurka op. 6 n. 2, le battute alterate","metro":"3/4","bpm":132,"battute":8,"anacrusi":0.0,"voci":[[[0.0,0.5,63],[0.75,0.25,67],[1.0,1.0,68],[2.0,0.5,72],[2.5,0.5,75],[3.0,0.5,63],[3.75,0.25,67],[4.0,0.5,68],[4.5,0.5,72],[5.0,1.0,75],[6.0,0.75,74],[6.75,0.25,70],[7.0,1.0,73],[8.0,0.5,72],[8.5,0.5,68],[9.0,0.3333,74],[9.3333,0.3333,70],[9.6667,0.3333,72],[10.0,1.0,73],[11.0,0.5,72],[11.5,0.5,68],[12.0,0.5,63],[12.75,0.25,67],[13.0,1.0,68],[14.0,0.5,72],[14.5,0.5,75],[15.0,0.5,63],[15.75,0.25,67],[16.0,0.5,68],[16.5,0.5,72],[17.0,1.0,75],[18.0,0.5,74],[18.5,0.5,70],[19.0,1.0,73],[20.0,0.5,72],[20.5,0.5,68],[21.0,0.75,80],[21.75,0.25,68],[22.0,0.75,80],[22.75,0.25,68],[23.0,0.75,80],[23.75,0.25,68]],[[0.0,1.0,44],[1.0,1.0,51],[1.0,1.0,56],[1.0,1.0,60],[2.0,1.0,51],[2.0,1.0,56],[2.0,1.0,60],[3.0,1.0,44],[4.0,1.0,51],[4.0,1.0,56],[4.0,1.0,60],[5.0,1.0,51],[5.0,1.0,56],[5.0,1.0,60],[6.0,1.0,52],[6.0,1.0,56],[6.0,2.0,58],[7.0,1.0,51],[7.0,1.0,55],[8.0,1.0,44],[8.0,1.0,56],[9.0,1.0,52],[9.0,1.0,56],[9.0,2.0,58],[10.0,1.0,51],[10.0,1.0,55],[11.0,1.0,44],[11.0,1.0,56],[12.0,1.0,32],[12.0,1.0,44],[13.0,1.0,51],[13.0,1.0,56],[13.0,1.0,60],[14.0,1.0,51],[14.0,1.0,56],[14.0,1.0,60],[15.0,1.0,44],[16.0,1.0,51],[16.0,1.0,56],[16.0,1.0,60],[17.0,1.0,51],[17.0,1.0,56],[17.0,1.0,60],[18.0,1.0,52],[18.0,1.0,56],[18.0,2.0,58],[19.0,1.0,51],[19.0,1.0,55],[20.0,1.0,44],[20.0,1.0,56]]]}</script>
 </tac-brano>
-
+    <div class="riquadro definizione">
+      <span class="etichetta">Intestazione</span>
+      <p>Fryderyk Chopin, Mazurka in do&#9839; minore op.&nbsp;6 n.&nbsp;2, per pianoforte, dalle Quattro mazurke op.&nbsp;6 (composte fra il 1830 e il 1832, pubblicate a Lipsia nel 1832 e a Parigi nel 1833). 3/4, M.&nbsp;M. &#119134;.&nbsp;=&nbsp;63, <em>sotto voce</em>, <em>p legato</em>. Settantadue battute, contate sulla codifica dell&rsquo;edizione Mikuli e sull&rsquo;edizione di Th. Kullak (Schlesinger, lastra S.&nbsp;7292), da cui si citano le indicazioni d&rsquo;esecuzione.</p>
+    </div>
     <div class="analisi-prosa">
-      <p>I segni sono il primo passo di un&rsquo;<strong>analisi armonica degli accordi alterati</strong>: prima di dare un nome a qualcosa, si localizzano i punti in cui la musica esce dalla tonalit&agrave;. Il brano &egrave; in do&#9839; minore, settantacinque battute in 3/4, e l&rsquo;estratto va dalla b.&nbsp;17 alla 24; ogni segno cade su una battuta singola. Alla b.&nbsp;19 compare il primo accordo alterato, alla b.&nbsp;20 subito il secondo, alla b.&nbsp;23 il terzo, uguale ai primi due. Tre accordi identici in otto battute indicano un procedimento ripetuto, non un incidente: &egrave; l&rsquo;accordo Mi&nbsp;&ndash; Sol&#9839;&nbsp;&ndash; La&#9839;&nbsp;&ndash; Do𝄪, che il programma riconosce come sesta francese.</p>
-      <p>Conta anche il modo in cui il brano &egrave; arrivato in classe. Quando un&rsquo;analisi comincia con &laquo;prendiamo per esempio&hellip;&raquo;, quasi sempre l&rsquo;esempio &egrave; stato scelto perch&eacute; funzionava. Qui no: la mazurka &egrave; l&rsquo;unica opera di Chopin della raccolta. La fortuna &egrave; che contiene davvero quello che serve, e questo si pu&ograve; verificare sulle battute segnate.</p>
+      <p><strong>Introduzione.</strong> La mazurka alterna nove sezioni di otto battute ciascuna e due soli materiali di carattere opposto: un&rsquo;introduzione su un bordone di quinta vuota, che torna a met&agrave; del pezzo, e una danza in do&#9839; minore che chiude ogni volta con una cadenza perfetta. La tesi &egrave; che l&rsquo;intera mazurka sia costruita sulla dominante. Il bordone dell&rsquo;introduzione &egrave; il quinto grado, e la tonica compare solo alla b.&nbsp;10; la sezione centrale raggiunge il sol&#9839; maggiore e lo consegna senza mediazioni al bordone che riprende alla b.&nbsp;49; gli accordi alterati, la nona minore della b.&nbsp;14 e la sesta francese delle bb.&nbsp;19, 20 e 23, non conducono fuori dalla tonalit&agrave;, ma servono a prolungare e a rafforzare la regione di dominante.</p>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Che cosa ha trovato il programma">
+<section class="slide" data-titolo="La scheda, da soli" data-in-classe>
   <div class="slide-interna">
-    <h2>Che cosa cerca il programma, e che cosa trova</h2>
-
-    <div class="riquadro procedura">
-      <span class="etichetta">Come cerca</span>
-      <p><strong>1.</strong> In ogni accordo verticale, guarda se fra il <strong>basso</strong> e una parte superiore c&rsquo;&egrave; una <strong>sesta aumentata</strong>.<br>
-      <strong>2.</strong> Se s&igrave;, controlla che nell&rsquo;accordo successivo i due estremi <strong>divergano all&rsquo;ottava</strong>.<br>
-      <strong>3.</strong> E misura che cosa c&rsquo;&egrave; in mezzo, per dire di che specie &egrave;.</p>
+    <h2>La scheda dei quattro piani, da soli</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Da soli, sul quaderno di analisi &middot; 7 minuti</span>
+      <p>Con l&rsquo;ascolto appena fatto e le trascrizioni delle slide seguenti, si riempie la scheda (unit&agrave; 1, lezione 4) soltanto per tre righe. <strong>1.</strong> La forma: le sezioni con le battute d&rsquo;inizio e di fine, e quali sezioni tornano. <strong>2.</strong> Il piano tonale: per ogni sezione il tono, o la funzione se il tono non cambia. <strong>3.</strong> Le battute in cui compaiono accordi che non sono n&eacute; triadi n&eacute; settime diatoniche del tono. La correzione sono le nove slide seguenti, che si leggono in classe e si rileggono a casa.</p>
     </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Il risultato</span>
-      <p>Tre accordi, alle battute <strong>19, 20 e 23</strong>. Tutti e tre uguali: <strong>Mi &ndash; Sol&#9839; &ndash; La&#9839; &ndash; Do𝄪</strong>. Fra Mi e Do𝄪 c&rsquo;&egrave; una sesta aumentata; in mezzo c&rsquo;&egrave; una quarta aumentata, quindi &egrave; una <strong>sesta francese</strong>.</p>
-    </div>
-
-    <p class="didascalia">Il passo 2 &egrave; quello che conta, e la slide seguente ne mostra l&rsquo;esito: il programma l&rsquo;ha eseguito, e ha detto <strong>no</strong>.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="La risoluzione che non c&rsquo;&egrave;">
+<section class="slide" data-titolo="Piano 1: l’introduzione, bb. 1–8">
   <div class="slide-interna">
-    <h2>E qui il manuale si ferma</h2>
-
-    <p>Una sesta aumentata deve divergere all&rsquo;ottava: il basso scende, la voce alta sale. Ecco che cosa succede davvero, misurato:</p>
-
-    <tac-stave time="4/4" keysig="C#m"
-               caption="I quattro accordi misurati, nell&rsquo;ordine in cui il programma li ha trovati"
-               notes="e/4+g/4+a#/4+c##/5:h e/4+g/4+a#/4:h | d/4+f##/4+a#/4+c/5:h g/4+b#/4+d/5:h"
-               segna="b1=la sesta francese, e il do𝄪 che scende invece di salire &middot; b2=dominante della dominante, poi la dominante"
-               width="800" tempo="44" play slow></tac-stave>
-
+    <h2>Piano 1 &middot; Le altezze: l&rsquo;introduzione, bb.&nbsp;1&ndash;8, sopra il bordone</h2>
+<div class="righe">
+    <tac-stave
+       time="3/4"
+       keysig="C#m"
+       caption="F. Chopin, Mazurka op.&nbsp;6 n.&nbsp;2, bb.&nbsp;1&ndash;8 (sotto voce, p legato). Riduzione a quattro voci: in alto il sol&#9839;4 della destra e la voce interna, che passa da una mano all&rsquo;altra (bb.&nbsp;1, 3, 5, 7 nella sinistra; 2, 4, 6, 8 nella destra); in basso la quinta vuota sol&#9839;2&ndash;re&#9839;3. Trascrizione nota per nota dall&rsquo;edizione Mikuli (codifica Sapp), confrontata con l&rsquo;edizione Kullak; l&rsquo;ultima semiminima della b.&nbsp;8 &egrave; il levare della b.&nbsp;9."
+       soprano="g/4:q g/4:h | g/4:q g/4:h | g/4:q g/4:h | g/4:q g/4:h"
+       contralto="b#/3:q a#/3:q b#/3:8 c/4:8 | d/4:8 b#/3:8 c/4:q. a#/3:8 | b#/3:8t c/4:8t b#/3:8t a#/3:q b#/3:8 c/4:8 | d/4:8t f/4:8t e/4:8t d/4:h"
+       tenore="d/3:q d/3:h | d/3:q d/3:h | d/3:q d/3:h | d/3:q d/3:h"
+       basso="g/2:q g/2:h | g/2:q g/2:h | g/2:q g/2:h | g/2:q g/2:h"
+       segna="b1=bordone sol♯–re♯ · b1-b2=voce interna: si♯–la♯–si♯–do♯ · b4=re♯–fa♯–mi: settima e sesta sopra sol♯"
+       width="900"
+       tempo="63" play></tac-stave>
+    <tac-stave
+       time="3/4"
+       keysig="C#m"
+       soprano="g/4:q g/4:q g/4:q | g/4:q g/4:q g/4:q | g/4:q g/4:q g/4:8 g/4:8 | g/4:8t g/4:8t g/4:8t g/4:q g/4:q"
+       contralto="b#/3:8t c/4:8t b#/3:8t a#/3:q b#/3:8 c/4:8 | d/4:8 b#/3:8 c/4:8 b#/3:8 c/4:8 a#/3:8 | b#/3:8t c/4:8t b#/3:8t a#/3:q b#/3:8 c/4:8 | d/4:8t f/4:8t e/4:8t d/4:q r:q"
+       tenore="d/3:q d/3:q d/3:q | d/3:q d/3:q d/3:q | d/3:q d/3:q d/3:q | d/3:q d/3:q r:q"
+       basso="g/2:q g/2:q g/2:q | g/2:q g/2:q g/2:q | g/2:q g/2:q g/2:q | g/2:q g/2:q r:q"
+       segna="b1-b3=il sol♯ ribattuto su ogni movimento · b4=levare: sol♯4"
+       width="900"></tac-stave>
+</div>
     <div class="analisi-prosa">
-      <p>I segni registrano un&rsquo;<strong>analisi della risoluzione</strong>: dell&rsquo;accordo alterato si guarda dove vanno le voci, a cominciare dalle due che formano la sesta aumentata. Il rigo riduce le bb.&nbsp;19 e 23 ai quattro accordi misurati, Mi Sol&#9839; La&#9839; Do𝄪 &rarr; Mi Sol&#9839; La&#9839; La&#9839; &rarr; Re&#9839; Fa𝄪 La&#9839; Do&#9839; &rarr; Sol&#9839;, e i segni seguono le battute del rigo. Alla b.&nbsp;1 il segno indica la sesta francese e il do𝄪 che scende invece di salire: la voce che lo porta va al la&#9839; dentro la stessa battuta, quindi il do𝄪 &egrave; una <strong>figurazione melodica</strong>, non il polo alto di una sesta che si allarga. Alla b.&nbsp;2 il segno indica la dominante della dominante e poi la dominante: il basso scende di semitono da mi a re&#9839;.</p>
-      <p>Presentarla come una sesta aumentata che risolve all&rsquo;ottava sarebbe comodo e falso: il programma l&rsquo;ha cercata e non l&rsquo;ha trovata. La notazione porta un&rsquo;intenzione che pu&ograve; essere disattesa: qui la grafia indica una funzione poi abbandonata dal compositore. &Egrave; un caso reale, che rende necessaria una seconda lettura: si cifra quello che succede e si annota che cosa era stato promesso, perch&eacute; registrare le due cose &egrave; pi&ugrave; informativo che sceglierne una.</p>
+      <p>Per otto battute il basso &egrave; una sola quinta vuota, sol&#9839;2&ndash;re&#9839;3, e il canto un solo suono, il sol&#9839;4, tenuto per le bb.&nbsp;1&ndash;4 e ribattuto su ogni movimento nelle bb.&nbsp;5&ndash;8. L&rsquo;unica parte che si muove &egrave; una voce interna, nel registro fra la quinta del basso e il sol&#9839; del canto, che gira intorno al si&#9839;3 e al do&#9839;4 per gradi congiunti: si&#9839;&ndash;la&#9839;&ndash;si&#9839;&ndash;do&#9839; alla b.&nbsp;1, re&#9839;&ndash;si&#9839;&ndash;do&#9839;&ndash;la&#9839; alla b.&nbsp;2, con le terzine di note di volta delle bb.&nbsp;3, 5 e 7. Le bb.&nbsp;4 e 8 portano la voce al re&#9839;4 e la fanno salire per salto al fa&#9839;4, da cui ridiscende per grado: sopra il sol&#9839; del basso il fa&#9839; &egrave; la settima, il mi la sesta minore.</p>
+      <p>Raccolti, i suoni dell&rsquo;introduzione sono sette, sol&#9839;, la&#9839;, si&#9839;, do&#9839;, re&#9839;, mi, fa&#9839;: la scala di do&#9839; minore melodica ascendente, ordinata a partire dal quinto grado. Nessuno dei sette suoni manca, e tuttavia la tonica non riceve mai un accordo: il do&#9839; compare soltanto come nota di volta del si&#9839;, cio&egrave; della sensibile, e la sola armonia &egrave; la quinta del bordone, che non ha terza. Il bordone non &egrave; perci&ograve; un pedale di tonica ma di dominante, e l&rsquo;introduzione, che si ferma sul levare sol&#9839;4 della b.&nbsp;8, sospende la tonalit&agrave; invece di affermarla. La prima triade di tonica arriva alla b.&nbsp;10, dopo il V&#8310;&#8325; della b.&nbsp;9: nove battute sulla dominante prima della prima tonica.</p>
     </div>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La seconda lettura">
-  <div class="slide-interna">
-    <h2>E c&rsquo;&egrave; un secondo modo di leggerlo</h2>
-
-    <p>La&#9839; &egrave; enarmonicamente <strong>Si&#9837;</strong>. Do𝄪 &egrave; <strong>Re</strong>. Riscrivete l&rsquo;accordo con quei nomi:</p>
-
-    <tac-stave tastiera time="4/4" keysig="C"
-               caption="Lo stesso suono, due ortografie: sesta francese, o settima con quinta abbassata"
-               soprano="c##/5:h d/5:h"
-               contralto="a#/4:h bb/4:h"
-               tenore="g#/4:h g#/4:h"
-               basso="e/4:h e/4:h"
-               width="740" tempo="46" play slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le due letture</span>
-      <p><strong>Mi Sol&#9839; La&#9839; Do𝄪</strong> &mdash; sesta francese: va alla dominante.<br>
-      <strong>Mi Sol&#9839; Si&#9837; Re</strong> &mdash; settima di dominante di la, con la <strong>quinta abbassata</strong>: andrebbe a la.</p>
-    </div>
-
-    <div class="affianca">
-      <div>
-        <tac-stave clef="treble" time="4/4" caption="Con il diesis: fa&#9839;, la nota sale, e la scrittura lo dichiara" notes="f#/4:h g/4:h | a/4:w" width="380" tempo="60" play></tac-stave>
-      </div>
-      <div>
-        <tac-stave clef="treble" time="4/4" caption="Lo stesso tasto scritto sol&#9837;: la nota scende, e la funzione è un&rsquo;altra" notes="gb/4:h f/4:h | e/4:w" width="380" tempo="60" play></tac-stave>
-      </div>
-    </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa distingue le due letture</span>
-      <p>Il <strong>verso</strong> in cui la nota si muove. Un diesis promette di salire, un bemolle di scendere: la grafia dichiara l&rsquo;intenzione prima che la nota si muova.</p>
-      <p>Sul pianoforte i due tasti sono uno. Sulla pagina sono due informazioni diverse.</p>
-    </div>
-
-    <p class="didascalia">Chopin sceglie la prima ortografia perch&eacute; nel suo contesto &egrave; quella che significa. Un altro compositore scriverebbe la seconda e vorrebbe dire un&rsquo;altra cosa: <strong>lo stesso accordo, due nomi, due destini</strong>.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="I doppi diesis">
-  <div class="slide-interna">
-    <h2>E i doppi diesis, che sono dappertutto</h2>
-
-    <p>Il programma li ha contati: stanno alle battute <strong>12, 13, 17&ndash;23, 28, 29, 41, 43, 60, 61, 68, 69</strong>. Non sono un vezzo notazionale.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa sono, in do&#9839; minore</span>
-      <p><strong>Fa𝄪</strong> &mdash; la sensibile di <strong>sol&#9839;</strong>, cio&egrave; della dominante. Al basso della b.&nbsp;13 &egrave; la terza della dominante della dominante (re&#9839;&ndash;fa𝄪&ndash;la&#9839;&ndash;do&#9839;); nella melodia delle bb.&nbsp;17&ndash;18 &egrave; una nota di volta del sol&#9839;, sopra la dominante.<br>
-      <strong>Do𝄪</strong> &mdash; la sensibile di <strong>re&#9839;</strong>, cio&egrave; del secondo grado.</p>
-    </div>
-
-    <p>Quindi la mazurka &egrave; piena di <strong>dominanti secondarie</strong>, che la classe conosce dalla quarta, e di note di volta e di passaggio cromatiche. Gli accordi alterati di oggi stanno dentro quel tessuto, non sopra di esso.</p>
-
     <div class="riquadro attenzione">
-      <span class="etichetta">I doppi diesis, e perché esistono</span>
-      <p>Perché la <strong>sensibile</strong> di un tono già diesizzato ha bisogno di alzare una nota già alzata. Non è un capriccio: è la conseguenza di scrivere ogni grado con la sua lettera.</p>
-      <p>Un fa doppio diesis in un pezzo in sol diesis minore è la sensibile, e scriverlo sol naturale renderebbe la scala illeggibile.</p>
-    </div>
-
-    <p class="didascalia">&Egrave; una cosa utile da vedere: un pezzo cromatico dell&rsquo;Ottocento non &egrave; fatto di eccezioni rare, &egrave; fatto di <strong>meccanismi noti usati fittamente</strong>. La differenza con Bach non &egrave; il vocabolario, &egrave; la densit&agrave;.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Analisi guidata: bb. 17&ndash;20">
-  <div class="slide-interna">
-    <h2>Analisi guidata: che cosa fanno i doppi diesis, battuta per battuta</h2>
-
-    <tac-stave clef="treble" time="3/4" keysig="C#m"
-               caption="F. Chopin, Mazurka op. 6 n. 2, bb.&nbsp;17&ndash;19, dalla partitura (la b.&nbsp;20 ripete la 19, con la melodia in terzina)"
-               notes="d/4:8 r:16 f##/4:16 g/4:q b#/4:8 d/5:8 | d/4:8 r:16 f##/4:16 g/4:8 b#/4:8 d/5:q | c##/5:8. a#/4:16 c/5:q b#/4:8 g/4:8"
-               bass="g/2:q d/3+g/3+b#/3:q d/3+g/3+b#/3:q | g/2:q d/3+g/3+b#/3:q d/3+g/3+b#/3:q | e/3+g/3+a#/3:q d/3+f##/3+a#/3:q g/2+g/3:q"
-               width="900" tempo="60" play></tac-stave>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Insieme &middot; 5 minuti</span>
-      <p>Battuta per battuta, dalla 17 alla 20 (la 20 &egrave; in partitura): <strong>1.</strong> la nota del basso e l&rsquo;accordo che c&rsquo;&egrave; sopra, a ogni tempo in cui cambia; <strong>2.</strong> ogni doppio diesis: in quale voce sta, e dove va.</p>
-    </div>
-
-    <tac-chiuso invito="La risposta &mdash; si apre dopo che ha risposto la classe" libero>
-      <p><strong>Bb.&nbsp;17&ndash;18</strong> &mdash; al basso sol&#9839;, sopra re&#9839;&ndash;sol&#9839;&ndash;si&#9839;: la dominante. Il fa𝄪 della melodia sale subito al sol&#9839;: &egrave; una nota di volta, non un accordo. <strong>B.&nbsp;19</strong> &mdash; al basso mi, sopra sol&#9839;, la&#9839; e, in alto, do𝄪: mi&ndash;sol&#9839;&ndash;la&#9839;&ndash;do𝄪, la sesta francese delle misure di oggi. Il do𝄪 non sale: scende al la&#9839; dentro il primo tempo. Al secondo tempo il basso scende a re&#9839;, e sopra ci sono fa𝄪, la&#9839; e do&#9839;: re&#9839;&ndash;fa𝄪&ndash;la&#9839;&ndash;do&#9839;, la dominante della dominante. Qui il fa𝄪 &egrave; la sensibile di sol&#9839;, e sale al sol&#9839; del terzo tempo, dove anche il basso arriva sul sol&#9839;. <strong>B.&nbsp;20</strong> &mdash; le stesse tre armonie, con la melodia in terzina. Quattro battute, e i doppi diesis fanno tre mestieri: nota di volta, sesta francese, dominante della dominante.</p>
-    </tac-chiuso>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Al lavoro" data-in-classe>
-  <div class="slide-interna">
-    <h2>Al lavoro &mdash; la Mazurka intera, sui quattro piani</h2>
-    <div class="riquadro compito">
-      <span class="etichetta">Da soli &middot; 18 minuti</span>
-      <p>Con le misure di oggi sul tavolo, la scheda dei quattro piani (unit&agrave; 1, lezione 4) sulla Mazurka op.&nbsp;6 n.&nbsp;2: parametri, materiale, forma, stile e storia. Prima il piano 3, la forma, con i numeri di battuta; poi i piani 1 e 2; per ultimo il piano 4, che ha una domanda in pi&ugrave;: perch&eacute; un ventenne polacco, intorno al 1830, scrive delle mazurke &mdash; danze del suo paese &mdash; con accordi che il manuale non sa risolvere?</p>
-    </div>
-
-    <p>Chopin scrive una sesta aumentata che non risolve come dice il manuale.</p>
-
-    <div class="riquadro studio">
-      <p>Non &egrave; che i pezzi scelti siano strani: <strong>&egrave; come stanno le cose</strong>. Le categorie dei manuali sono ricavate dalla musica <em>dopo</em>, e servono a orientarsi &mdash; non a prevedere quello che un compositore far&agrave;.</p>
-    </div>
-
-    <p>Quello che regge &egrave; il <strong>metodo</strong>: guardare che cosa c&rsquo;&egrave; scritto, misurare dove va, e non far coincidere per forza le due cose con un nome.</p>
-
-    <p class="didascalia">&Egrave; anche ci&ograve; che chiede la prova d&rsquo;esame. Una traccia che non rientra in nessuna casella non &egrave; una traccia sbagliata: &egrave; una traccia su cui si deve dire quello che si vede, con la battuta accanto.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Otto battute: la sesta francese, in due modi" data-in-classe>
-  <div class="slide-interna">
-    <h2>Esercizio: la sesta francese due volte, come il manuale e come Chopin</h2>
-    <tac-stave clef="bass" time="4/4" keysig="Am"
-               caption="La minore: il basso dato. Fr = sesta francese; Fr/V = sesta francese della dominante"
-               notes="a/2:w | d/3:h f/3:h | e/3:w | a/2:w | a/2:w | c/3:h b/2:h | e/3:w | a/2:w"
-               cifre="i &middot; iv &middot; Fr &middot; V &middot; i &middot; i &middot; Fr/V &middot; V7/V &middot; V &middot; i"
-               width="900" tempo="60"></tac-stave>
-    <div class="riquadro compito">
-      <span class="etichetta">Da soli &middot; 10 minuti</span>
-      <p>Soprano, contralto e tenore sopra il basso dato, su due righi.<br>
-      <strong>1.</strong> Bb.&nbsp;1&ndash;4, come il manuale: la sesta francese <strong>fa&ndash;la&ndash;si&ndash;re&#9839;</strong> della b.&nbsp;2 va alla dominante. Il fa scende al mi e il re&#9839; sale al mi, divergendo all&rsquo;ottava; il la scende al sol&#9839;, il si resta.<br>
-      <strong>2.</strong> Bb.&nbsp;5&ndash;8, come Chopin: alla b.&nbsp;6 la sesta francese &egrave; quella della dominante, <strong>do&ndash;mi&ndash;fa&#9839;&ndash;la&#9839;</strong>, con la sesta aumentata fra do e la&#9839;. Il soprano della b.&nbsp;6 &egrave; dato: la&#9839; e fa&#9839; in semiminime, poi la in minima. Il la&#9839; non sale al si: scende al fa&#9839;, come il do𝄪 della b.&nbsp;19. Il basso scende di semitono al si, e sopra c&rsquo;&egrave; la dominante della dominante.<br>
-      <strong>3.</strong> Poi la dominante e la tonica: la settima scende, il re&#9839; e il sol&#9839; salgono.</p>
+      <span class="etichetta">L&rsquo;errore tipico</span>
+      <p>Leggere le bb.&nbsp;1&ndash;8 in sol&#9839;, perch&eacute; il sol&#9839; &egrave; nel basso e nel canto. La scala impiegata &egrave; quella di do&#9839; minore con la sensibile si&#9839; e il sesto grado la&#9839;; un sol&#9839; maggiore o minore avrebbe il re&#9839; come quinta ma il la&#9839; come secondo grado, e lo fa intendere solo l&rsquo;assenza della terza nel bordone.</p>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Correzione e canto">
+<section class="slide" data-titolo="Piano 1: la danza, bb. 9–16">
   <div class="slide-interna">
-    <h2>La correzione, poi si canta</h2>
-    <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="NVrXBW8QZzBLtQ0p5Bo95Q==" iv="OhjhQgj5gmkjy9/x" dati="nsIlXRGXnyuD4Vaj6WUIEQPzybARMQTVwyE6dZH239dSyXe2E57Dsaj4u9/ao1Gb0M3nKEgrBiGYavthfWZIE9CorNgaMuXzykkkcBaBcShUUVrW1UEjV6gG02tfOvKa8y8MDVIGsdTAAmLMDw8SfpHdbR1p+eHipt3QAOhMHt0LnzB8GyYspYLVeBJ9ByOSKd9zCRxUY7gPME9WgkksbhaI4fg2Uh+2KgI2ACeCDxmdMDzxq/Jz/VxZ+IrVnuF6Zivj25viGFKgk6FvcTpjCvPXyVmqmPIphBRdKATpF9lvv6MWZ9o6M3osJjMCsFasgNBctBnlP1kp3UAkUA+B3/PzhheAcMR3up44bDSSu6aJReexnqAphcWhVHiQA5bK0nwq5ObGoyPZRgsB71re+hEk6PUI7beesylmH+iDW37hY15FlSeSWLfez/DrNuorOahdBnYFNOipteSklIMl6tTUeyO7BY2sBKPplzTOQ7GuWatshAJvNg8N/5ni/5odc3yc4oJZITIt/3x39S5c/2iWk9QLuymwE834omJ1DxbkCV5/on2QFoDTKDAoAn3zMnp1SpPROXMoXJP5qKGzwhCQszocSbhVK4/2juzRPRu3GtBruDuiY5gr+FOKbn4qPJu3MjM1MhFWQUg2dtchrQEjb580drP2OpcnlWYyLcL3jIiK3/QsjMK2MPOHEJsAOr82J8DCFw1uM2P7UDVhUWvpv/XXi4OSQ5FkIEGvkv7CMRWahs2buraKV9mKz23vhr5iPHdOPUgyeIhzvZMK+DtqAqynfRofNB+RG7BFSqgN1thPgJhmD9gMOSknYpdL7iT8KvYWvGwRhms8zBP3+sE0kMWE9LcbaEvsFlfaIwnoi5pP2Vxndtq/X9L0rt0eCr+FIK8HW/P/Jc49gFZdKfDfh/K2v2OGRlNz+2iIyYGse5CK4Lzd29OtjmIMU2dYhbs+UyKRMXLaCO0tyPSbhJbHtEgQFdWaKH1afT1W+1VnPnIBQhdhkqSOefnytNt5E04Kkmm1WY1hDh/ktW5sthQhlPVuNv3Ul/YLtvYJtgLTKABKV7qeA2POY7CeBJqSEOlmwPu9TUkbIvyiE5uG/sb1pdGSHTzVERPPdu2jtTk+wmZs9ct4mPBLf1HREZ80HyOw/bsxFtinmFpQWWICfAKJAnjm9cJZEQKdKnfgi4Vls8g0yEYICdrjQR/uSNvD7l4UeYkVNz3sXMkGz364xaAeYbWxeqIDscUGmJJZFxlMFn4fLQ32pmkekkSRpX/fDDqVuN5gQ6AqV2VBe+mIX79wMhEuNZU13ewQHjvrPD19aqpuNe4UNiK/jRRxtHadma5cP8IF2uq0FF42JqSZ4yQ290ZsVY2atm4+MhNGJq/ovKUsuoJp3NehcAQD8ofvDaNdxFCxFcfODg36f8CUXZl0ClaJ2QSW5THHz832Qu9wijI2lWSZdA/Vi9tXF2u58pOwHfWqbqhAh04OPh7koQEkdlZ/LY7npPgrHYgXWt99GRNGaUrcrgsF0tW/egkePkoZF1wsfXXxEYqh7Iy7br2epQ9C64e1HNwPtEXrzwoEHiw64NZn5pkF+JufbGHAVfbYL7VitJ/Mx6ecc6c3oGrHFFEZyka3QfuUPtYP7Z4o9Myh43tML1m2izP9OufvmfXsH81MudnuuCeMNuYlDtDkrxzzhx1AzU8+iRsAkHRYLvrq8qFCplKPOSPFIrAt/bN7pIeVr52k1bFG5VVFzS0CWSL9CZbEedtuN3tTprEg1oLCT1vM7zw9oyhFBFGEe0CPlkHRglbxNTW8yKQh8bKMSz5UvWZ0lqpuMfoBvqlhmHUTYmvDlhOjbXzf5oL2y/ki67V9Rtr8qs5oPFkeDz+fSt0o2I9J9KkVzuIC1QfxAJrNF5iZSRNtTojzXI3/sg=="></tac-chiuso>
-    <div class="riquadro compito">
-      <span class="etichetta">A gruppi di quattro &middot; 5 minuti</span>
-      <p>Ciascuno confronta la propria realizzazione con la soluzione e con le regole della sesta eccedente (libro, lezione A23). Poi un gruppo canta una delle realizzazioni scritte, con il nome delle note: alla b.&nbsp;2 si ascoltano le due voci che si allargano, alla b.&nbsp;6 il la&#9839; che scende, ed &egrave; la stessa sorpresa delle bb.&nbsp;19&ndash;20 della Mazurka.</p>
+    <h2>Piano 1 &middot; La danza, bb.&nbsp;9&ndash;16: due battute, la loro ripetizione, la cadenza</h2>
+<div class="righe">
+    <tac-stave
+       time="3/4"
+       keysig="C#m"
+       caption="F. Chopin, Mazurka op.&nbsp;6 n.&nbsp;2, bb.&nbsp;9&ndash;16 (p; cresc. b.&nbsp;13; f e trillo sul la4 b.&nbsp;14; con forza b.&nbsp;15). Trascrizione nota per nota dall&rsquo;edizione Mikuli, confrontata con l&rsquo;edizione Kullak; alla b.&nbsp;16 l&rsquo;ultimo movimento &egrave; vuoto nelle due edizioni (ritornello): pausa di completamento."
+       notes="g/5:8 r:16 a/5:16 f/5:q. g/5:8 | e/5:8. g/5:16 c/5:q e/5:q | g/5:8. a/5:16 f/5:q g/5:q | e/5:8t f/5:8t g/5:8t c/5:q. c##/5:8"
+       bass="b#/2:q g/3+d/4+f/4:q g/3+d/4+f/4:q | c/3:q g/3+c/4+e/4:q g/3+c/4+e/4:q | b#/2:q g/3+d/4+f/4:q g/3+d/4+f/4:q | c/3:q g/3+c/4+e/4:q r:q"
+       cifre="V65 · - · - · i · - · - · V65 · - · - · i · -"
+       segna="b1-b2=idea: V<span class="cifrata"><sup>6</sup><sub>5</sub></span>–i · b3-b4=ripetizione · b4=do𝄪: passaggio cromatico verso il re♯"
+       width="900"
+       tempo="63" play></tac-stave>
+    <tac-stave
+       time="3/4"
+       keysig="C#m"
+       notes="d/5:8 r:16 e/5:16 c/5:q. d/5:8 | b#/4:8. d/5:16 g/4:q a/4:q | g/4:8 r:16 f/4:16 d/4:q g/4:q | c/4:h r:q"
+       bass="f##/2:q d/3+a#/3+c/4:q d/3+a#/3+c/4:q | g/2:q d/3+f/3+b#/3:q d/3+f/3+b#/3:q | g/2:q d/3+f/3+b#/3:q d/3+f/3+b#/3:q | c/2:q c/3+g/3+e/4:q r:q"
+       cifre="V65/V · - · - · V7 · - · - · V7 · - · - · i · -"
+       segna="b1=fa𝄪 al basso: sensibile della dominante · b2=la4 sopra sol♯–si♯–re♯–fa♯: nona minore · b3-b4=V⁷–i: cadenza perfetta"
+       width="900"></tac-stave>
+</div>
+    <div class="analisi-prosa">
+      <p>La frase della danza occupa otto battute e si articola in 2&nbsp;+&nbsp;2&nbsp;+&nbsp;4. Le bb.&nbsp;9&ndash;10 espongono un&rsquo;idea di due battute sopra l&rsquo;alternanza V&#8310;&#8325;&ndash;i (si&#9839;2 al basso, poi do&#9839;3), e le bb.&nbsp;11&ndash;12 la ripetono variandone solo il ritmo; il do𝄪5 che chiude la b.&nbsp;12 &egrave; una nota di passaggio cromatica fra il do&#9839;5 e il re&#9839;5 della battuta seguente. La continuazione (bb.&nbsp;13&ndash;16) accelera il ritmo armonico verso la cadenza. Alla b.&nbsp;13 il basso fa𝄪2 sostiene re&#9839;&ndash;la&#9839;&ndash;do&#9839;, cio&egrave; la settima di dominante di sol&#9839; in primo rivolto, V&#8310;&#8325;/V; alla b.&nbsp;14 il sol&#9839;2 porta la settima di dominante, re&#9839;&ndash;fa&#9839;&ndash;si&#9839;, e sull&rsquo;ultimo movimento il canto aggiunge il la4, che l&rsquo;edizione Kullak segna con il trillo e con il <em>f</em>.</p>
+      <p>In quel punto suonano cinque suoni per terze, sol&#9839;&ndash;si&#9839;&ndash;re&#9839;&ndash;fa&#9839;&ndash;la: la nona minore di dominante completa, che il libro di testo descrive come un&rsquo;armonia autonoma soltanto a partire dal periodo romantico, e che a quattro parti comparirebbe senza la quinta (D&rsquo;Urso, Bertolini, pp.&nbsp;52&ndash;54). Il la4 non risolve sopra lo stesso basso: la b.&nbsp;15 &egrave; ancora una dominante, ma di sola settima, e il canto vi scende dal sol&#9839;4 al re&#9839;4, cosicch&eacute; la nona si risolve sul sol&#9839;4 che apre la battuta. La cadenza perfetta della b.&nbsp;16, V&#8311;&ndash;i con il do&#9839;4 nel canto, chiude la frase. I quattro suoni superiori della b.&nbsp;14, si&#9839;&ndash;re&#9839;&ndash;fa&#9839;&ndash;la, formano una settima diminuita: &egrave; la stessa sonorit&agrave; che la lezione 4 analizza come &laquo;perno con quattro strade&raquo;, qui ancora ancorata al suo basso di dominante.</p>
     </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">L&rsquo;errore tipico</span>
+      <p>Cifrare la b.&nbsp;13 come una dominante di do&#9839;. Il basso fa𝄪 &egrave; la sensibile del sol&#9839;, non del do&#9839;: l&rsquo;accordo re&#9839;&ndash;fa𝄪&ndash;la&#9839;&ndash;do&#9839; tonicizza la dominante, e la tonica arriva soltanto dopo il V della b.&nbsp;14&ndash;15.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Piano 1: gli alterati, bb. 17–24">
+  <div class="slide-interna">
+    <h2>Piano 1 &middot; Gli alterati, bb.&nbsp;17&ndash;24: la sesta francese e la dominante della dominante</h2>
+<div class="righe">
+    <tac-stave
+       time="3/4"
+       keysig="C#m"
+       caption="F. Chopin, Mazurka op.&nbsp;6 n.&nbsp;2, bb.&nbsp;17&ndash;24 (leggiero; calando b.&nbsp;24). Trascrizione nota per nota dall&rsquo;edizione Mikuli, confrontata con l&rsquo;edizione Kullak. Alle bb.&nbsp;19, 20 e 23 il la&#9839;3 della sinistra, una minima, &egrave; riscritto nei due accordi in cui suona."
+       notes="d/4:8 r:16 f##/4:16 g/4:q b#/4:8 d/5:8 | d/4:8 r:16 f##/4:16 g/4:8 b#/4:8 d/5:q | c##/5:8. a#/4:16 c#/5:q b#/4:8 g/4:8 | c##/5:8t a#/4:8t b#/4:8t c#/5:q b#/4:8 g/4:8"
+       bass="g/2:q d/3+g/3+b#/3:q d/3+g/3+b#/3:q | g/2:q d/3+g/3+b#/3:q d/3+g/3+b#/3:q | e/3+g/3+a#/3:q d/3+f##/3+a#/3:q g/2+g/3:q | e/3+g/3+a#/3:q d/3+f##/3+a#/3:q g/2+g/3:q"
+       cifre="V · - · - · V · - · - · Fr6 · V7/V · V · Fr6 · V7/V · V"
+       segna="b1-b2=V: sol♯–si♯–re♯; fa𝄪 nota di volta del sol♯ · b3=mi–sol♯–la♯–do𝄪: sesta francese · b3=mi→re♯ al basso, do𝄪→do♯ nel canto"
+       width="900"
+       tempo="63" play></tac-stave>
+    <tac-stave
+       time="3/4"
+       keysig="C#m"
+       notes="d/4:8 r:16 f##/4:16 g/4:q b#/4:8 d/5:8 | d/4:8 r:16 f##/4:16 g/4:8 b#/4:8 d/5:q | c##/5:8 a#/4:8 c#/5:q b#/4:8 g/4:8 | g/5:8. g/4:16 g/5:8. g/4:16 g/5:8. g/4:16"
+       bass="g/1+g/2:q d/3+g/3+b#/3:q d/3+g/3+b#/3:q | g/2:q d/3+g/3+b#/3:q d/3+g/3+b#/3:q | e/3+g/3+a#/3:q d/3+f##/3+a#/3:q g/2+g/3:q | r:h."
+       cifre="V · - · - · V · - · - · Fr6 · V7/V · V"
+       segna="b1=sol♯1–sol♯2: il basso all’ottava · b3=terza sesta francese · b4=ottave sol♯5–sol♯4, la sinistra tace"
+       width="900"></tac-stave>
+</div>
+    <div class="analisi-prosa">
+      <p>Le bb.&nbsp;17&ndash;24 restano sulla dominante. Il basso sol&#9839;2 e la triade sol&#9839;&ndash;si&#9839;&ndash;re&#9839; della sinistra occupano le bb.&nbsp;17&ndash;18 e 21&ndash;22, e la destra, <em>leggiero</em>, arpeggia la stessa triade a partire dal re&#9839;4, toccando in levare il fa𝄪4, nota di volta inferiore del sol&#9839;. Alle bb.&nbsp;19, 20 e 23 il basso sale al mi3 e sopra di esso suonano sol&#9839;3, la&#9839;3 e, nel canto, do𝄪5: mi&ndash;sol&#9839;&ndash;la&#9839;&ndash;do𝄪 contiene la sesta eccedente mi&ndash;do𝄪 e, fra il mi e il la&#9839;, la quarta eccedente che distingue la sesta francese dalle altre (D&rsquo;Urso, 4&deg;&nbsp;anno, p.&nbsp;134). Costruita sul mi, la sesta francese appartiene al tono di sol&#9839;: &egrave; la sesta eccedente della dominante.</p>
+      <p>La risoluzione non &egrave; quella del manuale, in cui le due note della sesta eccedente divergono di semitono sull&rsquo;ottava. Il basso scende al re&#9839;3, come deve; il do𝄪5 invece, dopo il la&#9839;4 in semicroma, passa al do&#9839;5, e sopra il re&#9839; si forma re&#9839;&ndash;fa𝄪&ndash;la&#9839;&ndash;do&#9839;, la settima di dominante di sol&#9839;, che risolve sul sol&#9839; dell&rsquo;ultimo movimento. La sesta eccedente mi&ndash;do𝄪 si contrae cos&igrave; nella settima minore re&#9839;&ndash;do&#9839;, e la nota alzata scende di semitono cromatico invece di salire. Il libro di testo offre la chiave di questa condotta: la sesta francese &egrave; &laquo;una forma alterata del V&#8311;/V con la quinta abbassata&raquo; (4&deg;&nbsp;anno, p.&nbsp;134), e una settima di dominante con la quinta diminuita in secondo rivolto corrisponde esattamente a una sesta francese (5&deg;&nbsp;anno, p.&nbsp;61). Riferita al sol&#9839;, mi&ndash;sol&#9839;&ndash;la&#9839;&ndash;do𝄪 &egrave; la&#9839;&ndash;do𝄪&ndash;mi&ndash;sol&#9839;, la settima di dominante del re&#9839; con la quinta abbassata; e il re&#9839; a cui conduce &egrave; a sua volta la dominante del sol&#9839;.</p>
+      <p>Ne risulta una catena di dominanti per quinte discendenti, la&#9839;&ndash;re&#9839;&ndash;sol&#9839;, il cui primo anello &egrave; alterato e il cui ultimo &egrave; la dominante della tonalit&agrave;. L&rsquo;accordo alterato non porta altrove: allunga di un grado la distanza dalla tonica e rende la dominante pi&ugrave; attesa. La b.&nbsp;24 ne trae la conseguenza: la sinistra tace e la destra ripete in ottave il solo sol&#9839;, <em>calando</em>, fino alla ripresa della danza alla b.&nbsp;25.</p>
+    </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">L&rsquo;errore tipico</span>
+      <p>Cifrare la b.&nbsp;19 come &laquo;sesta francese di do&#9839; minore&raquo;. La sesta eccedente di do&#9839; minore si costruisce sul sesto grado, la, e risolve sulla dominante sol&#9839;: la&ndash;do&#9839;&ndash;re&#9839;&ndash;fa𝄪. Quella di Chopin &egrave; costruita sul mi, il sesto grado di sol&#9839;, e risolve sul re&#9839;: &egrave; la stessa specie di accordo trasportata una quinta sopra.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Piano 1: la sezione centrale, bb. 33–48">
+  <div class="slide-interna">
+    <h2>Piano 1 &middot; La sezione centrale, bb.&nbsp;33&ndash;48: mi maggiore e sol&#9839; maggiore, senza dominante</h2>
+<div class="righe">
+    <tac-stave
+       time="3/4"
+       keysig="C#m"
+       caption="F. Chopin, Mazurka op.&nbsp;6 n.&nbsp;2, bb.&nbsp;33&ndash;36 (gajo, p). Trascrizione nota per nota dall&rsquo;edizione Mikuli, confrontata con l&rsquo;edizione Kullak."
+       notes="c/5:8 d/5:8 e/5:q. c/5:8 | b/4:8 g/4:8 e/4:h | c/5:8 d/5:8 e/5:q e/5:8 c/5:8 | b/4:8 g/4:8 e/4:h"
+       bass="a/2:q e/3+c/4:q e/3+c/4:q | e/2:q e/3+b/3:q e/3+b/3:q | a/2:q e/3+c/4:q e/3+c/4:q | e/2:q e/3+b/3:q e/3+b/3:q"
+       cifre="IV · - · - · I · - · - · IV · - · - · I · - · -"
+       segna="b1-b2=mi maggiore: IV–I · b3-b4=IV–I"
+       width="900"
+       tempo="63" play></tac-stave>
+    <tac-stave
+       time="3/4"
+       keysig="C#m"
+       caption="Bb.&nbsp;41&ndash;44 (f): le bb.&nbsp;33&ndash;36 una terza maggiore sopra, in sol&#9839; maggiore. Stessa fonte."
+       notes="e#/5:8 f##/5:8 g/5:q. e#/5:8 | d/5:8 b#/4:8 g/4:h | e#/5:8 f##/5:8 g/5:q g/5:8 e#/5:8 | d/5:8 b#/4:8 g/4:h"
+       bass="r:q e#/3+g/3+c/4+e#/4:q e#/3+g/3+c/4+e#/4:q | g/2:q d/3+g/3+b#/3:q d/3+g/3+b#/3:q | c/3:q e#/3+g/3+c/4+e#/4:q e#/3+g/3+c/4+e#/4:q | g/2:q d/3+g/3+b#/3:q d/3+g/3+b#/3:q"
+       cifre="IV6 · - · I · - · - · IV · - · - · I · - · -"
+       segna="b1-b2=sol♯ maggiore: IV⁶–I · b3-b4=IV–I"
+       width="900"></tac-stave>
+</div>
+    <div class="analisi-prosa">
+      <p>La sezione centrale cambia carattere, <em>gajo</em>, e piano tonale. Alle bb.&nbsp;33&ndash;36 il basso alterna la2 e mi2, e sopra di essi le triadi di la e di mi maggiore: in mi maggiore, il relativo maggiore e terzo grado di do&#9839; minore, la successione &egrave; IV&ndash;I, ripetuta due volte, con il canto che sale dal do&#9839;5 al mi5 e ridiscende per arpeggio al mi4. La tonalit&agrave; nuova &egrave; affermata senza la sua dominante: nelle bb.&nbsp;33&ndash;40 non compare mai un accordo di si, e il re&#9839;5 del canto (bb.&nbsp;33 e 35) &egrave; una nota di passaggio. Le bb.&nbsp;37&ndash;40 riportano il bordone dell&rsquo;introduzione in altra veste: la sinistra suona soltanto quinte vuote, la2&ndash;mi3 e mi2&ndash;mi3, e la destra due voci, la4&ndash;sol&#9839;4 sopra do&#9839;4&ndash;si3. Alla b.&nbsp;40 il basso sale per grado la2&ndash;si2&ndash;do&#9839;3 e si ferma sulla quinta vuota do&#9839;&ndash;sol&#9839;.</p>
+      <p>Le bb.&nbsp;41&ndash;48 riprendono le bb.&nbsp;33&ndash;40 una terza maggiore sopra, con il <em>f</em> al posto del <em>p</em>: il canto do&#9839;5&ndash;re&#9839;5&ndash;mi5 diventa mi&#9839;5&ndash;fa𝄪5&ndash;sol&#9839;5, la triade di la diventa quella di do&#9839; maggiore (in primo rivolto alla b.&nbsp;41), la triade di mi quella di sol&#9839; maggiore. L&rsquo;accompagnamento si infittisce, quattro suoni invece di due. Il tono raggiunto, sol&#9839; maggiore, &egrave; la dominante di do&#9839; minore resa tonalit&agrave; autonoma, e di nuovo senza la propria dominante: IV&ndash;I, per moto plagale. Dopo l&rsquo;ultima triade di sol&#9839; (b.&nbsp;48) riprende, <em>sotto voce</em>, il bordone sol&#9839;&ndash;re&#9839; dell&rsquo;introduzione (b.&nbsp;49): la regione tonale su cui la sezione centrale si chiude &egrave; esattamente quella da cui l&rsquo;introduzione parte, e il ritorno non ha bisogno di una modulazione.</p>
+    </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">L&rsquo;errore tipico</span>
+      <p>Scrivere che alla b.&nbsp;33 il pezzo &laquo;modula al relativo&raquo; senza dire come. Qui non c&rsquo;&egrave; n&eacute; un accordo cardine n&eacute; una cadenza perfetta nel tono nuovo: mi maggiore &egrave; affermato per giustapposizione e per moto plagale. L&rsquo;analisi lo deve scrivere, perch&eacute; &egrave; il dato che distingue la sezione dalla danza, che invece cadenza sempre con V&#8311;&ndash;i.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Piano 1: gli altri parametri">
+  <div class="slide-interna">
+    <h2>Piano 1 &middot; Ritmo, testura, dinamica</h2>
+    <div class="analisi-prosa">
+      <p><strong>Ritmo e metro.</strong> Il 3/4 della mazurka si riconosce dagli accenti sui tempi deboli: nell&rsquo;introduzione la minima della destra, sul secondo movimento, porta l&rsquo;accento (bb.&nbsp;1&ndash;4); nella danza la figura iniziale, una croma e una semicroma o una croma puntata e una semicroma, &egrave; un&rsquo;anacrusi interna alla battuta, e il peso cade sulla nota lunga del secondo movimento (fa&#9839;5 alla b.&nbsp;9, do&#9839;5 alla b.&nbsp;13). Le terzine (bb.&nbsp;12, 20) e il trillo sul la4 della b.&nbsp;14 variano la stessa cellula senza cambiarne il profilo. La sinistra della danza segue lo schema basso&ndash;accordo&ndash;accordo, che cambia solo quando cambia la funzione: alle bb.&nbsp;19, 20 e 23 le tre crome della sinistra diventano tre accordi diversi, uno per movimento.</p>
+      <p><strong>Testura.</strong> Due tipi di scrittura si alternano: la melodia accompagnata della danza e il bordone con voce interna dell&rsquo;introduzione, che torna nelle bb.&nbsp;37&ndash;40 e 45&ndash;48 come quinte vuote della sinistra sotto due voci. Surian elenca gli accordi &laquo;vuoti&raquo; di ottave e quinte, senza terza, fra i tratti della musica popolare polacca che Chopin trasferisce nelle mazurke, come imitazione del bordone della <em>duda</em>, la cornamusa della Mazovia (pp.&nbsp;112&ndash;113).</p>
+      <p><strong>Dinamica e agogica</strong> (edizione Kullak). L&rsquo;introduzione &egrave; <em>sotto voce</em>, <em>p legato</em>; la danza parte <em>p</em> e cresce verso la cadenza, <em>cresc.</em> alla b.&nbsp;13, <em>f</em> alla b.&nbsp;14, <em>con forza</em> alla b.&nbsp;15. Le bb.&nbsp;17&ndash;24 sono <em>leggiero</em> e si chiudono <em>calando</em>; la ripresa alla b.&nbsp;25 &egrave; <em>a tempo</em>, <em>p</em>, con il <em>f</em> anticipato alla b.&nbsp;29. La sezione centrale &egrave; <em>gajo</em>, <em>p</em> nella prima met&agrave; e <em>f</em> nella seconda (b.&nbsp;41), con il <em>decresc.</em> che prepara il ritorno <em>sotto voce</em> del bordone (b.&nbsp;49). L&rsquo;ultima esposizione della danza &egrave; <em>rubato</em> (b.&nbsp;65) e termina con la corona sull&rsquo;ultimo accordo. In ogni sezione il punto pi&ugrave; forte coincide con la cadenza o con la sua preparazione: la dinamica sottolinea la funzione armonica.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Piano 2: il materiale">
+  <div class="slide-interna">
+    <h2>Piano 2 &middot; Il materiale e le sue trasformazioni</h2>
+    <div class="analisi-prosa">
+      <p>La mazurka impiega tre materiali. Il primo, <strong>a</strong>, &egrave; il bordone dell&rsquo;introduzione: una quinta vuota nel basso, un suono tenuto nel canto, una voce interna per note di volta (bb.&nbsp;1&ndash;8, 49&ndash;56). Il secondo, <strong>b</strong>, &egrave; la frase della danza, con la sua cellula iniziale (un suono, la sua nota di volta superiore in semicroma, una nota lunga sul secondo movimento) e il piano armonico V&#8310;&#8325;&ndash;i, V&#8310;&#8325;&ndash;i, V&#8310;&#8325;/V&ndash;V&#8313;&ndash;V&#8311;&ndash;i. Il terzo, <strong>c</strong>, &egrave; la melodia <em>gajo</em> della sezione centrale, che sale per grado di una terza e ridiscende per arpeggio (bb.&nbsp;33&ndash;34).</p>
+      <p>Le trasformazioni sono di tre specie. La frase <strong>b</strong> torna quattro volte (bb.&nbsp;9, 25, 57, 65) con il piano armonico invariato e varianti di ritmo e di ornamentazione: alla b.&nbsp;25 la croma puntata sostituisce la croma con la pausa, alla b.&nbsp;29 il fa𝄪2 del basso &egrave; tenuto per tutta la battuta sotto gli accordi, alla b.&nbsp;30 il la4 con il trillo suona sopra il silenzio della sinistra. Il materiale <strong>c</strong> &egrave; trasportato una terza maggiore sopra (bb.&nbsp;41&ndash;44), una sola volta. Il materiale <strong>a</strong>, infine, genera le bb.&nbsp;17&ndash;24 e 37&ndash;40: la nota di volta del sol&#9839; (fa𝄪4, b.&nbsp;17) &egrave; la stessa figura che nell&rsquo;introduzione avvolge il si&#9839; e il do&#9839;, e le quinte vuote delle bb.&nbsp;37&ndash;40 sono il bordone trasferito in mi maggiore. Il principio unificante &egrave; la nota di volta intorno a un suono fisso, che nella danza diventa armonia: la sesta francese della b.&nbsp;19 &egrave; un&rsquo;armonia di volta intorno alla dominante, che parte dal sol&#9839; e vi ritorna.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Piano 3: la forma">
+  <div class="slide-interna">
+    <h2>Piano 3 &middot; La forma: nove sezioni di otto battute</h2>
+    <table style="width:100%;font-size:.84em">
+<thead>
+<tr><th>Sezione</th><th>Battute</th><th>N. bb.</th><th>Materiale</th><th>Tono, funzione</th><th>Indicazioni (Kullak)</th></tr>
+</thead>
+<tbody>
+<tr><td>Introduzione</td><td>1&ndash;8</td><td>8</td><td>a: bordone sol&#9839;&ndash;re&#9839;, voce interna</td><td>V di do&#9839; minore</td><td>&#119134;.&nbsp;=&nbsp;63, <em>sotto voce</em>, <em>p legato</em></td></tr>
+<tr><td>A</td><td>9&ndash;16, ritornello</td><td>8</td><td>b: 2&nbsp;+&nbsp;2&nbsp;+&nbsp;4; nona minore alla b.&nbsp;14</td><td>do&#9839; minore; cadenza perfetta b.&nbsp;16</td><td><em>p</em>, <em>cresc.</em>, <em>f</em>, <em>con forza</em></td></tr>
+<tr><td>B</td><td>17&ndash;24</td><td>8</td><td>arpeggio sul V; sesta francese bb.&nbsp;19, 20, 23</td><td>V prolungato (sol&#9839;)</td><td><em>leggiero</em>; <em>calando</em></td></tr>
+<tr><td>A&prime;</td><td>25&ndash;32 (ritornello 17&ndash;32)</td><td>8</td><td>b variata; trillo b.&nbsp;30</td><td>do&#9839; minore; cadenza perfetta b.&nbsp;32</td><td><em>a tempo</em>, <em>p</em>; <em>f</em> b.&nbsp;29</td></tr>
+<tr><td>C</td><td>33&ndash;40</td><td>8</td><td>c su IV&ndash;I; quinte vuote bb.&nbsp;37&ndash;40</td><td>mi maggiore (III), per moto plagale</td><td><em>gajo</em>, <em>p</em></td></tr>
+<tr><td>C&prime;</td><td>41&ndash;48</td><td>8</td><td>c una terza maggiore sopra</td><td>sol&#9839; maggiore (V)</td><td><em>f</em>; <em>decresc.</em></td></tr>
+<tr><td>Introduzione</td><td>49&ndash;56</td><td>8</td><td>a</td><td>V di do&#9839; minore</td><td><em>sotto voce</em></td></tr>
+<tr><td>A</td><td>57&ndash;64</td><td>8</td><td>b</td><td>do&#9839; minore; cadenza perfetta b.&nbsp;64</td><td><em>p</em>, <em>cresc.</em>, <em>con forza</em></td></tr>
+<tr><td>A&Prime;</td><td>65&ndash;72</td><td>8</td><td>b variata</td><td>do&#9839; minore; cadenza perfetta finale</td><td><em>rubato</em>, <em>con forza</em>; corona</td></tr>
+</tbody>
+</table>
+    <div class="analisi-prosa">
+      <p>La regolarit&agrave; &egrave; assoluta: nove sezioni di otto battute, ciascuna chiusa da una cadenza o da un arresto sulla dominante, settantadue battute in tutto. La prima met&agrave; del pezzo (bb.&nbsp;1&ndash;32) ha la forma di un binario arrotondato con introduzione, A&nbsp;:||:&nbsp;B&nbsp;A&prime;&nbsp;:||; la seconda met&agrave; (bb.&nbsp;33&ndash;72) &egrave; un trio senza ritornelli, seguito dalla ripresa abbreviata, in cui la sezione B cade e la danza si presenta due volte di seguito. Il piano tonale della sezione centrale, III e V maggiore, tocca le due regioni maggiori di do&#9839; minore, e la seconda coincide con il bordone dell&rsquo;introduzione: &egrave; la cerniera che rende la ripresa immediata.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Piano 4: stile e contesto">
+  <div class="slide-interna">
+    <h2>Piano 4 &middot; Stile e contesto</h2>
+    <div class="analisi-prosa">
+      <p>La mazurka &egrave; una danza nazionale polacca della Mazovia, la regione di Varsavia; secondo Surian era suonata dalla <em>duda</em>, una cornamusa che forniva la melodia, &laquo;costituita da brevi frasi regolari&raquo;, e un accompagnamento a bordone di tonica e dominante, in ritmo ternario con gli accenti &laquo;spostati perlopi&ugrave; sui tempi deboli della battuta&raquo;. Fra i tratti che Chopin stilizza nelle sue mazurke Surian elenca la ripetizione ostinata di formule melodico-ritmiche, le inflessioni modali, la frequente accentuazione dei tempi deboli e gli accordi vuoti di quinte e ottave (<em>Manuale di storia della musica</em>, vol.&nbsp;III, pp.&nbsp;112&ndash;113). L&rsquo;op.&nbsp;6 n.&nbsp;2 ne mostra quattro: le frasi regolari di otto battute, l&rsquo;accento sul secondo movimento, il bordone di quinta vuota e la ripetizione della formula della danza, quattro volte con lo stesso piano armonico.</p>
+      <p>Il trattamento &egrave; per&ograve; quello di un compositore che conosce l&rsquo;armonia del primo Ottocento in tutta la sua estensione. Il bordone non &egrave; sulla tonica, come nel modello popolare, ma sulla dominante, e diventa un mezzo per tenere sospesa la tonalit&agrave;; la nona minore completa della b.&nbsp;14 e la sesta francese della dominante delle bb.&nbsp;19&ndash;23 sono armonie che il libro di testo colloca nel repertorio romantico (D&rsquo;Urso, Bertolini, pp.&nbsp;54 e 60&ndash;61). Elemento popolare e linguaggio colto non si sovrappongono: il bordone di dominante dell&rsquo;introduzione e la catena di dominanti delle bb.&nbsp;17&ndash;24 sono due forme dello stesso pensiero armonico, la tonalit&agrave; vista dalla sua dominante.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Conclusione">
+  <div class="slide-interna">
+    <h2>Conclusione</h2>
+    <div class="analisi-prosa">
+      <p>I dati dei quattro piani convergono sulla tesi. Il sol&#9839; &egrave; bordone per sedici battute delle settantadue, dominante prolungata nelle bb.&nbsp;17&ndash;24, tonalit&agrave; autonoma nelle bb.&nbsp;41&ndash;48; la tonica, invece, &egrave; affermata soltanto dalle cadenze della danza, quattro volte, sempre con la stessa formula. Gli accordi alterati, la nona minore e la sesta francese, non sono episodi di colore isolati, ma le due armonie che rendono pi&ugrave; forte la spinta verso la dominante o dalla dominante verso la tonica. Resta aperta una questione che la partitura non decide: se l&rsquo;introduzione, che il pezzo ripete alla b.&nbsp;49, vada intesa come preludio alla danza o come sua cornice, cio&egrave; se la mazurka cominci alla b.&nbsp;1 o alla b.&nbsp;9.</p>
+    </div>
+    <div class="riquadro libro">
+      <span class="etichetta">Fonti</span>
+      <p>F. Chopin, <em>Mazurke op.&nbsp;6</em>, ed. Th. Kullak, Schlesinger (lastra S.&nbsp;7292); ed. K. Mikuli, Schirmer 1894&ndash;1898, nella codifica Humdrum di C. S. Sapp (corpus di music21). E. Surian, <em>Manuale di storia della musica</em>, vol.&nbsp;III, pp.&nbsp;112&ndash;113. D. D&rsquo;Urso, C. Bertolini, <em>Il linguaggio della musica</em>, 5&deg;&nbsp;anno, Mondadori Education 2022, pp.&nbsp;52&ndash;54, 60&ndash;61. D. D&rsquo;Urso, <em>Il linguaggio della musica</em>, 4&deg;&nbsp;anno, pp.&nbsp;132&ndash;135.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Dalla scheda al testo" data-in-classe>
+  <div class="slide-interna">
+    <h2>Dalla scheda al testo: il paragrafo sulle bb.&nbsp;25&ndash;32</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Da soli &middot; 8 minuti</span>
+      <p>Scrivi in prosa, in sei-otto righe, il paragrafo d&rsquo;analisi delle bb.&nbsp;25&ndash;32, confrontandole con le bb.&nbsp;9&ndash;16 trascritte sopra: che cosa resta uguale nel piano armonico, che cosa cambia nel ritmo del canto (bb.&nbsp;25, 27, 29), nel basso della b.&nbsp;29, nella b.&nbsp;30 e nella dinamica. Ogni affermazione con la battuta.</p>
+    </div>
+    <tac-chiuso invito="La correzione &mdash; si apre alla fine del blocco" sale="J67Z4HIeTVYLEMmp65LhGg==" iv="os1oehPUglQBoGsR" dati="GFL2HMf7bhWLHFeasZIrPauDQMZY167jngzU5JGC27X3C0kPmKZHnBNDk3dzqDznRZaTXCnxZCLwn+WWKDbytSktzOVMjeuV8ZRHIQkm1FYZGe5kBNhRDrlO4V0d2MqCd9sSyeVEUV7EsUZ0n+GWROud7J1CDXapATK/t6MOMDXlwot78V85IyOFs6FoS4Q+BNFu/XtuTE/29dmyMmp0gQU99Vq+qAHN9ibNCuCttUxKBXx9MhIbB5p6vNfF0kyQL2FnOmhxagnEVcXU+pn+ZEBCLCKRZ91qdi1Ksbtp9xahfV80f7D8wPyY1xX/17wqSitwBNbnLF/VouHJgmRKRQ+Gv4Guvz1TDIjRnQqzzaiaJulDMvYPpOu+fZ2feHNIazrVvitWBF72rjnWD9taZOHevDwlCRWJIkaCkcCGW8JPvIq+5+Z4YjrwVlp9WZCiyYKFChZhBkQLwYXLxF0sRQPimbGUETXkyZTMVn4gwFb+lzbkW+boF/hF+aX/KUZxPFoMHcYt6l0mg0M/81BKjL+8l+vEXI8S8Ld6PchJctmoP4NvFnw4JjYCKuSUrH7TgOn952a4BKE9ten5QRqUcfScmcOLRcFjo3oeGL5WnTuQvKqJ6xf+zG7K70NZtAaPUumdHDBvLsLFYHUKnIvxuwxJWRlFg+A9FPgXbFt99lG/I5AS+O5bjr/+Pq/+9HTLQz5THdTgBnwg+pv4ae/3FQ8ZWOwFRi4sgMwq+GgYe0vEV1sWeFijm2v0gXcJlRpblo+0pj0KQV+4KNaGhjJJCi+AJndqVB7qxPMhlBLM2rq3dbYM0yXBaIam8AuLPBXQ1dKmjvQcx0E/5Tx1Eobzlbg3frdl46r2X4bgCYIZND78NseIkwTucse364Hsp4uqHpinirhGziTBmnSs7vyln5Jv2GBYMFDVmhrE5tlQ3larnHceegqOWRRHdRHjmzFsfWtD/GAWhZRovgV7QJlF7DUx6vCBjjUfU00Or4Tegpg6vS9q/A+55BtEJC+Q1x4SvaRXqwWt5yXXFSQVHesE/JPQ/Fz56U/V3f6CXiea2D5LjMEudDYjorXw0NvMJ7VcTFY2eTp/txbqBCbBiyt6SV1rLcYpuFXszJiaOp8wCOjSd9yHOqrX+mCz3xZv6FRZoXgIvLp9ERFnSZjamJ6PWUP0kAvW9eBTw3CcnkeqgsWGHEjxcc4OLEgCrZQmstjndCpdn2Lyk6UxQ8OxJWqbHFv+6nEnrRv7j+VxXC7R0sALS20uGpkhaDXfU5Izhc35ubUVbOqOaxhkZVizFx+DS7R8AvkOZdXgZnJnE4fpSjk1xKJNyxAA5APeeW5M12heDKeSXzeHl8GaOxmLEzYlbixDnGSSg9SJXe+hJdz2c3CLj9Ns9nO5++ZBqZbTE4oO1MbzpL72nfmgjzoCRgWa/w04VgEV1xrFf7FUACQbL/2ZjweKSj3ncqO65F9b8W5oyrWm5eEDq2jdBOiqGAMxfpAGc7R4P6D0geVPIxMPUNlDOup0enFkphxDq4FpNqN/EIqpkL/42PWsklEvMxWrdGwDTMGJAuhTRLgi2zbTJa33XBLeZBbM5I+Rbv2/Yo6Ho46RHvm7Pfq8vX8zVl436uU7F+9Y0+iZQ/V48jZUbl3pu8c88u86uRY7DbT6mlh85kxoQxo2vzNnd/0+DXdz9Ibhg3eK+YpUVBy0k1XYEgtc5VDcoCBr"></tac-chiuso>
   </div>
 </section>
 
 <section class="slide" data-titolo="Sintesi">
   <div class="slide-interna">
     <h2>Sintesi</h2>
-
     <div class="colonne">
       <div class="riquadro definizione">
-        <span class="etichetta">Misurato</span>
-        <p>Tre <strong>seste francesi</strong> alle bb. 19, 20, 23. Il basso scende a Re&#9839;, ma il Do𝄪 <strong>non sale</strong>: &egrave; una figurazione.</p>
+        <span class="etichetta">Che cosa ha mostrato l&rsquo;analisi</span>
+        <p>Nella Mazurka op.&nbsp;6 n.&nbsp;2 la dominante &egrave; bordone, regione prolungata e tonalit&agrave; autonoma; la tonica arriva soltanto con le cadenze della danza. La nona minore (b.&nbsp;14) e la sesta francese della dominante (bb.&nbsp;19, 20, 23) rafforzano la dominante invece di allontanare dal tono.</p>
       </div>
       <div class="riquadro studio">
-        <span class="etichetta">La cosa da ricordare</span>
-        <p>Lo stesso suono si scrive in due modi e va in due posti. L&rsquo;<strong>ortografia dichiara la direzione</strong>.</p>
+        <span class="etichetta">Che cosa vale per ogni analisi</span>
+        <p>Un accordo alterato si nomina con il tono a cui appartiene e con la sua risoluzione effettiva, battuta per battuta. Se la condotta non &egrave; quella del manuale, si scrivono la regola e lo scarto, e si cerca la lettura che spiega lo scarto.</p>
       </div>
     </div>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Per la prossima volta, 20 minuti</span>
-      <p>Scrivete l&rsquo;accordo <strong>Mi Sol&#9839; La&#9839; Do𝄪</strong> e la sua risoluzione <strong>due volte</strong>: una come lo fa Chopin (verso la dominante della dominante) e una come vorrebbe il manuale (divergendo all&rsquo;ottava). Sotto ciascuna, la battuta di riferimento o l&rsquo;indicazione &laquo;versione da manuale&raquo;.</p>
-    </div>
-
-    <p class="didascalia">Nella lezione seguente si scrive un basso con la sesta napoletana e le seste eccedenti, e il metodo &egrave; quello di oggi: guardare che cosa c&rsquo;&egrave; scritto, misurare dove va, e dire tutte e due le cose con la battuta accanto.</p>
+    <p class="didascalia">La lezione si chiude con il solfeggio: si canta la voce interna delle bb.&nbsp;1&ndash;4 sopra il bordone suonato al pianoforte, poi il canto delle bb.&nbsp;17&ndash;20. La lezione seguente &egrave; di scrittura: un basso con la napoletana e le seste eccedenti.</p>
   </div>
 </section>
 
@@ -380,12 +397,12 @@ try { module = undefined; exports = undefined; } catch (e) {}
          style="--segno: url('../../_assets/segni/segno-24.png')">
   <div class="slide-interna">
     <p class="compiti-occhiello">Compiti per la prossima volta</p>
-    <h2>1 &middot; Scritto: Gli alterati di Chopin, contati</h2>
+    <h2>1 &middot; Scritto: Otto battute in la minore con la sesta francese della dominante</h2>
     <div class="riquadro compito">
-      <p>Del brano di Chopin visto a lezione scrivi <strong>quanti accordi alterati</strong> ci sono e <strong>in quali battute</strong>.</p>
-      <p>Per ognuno una riga: battuta, nome dell&rsquo;accordo, e la nota alterata. Alla fine un numero solo: <strong>quante battute su quante</strong> ne contengono almeno uno. &Egrave; il numero che dice se sono un colore o la lingua del brano.</p>
+      <p>Realizza a quattro parti il basso dato, <strong>otto battute</strong> in la minore, senza numerica. Alle bb.&nbsp;2 e 7 il do3, che scende al si2, porta la sesta francese della dominante, do–mi–fa&#9839;–la&#9839;, come alle bb.&nbsp;19–20 della mazurka; alla b.&nbsp;5 il fa2 porta la sesta tedesca. Sotto il basso scrivi i gradi.</p>
+      <p>Il la&#9839; sale al si, il do scende al si: si–re&#9839;–fa&#9839; è la dominante della dominante, e va al V. La sesta tedesca va alla quarta e sesta, non direttamente alla dominante. In tre righe sotto la realizzazione: dove risolve ciascuna nota alterata.</p>
     </div>
-    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C5-U6-L1-03</strong>.</p>
+    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C5-U6-L1-05</strong>.</p>
   </div>
 </section>
 
@@ -424,25 +441,25 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Scrivi un contrappunto di <strong>quarta specie (la sincope)</strong> sopra il canto fermo, in modo ionico (finale do): otto battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
       <tac-stave caption="Il canto fermo" clef="bass" time="4/4" notes="c/3:w | b/2:w | a/2:w | e/3:w | d/3:w | f/3:w | d/3:w | c/3:w" tempo="72" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C5-CP-U06-L1</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="EK7FpDpolCYN8A5VQTBHLA==" iv="Qoa/tTNa94+NPX8Z" dati="ydq2pigMTwa4xRfD9NRDZTZiS8HsNUWbFCR/DCR8sJ6PfLdUz6gJ8E/aDFRavkhUSqnSCbiepp9hqqa2iT/mM3E6rruEvGEkLuQdsxasu3ExWUMlEYvFoeHFb6+C2wrWAQEvcGEPGWNulv95UQrNxHewRYubMQglzOf334roV1wXCB9PAwqD+cKBSDN1Qj50GE1ngmHT6XxgCc/6/cFHlGzMqWftqnjQyj/HJwTdHMOPcgPIu6ja5pCgeLS/sAw+jfBZq1mctPzt0fhJQ6FSFolxE/Y38qSibHYEXh7wLDKz6QauGzjDFjbDmJEtJSspk8GoY0h/qtnvE+3bhI/G0FGmZDHq5qybvCb7mBz65rkWM1DH200d2vXMS1gDX3KFR0q9/iS+VbNoGnOSXjctHR8="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="64u1zOzu6WZWhtXor+1b+w==" iv="d7KWg4Cd3YkTokAX" dati="JewQkurO4IVkDlXnA4Gacj2JqIkjOjuUYRad09watwK+BsEpR6GYKyfQkH/mAvvdyMDByDAmKKs5Sic++tC6Ni52xqFZV8DRvXO/rdk6+k7fAjo5igKgqoc0BiI4yfA0TpEaIWqt8VbCLGKavJMgQ3wlK1teJLNQ+UBfKau+HnoNhkrHo9Kwr4/0oI/SXHRoDCkhtFUvB9ZoIXFbeBo7BDUJR0yrv9EQeMavrIMKRKAZos6hAg+TM7fSlI2IYMd3funrecpEG2FZcR91RvkaUdLrobUHqFCkDrBM80G9W9TLJxdU6rbChUZzYa7T50BNDdJIaAbSx1A8lmwYBzDQowslyAd4O5vBjGTsno7/Mp6Xob87K7IpE4KvtwjtwCErlumUhYyduuBdSl/HqPecgOc="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C5-BD-U06-L1">
       <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C5-BD-U06-L1</span></span>
       <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: sedici battute in 4/4, mi minore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: tutto quello studiato, e una modulazione a un tono vicino.</p>
       <tac-stave caption="Il basso" clef="bass" keysig="G" time="4/4" notes="e/3:h d#/3:h | f/3:h e/3:h | f/3:h b/3:h | c/4:w | a/3:w | f/3:w | e/3:w | a/3:h b/3:h | g/3:h a/3:h | f/3:w | e/3:w | b/2:h c/3:h | a/2:w | a/2:w | b/2:h b/2:h | e/2:w" tempo="60" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C5-BD-U06-L1</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="ctVX1L9oHxPN568DvxnASg==" iv="rnp5c2Wm5KWdy3fs" dati="ymyUj/rsm+smK4EdATrbX2gbs/0vVgvCHH36qDYZOMNhhRCzxI6cnzwrLTjuvURpd4xz/lhed5f4fBcLT9mLH7Rz3fa9CiOoTDMRuWZPs4FYVwdE/mdLDdurmd8qwAST3Cc5KwfHYaHIlAHZ4KyVll/QZn1i+AX+F1X9rVUT9yyr76iKJMApEwWiHUyLQ6BpgDpN9bxg7jbw6vTpsMp02pXEhShHKu1PnBTkFlgZinBh26q6EHTIFyu8RDpTgU9Moy+snklxcXXM6FHuAdIE4/0Wc9NSGowomzrSgsYEEpCgdO3natBZbtgPJ0TfstOfRuP1nyV+7NGGu7RUpXo1BmYG/B4e+eMqA0+cWDdroYTBuIIMGhxuy/Fg5HPaG4xSri/FXpk74Zjj0vJjJf+/jX1MSVEeIEFfpi69zTAKtTMnvIPTNQ6W1TtasXp1QfZVe76Mx6d0Y5wPbLzaWGNXtWJ+fjdwqujfPe5pjHsSDKJ0a5Cfb+glsR8j13gJulvjLPOsetWWP4HG5lhmlCPVwJbsCRrh8BW0mejnxNZFzWhiN7DDl+pmrm6eOsV03OWFMACmMg+fE4e+FlgnwcicSKFZ86yCghoCREbcXYWW6NCbN3TU988Z/n8gS78S3tnRfEpOzDB+cDZqHDZd2i65WEfAN3vfWk8XjuXzUCQMpcsMfrC8uu+aUMKINeDbW4CdUqy3iwpGwNfBhGAAC+C61KgEUKl94tNgt21u6zsniE1Pf5sK13rZ6YKvCp4j7MmFjVO9LvFdtVmyOo4eiA2fen/eHd4LqqrnI26npbEWphk7gH/4vpDs9wGXgkmNX9rIrn8cs2B6fdXpaUnTS2OWMcpT1e0wIG6HY7wrj8mcVTWfxKuuCEY+x1kFH4VRtmT/v4YvlAcidRU4GomOcU46a4l4e21kCNDVdv1qpHobWbhGIntRSsu8HzI88TKJVBCAoxZNZsGkXCcG/6UU32XjBujRaRI1hzgPDo7Il7u1+vx3mX4qY+r5/h0xuea9VJJTtDdeGbNGTJeSnUMJub8Px2csNRlHbFdTzTwsnjVQkmRZ3sjUHHxo9ydI3CzerYPKjajAakO0kohemqEUfPWHH20xRFsoSzdB8QYzk0kcwrIyUZXEHp1GF9PoV5AITEuMnjiaTbtmuh24sPex946k4YEpGqGVwrAWhhT6AcAXYaSVn2vRp06LO+Bt61AKTaYxF4FwgSm/rYJwrjy9uTW9oENG1+qrn4XpAPEg9Z0+NKKZj+4X1KUfHqg+nXcZ/7RrIrlrvTeCD5Cj4kj6lxiH4ZlJmF8kEIRQrCGRi6GpBHXaPBcdgCJilmq9D6OPFIA="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="L2StWY0Gx9C2JPVjP8fT6A==" iv="Mxt7XBsyL8bMheUq" dati="+Em8F6OjOj7juXBTwt8bLr8I0im0lT9/MLYG6AZAxIARL/krU8EeoLIzBOQAbCqZWKzsbR036MxYQJWE1fVpUJCgHzXGr7KCAuXrGr01XjV0HIUmNZWlChSBSiAL55/b40APJ+raD2/J8t7bne5iMsQWKRxyjOWP2WbTyeuGGCN/3jIlSsLhyhJV4aPMD5JWdbQ9g2Ttq1U6dCIMSJ5IHbXkJpvNnz2fcDqwxwRjwcJkINqpPfpxkEXY23rALrmDFr7usMtYX7kBy0PO3XuK3d0zXdVyqLW43JLOhxS2JqOP+pP/yryXe0/DNVgBC7Zxcah2QbVM4EWqiQq6si9O9CDKgILIw8j4sfOa8eYQ834FYEtUcw2oG3JR/C0UBQm5+ASyShEKtGUlQkWWdIHqbuxx+dcs9IxpxWnt0oi1vyUx+dkcMrcNYHYszulPezWYIuVWnQfbSRzPBsn+tJivL4mTxEMjP0jkWmvhnTx4DtjEtlRIp3uH3bIjmVgvAK/wPI3EbsTDiULL5GCs6R9le5wb4urOdluJf6vyuac2Pjnxm8qrYjs9VHJ2d/pi8M8bkOu0Wf4wVqrk0gsi6svek/nK90cVIa/caT7ti2oeHVGNQ3Qmhmptd12d7bZIwjRZ5mtUm31q/JlZZmezE1NUfFIrvGO9eQ2Lr3TEjsH5B5CMjyM7wYRjQG3dYC3owcNYBh2aQNIN0zlV32rKmcyuQPwRXjK460Y+U8U7W1oK0T8BwjRw9McHgnC/8ulp1g8jIzesh2WzDjtIO9nOKm6phJMSocsE3J9cT5jPEowL14HHk/GmdoqSV5C7+emrRfLvPE7gmRyUTbuY9TfR7YmM3a2W9XUkLN8DYEWUj4ZWBWjw+qKU724edE/ReqqbFg8tzDWKQBIjhA7MS42zVWVZsZYwfezHm7H7GT721+mkZ19cauEDKLyDSdlFJHoKh87ooEFgpN1vgcp/VBj+IyGCyOJZKqyP6LBAWKLJLMTRA3xnJj7Y2/O1huqVFUmZPJJxGG4W+qRJiuejkRc4Ahz23GgxcX6gz4xHgkdKdY4GhvzH47d1SB0N803Z+YG8TVw/h+ANLLeMvGGw7dwNBiCQHexiRjf6PrmJOWl9JrgaGW9GfQWndPbBQYv4oRZsIrBkRETJiimqEGwYT6jrzAUxrkt+ECkv61scV77YMaNOQdHsvSVoKVhlwj/MIJEUfePZ4Yhsq9bPMbGqGBCNOW14QwT93jPx+bYoZJjZFhaPj7tjLyAO2aZkySCxQaJkQ3CRVl3q+ISK9NaRJ0SYYOwZiLyJMUwSDAVUS+i8Y4x7F7DLKQMPe/VKLQ1wH3dE5js="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C5-CD-U06-L1">
       <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C5-CD-U06-L1</span></span>
       <p>Armonizza a quattro parti il <strong>canto dato</strong>: sedici battute in 4/4, mi minore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: tutto quello studiato, e una modulazione a un tono vicino. La melodia modula: trova dove, e in quale tonalità arriva.</p>
       <tac-stave caption="Il canto dato" clef="treble" keysig="G" time="4/4" notes="g/4:w | g/4:h a/4:h | a/4:w | g/4:w | a/4:w | f/4:h a/4:h | g/4:w | a/4:h a/4:h | g/4:w | c/5:h a/4:h | g/4:w | g/4:h a/4:h | g/4:h f/4:h | g/4:h e/4:h | e/4:h f/4:h | g/4:w" tempo="66" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C5-CD-U06-L1</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="UCVfD4Y5maWRbshpQTstQg==" iv="3tMVL/dG8G2loMrh" dati="OGPosk+5aoqvHDPQIFeYEwDedC1eC+9VOnzhh/LEpIef8wvlCd3B5JT7IHqrrahZyOF5cJxrP1X4A7kZKGEXEiQjo3CmoitqUJskBVY94AalN8TdFfHdhevcO/f9faPaXNPdt89fyEDb3S+P7NZQt/hN+QbLPyZL+EbZJfFzHgm1TzR565jrSPHR7EsVg2EYhkMKxOzxkExkPE2CTo60Da764+J2tanMF5D938c8wwCnPyPTZ8D0VuHAtJ7ydPZAxu3W4jsYUp7MasBkGBiptux/xCqV+y1Lg1D5AdV+TQpUMtl9p35yYZQEPBljy3Z0PuTh97Vn3JPF/g64zZTwT7aAumjhZl2x8BxfIAKDPsY+oZmj10C+bezcy6RFIOu67z6DVc622ZkpaSuRrflhCJiKzlsg+cQFQt/eAYkjIDxkp58129au3lo9WSjAD/LrWY+uqVrC9ZPxMSL6UqU02g0/85oW+3K2mIODlGINQ0JTvuqW+v+J0aYanzge/io+7KYn8pt4UN2ElNl0j5YjkQmY9wByZkVwJOGoDDo+2jWyB2RP8fgv/rkIqK/je5oD1lUChrcAUEN3q/l5rKR8H93fsAibf8VRjjGmm3fqSVnvCgNQWYLIALs3u+fkjT/FYBfZEOiy3y9Nld/9WbIVygU1BOGtSYX2EOmR3NlLbe6MbfZ2/ymvkAkNmNsC44n/kssXV2/dAoYB0FooBt1GZWlVitBzR6+O4TZi0zaktoFENuv42rN86jLmHkGqkW9F0Xzw07TAUcMjJRzVGHNpR5PExV5MNukSHCwm0gSPYkIlUbwR2xDbRUBvcTXo3scV3vUw0btjbGd35ke3rkH1v00GroMaxChe/8idYe+IN+ulEFvvoB2a12ta99UnTSwCFg6kqQZJks0i435XsDucU3AbZeGoDYI/nPIt0H3eRGgAthurJYPTQs7aISLIN9HNOZqy2PWJUNPATX4JEY4IB8HLlWn2sLpmEoJUM1nmOU1wsa3XCu5UJOyGE6agZOnqTzjXT/kyNTxwm1/QjQjNgcOW+45H/2GvusDcnjVt/TBd66EzY7dJEpYsBOqV335+wb60HcmXAcSIoxK/6VOXbLmRqRPWMAlKucKJriUWuSeQ3ws0aYVMMaPJOxVlb9v38L0+MPaQP/iqXzNVu61kbK0zoNEXt6rzJ/C3PbRY9vVaGTmFdZc3G9+aE4mUG5QFDHFJiMRb0ulJ1174d01NlGdvvSD0ei4xFdwb9LWQXD4T2oZUXG0hO/T6VeVTYc3VIT2VtpSawo+//L8Uq/P+WaMSRmyJG1GZrq6U1auV2q8+/nOnz/NJFxro1XCUNQOqKTu3kbWS2vJE5ETLllWNXKKblnaVeB55"></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="MxBc4flKR50DWP4c6dPt+Q==" iv="SwP55kSePWCB4Wbr" dati="pcD3L5DPWeQAZpyh4R/pPfPuAft8pAwmQmp+3tgb1J3gErNX1N1trv7cUn5iu844lcFKnYAIIDbRUcQdDG3NrpcbKd/ZkHytw3m5RlUURKikOeOQpgmkD9b/yzQf4k/3sTo8BseeMf/dGdtAX2FxEgdPu+AiOgSeBzh9+MIPGVx3mU6Bi66MYhc33MHa+tZ6vmVDOMtNnxPjf3qLOT2Hraf4q8Vxmffk0t9BQTWumtbJMMm0+0MumyQYgB/yqIpYmN+Z+5bc2HYF5/VOTxUdBmyJWIhgc1wmRjP+C5pknwC6tl0h8mf1TTkd2rCe1yUvjbl/+aKKEcoKiDyASkr7julZ3Hi/6yrjxFZBaxCyxosHLhOOMXSGvd3bWFOGGFQBBx4arkAxQcYNGcVzgbK173GvoEieOTuSA3JRCa11b9vztTgLGfJBnoBimwiLsbjaIsAyN9oONEBiM/0KS5Vphq0f0qq3c1UpfAeUmgR9gAxI3QX7DBl5xXa3GapEoO4xAZhe8StDgv+sPTpFkupHLhAnuCYmEzvvrL19CQJkhLiAA2KdRFUmhZzQuRkMb+ptLPmAj+mKShTgUQs1bmaK0NfDfNFJiVKg5T9MAgBq/wFFY7alN8hviastpOHLvOGyU6gzFwOOLch9eq0AWbMlOF8UjbIgMS7tjPZI7H0hYVfFxrqR7fB9pSfGVWJVzS47UIVfj6wflXlFYYzUCJKiFgS74oZqc5j6L0vSHtzNpG8JdeVzOlli+4EBaN0PC0YMplX4kKz4p7EqMLo86maQmwh32W35Mq26dqzqODV26+otTwsZR3jmUhBNYYAhlX8sK9A/xCaTJAp35dvg8/Qq6WTDeneT43FXnsJ5HYWp54R0qNLe3ZOILppIrlclF6lNA5wqHHjl3/UTUsSIdFBBrITcudVf8ZcB9IUoHAAp7GIWBH6XM42aXGU97oPKhmhJbZRRBVxkN0oT9an5Oo+6s2UCOLNykphFxZ2YnJt6hsgUNY/s1RsTbCvB4BeauuDd8eVQSkPlyVeC4TbfctCO4WfiG0yHMg7x7N8KQ8cRtWb1IucTiU/bf9DAk3yhAYdyzcAFdwekyaPFS69+SbDTtEMvbyIKa2C5gmL7lBb5oDflRopOx6zaxlb+CUAum3Qzqp3iigqT1UO1FdpFS0bkb7PYcQ8qfDYzJSwT51vlHVeGbJo04/kWuDsZWekTRfkr837wGuwYw3s1DS2uD6ZbU8NYmStaDTwO9B+YmJUIE0twqnmBzET7PwGHA5oBUhiXBiqKTvhczZ6C1846b0I4depFVLhs7nWTuobUZ+tLXuFW9MyoV2pLQXW1b1lzNhqSjZ2ww9jWkDVfzcTDls3s/wnFJLPjplgT"></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Gli alterati di Chopin, contati (Workbook, esercizio C5-U6-L1-03), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 270, 271; cantato n. 272, 273; ritmico n. 274, 275 (a tempo, senza fermarsi). Dettato C5-D-U06-L1 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di quarta specie sul canto fermo (C5-CP-U06-L1). Basso senza numeri da realizzare a quattro parti (C5-BD-U06-L1). Canto dato da armonizzare a quattro parti (C5-CD-U06-L1).</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Otto battute in la minore con la sesta francese della dominante (Workbook, esercizio C5-U6-L1-05), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 270, 271; cantato n. 272, 273; ritmico n. 274, 275 (a tempo, senza fermarsi). Dettato C5-D-U06-L1 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di quarta specie sul canto fermo (C5-CP-U06-L1). Basso senza numeri da realizzare a quattro parti (C5-BD-U06-L1). Canto dato da armonizzare a quattro parti (C5-CD-U06-L1).</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>

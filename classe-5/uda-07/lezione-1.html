@@ -44,511 +44,255 @@ try { module = undefined; exports = undefined; } catch (e) {}
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
 <script src="../../_assets/js/tac-core.js?v=621f9506" defer></script>
 </head>
+
 <body>
 <div id="tac-deck">
 
-
 <!-- ══════════════════════════════════════════════════════════════════
      LEZIONE 1 · Schönberg: dall'atonalità alla serie — l'op. 11 n. 1
-     Unità 7, ora 49 di 90 · classe 5ª · ORA INTERA
+     Unità 7, ora 49 di 90 · classe 5ª · analisi · ORA INTERA (50') ·
+     lunedì 25/1/2027, alle 11. Nessuna coda di orali (le code dell'unità
+     sono all'ora 55, U7 L7; registro.interrogazioni_piano: 46, 55, 59).
 
-     LA FONTE, MISURATA:
-       D'Urso 5, p. 262  «Il sistema cromatico e la dodecafonia»
-
-     ⚠ IL LIBRO NON LO NOMINA MAI. Contato sul volume: «dodecafonia» e
-     derivati compaiono 22 volte, «Schönberg» zero. Quindi la lezione
-     lo presenta, non lo richiama.
-
-     ⚠ E QUESTA È L'UNICA ORA DELL'UNITÀ CON DUE PARTITURE VERE, perché
-     Schönberg è morto nel 1951 ed è libero dal 2022. I due pezzi sono
-     misurati con music21, e i numeri stanno nella lezione:
-
-       op. 19 n. 6 — 10 battute. Attacca su la–fa♯–si, classi {6,9,11},
-                     insieme di Forte 3-7B, forma prima [0,2,5]. Alla
-                     b. 2 entra sotto sol–do–fa, {0,5,7}, Forte 3-9,
-                     forma prima [0,2,7] — tre suoni per quarte.
-       op. 19 n. 2 —  9 battute, tutte appese a sol–si, {7,11},
-                     Forte 2-4.
-
-     ⚠ L'ANALISI PER INSIEMI NON SI FA QUI: è la lezione seguente (U7 L2). Qui i numeri
-     servono solo a mostrare che ci sono due sonorità e non il caos.
+     16/10/2026 · RISCRITTA il 20/10/2026 sul titolo nuovo. Fino al 15/10
+     era la lezione 4 dell'unità 8 del piano vecchio (ora 61); copiata qui
+     il 16/10 con i rimandi nuovi, ma il titolo prometteva l'op. 11 n. 1 e
+     la lezione non la conteneva: parlava dell'op. 19 n. 6 e n. 2 (che ora
+     hanno le loro ore: U7 L2, L7, L9) e anticipava la serie con le quattro
+     forme (che è l'argomento di U8 L1, la Suite op. 25). Ora l'ora fa ciò
+     che il titolo dice: legge le prime undici battute dell'op. 11 n. 1 e
+     chiude con il percorso che porta dall'atonalità libera alla serie.
+     Che cosa contiene:
+     · l'atonalità e i suoi due tempi (D'Urso, Bertolini, 5° anno, p. 262;
+       Salvetti, «La nascita del Novecento», pp. 177, 179, 187);
+     · op. 11 n. 1, bb. 1–11, trascritte nota per nota dalla scansione
+       del catalogo (scansioni/D17, p. 1 della stampa), a quattro voci su
+       due righi: la prima frase, le tre cellule (Natoli, «Percorsi di
+       analisi musicale», pp. 274–275), il pedale di sol♯ e l'arpeggio,
+       la chiusa sull'accordo per quarte;
+     · i tricordi della prima frase in classi di altezze (Bent, «Analisi
+       musicale», pp. 127–129): 3-3, 3-5, 3-6, 3-9; la coppia 6-Z10 /
+       6-Z39, contata con uno script (music21) sulla trascrizione;
+     · dall'atonalità alla serie (D'Urso, p. 262; Pasticci, nota 12, con
+       l'insieme-cardine 6-Z44 indicato da Forte);
+     · esercizio in classe sulle bb. 9–11, soluzione chiusa.
+     Ascolto: D17 (Pollini), nella pagina.
+     Tempi: 2' copertina · 8' i due tempi e l'ascolto · 12' bb. 1–3 ·
+     8' bb. 4–8 · 5' bb. 9–11 · 3' dall'atonalità alla serie · 10'
+     esercizio · 2' sintesi = 50'; poi il solfeggio del montaggio.
      ══════════════════════════════════════════════════════════════════ -->
-<!-- 16/10/2026 · rimandi al piano nuovo della quinta (Novecento).
-     Fino al 15/10 era la lezione 8 dell'unità 8 del piano vecchio (ora 61).
-     Nel piano nuovo è U7 L1, ora 49: apre l'atonalità libera dopo la V4;
-     la precedono la tavola dei sistemi (U4 L1), Voiles (U3), Stravinskij
-     (U6 L10) e la U6 L12 (che già fa ascoltare l'op. 19 n. 2 e il «Dormi
-     Jesu» fra le letture a casa); la segue U7 L2 (analisi per insiemi
-     dell'op. 19 n. 6). Cambiato: testata; «ora 30» → tavola U4 L1; le tre
-     «domande dell'ora 58» (lezione che nel piano nuovo non c'è) presentate
-     qui come domande di questa lezione; «ora 31» (il pedale) → Voiles;
-     «ora 60» → Stravinskij U6 L10; «ora 59», «ora 62» tolti; «ora 64» →
-     lezione seguente; la sintesi annuncia U7 L2 invece di Ligeti; frasi col
-     «noi» rese impersonali. ⚠ Da vedere: il titolo nuovo promette l'op. 11
-     n. 1 (brano di ore.py per U7 L1), e la lezione non la contiene: usa
-     op. 19 n. 6 e n. 2 (che tornano in U7 L2, L7, L9) e il «Dormi Jesu» (U8
-     L8); la serie dodecafonica è anticipata qui, ma è il tema di U8 L1; il
-     rigo «Due accordi» mette sei suoni in una chiave sola.
-     Backup: .prima-dei-rimandi-nuovi. -->
 
 <section class="slide attiva copertina foto" data-titolo="Copertina"
-         style="--foto: url('../../_assets/copertine/c5u10-lezione-8.jpg?v=7d725e00');
+         style="--foto: url('../../_assets/copertine/c5u7-lezione-1.jpg?v=876b5ea6');
                 --cop-a:#7f1d1d; --cop-b:#dc2626; --cop-c:#fee2e2">
   <div class="slide-interna">
     <div class="occhiello">L’atonalità libera &middot; UdA 7 &middot; Lezione 1 di 9</div>
-    <h1>Togliere tutto, e poi ricominciare</h1>
-    <p class="sottotitolo">Prima quindici anni senza regole, poi una regola sola: dodici suoni, e nessuno vale pi&ugrave; degli altri.</p>
-
+    <h1>Tre cellule e un pedale</h1>
+    <p class="sottotitolo">Le prime undici battute dei <em>Drei Klavierstücke</em> op.&nbsp;11 (1909): la tonica non c’è più, la coerenza sì, e si lascia misurare.</p>
     <blockquote class="aforisma">
-      <p>Il sistema cromatico e la dodecafonia</p>
-      <cite><em>Il linguaggio della musica</em>, 5&deg;&nbsp;anno, p.&nbsp;262</cite>
+      <p>La mia sola intenzione è: non avere alcuna intenzione!</p>
+      <cite>A. Schönberg, lettera a F. Busoni del 24 agosto 1909, in G. Salvetti, <em>La nascita del Novecento</em>, p.&nbsp;177</cite>
     </blockquote>
-
     <div class="meta-copertina">
-      <span>Ora intera</span>
-      <span>Atonalit&agrave; e serie</span>
-      <span>Due partiture vere</span>
+      <span>1 ora</span>
+      <span>Analisi</span>
+      <span>Schönberg, op.&nbsp;11 n.&nbsp;1</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="L&rsquo;ultima riga">
+<section class="slide" data-titolo="Atonalità: i due tempi">
   <div class="slide-interna">
-    <h2>L&rsquo;ultima riga della tavola</h2>
-
-    <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
-         «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 5&deg; anno; pagine dall'indice rilevato. -->
+    <h2>Atonalità libera e serie: due tempi, quindici anni</h2>
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
-      <p><span class="lez">B4</span><strong>Oltre la tonalit&agrave;</strong>, pp. 238&ndash;266</p>
-      <p>Sezione B, unit&agrave; 4, lezione B23: dall&rsquo;atonalit&agrave; libera alla serie di dodici suoni.</p>
+      <p><span class="lez">B4</span><strong>Oltre la tonalità</strong>, lezione 23: il sistema cromatico e la dodecafonia, pp.&nbsp;262&ndash;266 &middot; D. D’Urso, C. Bertolini, <em>Il linguaggio della musica</em>, 5°&nbsp;anno.</p>
     </div>
-
-    <p>Nella tavola dei sistemi (unit&agrave; 4, lezione 1) una riga era rimasta in sospeso: <strong>dodici suoni, dodici semitoni, una sola trasposizione</strong>. La scala cromatica presa tutta insieme.</p>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Dodici suoni a distanza uguale: la simmetria completa"
-               notes="c/4:8 c#/4:8 d/4:8 eb/4:8 e/4:8 f/4:8 f#/4:8 g/4:8 | g#/4:8 a/4:8 bb/4:8 b/4:8 c/5:h"
-               segna="b1=trasportata di un semitono d&agrave; s&eacute; stessa"
-               width="860" tempo="88" play slow></tac-stave>
-
     <div class="riquadro definizione">
-      <span class="etichetta">Il caso limite</span>
-      <p>&Egrave; la figura pi&ugrave; simmetrica possibile, e per questo la meno caratterizzata: <strong>una sola trasposizione</strong>, nessuna nota distinguibile dalle altre. Non c&rsquo;&egrave; niente che possa fare da tonica, perch&eacute; non c&rsquo;&egrave; niente che sia diverso.</p>
+      <span class="etichetta">Definizioni</span>
+      <p><strong>Atonalità.</strong> Un sistema «basato su un uso libero dei dodici suoni della scala senza che a nessuno di essi venga attribuito un valore gerarchico particolare»; i compositori che lo praticarono «si resero conto ben presto della necessità di stabilire nuovi criteri alternativi alle regole del linguaggio tonale, necessari per garantire coerenza e unitarietà» (D’Urso, Bertolini, p.&nbsp;262).<br>
+      <strong>Atonalità libera.</strong> La fase, fra il 1908 e i primi anni Venti, in cui Schönberg e i suoi allievi scrivono senza centro tonale e senza un sistema che lo sostituisca: la coerenza nasce dentro ciascun pezzo, dalla ripetizione e dalla trasformazione di pochi intervalli.<br>
+      <strong>Dodecafonia.</strong> Il «metodo per comporre con 12 suoni riferiti solo l’uno all’altro», elaborato da Schönberg negli anni Venti: un ordinamento dei dodici suoni, la serie, diventa la struttura di riferimento di tutto il brano (p.&nbsp;262; unità 8, lezione 1).</p>
     </div>
-
-    <p class="didascalia">La scala cromatica esisteva da secoli, e nessuno l&rsquo;aveva mai considerata un sistema: era il materiale <em>fra</em> le note della scala. Trattarla come la scala &egrave; il passo.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="I due tempi">
-  <div class="slide-interna">
-    <h2>&#9888; E succede in due tempi, non in uno</h2>
-
-    <p>&Egrave; l&rsquo;equivoco pi&ugrave; comune su Schönberg: che abbia inventato la dodecafonia per uscire dalla tonalit&agrave;. In mezzo ci sono <strong>quindici anni</strong>.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Due fasi, e sono cose diverse</span>
-      <p><strong>1908 circa &mdash; l&rsquo;atonalit&agrave; libera.</strong> Si smette di usare la tonalit&agrave; e non si mette niente al posto suo. I pezzi diventano brevissimi.<br>
-      <strong>1923 circa &mdash; la dodecafonia.</strong> Si introduce una regola nuova, e i pezzi tornano a essere lunghi.</p>
-    </div>
-
-    <p>La seconda nasce da un problema pratico della prima, ed &egrave; il problema decisivo: <strong>senza tonalit&agrave;, che cosa impedisce di ripetersi?</strong> Con la tonalit&agrave; una nota tornava perch&eacute; era la tonica; senza, torna perch&eacute; le dita ci vanno.</p>
-
-    <p class="didascalia">La brevit&agrave; dei pezzi del primo periodo non &egrave; uno stile: &egrave; una conseguenza. Senza un sistema che generi continuazione, un pezzo lungo non si regge.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Dieci battute">
-  <div class="slide-interna">
-    <h2>Quanto sono brevi: dieci battute</h2>
-
-    <p>Questo &egrave; uno dei <em>Sei piccoli pezzi per pianoforte</em> op.&nbsp;19, del <strong>1911</strong>. Dura <strong>dieci battute</strong>. Non &egrave; un frammento: &egrave; il pezzo intero.</p>
-
-    <tac-brano organico="tastiera"
-               titolo="A. Sch&ouml;nberg, Sei piccoli pezzi op. 19 n. 6 (1911) &mdash; il pezzo intero"
-               segna="b1=un accordo solo, ripetuto &middot; b2=e sotto ne entra un secondo"
-               metronomo youtube="KDAsjiq0Bcc" esecutore="Glenn Gould, pianoforte" partitura="../../_assets/spartiti/A24_schoenberg-19-6.png" riquadri='[[1,24.0,11.71,24.49,14.18],[2,48.49,11.71,21.48,14.18],[3,69.98,11.71,28.23,14.18],[4,3.09,40.51,39.46,14.69],[5,42.55,40.51,33.2,14.69],[6,75.75,40.51,22.54,14.69],[7,3.17,69.96,37.67,24.15],[8,40.85,69.96,30.27,24.15],[9,71.11,69.96,27.18,24.15]]' inciso="../../_assets/incisioni/A24_schoenberg_19_6.mp3" mappa='{"durata":56581,"eventi":[[0,0],[1,1500],[2,7500],[3,13500],[4,19500],[5,25500],[6,31500],[7,37500],[8,43500],[9,49500]]}' da-battuta="1">
-<script type="application/json">{"titolo":"A. Schönberg, Sei piccoli pezzi op. 19 n. 6 — dieci battute, due accordi","metro":"4/4","bpm":40,"battute":10,"anacrusi":1.0,"voci":[[[0.0,1.0,69],[0.0,1.0,78],[0.0,1.0,83],[1.0,4.0,69],[1.0,4.0,78],[1.0,4.0,83],[5.0,2.0,69],[5.0,2.0,78],[5.0,2.0,83],[7.0,2.0,69],[7.0,2.0,78],[7.0,2.0,83],[9.0,4.0,69],[9.0,4.0,78],[9.0,4.0,83],[11.0,2.0,75],[13.0,0.5,75],[13.0,2.0,69],[13.0,2.0,78],[13.0,2.0,83],[13.5,0.5,75],[16.0,1.0,69],[16.0,1.0,78],[16.0,1.0,83],[17.0,2.0,69],[17.0,2.0,78],[17.0,2.0,83],[19.0,2.0,60],[19.0,2.0,65],[19.0,2.0,70],[21.0,4.0,60],[21.0,4.0,65],[21.0,4.0,70],[26.0,0.5,74],[26.5,0.5,49],[27.0,0.3333,49],[27.3333,0.3333,50],[27.6667,0.6667,54],[28.3333,0.6667,51],[29.3333,0.3333,64],[29.3333,0.6667,62],[29.3333,0.6667,68],[29.3333,0.6667,72],[29.6667,0.3333,63],[30.0,0.5,62],[30.0,0.5,63],[30.0,0.5,68],[30.0,0.5,72],[33.0,4.0,69],[33.0,4.0,78],[33.0,4.0,83]],[[3.0,2.0,55],[3.0,2.0,60],[3.0,2.0,65],[5.0,2.0,55],[5.0,2.0,60],[5.0,2.0,65],[10.0,3.0,55],[10.0,3.0,60],[10.0,3.0,65],[11.0,1.5,87],[12.5,0.5,88],[13.0,0.5,88],[13.0,2.0,55],[13.0,2.0,60],[13.0,2.0,65],[13.5,0.5,87],[17.0,3.0,55],[17.0,3.0,60],[17.0,3.0,65],[20.0,1.0,40],[20.0,1.0,50],[20.5,0.5,56],[21.0,1.0,55],[21.0,4.0,40],[21.0,4.0,50],[22.0,3.0,54],[29.3333,0.6667,49],[29.3333,0.6667,54],[29.3333,0.6667,59],[30.0,0.5,49],[30.0,0.5,55],[30.0,0.5,59],[34.0,3.0,55],[34.0,3.0,60],[34.0,3.0,65],[36.0,0.5,46],[36.5,0.5,32]]]}</script>
-</tac-brano>
-
     <div class="analisi-prosa">
-      <p>I segni appartengono a un&rsquo;analisi del materiale armonico: non cercano gradi o funzioni, che qui non ci sono, ma contano quante sonorit&agrave; diverse reggono il pezzo e dove compaiono. Ciascuno &egrave; un&rsquo;etichetta posta sulla battuta in cui entra un materiale nuovo. Alla battuta 1 il segno indica un accordo solo, ripetuto: il pezzo si apre senza alcun movimento armonico. Alla battuta 2 segnala che sotto ne entra un secondo. Non ne servono altri, perch&eacute; questi due sono i materiali di tutto il brano. &Egrave; la domanda che guida l&rsquo;analisi della musica senza tonalit&agrave;: quali sono i pochi oggetti che tornano.</p>
-      <p>Il pezzo va ascoltato due volte, e alla seconda conviene contare <strong>quanti accordi diversi</strong> si sentono in tutto: la risposta, che sorprende, &egrave; sviluppata nella slide successiva. Dieci battute per un pezzo da concerto sono meno di un minuto di musica. &Egrave; la misura di quanto poco si riesce a costruire quando si &egrave; tolto tutto e non si &egrave; ancora messo niente.</p>
+      <p>I tre <em>Klavierstücke</em> op.&nbsp;11 sono del 1909, l’anno dei Cinque pezzi per orchestra op.&nbsp;16 e di <em>Erwartung</em>; Salvetti ne scrive: «Ogni aspetto del linguaggio musicale vi appare asimmetrico e distorto: la fraseologia si spezza, anche per la continua escursione in registri lontani; il valore materico degli accordi prevale su qualsiasi logica di tensione-distensione» (<em>La nascita del Novecento</em>, p.&nbsp;187). Lo stesso Salvetti avverte che quel valore improvvisatorio è «assolutamente non pre-dodecafonica nel suo significato» (p.&nbsp;187): fra l’op.&nbsp;11 e la serie passano quindici anni, e la serie non è lo scopo dell’atonalità libera, ma la risposta a un problema che l’atonalità libera aveva aperto.</p>
+    </div>
+    <tac-brano organico="pianoforte" titolo="A. Schönberg, <em youtube="VeTFxbsVGrI" esecutore="Maurizio Pollini, pianoforte" partitura="../../_assets/spartiti/D17_schoenberg-op11.png" da-battuta="1">Drei Klavierstücke</em> op.&nbsp;11 n.&nbsp;1 (1909)" in-vista></tac-brano>
+    <div class="riquadro attenzione">
+      <span class="etichetta">L’errore tipico</span>
+      <p>Chiamare «dodecafonica» ogni musica senza tonalità, o «atonale» ogni musica molto dissonante. L’op.&nbsp;11 non ha serie; la Kammersymphonie op.&nbsp;9 (unità 6, lezione 8), con tutti i suoi accordi per quarte, ha ancora una tonica. Si nomina il sistema solo dopo averlo verificato sulla partitura.</p>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Due accordi">
+<section class="slide" data-titolo="La partitura, bb. 1–11">
   <div class="slide-interna">
-    <h2>Dieci battute costruite su due accordi</h2>
-
-    <p>Il pezzo si apre su un accordo solo, ripetuto: <strong>la&ndash;fa&#9839;&ndash;si</strong>. Alla seconda battuta, sotto, ne entra un secondo: <strong>sol&ndash;do&ndash;fa</strong>. Sono i due materiali di tutto il brano.</p>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="I due accordi dell&rsquo;op. 19 n. 6, uno sopra e uno sotto"
-               notes="a/4+f#/5+b/5:h a/4+f#/5+b/5:h | g/3+c/4+f/4+a/4+f#/5+b/5:w"
-               segna="b1=il primo, che sta in alto &middot; b2=e il secondo, che entra sotto e non si mescola"
-               width="840" tempo="40" play slow></tac-stave>
-
+    <h2>Le prime undici battute: la trascrizione</h2>
+<div class="righe">
+    <tac-stave
+       time="3/4"
+       caption="A. Schönberg, op.&nbsp;11 n.&nbsp;1, bb.&nbsp;1–11 (Mäßige &#9833;, p). Rigo superiore: la destra, voce superiore (gambi in su) e voce inferiore (gambi in giù); rigo inferiore: la sinistra, voce superiore (gambi in su) e inferiore (gambi in giù). Trascrizione nota per nota dalla stampa del catalogo (scansione D17, p.&nbsp;1); i bequadri di cortesia della stampa sono omessi."
+       soprano="r:q b/4:q g#/4:q | g/4:q. a/4:8 f/4:q | f/4:h e/4:q | r:q e/4:q g#/4:q~"
+       contralto="r:h. | r:q b/3:h | r:q db/4:h | r:q c/4:8 bb/3:8 bn/3:q~"
+       tenore="r:h. | r:q f/3:h | r:q a/3:h | r:q r:q d/3:8 f#/3:8"
+       basso="r:h. | r:q gb/2:h | r:q bb/2:h | r:q r:q g#/2:q~"
+       segna="b1=si–sol♯–sol: 3-3 · b2=sol♭–fa–si: 3-5 · b3=si♭–la–re♭: 3-3 · b4=entra il pedale di sol♯"
+       width="900"
+       tempo="60" play></tac-stave>
+    <tac-stave
+       time="3/4"
+       soprano="g#/4:8 r:8 r:8 f/4:q. | g/4:q. r:8 r:q | r:q e/4:q. g/4:8~ | g/4:q r:q r:q"
+       contralto="b/3:8 r:8 r:q c/4:8 bb/3:8 | b/3:q. r:8 r:q | r:8 c/4:q bb/3:q. | b/3:q r:q r:q"
+       tenore="a/3:8 a#/3:8 b/3:8 r:8 r:q | r:8 d/3:8 f#/3:8 a/3:8 a#/3:8 b/3:8 | r:q db/3:q c/3:q~ | c/3:8 d/3:8 f#/3:8 a/3:8 a#/3:8 b/3:8"
+       basso="g#/2:q. r:8 r:q | r:8 g#/2:q.~ g#/2:q | r:h. | r:8 g#/2:q.~ g#/2:q"
+       segna="b1=re–fa♯–la–la♯–si sul sol♯: 6-Z39 · b2=l’arpeggio, compresso · b3=re♭–do: la sinistra scende · b4=l’arpeggio, terza volta (rit.)"
+       width="900"></tac-stave>
+    <tac-stave
+       time="3/4"
+       soprano="r:q f#/4:q d/4:q | c/4:q. g#/4:8 a/3:q | a/3:h bb/3:q"
+       contralto="r:h. | r:h. | r:h."
+       tenore="r:h. | r:q e/3+ab/3:h | r:q c/3+f/3:h"
+       basso="r:h. | r:q gb/2:h | r:q g/2:h"
+       segna="b1=langsamer, p · b2=sol♭–mi–la♭: 3-6 · b3=sol–do–fa: 3-9, per quarte"
+       width="900"></tac-stave>
+</div>
     <div class="analisi-prosa">
-      <p>Il rigo &egrave; una riduzione: non riproduce la partitura, ma isola i due accordi del pezzo e li dispone come nel brano, il primo sopra e il secondo sotto. I segni appartengono a un&rsquo;analisi del materiale armonico condotta senza sigle, con tre domande: quanti suoni, come sono disposti, se c&rsquo;&egrave; una seconda dentro. Ogni etichetta nomina l&rsquo;accordo che compare in quella battuta.</p>
-      <p>Alla battuta 1 il segno indica il primo, <strong>la&ndash;fa&#9839;&ndash;si</strong>, che sta in alto: tre suoni, con una seconda maggiore e una quarta; non &egrave; n&eacute; maggiore n&eacute; minore, e non somiglia a nessuna triade. Alla battuta 2 il segno indica il secondo, <strong>sol&ndash;do&ndash;fa</strong>, che entra sotto e non si mescola con il primo, il quale continua a suonare sopra: tre suoni impilati per quarte, aperti, vuoti, senza terza. Nessuno dei due si pu&ograve; siglare, eppure tutti e due si riconoscono all&rsquo;orecchio dopo due ascolti. &Egrave; l&rsquo;abilit&agrave; che questa musica richiede: descrivere un accordo senza nominarlo.</p>
+      <p>Il pezzo è scritto su due righi e quasi sempre a quattro voci reali, due per mano, che si possono seguire come in una scrittura corale: una melodia nella voce superiore della destra, una seconda voce sotto di essa, e alla sinistra accordi di due suoni o arpeggi sopra un basso. Le undici battute trascritte formano la prima sezione: tre frasi (bb.&nbsp;1–3, 4–8, 9–11) separate da pause o da cambiamenti di tempo, e chiuse dall’indicazione <em>viel schneller</em> della b.&nbsp;12, che apre una sezione di tutt’altro carattere.</p>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Il secondo pezzo">
+<section class="slide" data-titolo="Bb. 1–3: tre cellule">
   <div class="slide-interna">
-    <h2>E il n. 2 fa la stessa cosa con due sole note</h2>
-
-    <p>Nove battute, e tutto il pezzo sta appeso a una <strong>terza maggiore ribattuta</strong>: sol&ndash;si. Torna in continuazione, sempre uguale, mentre intorno cambia tutto.</p>
-
-    <tac-brano organico="tastiera"
-               titolo="A. Sch&ouml;nberg, Sei piccoli pezzi op. 19 n. 2 (1911) &mdash; il pezzo intero"
-               segna="b1=sol e si, e non se ne vanno pi&ugrave;"
-               metronomo youtube="KDAsjiq0Bcc" esecutore="Glenn Gould, pianoforte" partitura="../../_assets/spartiti/A25_schoenberg-19-2.png" riquadri='[[1,5.94,10.99,51.18,11.87],[2,57.12,10.99,41.42,11.87],[3,2.2,35.01,50.37,12.14],[4,52.56,35.01,45.97,12.14],[5,2.2,59.97,55.0,11.87],[6,57.2,59.97,41.42,11.87],[7,9.85,85.69,28.72,11.33],[8,38.57,85.69,33.36,11.33],[9,71.93,85.69,26.28,11.33]]' inciso="../../_assets/incisioni/A25_schoenberg_19_2.mp3" mappa='{"durata":30380,"eventi":[[0,0],[1,2000],[2,4000],[3,6000],[4,8000],[5,10000],[6,14800],[7,19600],[8,24400]]}' da-battuta="1">
-<script type="application/json">{"titolo":"A. Schönberg, Sei piccoli pezzi op. 19 n. 2 — la terza che non se ne va","metro":"4/4","bpm":50,"battute":9,"anacrusi":0.0,"voci":[[[7.0,0.5,83],[7.0,0.5,86],[7.5,0.5,66],[8.0,1.5,63],[9.5,0.5,57],[10.0,1.0,60],[11.0,1.0,56],[16.0,0.25,78],[16.0,0.25,82],[16.0,0.25,88],[17.0,0.5,54],[17.0,0.5,58],[22.0,2.0,59],[22.0,2.0,62],[24.0,0.5,59],[24.0,0.5,62],[24.5,0.5,67],[24.5,0.5,71],[26.5,0.5,67],[26.5,0.5,71],[27.0,0.5,67],[27.0,0.5,71],[29.0,0.5,67],[29.0,0.5,71],[31.0,0.5,67],[31.0,0.5,71],[31.5,0.5,67],[31.5,0.5,71],[33.5,0.5,67],[33.5,0.5,71],[34.0,2.0,67],[34.0,2.0,71],[34.0,2.0,75],[34.0,2.0,78],[34.0,2.0,82],[34.0,2.0,86]],[[1.0,0.5,67],[1.0,0.5,71],[1.5,0.5,67],[1.5,0.5,71],[2.0,0.5,67],[2.0,0.5,71],[3.5,0.5,67],[3.5,0.5,71],[5.0,0.5,67],[5.0,0.5,71],[5.5,0.5,67],[5.5,0.5,71],[6.0,0.5,67],[6.0,0.5,71],[7.5,0.5,67],[7.5,0.5,71],[9.0,0.5,67],[9.0,0.5,71],[9.5,0.5,67],[9.5,0.5,71],[10.0,0.5,67],[10.0,0.5,71],[11.5,0.5,67],[11.5,0.5,71],[12.0,0.5,67],[12.0,0.5,71],[12.5,0.5,67],[12.5,0.5,71],[13.0,0.5,72],[13.0,0.5,75],[13.5,0.5,67],[13.5,0.5,71],[14.5,0.5,67],[14.5,0.5,71],[16.0,0.5,72],[16.0,0.5,75],[16.5,1.0,67],[16.5,1.0,71],[17.5,0.5,67],[17.5,0.5,71],[19.0,0.5,67],[19.0,0.5,71],[19.5,0.5,67],[19.5,0.5,71],[20.0,0.5,56],[20.0,0.5,60],[20.5,1.0,57],[20.5,1.0,61],[21.5,0.5,60],[21.5,0.5,63],[22.0,2.0,42],[22.0,2.0,48],[22.0,2.0,51],[22.0,2.0,53],[24.0,0.5,42],[24.0,0.5,48],[24.0,0.5,51],[24.0,0.5,53],[26.0,0.5,53],[26.0,0.5,57],[28.0,0.5,51],[28.0,0.5,55],[30.5,0.5,49],[30.5,0.5,53],[32.5,0.5,48],[32.5,0.5,52]]]}</script>
-</tac-brano>
-
+    <h2>Bb.&nbsp;1–3: tre cellule e due accordi</h2>
+    <div class="riquadro definizione">
+      <span class="etichetta">Definizioni</span>
+      <p><strong>Cellula.</strong> Un gruppo di due o tre suoni definito dai suoi intervalli e non dalla sua posizione in una tonalità; nell’op.&nbsp;11 «l’intervallo e la sua possibile trasformazione (inversione o mutazione) è alla base della costruzione», e il pezzo «si apre con la presentazione di tre cellule intervallari che diverranno elementi strutturali dell’intero lavoro» (E. C. Natoli, <em>Percorsi di analisi musicale</em>, p.&nbsp;274).<br>
+      <strong>Classe di altezze.</strong> Tutte le note dello stesso nome, in qualunque ottava e con qualunque ortografia enarmonica, numerate da 0 (do) a 11 (si): un accordo o un frammento melodico ridotto a classi di altezze si confronta con un altro indipendentemente dal registro (I. Bent, <em>Analisi musicale</em>, pp.&nbsp;127–128). La riduzione alla forma più stretta, con la sigla di Forte (3-3, 3-5…), è l’argomento della lezione seguente.</p>
+    </div>
     <div class="analisi-prosa">
-      <p>Il segno appartiene a un&rsquo;analisi di ci&ograve; che resta fermo, dello stesso tipo dell&rsquo;analisi del pedale: invece di seguire che cosa cambia, si individua l&rsquo;elemento che non cambia e che fa da riferimento a tutto il resto. &Egrave; un&rsquo;etichetta sola, posta sulla battuta 1, all&rsquo;inizio del pezzo, e vale per tutte le nove battute: sol e si, come dice il segno, non se ne vanno pi&ugrave;.</p>
-      <p>Una terza maggiore &egrave; l&rsquo;intervallo pi&ugrave; tonale che ci sia: &egrave; met&agrave; di una triade. Qui non lo &egrave;, e la ragione &egrave; una sola: <strong>non si muove</strong>. Non risolve, non prepara, non va da nessuna parte. Se ne ricava il modo pi&ugrave; economico di avere un centro senza avere una tonica, lo stesso lavoro che in &laquo;Voiles&raquo; (unit&agrave; 3) faceva il pedale, ridotto a due note ribattute. Accanto all&rsquo;op.&nbsp;19 n.&nbsp;6, che regge dieci battute su due accordi, il n.&nbsp;2 ne regge nove su una sola sonorit&agrave;: anche qui la coerenza nasce dalla ripetizione di pochissimo materiale.</p>
+      <p>La melodia delle bb.&nbsp;1–3 è una linea di sei suoni, si4–sol♯4–sol4–la4–fa4–mi4, che non ripete nessun suono e non ne privilegia nessuno: comincia in levare sul secondo movimento, con un si4 e un sol♯4 di un quarto ciascuno, scende di semitono al sol4 (semiminima puntata), sale di tono al la4 (croma), scende di terza maggiore al fa4 e di semitono al mi4. Natoli vi riconosce tre cellule: la terza minore discendente si–sol♯ (con il semitono che la prolunga, sol♯–sol), il gruppo sol–la–fa (seconda maggiore ascendente, terza maggiore discendente) e il semitono discendente fa–mi. Ciò che rende la frase coerente non è un centro tonale ma il ritorno degli stessi intervalli, e la frase finisce non su una tonica ma su una terza maggiore discendente seguita da un semitono, lo stesso gesto con cui era cominciata la b.&nbsp;2.</p>
+      <p>Sotto la melodia entrano, sul secondo movimento delle bb.&nbsp;2 e 3, due accordi di tre suoni tenuti per due movimenti. Il primo, sol♭2–fa3–si3, sovrappone una settima maggiore e un tritono: in classi di altezze è {5,&nbsp;6,&nbsp;11}, un semitono e un tritono, la classe 3-5. Il secondo, si♭2–la3–re♭4, ha la stessa disposizione (una settima maggiore al grave, poi una terza) ed è {9,&nbsp;10,&nbsp;1}, la classe 3-3: e 3-3 è anche la classe della cellula si–sol♯–sol della b.&nbsp;1 ({7,&nbsp;8,&nbsp;11}), di cui l’accordo della b.&nbsp;3 è l’esatta trasposizione un tono sopra (sol→la, sol♯→si♭, si→do♯). La prima cellula melodica diventa così, due battute dopo, un accordo: la stessa classe di altezze vale in orizzontale e in verticale, e il legame fra melodia e armonia non passa più per un grado della scala ma per un gruppo di intervalli.</p>
     </div>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Non &egrave; il caos">
-  <div class="slide-interna">
-    <h2>&#9888; Quello che questi due pezzi dimostrano</h2>
-
-    <p>Si dice spesso che l&rsquo;atonalit&agrave; sia musica senza regole, in cui tutto vale uguale. I due pezzi che avete appena sentito dicono il contrario, e lo dicono in modo verificabile.</p>
-
+    <tac-stave
+       time="4/4"
+       caption="Le due grafie della classe 3-3 nelle bb.&nbsp;1–3 (riduzione: le altezze sono quelle della partitura, i valori no): la cellula melodica si–sol♯–sol, arpeggiata e poi accordo; l’accordo si♭–la–re♭ della b.&nbsp;3, accordo e poi arpeggiato; infine le due grafie una sopra l’altra, un tono di distanza."
+       notes="b/4:q g#/4:q gn/4:h | g/4+g#/4+b/4:w | r:w | r:w | r:w | r:w | g/4+g#/4+b/4:w | g/4+g#/4+b/4:w"
+       bass="r:w | r:w | bb/2+a/3+db/4:w | bb/2:q a/3:q db/4:h | gb/2+f/3+b/3:w | gb/2:q f/3:q b/3:h | bb/2+a/3+db/4:w | gb/2+f/3+b/3:w"
+       segna="b1-b2=la cellula a: 3-3 · b3-b4=l’accordo della b.&nbsp;3: 3-3, un tono sopra · b5-b6=l’accordo della b.&nbsp;2: 3-5 · b7=3-3 sopra 3-3 · b8=3-3 sopra 3-5"
+       width="900"
+       tempo="56" play></tac-stave>
     <div class="riquadro attenzione">
-      <p>Dieci battute su <strong>due</strong> sonorit&agrave;. Nove battute su <strong>una</strong>. &Egrave; una economia di materiale che nessun pezzo tonale di pari durata si permetterebbe &mdash; una sonata usa molti pi&ugrave; accordi in dieci battute.</p>
+      <span class="etichetta">L’errore tipico</span>
+      <p>Cercare una tonalità nella melodia delle bb.&nbsp;1–3 (mi minore, per la cadenza fa–mi) e liquidare il resto come «dissonanza». Il mi4 finale cade sopra si♭2–la3–re♭4, un accordo che non contiene il mi e che non è una dominante: la nota finale chiude la linea, non la funzione. Si descrive la frase con i suoi intervalli.</p>
     </div>
-
-    <p>Tolta la tonalit&agrave;, il compositore non ha <em>meno</em> vincoli: ne ha di pi&ugrave;. Deve costruire lui, dentro il pezzo, la coerenza che prima gli veniva dal sistema. E il modo &egrave; sempre quello: <strong>ripetere poco materiale</strong>.</p>
-
-    <p class="didascalia">La domanda dell&rsquo;analisi diventa quindi: <em>quali sono i pochi oggetti che tornano?</em> Nella lezione seguente, con l&rsquo;analisi per insiemi, la risposta diventa un numero.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="La serie">
+<section class="slide" data-titolo="Bb. 4–8: il pedale e l’arpeggio">
   <div class="slide-interna">
-    <h2>Quindici anni dopo: la serie</h2>
-
-    <p>La regola nuova &egrave; una sola frase: si sceglie un ordine dei <strong>dodici suoni</strong>, e prima di ripeterne uno si usano tutti gli altri.</p>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Una serie: dodici suoni, ciascuno una volta sola"
-               notes="e/4:8 f/4:8 g/4:8 c#/4:8 f#/4:8 d#/4:8 g#/4:8 d/4:8 | b/4:8 c/5:8 a/4:8 a#/4:8 r:h"
-               segna="b1=nessuna nota si ripete &middot; b2=e alla dodicesima il giro &egrave; chiuso"
-               width="860" tempo="88" play slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">A che cosa serve, in pratica</span>
-      <p>A <strong>impedire che una nota diventi tonica per insistenza</strong>. Se ogni suono compare con la stessa frequenza, nessuno pu&ograve; imporsi. La regola non produce bellezza: produce equilibrio, e toglie di mezzo il difetto del primo periodo.</p>
-    </div>
-
-    <p class="didascalia">La serie non &egrave; un tema: non si deve riconoscere all&rsquo;ascolto, e quasi mai si riconosce. &Egrave; il criterio con cui si generano le note, non la melodia che si sente.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Le quattro forme">
-  <div class="slide-interna">
-    <h2>Che cosa si fa con una serie</h2>
-
-    <p>Una successione di dodici suoni si pu&ograve; usare in quattro modi, e sono gli stessi del contrappunto studiato in seconda.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le quattro forme, e i loro nomi</span>
-      <p><strong>originale</strong> (O) &mdash; come &egrave; stata scritta<br>
-      <strong>retrogrado</strong> (R) &mdash; letta dalla fine<br>
-      <strong>inverso</strong> (I) &mdash; ogni intervallo rovesciato: dove saliva scende<br>
-      <strong>retrogrado dell&rsquo;inverso</strong> (RI) &mdash; tutte e due le cose insieme</p>
-    </div>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Le prime quattro note, e il loro inverso: sale dove scendeva"
-               notes="e/4:q f/4:q g/4:q c#/4:q | e/4:q eb/4:q c#/4:q g/4:q"
-               segna="b1=originale &middot; b2=inverso, gli stessi intervalli al contrario"
-               width="840" tempo="72" play slow></tac-stave>
-
-    <p class="didascalia">Ognuna delle quattro si pu&ograve; poi <strong>trasportare</strong> su dodici altezze: 4 &times; 12 = <strong>quarantotto</strong> forme in tutto, da una serie sola. Il materiale &egrave; abbondante, e viene tutto da una decisione iniziale.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Da dove viene">
-  <div class="slide-interna">
-    <h2>E non &egrave; un&rsquo;invenzione senza padri</h2>
-
-    <p>Retrogrado, inverso, retrogrado dell&rsquo;inverso: sono le trasformazioni del <strong>canone</strong>, e le avete incontrate in seconda e in quarta. Bach le usava, e prima di lui i fiamminghi.</p>
-
-    <div class="riquadro studio">
-      <p>Quello che cambia non &egrave; l&rsquo;operazione: &egrave; <strong>l&rsquo;oggetto</strong> su cui si applica. Nel canone si trasforma un <em>tema</em>, che ha un profilo e si riconosce. Qui si trasforma una <em>serie</em>, che è un ordine e non si riconosce.</p>
-    </div>
-
-    <p>Vale la pena dirlo perch&eacute; toglie alla dodecafonia l&rsquo;aria di rottura totale: la tecnica &egrave; vecchia di cinque secoli, ed &egrave; il materiale a essere nuovo.</p>
-
-    <p class="didascalia">Schönberg stesso teneva molto a questa continuit&agrave;, e insegnava armonia tonale ai suoi allievi &mdash; anche a quelli che poi hanno scritto solo musica seriale.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Gli allievi">
-  <div class="slide-interna">
-    <h2>Due allievi, e due modi opposti di usarla</h2>
-
-    <p>La serie &egrave; una regola, e una regola non fa uno stile: due compositori che la usano allo stesso modo possono scrivere musica che non si somiglia per niente. I due allievi di Schönberg lo dimostrano.</p>
-
-    <tac-brano organico="voci"
-               titolo="A. Webern, &laquo;Dormi Jesu&raquo;, dai Cinque canoni op. 16 n. 2"
-               segna="b1=un canone, e le voci non fanno pi&ugrave; armonia"
-               metronomo youtube="MDpJQLP50Yc" esecutore="Christiane Oelze, soprano" partitura="../../_assets/spartiti/A26_webern-16-2.png" riquadri='[[1,20.08,12.34,41.72,6.55],[2,61.79,12.34,36.35,6.55],[3,5.85,25.09,48.64,6.52],[4,54.48,25.09,43.76,6.52],[5,6.24,37.77,46.59,6.55],[6,52.83,37.77,45.61,6.55],[7,5.95,58.06,47.08,7.09],[8,53.02,58.06,44.93,7.09],[9,5.85,72.05,46.3,7.25],[10,52.14,72.05,45.71,7.25],[11,5.85,86.33,34.99,7.0],[12,40.84,86.33,28.17,7.0],[13,69.01,86.33,28.46,7.0]]' inciso="../../_assets/incisioni/A26_webern_16_2.mp3" mappa='{"durata":54621,"eventi":[[0,0],[1,4444],[2,8889],[3,13333],[4,17778],[5,22222],[6,26667],[7,31111],[8,35556],[9,40000],[10,44444],[11,48889]]}' da-battuta="1">
-<script type="application/json">{"titolo":"A. Webern, «Dormi Jesu», dai Cinque canoni op. 16 n. 2","metro":"4/4","bpm":54,"battute":12,"anacrusi":0.0,"voci":[[[4.0,0.5,76],[4.5,1.0,68],[6.0,0.6667,65],[6.6667,0.6667,62],[8.5,1.0,61],[9.5,0.5,74],[10.0,0.5,78],[10.5,0.5,67],[12.0,1.0,63],[13.0,1.0,80],[14.0,1.5,76],[15.5,0.5,74],[16.0,1.0,77],[17.5,1.0,69],[19.0,0.5,66],[19.5,0.5,71],[20.5,1.0,79],[21.5,0.5,76],[22.6667,0.6667,62],[23.3333,0.3333,73],[24.0,1.0,65],[25.0,0.3333,75],[25.3333,0.6667,78],[28.0,1.5,64],[29.5,0.5,67],[30.0,1.0,63],[31.0,1.0,74],[32.0,1.0,73],[33.5,0.5,72],[34.5,1.0,76],[35.5,0.5,65],[37.0,0.5,67],[37.5,0.5,64],[38.0,1.0,75],[39.0,1.0,74],[40.0,0.5,78],[40.5,1.0,75],[42.0,0.6667,62],[42.6667,0.6667,73],[44.0,1.0,81],[45.0,1.0,79],[46.0,1.5,66],[47.5,0.5,71]],[[0.0,0.5,58],[0.5,1.0,66],[2.0,0.6667,69],[2.6667,0.6667,72],[4.5,1.0,73],[5.5,0.5,60],[6.0,0.5,56],[6.5,0.5,67],[8.0,1.0,71],[9.0,1.0,54],[10.0,1.5,58],[11.5,0.5,60],[12.0,1.0,57],[13.5,1.0,65],[15.0,0.5,68],[15.5,0.5,63],[16.5,1.0,55],[17.5,0.5,58],[18.6667,0.6667,72],[19.3333,0.3333,61],[20.0,1.0,69],[21.0,0.3333,59],[21.3333,0.6667,56],[24.0,1.5,70],[25.5,0.5,67],[26.0,1.0,71],[27.0,1.0,60],[28.0,1.0,61],[29.5,0.5,62],[30.5,1.0,58],[31.5,0.5,69],[33.0,0.5,67],[33.5,0.5,70],[34.0,1.0,59],[35.0,1.0,60],[36.0,0.5,56],[36.5,1.0,59],[38.0,0.6667,72],[38.6667,0.6667,61],[40.0,1.0,53],[41.0,1.0,55],[42.0,1.5,68],[43.5,0.5,63],[44.0,1.0,74],[45.5,1.0,61],[47.0,0.5,58]]]}</script>
-</tac-brano>
-
+    <h2>Bb.&nbsp;4–8: il pedale di sol♯, l’arpeggio, le cellule capovolte</h2>
     <div class="analisi-prosa">
-      <p>Il segno appartiene a un&rsquo;analisi contrappuntistica: guarda come le voci si rapportano fra loro, cio&egrave; se si imitano, e che cosa risulta dalla loro sovrapposizione. &Egrave; un&rsquo;etichetta sola, sulla battuta 1, e descrive l&rsquo;impianto dell&rsquo;intero pezzo: un canone, in cui le voci non fanno pi&ugrave; armonia. Il canone &egrave; del 1924 e usa una tecnica di cinque secoli prima. Ascoltato con l&rsquo;orecchio dell&rsquo;unit&agrave; 7 della quarta, mostra che l&rsquo;imitazione c&rsquo;&egrave; tutta; quello che non c&rsquo;&egrave; pi&ugrave;, come dice il segno, &egrave; l&rsquo;armonia che dalla sovrapposizione delle voci risultava.</p>
-      <p>Il pezzo serve anche a distinguere i due allievi di Sch&ouml;nberg, che dallo stesso punto di partenza vanno in direzioni opposte. <strong>Webern</strong> toglie: pezzi brevissimi, poche note, silenzi lunghi, e ogni suono con il suo timbro. <strong>Berg</strong> aggiunge: pezzi lunghi, serie costruite in modo da contenere triadi, e la musica tonale che riaffiora dentro quella seriale.</p>
+      <p>La seconda frase comincia con le stesse note della prima, ma in un altro ordine e in un’altra funzione. Il sol♯, seconda nota del pezzo, scende all’ottava grave e diventa un pedale: sol♯2 tenuto nelle bb.&nbsp;4–5, ribattuto e tenuto nelle bb.&nbsp;6 e 8. Sopra di esso la voce superiore della sinistra sale in crome re3–fa♯3–la3–la♯3–si3, e il si3 finale, sopra il sol♯2, restituisce capovolto il primo intervallo del pezzo: non più si–sol♯ discendente, ma sol♯–si ascendente. Natoli legge allo stesso modo la mano destra: nella voce inferiore do4–si♭3–si3 sono la seconda maggiore discendente e il semitono ascendente, cioè le inversioni del primo intervallo della cellula sol–la–fa e della cellula fa–mi; l’arpeggio della sinistra presenta in successione una terza maggiore, una terza minore e una seconda minore (pp.&nbsp;274–275).</p>
+      <p>L’arpeggio torna tre volte: in crome distese sopra il pedale (bb.&nbsp;4–5, <em>p</em>, crescendo e diminuendo), compresso in una battuta dopo una pausa di croma (b.&nbsp;6), e di nuovo dopo il re♭3–do3 discendente della b.&nbsp;7, con <em>rit.</em> (b.&nbsp;8). È l’elemento di stabilità della frase, e la sua stabilità non viene da un’armonia ma dalla ripetizione: lo stesso profilo, le stesse altezze, lo stesso registro. Contato in classi di altezze, l’arpeggio con il suo pedale è l’insieme {2,&nbsp;6,&nbsp;8,&nbsp;9,&nbsp;10,&nbsp;11}, classe 6-Z39; la melodia delle bb.&nbsp;1–3 è {4,&nbsp;5,&nbsp;7,&nbsp;8,&nbsp;9,&nbsp;11}, classe 6-Z10. Le due classi non sono trasposizioni né inversioni l’una dell’altra, ma hanno lo stesso vettore intervallare, 333321: contengono lo stesso numero di semitoni, di toni, di terze minori e maggiori, di quarte e di tritoni. È la relazione che la teoria chiama «zeta-correlazione», e Bent osserva che quando un brano usa un insieme di una coppia di questo tipo «molto spesso usa anche l’insieme zeta-corrispondente» (<em>Analisi musicale</em>, p.&nbsp;129). La melodia della prima frase e l’accompagnamento della seconda hanno, letteralmente, lo stesso contenuto intervallare in due forme diverse.</p>
+      <p>Sopra il pedale, la destra conserva la scrittura a due voci: mi4–sol♯4 nella voce superiore (b.&nbsp;4) e, dopo due pause, fa4 (b.&nbsp;5) e sol4 (b.&nbsp;6), tre suoni che risalgono per seconde dal fondo della prima frase; nella voce inferiore do4–si♭3–si3, ripetuto quasi identico nelle bb.&nbsp;5 e 7. La b.&nbsp;7 riprende la b.&nbsp;4 con una variante (mi4 semiminima puntata, poi sol4 legato alla b.&nbsp;8) e sostituisce all’arpeggio il basso re♭3–do3, che porta la terza ripresa dell’arpeggio. Il tempo rallenta (<em>rit.</em>, b.&nbsp;8) e la frase si interrompe su tre movimenti di pausa nella destra.</p>
     </div>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa si sente">
-  <div class="slide-interna">
-    <h2>&#9888; Che cosa si sente davvero, e che cosa no</h2>
-
-    <p>Va detto in chiaro, perch&eacute; nessun libro lo dice abbastanza: <strong>la serie non si sente</strong>. Nemmeno chi la conosce riesce a seguirla all&rsquo;ascolto in un pezzo di venti minuti.</p>
-
+    <tac-stave
+       time="3/4"
+       caption="Le cellule della prima frase e i loro rovesci nella seconda (riduzione: le altezze sono quelle della partitura, i valori no). Bb.&nbsp;1–2: si–sol♯ (b.&nbsp;1) e sol♯–si (b.&nbsp;5, sinistra, sopra il pedale); bb.&nbsp;3–4: sol–la (b.&nbsp;2) e do–si♭ (b.&nbsp;4, voce inferiore); bb.&nbsp;5–6: fa–mi (b.&nbsp;3) e si♭–si (b.&nbsp;4); bb.&nbsp;7–8: l’arpeggio della sinistra sopra il sol♯2, in successione e come accordo."
+       notes="b/4:q g#/4:h | r:h. | g/4:h a/4:q | c/4:h bb/3:q | f/4:h e/4:q | bb/3:h bn/3:q | r:h. | r:h."
+       bass="r:h. | g#/2:h b/3:q | r:h. | r:h. | r:h. | r:h. | g#/2:8 d/3:8 f#/3:8 a/3:8 a#/3:8 b/3:8 | g#/2+d/3+f#/3+a/3+a#/3+b/3:h."
+       segna="b1=si–sol♯: terza minore discendente · b2=sol♯–si: rovesciata, sul pedale · b3=sol–la: seconda maggiore ascendente · b4=do–si♭: discendente · b5=fa–mi: semitono discendente · b6=si♭–si: ascendente · b7-b8=l’arpeggio sul pedale: 6-Z39"
+       width="900"
+       tempo="56" play></tac-stave>
     <div class="riquadro attenzione">
-      <p>Quello che si sente sono le cose di sempre: <strong>i profili melodici, i ritmi, i registri, i timbri, le riprese</strong>. La serie lavora sotto, e garantisce che il materiale non si sbilanci.</p>
+      <span class="etichetta">L’errore tipico</span>
+      <p>Prendere il sol♯2 per una tonica perché è tenuto. Un pedale tonale prolunga una funzione; qui il sol♯ non ha funzione, ha una posizione: è il suono più grave, il più lungo, e il primo intervallo del pezzo vi si riflette sopra. Si scrive «pedale di sol♯», e si dice che cosa vi accade sopra.</p>
     </div>
-
-    <p>&Egrave; una distinzione onesta e utile: un sistema pu&ograve; essere <em>compositivo</em> senza essere <em>percettivo</em>. Serve a chi scrive, non a chi ascolta &mdash; e non per questo &egrave; inutile.</p>
-
-    <p class="didascalia">La stessa cosa vale per molte regole che avete imparato: nessuno «sente» che una quinta parallela &egrave; vietata. Si sente che le voci hanno perso indipendenza, che &egrave; l&rsquo;effetto della regola.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Il costo">
+<section class="slide" data-titolo="Bb. 9–11: la chiusa">
   <div class="slide-interna">
-    <h2>Il prezzo che la serie fa pagare</h2>
-
-    <p>Un sistema che tratta i dodici suoni come uguali toglie di mezzo, insieme alla tonica, anche tutto quello che si appoggiava su di lei.</p>
-
-    <div class="riquadro studio">
-      <p><strong>La cadenza</strong>, che chiudeva le frasi. <strong>La modulazione</strong>, che dava alle forme lunghe le loro sezioni. <strong>La gerarchia</strong>, che diceva quali note erano importanti. Tutto questo va sostituito, e il sostituto lo deve inventare ogni pezzo.</p>
+    <h2>Bb.&nbsp;9–11: <em>langsamer</em>, e la chiusa per quarte</h2>
+    <div class="analisi-prosa">
+      <p>La terza frase rallenta (<em>langsamer</em>, <em>p</em>) e torna alla scrittura della prima: una melodia sola nella destra e due accordi della sinistra entrati sul secondo movimento. La melodia, fa♯4–re4 | do4 (semiminima puntata)–sol♯4–la3 | la3 (minima)–si♭3, scende di oltre un’ottava e chiude con un semitono ascendente, il rovescio del fa–mi che chiudeva la prima frase. Il primo accordo, sol♭2–mi3–la♭3 (b.&nbsp;10), è la classe 3-6, tre suoni a distanza di tono come quelli della scala esatonale; è la stessa classe del sol–la–fa della b.&nbsp;2, la seconda cellula della melodia. Il secondo, sol2–do3–fa3 (b.&nbsp;11), sovrappone due quarte giuste: la classe 3-9, l’accordo per quarte della Kammersymphonie (unità 6, lezione 8), qui senza alcuna funzione di dominante.</p>
+      <p>Anche gli accordi che chiudono le tre frasi si rispondono: un accordo di semitono e tritono (b.&nbsp;2), uno di semitono e terza (b.&nbsp;3), uno di toni interi (b.&nbsp;10), uno di quarte (b.&nbsp;11). Nessuno è una triade, nessuno risolve. La sezione non si chiude con una cadenza ma con un cambiamento di tempo e di scrittura: alla b.&nbsp;12, <em>viel schneller</em>, <em>ppp</em>, le figure in biscrome e il trillo di un’altra sezione.</p>
     </div>
-
-    <p>Ed &egrave; anche il motivo per cui il ritmo e il timbro diventano cos&igrave; importanti nel Novecento: quando l&rsquo;altezza smette di dare la forma, la danno loro. &Egrave; la stessa cosa vista con l&rsquo;ostinato di Stravinskij (unit&agrave; 6, lezione 10).</p>
-
-    <p class="didascalia">Nessuno dei due sistemi &mdash; tonale e seriale &mdash; &egrave; migliore dell&rsquo;altro. Costano cose diverse e permettono cose diverse, ed &egrave; l&rsquo;unico modo onesto di confrontarli.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Al lavoro">
-  <div class="slide-interna">
-    <h2>Al lavoro &mdash; venticinque minuti</h2>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Tre passi, sul quaderno</span>
-      <p><strong>1.</strong> Scrivete una serie di dodici suoni, controllando che <strong>nessuno si ripeta</strong>.<br>
-      <strong>2.</strong> Ricavatene il <strong>retrogrado</strong> e l&rsquo;<strong>inverso</strong>, e verificate l&rsquo;inverso sugli intervalli, uno per uno.<br>
-      <strong>3.</strong> Scrivete <strong>quattro battute</strong> usando la serie originale, distribuendola come volete fra due mani &mdash; ritmo, registro e ottava li scegliete voi.</p>
-    </div>
-
-    <p>Il passo 3 &egrave; quello che fa capire il sistema: la serie fissa <strong>l&rsquo;ordine</strong> e nient&rsquo;altro. Ottava, durata, dinamica, articolazione restano tutte da decidere, e sono loro a fare la musica.</p>
-
-    <p class="didascalia">Chi finisce presto scriva le stesse quattro battute una seconda volta, con lo stesso ordine di note e ritmi diversi: due pezzi con la stessa serie, e non si somigliano.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Come si riconosce">
-  <div class="slide-interna">
-    <h2>Riconoscere musica seriale su una partitura</h2>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Tre segni</span>
-      <p><strong>1.</strong> Le dodici note compaiono tutte prima che una si ripeta &mdash; si verifica contando, su una linea sola.<br>
-      <strong>2.</strong> Non ci sono armature, e le alterazioni sono davanti a quasi ogni nota.<br>
-      <strong>3.</strong> Gli intervalli larghi sono frequenti: settime e none al posto di seconde, perch&eacute; l&rsquo;ottava della nota si sceglie ogni volta.</p>
-    </div>
-
-    <p>Il primo &egrave; l&rsquo;unico che decide, e chiede pazienza: si numerano le note da 1 a 12 e si guarda se la tredicesima ricomincia il giro. Su una parte sola funziona; su una partitura fitta &egrave; un lavoro.</p>
-
-    <p class="didascalia">⚠ E il terzo segno non &egrave; una prova: gli intervalli larghi si trovano anche in musica atonale non seriale &mdash; per esempio nei due pezzi dell&rsquo;op. 19 che avete ascoltato, che sono del 1911 e non hanno nessuna serie.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa resta">
-  <div class="slide-interna">
-    <h2>Quello che quest&rsquo;ora lascia</h2>
-
-    <div class="riquadro studio">
-      <p>Che l&rsquo;atonalit&agrave; e la dodecafonia sono <strong>due cose diverse</strong>, a quindici anni di distanza: la prima toglie, la seconda mette.<br>
-      Che togliere la tonalit&agrave; non toglie i vincoli, <strong>li aumenta</strong> &mdash; e dieci battute su due accordi lo dimostrano.<br>
-      Che un sistema pu&ograve; servire a chi scrive senza servire a chi ascolta, e va giudicato per quello che fa, non per quello che si sente.</p>
-    </div>
-
-    <p>E resta una domanda, qui nella sua forma pi&ugrave; dura: un sistema perfettamente equilibrato produce musica <strong>riconoscibile</strong>? Il Novecento se l&rsquo;&egrave; posta, e le risposte sono state molte.</p>
-
-    <p class="didascalia">Nella lezione seguente l&rsquo;op.&nbsp;19 n.&nbsp;6 si analizza per insiemi: ai due accordi si danno dei numeri. Altre risposte del Novecento arrivano nell&rsquo;unit&agrave; 8, da Messiaen a Ligeti.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Prima di andare">
-  <div class="slide-interna">
-    <h2>Da portare alla lezione seguente</h2>
-
-    <p>Nella lezione seguente si torna sull&rsquo;op. 19 n. 6 &mdash; le dieci battute di oggi &mdash; e ai due accordi si danno dei <strong>numeri</strong>: si impara a descrivere un&rsquo;armonia che non ha nome, in un modo che un altro pu&ograve; controllare.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le tre cose da avere pronte</span>
-      <p><strong>1.</strong> I due accordi del pezzo, scritti sul quaderno: <strong>la&ndash;fa&#9839;&ndash;si</strong> e <strong>sol&ndash;do&ndash;fa</strong>.<br>
-      <strong>2.</strong> Le tre domande di oggi &mdash; quanti suoni, come disposti, c&rsquo;&egrave; una seconda dentro.<br>
-      <strong>3.</strong> La consapevolezza che un pezzo di dieci battute pu&ograve; reggere un&rsquo;analisi intera: la brevit&agrave; non &egrave; povert&agrave;.</p>
-    </div>
-
-    <p class="didascalia">&Egrave; anche il motivo per cui l&rsquo;analisi per insiemi &egrave; nata su questi pezzi e non sulla musica seriale: dove i materiali sono due, si riesce a dire che cosa sono.</p>
-  </div>
-</section>
-
-<!-- Quattro slide. L'ora ha già i tre brani giusti; mancava il metodo:
-     «La serie», «Le quattro forme», «Come si legge» erano titoli senza
-     la procedura scritta, e la serie è precisamente una cosa che si
-     scrive su una griglia. -->
-<section class="slide" data-titolo="La serie, e le quattro forme">
-  <div class="slide-interna">
-    <h2>Dodici note in un ordine, e le sue trasformazioni</h2>
-
-    <tac-stave clef="treble" time="4/4" caption="Una serie: dodici note, ognuna una volta sola, prima che qualcuna ritorni" notes="c/5:8 c#/5:8 e/5:8 d#/5:8 f#/5:8 f/5:8 a/5:8 g#/5:8" width="500" tempo="76" play></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le quattro forme, e sono tutte</span>
-      <p><strong>Originale (O)</strong> &middot; la serie come è.<br>
-      <strong>Retrogrado (R)</strong> &middot; letta dalla fine.<br>
-      <strong>Inversione (I)</strong> &middot; ogni intervallo capovolto.<br>
-      <strong>Retrogrado dell&rsquo;inversione (RI)</strong> &middot; le due insieme.</p>
-      <p>Quattro forme, e ognuna in dodici trasposizioni: <strong>quarantotto</strong> versioni in tutto.</p>
-    </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Come si legge, in pratica</span>
-      <p>Si numerano le note della serie da 0 a 11. Poi si guarda un passo del pezzo e si cerca quale delle quarantotto versioni ha quell&rsquo;ordine.</p>
-      <p>È un lavoro meccanico, e si fa con una tabella dodici per dodici.</p>
-    </div>
-
     <div class="riquadro attenzione">
-      <span class="etichetta">Il costo, detto onestamente</span>
-      <p>Trovare la serie in un pezzo richiede <strong>ore</strong>, e alla fine si sa in che ordine stanno le note. Non si sa che effetto fa il pezzo.</p>
-      <p>È un&rsquo;analisi che descrive la costruzione e non l&rsquo;ascolto, e conviene sapere che cosa si sta comprando con quelle ore.</p>
+      <span class="etichetta">L’errore tipico</span>
+      <p>Leggere sol–do–fa come «quarta e sesta» o come accordo sospeso di una tonalità. Nel contesto non prepara nulla: si descrive come accordo per quarte, classe 3-9, e si dice che lo stesso accordo, alla b.&nbsp;1 dell’op.&nbsp;19 n.&nbsp;6 (lezione seguente), è uno dei due materiali di un pezzo intero.</p>
     </div>
-
-    <p class="didascalia">Un metodo analitico ha un <strong>costo</strong> e un rendimento. L&rsquo;analisi seriale è cara e dice una cosa sola; vale la pena farla quando quella cosa è quella che serve.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Da dove viene, e che cosa si sente">
+<section class="slide" data-titolo="Dall’atonalità alla serie">
   <div class="slide-interna">
-    <h2>Il problema che la serie risolveva</h2>
-
-    <tac-stave clef="treble" time="4/4" caption="Le dodici note senza ripetizioni: nessuna nota può diventare un centro, perché nessuna torna prima delle altre" notes="a/5:8 g#/5:8 b/5:8 a#/5:8 d/5:8 c#/5:8 g/5:8 f#/5:8" width="500" tempo="76" play></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Da dove viene</span>
-      <p>Dal problema pratico dell&rsquo;atonalità libera: senza tonalità, un pezzo lungo <strong>non ha una forma</strong>. Schönberg cerca un principio di organizzazione che sostituisca la tonalità.</p>
-      <p>La serie garantisce che nessuna nota diventi un centro, e dà un criterio per generare materiale.</p>
+    <h2>Dall’atonalità alla serie: il problema e la risposta</h2>
+    <div class="analisi-prosa">
+      <p>Nella lettera a Busoni da cui viene la frase della copertina Schönberg scrive anche ciò che non gli riesce: «Vorrei una maggiore varietà di motivi e di figure prive di rassomiglianza melodica; vorrei che i ritmi e i metri fossero più liberi e più sciolti; vorrei liberarmi ancor più dalla ripetizione dei motivi» (Salvetti, p.&nbsp;177). Le undici battute appena lette mostrano perché il programma è difficile: tolta la tonica, la coerenza viene proprio dalla ripetizione e dalla trasformazione di pochi intervalli, cioè da ciò di cui Schönberg vorrebbe liberarsi. I pezzi del 1909–1911 diventano brevissimi (l’op.&nbsp;19, del 1911, è l’argomento delle lezioni 2, 7 e 9), e dopo il <em>Pierrot lunaire</em> (1912) la produzione si dirada per quasi dieci anni.</p>
+      <p>La risposta, negli anni Venti, è il «metodo per comporre con 12 suoni riferiti solo l’uno all’altro» (D’Urso, Bertolini, p.&nbsp;262): un ordine dei dodici suoni fissato in partenza garantisce che nessun suono prevalga e fornisce il materiale da cui derivare tutto il brano (unità 8, lezione 1). Ma il metodo nasce dentro l’atonalità libera, non contro di essa. Allen Forte, analizzando l’op.&nbsp;11 n.&nbsp;1, vi individua un insieme-cardine di sei suoni, 6-Z44, che contiene le note corrispondenti alle lettere del nome di Schönberg (Es–C–H–B–E–G, cioè mi♭–do–si–si♭–mi–sol): un pezzo senza serie è già costruito su una collezione privilegiata (S. Pasticci, <em>Teoria degli insiemi e analisi della musica post-tonale</em>, nota 12). La serie renderà esplicito e obbligatorio ciò che qui è scelta.</p>
     </div>
-
     <div class="riquadro attenzione">
-      <span class="etichetta">Che cosa si sente, e non è la serie</span>
-      <p>Si sentono il <strong>ritmo</strong>, i <strong>registri</strong>, le <strong>dinamiche</strong>, i <strong>gesti</strong>. La serie non si sente: nessun ascoltatore riconosce un RI<sub>7</sub>.</p>
-      <p>È un principio di costruzione, come il contrappunto doppio in una fuga: garantisce coerenza e non è l&rsquo;oggetto dell&rsquo;ascolto.</p>
+      <span class="etichetta">L’errore tipico</span>
+      <p>Raccontare la serie come l’invenzione che «mette ordine» nel caos atonale. Le bb.&nbsp;1–11 non sono un caos: hanno cellule, inversioni, un pedale, una coppia di insiemi con lo stesso vettore. Ciò che manca all’atonalità libera non è l’ordine, è un principio che valga per un pezzo lungo.</p>
     </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Gli allievi, e che cosa hanno fatto</span>
-      <p>Berg la usa con residui tonali; Webern la porta all&rsquo;estremo opposto, con pezzi di pochi minuti e simmetrie interne rigorose.</p>
-      <p>Lo stesso principio, due esiti opposti. È il segno che il principio non determina lo stile.</p>
-    </div>
-
-    <p class="didascalia">Un <strong>principio di costruzione</strong> non determina il risultato: due compositori con la stessa regola producono musiche incompatibili. È vero per la serie come per la fuga.</p>
   </div>
 </section>
 
-<!-- «Al lavoro» chiedeva un compito senza dire come si consegna. -->
-<section class="slide" data-titolo="Al lavoro: la tabella della serie">
+<section class="slide" data-titolo="Al lavoro" data-in-classe>
   <div class="slide-interna">
-    <h2>Come si costruisce la matrice, e a che serve</h2>
-
-    <tac-stave clef="treble" time="4/4" caption="L&rsquo;inversione: gli stessi intervalli capovolti. Dove la serie saliva di tre, l&rsquo;inversione scende di tre" notes="c/5:8 a/4:8 g#/4:8 b/4:8 f#/4:8 g/4:8 d#/4:8 e/4:8" width="500" tempo="76" play></tac-stave>
-
-    <div class="riquadro studio">
-      <span class="etichetta">La matrice, in quattro passi</span>
-      <p><strong>1.</strong> La serie in prima riga, numerata da 0 a 11.<br>
-      <strong>2.</strong> L&rsquo;inversione in prima colonna.<br>
-      <strong>3.</strong> Ogni riga è una trasposizione dell&rsquo;originale.<br>
-      <strong>4.</strong> Letta al contrario, ogni riga è un retrogrado.</p>
-      <p>Una tabella dodici per dodici contiene tutte e quarantotto le forme.</p>
+    <h2>Al lavoro: la terza frase in classi di altezze</h2>
+    <tac-stave
+       time="3/4"
+       caption="Op.&nbsp;11 n.&nbsp;1, bb.&nbsp;4–11: trascrizione nota per nota, come nella slide della partitura."
+       soprano="r:q e/4:q g#/4:q~ | g#/4:8 r:8 r:8 f/4:q. | g/4:q. r:8 r:q | r:q e/4:q. g/4:8~ | g/4:q r:q r:q | r:q f#/4:q d/4:q | c/4:q. g#/4:8 a/3:q | a/3:h bb/3:q"
+       contralto="r:q c/4:8 bb/3:8 bn/3:q~ | b/3:8 r:8 r:q c/4:8 bb/3:8 | b/3:q. r:8 r:q | r:8 c/4:q bb/3:q. | b/3:q r:q r:q | r:h. | r:h. | r:h."
+       tenore="r:q r:q d/3:8 f#/3:8 | a/3:8 a#/3:8 b/3:8 r:8 r:q | r:8 d/3:8 f#/3:8 a/3:8 a#/3:8 b/3:8 | r:q db/3:q c/3:q~ | c/3:8 d/3:8 f#/3:8 a/3:8 a#/3:8 b/3:8 | r:h. | r:q e/3+ab/3:h | r:q c/3+f/3:h"
+       basso="r:q r:q g#/2:q~ | g#/2:q. r:8 r:q | r:8 g#/2:q.~ g#/2:q | r:h. | r:8 g#/2:q.~ g#/2:q | r:h. | r:q gb/2:h | r:q g/2:h"
+       width="900"
+       tempo="56" play></tac-stave>
+    <div class="riquadro compito">
+      <span class="etichetta">Da soli &middot; 10 minuti</span>
+      <p>Scrivi in classi di altezze la melodia delle bb.&nbsp;9–11 e i due accordi delle bb.&nbsp;10 e 11; per ciascuno dei tre insiemi indica un altro punto delle bb.&nbsp;1–8 in cui compare la stessa classe.</p>
     </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Come si consegna</span>
-      <p>La <strong>matrice</strong> compilata, e sotto: quale forma compare nelle prime otto battute, con la battuta accanto.</p>
-      <p>Due o tre identificazioni bastano: il resto è lavoro meccanico che non aggiunge niente.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">L&rsquo;errore che rende inutile la matrice</span>
-      <p>Compilarla e non usarla. Una matrice senza almeno un&rsquo;identificazione nel pezzo è un esercizio aritmetico, non un&rsquo;analisi.</p>
-    </div>
-
-    <p class="didascalia">Uno strumento va consegnato <strong>insieme a un suo uso</strong>. La matrice da sola dimostra che si sa fare una tabella; con due identificazioni dimostra che si sa leggere un pezzo.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Non è il caos">
+<section class="slide" data-titolo="La soluzione">
   <div class="slide-interna">
-    <h2>Che cosa organizza un pezzo senza tonalità</h2>
-
-    <tac-stave clef="treble" time="4/4" caption="Un gesto ricorrente: due note e un salto. Si riconosce anche senza sapere che nota è" notes="c/5:8 r:8 g#/5:q r:h c/5:8 r:8 g#/5:q r:h" width="500" tempo="66" play></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">I quattro principi che restano</span>
-      <p><strong>Il gesto</strong> &middot; una figura riconoscibile che torna.<br>
-      <strong>Il registro</strong> &middot; una nota sempre nella stessa ottava diventa un punto fisso.<br>
-      <strong>La dinamica</strong> &middot; i culmini si costruiscono con l&rsquo;intensità.<br>
-      <strong>La densità</strong> &middot; quante note per secondo.</p>
-      <p>Nessuno dei quattro ha bisogno della tonalità, e tutti e quattro si sentono.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Perché conta dirlo</span>
-      <p>Perché «non si capisce niente» significa quasi sempre che si sta cercando <strong>l&rsquo;unica cosa che manca</strong>. Cercare i quattro principi di sopra dà sempre qualcosa da dire.</p>
-    </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">La prova, su un ascolto</span>
-      <p>Riascoltate i due pezzi di Schönberg e segnate <strong>un gesto</strong> che torna. Se lo trovate, il pezzo ha una struttura riconoscibile, e l&rsquo;avete riconosciuta senza la serie.</p>
-    </div>
-
-    <p class="didascalia">L&rsquo;assenza di un principio organizzativo non implica l&rsquo;assenza di organizzazione. Elencare i principi che <strong>restano</strong> è più produttivo che constatare quello che manca.</p>
+    <h2>La soluzione</h2>
+    <tac-chiuso invito="La soluzione &mdash; si apre alla correzione" sale="co1zAlkDxNLaydz8F6UWRw==" iv="kPZTUFTXmLsza+68" dati="Y3tJJASC8Ch9Uh3jByHesXW3aJMP6DNTd7nPcKsWHtVWeD8Rrx+ylTOUehfs0r6qYQg54iJ03tg4BTG2Uld9P6yCW83FTy1eessJr2GajoFKuPS0Nn1Oju1/K8sydnFF6C15T52R/m462ax4qzEDPbDn6MVr5RThuCw//pl1wfBGNa6/cMa2VDxa1y2Uymtt7n3hZGA2tAZBzbdRP2oNVxuvYfhEBWjDu7EMPiSJ4tidSUm+672vBuGCry8A/ovIFk2f832KZkYJfRSaYMpLlzQ6mcFQz3DruFggSxf260irXilsT6f9vG+rIzs4EeI0yK3fsdeviX69NyTjl36+5OGHjnZBnqKmK1hG1cBIlXAvwBYtohwidNnwWABvvNPiV/bxG3h+dTmEKSYKXWIVoTbMshdAO6tdr0af2u7CLs3bBPWukc/BrDZragkx2fARK+hQWjp5HEqDjeAkCSIxEMNcPhR/XE5Vkj5wygrZHaS4IBqyyrgP6+NJ5OytKeCPNxyV8hBxNHnSJwjfB3z2b/vv6eerv8PiTdoTxhooolj/fJz91n8HyxhoiR0xNtLLeNaSzkha+n/02puXqWecsVgKeWE576yXql4A6RL/qbAh5pXxGztfoxuWqevGuEObKpZUVsAQUmmzdLA1VDE26IXITZScpe32ZbJsul/crOfxexX43MSCsugGL0kbtt4BGr79paXmuSgTJ0WBtHeO7jTm1fYna/cxJsCjxRfAVJnj2Uo/uPJ8aX3xEzbNLtlC5d88jaeLH8t7ChCvGyHnb1IXxS6uCJK9UVeoHi6PWGBAymRl9t9PE/haHCWlewiDmhmW8BrLdDrtS/WY01ziRsi9hCI0log7c2JhF7Sjo9IArrfS+fMQ7xnJ2kUkKvwZiY5/8eD70VhgswNoOJ07qdQqF8dIGtdEJhUP8cUO+GWrnTO4OI+euj0LCZaTRuhcz05oPQllBeaunR7bVxENXUZtB4m3xJ+Pl8SQQF5tTgn28WSZjxA9aapDr2LB6mAUxdw8452QHUmVwtiob4cxblrgPUus7Mgr7CrBdaeJ+2j8BzjN7U0ZDEU/A3YARnlndT+qKWeJbXoiOQ1bzw7cbf33DV8PEv8TT1XSuKEUREXnGy9gsKg3HUkJWt7NJikdorjHp073LRO4E8mTFCfBxPkcEQvXKb2A56WyDxGjnzAiJBq0kRiiL/rL/+m+XM/k/636uFAsfev44pwySHwYNkxgZbYtPJ+GgRcj1Wi/y5Sv2reESEWc80+QhNN37Xqp35v3RKVMJkOBVwGxjuVgLzz/nUOyuJe6kRtoKVKWeDBjSthO7s0WZ6n+j8lZWNW5UssxBC4ZJ29vwUrafb/7hGWJ6I7kJD1onp6LQagpLi4v6uZGualAAk+Kqr4A3+AXFhRlaODZr5/IcMGJ8L4MPtAj0Z8kZGHhYRAQLw3wkhKEqBnwsP809RuTTKRlCXtl6I78MRkKzXPq4lkwJgJJnE8feIR/nFR9Svd08A4QRvaYpBtM2vWBXZv02StuKbg5K9HRx4eIZEsVr6G7va5suZWLYEumIUbFizk98WWKgRxIbjjF6h1LEdki0hDzN/vd5N8wv49HA0a+MqjHwwwP63HSE5ix0JpCyV5+OIkXD6r25LccoYX4P37RSGJV5+cDNmdCKsIgL727mIqnbFY/NA=="></tac-chiuso>
   </div>
 </section>
 
+<section class="slide" data-titolo="Sintesi">
+  <div class="slide-interna">
+    <h2>Sintesi</h2>
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Che cosa mostra l’op.&nbsp;11 n.&nbsp;1</span>
+        <p>Tre frasi (bb.&nbsp;1–3, 4–8, 9–11) a quattro voci reali. Una melodia di sei suoni costruita su tre cellule (si–sol♯, sol–la–fa, fa–mi); accordi di tre suoni che ripetono le classi delle cellule (3-3 alla b.&nbsp;1 e alla b.&nbsp;3, 3-6 alla b.&nbsp;2 e alla b.&nbsp;10); un pedale di sol♯ con un arpeggio che torna tre volte e inverte gli intervalli della prima frase; due collezioni di sei suoni zeta-correlate (6-Z10, 6-Z39); la chiusa su un accordo per quarte.</p>
+      </div>
+      <div class="riquadro studio">
+        <span class="etichetta">Che cosa vale per ogni analisi atonale</span>
+        <p>Si cerca ciò che torna: un intervallo, una cellula, una classe di altezze, un registro. Si dice dove torna, con la battuta, e in quale forma (trasposta, invertita, fatta accordo). L’atonalità libera non ha un sistema: ogni pezzo costruisce il suo, e l’analisi lo ricostruisce.</p>
+      </div>
+    </div>
+    <p class="didascalia">La lezione si chiude con il solfeggio: si canta la melodia delle bb.&nbsp;1–3 (si–sol♯–sol–la–fa–mi), poi la stessa melodia appoggiandola ai due accordi suonati al pianoforte. La lezione seguente riduce i due accordi dell’op.&nbsp;19 n.&nbsp;6 alla forma primaria.</p>
+  </div>
+</section>
 
 
 <section class="slide compiti-slide" data-titolo="Compiti · lo scritto" data-segno
          style="--segno: url('../../_assets/segni/segno-24.png')">
   <div class="slide-interna">
     <p class="compiti-occhiello">Compiti per la prossima volta</p>
-    <h2>1 &middot; Scritto: Una serie, e le sue quattro forme</h2>
+    <h2>1 &middot; Scritto: Una cellula, otto forme</h2>
     <div class="riquadro compito">
-      <p>Scrivi una serie di <strong>dodici suoni</strong> controllando che nessuno si ripeta, e ricavane il retrogrado e l&rsquo;inverso.</p>
-      <p>L&rsquo;inverso si verifica <strong>sugli intervalli, uno per uno</strong>: dove l&rsquo;originale sale di tre semitoni, l&rsquo;inverso scende di tre.</p>
+      <p>Scrivi nelle bb.&nbsp;2–8 la cellula della b.&nbsp;1 nella forma indicata sopra ogni battuta, con lo stesso ritmo.</p>
     </div>
-    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C5-U7-L1-01</strong>.</p>
+    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C5-U7-L1-05</strong>.</p>
   </div>
 </section>
 
@@ -587,25 +331,25 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Scrivi un contrappunto di <strong>seconda specie (due note contro una)</strong> sopra il canto fermo, in modo dorico (finale re): otto battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
       <tac-stave caption="Il canto fermo" clef="bass" time="4/4" notes="d/3:w | a/2:w | b/2:w | a/2:w | b/2:w | d/3:w | e/3:w | d/3:w" tempo="72" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C5-CP-U07-L1</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="Uh7p166H7/59o8XvbxrlIQ==" iv="sdXuzotlSvboaZPb" dati="p/NE0nTR85ecXaLRa4iGaa+jCI3Jic/+3Rlx9eIWG1H9MpAalIbKwuV04HaRQ9aq39R+atU0Q5NQ/xPpHBCJ4nW1t08TKoo7jVrIFDlArg5Bc/irYFKSYlnJTFfI8jlYSsaXNzTx/SCMeVh4xqglDTXRCLWfvyq+iwxXLNHxsf4hDii38gOqKTxdP9Scioa6mf72qstmOq782pEfG5pEReIZN2+k7rKoT9L5/SoxamsphoC+VelWanrufLo7OONtvHXB9bV/OLb3BMBdbEOhL0PbwpzIaOUlxnvuKF/9IKSrZIzhGCo/8Z56HwSN4dkK/Ih20BIYsk05P9TAuW8j4yZWEk58sCKkTeP0ujV0jhzy+1iAQwuIcRBwhRKQNygamkxNpz8rLC1hYFQu"></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="TpViVFjEqOVo7A6+ppGRLQ==" iv="MhOGk9xwQnrfq/Au" dati="BwRGZ38gsn2w3luFDa6ulFthto1KSYdTxxXCZq8P2a92OWd8Sn2HmxPEULVpjA6h2LWZXvAfjC/imZnuZ4hapd1zWYi2yrFHGrIX0Z3bWise+o6HjcA/AyRCKKNyIGiwPV+5s2BKErtKjvkKlFxQGkQKvi9BAKg9f4hAQlZAapeU5rac5upWM2pAJ/77fZPpn9LJNTl4g1H/904TRjAxk8jwlUFqrJdl0d5WsUthvtLHStsalOvTZq1/0Omy9O6DUcdLe6KVwF8V2piBZsiDKDaHKicnOzVKQQ0nicsCl6j7DWXJ1rNan1CWwTU+iIIERrPWkSifJ3rRFW+jGxhtZnIN/JxKjNFI0Lgn5uudLFeoVsZ1nqjMxTBIC4OBYyyn2f5/Y4kueguTUpJB"></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C5-BD-U07-L1">
       <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C5-BD-U07-L1</span></span>
       <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: sedici battute in 4/4, sol maggiore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: tutto quello studiato, e una modulazione a un tono vicino.</p>
       <tac-stave caption="Il basso" clef="bass" keysig="G" time="4/4" notes="g/3:h f/3:h | d/3:w | e/3:h c/3:h | a/2:h f/2:h | g/2:w | a/2:h f/2:h | g/2:w | a/2:h d/3:h | g/3:w | e/3:w | f/3:w | d/3:h e/3:h | a/3:w | d/3:h b/2:h | c/3:h d/3:h | g/3:w" tempo="60" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C5-BD-U07-L1</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="4gMpQa3MIm+GARekzXf3Qw==" iv="ycS6sJV10D8fVKt3" dati="/6woLfXQAPKX56KCfzr57aZuM8UIJYNgEYqkdhKv0f2B0rmQfNeCIvoZ3uiE16omfkbJNr7AYy+X9JWb/omf7jkofjhACOkbhlIbYuj3xsvmJf4hUu2omcohNW63QpUjwcMlQ8KqlJUVQKfE5jYjOAx+42XwXv4oNBLGb143HALFcOKVn3ESxNdC7ACTGcF6o2XWba01iasREQ0XcTHAJeT9DdNB+1F+AZRKlg3ee2MM9C9g7R5aQcGR1qXU3hRu/z8RQNWCWbUXr52KvYpejS391gtuzFDKB5HNBHhEu8Im/cMcikU6g+XFrk5qnmSIjJ3aGBmQAOkGeOJBlGqLFJFxBa1PLA4H1Lk2sqpJACR6NIlOi5mSMU+RQ2WhJAa6/sR8md6vXy6iiEappWiMZ1194LNbpES50oHJUoaCLT82xOovN8Lyzk8v3XcTJcYuX/nOJ2WN200rz/fuwZpGa5LiwwPnjXYl6aT8pdKHdw6sOB4vUkHL0t13BHJBQdcGLuOrgntm/OJc0uuxmy4gAKj7sNX0WT6iHnTwWoU0hxWveyQQlhJT8k5fUsRknyzfuexMWicUzZ5znCMAJEEAB61TQTp5aiEIR0Rcl+QKv9S0Q5xck9l45dGcQF0hRC5UeGtugfQCv8YJiz4g3hTfoxs0KD0LbRSWxgieR3il6/pOrkBk4SZqEWFCKjqGO9OD5eEbAIZnnR2oeQRF9O2k0Di+LRolem3w2gEDgyPxL5LKWcGG7UVqdkZ23I+Sv3/9r//lGlJPeTEKmKgQ1twlC+Gs2SGcfZ3zaqS3zlxeFP+oHD7FzYunVNGw55sc/z7gRF4Ev6GpNzncDojUT4ofKJiD+RlOxeDzsyevCfScVRY57hZASh6hGokcdzqJO1covv4Ssgyzi/lT3tOYgrpJKY1vmD3VvtW+ssomgznoXhi4GsOkXCTrAra+1yt1k8Ht8as0mylPEyQmqXbcxZi0m5hwqA+0rmRzD5bV9MbCP/ESFoy8n4OqZQ7DuAFUXzx4Rc3uf9/8/ezZocls2Ox44nroqrfo/X2Ic7MnpuaWqKgBgr64X44pH7wbxAGFo5anNA/yW+qxZD4oc2vtQYyl1P/CIdmgyCpo6wg1enAvNYidCpjMAIxKPGvAK8Ri0lRlOEWlJ+rhPMsZqvpBdikPAuHvCZX6jBwk/GqnKOHZML63RjUt6T8euQ3cigA8AlKVo7Cy6Yr9k8BUQ1R6hEQacgif4hsJGTe/Dlkouy5wW194mgy/mspLAWZgO1fhg8bZMLegbQ9dlnTe/15XWKOSM/NA++VXIsYRYye17dJZJAd199zl8Dkq9VoTeFWe2n8Iu5Pdf098rQ=="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="vpOM7NhOUr/QH9QE/RjHYQ==" iv="8Nj+T/6zCOYjE/HV" dati="4eBUDc1zTS4x46Cbg2yWHkq2Pq+4F2u8YA3ChrheFpmDkfqiVtjMMaUd+QVf2Kt8y6uXIxuHGXnciWrnHn9+bgSUoO1PTEhEPYBhPqlkZyfc+HZFYSJftDSIAWPrqDAaNnyqj3XEKxQ/z2UsiUzCMHgKFXK2heRzyiYbc3YbIkzoohbvr6d6yruUyk5hv+iOHMSgpYH63O97lijQz+8WDlug61j/MCw99PzeTX463vQs7xiaCqeOc2hCG+hk/TP9qmNaH9qw8TTp/TzT3kkc2tkGgju/Zx1HKkYoLD6/mFGlAleaPOUmLOdDC3+a3sG491T2KdXzv6cPVuU7yR8ER6xmPDx+XHb2X/rLSWeddXiof2EtvQRfQEaCAfgBTBn+S+Aqgj6lVXOmosVgFqlq9un1A3W5IiC2Pd0pdMNZL4yBCbQmkR6PIqpQvf/eF6Pp6jcnTq7FkFTZP+LKV+ugbQUDowpUk54iUR1bb2f1ctMK8h8KUHD5o4+zLDdR/LqWsNMv2Qay0zuEuN8icwFu+Et7kLS/JPplG1GuriblcIaNsXtZDss5n7lZg+lNGxd+VE73iDNuAusQNaKSSWkJyfVK/AwK7GuaRM18TK3T2dM1M3jlp6TwyOAqT5y+S3n74HD9eUwdtVqpIw6U0Ky2W0KJXM0L1X2Xu7c1mdqcnbtq1I5x2IP/aYzQpjx/P5VTlB5YQruEFfEyvD2EAPSB0Q0XSHWnMJZdibF922qajYZVGw1JL+rlMUJTbAHBbOtWIJRMrXm2yG1xHcwHGg2Ulw/VNxyEP6VRQZh/8l2GbIbf/6GLW2Jo+ewyJ/hRFVsHyizTAP7LvYwMef3LoqROkKwKAtEsTACZlgcSNH7juUHa/eL0lpc5gNeiuWdvDqBNfdFb/ZEQPUuT4XqTleL8t7WsT+MqhPYskeyBLJu5DBnOyIdhThoWZZv5cLN+3zFrPaiJlN41nKpKSReiQmzIkNmBeK5raVBKAZehlIrHx2dY48nfg5ooVFPU2c3XvAdWwDQcw15ssAN3dWdpGa9RPXGKExg7TLRGgkSXKnjLRsmEsKFHYBNKgJSbUvNpKbDivULkFG6WyPEM9/bO0RPtSrYAi4SahIu1R6g32v6HyVmd2oekqwhotVGb92W4hh1hbkRmNZHqTvPGC57Ki9a2EYFX8ijIuFgyP7SefEt3BauFTV7XNzZfB1OGFS61wAG+S5kmSFSf8SbXj1IbDlxtFRGLXuBl+lHCwaYGIuRLTZtVAruETX2qBPF/lbIUpISaAyzcL7Y/jQKpCDlk/cl4wl15HYH04ui4JXdLasfpKQi2td3n8zN2gFrIdsZBjCDObvWbl+bjMQ=="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C5-CD-U07-L1">
       <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C5-CD-U07-L1</span></span>
       <p>Armonizza a quattro parti il <strong>canto dato</strong>: sedici battute in 4/4, sol maggiore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: tutto quello studiato, e una modulazione a un tono vicino.</p>
       <tac-stave caption="Il canto dato" clef="treble" keysig="G" time="4/4" notes="g/4:h b/4:h | c/5:w | c/5:w | b/4:h a/4:h | a/4:h c/5:h | b/4:w | d#/5:h e/5:h | e/5:h d/5:h | d/5:w | b/4:w | b/4:w | c/5:h e/5:h | c/5:w | b/4:w | g/4:h f/4:h | g/4:w" tempo="66" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C5-CD-U07-L1</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="Ay2CVJi/gy84mQ7fGDTI2Q==" iv="+7wRCSkLJiFZMh3z" dati="FAIAI/cYEhU2OwbjxGIYQAp4tPyQ5/s9Cj1O7R5xDqbQkiX4QBvLtZcj5s9uVsGTv+OdYyvElMBUcS9tMYj9520qj6Ow0guNHkQ+78rpxBe0sRAj5ROs1WeaOvgGu4w7SigtVfquTqImrfDfNmT6J/CQYrhYZFWUx7rnSJUODGPw0OMxrDbupIyFORHjdGkFwfjkbYyjJ6xViDH36H2aKBg3lo6+ZWrhreBmZdbPsTdTI3QGs6FgF3/oYDB2OBGI03XtwND/q1n3GFbuTcN+5WSQ2r1KNlJSUcMexJWvcmdfYhoPDAlRiT3qgKd4TD8cuhGhTPAI8EhNXFHnVYZSWHpQy4pn7eMlS4CIMLRcf23NsHqpN1Ib3FNunhooQYulYqO+n57PznNQuBxFiwIBmOhhiaUkqQYbqDwl5acDc5B9sTPnqma/baF+uz3Qeo7n/dRJk1M1SdcttdKjC0KJFV2JdUbZDjFn/TkylQyVFptRF0yBRDTAjYc56LVXDgN2tWzKEZ+Sdg9CvedewDI+s5w12qQBqYVUm59ydfDW1EEs6R1yg5As9OTbQ/4ZK2N7GwLYEmQ3JhEiGeWdaEEWSJUz6XPLFjzewfiTkYU5zBvGpHiF+gvUcTOYdfVyAn/lxqv8EB/GDHsSTRrPTTOUHhPHdW8jq6dd8nSvNilfL0RPqb2XyfyAKOTEmEoWicqL9C6tNZQFCJLHZlqkObhBoOlXcHOMX0sMsG2hRKQYz6ZLaTm0jUHpNPv2y2NuuLjCxBlNXvgv+WAvY7ZGzzW5f8pvN5XYPlD5bbH83Q3VaDV35NoQk/wUN6y+66UsqJdTk+m4DZ0cNnGXNi36d99RSQqWEg+0WKedIIdB1kzMXA/VwNeB11jPkjBNHxTlgEq+p7HtcamTEkkba+JY1QdwVKozbu1hIQxDMMcgQTpzkZr2kraZYxLLDtRkq9RbyMnFrlzSk8ez6CqCaKtYMKwi+Lj+0KXNNRYFMV7chksEqsyWBfrkFRR6eDI7c7gqZyIJ9jp0Jfm18bKBlrZVziFUKN8JtaNvorV7s+zuJZuxzGCdLqBkcW9YVwWtliQA3MDZfXpp26hkz296woMASah3wPDlOGr/3KMZi1ZoEAgpgp9yvjraT83i2hIgn6Z8KmLhaMKyRdgYZ0kCHj6MC5z7NZISBg0A1IHfEDKExUskA0WNfnq5lyp55pxpn7LhkZyP9+P/mUxTKjeLCjpgbvNQrI5nh/JWyScaRnB31CxQF4iIeuCagiC4uQ7xLfJySpjLnLwbt4/RGN62guSmIQyK9MPMGdkefl8miQbIqG/tL1nX7L8="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="3rwHJ9cqrxHoY8ifT29BRQ==" iv="u2t7qadGgBCmOCW+" dati="4JXbnliVQ0Z4d5eUUoswqUtedVuxe2viMnckrF9GfOQg62miIacmKtpaYDofTp5Om0BgpfgwMyGoRuCQh++RmZNItHoP1u0gCATlgfZToMpHX4raxnysdyfzM0s9LbrZgxYhguMepXypfg+HBSCA6r9xfuBvlkALWrgqqEtZSOHunqjwBTKxLDdwCil+qPSulgFDZeIXwCfdL9hICYUcjmCz+wzOUBKshpKF71GRMo2w2hTByuPsWV6MDlpj4Sx4O8kwlNagLHylqraDyp/WXdE3oYEhMVHBR1IPOuejCijWfIi3l+aLULfT0Z14gptiFDiofl8zxR6iWG4jdIt2kpdXz5Ph3i5CHfHrouPxqCSsojRfhNPTRIgrPsEcy8BXj1L9GsTcMJu9SeZ5HgNrEcn/JBSHQlMwUZaTESUfkGESH7mv4/nKFPnGCA1pARtopwmo+Dvg52KTKSrXQYD/cmwEAKeSBcGsRIejSVkU9/DlfuU01slMdf+v+2O5xG4CE9XHjaXAep5hDNXXwUblxADGbzM5UsSUrtZtGA4mICiSOwI4rwrNqDZLYCimz/tFRV1YKpo1Z6j3vpp+1BpVz/8WhcQuheXulyEs+RvCTIFKQVkr06UZ/Hyt8afrRonf2XS+VWOobVStz8mqUGdp8gKt+zMHCtCqmAkbP92h9rczYkz4U940xE7+1vu5zLq4aSM0unNyO2d3T7i1cWWUPnyEVcIEzGxIpzUN7JtN032lBKQLKVOwICvY8X3izwYM26yvMMShufmA30T1wXTvQFtGKDyxBMvU+EBXsPP86zvc19LoUS4i8mCw+YIr1umplceAH0I7NQ0q/F2P2LgJgzVexPMiQCKNlhd1QP+8wA9sW6R3pKG+braVsMPyqjGMuT+UjUJs7ecOXTZaZW/128YiZlxgTW18rBve1dwgC3A3gXzS3xJqDrg5fCjZ4TmFxov8pS+fEj0WI+WPhZQh9q0fpZxSTHWdERQAN5qObtFhdHpCfW3M487oW5mCgScJqCTNMrXsohSY0S7Qx2cExDyJalgym/+1gxtWD2sEiSnpJy/uMTO+f3OLG5ejME6F4Hl0zrAQNBMEfdLk/VDzySG4tvImT1jvSr/JwXq4ySWhfAq0dyk8zKOuMMGytW1h4zBRqmPAvG1nyKAWcaU3bw6X57jNYw/Tu9Z9uVFW5xlcexSonwmQmIoWhyRC9Hr711OcML+FCaewxY8kQTTul2bjFWQyfWmV/FAafIrCQapSDtwsLqKv/mslA/gtDVjXsxKAFOYcggZ7VeFxdqMTsZQJPVp0XfhgvhXI5unH4eRYfqU="></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Una serie, e le sue quattro forme (Workbook, esercizio C5-U7-L1-01), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 376, 377; cantato n. 378, 379; ritmico n. 380, 381 (a tempo, senza fermarsi). Dettato C5-D-U07-L1 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di seconda specie sul canto fermo (C5-CP-U07-L1). Basso senza numeri da realizzare a quattro parti (C5-BD-U07-L1). Canto dato da armonizzare a quattro parti (C5-CD-U07-L1).</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Una cellula, otto forme (Workbook, esercizio C5-U7-L1-05), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 376, 377; cantato n. 378, 379; ritmico n. 380, 381 (a tempo, senza fermarsi). Dettato C5-D-U07-L1 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di seconda specie sul canto fermo (C5-CP-U07-L1). Basso senza numeri da realizzare a quattro parti (C5-BD-U07-L1). Canto dato da armonizzare a quattro parti (C5-CD-U07-L1).</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>
@@ -639,14 +383,6 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
-  <div class="slide-interna">
-    <p class="compiti-occhiello">In classe</p>
-    <h2>Scriviamo adesso: Le stesse dodici note, due volte</h2>
-    <p>Scrivi <strong>quattro battute</strong> usando la tua serie, distribuendola come vuoi fra due mani. Poi riscrivile una seconda volta, stesso ordine di note e ritmi diversi.</p>
-    <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna.</p>
-  </div>
-</section>
 
 
 </div>

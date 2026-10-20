@@ -46,508 +46,220 @@ try { module = undefined; exports = undefined; } catch (e) {}
 </head>
 <body>
 <div id="tac-deck">
-<!-- 16/10/2026: piano nuovo della 4ª. Era la U4 L5 del piano vecchio; ora è la U7 L1, ora 46 di 90 («La sesta napoletana: il secondo grado abbassato, in primo rivolto»). Da riscrivere per il titolo nuovo. -->
-
 <!-- ══════════════════════════════════════════════════════════════════
-     LEZIONE 5 · La losanga, il napoletano, e i profili sulle espansioni
-     Unità 4, ora 26 di 90 · classe 4ª · teoria/armonia — ORA INTERA
+     LEZIONE 1 · La sesta napoletana: il secondo grado abbassato, in primo
+     rivolto
+     Unità 7, ora 46 di 90 · venerdì 15 gennaio 2027 (seconda ora; la
+     prima è il dettato melodico modulante, ora 43, U6 L7) · classe 4ª ·
+     armonia
 
-     PAROLE CHIAVE: profilo a losanga · profilo napoletano · cadenza
-     d'inganno · 5̂–3̂ · scambio modale · espansione di tonica con cambio
-     di stato · decime parallele · note ribattute.
+     ══ 16/10/2026 · PIANO NUOVO DELLA 4ª, RISCRITTA (20/10, seconda ondata) ══
+     Il file copiato qui il 16/10 era la U4 L5 del piano vecchio («La
+     losanga, il napoletano, e i profili sulle espansioni»): profili
+     melodici cadenzali, con il napoletano solo come «profilo» e il
+     rimando alla terza. Riscritta per intero sul titolo nuovo; restano
+     solo il profilo melodico napoletano del libro (4° anno, p. 38) e
+     l'idea della nota che «decide» l'armonia. Tolti: losanga, inganno,
+     espansioni, il Workbook, Händel (A07: non ha la napoletana), il tono
+     colloquiale, gli esempi di due battute e a bicordi.
+      · Fonti: D. D'Urso, Il linguaggio della musica, 3° anno, lez. 39,
+        pp. 94–95 (definizione, raddoppio della terza, le due condotte
+        verso la dominante); D. D'Urso, C. Bertolini, 4° anno, p. 38 (il
+        profilo melodico napoletano); W. Piston, Armonia, cap. 26: p. 396
+        (definizione, il simbolo N, la tendenza discendente, l'uso in
+        maggiore, il raddoppio del basso), p. 397 (la terza diminuita, la
+        falsa relazione, la quinta omessa nel V7), p. 398 (la quarta e
+        sesta).
+      · Esempio scritto: la minore, otto battute, su due righi a quattro
+        parti, controllato con lo script delle durate e della condotta
+        (parallele, nascoste, incroci, raddoppi, risoluzioni).
+      · In musica vera: Beethoven, op. 18 n. 1, II (C06, brano guida
+        dell'unità), bb. 82–88, dal corpus di music21 (beethoven/opus18no1/
+        movement2) confrontato con la scansione A22 (p. 11): corretto il
+        ritmo del violino I alla b. 87 (il re legato vale una semiminima
+        puntata, non una semiminima).
+      · Lavoro guidato: re minore, soprano e basso dati, otto battute;
+        per casa un basso di otto battute (mi minore).
 
-     ⚠ QUEST'ORA ASSORBE L'ORA SACRIFICATA alla prova da due ore
-     («Profili su espansioni di tonica e dominante»), e lo dice nel
-     titolo. Il commento sta in `ore.py`.
-
-     ══ QUATTRO FIGURE, E POI SI CHIUDE IL REPERTORIO ══
-     losanga (6̂–2̂–7̂–1̂) · napoletano (2♭ al soprano, in minore) ·
-     inganno (2̂–1̂ e 7̂–1̂ che vanno al vi, più il 5̂–3̂ che è suo
-     proprio) · espansione di tonica (i corali di Bach).
-
-     ⚠ E LA DOMANDA CHE DEVE ARRIVARE DALLA CLASSE: «ma quanti sono in
-     tutto?». È scritta nell'_IMPIANTO come segnale che l'unità ha
-     funzionato — vuol dire che qualcuno ha capito che è un repertorio
-     e non un elenco. Se non arriva, si pone dalla cattedra: sono
-     POCHI, ed è questo a renderli utili.
-
-     ══ IL NAPOLETANO NON SI APRE ══
-     Il grado napoletano è fatto in terza (c3u10 l4). Qui compare solo
-     come PROFILO riconoscibile, e la slide lo dice.
+     ══ TEMPI ══
+     Ora intera, 50 minuti, nessuna coda: la coda dell'ora 46 passa
+     all'ora 48 (il 15/1 c'è il dettato di verifica dell'ora 43;
+     registro.interrogazioni_piano: n=48, n_coda=46). Definizione ed
+     esempio 14', Beethoven 12', lavoro guidato 20', sintesi 2'; poi il
+     solfeggio.
      ══════════════════════════════════════════════════════════════════ -->
 
-<!-- Riordinata il 30/09/2026: l'ascolto sul napoletano subito dopo «Il napoletano», quello sullo scambio modale dopo «Lo scambio modale», e di seguito le due aggiunte sulle cinque varianti prima della dominante; poi espansioni, esercizio e repertorio come prima; nell'esempio V–vi la sensibile del contralto sale al do (prima scendeva al la) -->
-
 <section class="slide attiva copertina foto" data-titolo="Copertina"
-         style="--foto: url('../../_assets/copertine/c4u4-lezione-5.jpg?v=2826ab73');
-                --cop-a:#1e2f4d; --cop-b:#1d4ed8; --cop-c:#93c5fd">
+         style="--foto: url('../../_assets/copertine/c4u7-lezione-1.jpg?v=26fa2cb9');
+                --cop-a:#4c0519; --cop-b:#be123c; --cop-c:#fecdd3">
   <div class="slide-interna">
     <div class="occhiello">Gli accordi alterati: la sesta napoletana e le seste eccedenti &middot; UdA 7 &middot; Lezione 1 di 6</div>
-    <h1>Le ultime figure del repertorio</h1>
-    <p class="sottotitolo">Losanga, napoletano, inganno &mdash; e i profili sopra una tonica che dura. Dopo di queste, il repertorio &egrave; chiuso.</p>
+    <h1>La sesta napoletana: il secondo grado abbassato, in primo rivolto</h1>
+    <p class="sottotitolo">Un accordo maggiore costruito sul secondo grado abbassato, quasi sempre con la terza al basso: nel minore porta alla cadenza una nota che non appartiene alla scala e che deve scendere.</p>
     <blockquote class="aforisma">
-      <p>&Egrave; molto utile imparare a riconoscere i profili studiati <strong>sia visivamente sia a orecchio</strong>.</p>
-      <cite><em>Il linguaggio della musica</em>, 4&deg;&nbsp;anno, p.&nbsp;38</cite>
+      <p>La triade maggiore la cui fondamentale è il secondo grado abbassato cromaticamente è conosciuta come sesta napoletana.</p>
+      <cite>W. Piston, <em>Armonia</em>, p.&nbsp;396</cite>
     </blockquote>
-
     <div class="meta-copertina">
       <span>50 minuti</span>
       <span>Armonia</span>
-      <span>Bach, Beethoven</span>
+      <span>Beethoven, op.&nbsp;18 n.&nbsp;1</span>
       <span class="coda-orali">Interrogazioni &middot; teoria e armonia</span>
     </div>
   </div>
 </section>
-<section class="slide" data-titolo="Dove siamo">
+
+<section class="slide" data-titolo="Il secondo grado abbassato">
   <div class="slide-interna">
-    <h2>Dove siamo arrivati, e quanto manca</h2>
+    <h2>Il secondo grado abbassato, in primo rivolto</h2>
 
     <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
-         «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 4&deg; anno; pagine dall'indice rilevato. -->
+         «importantissimo»). D. D'Urso, C. Bertolini, Il linguaggio della musica, 4° anno. -->
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
-      <p><span class="lez">A5</span><strong>Armonizziamo una melodia con i rivolti delle triadi</strong>, pp. 34&ndash;49</p>
-      <p>Sezione A, unit&agrave; 5 &laquo;Armonizziamo una melodia con i rivolti delle triadi&raquo;, lezione 18 &laquo;Profili su espansioni di tonica e dominante&raquo;, per i profili sulle espansioni; unit&agrave; 4, lezione 17 &laquo;Altri profili melodici cadenzali&raquo;, per la losanga e l&rsquo;inganno. Il napoletano nel volume non c&rsquo;&egrave;.</p>
+      <p><strong>Cadenza con sesta napoletana</strong>: D. D&rsquo;Urso, <em>Il linguaggio della musica</em>, 3&deg;&nbsp;anno, lezione 39, pp.&nbsp;94&ndash;95. <strong>Il profilo melodico napoletano</strong>: D&rsquo;Urso, Bertolini, 4&deg;&nbsp;anno, p.&nbsp;38.</p>
     </div>
 
-    <div class="colonne">
-      <div class="riquadro">
-        <p><strong>Gi&agrave; fatti</strong><br>
-        2&deg;&ndash;7&deg;&ndash;1&deg; con il ii<sup>6</sup><br>
-        3&deg;&ndash;2&deg;&ndash;1&deg; e 1&deg;&ndash;7&deg;&ndash;1&deg; sulla quarta e sesta<br>
-        4&deg;&ndash;2&deg;&ndash;3&deg; della cadenza doppia</p>
-      </div>
-      <div class="riquadro">
-        <p><strong>Oggi</strong><br>
-        la <strong>losanga</strong><br>
-        il <strong>napoletano</strong><br>
-        l&rsquo;<strong>inganno</strong>, e il suo 5&deg;&ndash;3&deg;<br>
-        i profili sulle <strong>espansioni</strong></p>
-      </div>
+    <div class="riquadro definizione">
+      <span class="etichetta">Definizione</span>
+      <p>&laquo;Una triade costruita sul secondo grado abbassato, il grado che caratterizza la scala minore napoletana. Questa triade, che è una variante dell&rsquo;accordo di ii&deg; del minore, è usata prevalentemente in primo rivolto, come l&rsquo;accordo da cui deriva, e per questo è nota con il nome di sesta napoletana&raquo;; ha funzione di sottodominante e &laquo;si presenta normalmente con il 2&deg; abbassato al soprano&raquo; (D&rsquo;Urso, 3&deg;&nbsp;anno, p.&nbsp;94). Piston la indica con <strong>N</strong> e osserva che, pur essendo una triade maggiore, &laquo;l&rsquo;alterazione cromatica del secondo grado dà a tale nota una tendenza discendente, come se essa fosse una dissonanza&raquo;; &laquo;benché derivi dalla scala minore e sia usata soprattutto in modo minore, la sesta napoletana viene usata liberamente anche in maggiore&raquo; (<em>Armonia</em>, p.&nbsp;396). In la minore: re&ndash;fa&ndash;si&#9837;, con il re al basso. Nel libro la cifratura è II<sup>6</sup> con il segno di abbassamento; qui N<sup>6</sup>.</p>
     </div>
 
-    <p>Dopo di oggi il repertorio &egrave; chiuso: sono <strong>sette o otto figure in tutto</strong>, e non sono poche perch&eacute; ho tagliato &mdash; sono poche perch&eacute; nel repertorio ci sono quelle.</p>
+    <div class="riquadro definizione">
+      <span class="etichetta">La condotta</span>
+      <p><strong>Il raddoppio.</strong> &laquo;Come nell&rsquo;accordo di ii&deg; il raddoppio migliore corrisponde alla terza dell&rsquo;accordo (4&deg;), cioè alla nota del basso&raquo; (D&rsquo;Urso, 3&deg;&nbsp;anno, p.&nbsp;95); per Piston il basso, &laquo;in quanto grado forte, è il migliore raddoppio possibile&raquo; (p.&nbsp;396). Il 2&deg; abbassato non si raddoppia. <strong>Le due strade verso la dominante.</strong> Con la quarta e sesta in mezzo il 2&deg; abbassato scende di semitono all&rsquo;1&deg; (si&#9837;&ndash;la), e &laquo;la falsa relazione in questo caso non è avvertibile&raquo; (Piston, p.&nbsp;398). Direttamente sul V il 2&deg; abbassato scende alla sensibile con un intervallo di terza diminuita, &laquo;dal carattere fortemente drammatico e ricco di tensione&raquo; (D&rsquo;Urso, p.&nbsp;95); è la condotta che Piston considera preferita, e la falsa relazione che ne nasce (si&#9837; e poi si&#9838; in un&rsquo;altra voce) &laquo;non è stata evitata dai compositori&raquo;; se il V ha la settima, se ne può omettere la quinta, &laquo;cosicché non si verifica alcuna falsa relazione&raquo; (p.&nbsp;397).</p>
+    </div>
 
-    <p class="didascalia">Se qualcuno stava per chiedere &laquo;ma quante sono in tutto?&raquo;, la risposta &egrave; questa. Ed &egrave; il motivo per cui vale la pena impararle: un elenco di quaranta non lo userebbe nessuno.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="La losanga">
-  <div class="slide-interna">
-    <h2>Il profilo &laquo;a losanga&raquo;</h2>
+    <div class="righe">
+  <tac-stave clef="treble"
+               time="4/4"
+               keysig="Am"
+               caption="La minore, otto battute: la napoletana sopra il iv (bb.&nbsp;2&ndash;3) e al soprano (bb.&nbsp;6 e 7&ndash;8) (scritto per la lezione)"
+               soprano="c/5:h e/5:h | d/5:h d/5:h | c/5:h b/4:h | c/5:w"
+               contralto="e/4:h a/4:h | a/4:h bb/4:h | a/4:h g#/4:h | a/4:w"
+               tenore="a/3:h a/3:h | d/4:h f/4:h | e/4:h d/4:h | c/4:w"
+               basso="a/2:h c/3:h | d/3:h d/3:h | e/3:h e/2:h | a/2:w"
+               cifre="i &middot; i6 &middot; iv &middot; N6 &middot; i64 &middot; V7 &middot; i"
+               segna="b2=iv – N6: la → si♭ al contralto, re raddoppiato · b3=si♭ → la sopra la quarta e sesta · b4=cadenza perfetta"
+               width="1000"
+               tempo="60" play></tac-stave>
+  <tac-stave clef="treble"
+               keysig="Am"
+               soprano="c/5:h c/5:h | bb/4:h g#/4:h | a/4:h bb/4:h | a/4:q g#/4:q a/4:h"
+               contralto="e/4:h e/4:h | f/4:h e/4:h | c/4:h f/4:h | e/4:q d/4:q c/4:h"
+               tenore="a/3:h a/3:h | d/4:h b/3:h | a/3:h d/4:h | c/4:q b/3:q a/3:h"
+               basso="a/2:h c/3:h | d/3:h e/3:h | f/3:h d/3:h | e/3:q e/2:q a/2:h"
+               cifre="i &middot; i6 &middot; N6 &middot; V &middot; VI &middot; N6 &middot; i64 &middot; V7 &middot; i"
+               segna="b2=si♭ → sol♯ al soprano: terza diminuita · b3=V – VI: cadenza d’inganno, poi di nuovo N6 · b4=N6 – i64 – V7 – i"
+               width="1000"></tac-stave>
+    </div>
 
-    <p>Contiene la <strong>clausola di soprano</strong>, ma arricchita: la successione caratteristica &egrave; <strong>6&deg;&nbsp;&ndash;&nbsp;2&deg;&nbsp;&ndash;&nbsp;7&deg;&nbsp;&ndash;&nbsp;1&deg;</strong>.</p>
-
-    <tac-stave clef="treble" time="4/4"
-               caption="Il profilo a losanga: la &ndash; re &ndash; si &ndash; do"
-               notes="a/4:q d/5:q b/4:h | c/5:w"
-               width="700" tempo="48" play></tac-stave>
+    <div class="analisi-prosa">
+      <p>Nella prima frase la napoletana nasce sopra il basso del iv: il re resta fermo, il la del contralto sale al si&#9837; (b.&nbsp;2), e l&rsquo;accordo diventa re&ndash;fa&ndash;si&#9837; con il re raddoppiato fra basso e soprano, dove il re sta dall&rsquo;inizio della battuta. Alla b.&nbsp;3 il si&#9837; scende al la della quarta e sesta, che lo tiene ancora un movimento prima che la dominante lo porti al sol&#9839; e la cadenza si chiuda. Nella seconda frase il si&#9837; sta al soprano: alla b.&nbsp;6 va direttamente al sol&#9839; del V, con la terza diminuita, e il si&#9838; del tenore ne è la falsa relazione; il V non chiude, va al VI (cadenza d&rsquo;inganno), e la napoletana torna alla b.&nbsp;7 per la cadenza perfetta con la quarta e sesta.</p>
+    </div>
 
     <div class="riquadro attenzione">
-      <p>Il nome viene dal <strong>disegno</strong> che le voci fanno sulla carta: due linee che si allargano e si richiudono, come una losanga. Il libro rimanda al collegamento a losanga della classe terza (Lezione A&nbsp;21), che avete gi&agrave; fatto.</p>
+      <span class="etichetta">Gli errori tipici</span>
+      <p><strong>Raddoppiare il si&#9837;</strong>: due voci con la stessa tendenza discendente arrivano insieme al la, per ottave parallele. <strong>Farlo salire</strong> al si&#9838; nella stessa voce: la nota abbassata contraddice la propria direzione. <strong>Scrivere la triade in stato fondamentale</strong>, con il si&#9837; al basso: il basso salta di tritono o di quarta eccedente verso il mi, e l&rsquo;accordo smette di suonare come una sottodominante.</p>
     </div>
-
-    <p class="didascalia">Riconoscerlo &egrave; facile perch&eacute; ha <strong>quattro</strong> note invece di tre, e comincia da un salto: sono i due segnali che lo distinguono da tutto il resto.</p>
   </div>
 </section>
-<section class="slide" data-titolo="Il napoletano">
+
+<section class="slide perc" data-titolo="Nel repertorio: Beethoven">
   <div class="slide-interna">
-    <h2>Il profilo &laquo;napoletano&raquo;, e si riconosce a colpo d&rsquo;occhio</h2>
-
-    <p>Il libro dice che le melodie con il grado napoletano &laquo;sono <strong>facilmente riconoscibili</strong>&raquo;: si presentano quasi sempre con il <strong>2&deg; abbassato</strong> al soprano, e si usano soprattutto nel <strong>modo minore</strong>.</p>
-
-    <tac-stave clef="treble" time="4/4" keysig="Cm"
-               caption="Il 2&deg; abbassato al soprano, in do minore: re bemolle"
-               notes="db/5:h c/5:h | bn/4:h c/5:h"
-               width="700" tempo="46" play></tac-stave>
-
-    <div class="riquadro attenzione">
-      <p>Due strade, dice il libro (p.&nbsp;38): dal 2&deg; abbassato si pu&ograve; andare <strong>all&rsquo;1&deg;</strong>, e allora si armonizza con l&rsquo;accordo che regge l&rsquo;1&deg;; oppure <strong>direttamente al 7&deg;</strong>, e allora si usa il <strong>solo V</strong>.</p>
-    </div>
-
-    <p>Il grado napoletano per intero l&rsquo;avete fatto in <strong>terza</strong>, e oggi non si riapre. Qui interessa una cosa sola: quel <em>re bemolle</em> in una melodia in do minore &egrave; un&rsquo;<strong>insegna</strong>. Chi lo vede sa gi&agrave; che cosa c&rsquo;&egrave; sotto.</p>
-
-    <p class="didascalia">&Egrave; il caso pi&ugrave; puro di tutta l&rsquo;unit&agrave;: <strong>una nota sola</strong>, e l&rsquo;armonia &egrave; decisa. Non serve nemmeno guardare le altre.</p>
-  </div>
-</section>
-<section class="slide perc" data-titolo="Il napoletano, e da dove viene il nome">
-  <div class="slide-interna">
-    <h2>Un accordo con un indirizzo</h2>
+    <h2>Nel repertorio: Beethoven, Quartetto op.&nbsp;18 n.&nbsp;1, II, bb.&nbsp;82&ndash;88</h2>
 
     <div class="riquadro compito">
-      <span class="etichetta">Ascolto &middot; 5 minuti</span>
-      <p>Un ascolto. Domanda: prima della chiusa c&rsquo;è un accordo che suona <strong>più scuro</strong> di quanto la tonalità richieda?</p>
+      <span class="etichetta">Ascolto &middot; 4 minuti</span>
+      <p>Segui il violino I e indica le due battute in cui il mi&#9837; scende al re.</p>
     </div>
 
-    <tac-brano organico="voci" titolo="Händel, «Lascia ch&rsquo;io pianga», da Rinaldo"
-               metronomo youtube="EKo_EmfEPWs" mappa-video='{"eventi":[[1,5300],[2,8734],[3,12400],[4,15684],[5,19283],[6,23049],[7,26816],[8,30549],[9,34600],[10,38517],[11,42549],[12,46200],[13,50216],[14,54150],[15,58184],[16,62100],[17,66166],[18,70117],[19,74001],[20,78050],[21,82200],[22,86499],[23,90767],[24,94683],[25,98717],[26,102700],[27,106650],[28,110683],[29,114717],[30,119166],[31,122566],[32,126235],[33,130067],[34,133716],[35,137367],[36,141334],[37,145248]],"durata":334000}' esecutore="Voices of Music · Kirsten Blaise, soprano" partitura="../../_assets/spartiti/A07_handel.png" inciso="../../_assets/incisioni/A07_handel.mp3" mappa='{"durata":44146,"eventi":[[0,0],[1,3462],[2,6923],[3,10385],[4,13846],[5,17308],[6,20769],[7,24231],[8,27692],[9,31154],[10,34615],[11,38077]]}' da-battuta="13">
-<script type="application/json">{"titolo":"G. F. Händel, «Lascia ch'io pianga», da Rinaldo","metro":"3/4","bpm":52,"battute":12,"anacrusi":0.0,"voci":[[[0.0,1.0,66],[1.0,1.0,66],[2.5,0.5,66],[3.0,1.0,67],[4.0,1.0,67],[6.0,1.0,64],[7.0,1.5,69],[8.5,0.5,67],[9.0,1.0,67],[10.0,1.0,66],[12.0,1.0,71],[13.0,1.0,71],[14.0,0.3333,73],[14.3333,0.3333,74],[14.6667,0.3333,76],[15.0,1.0,69],[16.0,1.0,69],[17.5,0.5,74],[18.0,0.75,66],[18.75,0.25,64],[19.0,1.0,66],[20.0,0.75,64],[20.75,0.25,62],[21.0,3.0,62],[24.0,1.0,66],[25.0,1.5,74],[26.5,0.5,71],[27.0,1.0,68],[28.0,1.0,68],[30.0,1.0,71],[31.0,1.5,76],[32.5,0.5,73],[33.0,0.5,69],[33.5,0.5,68],[34.0,1.0,69],[35.5,0.5,74]],[[0.0,1.0,62],[0.0,1.0,66],[1.0,1.0,62],[1.0,1.0,66],[2.5,0.5,62],[2.5,0.5,66],[3.0,1.0,59],[3.0,1.0,62],[3.0,1.0,67],[4.0,1.0,59],[4.0,1.0,62],[4.0,1.0,67],[6.0,1.0,61],[6.0,1.0,64],[7.0,1.5,61],[7.0,1.5,64],[7.0,1.5,69],[8.5,0.5,61],[8.5,0.5,64],[8.5,0.5,67],[9.0,1.0,67],[9.0,2.0,57],[9.0,2.0,62],[10.0,1.0,66],[12.0,1.0,62],[12.0,1.0,67],[12.0,1.0,71],[13.0,1.0,64],[13.0,1.0,67],[13.0,1.0,71],[15.0,1.0,61],[15.0,1.0,64],[15.0,1.0,69],[16.0,1.0,62],[16.0,1.0,66],[16.0,1.0,69],[17.5,0.5,57],[17.5,0.5,62],[17.5,0.5,66],[18.0,0.75,66],[18.0,1.0,59],[18.0,1.0,62],[18.75,0.25,64],[19.0,1.0,62],[19.0,1.0,66],[20.0,0.75,64],[20.0,1.0,61],[20.75,0.25,62],[21.0,3.0,57],[21.0,3.0,62],[24.0,1.0,62],[24.0,1.0,66],[25.0,1.5,74],[25.0,2.0,62],[26.5,0.5,71],[27.0,1.0,59],[27.0,1.0,62],[27.0,1.0,68],[28.0,1.0,59],[28.0,1.0,64],[28.0,1.0,68],[30.0,1.0,68],[30.0,1.0,71],[31.0,1.5,76],[31.0,2.0,64],[32.5,0.5,73],[33.0,1.0,61],[33.0,1.0,64],[33.0,1.0,69],[34.0,1.0,62],[34.0,1.0,66],[34.0,1.0,69],[35.5,0.5,66],[35.5,0.5,74]],[[0.0,1.0,50],[1.0,1.0,50],[2.5,0.5,50],[3.0,1.0,52],[4.0,1.0,52],[6.0,1.0,45],[7.0,1.0,45],[8.5,0.5,45],[9.0,1.0,50],[10.0,0.5,50],[10.5,0.5,49],[11.0,0.5,47],[11.5,0.5,45],[12.0,1.0,43],[13.0,1.0,55],[15.0,1.0,55],[16.0,1.0,54],[17.5,0.5,54],[18.0,1.0,55],[19.0,1.0,57],[20.0,0.75,55],[20.0,1.0,45],[20.75,0.25,54],[21.0,3.0,50],[21.0,3.0,54],[24.0,1.0,50],[25.0,1.5,47],[26.5,0.5,50],[27.0,1.0,52],[28.0,1.0,40],[30.0,1.0,52],[31.0,1.5,49],[31.0,2.0,56],[32.5,0.5,52],[33.0,1.0,54],[34.0,1.0,50],[35.5,0.5,50]]]}</script>
+    <tac-brano organico="quartetto d&rsquo;archi" titolo="L. van Beethoven, Quartetto op.&nbsp;18 n.&nbsp;1, II &mdash; Adagio affettuoso ed appassionato" metronomo youtube="xVGxvT_mT2g" esecutore="Hagen Quartett" partitura="../../_assets/spartiti/C06_beethoven-op18n1-adagio.png" inciso="../../_assets/incisioni/C06_beethoven_op18n1_adagio.mp3" mappa='{"durata":38844,"eventi":[[0,0],[1,4500],[2,9000],[3,13500],[4,18000],[5,22500],[6,27000],[7,31500]]}' da-battuta="1">
+<script type="application/json">{"titolo":"L. van Beethoven, Quartetto op. 18 n. 1, II — Adagio affettuoso ed appassionato","metro":"9/8","bpm":40,"battute":8,"anacrusi":0.0,"voci":[[[4.5,3.0,69],[7.5,1.5,69],[9.0,1.5,69],[10.5,1.5,74],[12.0,1.5,76],[13.5,1.5,77],[15.0,1.0,77],[16.0,0.25,76],[16.25,0.25,74],[16.5,0.25,74],[16.75,0.125,76],[16.875,0.125,74],[17.0,0.25,73],[17.25,0.25,74],[17.5,0.25,77],[17.75,0.25,76],[18.0,1.5,74],[19.5,1.5,73],[21.0,0.5,73],[21.5,0.25,73],[21.75,0.25,74],[22.0,0.25,76],[22.25,0.25,77],[22.5,1.5,79],[24.0,0.5,79],[24.5,0.1125,81],[24.625,0.125,79],[24.75,0.25,78],[25.0,0.25,79],[25.25,0.25,81],[25.5,1.0,82],[26.5,0.5,73],[27.0,1.5,76],[28.5,1.5,74],[30.0,0.5,74],[30.5,0.5,76],[31.0,0.5,77],[31.5,1.5,77],[33.0,1.5,76],[34.5,0.5,76],[35.0,0.5,77],[35.5,0.5,74]],[[0.0,0.5,57],[0.5,0.5,57],[1.0,0.5,57],[1.5,0.5,62],[2.0,0.5,62],[2.5,0.5,62],[3.0,0.5,61],[3.5,0.5,61],[4.0,0.5,61],[4.5,0.5,62],[5.0,0.5,57],[5.5,0.5,57],[6.0,0.5,62],[6.5,0.5,62],[7.0,0.5,62],[7.5,0.5,61],[8.0,0.5,61],[8.5,0.5,61],[9.0,0.5,62],[9.5,0.5,57],[10.0,0.5,57],[10.5,0.5,62],[11.0,0.5,62],[11.5,0.5,62],[12.0,0.5,57],[12.0,0.5,64],[12.5,0.5,57],[12.5,0.5,64],[13.0,0.5,57],[13.0,0.5,64],[13.5,0.5,65],[14.0,0.5,57],[14.5,0.5,57],[15.0,0.5,57],[15.5,0.5,57],[16.0,0.5,57],[16.5,0.5,58],[17.0,0.5,58],[17.5,0.5,58],[18.0,0.5,58],[18.5,0.5,58],[19.0,0.5,58],[19.5,0.5,58],[20.0,0.5,70],[20.5,0.5,70],[21.0,0.5,70],[21.5,0.5,67],[22.0,0.5,64],[22.5,0.5,61],[23.0,0.5,61],[23.5,0.5,61],[24.0,0.5,61],[24.5,0.5,61],[25.0,0.5,61],[25.5,0.5,61],[26.0,0.5,61],[26.5,0.5,61],[27.0,0.5,61],[27.5,0.5,62],[28.0,0.5,62],[28.5,0.5,62],[29.0,0.5,62],[29.5,0.5,62],[30.0,0.5,62],[30.5,0.5,61],[31.0,0.5,62],[31.5,0.5,62],[32.0,0.5,62],[32.5,0.5,62],[33.0,0.5,62],[33.5,0.5,62],[34.0,0.5,62],[34.5,0.5,62],[35.0,0.5,62],[35.5,0.5,62]],[[0.0,0.5,53],[0.5,0.5,53],[1.0,0.5,53],[1.5,0.5,57],[2.0,0.5,57],[2.5,0.5,57],[3.0,0.5,55],[3.5,0.5,55],[4.0,0.5,55],[4.5,0.5,53],[5.0,0.5,53],[5.5,0.5,53],[6.0,0.5,57],[6.5,0.5,57],[7.0,0.5,57],[7.5,0.5,55],[8.0,0.5,55],[8.5,0.5,55],[9.0,0.5,53],[9.5,0.5,53],[10.0,0.5,53],[10.5,0.5,57],[11.0,0.5,57],[11.5,0.5,57],[12.0,0.5,61],[12.5,0.5,61],[13.0,0.5,61],[13.5,0.5,62],[14.0,0.5,53],[14.5,0.5,53],[15.0,0.5,53],[15.5,0.5,53],[16.0,0.5,53],[16.5,0.5,53],[17.0,0.5,53],[17.5,0.5,53],[18.0,0.5,55],[18.5,0.5,55],[19.0,0.5,55],[19.5,0.5,55],[20.0,0.5,55],[20.5,0.5,55],[21.0,0.5,55],[21.5,0.5,55],[22.0,0.5,55],[22.5,0.5,55],[23.0,0.5,55],[23.5,0.5,55],[24.0,0.5,55],[24.5,0.5,55],[25.0,0.5,55],[25.5,0.5,55],[26.0,0.5,55],[26.5,0.5,55],[27.0,0.5,57],[27.5,0.5,57],[28.0,0.5,57],[28.5,0.5,57],[29.0,0.5,57],[29.5,0.5,57],[30.0,0.5,57],[30.5,0.5,55],[31.0,0.5,53],[31.5,0.5,58],[32.0,0.5,58],[32.5,0.5,58],[33.0,0.5,58],[33.5,0.5,58],[34.0,0.5,58],[34.5,0.5,59],[35.0,0.5,59],[35.5,0.5,59]],[[0.0,0.5,50],[0.5,0.5,50],[1.0,0.5,50],[1.5,0.5,53],[2.0,0.5,53],[2.5,0.5,53],[3.0,0.5,52],[3.5,0.5,52],[4.0,0.5,52],[4.5,0.5,50],[5.0,0.5,50],[5.5,0.5,50],[6.0,0.5,53],[6.5,0.5,53],[7.0,0.5,53],[7.5,0.5,52],[8.0,0.5,52],[8.5,0.5,52],[9.0,0.5,50],[9.5,0.5,50],[10.0,0.5,50],[10.5,0.5,53],[11.0,0.5,53],[11.5,0.5,53],[12.0,0.5,57],[12.5,0.5,57],[13.0,0.5,57],[13.5,0.5,62],[14.0,0.5,50],[14.5,0.5,50],[15.0,0.5,50],[15.5,0.5,50],[16.0,0.5,50],[16.5,0.5,50],[17.0,0.5,50],[17.5,0.5,50],[18.0,0.5,52],[18.5,0.5,52],[19.0,0.5,52],[19.5,0.5,52],[20.0,0.5,52],[20.5,0.5,52],[21.0,0.5,52],[21.5,0.5,52],[22.0,0.5,52],[22.5,0.5,52],[23.0,0.5,52],[23.5,0.5,52],[24.0,0.5,52],[24.5,0.5,52],[25.0,0.5,52],[25.5,0.5,52],[26.0,0.5,52],[26.5,0.5,52],[27.0,0.5,53],[27.5,0.5,53],[28.0,0.5,53],[28.5,0.5,53],[29.0,0.5,53],[29.5,0.5,53],[30.0,0.5,53],[30.5,0.5,52],[31.0,0.5,50],[31.5,0.5,55],[32.0,0.5,43],[32.5,0.5,43],[33.0,0.5,43],[33.5,0.5,43],[34.0,0.5,43],[34.5,0.5,44],[35.0,0.5,44],[35.5,0.5,44]]]}</script>
 </tac-brano>
 
+    <div class="righe">
+  <tac-stave clef="treble"
+               time="9/8"
+               keysig="Dm"
+               caption="L. van Beethoven, Quartetto op.&nbsp;18 n.&nbsp;1, II, bb.&nbsp;82&ndash;88: violino I e violino II sul rigo acuto, viola e violoncello sul rigo grave (dal corpus di music21, confrontato con la scansione del catalogo)"
+               soprano="g/4:h. f/4:q. | eb/4:q. d/4:q.~ d/4:8 e/4:8 c#/4:8 | d/4:q r:8 r:q r:8 bn/5:16 a#/5:16 bn/5:16 a/5:16 g/5:16 f#/5:16"
+               contralto="e/4:16 d/4:16 c#/4:16 d/4:16 e/4:16 d/4:16 c#/4:16 d/4:16 e/4:16 d/4:16 c#/4:16 e/4:16 d/4:q. | b/3:16 a/3:16 b/3:16 a/3:16 b/3:16 a/3:16 g#/3:q. g/3:q g/4:8 | f#/4:q r:8 f/5:16 e#/5:16 f/5:16 e/5:16 d/5:16 c#/5:16 b/4:16 a#/4:16 b/4:16 a/4:16 g/4:16 f#/4:16"
+               tenore="c#/3:16 d/3:16 e/3:16 d/3:16 c#/3:16 d/3:16 e/3:16 d/3:16 c#/3:16 d/3:16 e/3:16 c#/3:16 d/3:16 c#/3:16 d/3:16 e/3:16 f/3:16 d/3:16 | g/3:q. d/3:16 c#/3:16 d/3:16 c#/3:16 d/3:16 f/3:16 a/3:q a/4:8 | a/4:16 g#/4:16 a/4:16 g/4:16 f#/4:16 e/4:16 d/4:16 c#/4:16 d/4:16 c/4:16 bn/3:16 a/3:16 g/3:q a/3:16 bn/3:16"
+               basso="a/2:h. b/2:q. | g/2:q. b/2:q. a/2:q. | d/3:q r:8 r:q r:8 g/3:16 f#/3:16 g/3:16 f#/3:16 e/3:16 d/3:16"
+               segna="b1=V7 sul pedale di la · b1=VI · b2=N6: sol–si♭–mi♭, sol raddoppiato · b2=mi♭ → re al violino I · b2=V (4–3) · b3=re maggiore"
+               width="1000"
+               tempo="40" play></tac-stave>
+  <tac-stave clef="treble"
+               keysig="Dm"
+               soprano="e/5:q. eb/5:q. d/5:q.~ | d/5:8 g/5:8 g/5:8 g/5:q. f/5:q. | eb/5:q. d/5:q.~ d/5:8 e/5:8 c#/5:8 | d/5:8 f#/4:8 f#/4:8 f#/4:q r:8 r:q r:8"
+               contralto="e/4:q. a/4:q.~ a/4:8. f#/4:16 g/4:16 a/4:16 | b/4:q. a/4:q.~ a/4:8 a/4:8 a/4:8 | b/4:16 a/4:16 b/4:16 a/4:16 b/4:16 a/4:16 g#/4:q. g/4:q. | f#/4:8 a/3:8 a/3:8 a/3:q r:8 r:q r:8"
+               tenore="c/4:h.~ c/4:8 c/4:8 c/4:8 | b/3:8. d/4:16 e/4:16 f/4:16 e/4:q. d/4:q. | g/3:q. d/3:16 c#/3:16 d/3:16 c#/3:16 d/3:16 f/3:16 a/3:q a/3:8 | a/4:q. g#/4:16 a/4:16 bn/4:16 a/4:16 e#/4:16 f#/4:16 g/4:16 f#/4:16 c#/4:16 d/4:16 e/4:16 d/4:16"
+               basso="c/3:16 b/2:16 c/3:16 b/2:16 a/2:16 g/2:16 f#/2:16 g/2:16 f#/2:16 g/2:16 a/2:16 g/2:16 f#/2:16 e/2:16 f#/2:16 d/2:16 e/2:16 f#/2:16 | g/2:16 b/3:16 g/3:16 f/3:16 e/3:16 d/3:16 c#/3:16 bn/2:16 c#/3:16 a/2:16 bn/2:16 c#/3:16 d/3:16 c#/3:16 d/3:16 a/2:16 f/2:16 d/2:16 | g/2:q. b/2:q. a/2:q. | d/2:8 d/3:8 d/3:8 d/3:q r:8 r:q r:8"
+               segna="b3=di nuovo N6, un’ottava sopra · b3=V (4–3) · b4=re maggiore"
+               width="1000"></tac-stave>
+    </div>
 
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cos&rsquo;è, in due righe</span>
-      <p>Il <strong>secondo grado abbassato</strong>, in primo rivolto, che va alla dominante. In do: un accordo di re bemolle maggiore col fa al basso.</p>
-      <p>Il nome viene dalla scuola napoletana del Settecento, dove compare così spesso da diventarne una firma. Non è un&rsquo;etichetta geografica: è la <strong>traccia di una pratica</strong>.</p>
+    <div class="analisi-prosa">
+      <p>La b.&nbsp;82 sta sul la del violoncello, con il violino II e la viola che girano intorno a re e do&#9839; e il sol del violino I: è la dominante con la settima. Sull&rsquo;ultimo movimento il basso sale al si&#9837; e la dominante passa al VI. Il primo movimento della b.&nbsp;83 è la sesta napoletana nella forma del libro: sol al violoncello e alla viola, cioè la terza raddoppiata, si&#9837; al violino II (con la nota di volta la), e il secondo grado abbassato, mi&#9837;, nella voce più acuta. Il mi&#9837; scende di semitono al re sul secondo movimento, mentre il basso sale al si&#9837; e poi al la: l&rsquo;accordo di mezzo, si&#9837;&ndash;re&ndash;sol&#9839;, è una sesta eccedente, l&rsquo;argomento della lezione 2. Sul la il violino I tiene il re come ritardo della terza e lo risolve sul do&#9839; (4&ndash;3), e la b.&nbsp;84 chiude su re maggiore, con il fa&#9839;: la napoletana del minore conduce qui a una tonica maggiore. Le bb.&nbsp;85&ndash;88 ripetono il gesto; il canto scende mi&ndash;mi&#9837;&ndash;re per semitoni e la b.&nbsp;87 riporta la stessa successione, sol&ndash;si&#9837;&ndash;la al basso, con il mi&#9837; un&rsquo;ottava sopra.</p>
     </div>
 
     <div class="riquadro attenzione">
-      <span class="etichetta">Perché quasi sempre in primo rivolto</span>
-      <p>Perché in stato fondamentale il basso farebbe un salto di seconda eccedente o di tritono verso la dominante. Col fa al basso, invece, la linea grave <strong>scende comodamente</strong> di terza o sale di grado.</p>
-      <p>Ancora una volta il rivolto si sceglie per la linea, non per l&rsquo;armonia.</p>
+      <span class="etichetta">L&rsquo;errore tipico</span>
+      <p><strong>Leggere il sol al basso come un iv.</strong> Sopra il sol suonano si&#9837; e mi&#9837;, non si&#9837; e re: il mi&#9837; è il secondo grado abbassato, e l&rsquo;accordo è la napoletana in primo rivolto. A decidere è la nota acuta, non il basso.</p>
     </div>
-
-    <p class="didascalia">Gli accordi con un nome proprio — napoletano, sesta tedesca, accordo di Tristano — hanno tutti una <strong>storia di uso</strong> alle spalle. Il nome dice dove sono stati notati per la prima volta, non che cosa sono.</p>
   </div>
 </section>
-<section class="slide" data-titolo="Perché due nomi propri">
+
+<section class="slide" data-titolo="Lavoro guidato" data-in-classe>
   <div class="slide-interna">
-    <h2>Perch&eacute; due di queste figure hanno un nome proprio</h2>
+    <h2>Lavoro guidato: soprano e basso dati, otto battute</h2>
 
-    <p>Quasi tutti i profili si chiamano con i loro gradi: 3&deg;&ndash;2&deg;&ndash;1&deg;, 5&deg;&ndash;3&deg;. Due invece hanno un <strong>nome</strong>: la <em>losanga</em> e il <em>napoletano</em>. Non &egrave; casuale.</p>
-
-    <div class="colonne">
-      <div class="riquadro">
-        <p><strong>Losanga</strong><br>
-        il nome viene dalla <strong>forma</strong> che le voci disegnano: si guarda la carta, non i gradi.</p>
-      </div>
-      <div class="riquadro">
-        <p><strong>Napoletano</strong><br>
-        il nome viene dall&rsquo;<strong>armonia</strong> che lo sostiene, e da una storia: la scuola napoletana del Settecento.</p>
-      </div>
+    <div class="righe">
+  <tac-stave clef="treble"
+               time="4/4"
+               keysig="Dm"
+               caption="Soprano e basso dati, otto battute (scritto per la lezione)"
+               soprano="f/5:h e/5:h | f/5:h d/5:h | eb/5:h d/5:h | c#/5:w"
+               basso="d/3:h c#/3:h | d/3:h b/2:h | g/2:h a/2:h | a/2:w"
+               width="1000"
+               tempo="60" play></tac-stave>
+  <tac-stave clef="treble"
+               keysig="Dm"
+               soprano="d/5:h d/5:h | c#/5:h d/5:h | eb/5:h c#/5:h | d/5:w"
+               basso="f/2:h g/2:h | a/2:h b/2:h | g/2:h a/2:h | d/3:w"
+               width="1000"></tac-stave>
     </div>
-
-    <div class="riquadro attenzione">
-      <p>Quando una figura si prende un nome proprio, quasi sempre &egrave; perch&eacute; c&rsquo;&egrave; qualcosa che i numeri non dicono: un disegno, una provenienza, un&rsquo;epoca. Il nome porta con s&eacute; quello che la cifra perde.</p>
-    </div>
-
-    <p class="didascalia">&Egrave; lo stesso motivo per cui le clausole si chiamano <em>di soprano</em> e <em>di tenore</em> invece che 7&deg;&ndash;1&deg; e 2&deg;&ndash;1&deg;: il nome ricorda in quale voce stavano, e quella &egrave; storia del contrappunto.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="L'inganno">
-  <div class="slide-interna">
-    <h2>Gli stessi profili, che vanno da un&rsquo;altra parte</h2>
-
-    <p>Il libro fa un&rsquo;osservazione che rimette tutto in ordine: <strong>tutte</strong> le successioni cadenzali che finiscono 2&deg;&ndash;1&deg; e 7&deg;&ndash;1&deg;, comprese quelle con la quarta e sesta, <strong>possono risolvere sul sesto grado</strong> invece che sul primo.</p>
-
-    <tac-stave tastiera clef="treble" time="4/4"
-               caption="Lo stesso profilo, e sotto un vi al posto del I"
-               soprano="d/4:h c/4:h"
-               contralto="b/3:h c/4:h"
-               tenore="g/3:h e/3:h"
-               basso="g/2:h a/2:h"
-               width="700" tempo="46" play></tac-stave>
-
-    <div class="riquadro attenzione">
-      <p>Quindi il profilo <strong>non basta</strong>: dice quale cadenza sta arrivando, non dove va a finire. La cadenza d&rsquo;inganno &laquo;ha la funzione di <strong>posticipare</strong> una cadenza autentica e spesso precede il movimento cadenzale conclusivo&raquo; (p.&nbsp;40).</p>
-    </div>
-
-    <p class="didascalia">Per questo, dice il libro, &laquo;oltre alla natura melodica &egrave; necessario considerare anche la <strong>posizione</strong> di questo profilo nel brano&raquo;. Un indizio si legge nel suo contesto, sempre.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="Il profilo dell'inganno">
-  <div class="slide-interna">
-    <h2>Ma un profilo &egrave; dell&rsquo;inganno e basta</h2>
-
-    <p>Ai gradi 2&deg;&ndash;1&deg; e 7&deg;&ndash;1&deg; il libro ne aggiunge uno che &egrave; <strong>tipico della cadenza d&rsquo;inganno</strong> e che &laquo;si trova pi&ugrave; raramente armonizzato con una cadenza autentica&raquo;: il <strong>5&deg;&nbsp;&ndash;&nbsp;3&deg;</strong>.</p>
-
-    <tac-stave tastiera clef="treble" time="4/4"
-               caption="Il 5&deg;&ndash;3&deg; al soprano: sol &ndash; mi, e sotto quasi sempre V &ndash; vi"
-               soprano="g/4:h e/4:h"
-               contralto="d/4:h c/4:h"
-               tenore="b/3:h a/3:h"
-               basso="g/2:h a/2:h"
-               width="700" tempo="46" play></tac-stave>
-
-    <div class="riquadro attenzione">
-      <p>Questo &egrave; il primo profilo dell&rsquo;unit&agrave; che punta a una cadenza <strong>sola</strong>. Gli altri erano ambigui &mdash; potevano finire in due modi; questo dice quasi sempre <strong>inganno</strong>.</p>
-    </div>
-
-    <p class="didascalia">Ed &egrave; anche il pi&ugrave; utile in ascolto, perch&eacute; l&rsquo;inganno si sente subito ma si <em>localizza</em> male. Il profilo dice dove guardare sulla carta.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="Lo scambio modale">
-  <div class="slide-interna">
-    <h2>Una variante, e la firma di Beethoven</h2>
-
-    <p>Il libro segnala che nella cadenza d&rsquo;inganno il 3&deg; e il 6&deg; possono essere <strong>abbassati insieme</strong>, per <strong>scambio modale</strong>: si prende il VI della scala minore omonima.</p>
-
-    <div class="riquadro attenzione">
-      <p>&Egrave; una tecnica usata soprattutto per <strong>modulare</strong>, e l&rsquo;esempio del libro &egrave; il primo tempo della <strong>Sonata op.&nbsp;10 n.&nbsp;3 di Beethoven</strong>: l&rsquo;autore inserisce &laquo;una per volta, le due alterazioni necessarie&raquo; per usare l&rsquo;accordo di si bemolle maggiore in re maggiore (p.&nbsp;40).</p>
-    </div>
-
-    <p>Una per volta: cio&egrave; non cambia tonalit&agrave; di colpo, la <strong>prepara</strong>. &Egrave; un modo di procedere che vedrete per intero all&rsquo;unit&agrave;&nbsp;9, quando si far&agrave; la modulazione.</p>
-
-    <p class="didascalia">Oggi &egrave; solo un nome e un esempio. Ma se qualcuno di voi suona quella sonata, la vada a guardare adesso: fra sei settimane sar&agrave; il caso da manuale.</p>
-  </div>
-</section>
-<!-- ───────────────────────────────────────────────────────────────────
-     Quattro slide, due con musica vera. L'ora presenta la losanga, il
-     napoletano e lo scambio modale, e ha una slide che promette «In
-     musica vera» con il solo A03. Due accordi con un nome proprio
-     meritano il posto in cui sono nati: il napoletano viene dall'opera
-     italiana, lo scambio modale dal Romanticismo. Senza, restano due
-     etichette che gli allievi non hanno mai sentito suonare.
-     ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="Lo scambio modale, dove &egrave; di casa">
-  <div class="slide-interna">
-    <h2>Un accordo preso dall&rsquo;altro modo</h2>
 
     <div class="riquadro compito">
-      <span class="etichetta">Ascolto &middot; 6 minuti</span>
-      <p>Due ascolti. Segnate i punti in cui la musica <strong>si scurisce</strong> restando nella stessa tonalità.</p>
+      <span class="etichetta">In classe &middot; 20 minuti</span>
+      <p>Scrivi contralto e tenore.</p>
     </div>
 
-    <tac-brano organico="voci" titolo="Schumann, «Aus meinen Tränen spriessen», Dichterliebe op. 48 n. 2"
-               metronomo youtube="_ofx3XNE5Co" esecutore="Dietrich Fischer-Dieskau, baritono" partitura="../../_assets/spartiti/C05_schumann-dichterliebe-2.png" riquadri='[[1,25.6,20.51,6.61,7.63],[2,32.21,20.51,17.68,7.63],[3,49.88,20.51,14.53,7.63],[4,64.41,20.51,22.44,7.63],[5,12.45,34.94,18.68,14.49],[6,31.13,34.94,15.22,14.49],[7,46.35,34.94,12.3,14.49],[8,58.65,34.94,14.14,14.49],[9,72.79,34.94,13.99,14.49],[10,12.3,56.11,25.21,14.13],[11,37.51,56.11,11.61,14.13],[12,49.12,56.11,20.22,14.13],[13,69.33,56.11,17.45,14.13],[14,12.07,75.91,27.36,16.52],[15,39.43,75.91,14.76,16.52],[16,54.19,75.91,14.99,16.52],[17,69.18,75.91,10.76,16.52],[18,79.94,75.91,6.38,16.52]]' inciso="../../_assets/incisioni/C05_schumann_dichterliebe_2.mp3" mappa='{"durata":14210,"eventi":[[0,0],[1,625],[2,2292],[3,3958],[4,5625],[5,7292],[6,8958],[7,10625]]}' da-battuta="1">
-<script type="application/json">{"titolo":"R. Schumann, «Aus meinen Tränen spriessen», da Dichterliebe op. 48 n. 2","metro":"2/4","bpm":72,"battute":8,"anacrusi":0.75,"voci":[[[0.25,0.5,73],[0.75,0.75,73],[1.5,0.25,73],[1.75,0.5,73],[2.25,0.5,73],[2.75,1.0,74],[3.75,0.5,73],[4.5,0.25,73],[4.75,0.5,71],[5.25,0.25,71],[5.5,0.25,73],[5.75,0.5,69],[6.25,0.25,69],[6.5,0.25,73],[6.75,0.5,71],[8.25,0.5,73],[8.75,0.75,73],[9.5,0.25,73],[9.75,0.5,73],[10.25,0.5,73],[10.75,1.0,74],[11.75,0.5,73],[12.5,0.25,73],[12.75,0.75,71],[13.5,0.25,73],[13.75,0.75,69],[14.5,0.25,73]],[[0.25,0.5,69],[0.25,0.5,73],[0.75,0.5,69],[0.75,0.5,73],[1.25,0.5,69],[1.25,0.5,73],[1.75,0.5,69],[1.75,0.5,73],[2.25,0.5,69],[2.25,0.5,73],[2.75,1.0,66],[2.75,1.0,69],[2.75,1.0,74],[3.75,0.5,64],[3.75,0.5,69],[3.75,0.5,73],[4.75,0.75,62],[4.75,0.75,68],[4.75,0.75,71],[5.5,0.25,73],[5.75,1.0,61],[5.75,1.0,69],[6.75,0.75,62],[6.75,0.75,68],[6.75,0.75,71],[7.5,0.25,73],[7.75,0.5,61],[7.75,0.5,69],[8.25,0.5,69],[8.25,0.5,73],[8.75,0.5,69],[8.75,0.5,73],[9.25,0.5,69],[9.25,0.5,73],[9.75,0.5,69],[9.75,0.5,73],[10.25,0.5,69],[10.25,0.5,73],[10.75,1.0,66],[10.75,1.0,69],[10.75,1.0,74],[11.75,0.5,64],[11.75,0.5,69],[11.75,0.5,73],[12.75,0.75,62],[12.75,0.75,68],[12.75,0.75,71],[13.5,0.25,73],[13.75,1.0,61],[13.75,1.0,69]],[[0.25,0.5,69],[0.75,0.5,69],[1.25,0.5,68],[1.75,0.5,66],[2.25,0.5,64],[2.75,1.0,62],[3.75,0.5,57],[4.75,0.75,64],[4.75,1.0,64],[5.5,0.25,52],[5.75,1.0,57],[5.75,1.0,64],[6.75,0.75,64],[6.75,1.0,64],[7.5,0.25,52],[7.75,0.5,57],[7.75,0.5,57],[7.75,0.5,64],[7.75,0.5,69],[8.25,0.5,69],[8.75,0.5,69],[9.25,0.5,68],[9.75,0.5,66],[10.25,0.5,64],[10.75,1.0,62],[11.75,0.5,57],[12.75,0.75,64],[12.75,1.0,64],[13.5,0.25,52],[13.75,1.0,57],[13.75,1.0,64]]]}</script>
-</tac-brano>
-
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cos&rsquo;è lo scambio modale</span>
-      <p>Prendere un accordo dal <strong>modo opposto</strong>: in maggiore si usa un accordo del minore omonimo, e viceversa. La tonica non cambia; cambia da quale scala si pesca.</p>
-      <p>I più usati sono il <strong>quarto grado minore</strong> in una tonalità maggiore, e il <strong>sesto grado abbassato</strong>.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Come si riconosce, e come no</span>
-      <p><strong>Sì</strong> &middot; una nota abbassata che non porta a nessuna tonalità nuova: nessuna sensibile, nessuna risoluzione verso un altro centro.</p>
-      <p><strong>No</strong> &middot; se quella nota è la sensibile di qualcos&rsquo;altro, non è scambio modale: è una dominante secondaria, e va letta come tale.</p>
-    </div>
-
-    <p class="didascalia">Il Romanticismo usa questi accordi per <strong>colorare</strong> senza spostare il centro. È la ragione per cui la musica ottocentesca può essere armonicamente ricchissima e restare in una tonalità sola per pagine intere.</p>
+    <tac-chiuso invito="La soluzione &mdash; si apre alla correzione" sale="+gRykuzQPj33soqXq1geZw==" iv="zneUWTF70KaakH5K" dati="Y4pZbINuncHfysh3NURxHjYGVxhhjF/XVsQr8Qpo9K9x0TF8Mw/Zo5TPFS8qwu7svmB3FTRr8xhXTA5dcQKpd3QFpuRMlqCgDZa9io4kItkr9H1ZcYz0e5L4MfAgazlfc9eEoDDhLYfqJ9pPaPTv8v+pFnpnL8hOqjx0IIqhI3LsBv8lz9YAlGkRBfb3atSWfFqpH1TKfc8hPUjoY4BGqA2RhnEYlP4P5egQpOjXAJvRZh7CqRQZCCGqvya6irSCkXodWldCYCKlpufudBAsBCh1I/WZ55cMhPY4VBOjgfSZDJfCn3GPwRVbF954pc0N0b7JIVomuHUPFWo0c+NwqctHyQVtm3OvHW+pyBRrX92I4UbTbAZ15zjbzwQAG+UkEqcF/nSw4SgX3jnLkn/JutCZxHA9xoC+WkPSVx8eGiGS+n6x+VwCSof4Ourdh0EJTRQTwzaX9dkKuIPdZPL2kUVKoFR3YTsuh+9Cknz1ibx98TSdD8p0JOAFq1gs8pIrJpLgfm1mP8loGl0aPyJ7bi2R/0qhzsD6J7RbeX0pq333MruI5ZDvRTB32JldL3BoZWY0oBcnJaIQWY+zyZrhE+ix7oWkb/J3+j4K+gP5BhYlMeDAsFuJTxxmxKItZsCKN5r60K36Szr3kCCW0VHqmjBs+cQF2ajl4ImTPJbJIj7WWSch+9Uxx+N6sh4H9VntZqzJZ4kS+g8qbNYwYrHYlCEBU3K65CSP2DwYz0/y87iptUgrwRBXWNlKyaB2QtLP6Av+xEAHWaRfEbUyVa9LS3dGUVmvJncEAsvtbNwBlsjOLSBzDpaLtHGeYuTcSLZ8txK714WPkYZ6Gt+N3Wv8rak6QetYBzmCnmEDZ393Tn9YyaoPqiUFh2U+tPZSP4qjpUTllKYLZvOIfoC0KlopXboKPTT1ZzJZfJhVVg+WQ/x2prEVod5Rb5BgkHWWRfP0+SGLrbO6/CTXeP+mvhoXkKIBWeqn/3Oks9MepykLeK7Tvyj/egYFLdWeH6+10jLgGgrjJS+ulOP6BlYCdw8+EvWZMC4In2+3ne90+xrXLLAUbn8XRm4qhYKbw5xYGVZFq/aTiR2N/W3InOcYBrrCariPvbkxPB0c/XtpR22CH+AB8HPCUQBNtAiTaPKg7Tb36kml88sJKMRb0y97Z+pRySlw147jAFnchGVMY/hM5rBu2lWR34qBSA+WcxekV6pvZq3ATPQ3UpxqcWkcIj7vxoFzFg2fFtCXID3ZANl3jb+Ivb2T/3DGGFzSlcS9T2OzHmNhiA8QMvkxmi0BTi7HrWefAIwRr+pSpK2fG4Nm1RL6y17KvuD/OUoqxJQ5AlpFGoiIhLzriioeFrWyePGw/I6piR9ZHDDsmCgmNICYC9Fm1vFDRX25k/UvqYkNKRtrrWSCspVY8mX12k0T6y0MC81DdZPkkq/1ACOlGyA7n0aSZVqgBvYKTu1CKYT5+2otArrvRVTJqicK0Nr9qSDawcr37yvlruU9xt9MZtMVxUrlPOQ9lZQSnFPYo94taX7Rh63yfxhElDq6CRjub3B+DiGomGq/cXaQ6fWNqJHvVpE0wMQA2NbBuwSGN+KEIAQFVbxB/CaGKmIWwCq1RFpgPMRJC1acyEZJkdk++7lDFy+Jva+MsWVM1LaPeKdkLeofL2cQSazhfa/hH5bt2vldIBEfqvxF9pgOzqkgeGZ1e2ROiCe48m7gN4aIpX8kJihn/zNKM68E1u6WrImXA8dADJ4sdB8DelCssOPJqic0ysD+KkvswdGFe2BEUiQuXN5rZy0EtItCP6ayshiRJLA6UAvbjtWFPN9rGmhzxc7/iaVR/0eD8jqlFhWFCS9DbFuRNkkgJ8qVDo2AMphUya8XINhju2/aadWxU5xRuts7w1cYe77RXijXEvmNpj+QG7p0lGn3hl/ToZs6YSXAIZYMs7MVkWdS4+26yqaA/66EYetjTRkpPIMhPqiW7d+3Y9J8GKe7Ald+zwv+TYymcpVWC/1UO/yYnPsg7AXzTYlkXSd0jjsZkFe9OYv4ZDoYdQfkcPQcq7swwaf+UMypDgCn8sCAph7KvhdB8XmzP1Ays4iSVHN3kDpdX0UXGbXnzHns6ha21BAayo5bqepVlDDxztfnZ2fHXhSBDpj/2jxPPVvYYFh9wFKCLubPQQMXCOcemZ427Fxx7P5SNsHW8H8rRcmUtXZwgQJwx3uC/HGA1iDnOTGI46BNOTeBuGJ9prz27L4Mer7nU/Y5FyEmiZHAQyy6XiilBWa2o1ZGnrUxU+1dqcKKWzmNCJBhcjmz9nb1HwFyM3egiZg98/YdikuAO3vt4asJzp/Z89ZEAoXwRK6qjmNHfuAoZVQ6xPJy5ZaOSfDDg8jtcBi8vUhIhwiJYC7iPcGJ4aOIBwR9TfGIHRMs/AtBAgqfcnuvc2s07x8pZJVz+lijsxfKrtbKIxg8vFr6AP2OoEt1SLr9dn6w3J7pc196HCNrtAuW6sR58ZFi/BOcnO9hs/0VNK9q1M/l+8MqvGL8KlHwvL/ryz1d3lOLobNn/pSKPNWDlRHifOx/EsVSsm3plxF4sEfwo/C1W0aJM9jjFw=="></tac-chiuso>
   </div>
 </section>
-<section class="slide" data-titolo="I cinque casi, in una pagina">
+
+<section class="slide" data-titolo="Sintesi">
   <div class="slide-interna">
-    <h2>Che cosa può stare prima della dominante</h2>
+    <h2>Sintesi</h2>
 
-    <tac-stave clef="bass" time="4/4" caption="Il napoletano in primo rivolto: il basso sta sul quarto grado, e scende alla dominante" notes="f/2:h g/2:h c/3:w" width="440" tempo="46" play></tac-stave>
-
-    <div class="riquadro studio">
-      <span class="etichetta">I cinque, in ordine di frequenza</span>
-      <p><strong>ii6</strong> o <strong>IV</strong> &middot; il caso normale, e copre la grande maggioranza.<br>
-      <strong>Cadenzale</strong> &middot; sul tempo forte, sopra la dominante.<br>
-      <strong>IV minore</strong> &middot; scambio modale: scurisce e non sposta.<br>
-      <strong>Napoletano</strong> &middot; secondo grado abbassato, primo rivolto.<br>
-      <strong>V/V</strong> &middot; e allora la dominante è preceduta dalla propria dominante.</p>
-    </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa hanno in comune tutti e cinque</span>
-      <p>Il <strong>basso</strong>: quarto grado o secondo, e poi la dominante. Cambia il colore dell&rsquo;accordo, non la sua posizione né la sua funzione.</p>
-      <p>Per questo si possono sostituire l&rsquo;uno all&rsquo;altro quasi sempre: sono <strong>varianti di uno stesso posto</strong>.</p>
-    </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Come si sceglie, scrivendo</span>
-      <p>Si guarda la nota del <strong>soprano</strong>. Ognuno dei cinque contiene note diverse: si prende quello che contiene la nota data, e il problema è risolto.</p>
-    </div>
-
-    <p class="didascalia">Sapere che cinque accordi occupano <strong>lo stesso posto</strong> è più utile che conoscerli uno per uno. Una posizione con cinque riempimenti possibili si gestisce; cinque accordi slegati si dimenticano.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="A orecchio, non solo a occhio">
-  <div class="slide-interna">
-    <h2>Come si sentono le cinque varianti</h2>
-
-    <div class="affianca">
-      <div>
-        <tac-stave clef="treble" time="4/4" caption="Il IV maggiore: chiaro" notes="f/4+a/4+c/5:w" width="250" tempo="46" play></tac-stave>
+    <div class="colonne3">
+      <div class="riquadro definizione">
+        <span class="etichetta">L&rsquo;accordo</span>
+        <p>La triade maggiore sul 2&deg; abbassato, in primo rivolto: il 4&deg; al basso, la sottodominante del minore con un colore più scuro.</p>
       </div>
-      <div>
-        <tac-stave clef="treble" time="4/4" caption="Il IV minore: la stessa posizione, un colore più scuro" notes="f/4+ab/4+c/5:w" width="250" tempo="46" play></tac-stave>
+      <div class="riquadro definizione">
+        <span class="etichetta">Il raddoppio</span>
+        <p>La terza, cioè il basso. Il 2&deg; abbassato una volta sola.</p>
+      </div>
+      <div class="riquadro definizione">
+        <span class="etichetta">La risoluzione</span>
+        <p>Il 2&deg; abbassato scende: all&rsquo;1&deg; sopra la quarta e sesta, o alla sensibile, di terza diminuita, sopra il V.</p>
       </div>
     </div>
 
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa si sente davvero</span>
-      <p>Non l&rsquo;accordo: il <strong>colore</strong>. Fra il IV maggiore e il IV minore la differenza è una nota, e si sente come un&rsquo;ombra che passa.</p>
-      <p>Il napoletano si sente allo stesso modo, un gradino più scuro. Il cadenzale invece si sente per la <strong>sospensione</strong>, non per il colore.</p>
-    </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">La domanda da fare all&rsquo;ascolto</span>
-      <p>Non «che accordo è». Ma: <strong>chiaro, scuro, o sospeso?</strong> Tre risposte invece di cinque, e ognuna restringe a una o due possibilità che poi si decidono guardando.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Il limite, dichiarato</span>
-      <p>Il napoletano e il quarto grado minore, all&rsquo;ascolto, si confondono. È normale: hanno due note in comune e la stessa funzione. Nei vostri dettati non vi chiediamo di distinguerli.</p>
-    </div>
-
-    <p class="didascalia">Dichiarare che cosa <strong>non</strong> si chiede è parte di una consegna onesta. Un esercizio che chiede distinzioni che nessuno fa a orecchio insegna soltanto che l&rsquo;orecchio non funziona.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="Le espansioni">
-  <div class="slide-interna">
-    <h2>E adesso i profili che non stanno in cadenza</h2>
-
-    <p>Fin qui tutto era vicino a una chiusa. Ma i profili si riconoscono anche <strong>dentro</strong> la frase, sopra una tonica che <strong>dura</strong>.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Espansione con cambio di stato</span>
-      <p>La stessa armonia tenuta per pi&ugrave; accordi, con il <strong>basso che cambia posizione</strong>: I &rarr; I<sup>6</sup>, o viceversa. Il libro dice che &egrave; &laquo;molto praticata sulla tonica e, con minore frequenza, sulla dominante&raquo; (p.&nbsp;42).</p>
-    </div>
-
-    <p>Serve a una cosa sola, ed &egrave; scritta in una riga: dare <strong>varietà al profilo melodico del basso</strong>. Con i rivolti non pi&ugrave; limitati alle cadenze &mdash; cio&egrave; da quest&rsquo;anno &mdash; &laquo;il basso acquisisce una maggiore eleganza, le funzioni armoniche risultano pi&ugrave; chiare e i punti cadenzali pi&ugrave; evidenti&raquo;.</p>
-
-    <p class="didascalia">Rileggete l&rsquo;ultima parte: i punti cadenzali diventano <strong>pi&ugrave; evidenti</strong> perch&eacute; il resto si muove di pi&ugrave;. Le cadenze si vedono per contrasto, non per forza propria.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="I cinque casi">
-  <div class="slide-interna">
-    <h2>Cinque modi in cui basso e soprano stanno insieme</h2>
-
-    <p>Il libro elenca i casi pi&ugrave; ricorrenti della relazione fra le due voci estreme dentro un&rsquo;espansione di tonica, e sono tutti tratti da <strong>corali di Bach</strong>.</p>
-
-    <div class="colonne">
-      <div class="riquadro"><p>moto retto con <strong>decime parallele</strong><br>moto contrario con <strong>scambio delle voci</strong></p></div>
-      <div class="riquadro"><p>moto retto e moto contrario con <strong>ampio salto</strong> del soprano<br><strong>note ribattute</strong></p></div>
-    </div>
-
-    <div class="riquadro attenzione">
-      <p>E il libro dice quale prevale: nei corali di Bach &laquo;l&rsquo;armonizzazione delle <strong>note ribattute</strong> con uno o pi&ugrave; cambi di stato &egrave; il caso <strong>pi&ugrave; frequente</strong>&raquo; (p.&nbsp;42). Cio&egrave;: il soprano ripete la stessa nota e il basso, sotto, cambia posizione.</p>
-    </div>
-
-    <p class="didascalia">&Egrave; un&rsquo;informazione che vale in scrittura: davanti a due note uguali al soprano, la mossa pi&ugrave; bachiana &egrave; <strong>cambiare il basso</strong> invece di ripetere l&rsquo;accordo.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="Le decime, di nuovo">
-  <div class="slide-interna">
-    <h2>Le decime parallele, per la terza volta</h2>
-
-    <tac-stave tastiera clef="treble" time="4/4"
-               caption="Basso e soprano per decime dentro un&rsquo;espansione di tonica"
-               soprano="e/4:h f/4:h | g/4:w"
-               contralto="c/4:h c/4:h | c/4:w"
-               tenore="e/3:h a/3:h | g/3:w"
-               basso="c/3:h d/3:h | e/3:w"
-               width="740" tempo="44" play></tac-stave>
-
-    <div class="riquadro attenzione">
-      <p>Le avete incontrate nell&rsquo;unit&agrave;&nbsp;3 come giustificazione di certe deroghe, e adesso tornano come <strong>modo di far muovere due voci insieme</strong>. Non &egrave; una figura cadenzale: &egrave; un modo di camminare.</p>
-    </div>
-
-    <p>Quando una cosa compare tre volte in tre contesti diversi, vale la pena mettercela in tasca: <strong>due voci estreme per decime funzionano quasi sempre</strong>, e sono la soluzione pi&ugrave; rapida quando una realizzazione &laquo;non si muove&raquo;.</p>
-
-    <p class="didascalia">Con un limite ovvio e da ricordare: per decime <strong>parallele</strong>, non per quinte e non per ottave. Il moto retto &egrave; permesso, il raddoppio no.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="Il vincolo sulla dominante">
-  <div class="slide-interna">
-    <h2>Un limite, ed &egrave; sempre la sensibile</h2>
-
-    <p>Il libro dice che, dentro un&rsquo;espansione, <strong>tutti</strong> i movimenti melodici sono possibili &mdash; con un&rsquo;eccezione.</p>
-
-    <div class="riquadro attenzione">
-      <p>Sono esclusi quelli che, <strong>sulla dominante</strong>, darebbero luogo al <strong>raddoppio della sensibile</strong> o a &laquo;improbabili risoluzioni della stessa&raquo; (p.&nbsp;42).</p>
-    </div>
-
-    <p>&Egrave; lo stesso vincolo che vi accompagna dalla terza, e non ha mai cambiato forma: la sensibile <strong>non si raddoppia</strong>, perch&eacute; due voci che devono salire alla tonica ci arrivano insieme.</p>
-
-    <p class="didascalia">Contate quante volte, in quattro unit&agrave;, la risposta &egrave; stata &laquo;perch&eacute; la sensibile&raquo;. In armonia tonale &egrave; la nota che pone pi&ugrave; condizioni di tutte, e per una ragione sola: &egrave; l&rsquo;unica che <em>deve</em> andare in un posto preciso.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="In musica vera">
-  <div class="slide-interna">
-    <h2>Dove il libro va a prendere tutti questi esempi</h2>
-
-    <p>Nei corali di Bach, e lo dice: &laquo;<strong>da cui sono tratti tutti gli esempi di questa Lezione e della prossima</strong>&raquo;. Tre sono nominati per numero: BWV&nbsp;392, BWV&nbsp;321, BWV&nbsp;135/6.</p>
-
-    <tac-brano youtube="bvoAsedF2cE" mappa-video='{"eventi":[[1,1443],[2,3926],[3,7009],[4,9743],[5,12993],[6,15726],[7,19459],[8,22309],[9,25376],[10,28277],[11,31459],[12,34393]],"durata":78000}' organico="voci" titolo="J. S. Bach, corale &laquo;Wie sch&ouml;n leuchtet der Morgenstern&raquo; BWV 1/6" metronomo esecutore="Holland Boys Choir · Netherlands Bach Collegium · Pieter Jan Leusink" partitura="../../_assets/spartiti/A03_bach_bwv1-corale_bga.png" riquadri='[[1,29.62,6.25,10.31,38.63],[2,39.93,6.25,11.54,38.63],[3,51.47,6.25,11.81,38.63],[4,63.28,6.25,11.13,38.63],[5,74.4,6.25,9.42,38.63],[6,83.82,6.25,9.42,38.63],[7,29.62,6.25,10.31,38.63],[8,39.93,6.25,11.54,38.63],[9,51.47,6.25,11.81,38.63],[10,63.28,6.25,11.13,38.63],[11,74.4,6.25,9.42,38.63],[12,83.82,6.25,9.42,38.63],[13,13.11,54.97,9.35,39.94],[14,22.46,54.97,7.99,39.94],[15,30.44,54.97,13.79,39.94],[16,44.23,54.97,9.76,39.94],[17,53.99,54.97,12.63,39.94],[18,66.62,54.97,8.46,39.94],[19,75.09,54.97,9.83,39.94],[20,84.91,54.97,8.6,39.94]]' inciso="../../_assets/incisioni/A03_bach_corale.mp3" mappa='{"durata":33358,"eventi":[[0,0],[1,938],[2,4688],[3,8438],[4,12188],[5,15938],[6,19688],[7,23438],[8,27188]]}'>
-<script type="application/json">{"titolo":"J. S. Bach, Corale «Wie schön leuchtet der Morgenstern» BWV 1/6","metro":"4/4","bpm":64,"battute":9,"anacrusi":1.0,"voci":[[[0.0,1.0,65],[1.0,0.5,67],[1.5,0.5,60],[2.0,0.5,65],[2.5,0.5,53],[3.0,0.5,57],[3.5,0.5,53],[4.0,0.5,57],[4.5,0.5,60],[5.0,0.25,65],[5.25,0.25,70],[5.5,0.25,69],[5.75,0.25,67],[6.0,0.5,65],[6.5,0.5,67],[7.0,1.0,69],[8.0,1.0,69],[9.0,0.5,65],[9.5,0.25,67],[9.75,0.25,69],[10.0,0.5,70],[10.5,0.25,72],[10.75,0.25,70],[11.0,0.5,69],[11.5,0.5,67],[12.0,0.5,67],[12.5,0.5,72],[13.0,0.5,72],[13.5,0.25,71],[13.75,0.25,69],[14.0,1.0,71],[15.0,1.0,72],[16.0,1.0,65],[17.0,0.5,65],[17.5,0.5,70],[18.0,0.5,69],[18.5,0.5,67],[19.0,0.5,65],[19.5,0.5,60],[20.0,0.5,65],[20.5,0.5,60],[21.0,0.5,60],[21.5,0.25,57],[21.75,0.25,53],[22.0,0.5,60],[22.5,0.25,60],[22.75,0.25,60],[23.0,1.0,57],[24.0,1.0,65],[25.0,0.5,67],[25.5,0.5,60],[26.0,0.5,65],[26.5,0.5,53],[27.0,0.5,57],[27.5,0.5,53],[28.0,0.5,57],[28.5,0.5,60],[29.0,0.25,65],[29.25,0.25,70],[29.5,0.25,69],[29.75,0.25,67],[30.0,0.5,65],[30.5,0.5,67],[31.0,1.0,69],[32.0,1.0,69]],[[0.0,1.0,65],[1.0,1.0,72],[2.0,1.0,69],[3.0,1.0,65],[4.0,1.0,72],[5.0,1.0,74],[6.0,1.0,74],[7.0,1.0,72],[8.0,1.0,72],[9.0,1.0,74],[10.0,1.0,76],[11.0,1.0,77],[12.0,1.0,76],[13.0,1.0,74],[14.0,1.0,74],[15.0,1.0,72],[16.0,1.0,69],[17.0,1.0,74],[18.0,1.0,72],[19.0,1.0,70],[20.0,1.0,69],[21.0,2.0,67],[23.0,1.0,65],[24.0,1.0,65],[25.0,1.0,72],[26.0,1.0,69],[27.0,1.0,65],[28.0,1.0,72],[29.0,1.0,74],[30.0,1.0,74],[31.0,1.0,72],[32.0,1.0,72]],[[0.0,1.0,60],[1.0,1.0,60],[2.0,1.0,60],[3.0,1.0,62],[4.0,1.0,65],[5.0,1.0,70],[6.0,1.0,70],[7.0,1.0,69],[8.0,1.0,69],[9.0,1.0,70],[10.0,1.0,70],[11.0,0.5,72],[11.5,0.5,74],[12.0,0.5,72],[12.5,0.5,67],[13.0,1.0,69],[14.0,1.0,67],[15.0,1.0,67],[16.0,1.0,65],[17.0,1.0,65],[18.0,1.0,64],[19.0,0.5,65],[19.5,0.5,67],[20.0,0.5,60],[20.5,0.5,65],[21.0,1.0,65],[22.0,1.0,64],[23.0,1.0,60],[24.0,1.0,60],[25.0,1.0,60],[26.0,1.0,60],[27.0,1.0,62],[28.0,1.0,65],[29.0,1.0,70],[30.0,1.0,70],[31.0,1.0,69],[32.0,1.0,69]],[[0.0,1.0,57],[1.0,1.0,55],[2.0,1.0,57],[3.0,1.0,57],[4.0,1.0,57],[5.0,1.0,53],[6.0,1.0,65],[7.0,1.0,65],[8.0,1.0,65],[9.0,1.0,65],[10.0,1.0,67],[11.0,0.5,65],[11.5,0.5,62],[12.0,1.0,64],[13.0,0.5,65],[13.5,0.5,64],[14.0,1.0,62],[15.0,1.0,64],[16.0,0.5,60],[16.5,0.5,57],[17.0,0.5,53],[17.5,0.5,55],[18.0,1.0,57],[19.0,0.5,57],[19.5,0.5,55],[20.0,0.5,57],[20.5,0.5,53],[21.0,0.5,55],[21.5,0.5,57],[22.0,1.0,58],[23.0,1.0,57],[24.0,1.0,57],[25.0,1.0,55],[26.0,1.0,57],[27.0,1.0,57],[28.0,1.0,57],[29.0,1.0,53],[30.0,1.0,65],[31.0,1.0,65],[32.0,1.0,65]],[[0.0,1.0,53],[1.0,1.0,52],[2.0,1.0,53],[3.0,1.0,50],[4.0,1.0,45],[5.0,0.5,46],[5.5,0.5,48],[6.0,0.5,50],[6.5,0.5,52],[7.0,1.0,53],[8.0,1.0,53],[9.0,1.0,58],[10.0,0.5,57],[10.5,0.5,55],[11.0,0.5,57],[11.5,0.5,59],[12.0,1.0,60],[13.0,1.0,53],[14.0,1.0,55],[15.0,1.0,48],[16.0,1.0,53],[17.0,1.0,46],[18.0,1.0,48],[19.0,0.5,50],[19.5,0.5,52],[20.0,1.0,53],[21.0,2.0,48],[23.0,1.0,41],[24.0,1.0,53],[25.0,1.0,52],[26.0,1.0,53],[27.0,1.0,50],[28.0,1.0,45],[29.0,0.5,46],[29.5,0.5,48],[30.0,0.5,50],[30.5,0.5,52],[31.0,1.0,53],[32.0,1.0,53]]]}</script>
-</tac-brano>
-
-    <div class="riquadro attenzione">
-      <p>Ne ascoltiamo un altro, quello che ci accompagna dalla terza. Cercate una cosa sola: i punti in cui il <strong>soprano ripete la stessa nota</strong>. Sotto, quasi sempre, il basso si muove.</p>
-    </div>
-
-    <p>Bach ne ha scritti pi&ugrave; di trecento nel <strong>Settecento</strong>, e sono la fonte da cui i manuali tirano fuori quasi tutte le regole di condotta delle parti. Non perch&eacute; siano perfetti: perch&eacute; sono <strong>tanti</strong>, e su tanti esempi si contano le frequenze.</p>
-
-    <p class="didascalia">Ed &egrave; il motivo per cui in quest&rsquo;unit&agrave; si parla tanto di &laquo;pi&ugrave; frequente&raquo; e cos&igrave; poco di &laquo;giusto&raquo;.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="A orecchio, non solo a occhio">
-  <div class="slide-interna">
-    <h2>E il libro dice una cosa sull&rsquo;orecchio</h2>
-
-    <div class="riquadro citazione">
-      <p>&laquo;&Egrave; molto utile imparare a riconoscere i profili studiati <strong>sia visivamente sia a orecchio</strong>. Osservando il comportamento delle singole voci potrai individuare altri profili melodici cadenzali e acquisire ulteriore consapevolezza del <strong>rapporto tra le parti in cadenza</strong>.&raquo;</p>
-      <p class="fonte"><em>Il linguaggio della musica</em>, 4&deg;&nbsp;anno, p.&nbsp;38</p>
-    </div>
-
-    <p>Due cose, in quella riga. La prima: i profili si devono <strong>sentire</strong>, e per questo l&rsquo;unit&agrave; finisce con un&rsquo;ora di ascolto invece che con una di scrittura.</p>
-
-    <p>La seconda &egrave; pi&ugrave; interessante: il libro dice che guardando le voci <strong>ne troverete altri</strong>. Cio&egrave; il repertorio di sette figure non &egrave; chiuso per sempre &mdash; &egrave; quello che serve per cominciare, e si allarga da soli.</p>
-
-    <p class="didascalia">Quando trovate un profilo che ricorre e non ha un nome, dategliene uno vostro e scrivetelo sul foglio. &Egrave; esattamente cos&igrave; che sono nati quelli che avete studiato.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="Proviamo">
-  <div class="slide-interna">
-    <h2>Proviamo &middot; quindici minuti</h2>
-
-    <ol>
-      <li>Sul Workbook ci sono <strong>otto frammenti</strong> di soprano, due o quattro note ciascuno.</li>
-      <li>Per ognuno si scrivono i <strong>gradi</strong>.</li>
-      <li>Si scrive il <strong>nome della figura</strong>, se &egrave; una di quelle del repertorio; altrimenti si scrive <strong>&laquo;nessuna&raquo;</strong>, che &egrave; una risposta.</li>
-      <li>Per le figure riconosciute si scrive sotto il <strong>basso</strong>.</li>
-    </ol>
-
-    <div class="riquadro attenzione">
-      <p>Due degli otto non sono nessuna figura, e sono messi apposta. Se tutti e otto vi risultassero riconoscibili, vorrebbe dire che state <strong>forzando</strong> &mdash; ed &egrave; il difetto tipico di chi ha appena imparato un repertorio.</p>
-    </div>
-
-    <p class="didascalia">Riconoscere di non riconoscere &egrave; una competenza, e in analisi vale quanto le altre. Un elenco che spiega tutto non spiega niente.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="Il repertorio, chiuso">
-  <div class="slide-interna">
-    <h2>Il repertorio, tutto insieme</h2>
-
-    <div class="colonne">
-      <div class="riquadro">
-        <p><strong>Con la sottodominante</strong><br>
-        2&deg;&ndash;7&deg;&ndash;1&deg; &middot; ii<sup>6</sup> o IV<br>
-        4&deg;&ndash;2&deg;&ndash;3&deg; &middot; cadenza doppia</p>
-      </div>
-      <div class="riquadro">
-        <p><strong>Con la quarta e sesta</strong><br>
-        3&deg;&ndash;2&deg;&ndash;1&deg; &middot; clausola di tenore<br>
-        1&deg;&ndash;7&deg;&ndash;1&deg; &middot; clausola di soprano</p>
-      </div>
-      <div class="riquadro">
-        <p><strong>Gli altri</strong><br>
-        6&deg;&ndash;2&deg;&ndash;7&deg;&ndash;1&deg; &middot; losanga<br>
-        2&deg;&#9837; &middot; napoletano<br>
-        5&deg;&ndash;3&deg; &middot; inganno</p>
-      </div>
-    </div>
-
-    <p><strong>Sette figure.</strong> Si stanno in mezza pagina di quaderno, e coprono la grandissima parte delle cadenze che incontrerete nel repertorio classico.</p>
-
-    <p class="didascalia">Copiatele su un foglio, con i gradi e il basso accanto. Quel foglio si tiene aperto mentre si armonizza, e dopo tre settimane non serve pi&ugrave;.</p>
-  </div>
-</section>
-<section class="slide" data-titolo="Che cosa portiamo a casa">
-  <div class="slide-interna">
-    <h2>Che cosa portiamo a casa</h2>
-
-    <div class="colonne">
-      <div class="riquadro">
-        <p><strong>Tre figure nuove</strong><br>
-        losanga, napoletano, e il 5&deg;&ndash;3&deg; dell&rsquo;inganno.</p>
-      </div>
-      <div class="riquadro">
-        <p><strong>Un limite dell&rsquo;indizio</strong><br>
-        i profili cadenzali possono finire sul vi invece che sul I: il profilo dice <em>quale cadenza</em>, non <em>dove va</em>.</p>
-      </div>
-    </div>
-
-    <p>E fuori dalle cadenze: dentro una tonica che dura, le due voci estreme si muovono per <strong>decime</strong>, per moto contrario, o il soprano <strong>ribatte</strong> e il basso cambia stato &mdash; che nei corali di Bach &egrave; il caso pi&ugrave; frequente di tutti.</p>
-
-    <p class="didascalia">La prossima ora si va a cercarli in una partitura vera, e per ogni punto cadenzale si scrive il nome della figura. &Egrave; il verbale, di nuovo, con un contenuto nuovo.</p>
+    <p class="didascalia">La lezione si chiude con il solfeggio (parlato, cantato, ritmico) e con un basso di otto battute per casa. La lezione 2 presenta le seste eccedenti, che nella b.&nbsp;83 di Beethoven seguono la napoletana.</p>
   </div>
 </section>
 
@@ -555,12 +267,11 @@ try { module = undefined; exports = undefined; } catch (e) {}
          style="--segno: url('../../_assets/segni/segno-24.png')">
   <div class="slide-interna">
     <p class="compiti-occhiello">Compiti per la prossima volta</p>
-    <h2>1 &middot; Scritto: Il foglio delle sette figure</h2>
+    <h2>1 &middot; Scritto: Un basso di otto battute</h2>
     <div class="riquadro compito">
-      <p>Costruisci il tuo foglio del repertorio: le sette figure, con i gradi, il basso e il nome.</p>
-      <p>Mezza pagina, scritta a mano, che si tiene aperta mentre si armonizza. Aggiungi una colonna: <strong>dove finisce</strong> — sul I o sul vi, o tutti e due.</p>
+      <p>Realizza il basso a quattro parti.</p>
     </div>
-    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C4-U7-L1-02</strong>.</p>
+    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C4-U7-L1-04</strong>.</p>
   </div>
 </section>
 
@@ -599,25 +310,25 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Scrivi un contrappunto di <strong>quinta specie (il contrappunto fiorito)</strong> sotto il canto fermo, in modo dorico (finale re): dieci battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
       <tac-stave caption="Il canto fermo" clef="treble" time="4/4" notes="d/4:w | b/3:w | a/3:w | b/3:w | c/4:w | b/3:w | c/4:w | d/4:w | e/4:w | d/4:w" tempo="72" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C4-CP-U07-L1</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="Dz0gEX8fTF9ii5bC8DTjLA==" iv="JXno5T1+3ndgHp4I" dati="Da0wBZQbn/NukCUAFtmzxOXDCz0fxWXIgxRzpf6jnXw9dzruLvjLhTa+4PM3azvFrzr6DNlDrVZgBv733E9D8iDYGGU7fHt7fC+Yw2ptCIBumzqrAGbXq7IK7aVWvkZsVNtUUx0EQpn0cob9M7sXRSzIwbbBm2FM2PR7GnZrJMus3J98S7pofLuSsNhMJKsv+HRDqLYSfuHHcuJGZDjRY6I2d4A6d15pWLgRpVaWoFGKOby+zTXiaKarBhORxZKBsSYeZLhrBFEypE91DhYkQrluvN2AtsxR0asFOcFuPLPvgXZaNYxy0uGAyGHWngUAnFnDfGMBJEy8rPbfwtS6lWyt0pW6SOeCcd7h8JoeoCFsbkvKlGri6td2N83mgdjktEcFP5RFUG2iYI1pBbRO6XtiFsoMBDTSIlBNqxt4Aifu6SWfz11bvapklW7CwXmh7dobpDGJ5v1jxIp0kAHtD+MlBTjup8KnBMdLTWdAqD3RH03OLhmtYPsVWiOdFTpvwaYji1AkpnZBsA=="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="tv2k6iZzLNKs+ZEvzccAxQ==" iv="pe2bmk9XE7T1Jj5G" dati="SA6t7J56fT+nnE72f4EBmvTRNlqvP63YJaqBJ8KyMYXWRZGp2/xTvXvsID4faDEMKOpwO95GSMKVumJJOefVRSqb9xxGl7oS3PoKYXo+rSGglUz50oT2i8MRTlgpnIkX+yJ/+tzCTb+4nf7yNsvMQ4GSNEso5OSPifqxIwzXzQ1295tWMERfPTW6cxOzABYsxXqBwq8I8z4EMleeQqKwIF7iU/eOB7wjAkpML3ou4iPW5DghPvNXG45Scnq1eCFjDUN4YhodvMVlNVAsg7jHG2KJzqnWMOD1+Ur4mKE6+PE5/JOmamIqO1s44c/I6eytRMGP2lD18Onp/GsOnxv7szYYbMgIp00Fp0qyk3MZCAnWMC2c1HFJgF1ZDi8LCZjAskDb68bNKlQxNElTRH0XhSmGqJAEvPmAcXg2XMfD1LVUXLfa9dmTOyQVQkm0/YEPsxC3LViV+ijMT1VPek8bq2Ow7BY6DG0lGYbOJzkHnHew4uzw7SqnkkZthq57K9XUgpRxOsl6eDazmg=="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C4-BD-U07-L1">
       <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C4-BD-U07-L1</span></span>
       <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: dodici battute in 4/4, la maggiore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: anche le settime secondarie (ii7) e la V7 della dominante.</p>
       <tac-stave caption="Il basso" clef="bass" keysig="A" time="4/4" notes="a/2:w | b/2:h e/3:h | c/3:h d/3:h | b/2:w | a/2:h c/3:h | f/3:h b/2:h | g/2:w | a/2:w | b/2:h g/2:h | a/2:h d/3:h | e/3:h e/2:h | a/2:w" tempo="60" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C4-BD-U07-L1</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="sZEl+q5IPOGR9CtNbCvC9Q==" iv="QxL6BP126nZPiRQs" dati="upECUgsms3oGpR54CDPWCsVBUkJza392h2mdCleWFLjnHUx/J6ZStVeHHJg8R2RDnL2QjN6uzGKmL0sk+jHb6ZrZ6paLUrzvA3Ba/6VIfGd6JzvcyZD4Y+P38LL2YMWNNOxkYAfEidtYDug7BUmv1cIGgeIDUzSEP7SUoi5Ay5X9HSgU2YXpr7BGKxQgCI3i/pazKP5uwcNq25R+nO1+7KoZPRayTF7yo11DS729s1dFWJMAcGynJBhPXjLSXVQU/stdEnzVFNiNL5WXFoPZQ0Yt5Z9FkWzvM5HAAf+/tqXP6TDF5JiOg0vWW5IJBZvBmDxHgS6PVMe04782pj/zvu8aLvxj33NROpRWA3PauaKFhHvNucOW4fYJn4pC05sJ1IuN6vdnEm0/579FVb7dfDFBO8gzfjSQvzyMNZedOIxIwD/IWi2QMyGaWM/aoMD8mjDb7noZRMztRYugwB4MpQ87WgoZRgR1f2ndO2llaCi6UjUWSWsLc4POK0VZb/O1eTJYW91QaADXckBxweTPz1O6EAFOZyk7QP+rf5YiMbgN1nOmwjiro3NJ2nBv5ZJN57Zzf7hnOyPnChYNh/3pB2zBsVHRfU+3xqdqE+eKIc22yNLHJ7fXsFWQnPRv9s61hzjFMrErHmDmyUZEA/0h2qSydEevL9Ib/itdy+pjVLARgLfkorBkiVyfsTqZ8XX+JxK9AEzENw6JTrnn6oV1vgqFJqJbkFOve7jVMPk/V7n+Bu+mYwkZyyBnkulH3YzHCPWgh7+jl30NgrJcUSPR6uvVifGPhuS0Mhc0BGVbEY30n8+dzNFDwMfipiYG8hM9tFzj8mSa/wAH4nyjNw8XHbYK5dMQPX46PQl27M3UNrGLq4htq3mIu5lqMAg+JqFZ7wLISbUdSzCyPkpgHLCkJEA5BLuHZxGM5OhMClK+MI0huuZbty+ZvPSnCc3VyPhwKrWDmlNHjOTiKPj47lLgWG8eSBE6404ADGOc9r2RoVpvmJf5MU7BcMihTRKW7AdffAUqn8cgePZa3qo6U+Y5JqX1Q1k2nu2pLgjRpzcclCjhdhtMof4mXhqIxjBEyR8hY0zMaE8VFa2+bTdnlijFpnSym6Iqy6rPTq1Vdw=="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="tzB+hdAVSkGYJ3jGVipXqQ==" iv="5yhsdGxtmP74IFbW" dati="YecTEk6bHwvXtbDRItWz2SwN03F/Fu045bfPrx9RQ55qMyv5BP1nFap3PUQzkRxpnxCzHSa1GFwyiRIgXVstay6xP8LFCrxkgWga/l2A+km8GLA3KTv9fkzSS2LD/XSHRd7We9TLUD/CTqXw1jnB/fgjRbdcpONAkwu/YRo+fCULg7b6IgaVJNlCxBnJ8vxFF3pCvkBGsYGy59mTNOd0FOcWbqoQzVJq3wXax0v3sq7Nsnprbfsn7k0WjT8LyKoRZn2bUEPIao3Ghk5g5Fji50X51OfQVVfSY85eipySSFhLPO0cihJYBrsficpdDGdRdyqW8S3QkGs7xlVsFzHw/IsrKy1YH26Ei3qsNhBsdaDsviZNP4/54Wvl5gFu/HMtcvt5L7EIr4B/QC48Tl4Gm3lDOiTC6rbo8P4Wo5QEjLgtpxckmtUsFtSwyZyOA31h/IDeNyrV4ycVZalHB5WTiccpq67a4knIbud/B9oooWhwnbTiyjuB8BldVXs0CH98i2dAlZI5gHR9qKeK0uaUtoaWHjGu7h8rkSspvjzpFdWQXW/77BYISf9DVswFGC2jQLAF2JaDALcjhkUZZlM1sql7TAa81CfIfuH91apXPhGYWn6K0yMncUrkvEwmlvDdF3knJcwogPDnKuQUmA2Spsf4n5PU3vg4NHrAB+8MS/BgHCE36to5nak2Z6JvH3Ouwn4jD0GcbS7SggPSqsLW6mpj62PvffkYmBvAfyAMD3P9oZ+wI5bzWIhW/rDPYYBithTTVJ+MxaGR9fpRBghpMas7mbv4wMOZI5u6rmUGTyNkw1w5wPUkCFp2a2zqWXv+q8Dbc/NaZwX+oBGefqUyxjmx+jDtLeQ2yK4keAPWePRHyUYC5F8m6kXFhe5B+RMn3X2OOkI0H8268L4/C5LYSNmXP6s+ytbNcNCTG31LYV8YTAebBsmA3XA02Hcx2LJYgQgipBcraEcFDGeoQdQXe3T6ow0Azl/u2Fy/RJvXT8IeGXbMOc/2LN5AJfhPkI1D79lTVtdClf9A5O08nTsU8jZDjDvsogYf3X1S5un0EB/SBKmIBHYpfJNn50flKZhod5wd9iW4l91qjCOa1EVR3Ps7GbI2BikRPCsIDg=="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C4-CD-U07-L1">
       <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C4-CD-U07-L1</span></span>
       <p>Armonizza a quattro parti il <strong>canto dato</strong>: dodici battute in 4/4, si♭ maggiore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: anche le settime secondarie (ii7) e la V7 della dominante.</p>
       <tac-stave caption="Il canto dato" clef="treble" keysig="Bb" time="4/4" notes="f/5:h e/5:h | d/5:w | c/5:w | en/5:h f/5:h | f/5:h c/5:h | a/4:h a/4:h | b/4:h c/5:h | b/4:w | b/4:h c/5:h | c/5:h b/4:h | b/4:h a/4:h | b/4:w" tempo="66" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C4-CD-U07-L1</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="QAGc2eDTo6OklZmyybFAGw==" iv="hmxS/rLuSRqYzIt8" dati="k6LVd65y3ibahEY4tAVUD+2C8NMrTXDWKXFOxD0iJBeC6X3l2tDFXImgWVrnH5ubtEJihWwUKroyYl17or+63tOOMufyB7xiCPAV8dOGrf5G2+dYSrbVLvUdmLLhX7Q+20JWZvdc6BEuDsL0cJrLKexiiqUxQLXc94A/KWj9vn+3PGzGRRAP1D55NIiNJ9gZjp0qTm8RMWYBaFrlx45/nLEkIqF74amn78vDlok+MDM/fbsKLE+MCJSvsyK1MyhbU4XHonqJAvxNNCK5Oalu3DNNSTsOM4Mao1oiJ9mQU+WXEH9dSZ10SPEA3MePg2MUGjjlCwyMSHel4r6I8dAyhrjiZAvto6YEzCxEzID8MsvWNHKII1y8HXmzKD2w472Oc3j9idNgGOM3rTpb//HAsN2ia95XXXihbyXMe97RIICWJ5o81tPExLDVC7r7qoYv/o66g3Mj7GUvLTfwNvocWtp2/mL337SJiRLq96V/rhYydor0ftD3aY6OlWzmmE57h3QOnEK0G+qqVZkWK6C57VA9/wngDBDgmAdJFljlvTgL99/QofhzBFHV+5HApr/X72OfjF4NODiRfMy+egYd89822nhOOu/Mw7NGSU6KrYITPJwnpMamX5k4cxajixAju8qozhCw02qIP6AIC/S514yiWscvRo8lk4wVqILkSSpYsTrlhLnD4cD1nstX7yFlAidhtAjxA3X4WQG7/6fKZnjidhyw2Ht+ZbAIq4lGrFbO6Hz839nLKJkpIeeRXAAv26PX6nPNpr2to10bceylpKW7J2+R+bEqYPSrlFt6OY/i1l+Tq8GugMYx95asJCuHpVo+rXQ6xFffSZk8TUSW3y9AoS6A3ftRIEEwuFaOCPrZzrIkK1dKsy0vN0+5hO5oH6CSLgqYHMsdR2HCWhUp3mpr6i7aD+vwqXZX4ieg8c54IOMHXyVFWdFxMeDxO+pAk56MXxXhnzkS2tvXCdDiBCAf0QLueFs06mXGZD1F5m8BkkAy6yuPN9PuDBleoaFj27Ghmru9/VwDTaN4JBGo3Kw+jQxJQzgZqQMGEGhKUvyiJbSRT1UAi7jkSUSCe1dxWfwGDfKTZaUgS9lRh1/Qh9m1+sJBYs6C7njvMLzESxYY6eRY8EvRVJW74/dqPorWzO9CDWI7p/h6S+/ERw=="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="Vk4iK4NSUkvJeXOJHcAc7w==" iv="16Lf8yXkZOqPXQpa" dati="sWfnf5gu7iJA3tQlGn1IyyuDAdLn7K5jhh9LMlhu1WmiHLLKvf9xrQDUJWdPSn69+fS/NezDWOH2dqy9wYybWvho7fw9HmJHTcWbHiJLF6vND91x3OgUlYWqf1VBUXWwppsOUcBXttcZ4CWd7tv+Ohr0dZVBvAqXSfiue/nuPuvxFgpbRF/MqKl2CCwA3OGA8PpBnZhx125jKRnhgagrSY3M5KyShyXHlFomp6YotJ970AA+m3koyFqDaKoiILa0WDOAZhHoXpQJyn5Yc9SvsxDnfrwDOe8pI2EsJ2s8vSZ3tb7JQtDBgfyI5sVOsHKwSUIl7MwR+8MUZLJ9TEmvHuRq+V3MxyKOAGOHODv8Crh8iUPMqwY2+hFnSydv3GzPzcET5AGhcXuiWceCvCTq0O3XbTjSVa1KX0cXY9Ngb53eJAO1mN+GpD1GsuQxprGLX6+tvE2okO2YJH0qm+BnvfVz33ziTq9oO89QMOB30GhLTyu7W2WER2bjnJ8POYw/o8jXabTa1C4oZKz1kmo2l1qtj64JNzFlqs5wG6aeUwaLJgIwJcspMREC9IfEu4TvVU2tSTzAH0TFpTtGtKZJnMwm9MCakcvuU340UZcwDPKCEPJo5ThMBxj8jXab3OVEBqcxTJAcxtfvQ2qq5Kp1zawEFD2c/wayEGTZN0D6d9Neh0iNyhCCztVLIxGrR1JWHw9Ir34tZNgr1/BmSUePRiUTB+lVbZGuL9l09T4bgAROeBqn0ciZeMGZOl2pBaZE3oDnbUUhEam/lx1SP4Ef0jhylaoLppEWgDZHwQ0/rHiuEoJpgG7B7/Qb4P0L9gPgnGwHJDFzezk4WsTb1uwSk/LkpUQPA6A6gP0ExBg8cxvwDEWo33UPnvfHt1RNbt3rgVtt9E6FfuFneSH5pM4Zv444NO2ICdJUlsE4mIYaDYRM7ZuUPCM5DHogF5ukznP+5NUfXdp8H/dXJ+wtKVnmDNKG8AA0lyqMKvZKedziMn2FsyswzeFNBdqDfdwx99OUC9aJPbHgpZ1dDiCD140v/RPl500fbnEpi+wdBlNOnLtfVWmFsYBIoW1pdbNfhb+FcEw5MO9UV5XGgFWWXThi4WEcrehoqRoRBLeq2t9quD57k6ESuuVov9vvUXeIgVCQtypkitJjAgykz9Khwg=="></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Il foglio delle sette figure (Workbook, esercizio C4-U7-L1-02), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 389, 390; cantato n. 391, 392; ritmico n. 393, 394 (a tempo, senza fermarsi). Dettato C4-D-U07-L1 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di quinta specie sul canto fermo (C4-CP-U07-L1). Basso senza numeri da realizzare a quattro parti (C4-BD-U07-L1). Canto dato da armonizzare a quattro parti (C4-CD-U07-L1).</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Un basso di otto battute (Workbook, esercizio C4-U7-L1-04), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 389, 390; cantato n. 391, 392; ritmico n. 393, 394 (a tempo, senza fermarsi). Dettato C4-D-U07-L1 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di quinta specie sul canto fermo (C4-CP-U07-L1). Basso senza numeri da realizzare a quattro parti (C4-BD-U07-L1). Canto dato da armonizzare a quattro parti (C4-CD-U07-L1).</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>
@@ -651,14 +362,6 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
-  <div class="slide-interna">
-    <p class="compiti-occhiello">In classe</p>
-    <h2>Scriviamo adesso: Otto frammenti, e due non sono niente</h2>
-    <p>Sul Workbook trovi otto frammenti di soprano. Per ciascuno: i gradi, il <strong>nome della figura</strong>, e il basso sotto quelle riconosciute.</p>
-    <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna.</p>
-  </div>
-</section>
 
 
 </div>

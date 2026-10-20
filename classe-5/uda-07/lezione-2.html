@@ -44,264 +44,222 @@ try { module = undefined; exports = undefined; } catch (e) {}
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
 <script src="../../_assets/js/tac-core.js?v=621f9506" defer></script>
 </head>
+
 <body>
 <div id="tac-deck">
 
-
 <!-- ══════════════════════════════════════════════════════════════════
      LEZIONE 2 · Analisi per insiemi: Schönberg, op. 19 n. 6
-     Unità 7, ora 50 di 90 · classe 5ª · ora intera (nessuna coda nel piano nuovo)
+     Unità 7, ora 50 di 90 · classe 5ª · analisi · ORA INTERA (50') ·
+     venerdì 29/1/2027, alle 8. Nessuna coda di orali. È l'ultima ora prima
+     della V4 (lunedì 1/2/2027): niente di questa lezione entra nella V4.
 
-     (Piano vecchio: coda di teoria, standard `breve`: 7 slide, 700 parole,
-     3 esempi.)
-
-     ⚠ L'ORA È STATA CAMBIATA IL 1º SETTEMBRE 2026, e la ragione sta in
-     `ore.py` accanto al titolo: era «op. 33a», che è dodecafonica e si
-     analizza per SERIE. L'analisi per insiemi è nata sull'atonalità
-     libera — op. 11 e op. 19 — ed è lì che dice qualcosa. In più
-     l'op. 19 sta nel corpus e si può ascoltare, l'op. 33a no.
-
-     ⚠ I NUMERI SONO CALCOLATI, non riportati da un manuale. music21,
-     sulla partitura dell'op. 19 n. 6:
-       la–fa♯–si   classi {6,9,11}  Forte 3-7B  forma prima [0,2,5]
-       sol–do–fa   classi {0,5,7}   Forte 3-9   forma prima [0,2,7]
-     e per il n. 2:
-       sol–si      classi {7,11}    Forte 2-4   forma prima [0,4]
-
-     LA FONTE: il libro non tratta l'analisi per insiemi. In biblioteca
-     ci sono Forte, «The Structure of Atonal Music», e Pasticci,
-     «Teoria degli insiemi e analisi della musica post-tonale», in
-     italiano. Nessuno dei due è ancorato in `pagine.py`: si nominano,
-     senza pagina.
+     16/10/2026 · RISCRITTA il 20/10/2026 sul titolo nuovo. Fino al 15/10
+     era la lezione 7 dell'unità 8 del piano vecchio (coda di teoria di
+     venti minuti, otto slide); copiata qui il 16/10 con i rimandi nuovi.
+     Correzioni rispetto a quel testo: il pezzo ha un levare e nove
+     battute, non «dieci battute»; i due accordi non si presentano «uno
+     sopra e uno sotto» in un rigo solo, ma su due righi e con una
+     storia: tornano trasposti, si sovrappongono a un re♯ che ne fa una
+     settima di dominante, si completano nel totale cromatico alla b. 7.
+     Che cosa contiene:
+     · classe di altezze, forma normale, forma primaria, vettore
+       intervallare, sigle di Forte, zeta-correlazione (Bent, «Analisi
+       musicale», pp. 127–129; Pasticci, «Teoria degli insiemi e analisi
+       della musica post-tonale»; D'Urso, Bertolini, 5° anno, p. 263);
+     · un esempio costruito di otto battute: il procedimento sui due
+       accordi del pezzo;
+     · op. 19 n. 6 intero (levare e bb. 1–9) dalla trascrizione del
+       progetto (xml/A24_schoenberg_19_6_intero.musicxml), controllata
+       sulla scansione (scansioni/A24-A25, p. 7) nelle bb. 4, 5–6 e 7;
+       bb. 0–6 in 4/4 «tastiera» (cinque strati in quattro voci: v. la
+       didascalia), bb. 7–9 riscritte in 12/8 perché le terzine della
+       partitura stanno in tre voci diverse: il quarto di Schönberg è la
+       semiminima puntata, la croma di terzina è la croma, la croma è la
+       croma puntata (riscrittura dichiarata, le durate sono esatte);
+     · gli insiemi del pezzo contati con uno script (music21): 3-7, 3-9,
+       6-Z12 (il «motto» secondo Forte, «The Structure of Atonal Music»,
+       p. 101), 4-27 alla b. 3, totale cromatico completo alla b. 7;
+     · esercizio in classe (bb. 5–8), soluzione chiusa.
+     Ascolto: A24 (Gould), nella pagina.
+     Tempi: 2' copertina · 12' il metodo · 6' la partitura e l'ascolto ·
+     10' bb. 0–4 · 6' bb. 5–9 · 2' i limiti · 10' esercizio · 2'
+     sintesi = 50'; poi il solfeggio del montaggio.
      ══════════════════════════════════════════════════════════════════ -->
-<!-- 16/10/2026 · rimandi al piano nuovo della quinta (Novecento).
-     Fino al 15/10 era la lezione 11 dell'unità 8 del piano vecchio (ora 28,
-     coda di teoria da venti minuti). Nel piano nuovo è U7 L2, ora 50, e in
-     ore.code(5) non ha una coda: è un'ora intera. La precede U7 L1 (op. 19
-     n. 6 e n. 2 ascoltate, i due accordi descritti), la segue U7 L3
-     (intonare e riconoscere intervalli fuori dalla tonalità). Cambiato:
-     testata; copertina «20 minuti · Interrogazioni» → «1 ora · op. 19 n. 6»;
-     «All'ora 61 avete ascoltato… Provate a nominarli» → rimando a U7 L1;
-     tolta la riga «Coda di teoria: si interroga…»; «L'ora 3 li conta tutti»
-     → U9 L10 «Scegliere il metodo»; aggiunto l'annuncio di U7 L3 nella
-     slide «Che cosa resta»; «che cosa vi sembra che stia succedendo» →
-     «che cosa accade nel pezzo»; «pochi giorni dopo il funerale di Mahler»
-     → «poche settimane»: il funerale è del 22 maggio 1911, il pezzo è datato
-     17 giugno. ⚠ Da vedere: la lezione ha il materiale di venti minuti (otto
-     slide) per un'ora intera; tre righi con accordi in una chiave sola («I
-     due accordi», «Che cosa si scopre», «Al lavoro: la scheda di un
-     accordo»). Backup: .prima-dei-rimandi-nuovi. -->
 
 <section class="slide attiva copertina foto" data-titolo="Copertina"
-         style="--foto: url('../../_assets/copertine/c5u10-lezione-11.jpg?v=45b8cc58');
+         style="--foto: url('../../_assets/copertine/c5u7-lezione-2.jpg?v=6c0ddbde');
                 --cop-a:#7f1d1d; --cop-b:#dc2626; --cop-c:#fee2e2">
   <div class="slide-interna">
     <div class="occhiello">L’atonalità libera &middot; UdA 7 &middot; Lezione 2 di 9</div>
-    <h1>Dare un nome a un accordo che non ce l&rsquo;ha</h1>
-    <p class="sottotitolo">Non si sigla, non &egrave; maggiore n&eacute; minore. Ma si pu&ograve; descrivere con dei numeri, e un altro pu&ograve; controllare.</p>
-
+    <h1>Dare un nome a un accordo che non ce l’ha</h1>
+    <p class="sottotitolo">Due accordi di tre suoni reggono le nove battute dell’op.&nbsp;19 n.&nbsp;6. Non si siglano con i gradi; si riducono a una forma, si confrontano, si contano.</p>
     <blockquote class="aforisma">
-      <p>Il sistema cromatico e la dodecafonia</p>
-      <cite><em>Il linguaggio della musica</em>, 5&deg;&nbsp;anno, p.&nbsp;262</cite>
+      <p>una notazione siffatta non è stata escogitata per “matematizzare” la musica, ma per arrivare a ridurre, in modo oggettivo e concettualmente scevro da riferimenti tonali, la ricchezza fenomenica degli eventi sonori a un numero notevolmente ristretto di categorie-base</p>
+      <cite>I. Bent, <em>Analisi musicale</em>, p.&nbsp;128</cite>
     </blockquote>
-
     <div class="meta-copertina">
       <span>1 ora</span>
       <span>Analisi</span>
-      <span>Op.&nbsp;19 n.&nbsp;6</span>
+      <span>Schönberg, op.&nbsp;19 n.&nbsp;6</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Il problema">
+<section class="slide" data-titolo="Il metodo">
   <div class="slide-interna">
-    <h2>Il problema, in una riga</h2>
-
-    <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
-         «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 5&deg; anno; pagine dall'indice rilevato. -->
+    <h2>Il metodo: classe di altezze, forma normale, forma primaria</h2>
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
-      <p><span class="lez">B4</span><strong>Oltre la tonalit&agrave;</strong>, pp. 238&ndash;266</p>
-      <p>Sezione B, unit&agrave; 4, lezione B23, per il contesto di Sch&ouml;nberg; l&rsquo;analisi per insiemi non &egrave; nel libro.</p>
+      <p><span class="lez">B4</span>La numerazione dei dodici suoni, da do&nbsp;=&nbsp;0 a si&nbsp;=&nbsp;11, è quella della lezione 23, p.&nbsp;263 &middot; D. D’Urso, C. Bertolini, <em>Il linguaggio della musica</em>, 5°&nbsp;anno. L’analisi per insiemi non è nel libro: le definizioni sono da I. Bent, <em>Analisi musicale</em>, pp.&nbsp;127–129, e S. Pasticci, <em>Teoria degli insiemi e analisi della musica post-tonale</em>.</p>
     </div>
-
-    <p>L&rsquo;op.&nbsp;19 n.&nbsp;6 (lezione 1 di questa unit&agrave;) &egrave; costruita su due accordi: <strong>la&ndash;fa&#9839;&ndash;si</strong> e <strong>sol&ndash;do&ndash;fa</strong>. Nessuna sigla funziona, e chiamarli «accordi strani» non &egrave; un&rsquo;analisi.</p>
-
     <div class="riquadro definizione">
-      <span class="etichetta">Che cosa serve, di preciso</span>
-      <p>Un modo di descrivere un gruppo di note che sia <strong>preciso</strong> (dice esattamente quale gruppo), <strong>indipendente dall&rsquo;altezza</strong> (lo stesso gruppo trasportato resta lo stesso) e <strong>verificabile</strong> (un altro rifa il conto e ottiene la stessa risposta).</p>
+      <span class="etichetta">Definizioni</span>
+      <p><strong>Classe di altezze.</strong> L’insieme di tutte le note con lo stesso nome, in qualunque registro e con qualunque grafia enarmonica: il concetto, introdotto da Babbitt, si fonda sull’equivalenza delle ottave e sull’equivalenza enarmonica (Pasticci). Si indica con un numero da 0 a 11.<br>
+      <strong>Insieme di classi di altezze.</strong> Il gruppo di note che si prelevano da un passo, ridotte a classi di altezze e senza ripetizioni (Bent, p.&nbsp;128).<br>
+      <strong>Forma normale.</strong> I numeri dell’insieme in ordine crescente, ruotati finché non occupano «la posizione più ravvicinata» (p.&nbsp;127): la distanza fra il primo e l’ultimo è la minima possibile.<br>
+      <strong>Forma primaria.</strong> La forma normale trasportata in modo che cominci da 0, confrontata con quella della sua inversione: si sceglie la più serrata verso sinistra. È «il punto di riferimento di tutte le possibili posizioni e trasformazioni» dell’accordo, e le forme primarie sono 208, catalogate da Forte con una sigla di due numeri: quanti suoni, e il posto nella tabella (pp.&nbsp;127–128). Così la triade maggiore e la minore sono la stessa classe, 3-11 [0,&nbsp;3,&nbsp;7], e la settima diminuita è 4-28 [0,&nbsp;3,&nbsp;6,&nbsp;9].<br>
+      <strong>Vettore intervallare.</strong> Sei cifre che dicono quante seconde minori, seconde maggiori, terze minori, terze maggiori, quarte giuste e tritoni contiene l’insieme (ogni intervallo è contato con il suo rivolto): il «codice genetico» dell’insieme (p.&nbsp;129). Due insiemi con lo stesso vettore ma con forme primarie diverse sono detti zeta-correlati e hanno una Z nella sigla.</p>
     </div>
-
-    <p class="didascalia">&Egrave; lo stesso bisogno che nella musica tonale era risolto dalle sigle: «V&sup7;» dice tutto e chiunque lo controlla. Qui la sigla non c&rsquo;&egrave;, e si costruisce.</p>
+    <tac-stave
+       time="4/4"
+       caption="Il procedimento sui due accordi dell’op.&nbsp;19 n.&nbsp;6 (esempio costruito). Bb.&nbsp;1–4: la–fa♯–si come è nel pezzo, in forma normale, trasportato a do, poi invertito e scelto come forma primaria. Bb.&nbsp;5–8: sol–do–fa nello stesso modo; l’inversione dà le stesse note, perché l’insieme è simmetrico."
+       notes="a/4+f#/5+b/5:w | f#/4+a/4+b/4:w | c/4+eb/4+f/4:w | c/4+d/4+f/4:w | r:w | f/4+g/4+c/5:w | c/4+d/4+g/4:w | c/4+d/4+g/4:w"
+       bass="r:w | r:w | r:w | r:w | g/3+c/4+f/4:w | r:w | r:w | r:w"
+       segna="b1=la–fa♯–si: {6, 9, 11} · b2=forma normale [6, 9, 11] · b3=trasposta a 0: [0, 3, 5] · b4=inversa: [0, 2, 5], forma primaria, 3-7 · b5=sol–do–fa: {0, 5, 7} · b6=forma normale [5, 7, 0] · b7=trasposta a 0: [0, 2, 7] · b8=l’inversione è uguale: 3-9"
+       width="900"
+       tempo="50" play></tac-stave>
+    <div class="analisi-prosa">
+      <p>Le due forme normali si trovano provando le rotazioni. Per {6,&nbsp;9,&nbsp;11} le rotazioni sono [6,&nbsp;9,&nbsp;11], [9,&nbsp;11,&nbsp;6] e [11,&nbsp;6,&nbsp;9], ampie cinque, nove e dieci semitoni: la prima è la più stretta. Trasportata a 0 diventa [0,&nbsp;3,&nbsp;5]; la sua inversione (ogni numero sottratto da 12) è [0,&nbsp;2,&nbsp;5], più serrata a sinistra, e quindi forma primaria: la sigla è 3-7, vettore 011010 (una seconda maggiore, una terza minore, una quarta). Per {0,&nbsp;5,&nbsp;7} due rotazioni sono ugualmente ampie, [0,&nbsp;5,&nbsp;7] e [5,&nbsp;7,&nbsp;0]: vince quella con il primo intervallo più piccolo, [5,&nbsp;7,&nbsp;0], che trasportata dà [0,&nbsp;2,&nbsp;7], la sigla 3-9, vettore 010020 (una seconda maggiore, due quarte). È l’accordo per quarte già incontrato nella Kammersymphonie e alla b.&nbsp;11 dell’op.&nbsp;11 n.&nbsp;1 (lezione 1).</p>
+    </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">L’errore tipico</span>
+      <p>Contare gli intervalli dalla nota più grave come suona nel pezzo. La–fa♯–si, letto dal basso, dà nove e cinque semitoni; sol–do–fa dà cinque e cinque: due numeri che non dicono che cosa i due accordi hanno in comune. La forma normale toglie il registro, la forma primaria toglie trasposizione e inversione: solo dopo si confronta.</p>
+    </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Prima di contare, ascoltare">
+<section class="slide" data-titolo="La partitura">
   <div class="slide-interna">
-    <h2>Dieci battute, e prima di contarle si ascoltano</h2>
-
-    <p>L&rsquo;analisi per insiemi &egrave; uno strumento freddo, e va
-    bene che lo sia. Ma si applica a qualcosa che &egrave; stato
-    <strong>scritto per essere suonato</strong>, e quel qualcosa dura
-    meno di un minuto.</p>
-
-    <tac-brano organico="tastiera" titolo="A. Sch&ouml;nberg, Sei piccoli pezzi op. 19 n. 6" metronomo youtube="KDAsjiq0Bcc" esecutore="Glenn Gould, pianoforte" partitura="../../_assets/spartiti/A24_schoenberg-19-6.png" riquadri='[[1,24.0,11.71,24.49,14.18],[2,48.49,11.71,21.48,14.18],[3,69.98,11.71,28.23,14.18],[4,3.09,40.51,39.46,14.69],[5,42.55,40.51,33.2,14.69],[6,75.75,40.51,22.54,14.69],[7,3.17,69.96,37.67,24.15],[8,40.85,69.96,30.27,24.15],[9,71.11,69.96,27.18,24.15]]' inciso="../../_assets/incisioni/A24_schoenberg_19_6.mp3" mappa='{"durata":56581,"eventi":[[0,0],[1,1500],[2,7500],[3,13500],[4,19500],[5,25500],[6,31500],[7,37500],[8,43500],[9,49500]]}' da-battuta="1">
+    <h2>Il pezzo intero: levare e nove battute</h2>
+    <tac-brano organico="pianoforte" titolo="A. Schönberg, <em youtube="KDAsjiq0Bcc" esecutore="Glenn Gould, pianoforte" partitura="../../_assets/spartiti/A24_schoenberg-19-6.png" riquadri='[[1,24.0,11.71,24.49,14.18],[2,48.49,11.71,21.48,14.18],[3,69.98,11.71,28.23,14.18],[4,3.09,40.51,39.46,14.69],[5,42.55,40.51,33.2,14.69],[6,75.75,40.51,22.54,14.69],[7,3.17,69.96,37.67,24.15],[8,40.85,69.96,30.27,24.15],[9,71.11,69.96,27.18,24.15]]' inciso="../../_assets/incisioni/A24_schoenberg_19_6.mp3" mappa='{"durata":56581,"eventi":[[0,0],[1,1500],[2,7500],[3,13500],[4,19500],[5,25500],[6,31500],[7,37500],[8,43500],[9,49500]]}' da-battuta="1">Sechs kleine Klavierstücke</em> op.&nbsp;19 n.&nbsp;6 (1911)" in-vista>
 <script type="application/json">{"titolo":"A. Schönberg, Sei piccoli pezzi op. 19 n. 6 — dieci battute, due accordi","metro":"4/4","bpm":40,"battute":10,"anacrusi":1.0,"voci":[[[0.0,1.0,69],[0.0,1.0,78],[0.0,1.0,83],[1.0,4.0,69],[1.0,4.0,78],[1.0,4.0,83],[5.0,2.0,69],[5.0,2.0,78],[5.0,2.0,83],[7.0,2.0,69],[7.0,2.0,78],[7.0,2.0,83],[9.0,4.0,69],[9.0,4.0,78],[9.0,4.0,83],[11.0,2.0,75],[13.0,0.5,75],[13.0,2.0,69],[13.0,2.0,78],[13.0,2.0,83],[13.5,0.5,75],[16.0,1.0,69],[16.0,1.0,78],[16.0,1.0,83],[17.0,2.0,69],[17.0,2.0,78],[17.0,2.0,83],[19.0,2.0,60],[19.0,2.0,65],[19.0,2.0,70],[21.0,4.0,60],[21.0,4.0,65],[21.0,4.0,70],[26.0,0.5,74],[26.5,0.5,49],[27.0,0.3333,49],[27.3333,0.3333,50],[27.6667,0.6667,54],[28.3333,0.6667,51],[29.3333,0.3333,64],[29.3333,0.6667,62],[29.3333,0.6667,68],[29.3333,0.6667,72],[29.6667,0.3333,63],[30.0,0.5,62],[30.0,0.5,63],[30.0,0.5,68],[30.0,0.5,72],[33.0,4.0,69],[33.0,4.0,78],[33.0,4.0,83]],[[3.0,2.0,55],[3.0,2.0,60],[3.0,2.0,65],[5.0,2.0,55],[5.0,2.0,60],[5.0,2.0,65],[10.0,3.0,55],[10.0,3.0,60],[10.0,3.0,65],[11.0,1.5,87],[12.5,0.5,88],[13.0,0.5,88],[13.0,2.0,55],[13.0,2.0,60],[13.0,2.0,65],[13.5,0.5,87],[17.0,3.0,55],[17.0,3.0,60],[17.0,3.0,65],[20.0,1.0,40],[20.0,1.0,50],[20.5,0.5,56],[21.0,1.0,55],[21.0,4.0,40],[21.0,4.0,50],[22.0,3.0,54],[29.3333,0.6667,49],[29.3333,0.6667,54],[29.3333,0.6667,59],[30.0,0.5,49],[30.0,0.5,55],[30.0,0.5,59],[34.0,3.0,55],[34.0,3.0,60],[34.0,3.0,65],[36.0,0.5,46],[36.5,0.5,32]]]}</script>
 </tac-brano>
+<div class="righe">
+    <tac-stave
+       tastiera
+       time="4/4"
+       caption="A. Schönberg, op.&nbsp;19 n.&nbsp;6, levare (b.&nbsp;0, qui completata dalla pausa) e bb.&nbsp;1–6 (Sehr langsam, pp). Rigo superiore: l’accordo la–fa♯–si della destra (gambi in su); il re♯5 e poi l’accordo do–fa–si♭ della destra (gambi in giù); la figura re♯6–mi6 della sinistra, pppp, e la linea sol♯3–sol3–fa♯3 (gambi in giù). Rigo inferiore: l’accordo sol–do–fa e il bicordo mi2–re3 della sinistra. Dalla trascrizione del progetto (MusicXML), controllata sulla scansione."
+       soprano="r:h. a/4+f#/5+b/5:q~ | a/4+f#/5+b/5:w~ | a/4+f#/5+b/5:h a/4+f#/5+b/5:h~ | a/4+f#/5+b/5:w~"
+       contralto="r:w | r:w | r:w | r:h d#/5:h~"
+       tenore="r:w | r:w | r:w | r:h d#/6:q. e/6:8~"
+       basso="r:w | r:h g/3+c/4+f/4:h~ | g/3+c/4+f/4:h r:h | r:q g/3+c/4+f/4:h."
+       segna="b1=la–fa♯–si: 3-7 · b2=sol–do–fa: 3-9 · b2-b3=insieme: 6-Z12 · b4=re♯: si–re♯–fa♯–la, 4-27"
+       width="900"
+       tempo="40" play></tac-stave>
+    <tac-stave
+       tastiera
+       time="4/4"
+       soprano="a/4+f#/5+b/5:h r:q a/4+f#/5+b/5:q~ | a/4+f#/5+b/5:h r:h | r:w"
+       contralto="d#/5:8 d#/5:8 r:q r:h | r:h c/4+f/4+bb/4:h~ | c/4+f/4+bb/4:w"
+       tenore="e/6:8 d#/6:8 r:q r:h | r:h. r:8 g#/3:8 | g/3:q f#/3:h."
+       basso="g/3+c/4+f/4:h r:h | g/3+c/4+f/4:h. e/2+d/3:q~ | e/2+d/3:w"
+       segna="b1=re♯6–mi6–re♯6, pppp · b2=do–fa–si♭: 3-9, una quarta sopra · b2=mi2–re3 · b3=sol♯–sol–fa♯: 3-1; corona"
+       width="900"></tac-stave>
+</div>
+<div class="righe">
+    <tac-stave
+       time="12/8"
+       caption="Bb.&nbsp;7–9, riscritte in 12/8 perché le terzine della partitura (4/4) stanno in tre voci: la semiminima di Schönberg è qui la semiminima puntata, la croma di terzina la croma, la croma la croma puntata. Le durate sono esatte. Rigo superiore: la destra (re5; poi l’accordo re–sol♯–do, gambi in su, e mi4–mi♭4, gambi in giù; infine la–fa♯–si). Rigo inferiore: la linea do♯3–re3–fa♯3–mi♭3, scritta in partitura sul rigo di mezzo; fa♯3–sol3 sopra do♯3–si3; l’accordo sol–do–fa e il si♭2–la♭1 del terzo rigo."
+       soprano="r:q. d/5:8. r:8. r:h. | r:8 d/4+g#/4+c/5:q~ d/4+g#/4+c/5:8. r:8. r:h. | a/4+f#/5+b/5:w."
+       contralto="r:w. | r:8 e/4:8 eb/4:8~ eb/4:8. r:8. r:h. | r:w."
+       tenore="r:q. r:8. c#/3:8.~ c#/3:8 d/3:8 f#/3:q eb/3:q | r:8 f#/3:q g/3:8. r:8. r:h. | r:q. g/3+c/4+f/4:h.~ g/3+c/4+f/4:q."
+       basso="r:w. | r:8 c#/3+b/3:q~ c#/3+b/3:8. r:8. r:h. | r:h. r:q. bb/2:8. ab/1:8."
+       segna="b1=re5, poi do♯3: il dodicesimo suono · b1=do♯–re–fa♯–mi♭: 4-4 · b2=re–mi–mi♭–sol♯–do: 5-13 · b3=la–fa♯–si e sol–do–fa, insieme"
+       width="900"
+       tempo="60" play></tac-stave>
+</div>
+    <div class="analisi-prosa">
+      <p>La partitura ha tre righi soltanto nelle bb.&nbsp;7–9; prima la sinistra scrive in chiave di violino fino al terzo movimento della b.&nbsp;5 e poi in chiave di basso. Le indicazioni sono poche e tutte rivolte al suono: <em>Sehr langsam</em>, <em>pp</em> per l’accordo iniziale, <em>pppp</em> per la figura acuta della sinistra, <em>p</em> e poi <em>mit sehr zartem Ausdruck</em> per la linea della b.&nbsp;7, <em>genau im Takt</em> per le terzine della b.&nbsp;8, <em>wie ein Hauch</em> («come un soffio») per l’ultimo accordo, <em>ppp</em>, con la corona.</p>
+    </div>
+  </div>
+</section>
 
+<section class="slide" data-titolo="Bb. 0–4: due tricordi, un motto">
+  <div class="slide-interna">
+    <h2>Bb.&nbsp;0–4: due tricordi, un insieme di sei suoni, un re♯</h2>
+    <div class="analisi-prosa">
+      <p>Il pezzo comincia in levare con un solo accordo, la4–fa♯5–si5, <em>pp</em>, tenuto per cinque movimenti e ribattuto sul terzo della b.&nbsp;2: la classe 3-7. Sul terzo movimento della b.&nbsp;1 la sinistra aggiunge sotto sol3–do4–fa4: la classe 3-9. I due accordi non si mescolano, perché occupano due registri contigui ma distinti (il fa4, la nota più acuta del secondo, sta una terza maggiore sotto il la4, la più grave del primo) e non cambiano mai di disposizione; ma insieme formano un insieme di sei suoni, {0,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;9,&nbsp;11}, che è la classe 6-Z12. Allen Forte, che ha analizzato il pezzo, chiama 6-Z12 «una specie di motto della composizione» e indica 3-7 e 3-9 come i tricordi preminenti dell’opera (<em>The Structure of Atonal Music</em>, p.&nbsp;101).</p>
+      <p>I due tricordi hanno in comune una seconda maggiore (la–si nel primo, fa–sol nel secondo) e una quarta giusta (fa♯–si; do–fa e sol–do), e differiscono per il terzo intervallo: la terza minore fa♯–la in 3-7, una seconda quarta in 3-9. Il vettore lo dice in cifre (011010 contro 010020). All’ascolto il primo ha il colore di una settima priva della terza (si–fa♯–la), il secondo il vuoto delle quarte sovrapposte.</p>
+      <p>Alla b.&nbsp;3 la destra aggiunge sotto l’accordo un re♯5, minima con l’accento, <em>p</em>. Il risultato, re♯–fa♯–la–si, è la classe 4-27, e nelle sue note è una settima di dominante su si con la settima al basso: un accordo tonale riconoscibile, che nel contesto non ha alcuna funzione. Nello stesso momento la sinistra, <em>pppp</em>, suona molto in alto re♯6 e mi6, poi mi6 e re♯6: il semitono della sensibile verso la tonica di mi, ripetuto e subito ritirato. Il pezzo lascia emergere per un istante il fantasma di una cadenza, e lo lascia cadere senza risolverlo.</p>
+    </div>
     <div class="riquadro attenzione">
-      <p>Due ascolti, e nessuna domanda tecnica. Il primo: <strong>che
-      cosa accade nel pezzo</strong>. Il secondo, dopo aver
-      sentito le risposte degli altri: la stessa domanda, e quasi sempre
-      la risposta cambia.</p>
+      <span class="etichetta">L’errore tipico</span>
+      <p>Scrivere «V<span class="cifrata"><sup>4</sup><sub>2</sub></span> di mi minore» alla b.&nbsp;3. Le note ci sono; la funzione no, perché il mi arriva soltanto come nota di passaggio acuta e torna al re♯. Si scrive: insieme 4-27, la stessa classe della settima di dominante e della settima semidiminuita, senza risoluzione.</p>
     </div>
-
-    <p class="didascalia">Sch&ouml;nberg lo scrisse nel 1911, poche settimane
-    dopo il funerale di Mahler. Non &egrave; una chiave di lettura e non
-    va usata come tale &mdash; ma spiega perch&eacute; in dieci battute
-    non succede quasi niente, e perch&eacute; quel quasi niente si
-    ricorda.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Le classi">
+<section class="slide" data-titolo="Bb. 5–9: trasposizione, linea, ritorno">
   <div class="slide-interna">
-    <h2>Primo passo: numerare i dodici suoni</h2>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Do &egrave; 0, e si conta di semitono in semitono fino a 11"
-               notes="c/4:8 c#/4:8 d/4:8 eb/4:8 e/4:8 f/4:8 f#/4:8 g/4:8 | g#/4:8 a/4:8 bb/4:8 b/4:8 c/5:h"
-               segna="b1=0 1 2 3 4 5 6 7 &middot; b2=8 9 10 11, e si ricomincia"
-               width="860" tempo="88" play slow></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Classe di altezza</span>
-      <p>Tutti i do sono <strong>0</strong>, in qualunque ottava. Do&#9839; e re&#9837; sono tutti e due <strong>1</strong>: l&rsquo;enarmonia non conta pi&ugrave;, perch&eacute; senza tonalit&agrave; non c&rsquo;&egrave; niente che la renda diversa.</p>
-    </div>
-
-    <p>La numerazione parte da do per comodit&agrave;, e non ha nessun significato musicale: in un pezzo senza tonalit&agrave; do non &egrave; pi&ugrave; importante di re&#9837;. Chi preferisce pu&ograve; contare da un&rsquo;altra nota, purch&eacute; lo dica.</p>
-
-    <p class="didascalia">&Egrave; una semplificazione dichiarata, e va detta: si butta via l&rsquo;ottava e l&rsquo;ortografia. Si guadagna la possibilit&agrave; di confrontare, e si perde tutto quello che dipende da come una nota &egrave; scritta.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="I due accordi">
-  <div class="slide-interna">
-    <h2>I due accordi dell&rsquo;op. 19 n. 6, in numeri</h2>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="I due materiali del pezzo, uno sopra e uno sotto"
-               notes="a/4+f#/5+b/5:w | g/3+c/4+f/4:w"
-               segna="b1=la, fa&#9839;, si &middot; b2=sol, do, fa"
-               width="800" tempo="42" play slow></tac-stave>
-
+    <h2>Bb.&nbsp;5–9: la quarta trasportata, la linea, il ritorno</h2>
     <div class="analisi-prosa">
-      <p>I segni avviano un&rsquo;analisi per insiemi, il metodo che descrive un gruppo di note con dei numeri, in modo preciso, indipendente dall&rsquo;altezza e verificabile da chiunque. Il rigo riduce l&rsquo;op.&nbsp;19 n.&nbsp;6 ai suoi due materiali, uno sopra e uno sotto, e ogni segno nomina le note dell&rsquo;accordo che sta in quella battuta: sono le note da tradurre in classi di altezza, con il do uguale a 0 e un numero per ogni semitono, in qualunque ottava.</p>
-      <p>Alla battuta 1 ci sono <strong>la, fa&#9839;, si</strong>: la = 9, fa&#9839; = 6, si = 11, cio&egrave; l&rsquo;insieme <strong>{6, 9, 11}</strong>. Alla battuta 2 ci sono <strong>sol, do, fa</strong>: sol = 7, do = 0, fa = 5, cio&egrave; <strong>{0, 5, 7}</strong>. Il registro, che sulla partitura separa nettamente i due accordi, nei numeri non compare pi&ugrave;. Tradotti cos&igrave;, i due accordi diventano due oggetti che si possono confrontare, contare e cercare nel resto del pezzo. Resta da stabilire se siano <strong>la stessa cosa trasportata o due cose diverse</strong>, ed &egrave; il compito del passo successivo, la riduzione alla forma pi&ugrave; stretta.</p>
+      <p>Alla b.&nbsp;5 il primo accordo lascia il posto, nella destra, a do4–fa4–si♭4: ancora la classe 3-9, sol–do–fa trasportato una quarta sopra, ora nel registro centrale e tenuto per sei movimenti fino alla corona della b.&nbsp;6. Sotto, la sinistra passa in chiave di basso: un mi2 con il re3, settima minore al grave, e una linea in semitoni discendenti, sol♯3–sol3–fa♯3 (classe 3-1), che arriva sulla corona. Con il si♭4 e il sol♯3 della b.&nbsp;5 e con il re3 il pezzo ha già presentato undici dei dodici suoni.</p>
+      <p>La b.&nbsp;7 è l’unico momento melodico: dopo una pausa di un quarto, un re5 della destra scende con un salto di quasi due ottave al do♯3 e continua re3–fa♯3–mi♭3, in terzine, <em>mit sehr zartem Ausdruck</em>. Il do♯3 è il dodicesimo suono, l’ultimo che mancava: il totale cromatico si completa soltanto qui, a due battute dalla fine. La linea do♯–re–fa♯–mi♭ è la classe 4-4 [0,&nbsp;1,&nbsp;2,&nbsp;5]. La b.&nbsp;8, <em>genau im Takt</em>, <em>pp</em>, è una sola terzina ripetuta in due mani: re4–sol♯4–do5 con mi4 e poi mi♭4 nella destra, do♯3–si3 con fa♯3 e poi sol3 nella sinistra. La b.&nbsp;9 riporta i due accordi iniziali nel loro registro, insieme e senza levare, <em>ppp</em>, e sotto, <em>pppp</em>, il si♭2 e il la♭1, l’intervallo di nona più grave del pezzo, sulla corona.</p>
+      <p>La forma è dunque circolare: esposizione dei due tricordi (bb.&nbsp;0–4), trasformazione e movimento (bb.&nbsp;5–8), ritorno (b.&nbsp;9). I due accordi sono i soli materiali che tornano; tutto il resto compare una volta sola.</p>
+    </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">L’errore tipico</span>
+      <p>Contare gli insiemi senza leggere i registri. Do–fa–si♭ della b.&nbsp;5 è la stessa classe di sol–do–fa, ma ha un altro posto nella tastiera e un altro ruolo: prende il posto dell’accordo acuto, non di quello grave. L’analisi dice la classe e dice dove sta.</p>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="La forma prima">
+<section class="slide" data-titolo="Che cosa vede il metodo">
   <div class="slide-interna">
-    <h2>Secondo passo: ridurre alla forma pi&ugrave; stretta</h2>
-
-    <p>Per confrontare due gruppi bisogna metterli nella stessa posizione, come si fa con le frazioni. Si ruota il gruppo finch&eacute; non &egrave; il pi&ugrave; compatto possibile, e poi lo si trasporta perch&eacute; cominci da 0.</p>
-
-    <div class="riquadro studio">
-      <p><strong>{6, 9, 11}</strong> &rarr; l&rsquo;ordine pi&ugrave; stretto d&agrave; <strong>[0, 2, 5]</strong><br>
-      <strong>{0, 5, 7}</strong> &rarr; l&rsquo;ordine pi&ugrave; stretto d&agrave; <strong>[0, 2, 7]</strong></p>
-    </div>
-
-    <p>Sono diversi, quindi <strong>non sono lo stesso oggetto trasportato</strong>: il pezzo ha davvero due materiali. Questo &egrave; un risultato d&rsquo;analisi, e viene da un conto che chiunque pu&ograve; rifare.</p>
-
-    <p class="didascalia">I numeri di questa pagina sono calcolati sulla partitura, non copiati da un manuale. Con la forma prima si trovano anche i nomi di catalogo: <strong>3-7B</strong> il primo, <strong>3-9</strong> il secondo.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa si scopre">
-  <div class="slide-interna">
-    <h2>Che cosa il conto fa vedere, e l&rsquo;orecchio no</h2>
-
-    <p>Guardate gli intervalli dentro i due insiemi. <strong>[0, 2, 7]</strong> contiene due quinte: &egrave; l&rsquo;accordo per quarte, aperto. <strong>[0, 2, 5]</strong> contiene una seconda e una quarta, e nessuna quinta.</p>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Gli stessi due insiemi, nella forma pi&ugrave; stretta"
-               notes="c/4+d/4+f/4:h c/4+d/4+g/4:h | c/4+d/4+f/4:h c/4+d/4+g/4:h"
-               segna="b1=[0,2,5] e [0,2,7]: cambia una nota sola"
-               width="820" tempo="46" play slow></tac-stave>
-
+    <h2>Che cosa vede il metodo, e che cosa no</h2>
     <div class="analisi-prosa">
-      <p>Il segno chiude l&rsquo;analisi per insiemi dell&rsquo;op.&nbsp;19 n.&nbsp;6 con il confronto fra le due forme prime, cio&egrave; i due insiemi ridotti all&rsquo;ordine pi&ugrave; stretto e trasportati perch&eacute; comincino da 0. Il rigo non riproduce il pezzo: scrive le due forme a partire da do, prima [0, 2, 5] come do&ndash;re&ndash;fa, poi [0, 2, 7] come do&ndash;re&ndash;sol, e ripete la coppia nella seconda battuta. Il segno, sulla battuta 1, dice che fra le due cambia una nota sola: do e re sono comuni, e la terza nota passa da fa a sol.</p>
-      <p>Ridotti alla forma pi&ugrave; stretta, i due materiali del pezzo <strong>differiscono dunque per una nota sola</strong>. Sono parenti stretti, mentre sulla partitura, sovrapposti in registri lontani, non lo sembravano affatto. Se ne ricava il guadagno del metodo: non sostituisce l&rsquo;ascolto, ma gli mostra una parentela che l&rsquo;ascolto da solo non trova.</p>
+      <p>Il metodo vede le parentele fra gruppi di suoni che l’orecchio non saprebbe nominare: che sol–do–fa e do–fa–si♭ sono lo stesso oggetto, che la–fa♯–si e sol–do–fa insieme formano un insieme che il pezzo ripresenta alla fine, che la b.&nbsp;3 contiene la classe della settima di dominante. Non vede il registro, la durata, la dinamica, l’ortografia, la funzione: proprio le cose che, nell’op.&nbsp;19 n.&nbsp;6, separano i due accordi e danno al re♯–mi della b.&nbsp;3 il suo carattere di reminiscenza.</p>
+      <p>Bent avverte che la scelta dei gruppi da analizzare, la segmentazione, «è un procedimento estremamente delicato, perché l’intera analisi dipende dal fatto che sia attuato con sensibilità musicale»: pause, articolazione e fraseggio offrono indizi, ma non bastano (<em>Analisi musicale</em>, p.&nbsp;132). In un pezzo come questo la segmentazione è suggerita dalla partitura stessa, che separa i materiali per registro e per durata; in un pezzo più fitto (op.&nbsp;11 n.&nbsp;1, lezione 1) va dichiarata e motivata.</p>
+    </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">L’errore tipico</span>
+      <p>Scegliere i gruppi in modo da ottenere le classi che si cercano. Un insieme che si trova solo prendendo note lontane e di voci diverse non è un dato dell’analisi: lo è se il pezzo lo presenta come unità (un accordo, una figura, una frase).</p>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Al lavoro">
+<section class="slide" data-titolo="Al lavoro" data-in-classe>
   <div class="slide-interna">
-    <h2>Al lavoro &mdash; dieci minuti</h2>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Quattro passi, sul quaderno</span>
-      <p><strong>1.</strong> Scrivete in classi l&rsquo;accordo <strong>sol&ndash;si</strong> del n. 2: due numeri.<br>
-      <strong>2.</strong> Riducetelo alla forma pi&ugrave; stretta.<br>
-      <strong>3.</strong> Prendete una triade di <strong>do maggiore</strong> e fate lo stesso: che forma prima esce?<br>
-      <strong>4.</strong> E una triade <strong>minore</strong>: esce la stessa o un&rsquo;altra?</p>
+    <h2>Al lavoro: le bb.&nbsp;5–8 in classi di altezze</h2>
+    <div class="riquadro compito">
+      <span class="etichetta">Da soli &middot; 10 minuti</span>
+      <p>Sulla trascrizione della slide «La partitura», riduci a forma primaria e nomina con la sigla di Forte: <strong>1.</strong> l’accordo della destra alla b.&nbsp;5; <strong>2.</strong> la linea della sinistra delle bb.&nbsp;5–6; <strong>3.</strong> la linea della b.&nbsp;7 dal do♯3; <strong>4.</strong> le note della destra alla b.&nbsp;8.</p>
     </div>
+  </div>
+</section>
 
-    <p>Il passo 4 &egrave; quello che sorprende, e vale l&rsquo;esercizio intero: maggiore e minore danno la <strong>stessa</strong> forma prima. Per questo metodo sono lo stesso oggetto &mdash; e questo dice bene che cosa il metodo vede e che cosa no.</p>
+<section class="slide" data-titolo="La soluzione">
+  <div class="slide-interna">
+    <h2>La soluzione</h2>
+    <tac-chiuso invito="La soluzione &mdash; si apre alla correzione" sale="6HQRqJFBecXu+8CaDczpYQ==" iv="bSWlazp8jkR7R2uA" dati="e98G7utaDdodtN7jbkr5xYJpilad6fiMP3iP53iEpRbjIVRW7/O6NlI8SUek3RT4E4kn3dQE9TNf5SXob7PFWyv2WjHY1G4jN5bkXs0TNnsJLW4l4HyB+rcIgx/zqW5KM6Mm2Fj3Grij1IkPPQLcH4IBnwa2T2nlOCtjw2niqRzWl6+f5uoYI5wlH9fEt12LWJMWeZJv2wh2nxvGyU7ZnYHcIyjYV3bcbKo6KiChwTUVhfPjnc/5vZyKk5NkStqf5GpucOUSX9YBoYIW4vNKYIYHRpo6CRMK+nhB+/Hr03L1WkJHb3NprYUrh5LyNxR63CN+EStD8bqTqbnzy1PUWzX4HNnAN6rRHowjIw/TEIT/z97fva9PQuIOFupR/CMfmA2Hfzm32l8Dk1+7N2gk7ifYtVH7HPuFei7eJj5zyy6eMrBCY7C2rSEVlnOI+TdK8vT19gFNjVx8iS4e0WGFwL6gY9o8SW29TLgBRPdGuprXdV951TFFN3/k5uKhwi4qVXU+VF73Hb2X6juFJJDOQS6cD/TSLjKNh+ygB1XD7tBSE1Ju0uYRUdJD33eEHd6fVaG5Cjlgie+O7pzIJwf09VzoGGBnguzj7VlS+oDJd6fxZU3HWacCHtYJ+VgJ3fcdFNH7MbaI9D+3ILMRcta2cAVB3JBObGvQldqiCY75QPCh4mt3wkBI6DkiwP7vfnmvYwAwPZtSQbxvNQLWhabn5ECgD8w54zvoFv5abbdeb7OTy8xkQRpUnPpT1eWavlSClxO3kewXp7MLWj5KK86MeaOErCuxudJFHpQUZmpqgkFjPh44XGeiTOU85DjGgPdkQRobj8fZ+xYnTjskKJ+Evkeo62KjsCvqv2k8WtmIq10hO1V2uYx33PGqUz/oobb1v9GpvhZIbn1zGANj5ShH1WfgGIiB7xeToZXc0xQXLqWgZxMPqlzLg+NRvtkwXuI79ViudsauSgEvkPq7EDqqkxvpWpi8ZXfVb9mNGHBZcAlS8yUc/38Z4NhvOVEPFpL40WP+6Is7/9kHwDIQS7FpRSOyYcuSZTwbzUYLW7JJfKVll+6GljnULZmx0wAHv7PRHTsfW6MMJKSYyzUPbXdAECZLacQcuAg1iud2RvUdXKsrMgafo13Y9BjkIYwHdPTD4VTQlIx16WRdW2hreYlWLTclu9oQ+QTNcnCxE0Oxaz/nVmhS893KYXhm1OuYdzWc/JCjdByBjrIXzaqfGUZP7hdzXKGjsfMTJarAiXqbgy0yilCIqMdlGFtRHxW7JHa7ISFxS+zFjGa1LctowIXilm34RRWCoPLI5CzXa7NEdytu1SumRTbq2jc8xImGODIAf36dhGs1A8aQPO89g0T7TICU4YDjCMH/GlmbdAUrsCycAVHmIyTzXpdyCJ/8faZCmONHE/ULweirp3E/SlWZ6wM9k6AGZzt1tcwD48ZV0tIHGD/i0j+WN6h1rZ1cgdNarvVxAzV/OkxTQ17liRolIA=="></tac-chiuso>
+  </div>
+</section>
 
+<section class="slide" data-titolo="Sintesi">
+  <div class="slide-interna">
+    <h2>Sintesi</h2>
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Il procedimento</span>
+        <p>Si sceglie il gruppo (e si dice perché); si scrivono le classi di altezze; si cerca la forma normale, la rotazione più stretta; la si trasporta a 0 e la si confronta con l’inversione: la più serrata a sinistra è la forma primaria, con la sua sigla. Il vettore dice il contenuto intervallare.</p>
       </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa resta">
-  <div class="slide-interna">
-    <h2>Il limite del metodo, che &egrave; anche la sua onest&agrave;</h2>
-
-    <p>Un metodo che non distingue maggiore da minore non &egrave; sbagliato: &egrave; <strong>fatto per un&rsquo;altra musica</strong>. Applicarlo a Mozart darebbe risposte vere e inutili.</p>
-
-    <div class="riquadro studio">
-      <p>Quello che vede: <strong>quali gruppi di note tornano</strong> in un pezzo che non ha temi n&eacute; accordi riconoscibili.<br>
-      Quello che non vede: registro, durata, dinamica, ortografia, e ogni differenza che dipende dalla tonalit&agrave;.</p>
+      <div class="riquadro studio">
+        <span class="etichetta">Che cosa ha mostrato l’op.&nbsp;19 n.&nbsp;6</span>
+        <p>Due tricordi, 3-7 e 3-9, che insieme formano 6-Z12; il secondo trasportato alla b.&nbsp;5; una settima di dominante senza funzione alla b.&nbsp;3; il totale cromatico completo solo alla b.&nbsp;7; il ritorno dei due accordi alla b.&nbsp;9. L’analisi integrale scritta dello stesso pezzo è la lezione 9.</p>
+      </div>
     </div>
-
-    <p>Chi vuole andare avanti trova in biblioteca <cite>A. Forte, «The Structure of Atonal Music»</cite> e, in italiano, <cite>S. Pasticci, «Teoria degli insiemi e analisi della musica post-tonale»</cite>.</p>
-
-    <p class="didascalia">Nella lezione seguente gli intervalli fuori dalla tonalit&agrave; si intonano e si riconoscono all&rsquo;ascolto. I metodi d&rsquo;analisi del corso si confrontano nell&rsquo;unit&agrave; 9 (&laquo;Scegliere il metodo&raquo;): decidere quale applicare &egrave; gi&agrave; met&agrave; di un&rsquo;analisi.</p>
-  </div>
-</section>
-
-<!-- Una slide. L'ora ha già Schönberg; mancava «Al lavoro»: la slide
-     chiedeva un compito senza dire come si consegna un'analisi
-     insiemistica. -->
-<section class="slide" data-titolo="Al lavoro: la scheda di un accordo">
-  <div class="slide-interna">
-    <h2>Come si consegna un&rsquo;analisi senza gradi</h2>
-
-    <tac-stave clef="treble" time="4/4" caption="Un accordo di quattro suoni: si numerano le note in semitoni da quella più grave" notes="c/5+d/5+f#/5+g/5:w" width="420" tempo="48" play></tac-stave>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Le quattro righe della scheda</span>
-      <p><strong>1.</strong> La <strong>battuta</strong> in cui l&rsquo;accordo compare.<br>
-      <strong>2.</strong> Le note, numerate in semitoni dalla più grave: 0, 2, 6, 7.<br>
-      <strong>3.</strong> Le <strong>distanze</strong> fra note vicine: 2, 4, 1.<br>
-      <strong>4.</strong> Dove lo stesso insieme ritorna nel pezzo.</p>
-    </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa si scopre, con la quarta riga</span>
-      <p>Che gli stessi <strong>insiemi</strong> tornano trasposti. È il legame che la tonalità garantiva e che qui va cercato: la coerenza c&rsquo;è, e sta nella ricorrenza degli insiemi.</p>
-      <p>Senza la quarta riga la scheda descrive e non trova niente.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Prima di contare, ascoltare</span>
-      <p>Si segna prima <strong>dove il pezzo sembra tornare</strong> a orecchio, e poi si verifica con i numeri. Se il conto conferma l&rsquo;orecchio, l&rsquo;analisi ha trovato qualcosa.</p>
-      <p>Se il conto trova ricorrenze che l&rsquo;orecchio non sente, si scrivono e si dice che non si sentono.</p>
-    </div>
-
-    <p class="didascalia">Un&rsquo;analisi formale vale di più quando <strong>conferma un&rsquo;osservazione d&rsquo;ascolto</strong> fatta prima. L&rsquo;ordine — prima orecchio, poi conto — è quello che rende il conto interpretabile.</p>
+    <p class="didascalia">La lezione si chiude con il solfeggio: si intonano, a voci divise, i tre suoni di la–fa♯–si e poi quelli di sol–do–fa, dal grave. La lezione seguente è dedicata agli intervalli fuori dalla tonalità, all’ascolto e alla voce.</p>
   </div>
 </section>
 
@@ -310,12 +268,11 @@ try { module = undefined; exports = undefined; } catch (e) {}
          style="--segno: url('../../_assets/segni/segno-24.png')">
   <div class="slide-interna">
     <p class="compiti-occhiello">Compiti per la prossima volta</p>
-    <h2>1 &middot; Scritto: Quattro accordi, quattro forme prime</h2>
+    <h2>1 &middot; Scritto: Otto battute su due tricordi</h2>
     <div class="riquadro compito">
-      <p>Scrivi in classi di altezza e riduci alla forma pi&ugrave; stretta: una triade maggiore, una minore, l&rsquo;accordo la&ndash;fa&#9839;&ndash;si e l&rsquo;accordo sol&ndash;do&ndash;fa.</p>
-      <p>Poi scrivi in due righe che cosa noti confrontando le prime due forme prime con le altre due.</p>
+      <p>Scrivi otto battute per pianoforte: nella destra solo accordi della classe 3-7, nella sinistra solo accordi della classe 3-9, ogni volta in una trasposizione diversa e con la disposizione della b.&nbsp;1; la b.&nbsp;8 è uguale alla b.&nbsp;1. Sotto ogni accordo scrivi la trasposizione.</p>
     </div>
-    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C5-U7-L2-01</strong>.</p>
+    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook è l&rsquo;esercizio <strong>C5-U7-L2-04</strong>.</p>
   </div>
 </section>
 
@@ -354,25 +311,25 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Scrivi un contrappunto di <strong>terza specie (quattro note contro una)</strong> sopra il canto fermo, in modo eolio (finale la): undici battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
       <tac-stave caption="Il canto fermo" clef="bass" time="4/4" notes="a/3:w | b/3:w | g/3:w | b/3:w | a/3:w | f/3:w | g/3:w | b/3:w | c/4:w | b/3:w | a/3:w" tempo="72" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C5-CP-U07-L2</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="4X7XRfNxshychxu2IqK/rQ==" iv="nbeKVAcXX/CmI6Hz" dati="LxhLPnzdOZf70v7dpLQYk3/xt+c0IPQVtr8ZGgN6aJ9Eg/hwobB7RJ+hPqcFtDkPJVD+3Obm5ePl54i7kNYizll68M1kCk3hn3c0mHvtqLwQHUCEp07BVxhAjk0lAP9v6G3oEHwB90hg2G7QTrZH2rEXcVv+ePPv5QmHAzK1OoqS0Jp3W04eo2vzH47loiSFQ4e8xHbk5iuXYgRbeRuTP0ul9rrTg7lBa2WfD3Po1LKw2CCZ+7DXDzgYuatFNsb8p6ZdrIZrTEEgWWwvCLeM2RuNAKcGyS3xlhDYr6E0jr7oyvMyBlIhI+LU6wNCuxtq3BWPqLSe3jJz8avxBQl86wVX8DhlQPCtrKOJA/mVuy+Odq3JEk1AO2wFbQFIrfqOH5do01x17PGXn1aWQg5G7pjh2WELLx16AxPQr6nKh9BpOyKZS8t5s3sKHFFhvpvEoFak/kVp/lsB0B3rcRXAJPu2sn/Hu1Whf1lXfEqi/HxmsT9A5l/uaINZGfZHSRG43uttoWN8FHozdi2qimSLKas8jCLneb4EICpeqVTz+iuRglicbfGIkTCPKT6HcJc51eM8PIFFfYq+OpuCQ7I9uRcL3ss93w1DkC4OeaLH5m4Wb9ccU1eG8jdcuPeqd0xRpPRmOWBDW4E="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="JnqY22Fjc1WAD74Bf6Micw==" iv="uRdMIe9cKCGrSArb" dati="8Ci6AooJTLgCBVfGVnAMWxWaTIb3O0fu4bsNa/KiBxsMp0pctSZKLlxqCasZPmho9Uorto2Sho/qTWGNPqq0PJ/nRKwIzokd2tiVbxLAcZoz/Zd+yQuDY9ExERTiO8LuZRnJ3G58oYeaHshtC3qovkQXdG11eYqPWsl+R6IjxcX4AQq9PtpAhd4eAt/RMBSfLYFzb6Md5VbnV6yknG99uB9hUgS4IV8nhOjmSppJ214NsdkFQH+h0i3TztexoLeGlco9GKbJzSosk7+5ooWU2Y0Kj09Yr6HUc2D2XXTX466AzJxMFqFdTOW0sJ2HR8tSAoJRD6cQOFhUozokn4+NJaUv89K/oQ3NFyBN/fdQePMPtpkrojdqW8LzH/ukX4nySIHl7T5fq2HGk2skZV9sZoO9abM8uSO6WCtxn89hhcNqAxPUV/0UhVKECr7FMQAvQ7rfyOOloB6vOjkt38i8jT1kB5JmJ0qqLIm+BkGQ5a23UESGa++fvTnAinMKw2594QtkgiuXved0zYqoPQQBeegaD3KGtQ7Obd50OZ+mPIJ710GxL10TbfRT8RHMfJ61eAPI3ZSRa+OjBFcQ5BScJj0RaQ/WYe2RZ8D7IcjYYC9rvFZbcgtGTZPRIl8k9jTO102ytl5GlaE="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C5-BD-U07-L2">
       <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C5-BD-U07-L2</span></span>
       <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: sedici battute in 4/4, do maggiore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: tutto quello studiato, e una modulazione a un tono vicino. Il basso modula: trova dove, e in quale tonalità arriva.</p>
       <tac-stave caption="Il basso" clef="bass" keysig="C" time="4/4" notes="c/3:h a/2:h | d/3:w | c/3:h f/3:h | e/3:w | f/3:h g/3:h | a/3:h d/3:h | f/3:h e/3:h | f/3:h g/3:h | c/4:w | a/3:w | f/3:h d/3:h | e/3:w | e/3:w | f/3:w | d/3:h e/3:h | a/3:w" tempo="60" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C5-BD-U07-L2</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="P9tOJSNCfqBlPl9NjDQUtQ==" iv="TDvO4Z/G38kM5HCO" dati="Afj5UH7Z+wTSEZqp7oO0m8V/V2OtUaZlzh2gbFxUVS7rVFqG+et8u9mXfmZjsjuOZfR2bB9XjM4cPD79VTQA5Ryqk1TNStd26hniiZMLDU1jdjV+ZmYA/OAPufmicIdvG5MyH8D5xUKTow6gFxiSk9o5CTWKmTKHkBRciU3kIfoid3lT2MI9LvTgHpMPpt1kKoVD+lSO56sejskNahFJWSg5zuNX3fuoqARnVasv++tVV9nYiwY1A27Y4yw8nnj+2UZBLAuCK4uzZMDKTiZxbTNxCzGsF7HcIgDmk6c+9ryl1AxfRq7DtNBOuB1PDECd6bXF8+kT6u6c2xhjZvYJPlYTW9JDEWKvDRgzI+enYCJp2E4aJ5YjStjVN0f9d1Ouu51KjrmHxFwjSUd5RoRrzzz2B8QALnjX2m8awgfgBq852ko7fVkiKjNMP6SFaL79Zvmjcv0Y3M1HUXiCLdoz6zXLqCknDU5DCgkVBXZjgnee+XUVDuZQz/cWn8hjSM1ONjAYvJcup0bjhGMFY/U7wQ1sJQC44IQdX7o+f++qagO/8kZMIkdsYVmKVxEkqOBATKCozcYXOjJQaWjBUwUraieG1vQb3Y1tXcFVdiN7gmeGFS8CQbntYRE4OPr3T2HnIDF7LEtQ/P7GMIgu88fXOrLKzB2nSRP+EPkX56BWfoRTTPeMwI/x887FraJzHu5ZpGLaAAXMAWa1HQ7uNcB68U/8H+gPvJW5p19USX8wBdcymfOSIcHkLfpIJFODHmkO4oiMf155dzlmxacdz9w+YznPCNLhS2AdXbRiKgnbmZJKvBGnM5xTRFbjKIcBbR1IJrJpplbp/3w/LM0KmGSEmKWXSaJ6jcxZ0Vv2e8qNbI5LyOzyB+hSPb19sIh3sC58GG7vb6YrqYQKRkBmOZNYwM4QngEN+6NyIEPrdr/Hx6dXf4XMzvLs1llIrFSIedakd2czIui/N/Vxogcmd1TTtDMy9NrwxUO68NrmExSvsqwIWgan3EDd4Luns4LXzIw69kVf8s8/7t7nxAjHpFpmUgNX2JBsmblmyePAgYXpxKf3n2Mz6lOMpM7+FIssyI4M7AlWImcCXe2+3fEYCSYFiJfIayAJqDOkRamGBbpKPN8smkb4nnO4HaaBd0SuhXwbQEy4ft719oiVbELUMPBAiNtX7fqWVlyPfHFq4U2VhGu81KTONg3H2ymaK7w4Cn9//tK50QMKW/Azw/aAwCFDyCUVAbkpXDCjaYPCaeQW7AMGY7XQ15MoLxahyjVygNjf9+xh3xWmMCI5lXaDKmd54IqiBbUiGCjfuuJ8Lrn05IfFCuqrckA4WCKP6xqmQzOHYOl2xUnyaEOH6PzCjkVkcJmLDzn0tXA="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="EMOSob6uchl5Ib3kkrjcEQ==" iv="MN70afJXulyD3NMy" dati="sX6tanVzJrJmcRAsnjh6gTYqv+fEKN4mG9aEHNL66Z/DWkgg0FE3zDTnLTcHSm3AjYxsmv6x63Jm1VKmVRuN7dIEbPBpBKrKP+RofyYtnAiTEHX6a9m74JJJIol6ntge5VjKdYn10j88vGMRRCNslfIsGG/NcTjEf/UijbtMkx07DuY3GUfnYtifCpmRy12h+8u3VUtj1v8epVt7CrO6dxRMDIjj0nhn3RqXIzkj0aQeSCMgKCGBGDYghNWTsNnGcXLgKDAvy0K8PpFGfl9eH7q+ctZpCHKOP5DJv4fI9JpoQYs4pBW3+IbYxEQV28CyahwKJJtMOGlKRekCjT13b+0DIvCVeVP8SU4tuTRsOLUhIPkdnBgQ8FmyWjTN1+NIWQQl8jR8NJRIVl4XX12ZeHyBDyCrDbNmOzZtJVIYI40HqWdw1Efks0W7SEUBv2THNre1Y9HN21l/0xyXNTnr9zeFS3ykI4xxA5PB4K+a8T1B1IuvGlHEjO661zgSJyrK6OkaCn0VIKIovOwAvyzlVB4y/seWDZxWw1cciSKMYRi3+BWhJvHwlte3LYk4v5NACKTA8P8H+MOTGC3PwBLtg+8yOZtyGX5ZCZTHhj3aYEN6kR+3V3tg/IQSPhR42wNWC4b45tAWzqAXZUPu2lq2KzwD1azmdvMSbH+0C7SW8k8irPZRH54WpsYX5VqclpP5acKuMcjfs2N6/xaquST5MGQpUVbMAN5DCA2RaHLw0pysoXBFHj8vTbHEGVBS7cYQU9ka4UvwCZ1P6GB67eQpnzGs3+DILSp/u/KZsCWv4ZoQI0nS/lm20+BpLpkUue48KcZcXnuJy6kvbYL/gOJ8oVnVqAeYaAOH6Uwubf6w0yyP3BmOm/7QS7xyduVCHpX0omLKWfDrIoB8RIh4RfvRyzu3re0Ue/rtO6/G2uT5hY4CFqj3ITUmuffAhJvXzYeI1vzdyF86VKpIgHHYKSWbH6swHMPVQ8TR3gNgaGs534EpHJJATO/v519bVgQs2STnXjqOxeNipeFYx4Bs1J2KVb4vBIfhhH1GWTQC4RXTtZswCE24UCk1QAYS0nMiG8KZWHejo8sARRQmhxeDvag+W1ex85QIYWqWQ3wRSUtYjvEkjRIAq3V6T2nlasOid0yx7irlmRSL4mNOj3lTR7vbaaNaOqvnzRR6MVOFr1aoTgWIeu2Xj5woZmHxU6fidkJvM2jJEBhsk/p4fcuuKgQGavbUn72wVI9ftsV36rghds6Y6M3fK+XvmELWpr9mx8nVBhT0IIzgq69nN7nbxGIgEF49TF4+6YPwN4AhMVmqyExk0S6QJfdExW3PW4SsM5Mdk93R5Vl81C0VN1GWuohXvMi5CU1euo4="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C5-CD-U07-L2">
       <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C5-CD-U07-L2</span></span>
       <p>Armonizza a quattro parti il <strong>canto dato</strong>: sedici battute in 4/4, sol maggiore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: tutto quello studiato, e una modulazione a un tono vicino.</p>
       <tac-stave caption="Il canto dato" clef="treble" keysig="G" time="4/4" notes="g/5:h g/5:h | f/5:h g/5:h | e/5:w | c#/5:w | d/5:w | d/5:h b/4:h | b/4:w | c/5:h a/4:h | b/4:h c/5:h | e/5:h c/5:h | b/4:h c#/5:h | d/5:h b/4:h | d#/5:w | e/5:w | e/5:h f/5:h | g/5:w" tempo="66" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C5-CD-U07-L2</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="egf/cod7zYCVxS644Lr9TQ==" iv="7wIbw9aSvGOaEr4h" dati="r/UbAhnj5EaMEqKo5sx4r5dx/3SfU9SqjgE5FkJ6bJMCovZgjXw/jtYw9NzoJGSsveV/FsXALWR8+yS7uymDZL5MvVU34rLxT0ylXUCDQLNwNggIi6O3sBiEcU1nznnWKS0+ypn8lE7DN5/DZFnbEkOoFXmvFH/GL04Igju0hpksr8fgER7ZwOIIn8YG82PkWI8qMxxqnaYMPaR9PIb0oxNKtgZC6E3gSClFKKevn3T9LX4h26nySCXjeQy8fm4C8OuFGMhnP95KT46NPzJGNWoF4MAoTKeomGnzEx/Y74x5YbQT1SBHYfNFN2zYEv65rSbOSKaXA5nOZTofRReI06J+ajVBE4Su7WOJ86Johe0lAzM/0qXj6Y7QnQUX2HsCPHz/KJW88R6IznsSjqJqeGMqPrHn1G2PtU3jcLT2qOz4gauhZsiZK+wukcAgpftaGrvOtQBysNAFz0IGqRPtr58Cs3mWmrhd5fJQIdO9w3+oM0aPJ2jrZ/y3Q6V8B06AeLeuUOL/yiMOxwvtTwmZRuuZ5PO9QDViz/iHz1LT56TSHfiyFaqQaRZ3q5Mjt/SfrtdLyqdrpANaJ2QD+XppVBA9zjm0kz+knhMt7q/avj5H2wa2xxRz1iKvrb/Nyiccq+BU9511adOZwLV26ahczR/f67JeN46pG/uvuojvSE+y6FND0hXPy6E9GEoYt7BDgzKD00Jzkd6Dth/1yMnKf1c+XGE2kqm/VJQExI+02kWtfoad5h2kbZBq/lVQMo90zY0InWt9VYpQBR02wCBUhLtnslqJsmUcyAnK4D4fhn9bpNX5lquJ3tAAWWGKuxJPY1M/nR8mlrZggL8D+0dGxX8h1gO1sWjk/FgenEdMkw/ugu9G1comjE9yXkxGybhFiv/JfJnclysvSqvI7dBu1iOfr98Ha7iZ2LwlqETE0JlmwHDR/D7CYkeN0iB1FRmehfSF+IxtkGAD9lF6AMXA+Lc74cJBqeEsHeqXKbbHf64kWfWpjEgzHLxCDVYtN3zll2q9BDvZ/oAm6g6P9lv0IlouWgXvI4qwnxn59gGYVawm7CvBMPHO0lhHjruoAKUVbK3iiEiHtdXklgmlEavMfimwq+2l9f4iKNcIsZRLsqZQK3WWD7Un/qLAs4z/a5FeGg0VngUlkvX011VGSUmX4BR355D+/ipZAvs8D75F99wPI8qpHQprGdUdV1hVFNk+VqGu3ejI9KXOLRas7VG5LkbHBjo+ZzG4MlAcZXQsIfwmfJuPfixSQJpYEfNOeJsmMQI02KvnvnJLQAqWra9mehuX1iCeKTJbfMIENjEsx4F0RE88vO3OSjrv/Ux1RQmXlCs/oc4LBJRZGEO9SZjFeGr7/qGSeMtzirpqGf43mXxeybn62JG0vqP4vWN2YNqrmgs="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="uCgVEiwuMveC4xhErpiA5g==" iv="EEcqgxVW3zVpTKoi" dati="7RRaMNvjLj0tz9j1i/OT5/kIqNDHhzlEnupysCgLS7lzL0EJGnmVTBwXBn2FV9NsLaMs6L8sRqn+x3VWr8q3xqUYNae8srWIcVy5jpuAZrULH3KZb4ze6b+zoj/jATmZK5Cu9O8kVMvQi6kNHaeEquhSC6NrFD4JYKyTeIHlOqjthRkUmfBKtmkzJ7t4w185wknSrXHE3XviIc3HGQQ+MUrrvF4MdadfViIaXv8XC1/iazpi5FPdoFkQR6IO1nBx7RwyvXlAFQi75swYVl2PTsRbLTBDXFMKLSbcFmrPDjCubiKPlYVLqG0qgnIWj+whiRaazeH+hft8E6WQwVWA1rfcCjWAHHacsp/4psXZOqSYBsnNMPebU2Fut3B1MUYuLuwWJiRzeNU5XBrFmEoMmFmZaYaTcFnEn/MrkDI5qiENb7HalnX85MsauFl+VzZOGQtZ/tgFXNZXcra3BQcILzrFpsSLHHc4GBn+yefSKJ8ZF/foQUv4A3WA6vn01K2X/G4w08wsOT6hH8txBN6/EkHMqW1sZVZRz6SgGVHcr/KkVsL/LNUr5VC/5uFp6rrNox4hQ86d50Xsy63o4Ee7zq04OkRe/EORD0ZGs58+6GhtTQJU7XjWu1TW9as/BiTWqc6LID/bSd7FPcSc9BIdzFZ83WNFWonPua/8hDAKyAYSgP3a10ao3UPnPloZhy44kCoxu9YWUyzEUXwwDO+6gRJ2wUBgqf41kKXbMKtMBWMAGbGqOCb/TFWcuwoWvlPnGkPXZEMCO35zzjqbVmqOlkG/JVof59/Wsw+Zr/aB6XbXmM+O9WmnHIkji7iEoUt53l44VtyCkUoGTjGKE95wQBauZG48/OChxHFB5JuolGDbatGcJp4h7mQUk8PLT5f+iiGjYIk+payGZlj2Y87AN90ImTMAMPaf0cK+2A9lc36AaJ5q5hQ51tYnsDiA8tQDTQnNHm3ivkyQbN70lfLBnwiz6FTBNI7h/jvEB8uyaNTWSBsX6Io7J55YzrW6fvjINclABXcrkAQMZcsV5rGX5KAUlmw0NShuaMrRle4YaUgW6RClfwY+BeNAlA3MpCpnD3Tra+GOzlDHRC20/WJnmyW9v5YDKeg747ogeLQ0ZivKvnuZCY9Fs8M6GtHEIgAkDt9WPh6HmBlwGXrkFxOyOVSyoejCGi9VKN2OecCqbmkBLdb48NHIP2/fYj03Uq5U5S+QKTbvISMYlHbwH7XsF3QQGyLF1chNEGh5LmINlOfTorcU07942TMVKKUGSRcUo9x5bc0YSh0SPdqmZw9Zz5swkLyVmS7tLIjDSNFCMQpwIG87nFj9RV31CgbKWfG7/43DHVd2ISOTE9JlVyAEjmt4QIORg2P027qlZVP2CSY2TP7rg68c1MKY/Z4pm/2GBhw="></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Quattro accordi, quattro forme prime (Workbook, esercizio C5-U7-L2-01), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 386, 387; cantato n. 388, 389; ritmico n. 390, 391 (a tempo, senza fermarsi). Dettato C5-D-U07-L2 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di terza specie sul canto fermo (C5-CP-U07-L2). Basso senza numeri da realizzare a quattro parti (C5-BD-U07-L2). Canto dato da armonizzare a quattro parti (C5-CD-U07-L2).</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Otto battute su due tricordi (Workbook, esercizio C5-U7-L2-04), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 386, 387; cantato n. 388, 389; ritmico n. 390, 391 (a tempo, senza fermarsi). Dettato C5-D-U07-L2 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di terza specie sul canto fermo (C5-CP-U07-L2). Basso senza numeri da realizzare a quattro parti (C5-BD-U07-L2). Canto dato da armonizzare a quattro parti (C5-CD-U07-L2).</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>
@@ -406,14 +363,6 @@ try { module = undefined; exports = undefined; } catch (e) {}
   </div>
 </section>
 
-<section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
-  <div class="slide-interna">
-    <p class="compiti-occhiello">In classe</p>
-    <h2>Scriviamo adesso: Che cosa vede, e che cosa no</h2>
-    <p>Scrivi due elenchi: quello che l&rsquo;analisi per insiemi vede, e quello che non vede.</p>
-    <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna.</p>
-  </div>
-</section>
 
 
 </div>

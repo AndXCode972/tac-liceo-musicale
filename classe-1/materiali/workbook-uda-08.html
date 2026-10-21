@@ -15,7 +15,7 @@
      usa, e con `defer` i due file girano nell'ordine in cui stanno
      scritti qui. -->
 <script src="../../_assets/js/codice.js" defer></script>
-<script src="../../_assets/js/tac-core.js?v=b43da6be" defer></script>
+<script src="../../_assets/js/tac-core.js?v=a489d51c" defer></script>
 <style>
   .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
                 border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
@@ -93,11 +93,26 @@
        era un'abitudine presa dal compito in classe, e costava un centimetro
        e mezzo in cima a ogni foglio stampato. -->
 
-  <div class="riquadro attenzione">
-    <span class="etichetta">Come si usa</span>
-    <p>I compiti sono di tre specie, e ognuna si consegna in modo suo. <strong>Da fare online</strong>: allo schermo. <strong>Da ascoltare</strong>: serve all'orecchio. <strong>Da scrivere</strong>: sul quaderno, poi una foto su Classroom.</p>
-    <p style="margin-top:.5rem">Il voto dell'unità lo dà <strong>una cosa sola</strong>: la verifica in fondo, quella che restituisce un codice. Tutto il resto si consegna e si corregge, ma non fa voto &mdash; il che non vuol dire che non conti: è lì che si impara, e la verifica misura solo quello che hai imparato facendolo.</p>
-    <p style="margin-top:.5rem">Stampa <strong>una lezione alla volta</strong>, col pulsante che trovi accanto al titolo.</p>
+  <p class="avvertenza">Si scrive sul <strong>quaderno</strong>, a matita; la foto va su <strong>Classroom</strong>. La sigla è l&rsquo;indirizzo dell&rsquo;esercizio: è quella che si scrive in testa al lavoro.</p>
+
+  <div class="lez" data-lezione="1">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 1</span>
+        <h2>Lezione 1 &mdash; La sesta e quarta cadenzale</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+    <div class="consegna" id="C1-U8-L1-11">
+      <p class="titolo-consegna"><span class="num">1</span> Un basso cifrato con la sesta e quarta</p>
+      <div class="testo">Realizza a quattro parti.</div>
+      <div class="materiale">
+      <tac-stave clef="bass" time="4/4" keysig="G" caption="Il basso, con i gradi" notes="g/2:h b/2:h | c/3:h d/3:h | b/2:h c/3:h | d/3:h d/3:h | g/2:h f/2:h | g/2:h c/3:h | d/3:h d/3:h | g/2:w" cifre="I &middot; I6 &middot; IV &middot; V &middot; I6 &middot; IV &middot; I64 &middot; V &middot; I &middot; V6 &middot; I &middot; IV &middot; I64 &middot; V &middot; I" width="900" tempo="60"></tac-stave>
+      </div>
+    </div>
+    </section>
   </div>
 
   <div class="lez" data-lezione="2">
@@ -110,35 +125,34 @@
     </div>
 
     <section class="parte scritto">
-      <h3>Da scrivere sul quaderno</h3>
-      <p class="spiega">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
-    <div class="consegna" id="C1-U8-L2-01">
-      <p class="titolo-consegna"><span class="num">1</span> Le due note che tirano</p>
-      <div class="testo">Riprendi le quattro settime di ieri. Su ciascuna, cerchia la <strong>sensibile</strong> e la <strong>settima</strong>, e disegna una freccia verso dove vanno.<p class="dettaglio">La sensibile sale di un semitono; la settima scende di un grado. Sono le due note che rendono l&rsquo;accordo instabile, ed &egrave; il motivo per cui chiede di risolvere.</p></div>
-    </div>
-    </section>
-    <section class="parte scritto dettato-casa" id="C1-D-U08-L2">
-      <h3>Dettato <span class="dettato-sigla">C1-D-U08-L2</span></h3>
-      <p class="spiega">Scrivi <strong>la melodia</strong> sul quaderno, in chiave di violino: otto battute in 3/4, la minore. Il primo suono è <strong>la</strong>. Prima il riferimento, poi tutto due volte, ogni coppia di battute due volte, il collegamento 1–4, 3–6 e 5–8, e tutto per controllare. Le sezioni (riferimento, tutto, le coppie, il collegamento) si ascoltano una per una e si ripetono quanto serve; le <strong>fasi</strong> fanno la procedura della classe, con gli annunci e le pause, da qualunque punto. Sul quaderno scrivi in testa la sigla <strong>C1-D-U08-L2</strong>.</p>
-      <div class="dettato-ascolti">
-        <div><p class="didascalia">Il riferimento: accordo di tonica e primo suono</p>
-          <tac-stave nascondi riferimento clef="treble" time="3/4" keysig="C" notes="a/3:q c/4:q e/4:q a/4:q | a/4:w" tempo="80" play></tac-stave></div>
-        <div><p class="didascalia">Il dettato &middot; otto battute</p>
-          <tac-stave nascondi cifrato guidato="melodico" clef="treble" time="3/4" keysig="C" notes="Lmg6NC9hIHwgaDo0L2IgcTo0L2IgfCBxOjQvYSBxOjQvZiBxOjQvZCB8IGg6NC9jIHE6NC9lIHwgLmg6NC9lIHwgaDo0L2YgcTo0L2EgfCBxOjQvYSBoOjQvZiB8IGg6NC9hIDg6NC9iIDg6NC9h" tempo="60" play></tac-stave></div>
+    <div class="consegna" id="C1-U8-L2-11">
+      <p class="titolo-consegna"><span class="num">1</span> Un basso cifrato con il V7</p>
+      <div class="testo">Realizza a quattro parti.</div>
+      <div class="materiale">
+      <tac-stave clef="bass" time="4/4" keysig="F" caption="Il basso, con i gradi" notes="f/2:h b/2:h | c/3:h f/2:h | a/2:h b/2:h | c/3:w | f/2:h e/2:h | f/2:h b/2:h | c/3:h c/3:h | f/2:w" cifre="I &middot; IV &middot; V7 &middot; I &middot; I6 &middot; IV &middot; V &middot; I &middot; V6 &middot; I &middot; IV &middot; V &middot; V7 &middot; I" width="900" tempo="60"></tac-stave>
       </div>
-      <tac-griglia sistemi="2" tipo="singolo" clef="treble" keysig="C" time="3/4" width="640"></tac-griglia>
+    </div>
     </section>
-    <details class="parte facoltativi">
-      <summary><strong>Per esercitarsi ancora</strong> &middot; facoltativi, 2</summary>
-    <div class="consegna" id="C1-U8-L2-04">
-      <p class="titolo-consegna"><span class="num">2</span> Sei settime di dominante</p>
-      <div class="testo">Scrivi la settima di dominante di <em>do</em>, <em>sol</em>, <em>re</em>, <em>fa</em>, <em>si</em>&#9837; e <em>la</em> minore.<p class="dettaglio">Per ciascuna, i tre passi: quinto grado, triade maggiore sopra, settima <strong>minore</strong>. Poi cerchia le <strong>due note del tritono</strong> e segna con due frecce dove vanno a finire. Attento all&rsquo;ultima: in minore la sensibile va alzata, e senza quella non &egrave; una dominante.</p></div>
+  </div>
+
+  <div class="lez" data-lezione="3">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 3</span>
+        <h2>Lezione 3 &mdash; Dettato armonico: le cadenze</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
     </div>
-    <div class="consegna" id="C1-U8-L2-03">
-      <p class="titolo-consegna"><span class="num">3</span> Otto settime di dominante</p>
-      <div class="testo">Scrivi il <strong>V<sup>7</sup></strong> di ciascuna tonalit&agrave;, allo stato fondamentale, con l&rsquo;armatura.<p class="dettaglio"><em>do</em> &middot; <em>sol</em> &middot; <em>fa</em> &middot; <em>re</em> &middot; <em>si</em>&#9837; &middot; <em>la minore</em> &middot; <em>re minore</em> &middot; <em>mi minore</em>.<br>I due passi: trova il <strong>quinto grado</strong>, poi terza maggiore, quinta giusta, settima minore.<br>Il controllo: dentro ciascuno <strong>cerchia il tritono</strong>. Se non lo trovi, torna indietro prima di passare al prossimo.</p></div>
+
+    <section class="parte scritto">
+    <div class="consegna" id="C1-U8-L3-11">
+      <p class="titolo-consegna"><span class="num">1</span> Le cadenze di un dettato, a quattro parti</p>
+      <div class="testo">Realizza a quattro parti.</div>
+      <div class="materiale">
+      <tac-stave clef="bass" time="4/4" keysig="D" caption="Il basso, con i gradi" notes="d/3:w | g/2:w | a/2:w | b/2:w | d/3:w | g/2:w | a/2:h a/2:h | d/3:w" cifre="I &middot; IV &middot; V7 &middot; VI &middot; I &middot; IV &middot; I64 &middot; V7 &middot; I" width="900" tempo="60"></tac-stave>
+      </div>
     </div>
-    </details>
+    </section>
   </div>
 
   <div class="lez" data-lezione="4">
@@ -151,35 +165,14 @@
     </div>
 
     <section class="parte scritto">
-      <h3>Da scrivere sul quaderno</h3>
-      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
-    <div class="consegna" id="C1-U8-L4-01">
-      <p class="titolo-consegna"><span class="num">1</span> Risolvere, scritto</p>
-      <div class="testo">Scrivi <strong>V7 &ndash; I</strong> in do, sol e fa maggiore, a quattro suoni il primo e a tre il secondo.<p class="dettaglio">Muovi solo quello che deve muoversi: la sensibile sale, la settima scende, le altre restano dove sono se possono. Guarda quante note cambiano davvero.</p></div>
-    </div>
-    </section>
-    <section class="parte scritto dettato-casa" id="C1-D-U08-L4">
-      <h3>Dettato <span class="dettato-sigla">C1-D-U08-L4</span></h3>
-      <p class="spiega">Scrivi <strong>la melodia</strong> sul quaderno, in chiave di violino: otto battute in 3/4, do maggiore. Il primo suono è <strong>do</strong>. Prima il riferimento, poi tutto due volte, ogni coppia di battute due volte, il collegamento 1–4, 3–6 e 5–8, e tutto per controllare. Le sezioni (riferimento, tutto, le coppie, il collegamento) si ascoltano una per una e si ripetono quanto serve; le <strong>fasi</strong> fanno la procedura della classe, con gli annunci e le pause, da qualunque punto. Sul quaderno scrivi in testa la sigla <strong>C1-D-U08-L4</strong>.</p>
-      <div class="dettato-ascolti">
-        <div><p class="didascalia">Il riferimento: accordo di tonica e primo suono</p>
-          <tac-stave nascondi riferimento clef="treble" time="3/4" keysig="C" notes="c/4:q e/4:q g/4:q c/5:q | c/4:w" tempo="80" play></tac-stave></div>
-        <div><p class="didascalia">Il dettato &middot; otto battute</p>
-          <tac-stave nascondi cifrato guidato="melodico" clef="treble" time="3/4" keysig="C" notes="Lmg6NC9jIHwgaDo0L2QgcTo0L2QgfCBxOjQvYyBxOjQvZSBxOjQvZSB8IHE6NC9jIHE6NC9lIHE6NC9nIHwgcTo0L2cgaDo0L2IgfCBxOjUvYyA4OjQvYSAucTo0L2YgfCBxOjQvZiBxOjQvYSBxOjQvZiB8IDg6NC9lIDg6NC9jIDg6NC9kIDg6NC9lIHE6NC9j" tempo="60" play></tac-stave></div>
+    <div class="consegna" id="C1-U8-L4-11">
+      <p class="titolo-consegna"><span class="num">1</span> Un basso cifrato: V7–I e V7–VI</p>
+      <div class="testo">Realizza a quattro parti.</div>
+      <div class="materiale">
+      <tac-stave clef="bass" time="4/4" keysig="D" caption="Il basso, con i gradi" notes="d/3:h g/2:h | a/2:h d/3:h | g/2:h a/2:h | b/2:w | d/3:h f/3:h | g/3:h g/2:h | a/2:h a/2:h | d/3:w" cifre="I &middot; IV &middot; V7 &middot; I &middot; IV &middot; V7 &middot; VI &middot; I &middot; I6 &middot; IV &middot; IV &middot; I64 &middot; V7 &middot; I" width="900" tempo="60"></tac-stave>
       </div>
-      <tac-griglia sistemi="2" tipo="singolo" clef="treble" keysig="C" time="3/4" width="640"></tac-griglia>
+    </div>
     </section>
-    <details class="parte facoltativi">
-      <summary><strong>Per esercitarsi ancora</strong> &middot; facoltativi, 2</summary>
-    <div class="consegna" id="C1-U8-L4-04">
-      <p class="titolo-consegna"><span class="num">2</span> Sei settime, sei risoluzioni</p>
-      <div class="testo">Scrivi <strong>sei accordi di settima di dominante</strong> in sei tonalit&agrave; e risolvi ciascuno sulla tonica.<p class="dettaglio">In ognuno cerchia la <strong>settima</strong> e disegna la freccia verso dove va. Le sei frecce puntano tutte in gi&ugrave;, di un grado: se una punta in su, quella non &egrave; una risoluzione.</p></div>
-    </div>
-    <div class="consegna" id="C1-U8-L4-03">
-      <p class="titolo-consegna"><span class="num">3</span> Sei risoluzioni, con le frecce</p>
-      <div class="testo">Per sei tonalit&agrave;: scrivi il <strong>V<sup>7</sup></strong>, poi l&rsquo;accordo di <strong>tonica</strong>, e traccia <strong>due frecce</strong>.<p class="dettaglio"><em>do</em> &middot; <em>sol</em> &middot; <em>fa</em> &middot; <em>re</em> &middot; <em>la minore</em> &middot; <em>mi minore</em>.<br>Una freccia sulla <strong>sensibile</strong>, una sulla <strong>settima</strong>. Devono andare in direzioni opposte e avvicinarsi: se puntano dalla stessa parte, una delle due note &egrave; sbagliata.<br>Sotto ciascuna coppia scrivi quali due note facevano il <strong>tritono</strong> e che intervallo &egrave; diventato. Deve venire sempre una terza.</p></div>
-    </div>
-    </details>
   </div>
 
   <div class="lez" data-lezione="5">
@@ -192,33 +185,14 @@
     </div>
 
     <section class="parte scritto">
-      <h3>Da scrivere sul quaderno</h3>
-      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
-    <div class="consegna" id="C1-U8-L5-01">
-      <p class="titolo-consegna"><span class="num">1</span> Una frase con la settima dentro</p>
-      <div class="testo">Scrivi <strong>quattro accordi</strong> in do maggiore che finiscano con <strong>V7 &ndash; I</strong>.<p class="dettaglio">I primi due scegli tu, fra le triadi dei gradi che conosci. Sotto ogni accordo scrivi il numero romano. Poi suonala al pianoforte.</p></div>
-    </div>
-    </section>
-    <section class="parte scritto dettato-casa" id="C1-D-U08-L5">
-      <h3>Dettato <span class="dettato-sigla">C1-D-U08-L5</span></h3>
-      <p class="spiega">Scrivi <strong>il ritmo</strong> sul quaderno: otto battute in 2/4. Ascolta tutto due volte, poi ogni coppia di battute due volte, poi il collegamento 1–4, 3–6 e 5–8, e tutto per controllare. Le sezioni (riferimento, tutto, le coppie, il collegamento) si ascoltano una per una e si ripetono quanto serve; le <strong>fasi</strong> fanno la procedura della classe, con gli annunci e le pause, da qualunque punto. Sul quaderno scrivi in testa la sigla <strong>C1-D-U08-L5</strong>.</p>
-      <div class="dettato-ascolti">
-        <div><p class="didascalia">Il dettato &middot; otto battute</p>
-          <tac-stave nascondi cifrato guidato="ritmico" clef="percussion" time="2/4" notes="aDo0L2IgfCBxOjQvYiBxOjQvYiB8IHE6NC9iIHE6NC9iIHwgcTo0L2IgODpyIDg6NC9iIHwgcTo0L2IgcTo0L2IgfCA4OjQvYiA4OjQvYiBxOjQvYiB8IHE6NC9iIDg6ciA4OjQvYiB8IGg6NC9i" tempo="60" play></tac-stave></div>
+    <div class="consegna" id="C1-U8-L5-11">
+      <p class="titolo-consegna"><span class="num">1</span> Un basso senza numeri con la sesta e quarta e il V7</p>
+      <div class="testo">Realizza il basso a quattro parti.</div>
+      <div class="materiale">
+      <tac-stave clef="bass" time="4/4" keysig="Am" caption="Il basso, otto battute" notes="a/2:h b/2:h | c/3:h d/3:h | f/3:h d/3:h | e/3:h e/3:h | a/2:h g#/2:h | a/2:h d/3:h | e/3:h e/3:h | a/2:w" width="900" tempo="60"></tac-stave>
       </div>
-      <tac-griglia sistemi="2" tipo="ritmico" time="2/4" width="640"></tac-griglia>
+    </div>
     </section>
-    <details class="parte facoltativi">
-      <summary><strong>Per esercitarsi ancora</strong> &middot; facoltativi, 2</summary>
-    <div class="consegna" id="C1-U8-L5-04">
-      <p class="titolo-consegna"><span class="num">2</span> Il giro completo: cifra, copri, realizza</p>
-      <div class="testo">Prendi <strong>quattro accordi</strong> dal libro, cifrali, copri l&rsquo;originale e realizza il tuo cifrato.<p class="dettaglio">Poi confronta. Non deve venire identico &mdash; sarebbe strano &mdash; ma deve venire la <strong>stessa armonia</strong>: stesse note, stessi rivolti, voci disposte diversamente. Se viene un&rsquo;armonia diversa, l&rsquo;errore &egrave; nella cifratura, e scrivi <strong>dove</strong>.</p></div>
-    </div>
-    <div class="consegna" id="C1-U8-L5-03">
-      <p class="titolo-consegna"><span class="num">3</span> Dieci da cifrare, otto da realizzare</p>
-      <div class="testo">I due versi, met&agrave; per uno. &Egrave; il ripasso della parte &laquo;Scrivere&raquo; della V4.<p class="dettaglio"><strong>Cifrare.</strong> Dieci accordi in fotocopia, con la tonalit&agrave; sopra: fondamentale, grado in numero romano, e il 7 se c&rsquo;&egrave;. Scrivi a lato le distanze fra note vicine &mdash; 3-3-3, oppure dove sta la seconda.<br><strong>Realizzare.</strong> Otto accordi da scrivere sul rigo, dal nome: quattro triadi sui gradi e quattro V<sup>7</sup>. Con l&rsquo;armatura.<br>Fra i dieci da cifrare ce ne sono <strong>tre triadi</strong>: vanno cifrate senza il 7.</p></div>
-    </div>
-    </details>
   </div>
 
   <div class="lez" data-lezione="6">
@@ -230,50 +204,15 @@
       <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
     </div>
 
-    <section class="parte ascolto">
-      <h3>Da ascoltare</h3>
-      <p class="spiega">Non si valuta, serve all&rsquo;orecchio. Fallo davvero, poi segna la casella: la spunta è per te, per sapere dove sei arrivato.</p>
-    <div class="consegna" id="C1-U8-L6-01">
-      <p class="titolo-consegna"><span class="num">1</span> Cantare sapendo che cosa c&rsquo;&egrave; sotto</p>
-      <div class="testo">La melodia di oggi, tre volte: con la registrazione dell&rsquo;accompagnamento, poi con l&rsquo;accordo solo all&rsquo;inizio di ogni battuta, poi <strong>senza niente</strong>.<p class="dettaglio">Al terzo giro registrati con il telefono e riascoltati con l&rsquo;accompagnamento sotto: si sente subito dove sei calato.<br>Se ti perdi, non ricominciare da capo: <strong>aggancia l&rsquo;accordo</strong> e rientra alla battuta dopo. &Egrave; la cosa che ti chiedo di imparare, pi&ugrave; delle note giuste.</p></div>
-    </div>
-    </section>
     <section class="parte scritto">
-      <h3>Da scrivere sul quaderno</h3>
-      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
-    <div class="consegna" id="C1-U8-L6-04">
-      <p class="titolo-consegna"><span class="num">2</span> Le pause del solfeggio, contate</p>
-      <div class="testo">Sul solfeggio cantato oggi: cerchia <strong>tutte le pause</strong> e scrivi sopra ciascuna quanti movimenti dura.<p class="dettaglio">Poi scrivi, accanto alla pausa pi&ugrave; lunga, <strong>su quale movimento rientri</strong> dopo. &Egrave; l&rsquo;informazione che serve cantando con qualcun altro, e l&rsquo;unica che non si pu&ograve; ricavare mentre si canta.</p></div>
-    </div>
-    </section>
-    <section class="parte scritto dettato-casa" id="C1-D-U08-L6">
-      <h3>Dettato <span class="dettato-sigla">C1-D-U08-L6</span></h3>
-      <p class="spiega">Scrivi <strong>la melodia</strong> sul quaderno, in chiave di violino: otto battute in 3/4, do maggiore. Il primo suono è <strong>do</strong>. Prima il riferimento, poi tutto due volte, ogni coppia di battute due volte, il collegamento 1–4, 3–6 e 5–8, e tutto per controllare. Le sezioni (riferimento, tutto, le coppie, il collegamento) si ascoltano una per una e si ripetono quanto serve; le <strong>fasi</strong> fanno la procedura della classe, con gli annunci e le pause, da qualunque punto. Sul quaderno scrivi in testa la sigla <strong>C1-D-U08-L6</strong>.</p>
-      <div class="dettato-ascolti">
-        <div><p class="didascalia">Il riferimento: accordo di tonica e primo suono</p>
-          <tac-stave nascondi riferimento clef="treble" time="3/4" keysig="C" notes="c/4:q e/4:q g/4:q c/5:q | c/4:w" tempo="80" play></tac-stave></div>
-        <div><p class="didascalia">Il dettato &middot; otto battute</p>
-          <tac-stave nascondi cifrato guidato="melodico" clef="treble" time="3/4" keysig="C" notes="Lmg6NC9jIHwgODo0L2MgODo0L2QgaDo0L2QgfCAuaDo0L2UgfCA4OjQvZCA4OjQvYyBoOjQvZSB8IDg6NC9nIC5xOjQvYiBxOjQvZyB8IHE6NC9hIGg6NC9mIHwgODo0L2UgODo0L2YgaDo0L2MgfCAuaDo0L2M=" tempo="60" play></tac-stave></div>
-      </div>
-      <tac-griglia sistemi="2" tipo="singolo" clef="treble" keysig="C" time="3/4" width="640"></tac-griglia>
-    </section>
-    <details class="parte facoltativi">
-      <summary><strong>Per esercitarsi ancora</strong> &middot; facoltativi, 2</summary>
-    <div class="consegna" id="C1-U8-L6-N1">
-      <p class="titolo-consegna"><span class="num">3</span> Srotolare, e riconoscere srotolato</p>
-      <div class="testo"><strong>A.</strong> Le quattro triadi del primo rigo non sono tutte in stato fondamentale. Sul quaderno scrivi ciascuna come <strong>arpeggio in salita</strong> che parte dalla fondamentale: fondamentale, terza, quinta, ottava. Sotto scrivi il <strong>grado</strong> in numero romano e la <strong>specie</strong>: maggiore, minore o diminuita.<p class="dettaglio"><strong>B.</strong> La melodia del secondo rigo è fatta di arpeggi. Sotto ogni battuta scrivi <strong>quale triade</strong> sta srotolando (numero romano) e la specie. In che ordine arrivano i gradi? Li hai già cantati oggi, in quell'ordine?</p></div>
+    <div class="consegna" id="C1-U8-L6-11">
+      <p class="titolo-consegna"><span class="num">1</span> Armonizzare un canto dato</p>
+      <div class="testo">Armonizza il canto a quattro parti.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">A · quattro triadi della scala di do</p>
-      <img class="inciso" style="width:81.1mm; aspect-ratio:81.13 / 11.72" src="incisioni/a12d39a449f4-1.svg" alt="">
-      <p class="didascalia-rigo">B · una melodia fatta di arpeggi</p>
-      <img class="inciso" style="width:155.4mm; aspect-ratio:155.41 / 11.72" src="incisioni/435bb5f27d31-1.svg" alt="">
+      <tac-stave clef="treble" time="4/4" keysig="G" caption="Il canto dato, otto battute" soprano="d/5:h d/5:h | b/4:h e/5:h | g/5:h e/5:h | d/5:w | b/4:h d/5:h | e/5:h c/5:h | b/4:h a/4:h | g/4:w" basso="r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w" width="900" tempo="66"></tac-stave>
       </div>
     </div>
-    <div class="consegna" id="C1-U8-L6-05">
-      <p class="titolo-consegna"><span class="num">4</span> La stessa nota, due accordi</p>
-      <div class="testo">Scegli <strong>tre note</strong> e per ciascuna trova <strong>due accordi diversi</strong> in cui quella nota sta.<p class="dettaglio">Scrivili, e sotto ognuno scrivi <strong>che ruolo ha</strong> quella nota nell&rsquo;accordo: fondamentale, terza o quinta. &Egrave; l&rsquo;esperienza che avete fatto cantando &mdash; una nota ferma che cambia significato &mdash; messa sulla carta.</p></div>
-    </div>
-    </details>
+    </section>
   </div>
 
 </div>

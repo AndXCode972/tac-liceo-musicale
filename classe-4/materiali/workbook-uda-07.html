@@ -15,7 +15,7 @@
      usa, e con `defer` i due file girano nell'ordine in cui stanno
      scritti qui. -->
 <script src="../../_assets/js/codice.js" defer></script>
-<script src="../../_assets/js/tac-core.js?v=b43da6be" defer></script>
+<script src="../../_assets/js/tac-core.js?v=a489d51c" defer></script>
 <style>
   .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
                 border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
@@ -94,12 +94,7 @@
        era un'abitudine presa dal compito in classe, e costava un centimetro
        e mezzo in cima a ogni foglio stampato. -->
 
-  <div class="riquadro attenzione">
-    <span class="etichetta">Come si usa</span>
-    <p>I compiti sono di tre specie, e ognuna si consegna in modo suo. <strong>Da fare online</strong>: allo schermo. <strong>Da ascoltare</strong>: serve all'orecchio. <strong>Da scrivere</strong>: sul quaderno, poi una foto su Classroom.</p>
-    <p style="margin-top:.5rem">Il voto dell'unità lo dà <strong>una cosa sola</strong>: la verifica in fondo, quella che restituisce un codice. Tutto il resto si consegna e si corregge, ma non fa voto &mdash; il che non vuol dire che non conti: è lì che si impara, e la verifica misura solo quello che hai imparato facendolo.</p>
-    <p style="margin-top:.5rem">Stampa <strong>una lezione alla volta</strong>, col pulsante che trovi accanto al titolo.</p>
-  </div>
+  <p class="avvertenza">Si scrive sul <strong>quaderno</strong>, a matita; la foto va su <strong>Classroom</strong>. La sigla è l&rsquo;indirizzo dell&rsquo;esercizio: è quella che si scrive in testa al lavoro.</p>
 
   <div class="lez" data-lezione="1">
     <div class="testa">
@@ -111,31 +106,190 @@
     </div>
 
     <section class="parte scritto">
-      <h3>Da scrivere sul quaderno</h3>
-      <p class="spiega">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
-    <div class="consegna" id="C4-U7-L1-02">
-      <p class="titolo-consegna"><span class="num">1</span> Il foglio delle sette figure</p>
-      <div class="testo">Costruisci il tuo foglio del repertorio: le sette figure, con i gradi, il basso e il nome.<p class="dettaglio">Mezza pagina, scritta a mano, che si tiene aperta mentre si armonizza. Aggiungi una colonna: <strong>dove finisce</strong> — sul I o sul vi, o tutti e due.</p></div>
-    </div>
-    </section>
-    <section class="parte scritto dettato-casa" id="C4-D-U07-L1">
-      <h3>Dettato <span class="dettato-sigla">C4-D-U07-L1</span></h3>
-      <p class="spiega">Scrivi <strong>la linea del basso</strong> sul quaderno, in chiave di basso: otto battute in 4/4, la minore. Il primo suono è <strong>do</strong>. Prima il riferimento, poi tutto due volte, ogni coppia di battute due volte, il collegamento 1–4, 3–6 e 5–8, e tutto per controllare. Le sezioni (riferimento, tutto, le coppie, il collegamento) si ascoltano una per una e si ripetono quanto serve; le <strong>fasi</strong> fanno la procedura della classe, con gli annunci e le pause, da qualunque punto. Sul quaderno scrivi in testa la sigla <strong>C4-D-U07-L1</strong>.</p>
-      <div class="dettato-ascolti">
-        <div><p class="didascalia">Il riferimento: accordo di tonica e primo suono</p>
-          <tac-stave nascondi riferimento clef="bass" time="4/4" keysig="C" notes="a/2:q c/3:q e/3:q a/3:q | c/4:w" tempo="80" play></tac-stave></div>
-        <div><p class="didascalia">Il dettato &middot; otto battute</p>
-          <tac-stave nascondi cifrato guidato="basso" clef="bass" time="4/4" keysig="C" notes="dzozL2EgfCBxOjMvYiBxOjMvI2cgcTozL2IgcTozL2IgfCBoOjMvYSBoOjMvZiB8IHE6My9hIHE6My9hIDg6My9iIDg6NC9jIDYxOjMvYiA2MTozL2EgNjE6My8jZyA2MTozL2EgfCBoOjMvZSA4OjMvZiA4OjMvZSBxOjMvI2cgfCBoOjMvYSA4OjMvYSAucTozL2YgfCB3OjMvYSB8IHc6NC9j" tempo="60" play></tac-stave></div>
+    <div class="consegna" id="C4-U7-L1-04">
+      <p class="titolo-consegna"><span class="num">1</span> Un basso di otto battute</p>
+      <div class="testo">Realizza il basso a quattro parti.</div>
+      <div class="materiale">
+      <tac-stave clef="bass"
+               time="4/4"
+               keysig="Em"
+               caption="Basso dato, otto battute"
+               notes="e/3:h d#/3:h | e/3:h c/3:h | a/2:h a/2:h | b/2:w"
+               width="1000"
+               tempo="60"></tac-stave>
+      <tac-stave clef="bass"
+               keysig="Em"
+               notes="g/2:h a/2:h | b/2:h c/3:h | a/2:h b/2:q b/2:q | e/2:w"
+               width="1000"></tac-stave>
       </div>
-      <tac-griglia sistemi="2" tipo="singolo" clef="bass" keysig="C" time="4/4" width="640"></tac-griglia>
-    </section>
-    <details class="parte facoltativi">
-      <summary><strong>Per esercitarsi ancora</strong> &middot; facoltativi, 1</summary>
-    <div class="consegna" id="C4-U7-L1-01">
-      <p class="titolo-consegna"><span class="num">2</span> Otto frammenti, e due non sono niente</p>
-      <div class="testo">Sul Workbook trovi otto frammenti di soprano. Per ciascuno: i gradi, il <strong>nome della figura</strong>, e il basso sotto quelle riconosciute.<p class="dettaglio"><strong>Due degli otto non sono nessuna figura</strong>, e scrivere «nessuna» è la risposta giusta. Se te ne risultano riconoscibili più di sei, stai forzando.</p></div>
     </div>
-    </details>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="2">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 2</span>
+        <h2>Lezione 2 &mdash; Le seste eccedenti: italiana, francese, tedesca</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+    <div class="consegna" id="C4-U7-L2-01">
+      <p class="titolo-consegna"><span class="num">1</span> Un basso di dodici battute</p>
+      <div class="testo">Realizza il basso a quattro parti.</div>
+      <div class="materiale">
+      <tac-stave clef="bass"
+               time="4/4"
+               keysig="Dm"
+               caption="Basso dato, dodici battute"
+               notes="d/3:h c#/3:h | d/3:h g/2:h | b/2:h a/2:h | a/2:h d/3:h"
+               width="1000"
+               tempo="60"></tac-stave>
+      <tac-stave clef="bass"
+               keysig="Dm"
+               notes="f/2:h g/2:h | b/2:h b/2:h | a/2:w | d/3:w"
+               width="1000"></tac-stave>
+      <tac-stave clef="bass"
+               keysig="Dm"
+               notes="d/3:h b/2:h | b/2:h a/2:h | d/3:h g/2:h | a/2:h d/3:h"
+               width="1000"></tac-stave>
+      </div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="3">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 3</span>
+        <h2>Lezione 3 &mdash; Solfeggio cantato con cromatismi: la napoletana e la sesta eccedente</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+    <div class="consegna" id="C4-U7-L3-01">
+      <p class="titolo-consegna"><span class="num">1</span> Un canto dato di dodici battute</p>
+      <div class="testo">Armonizza il canto a quattro parti.</div>
+      <div class="materiale">
+      <tac-stave clef="treble"
+               time="4/4"
+               keysig="Gm"
+               caption="Canto dato, dodici battute"
+               notes="g/4:h b/4:h | a/4:h g/4:h | f#/4:h g/4:h | a/4:w"
+               width="1000"
+               tempo="60"></tac-stave>
+      <tac-stave clef="treble"
+               keysig="Gm"
+               notes="c/5:h b/4:h | c/5:h ab/4:h | g/4:h f#/4:h | g/4:w"
+               width="1000"></tac-stave>
+      <tac-stave clef="treble"
+               keysig="Gm"
+               notes="b/4:h c/5:h | d/5:h c/5:h | b/4:q ab/4:q g/4:q f#/4:q | g/4:w"
+               width="1000"></tac-stave>
+      </div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="4">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 4</span>
+        <h2>Lezione 4 &mdash; La sesta tedesca e la settima di dominante: lo stesso suono, due strade &middot; <em>due ore, con Officina: un basso di sedici battute con la napoletana e le seste eccedenti</em></h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+    <div class="consegna" id="C4-U7-L4-01">
+      <p class="titolo-consegna"><span class="num">1</span> Un basso di otto battute</p>
+      <div class="testo">Realizza il basso a quattro parti.</div>
+      <div class="materiale">
+      <tac-stave clef="bass"
+               time="4/4"
+               keysig="Am"
+               caption="Basso dato, otto battute"
+               notes="a/2:h f/2:h | f/2:h e/2:h | e/2:h a/2:h | a/2:h f/3:h"
+               width="1000"
+               tempo="60"></tac-stave>
+      <tac-stave clef="bass"
+               keysig="Am"
+               notes="f/3:h d/3:h | e/3:h e/3:h | a/2:h d/3:h | e/3:h a/2:h"
+               width="1000"></tac-stave>
+      </div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="5">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 5</span>
+        <h2>Lezione 5 &mdash; Officina: un basso di sedici battute con la napoletana e le seste eccedenti &middot; <em>seconda ora della lezione 4</em></h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+    <div class="consegna" id="C4-U7-L5-01">
+      <p class="titolo-consegna"><span class="num">1</span> Il basso dell’officina, bb.&nbsp;9&ndash;16</p>
+      <div class="testo">Realizza a quattro parti le bb.&nbsp;9&ndash;16 del basso.</div>
+      <div class="materiale">
+      <tac-stave clef="bass"
+               time="4/4"
+               keysig="Fm"
+               caption="Basso dato, sedici battute"
+               notes="f/3:h en/3:h | f/3:h b/2:h | b/2:h c/3:h | c/3:h f/2:h"
+               width="1000"
+               tempo="60"></tac-stave>
+      <tac-stave clef="bass"
+               keysig="Fm"
+               notes="a/2:h b/2:h | g/2:h a/2:h | d/3:h e/3:h | a/2:w"
+               width="1000"></tac-stave>
+      <tac-stave clef="bass"
+               keysig="Fm"
+               notes="a/2:h d/3:h | d/3:h c/3:h | c/3:h a/2:h | d/3:h c/3:h"
+               width="1000"></tac-stave>
+      <tac-stave clef="bass"
+               keysig="Fm"
+               notes="f/3:h d/3:h | d/3:h c/3:h | f/2:h b/2:h | c/3:q c/3:q f/2:h"
+               width="1000"></tac-stave>
+      </div>
+    </div>
+    </section>
+  </div>
+
+  <div class="lez" data-lezione="6">
+    <div class="testa">
+      <div>
+        <span class="occhiello">Da fare dopo la lezione 6</span>
+        <h2>Lezione 6 &mdash; Analisi: gli accordi alterati nell’Adagio dell’op. 18 n. 1 di Beethoven</h2>
+      </div>
+      <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
+    </div>
+
+    <section class="parte scritto">
+    <div class="consegna" id="C4-U7-L6-01">
+      <p class="titolo-consegna"><span class="num">1</span> La formula di Beethoven in un basso di otto battute</p>
+      <div class="testo">Realizza il basso a quattro parti.</div>
+      <div class="materiale">
+      <tac-stave clef="bass"
+               time="4/4"
+               keysig="Gm"
+               caption="Basso dato, otto battute"
+               notes="g/2:h f#/2:h | g/2:h e/2:h | c/3:h e/3:h | d/3:h g/2:h"
+               width="1000"
+               tempo="60"></tac-stave>
+      <tac-stave clef="bass"
+               keysig="Gm"
+               notes="b/2:h c/3:h | c/3:h e/3:h | d/3:w | g/2:w"
+               width="1000"></tac-stave>
+      </div>
+    </div>
+    </section>
   </div>
 
   <div class="lez" data-lezione="99">
@@ -148,53 +302,51 @@
     </div>
 
     <section class="parte scritto">
-      <h3>Da scrivere sul quaderno</h3>
-      <p class="spiega ripetuta">Si svolge <strong>sul quaderno</strong>, a matita. Quando hai finito fotografa la pagina e caricala su Classroom. Si consegna e si corregge, ma <strong>non fa voto</strong>: serve a vedere dove sei, e a farlo vedere anche a te.</p>
     <div class="consegna" id="C4-B-U07-01">
       <p class="titolo-consegna"><span class="num">1</span> Basso cifrato n.&nbsp;1 &middot; re minore</p>
-      <div class="testo"><em>Uno dei bassi dell&rsquo;unit&agrave;: fai quello che ti &egrave; stato assegnato.</em> Realizzalo a quattro parti seguendo i numeri. Comincia dalle <strong>cadenze</strong>, poi le voci interne.<p class="dettaglio">&Egrave; in re minore, di 10 battute. I numeri dicono l&rsquo;accordo, non la disposizione: la disposizione &egrave; tua, e si giudica dal moto delle parti. <strong>Non ci sono ottave n&eacute; quinte parallele per moto retto</strong> in nessuna soluzione accettabile.</p></div>
+      <div class="testo"><em>Uno dei bassi dell&rsquo;unit&agrave;: fai quello che ti &egrave; stato assegnato.</div>
       <div class="materiale">
-      <tac-stave clef="bass" time="2/2" keysig="F" caption="" notes="d/3:h e/3:h | f/3:h g/3:h | a/3:h d/3:h | g/3:h a/3:h | bb/3:h e/3:h | a/3:h f/3:h | g/3:h d/3:h | g/3:h f/3:h | a/3:w | d/3:w" cifre="||6|||||||||6||||6||" width="760" tempo="60" play slow></tac-stave>
+      <tac-stave clef="bass" time="2/2" keysig="F" caption="" notes="d/3:h e/3:h | f/3:h g/3:h | a/3:h d/3:h | g/3:h a/3:h | bb/3:h e/3:h | a/3:h f/3:h | g/3:h d/3:h | g/3:h f/3:h | a/3:w | d/3:w" cifre="||6|||||||||6||||6||" width="760" tempo="60"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C4-B-U07-02">
       <p class="titolo-consegna"><span class="num">2</span> Basso cifrato n.&nbsp;2 &middot; fa maggiore</p>
-      <div class="testo"><em>Uno dei bassi dell&rsquo;unit&agrave;: fai quello che ti &egrave; stato assegnato.</em> Realizzalo a quattro parti seguendo i numeri. Comincia dalle <strong>cadenze</strong>, poi le voci interne.<p class="dettaglio">&Egrave; in fa maggiore, di 10 battute. I numeri dicono l&rsquo;accordo, non la disposizione: la disposizione &egrave; tua, e si giudica dal moto delle parti. <strong>Non ci sono ottave n&eacute; quinte parallele per moto retto</strong> in nessuna soluzione accettabile.</p></div>
+      <div class="testo"><em>Uno dei bassi dell&rsquo;unit&agrave;: fai quello che ti &egrave; stato assegnato.</div>
       <div class="materiale">
-      <tac-stave clef="bass" time="2/2" keysig="F" caption="" notes="f/3:h a/3:h | bb/3:h f/3:h | e/3:h f/3:h | c/3:w | f/3:h g/3:h | a/3:h bb/3:h | f/3:h c/3:h | d/3:h bb/2:h | f/3:w | f/3:w" cifre="|6|||6|||||6|||||||" width="760" tempo="60" play slow></tac-stave>
+      <tac-stave clef="bass" time="2/2" keysig="F" caption="" notes="f/3:h a/3:h | bb/3:h f/3:h | e/3:h f/3:h | c/3:w | f/3:h g/3:h | a/3:h bb/3:h | f/3:h c/3:h | d/3:h bb/2:h | f/3:w | f/3:w" cifre="|6|||6|||||6|||||||" width="760" tempo="60"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C4-B-U07-03">
       <p class="titolo-consegna"><span class="num">3</span> Basso cifrato n.&nbsp;3 &middot; re minore</p>
-      <div class="testo"><em>Uno dei bassi dell&rsquo;unit&agrave;: fai quello che ti &egrave; stato assegnato.</em> Realizzalo a quattro parti seguendo i numeri. Comincia dalle <strong>cadenze</strong>, poi le voci interne.<p class="dettaglio">&Egrave; in re minore, di 10 battute. I numeri dicono l&rsquo;accordo, non la disposizione: la disposizione &egrave; tua, e si giudica dal moto delle parti. <strong>Non ci sono ottave n&eacute; quinte parallele per moto retto</strong> in nessuna soluzione accettabile.</p></div>
+      <div class="testo"><em>Uno dei bassi dell&rsquo;unit&agrave;: fai quello che ti &egrave; stato assegnato.</div>
       <div class="materiale">
-      <tac-stave clef="bass" time="2/2" keysig="F" caption="" notes="d/3:h a/2:h | bb/2:h g/2:h | f/3:h e/3:h | d/3:h c/3:h | e/3:h a/2:h | e/3:h f/3:h | d/3:h e/3:h | c#/3:h d/3:h | g/2:h a/2:h | d/3:w" cifre="||||6|6||6/4|6||6|6|||||||" width="760" tempo="60" play slow></tac-stave>
+      <tac-stave clef="bass" time="2/2" keysig="F" caption="" notes="d/3:h a/2:h | bb/2:h g/2:h | f/3:h e/3:h | d/3:h c/3:h | e/3:h a/2:h | e/3:h f/3:h | d/3:h e/3:h | c#/3:h d/3:h | g/2:h a/2:h | d/3:w" cifre="||||6|6||6/4|6||6|6|||||||" width="760" tempo="60"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C4-M-U07-01">
       <p class="titolo-consegna"><span class="num">4</span> Canto dato n.&nbsp;1 &middot; sol maggiore</p>
-      <div class="testo"><em>Uno dei canti dati dell&rsquo;unit&agrave;: fai quello che ti &egrave; stato assegnato.</em> Armonizzalo a quattro parti. Segna prima le <strong>cadenze</strong>, poi scrivi la voce pi&ugrave; grave per intero, e solo alla fine le due voci interne.<p class="dettaglio">&Egrave; in sol maggiore, di 16 battute. La melodia chiede solo accordi che hai gi&agrave; studiato: I, IV, V, V7, ii, vi. <strong>Non c&rsquo;&egrave; una sola armonizzazione giusta</strong> &mdash; ce n&rsquo;&egrave; una che il pezzo &egrave; stato scritto per avere, e altre che funzionano lo stesso: quello che si corregge &egrave; se la tua torna.</p></div>
+      <div class="testo"><em>Uno dei canti dati dell&rsquo;unit&agrave;: fai quello che ti &egrave; stato assegnato.</div>
       <div class="materiale">
       <img class="inciso" style="width:155.4mm; aspect-ratio:155.41 / 38.64" src="incisioni/8be98e9f3378-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C4-M-U07-02">
       <p class="titolo-consegna"><span class="num">5</span> Canto dato n.&nbsp;2 &middot; sol maggiore</p>
-      <div class="testo"><em>Uno dei canti dati dell&rsquo;unit&agrave;: fai quello che ti &egrave; stato assegnato.</em> Armonizzalo a quattro parti. Segna prima le <strong>cadenze</strong>, poi scrivi la voce pi&ugrave; grave per intero, e solo alla fine le due voci interne.<p class="dettaglio">&Egrave; in sol maggiore, di 16 battute. La melodia chiede solo accordi che hai gi&agrave; studiato: I, V, V7, ii, iii, vi. <strong>Non c&rsquo;&egrave; una sola armonizzazione giusta</strong> &mdash; ce n&rsquo;&egrave; una che il pezzo &egrave; stato scritto per avere, e altre che funzionano lo stesso: quello che si corregge &egrave; se la tua torna.</p></div>
+      <div class="testo"><em>Uno dei canti dati dell&rsquo;unit&agrave;: fai quello che ti &egrave; stato assegnato.</div>
       <div class="materiale">
       <img class="inciso" style="width:155.4mm; aspect-ratio:155.41 / 11.72" src="incisioni/15361436b13c-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C4-M-U07-03">
       <p class="titolo-consegna"><span class="num">6</span> Canto dato n.&nbsp;3 &middot; re maggiore</p>
-      <div class="testo"><em>Uno dei canti dati dell&rsquo;unit&agrave;: fai quello che ti &egrave; stato assegnato.</em> Armonizzalo a quattro parti. Segna prima le <strong>cadenze</strong>, poi scrivi la voce pi&ugrave; grave per intero, e solo alla fine le due voci interne.<p class="dettaglio">&Egrave; in re maggiore, di 16 battute. La melodia chiede solo accordi che hai gi&agrave; studiato: I, IV, V, V7, ii, iii, vi. <strong>Non c&rsquo;&egrave; una sola armonizzazione giusta</strong> &mdash; ce n&rsquo;&egrave; una che il pezzo &egrave; stato scritto per avere, e altre che funzionano lo stesso: quello che si corregge &egrave; se la tua torna.</p></div>
+      <div class="testo"><em>Uno dei canti dati dell&rsquo;unit&agrave;: fai quello che ti &egrave; stato assegnato.</div>
       <div class="materiale">
       <img class="inciso" style="width:155.4mm; aspect-ratio:155.41 / 12.53" src="incisioni/ee5b7f3bab1d-1.svg" alt="">
       </div>
     </div>
     <div class="consegna" id="C4-M-U07-04">
       <p class="titolo-consegna"><span class="num">7</span> Canto dato n.&nbsp;4 &middot; fa maggiore</p>
-      <div class="testo"><em>Uno dei canti dati dell&rsquo;unit&agrave;: fai quello che ti &egrave; stato assegnato.</em> Armonizzalo a quattro parti. Segna prima le <strong>cadenze</strong>, poi scrivi la voce pi&ugrave; grave per intero, e solo alla fine le due voci interne.<p class="dettaglio">&Egrave; in fa maggiore, di 16 battute. La melodia chiede solo accordi che hai gi&agrave; studiato: I, IV, V, V7, ii, iii, vi. <strong>Non c&rsquo;&egrave; una sola armonizzazione giusta</strong> &mdash; ce n&rsquo;&egrave; una che il pezzo &egrave; stato scritto per avere, e altre che funzionano lo stesso: quello che si corregge &egrave; se la tua torna.</p></div>
+      <div class="testo"><em>Uno dei canti dati dell&rsquo;unit&agrave;: fai quello che ti &egrave; stato assegnato.</div>
       <div class="materiale">
       <img class="inciso" style="width:155.4mm; aspect-ratio:155.41 / 38.64" src="incisioni/84bc6a3a52c0-1.svg" alt="">
       </div>

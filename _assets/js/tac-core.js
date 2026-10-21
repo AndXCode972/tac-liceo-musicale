@@ -1698,11 +1698,34 @@
             if (d.puntata) VF.Dot.buildAndAttach([sn], { all: true });
             return sn;
           });
+          /* ⚠ 21 ottobre 2026, Andrea (3ª U2 L6, il corale BWV 1/6): «i tratti
+             d'unione delle note in crome sono sbagliati». Contralto e tenore
+             non avevano nessuna travatura: ogni croma con la sua codetta, in
+             mezzo a soprano e basso travati. Adesso si travano anche loro,
+             battuta per battuta e per tempo (pause comprese nel conto, così
+             il gruppo parte dal battere), con il gambo IMPOSTO prima di fare
+             la travatura (`stemDirection`): il tenore acuto, lasciato a
+             VexFlow, prenderebbe il gambo in giù e la trave dalla parte
+             sbagliata. */
+          const perGV = parseInt(this.getAttribute('travatura') || '', 10);
+          const opzV = { stemDirection: verso };
+          if (perGV > 0) opzV.groups = [new VF.Fraction(perGV, 8)];
+          const travV = [];
+          let grV = [];
+          dV.forEach((d, i) => {
+            if (d.stanghetta) {
+              if (grV.length) travV.push(...VF.Beam.generateBeams(grV, opzV));
+              grV = []; return;
+            }
+            grV.push(noteV[i]);
+          });
+          if (grV.length) travV.push(...VF.Beam.generateBeams(grV, opzV));
+          rimettiGambi(noteV, dV, verso);
           const tot = dV.reduce((a, d) => a + d.battiti, 0);
           const vv = new VF.Voice({ numBeats: Math.max(1, Math.ceil(tot - 1e-6)), beatValue: 4 });
           vv.setMode(VF.VoiceMode.SOFT);
           vv.addTickables(noteV);
-          vociInterne.push({ nome: nome, dati: dV, note: noteV, voce: vv, rigo: rigo });
+          vociInterne.push({ nome: nome, dati: dV, note: noteV, voce: vv, rigo: rigo, trav: travV });
         });
       }
       this._vociInterne = vociInterne;
@@ -2000,6 +2023,7 @@
         }
         vociInterne.forEach(v => {
           v.voce.draw(ctx, v.rigo);
+          (v.trav || []).forEach(b => b.setContext(ctx).draw());
           disegnaLegature(VF, ctx, v.dati, v.note);
         });
 
@@ -2684,6 +2708,26 @@
             su = Math.min(su, Math.min.apply(null, ys) - 10);
             giu = Math.max(giu, Math.max.apply(null, ys) + 10);
           } catch (e) {}
+        }
+        /* ⚠ 21 ottobre 2026, Andrea (3ª U2 L6, slide 5): «il riquadro occupa
+           solo il rigo superiore, ma dovrebbe comprendere anche il rigo
+           inferiore con le note del basso». Con due righi la fascia è del
+           SISTEMA: scende fino al fondo del rigo di basso, e oltre se nel
+           tratto segnato il basso o il tenore escono dal rigo. Il cerchietto
+           su una nota sola resta sulla nota. */
+        if (!solaNota && this._staveB) {
+          try { giu = Math.max(giu, this._staveB.getYForLine(4) + 10); } catch (e) {}
+          const sotto = [].concat(
+            (this._vociGiu && this._vociGiu.note) || [],
+            ...((this._vociInterne || []).filter(v => v.rigo === this._staveB).map(v => v.note || [])));
+          sotto.forEach(n => {
+            try {
+              if (!n || typeof n.getYs !== 'function' || (n.isRest && n.isRest())) return;
+              const tn = testa(n);
+              if (!tn || tn.b < sx || tn.a > dx) return;
+              giu = Math.max(giu, Math.max.apply(null, n.getYs()) + 10);
+            } catch (e) {}
+          });
         }
         let alto = su;          // dove comincia, in alto, il segno vero e proprio
 

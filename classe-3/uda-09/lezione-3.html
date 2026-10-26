@@ -42,459 +42,132 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=a489d51c" defer></script>
+<script src="../../_assets/js/tac-core.js?v=306746de" defer></script>
 </head>
 <body>
 <div id="tac-deck">
-<!-- 16/10/2026: piano nuovo della 3ª. Era la U9 L3 del piano vecchio; ora è la U9 L3, ora 63 di 90 («Dettato melodico con alterazioni cromatiche, non modulante»). Da riscrivere per il titolo nuovo. -->
+
+
 <!-- ══════════════════════════════════════════════════════════════════
-     LEZIONE 3 · Dettato melodico con sensibili secondarie
-     Unità 9, ora 63 di 90 · classe 3ª · percezione · ORA INTERA
-     PAROLE CHIAVE PER LA BIBLIOTECA:
-        dettato · cromatismo · sensibile secondaria · sol maggiore
-        nota alterata · mezzo errore
+     LEZIONE 3 · Dettato melodico con alterazioni cromatiche, non modulante
+     Unità 9, ora 63 di 90 · classe 3ª · percezione · mar 9/3/2027
+     50 minuti, con il DETTATO DI VERIFICA C3-DV-63 (dettati_verifica.json):
+     la lezione non ne dichiara il contenuto.
 
-     ══ IL DETTATO ══
-     `C3-U9-L3` in dettati.py. Otto battute, 4/4, SOL MAGGIORE, una
-     voce. Casella dell'ora 63 di 31_La_progressione_dei_dettati.md:
-     melodico, 4/4, maggiore, alt. 3, croma e puntato, salti fino alla
-     6ª, **cromatismo**.
-     ⚠ IL FOGLIO NON STA QUI: `dettati_pdf.py C3-U9-L3`.
+     26/10/2026 · RISCRITTA (piano nuovo). Il testo del piano vecchio è in
+     lezione-3.tpl.html.prima-della-riscrittura-feb.
 
-     ══ CHE COSA MISURA, E NON È QUELLO CHE SEMBRA ══
-     Non «sentire il do diesis». È molto più facile di così: una nota
-     alzata di mezzo tono si sente benissimo. Misura se sanno dire
-     PERCHÉ c'è — cioè se scrivono do diesis e poi il RE, oppure se
-     scrivono do diesis e vanno da un'altra parte.
-     Chi sbaglia la nota dopo non ha sentito una sensibile: ha sentito
-     una nota strana.
+     CONTENUTO
+     · Le alterazioni non modulanti (sensibili, ♯4, ♭2 della napoletana,
+       passaggi e volte cromatiche); diesis se sale, bemolle se scende; la
+       procedura in quattro ascolti, senza tastiera; gli errori tipici.
+     · Dettato di esercitazione: 8 bb in re minore (do♯, sol♯, mi♭, la terza
+       diminuita mi♭–do♯), partitura nascosta, soluzione chiusa.
+     · Compito: canto dato di 8 bb in mi minore con due N6 (realizzato con
+       _strumenti/alt.catena + q3).
 
-     ⚠ È IL CONTRARIO DELL'ORA 56. Là si contavano le alterazioni che
-     l'orecchio inventava, e il numero giusto era zero. Qui ce n'è una
-     davvero, e va scritta. Le due ore vanno messe una accanto all'altra
-     in correzione: sono la stessa competenza vista dai due lati.
-
-     ══ CHE COSA NON ENTRA ══
-     Più di una sensibile secondaria. Una sola, e in un posto solo.
-     La modulazione: il dettato modulante è l'ora 74.
+     I TEMPI · 50 minuti
+     Le alterazioni 8'; la procedura 5'; dettato di esercitazione 15';
+     dettato di verifica 15'; sintesi 2'. Chiusura con il solfeggio.
      ══════════════════════════════════════════════════════════════════ -->
 
-<!-- Riordinata il 30/09/2026: ordine del dettato già buono; «Le tre caselle del foglio» messa prima dei due esercizi di dettato armonico che prepara (Bach, Mozart); da rivedere col docente il riquadro sul «conteggio delle parole» -->
 <section class="slide attiva copertina foto" data-titolo="Copertina"
          style="--foto: url('../../_assets/copertine/c3u9-lezione-3.jpg?v=e6d1cf65');
-                --cop-a:#0c1a14; --cop-b:#047857; --cop-c:#a7f3d0">
+                --cop-a:#0a0f1a; --cop-b:#0e7490; --cop-c:#a5f3fc">
   <div class="slide-interna">
     <div class="occhiello">Gli accordi alterati: la sesta napoletana e le seste eccedenti &middot; UdA 9 &middot; Lezione 3 di 6</div>
-    <h1>Dettato con una nota che non c&rsquo;&egrave;</h1>
-    <p class="sottotitolo">Otto battute in sol maggiore, e una nota fuori dall&rsquo;armatura. Una sola.</p>
-    <blockquote class="aforisma">
-      <p>Presupposto fondamentale della tonicizzazione &egrave; che l&rsquo;accordo tonicizzante presenti in tutto e per tutto le caratteristiche di una dominante.</p>
-      <cite>Carlo Marenco, <em>Manuale d&rsquo;armonia</em>, p.&nbsp;195</cite>
-    </blockquote>
+    <h1>Le note alterate che non cambiano tonalit&agrave;</h1>
+    <p class="sottotitolo">Un diesis o un bemolle in mezzo alla melodia non vuol dire modulazione: quasi sempre &egrave; una nota che tende a un&rsquo;altra, un semitono sopra o sotto, e la si scrive guardando dove va.</p>
 
     <div class="meta-copertina">
-      <span>Ora intera</span>
+      <span>50 minuti &middot; con il dettato di verifica</span>
       <span>Percezione</span>
-      <span>Un cromatismo</span>
+      <span>Cromatismi</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Che cosa si fa oggi">
+<section class="slide perc" data-titolo="Le alterazioni nella tonalit&agrave;">
   <div class="slide-interna">
-    <h2>Che cosa si fa oggi, e perch&eacute; adesso</h2>
-
-    <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
-         «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 3&deg; anno; pagine dall'indice rilevato. -->
-    <div class="riquadro libro">
-      <span class="etichetta">Sul tuo libro</span>
-      <p><span class="lez">C1</span><strong>La dominante della dominante</strong>, pp. 182&ndash;189</p>
-      <p>Lezione 3 &laquo;Tecniche di tonicizzazione della dominante&raquo;. Il libro non ha dettati melodici; la sensibile secondaria da riconoscere &egrave; quella della sezione C, unit&agrave; 1 &laquo;La dominante della dominante&raquo; (lezioni 1&ndash;3).</p>
-    </div>
-
-    <p>Un dettato melodico come quelli che fate da settembre: otto battute, una voce, quattro ascolti. Il formato non cambia.</p>
-
-    <p>Cambia una cosa sola: dentro c&rsquo;&egrave; una nota che <strong>non appartiene alla tonalit&agrave;</strong>. Una, e sta in un posto solo.</p>
+    <h2>Le alterazioni nella tonalit&agrave;</h2>
 
     <div class="riquadro definizione">
-      <span class="etichetta">Perch&eacute; sta qui e non prima</span>
-      <p>Perch&eacute; da due ore sapete <strong>perch&eacute;</strong> una nota alterata pu&ograve; esserci. Prima l&rsquo;avreste sentita come un&rsquo;anomalia; adesso &egrave; un segnale, e i segnali si scrivono pi&ugrave; facilmente delle anomalie.</p>
+      <span class="etichetta">Da dove vengono</span>
+      <p>In una melodia tonale non modulante le note alterate sono di quattro tipi, e tutte si risolvono per semitono. <strong>Le sensibili</strong>: il settimo grado alzato del minore, e il quarto grado alzato che va al quinto (la sensibile della dominante, nelle dominanti secondarie e nelle seste eccedenti). <strong>I gradi abbassati</strong>: il secondo abbassato della napoletana, che scende. <strong>Le note di passaggio cromatiche</strong>, fra due note a distanza di tono. <strong>Le note di volta cromatiche</strong>, un semitono sotto la nota principale.</p>
     </div>
-
-    <p class="didascalia">&Egrave; il motivo per cui in questo corso la teoria arriva quasi sempre <em>prima</em> del dettato corrispondente, e non dopo. Sentire &egrave; pi&ugrave; facile quando si sa che cosa pu&ograve; succedere.</p>
+    <table class="tabella">
+      <tr><th>in re minore</th><th>l&rsquo;alterazione</th><th>dove va</th></tr>
+      <tr><td><em>do&#9839;</em></td><td>sensibile</td><td>sale al <em>re</em></td></tr>
+      <tr><td><em>sol&#9839;</em></td><td>quarto grado alzato</td><td>sale al <em>la</em>, la dominante</td></tr>
+      <tr><td><em>mi&#9837;</em></td><td>secondo grado abbassato (napoletana)</td><td>scende al <em>re</em>, o al <em>do&#9839;</em> di terza diminuita</td></tr>
+      <tr><td><em>si</em> naturale</td><td>sesto grado alzato (minore melodico)</td><td>sale al <em>do&#9839;</em></td></tr>
+    </table>
+    <p class="didascalia">Il diesis si scrive quando la nota sale, il bemolle quando scende: <em>sol&#9839;&ndash;la</em>, non <em>la&#9837;&ndash;la</em>; <em>mi&#9837;&ndash;re</em>, non <em>re&#9839;&ndash;re</em>.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Il rovescio dell&rsquo;ora 56">
+<section class="slide" data-titolo="La procedura">
   <div class="slide-interna">
-    <h2>Sette ore fa vi ho chiesto il contrario</h2>
+    <h2>La procedura</h2>
+
+    <div class="riquadro procedura">
+      <span class="etichetta">Quattro ascolti</span>
+      <p><strong>1. Il profilo e la cadenza.</strong> Si scrive per prima l&rsquo;ultima battuta e si segna l&rsquo;andamento delle altre (sale, scende, salta). <strong>2. Il ritmo.</strong> Battuta per battuta, sopra il rigo. <strong>3. Le note diatoniche.</strong> Prima tutte le note della scala, cantandole a mezza voce, senza tastiera. <strong>4. Le note alterate.</strong> Dove rimane un vuoto di semitono: si guarda dove va la nota (sale o scende) e si sceglie il diesis o il bemolle.</p>
+    </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">Gli errori tipici</span>
+      <p><strong>Scambiare il cromatismo per una modulazione</strong> e cambiare l&rsquo;armatura a met&agrave;. <strong>Il nome sbagliato</strong>: la nota giusta scritta con l&rsquo;alterazione sbagliata (<em>la&#9837;</em> al posto di <em>sol&#9839;</em>). <strong>La terza diminuita</strong> (<em>mi&#9837;&ndash;do&#9839;</em>) scritta come seconda: si sente stretta come un tono, ma sul rigo &egrave; una terza.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide perc esercizio" data-titolo="Il dettato di esercitazione" data-in-classe>
+  <div class="slide-interna">
+    <h2>Il dettato di esercitazione: otto battute in re minore</h2>
+
+    <div class="righe">
+      <tac-stave time="4/4" keysig="Dm" caption="Dettato di esercitazione, otto battute (la partitura è nascosta)" notes="d/5:q a/4:q f/4:q a/4:q | g/4:q bb/4:q a/4:h | c#/5:q d/5:q e/5:q eb/5:q | d/5:h c#/5:h" width="760" tempo="72" nascondi play></tac-stave>
+      <tac-stave keysig="Dm" notes="d/5:q f/5:q e/5:q d/5:q | c#/5:q d/5:q g#/4:q a/4:q | bb/4:q g/4:q eb/5:q c#/5:q | d/5:w" width="760" nascondi></tac-stave>
+    </div>
+    <div class="riquadro compito">
+      <span class="etichetta">Si scrive &middot; 10 minuti, poi 5 di correzione</span>
+      <p>Si danno la tonalit&agrave;, il metro e la prima nota. Quattro ascolti, con la procedura. Alla correzione si segnano gli errori per tipo: nota diatonica, nota alterata, alterazione sbagliata, ritmo.</p>
+    </div>
+    <tac-chiuso invito="La soluzione del dettato di esercitazione &mdash; si apre alla correzione" sale="48LhCz8i1MUdjqubQpOc9A==" iv="sAHVJCG5r8EumMRj" dati="0drQ7eYn9Go30EIyO4Rjycot2M69DY73KrwL9prt5k6sRyD5t0xgIlWq6w7cyO5Yl4G4ndX7t/3Jxhkogu27ltLtzHuqXy0gO7TIx3FTdVIgGrHw0QDEVHj9fFj3LBxvcpUWlBfShN/xGAzI6Ti/2uzmXCKxNJOofR3gYwZmb96f1Es0DeFaxjXbWnScrbzbO0YH0RaVSdztlu6u0k7qAk/V/6ViV30NBav8OR3mXRLS0aJCkykF8QexeKl12bQNlyEU0At6acf9A2vZJqoaBDSr1WPSImcvVVfc6CbOABbawryQSL2VjLMXKixtDefbomk3pVy2l38dFh/cdhGYSGFqlgcYxKnIFFnyGrcvJ6ZgPoUzvbfMnoEwPjZTnV7G5cvRnHp9WZSajWDnQfXYi7CBhMJOH18zKxzHHMY9L6yPiQxHAgq1tvbmufMLIiSc7c+umN2gUfcybGHbi2l0sj37wy6QG5EZqXFOdkqazMIW8pBZ8KV+cWUfrsrL7BgWje8xV5V0OdqypEMOF7T0D2ucjV76LWtwcYlb6tlSfGFZ/gbDZ4DoBmKaS8dp1HN5swN3SBwUXztTSgHFMHJ9z2F4SDNwx6C/eE9tt3Dke7jSxBmQcphmnpkGDMyiIc/70AR8Ym8oXh9Gh82ctZE1zxRmu7AVT/N4LxB1i3upaDGZXSERFRSG3OktTTvePtbtm7utABGi+aWoF03W/LXcti3xwDWyPP8K80IwtMkfWNzCKlf6b3KleM5llVgHMiPdgs/q3SlJW79vKEoONwniPzGE1rDX5gDReAmbmQOKUPgqpRLSK+OzohugWOfts4Jz2vpqzsQiRetZKoHv5/UCaxCaIy1uXDH6w2Ix8VLM4gND4x7WUjX2h66uIubZCV68L04O7CRumV5doLNKWhbre7OzmgCNWPBRg5Zehw38OZQ4Lfgl66XeFecl/9Csor3GeguiB/2tc3PWQIZpEuHaDX2jHNCpUZuN/DPwEWJM6G/olpkhR6BvGCZEKx0WM4kM/lnZ4zsn5kX/bUHx8zX2r2uC9ON8/S215wY/2MSIcM8nZ1FfP/NqfMEhAzmQ4rVtkD7C09aOZ/6gIaSMTGv7hoqLykLL4KGjPk73L+J/OZQTveKd1rgBpRdgRMWpoorJPQ5y3awF0wEekxpPJI5mQ73xh2+R4r7tePmvebhtvkibDOfczN3FuhV6wO+5vj/42N+D1Ja+DzaO1MpdhhACMBz/hwPB66OkgsZZ/HbjlyiMexci65kUNwGmCh+1rQCqvBdF3pCcC1HC0hUdIgCpHFK/vU/Q0yytQtJDayNlY7O6+JgJ7v60BiIYkp5TkMaXqubRNWmuq33W/3StoXYgMn0/idPK6xA="></tac-chiuso>
+  </div>
+</section>
+
+<section class="slide perc" data-titolo="Il dettato di verifica" data-in-classe>
+  <div class="slide-interna">
+    <h2>Il dettato di verifica</h2>
+
+    <div class="riquadro compito">
+      <span class="etichetta">Si scrive &middot; 15 minuti</span>
+      <p>Un dettato melodico di otto battute, sul foglio con un rigo vuoto: brutta e bella copia. Le indicazioni che servono le d&agrave; il docente prima del primo ascolto. La procedura &egrave; quella del dettato di esercitazione.</p><p>Prima di consegnare: ogni battuta piena; ogni nota alterata scritta con l&rsquo;alterazione che corrisponde alla sua direzione; l&rsquo;armatura uguale dall&rsquo;inizio alla fine.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Sintesi">
+  <div class="slide-interna">
+    <h2>Sintesi</h2>
 
     <div class="colonne">
-      <div class="riquadro definizione">
-        <span class="etichetta">Ora 56 &middot; il dettato modale</span>
-        <p>Nessuna alterazione, e met&agrave; della classe ne aveva scritta una. Il numero giusto era <strong>zero</strong>, e contarle era la misura di quanto pesava l&rsquo;abitudine tonale.</p>
-      </div>
-      <div class="riquadro definizione">
-        <span class="etichetta">Ora 63 &middot; oggi</span>
-        <p>Una alterazione, e c&rsquo;&egrave; davvero. Il numero giusto &egrave; <strong>uno</strong>, e chi non la scrive ha lo stesso problema di allora, al rovescio.</p>
-      </div>
-    </div>
-
-    <p>Le due ore misurano la stessa competenza: <strong>scrivere quello che si sente</strong> invece di quello che ci si aspetta. Un orecchio che prevede sbaglia in tutte e due le direzioni.</p>
-
-    <p class="didascalia">Tirate fuori le due righe che avevate scritto all&rsquo;ora 56, con il conto delle vostre alterazioni. Serviranno alla fine dell&rsquo;ora, per un confronto che vale pi&ugrave; di qualunque cosa dica io.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il riscaldamento">
-  <div class="slide-interna">
-    <h2>Riscaldamento &middot; la nota e la sua destinazione</h2>
-
-    <tac-stave time="4/4" keysig="G"
-               caption="In sol maggiore: la scala, e poi la stessa con il do alzato"
-               notes="g/4:q a/4:q b/4:q c/5:q | d/5:h r:h | g/4:q a/4:q b/4:q c#/5:q | d/5:h r:h"
-               width="880" tempo="60" play slow></tac-stave>
-
-    <p>Si canta due volte. La prima con il <strong>do naturale</strong>, la seconda con il <strong>do diesis</strong>, e ci si ferma un momento prima del re.</p>
-
     <div class="riquadro definizione">
-      <span class="etichetta">Che cosa si deve sentire</span>
-      <p>Che con il do diesis <strong>non si riesce ad aspettare</strong>. La nota chiede il re, e lo chiede subito.</p>
+      <span class="etichetta">Le alterazioni</span>
+      <p>Sensibili, gradi abbassati, passaggi e volte cromatiche: tutte si risolvono per semitono.</p>
     </div>
-
-    <p class="didascalia">&Egrave; lo stesso esercizio dell&rsquo;ora 56 al rovescio: l&igrave; si imparava ad aspettare su una nota che non tirava, qui si sente una nota che tira. Chi ha fatto bene quello, oggi sente la differenza in mezzo secondo.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa cercare">
-  <div class="slide-interna">
-    <h2>La domanda che vi porta a casa il dettato</h2>
-
-    <div class="riquadro regola">
-      <span class="etichetta">Una sola, e vale per tutti e quattro gli ascolti</span>
-      <p>Non &laquo;<em>dov&rsquo;&egrave; la nota strana?</em>&raquo;.<br>
-      Ma &laquo;<strong>dove va a finire, la nota strana?</strong>&raquo;.</p>
-    </div>
-
-    <p>La prima domanda si risponde con l&rsquo;orecchio, ed &egrave; facile: una nota alterata si sente. La seconda si risponde <strong>ascoltando quello che viene dopo</strong>, ed &egrave; l&rsquo;unica che vi dice quale nota &egrave;.</p>
-
-    <p>Se sale di un semitono, avete trovato una sensibile: quella nota &egrave; un <strong>do diesis</strong> e non un re bemolle, perch&eacute; le sensibili si scrivono un semitono sotto la loro meta.</p>
-
-    <p class="didascalia">In un dettato l&rsquo;altezza si ricostruisce spesso dalla direzione, non dal colore. &Egrave; una cosa che si impara oggi e che serve per tre anni.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="I punti fermi">
-  <div class="slide-interna">
-    <h2>Tre punti fermi, prima di cominciare</h2>
-
-    <tac-stave time="4/4" keysig="G"
-               caption="L&rsquo;arpeggio di tonica e quello di dominante, in sol maggiore"
-               notes="g/4:q b/4:q d/5:q b/4:q | d/5:q f#/5:q a/5:q f#/5:q"
-               width="760" tempo="60" play slow></tac-stave>
-
     <div class="riquadro definizione">
-      <span class="etichetta">Quello che sapete gi&agrave; di questo dettato</span>
-      <p>Comincia sulla <strong>tonica</strong>. Respira a <strong>met&agrave;</strong>, come sempre. Finisce sulla <strong>tonica</strong>.</p>
+      <span class="etichetta">La scrittura</span>
+      <p>Diesis se la nota sale, bemolle se scende.</p>
     </div>
-
-    <p>Sono tre battute su otto che avete gi&agrave; prima di sentire una nota. Non &egrave; poco: vuol dire che l&rsquo;ascolto pu&ograve; concentrarsi sulle altre cinque.</p>
-
-    <p class="didascalia">Chi comincia a scrivere dalla prima battuta spreca il primo ascolto su una cosa che sapeva. Il primo ascolto si spende dove serve.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Le due direzioni">
-  <div class="slide-interna">
-    <h2>Una nota alterata ha una direzione, e si sente</h2>
-
-    <tac-stave keysig="G" time="4/4"
-               caption="Il do diesis sale al re: &egrave; una sensibile"
-               notes="a/4:q c#/5:q d/5:h | d/5:w"
-               width="700" tempo="58" play slow></tac-stave>
-
-    <tac-stave keysig="G" time="4/4"
-               caption="Lo stesso do diesis che scende: qui non &egrave; una sensibile"
-               notes="d/5:q c#/5:q c/5:q b/4:q | a/4:h g/4:h"
-               notazione="sbagliato"
-               width="760" tempo="58" play slow></tac-stave>
-
-    <p>La stessa nota, due destini. Nel primo caso <strong>arriva</strong> al re; nel secondo <strong>attraversa</strong>, e va a finire da un&rsquo;altra parte.</p>
-
-    <p class="didascalia">Nel dettato di oggi c&rsquo;&egrave; il primo caso. Il secondo lo segno come &laquo;sbagliato&raquo; per una ragione sola: chi lo sente e scrive &laquo;sensibile&raquo; ha ragionato invece di ascoltare.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il ritmo del dettato">
-  <div class="slide-interna">
-    <h2>Il ritmo, che oggi &egrave; quello di sempre</h2>
-
-    <tac-stave keysig="G" time="4/4"
-               caption="Le figure che ci sono: semiminime, coppie di crome, una minima puntata"
-               notes="g/4:q g/4:8 g/4:8 g/4:q g/4:q | g/4:h. r:q"
-               width="760" tempo="58" play slow></tac-stave>
-
-    <p>Nessuna figura nuova. Le <strong>crome</strong> stanno sempre a coppie e sempre per grado; la <strong>minima puntata</strong> con la pausa &egrave; il respiro di met&agrave;, come in tutti i dettati dell&rsquo;anno.</p>
-
     <div class="riquadro definizione">
-      <span class="etichetta">Perch&eacute; il ritmo &egrave; facile, oggi</span>
-      <p>Perch&eacute; la difficolt&agrave; sta altrove. Un dettato che cambia <strong>due</strong> cose insieme non dice pi&ugrave; quale delle due ha fatto danno.</p>
+      <span class="etichetta">Il metodo</span>
+      <p>Il profilo, il ritmo, le note diatoniche; per ultime le note alterate.</p>
+    </div>
     </div>
 
-    <p class="didascalia">&Egrave; la stessa scelta dell&rsquo;ora 48, quando il formato passava a due voci e la tonalit&agrave; restava quella di nove ore prima. Una cosa per volta, sempre.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il dettato">
-  <div class="slide-interna">
-    <h2>Adesso si scrive</h2>
-
-    <p>Otto battute, <strong>4/4</strong>, <strong>sol maggiore</strong> &mdash; un diesis in chiave. Una voce, chiave di violino. Quattro ascolti, con le pause del protocollo.</p>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Sul foglio del dettato</span>
-      <p>Un rigo con l&rsquo;armatura gi&agrave; scritta e otto stanghette tracciate.<br>
-      La <strong>prima nota</strong> &egrave; data, ed &egrave; un <strong>sol</strong>.</p>
-    </div>
-
-    <p class="didascalia">Le alterazioni fuori armatura si scrivono davanti alla nota, come sempre. Se ne scrivete pi&ugrave; di una, alla fine cerchiatele tutte: alla correzione quel numero ci serve.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="I quattro ascolti">
-  <div class="slide-interna">
-    <h2>Che cosa fare a ogni passaggio</h2>
-
-    <div class="riquadro procedura">
-      <span class="etichetta">Quattro ascolti, e il primo ha una domanda sola</span>
-      <ol>
-        <li><strong>Non si scrive.</strong> Una domanda: <em>in che battuta cade la nota alterata?</em> Segnate solo il numero.</li>
-        <li>Il <strong>profilo</strong>: otto frecce, una per battuta. Niente note.</li>
-        <li>Le <strong>note</strong>, dalla prima all&rsquo;ultima.</li>
-        <li>Il <strong>ritmo</strong>, e il controllo delle battute.</li>
-      </ol>
-    </div>
-
-    <p class="didascalia">La domanda del primo ascolto &egrave; cambiata rispetto a settembre, e apposta: chi trova la battuta al primo ascolto sa dove concentrarsi al terzo. Non &egrave; un&rsquo;informazione in pi&ugrave; &mdash; &egrave; un&rsquo;informazione che <em>orienta</em> tutte le altre.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Se vi perdete">
-  <div class="slide-interna">
-    <h2>Se vi perdete</h2>
-
-    <div class="riquadro regola">
-      <span class="etichetta">Tre appigli</span>
-      <p><strong>La nota alterata.</strong> Sale di un semitono a quella dopo: se avete quella dopo, avete anche lei.<br>
-      <strong>Il respiro di met&agrave;.</strong> Come in tutti i dettati dell&rsquo;anno.<br>
-      <strong>La tonica finale.</strong> L&rsquo;ultima battuta si scrive per prima, se serve.</p>
-    </div>
-
-    <p>E la regola di sempre: <strong>non si insegue</strong>. Una battuta persa si lascia bianca e si riprende dalla dopo.</p>
-
-    <p class="didascalia">Il primo appiglio &egrave; nuovo e vale la pena tenerlo: una sensibile si pu&ograve; ricostruire <em>all&rsquo;indietro</em> dalla nota d&rsquo;arrivo, che &egrave; quasi sempre pi&ugrave; facile da sentire.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La correzione">
-  <div class="slide-interna">
-    <h2>Come si corregge</h2>
-
-    <div class="riquadro procedura">
-      <span class="etichetta">In classe, subito</span>
-      <ol>
-        <li><strong>Le frecce</strong>: otto direzioni, si leggono in dieci secondi.</li>
-        <li><strong>Quante alterazioni</strong> ha scritto ciascuno, e in quali battute. Il numero giusto &egrave; uno.</li>
-        <li>Le <strong>note</strong>, cantate insieme.</li>
-        <li>La <strong>diagnosi</strong>: chi ha scritto la nota alterata ma non quella dopo, e chi ha scritto quella dopo ma non l&rsquo;alterazione.</li>
-      </ol>
-    </div>
-
-    <p class="didascalia">Il passo 4 divide due errori che sembrano lo stesso e non lo sono. Chi ha l&rsquo;alterazione e sbaglia la destinazione ha sentito <em>una nota strana</em>; chi ha la destinazione e non l&rsquo;alterazione ha sentito la frase e non il colore. Il secondo &egrave; pi&ugrave; avanti del primo.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La soluzione">
-  <div class="slide-interna">
-    <h2>La soluzione</h2>
-
-    <tac-chiuso invito="La soluzione &mdash; si apre in classe, dopo il dettato" sale="6266Wfr94m7WWwOBzGtAGQ==" iv="m696W9ir1Jp0RWvo" dati="EUu/U282qLMOMTHyq2HDjjQ7ujC3iJEw5cfc/xgLrhmnjZXRRecJgUHBtrlXceQM1NafayXcW4hz/6HnwCZLsHCYMQdEDGV29ZV3qd191tWKdqMni3dX7XtquErgseBsu6rLCH1EUHbbMO1c1WJkXWWgLNBjmT3NOHb7quQ6JVktLYujV8YRt5t60AnQBhcrnedxToJet+pVdwEssbf4Iq+v6nyrhS7sQk0VR8B9rpCJkKyBo5GzQzfBIfT1rj+yNqew2/OXTNuZZnn9iDP/KoDUlKoY8+peUJ+rWjzaf7h9pv+FuNE3K4LATQVqyvIXV/Xm7cPFsOCbvbG3gtr9kK3TPjBSQsvpInktVbnAtS9XdqJq7T7/3XQ/QZeJKNSbIzew0lU15t22Ll/mX8EBglSPUP2+q9qGI0g93M7rTbCChjYmLJJq0VQdMHiWlhLkaH94zJOVhxCi1F3NhEEg8RVzhOAK/gapQUcnR3gmqJ9zWGW8+D8lDvBniq+mIVthkBCsdDkwxcenKGytJvjGnRwt94IQzd+tdxDj2Qu/09arRfymExe+uFJCX2lxyQOQTr/lAaz2UrUNWvMXRg4R0gpIWjg76KEhhrQv6bE3Rl0gXa5P74B/X/QEV4Pu4ijEVM2zDpsySnkbFp9mVqgOS46JfX1qH6I0oAVxgIrGq3dv34mhsRimP93RM/Pe6x+6wofi4d9QQXrwsM41zjJ33ZCayflPY0LDZF1IQT1iIpUN0O7HInAV5QEu2LgTB/xLzEjII3PDMA6gus12QrjoW53Ar4ZeknpFRPxvulLNz91yXxkfzkJTj+nxv8IIe+OI5F6jfYgJMTRPtMmL0mWOQM+RnERyNuxaPBLT7xqLy311qEAe5jQRdVcZiaoUM+HgTFo/21CNytlF+D/SPun9YVUs5ZB45aQkJ332B8I+nRDoiFUbfebtrAObiO2B/N4xXaudnaKAGLTh3P+4Rm1ljkKAMxm2lIxrEuCwPMbWAy5XCfSyhieLHfsXpBvzlC+MZxHUJ4Qbvy4K75bw+NgU8mDa99ePYtHfUUgHqizTe37GzmywTK5m+20GAJB0g6ylB8cWXeLHTsHLvaDMO6bg8n0GyktqbUSL0VziSYoZ2WyQl7Ij7tlGaFz4rtSmzT+9Tq8p5MBM7YSaqrAEwk9xg76UYWL+IpTq9JVIjmsxJUN3/gFKfsqpXpR5KGLVNkFsH1t4Xxb7ONFFEvPhm92YomQXX/6ujXC6eKon7I0pXIA7ZrEdve4qlIxfuFy1Tu+HmQO6sdPrW8Y0mrewyWJj+oepYphL7nzMSESvfmcrnx2mkQolOJsh1rl0zTlQJ+jSuzksXCF/VO8xw3rngpRutlriXUieyC4YzribVxQpsgLZ1pJg0XYqWjGBXGc+06szMPbruKJ57b8q5V54nkBTYsocOehNNV5YCbC+6/WeaZXvM8ZsGGYGh1cHJTMahJuHAD4tyY5T7yA61WYbkYbIyVt/cQ=="></tac-chiuso>
-
-    <p class="didascalia">Si apre dopo la consegna, una battuta alla volta, cantando.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il conto delle due ore">
-  <div class="slide-interna">
-    <h2>E adesso il confronto con l&rsquo;ora 56</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Cinque minuti, e si fa alla lavagna</span>
-      <p>Due colonne. A sinistra: quante alterazioni aveva scritto la classe intera nel dettato modale, dove ne servivano <strong>zero</strong>.<br>
-      A destra: quante ne ha scritte oggi, dove ne serviva <strong>una</strong>.</p>
-    </div>
-
-    <p>I due numeri raccontano una cosa sola, e la raccontano meglio di me: quanto il vostro orecchio <strong>prevede</strong> invece di ascoltare. Se il primo era alto e il secondo &egrave; basso, la previsione &egrave; sempre la stessa &mdash; ed &egrave; l&rsquo;abitudine tonale che ha imparato a mettere sensibili.</p>
-
-    <p class="didascalia">Segnate i due numeri sul quaderno. All&rsquo;unit&agrave; 10 ci saranno <em>quattro</em> dominanti secondarie invece di una, e quel confronto tornerà utile.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il legame con l&rsquo;unit&agrave;">
-  <div class="slide-interna">
-    <h2>Perch&eacute; questo dettato sta qui</h2>
-
-    <tac-brano organico="tastiera" titolo="C. P. E. Bach, Sonata Wq 55/4, II &mdash; Poco adagio" metronomo youtube="Ue4dq3Bcd7s" esecutore="Ana-Marija Markovina, pianoforte" partitura="../../_assets/spartiti/A06_cpebach.png" inciso="../../_assets/incisioni/A06_cpebach.mp3" mappa='{"durata":67526,"eventi":[[0,0],[1,5455],[2,10909],[3,16364],[4,21818],[5,27273],[6,32727],[7,38182],[8,43636],[9,49091],[10,54545],[11,60000]]}' da-battuta="1">
-<script type="application/json">{"titolo":"C. P. E. Bach, Sonata in la maggiore Wq 55/4, II — Poco adagio","metro":"4/4","bpm":44,"battute":12,"anacrusi":0.0,"voci":[[[0.0,0.125,74],[0.125,0.125,73],[0.25,0.125,71],[0.375,0.125,73],[0.5,0.25,81],[0.75,0.25,77],[1.0,0.125,80],[1.125,0.375,78],[1.5,0.125,76],[1.625,0.375,74],[2.0,1.0,73],[3.0,0.125,71],[3.125,0.125,73],[3.25,0.5,71],[3.875,0.125,83],[4.0,0.125,85],[4.125,0.125,83],[4.25,0.125,81],[4.375,0.125,83],[4.5,0.375,83],[4.875,0.125,86],[5.0,0.125,85],[5.125,0.375,83],[5.5,0.125,81],[5.625,0.375,80],[6.0,0.25,85],[6.25,0.25,81],[6.5,0.25,77],[6.75,0.25,78],[7.5,0.375,66],[7.875,0.125,78],[8.0,0.5,69],[8.5,0.167,69],[8.667,0.166,68],[8.833,0.167,74],[9.0,0.5,66],[9.5,0.167,66],[9.667,0.166,65],[9.833,0.167,71],[10.0,0.25,71],[10.25,0.083,69],[10.333,0.084,68],[10.417,0.083,66],[10.5,0.5,66],[11.5,0.125,74],[11.625,0.125,73],[11.75,0.125,71],[11.875,0.125,73],[12.0,0.5,81],[12.5,0.125,83],[12.625,0.125,81],[12.75,0.125,80],[12.875,0.125,81],[13.0,0.25,81],[13.25,0.125,80],[13.375,0.125,78],[13.5,0.125,76],[13.625,0.125,75],[13.75,0.125,73],[13.875,0.125,71],[14.0,1.0,69],[15.0,0.2002,69],[15.2002,0.05,68],[15.2502,0.05,69],[15.3003,0.1001,68],[15.4004,0.1992,66],[15.5996,0.2002,68],[15.7998,0.2002,71],[16.0,0.1543,69],[16.1543,0.1533,73],[16.3076,0.1543,71],[16.4619,0.1533,74],[16.6152,0.1543,73],[16.7695,0.1533,76],[16.9229,0.1543,74],[17.0771,0.1533,73],[17.2305,0.1543,71],[17.3848,0.1533,69],[17.5381,0.1543,68],[17.6924,0.1533,66],[17.8457,0.1543,64],[18.0,1.0,62],[19.0,0.125,61],[19.125,0.125,62],[19.25,0.25,61],[20.0,0.25,76],[20.25,0.25,73],[20.5,0.25,68],[20.75,0.25,69],[21.25,0.25,57],[21.5,0.25,64],[21.75,0.25,67],[22.0,0.25,66],[22.25,0.25,69],[22.5,0.25,61],[22.75,0.25,62],[24.0,0.25,78],[24.25,0.25,75],[24.5,0.25,70],[24.75,0.25,71],[25.25,0.25,59],[25.5,0.25,66],[25.75,0.25,69],[26.0,0.25,68],[26.25,0.25,71],[26.5,0.25,63],[26.75,0.25,64],[28.25,0.25,88],[28.5,0.25,80],[28.75,0.25,83],[29.0,0.25,81],[29.25,0.1125,76],[29.375,0.125,73],[29.5,0.1125,71],[29.625,0.125,69],[29.75,0.225,79],[30.0,0.25,78],[30.25,0.125,78],[30.375,0.125,74],[30.5,0.125,70],[30.625,0.125,71],[30.75,0.225,81],[31.0,0.25,80],[31.25,0.125,80],[31.375,0.125,76],[31.5,0.125,72],[31.625,0.125,73],[32.0,0.125,73],[32.125,0.125,83],[32.25,0.25,81],[32.5,0.125,81],[32.625,0.125,78],[32.75,0.125,73],[32.875,0.125,75],[33.0,0.125,83],[33.125,0.125,80],[33.25,0.125,75],[33.375,0.125,76],[33.5,0.125,85],[33.625,0.125,81],[33.75,0.125,75],[33.875,0.125,76],[34.0,0.125,86],[34.125,0.125,85],[34.25,0.125,86],[34.375,0.125,88],[34.5,0.125,86],[34.625,0.125,85],[34.75,0.125,83],[34.875,0.125,82],[35.0,0.125,85],[35.125,0.125,83],[35.25,0.125,81],[35.375,0.125,80],[35.5,0.0312,78],[35.5312,0.0312,80],[35.5625,0.0625,78],[35.625,0.125,76],[35.75,0.125,83],[35.875,0.125,74],[36.0,0.125,73],[36.125,0.125,76],[36.25,0.125,80],[36.375,0.125,81],[36.5,0.125,78],[36.625,0.125,74],[36.75,0.125,73],[36.875,0.125,71],[37.0,0.125,71],[37.125,0.125,73],[37.25,0.125,71],[37.375,0.125,73],[37.5,0.125,71],[37.625,0.125,73],[37.75,0.125,69],[37.875,0.125,71],[38.0,0.5,69],[38.5,0.5,76],[39.0,0.125,74],[39.125,0.375,72],[39.5,0.0312,71],[39.5312,0.0312,73],[39.5625,0.0625,71],[39.625,0.375,69],[40.0,1.0,68],[41.25,0.25,68],[41.25,0.25,71],[41.5,0.25,71],[41.5,0.25,74],[41.75,0.25,69],[41.75,0.25,72],[43.25,0.25,69],[43.25,0.25,72],[43.5,0.25,72],[43.5,0.25,76],[43.75,0.25,71],[43.75,0.25,74],[45.25,0.25,71],[45.25,0.25,74],[45.5,0.25,74],[45.5,0.25,77],[45.75,0.25,72],[45.75,0.25,76],[46.0,0.5,71],[46.0,0.5,74],[46.5,0.0417,72],[46.5,0.5,69],[46.5417,0.0417,74],[46.5835,0.0835,72],[46.667,0.166,71],[46.833,0.167,72],[47.0,0.5,68],[47.0,0.5,71]],[[0.0,1.0,54],[0.0,1.0,57],[2.5,0.5,56],[2.5,0.5,65],[3.0,0.5,56],[3.0,0.5,65],[3.5,0.5,56],[3.5,0.5,65],[4.5,0.5,53],[4.5,0.5,56],[5.0,0.5,53],[5.0,0.5,56],[5.5,0.5,53],[5.5,0.5,61],[6.0,1.0,45],[7.0,0.5,57],[7.5,0.5,57],[7.5,0.5,61],[8.0,0.5,59],[8.0,0.5,62],[8.5,0.5,59],[8.5,0.5,62],[9.0,0.5,61],[9.5,0.5,49],[9.5,0.5,61],[10.0,0.5,42],[10.5,0.375,45],[10.875,0.125,49],[11.0,1.0,54],[12.5,0.5,54],[12.5,0.5,57],[12.5,0.5,63],[13.0,0.5,54],[13.0,0.5,57],[13.0,0.5,63],[13.5,0.5,54],[13.5,0.5,57],[14.5,0.5,40],[15.0,0.5,52],[15.5,0.5,52],[16.0,0.5,54],[16.5,0.5,54],[17.0,0.5,56],[17.5,0.5,56],[18.5,0.375,45],[18.875,0.125,44],[19.0,0.375,45],[19.375,0.125,49],[19.5,0.375,47],[19.875,0.125,50],[20.0,1.0,49],[21.0,0.5,49],[21.5,0.5,49],[22.0,1.0,50],[23.0,1.0,38],[23.25,0.25,57],[23.5,0.25,49],[23.75,0.25,50],[24.0,1.0,51],[25.0,0.5,51],[25.5,0.5,51],[26.0,1.0,52],[27.0,1.0,40],[27.25,0.25,59],[27.5,0.25,51],[27.75,0.25,52],[28.0,1.0,38],[28.0,1.0,50],[29.0,1.0,37],[29.0,1.0,49],[30.5,0.5,50],[31.5,0.5,52],[32.5,0.5,54],[33.0,0.5,56],[33.5,0.5,57],[34.0,1.0,59],[35.0,1.0,56],[36.0,0.5,57],[36.5,0.5,50],[37.0,0.5,52],[37.5,0.5,40],[38.0,1.0,45],[40.0,0.125,59],[40.125,0.125,56],[40.25,0.125,51],[40.375,0.125,52],[40.5,0.125,47],[40.625,0.125,52],[40.75,0.125,44],[40.875,0.125,47],[41.0,1.0,40],[42.0,0.125,60],[42.125,0.125,57],[42.25,0.125,51],[42.375,0.125,52],[42.5,0.125,48],[42.625,0.125,52],[42.75,0.125,45],[42.875,0.125,48],[43.0,1.0,40],[44.0,0.125,62],[44.125,0.125,59],[44.25,0.125,51],[44.375,0.125,52],[44.5,0.125,47],[44.625,0.125,52],[44.75,0.125,44],[44.875,0.125,47],[45.0,1.0,40],[46.0,0.5,40],[46.5,0.5,39],[47.0,0.25,40],[47.25,0.125,52],[47.375,0.125,54],[47.5,0.25,52],[47.75,0.25,50]]]}</script>
-</tac-brano>
-
-    <p>All&rsquo;ora prossima analizzeremo queste quattro battute, e alla <strong>battuta 4</strong> c&rsquo;&egrave; la stessa cosa che avete appena scritto: una nota fuori armatura che sale al quinto grado.</p>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">La differenza fra le due volte</span>
-      <p>Nel dettato l&rsquo;avete <strong>sentita</strong>. Nella sonata la <strong>vedrete</strong>, e sar&agrave; molto pi&ugrave; facile &mdash; perch&eacute; sapete gi&agrave; che suono fa.</p>
-    </div>
-
-    <p class="didascalia">&Egrave; l&rsquo;ordine giusto e non &egrave; casuale: si sente, poi si scrive, poi si riconosce sulla pagina di qualcun altro. Al contrario funziona molto peggio.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Come ci si allena">
-  <div class="slide-interna">
-    <h2>Come ci si allena, e sono dieci minuti</h2>
-
-    <div class="riquadro procedura">
-      <span class="etichetta">A casa, tre volte questa settimana</span>
-      <ol>
-        <li>Suonate <strong>I &ndash; V/V &ndash; V &ndash; I</strong> in una tonalit&agrave; qualunque, lentamente.</li>
-        <li>Poi <strong>cantate la sola sensibile secondaria</strong> e la sua risoluzione: due note.</li>
-        <li>Poi cambiate tonalit&agrave; e rifate, senza guardare la tastiera.</li>
-      </ol>
-    </div>
-
-    <p>Il passo 3 &egrave; quello che serve. Due note in una tonalit&agrave; sola si imparano a memoria; le stesse due note in cinque tonalit&agrave; diventano un <strong>intervallo riconoscibile</strong>, che &egrave; una cosa diversa e molto pi&ugrave; utile.</p>
-
-    <p class="didascalia">Dieci minuti in tre giorni valgono pi&ugrave; di un&rsquo;ora la sera prima. In percezione questo &egrave; vero pi&ugrave; che altrove.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Le tre caselle del foglio">
-  <div class="slide-interna">
-    <h2>Come si prepara, e perché così</h2>
-
-    <tac-stave clef="bass" time="4/4" caption="La riga del basso: si scrive per prima, e regge tutto il resto" notes="c/3:w d/3:w g/2:w c/3:w" width="500" tempo="46" play></tac-stave>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Tre righe, una sotto l&rsquo;altra</span>
-      <p><strong>Riga 1</strong> &middot; il numero della battuta. Si scrive prima di sentire.<br>
-      <strong>Riga 2</strong> &middot; la nota del <strong>basso</strong>. È quella che si sente meglio e vincola tutto.<br>
-      <strong>Riga 3</strong> &middot; il grado, in numero romano. Si compila per ultima, anche a casa.</p>
-    </div>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Perché il basso prima del grado</span>
-      <p>Perché il basso è un <strong>dato</strong> e il grado è un&rsquo;<strong>interpretazione</strong>. Se si scrive subito il grado e si sbaglia, il dato è perso e non si può più ricostruire niente.</p>
-      <p>Tenere separati i dati dalle interpretazioni è la regola generale: vale per il dettato come per l&rsquo;analisi scritta.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Che cosa segnare quando non si sente</span>
-      <p>Un trattino sulla riga del basso, e la casella del grado vuota. <strong>Un trattino dice «non sentito»</strong>; una casella vuota su tutte e due le righe non dice niente.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Una cosa sul conteggio delle parole, e riguarda noi</span>
-      <p>La soluzione di questo dettato, sulla pagina che state guardando, è <strong>cifrata</strong>: si apre in classe con un codice. Sul sito quelle parole non ci sono, e chi misura la lezione prima di cifrarla ne conta di più.</p>
-      <p>È una piccola cosa e vale come esempio: <strong>una misura fatta al momento sbagliato della lavorazione dà un numero giusto di una cosa diversa</strong>. Vale per i conti che facciamo noi e per quelli che farete voi.</p>
-    </div>
-
-    <p class="didascalia">Nel dettato, come in ogni misura, conviene registrare l&rsquo;osservazione e la conclusione in <strong>posti diversi</strong>. Chi le mescola non può più tornare indietro quando la conclusione si rivela sbagliata.</p>
-  </div>
-</section>
-
-<!-- ───────────────────────────────────────────────────────────────────
-     Tre slide, due con musica vera. L'ora è il dettato armonico con la
-     V/V e aveva solo A06. Mancava una musica in cui gli accordi si
-     susseguano UNO PER BATTUTA, senza melodia che copra — cioè il caso
-     ideale per allenare il dettato armonico — e mancava il caso
-     opposto, in cui gli accordi sono nascosti dentro un tessuto
-     melodico e vanno estratti.
-     ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="Un accordo per battuta, e basta">
-  <div class="slide-interna">
-    <h2>Il pezzo fatto apposta per questo esercizio</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Dettato armonico &middot; 8 minuti</span>
-      <p>Quattro ascolti. Una casella per battuta, e nient&rsquo;altro: <strong>scrivete solo il grado</strong>.</p>
-    </div>
-
-    <tac-brano organico="tastiera" titolo="Bach, Preludio in do maggiore BWV 846"
-               metronomo youtube="xCqWH9bKzQE" esecutore="Siebe Henstra, clavicembalo (Netherlands Bach Society)" partitura="../../_assets/spartiti/C01_bach-preludio-846.png" riquadri='[[1,13.35,21.06,29.5,7.39],[2,42.85,21.06,25.19,7.39],[3,68.04,21.06,24.85,7.39],[4,7.39,33.84,23.27,7.39],[5,30.66,33.84,19.71,7.39],[6,50.38,33.84,21.29,7.39],[7,71.66,33.84,21.29,7.39],[8,7.39,46.67,23.89,7.39],[9,31.28,46.67,20.4,7.39],[10,51.68,46.67,20.88,7.39],[11,72.55,46.67,20.4,7.39],[12,7.32,59.4,24.85,7.28],[13,32.17,59.4,21.01,7.28],[14,53.18,59.4,19.71,7.28],[15,72.9,59.4,20.19,7.28],[16,7.39,72.03,23.27,7.39],[17,30.66,72.03,21.15,7.39],[18,51.81,72.03,20.33,7.39],[19,72.14,72.03,21.01,7.39],[20,7.32,89.94,23.82,2.04],[21,31.14,89.94,20.19,2.04],[22,51.33,89.94,21.01,2.04],[23,72.35,89.94,20.74,2.04]]' inciso="../../_assets/incisioni/C01_bach_preludio_846.mp3" mappa='{"durata":31399,"eventi":[[0,0],[1,3636],[2,7273],[3,10909],[4,14545],[5,18182],[6,21818],[7,25455]]}' da-battuta="1">
-<script type="application/json">{"titolo":"J. S. Bach, Preludio in do maggiore BWV 846, dal Clavicembalo ben temperato","metro":"4/4","bpm":66,"battute":8,"anacrusi":0.0,"voci":[[[0.5,0.25,67],[0.75,0.25,72],[1.0,0.25,76],[1.25,0.25,67],[1.5,0.25,72],[1.75,0.25,76],[2.5,0.25,67],[2.75,0.25,72],[3.0,0.25,76],[3.25,0.25,67],[3.5,0.25,72],[3.75,0.25,76],[4.5,0.25,69],[4.75,0.25,74],[5.0,0.25,77],[5.25,0.25,69],[5.5,0.25,74],[5.75,0.25,77],[6.5,0.25,69],[6.75,0.25,74],[7.0,0.25,77],[7.25,0.25,69],[7.5,0.25,74],[7.75,0.25,77],[8.5,0.25,67],[8.75,0.25,74],[9.0,0.25,77],[9.25,0.25,67],[9.5,0.25,74],[9.75,0.25,77],[10.5,0.25,67],[10.75,0.25,74],[11.0,0.25,77],[11.25,0.25,67],[11.5,0.25,74],[11.75,0.25,77],[12.5,0.25,67],[12.75,0.25,72],[13.0,0.25,76],[13.25,0.25,67],[13.5,0.25,72],[13.75,0.25,76],[14.5,0.25,67],[14.75,0.25,72],[15.0,0.25,76],[15.25,0.25,67],[15.5,0.25,72],[15.75,0.25,76],[16.5,0.25,69],[16.75,0.25,76],[17.0,0.25,81],[17.25,0.25,69],[17.5,0.25,76],[17.75,0.25,81],[18.5,0.25,69],[18.75,0.25,76],[19.0,0.25,81],[19.25,0.25,69],[19.5,0.25,76],[19.75,0.25,81],[20.5,0.25,66],[20.75,0.25,69],[21.0,0.25,74],[21.25,0.25,66],[21.5,0.25,69],[21.75,0.25,74],[22.5,0.25,66],[22.75,0.25,69],[23.0,0.25,74],[23.25,0.25,66],[23.5,0.25,69],[23.75,0.25,74],[24.5,0.25,67],[24.75,0.25,74],[25.0,0.25,79],[25.25,0.25,67],[25.5,0.25,74],[25.75,0.25,79],[26.5,0.25,67],[26.75,0.25,74],[27.0,0.25,79],[27.25,0.25,67],[27.5,0.25,74],[27.75,0.25,79],[28.5,0.25,64],[28.75,0.25,67],[29.0,0.25,72],[29.25,0.25,64],[29.5,0.25,67],[29.75,0.25,72],[30.5,0.25,64],[30.75,0.25,67],[31.0,0.25,72],[31.25,0.25,64],[31.5,0.25,67],[31.75,0.25,72]],[[0.0,2.0,60],[0.25,0.75,64],[1.0,1.0,64],[2.0,2.0,60],[2.25,0.75,64],[3.0,1.0,64],[4.0,2.0,60],[4.25,0.75,62],[5.0,1.0,62],[6.0,2.0,60],[6.25,0.75,62],[7.0,1.0,62],[8.0,2.0,59],[8.25,0.75,62],[9.0,1.0,62],[10.0,2.0,59],[10.25,0.75,62],[11.0,1.0,62],[12.0,2.0,60],[12.25,0.75,64],[13.0,1.0,64],[14.0,2.0,60],[14.25,0.75,64],[15.0,1.0,64],[16.0,2.0,60],[16.25,0.75,64],[17.0,1.0,64],[18.0,2.0,60],[18.25,0.75,64],[19.0,1.0,64],[20.0,2.0,60],[20.25,0.75,62],[21.0,1.0,62],[22.0,2.0,60],[22.25,0.75,62],[23.0,1.0,62],[24.0,2.0,59],[24.25,0.75,62],[25.0,1.0,62],[26.0,2.0,59],[26.25,0.75,62],[27.0,1.0,62],[28.0,2.0,59],[28.25,0.75,60],[29.0,1.0,60],[30.0,2.0,59],[30.25,0.75,60],[31.0,1.0,60]]]}</script>
-</tac-brano>
-
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Perché è così comodo</span>
-      <p>Perché non c&rsquo;è melodia. Ogni battuta è un accordo <strong>arpeggiato</strong>, e la figura è sempre la stessa: cambia solo l&rsquo;armonia.</p>
-      <p>È l&rsquo;unico repertorio in cui il dettato armonico è al cento per cento un problema d&rsquo;armonia — senza ritmo, senza fraseggio, senza note estranee da scartare.</p>
-    </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Come si usa per allenarsi</span>
-      <p>Da soli, a casa, con qualunque registrazione: si ferma dopo ogni battuta e si scrive. È lento e funziona, perché <strong>ogni errore è isolato</strong> e si vede subito quale accordo non si riconosce.</p>
-      <p>Due battute al giorno per due settimane valgono più di un&rsquo;ora tutta insieme.</p>
-    </div>
-
-    <p class="didascalia">Questo preludio è stato usato come materiale didattico per due secoli, e non per caso: <strong>isola una variabile sola</strong>. Le musiche che servono a imparare sono quasi sempre quelle in cui una cosa varia e tutto il resto sta fermo.</p>
-  </div>
-</section>
-
-<section class="slide perc" data-titolo="E lo stesso lavoro, con la melodia sopra">
-  <div class="slide-interna">
-    <h2>Quando gli accordi vanno estratti</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Dettato armonico &middot; 8 minuti</span>
-      <p>Quattro ascolti. Stessa consegna, un grado per battuta — e stavolta va deciso <strong>quali note contano</strong>.</p>
-    </div>
-
-    <tac-brano organico="archi" titolo="Mozart, Quartetto in re maggiore K 155, III movimento"
-               metronomo youtube="Nwc5XoWOHsM" mappa-video='{"eventi":[[1,1360],[2,1844],[3,2461],[4,3110],[5,3693],[6,4361],[7,4977],[8,5610],[9,6295],[10,6993],[11,7628],[12,8293],[13,8877],[14,9543],[15,10210],[16,10777]],"durata":74000}' esecutore="Hagen Quartett (Deutsche Grammophon)" partitura="../../_assets/spartiti/k155-mvt3-p1.png" riquadri='[[0,13.06,11.28,4.61,34.86],[1,17.67,11.28,9.28,34.86],[2,26.94,11.28,9.39,34.86],[3,36.33,11.28,9.39,34.86],[4,45.72,11.28,9.33,34.86],[5,55.06,11.28,11.28,34.86],[6,66.33,11.28,8.89,34.86],[7,75.22,11.28,8.72,34.86],[8,83.94,11.28,8.89,34.86],[9,9.72,59.37,10.06,35.32],[10,19.78,59.37,10.39,35.32],[11,30.17,59.37,10.28,35.32],[12,40.44,59.37,10.33,35.32],[13,50.78,59.37,11.61,35.32],[14,62.39,59.37,10.61,35.32],[15,73.0,59.37,11.28,35.32],[16,84.28,59.37,8.94,35.32]]' inciso="../../_assets/incisioni/A01_mozart_k155.mp3" mappa='{"durata":17214,"eventi":[[0,0],[1,227],[2,1136],[3,2045],[4,2955],[5,3864],[6,4773],[7,5682],[8,6591],[9,7500],[10,8409],[11,9318],[12,10227],[13,11136],[14,12045],[15,12955],[16,13864]]}'>
-<script type="application/json">{"titolo":"W. A. Mozart, Quartetto in re maggiore K 155, III movimento","metro":"2/4","bpm":108,"battute":17,"anacrusi":0.5,"voci":[[[0.0,0.5,69],[0.5,0.5,74],[1.0,0.5,78],[1.5,0.5,79],[2.0,0.5,81],[2.5,0.5,82],[3.0,0.5,83],[3.5,0.5,79],[4.0,0.5,76],[4.5,0.5,74],[5.0,0.5,73],[5.5,0.5,71],[6.0,0.5,69],[6.5,1.5,74],[8.0,0.5,66],[8.0,0.5,69],[8.5,0.5,67],[8.5,1.0,69],[9.0,0.5,66],[9.5,0.5,67],[9.5,0.5,69],[10.0,0.5,64],[10.0,0.5,69],[10.5,0.5,66],[10.5,1.0,69],[11.0,0.5,64],[11.5,0.5,66],[11.5,0.5,69],[12.0,0.5,62],[12.0,0.5,69],[12.5,0.5,64],[12.5,1.0,69],[13.0,0.5,62],[13.5,0.5,64],[13.5,0.5,69],[14.0,0.5,66],[14.0,0.5,69],[14.5,1.0,64],[14.5,1.0,69],[16.0,0.5,69],[16.5,0.5,74],[17.0,0.5,78],[17.5,0.5,79],[18.0,0.5,81],[18.5,0.5,82],[19.0,0.5,83],[19.5,0.5,79],[20.0,0.5,76],[20.5,0.5,74],[21.0,0.5,73],[21.5,0.5,71],[22.0,0.5,69],[22.5,1.5,74],[24.0,0.5,66],[24.0,0.5,69],[24.5,0.5,67],[24.5,2.0,69],[25.0,0.5,66],[25.5,0.5,67],[26.0,0.5,64],[26.5,0.5,66],[26.5,2.0,69],[27.0,0.5,64],[27.5,0.5,66],[28.0,0.5,62],[28.5,0.5,64],[28.5,2.0,69],[29.0,0.5,66],[29.5,0.5,67],[30.0,0.5,64],[30.5,1.0,62],[30.5,1.0,69],[32.0,0.5,69]],[[0.0,0.5,57],[0.5,0.5,62],[1.0,0.5,66],[1.5,0.5,67],[2.0,0.5,69],[2.5,0.5,70],[3.0,0.5,71],[3.5,0.5,67],[4.0,0.5,64],[4.5,0.5,62],[5.0,0.5,61],[5.5,0.5,59],[6.0,0.5,57],[6.5,1.0,62],[8.0,0.5,62],[8.5,0.5,61],[9.0,0.5,62],[9.5,0.5,61],[10.0,0.5,64],[10.5,0.5,62],[11.0,0.5,57],[11.5,0.5,62],[12.0,0.5,59],[12.5,0.5,61],[13.0,0.5,59],[13.5,0.5,61],[14.0,0.5,62],[14.5,1.0,61],[16.0,0.5,57],[16.5,0.5,62],[17.0,0.5,66],[17.5,0.5,67],[18.0,0.5,69],[18.5,0.5,70],[19.0,0.5,71],[19.5,0.5,67],[20.0,0.5,64],[20.5,0.5,62],[21.0,0.5,61],[21.5,0.5,59],[22.0,0.5,57],[22.5,1.0,62],[24.0,0.5,62],[24.5,0.5,61],[25.0,0.5,62],[25.5,0.5,61],[26.0,0.5,64],[26.5,0.5,62],[27.0,0.5,57],[27.5,0.5,62],[28.0,0.5,59],[28.5,0.5,61],[29.0,0.5,62],[29.5,0.5,64],[30.0,0.5,61],[30.5,1.0,57],[30.5,1.0,62]],[[1.0,0.5,62],[1.5,0.5,62],[2.0,0.5,62],[2.5,1.0,62],[4.0,0.5,67],[4.5,0.5,66],[5.0,0.5,64],[5.5,0.5,62],[6.0,0.5,61],[6.5,1.0,62],[9.0,0.5,57],[9.5,1.0,57],[11.0,0.5,57],[11.5,1.0,57],[12.5,1.0,57],[13.5,1.0,57],[14.5,1.0,57],[17.0,1.0,62],[18.0,0.5,62],[18.5,1.0,62],[20.0,0.5,67],[20.5,0.5,66],[21.0,0.5,64],[21.5,0.5,62],[22.0,0.5,61],[22.5,1.0,62],[25.0,0.5,57],[25.5,1.0,57],[27.0,0.5,57],[27.5,1.0,57],[28.5,1.0,57],[29.5,1.0,55],[30.5,1.0,54]],[[1.0,0.5,50],[1.5,0.5,52],[2.0,0.5,54],[2.5,1.0,55],[3.5,1.0,52],[4.5,1.5,57],[6.0,0.5,55],[6.5,0.5,55],[7.0,0.5,54],[7.5,0.5,52],[8.0,0.5,50],[8.5,0.5,52],[9.0,0.5,50],[9.5,0.5,52],[10.0,0.5,49],[10.5,0.5,50],[11.0,0.5,49],[11.5,0.5,50],[12.0,0.5,50],[12.5,1.0,45],[13.5,1.0,45],[14.5,0.5,45],[15.0,0.5,55],[15.5,0.5,54],[16.0,0.5,52],[16.5,0.5,54],[17.0,0.5,50],[17.5,0.5,52],[18.0,0.5,54],[18.5,1.0,55],[19.5,1.0,52],[20.5,1.5,57],[22.0,0.5,55],[22.5,0.5,55],[23.0,0.5,54],[23.5,0.5,52],[24.0,0.5,50],[24.5,0.5,52],[25.0,0.5,50],[25.5,0.5,52],[26.0,0.5,49],[26.5,0.5,50],[27.0,0.5,49],[27.5,0.5,50],[28.0,0.5,50],[28.5,1.0,45],[29.5,1.0,45],[30.5,1.0,50]]]}</script>
-</tac-brano>
-
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Che cosa cambia</span>
-      <p>Che la melodia contiene note estranee all&rsquo;accordo: passaggi, volte, appoggiature. Sentirle tutte e provare a farle entrare nell&rsquo;armonia porta a scrivere accordi che non esistono.</p>
-      <p>La regola: contano le note sul <strong>tempo forte</strong>, e conta il <strong>basso</strong>. Il resto decora.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Il difetto tipico, e si riconosce dal foglio</span>
-      <p>Troppe sigle. Se avete scritto tre accordi per battuta dove ce n&rsquo;è uno, non avete sentito troppo: avete <strong>contato come armonia</strong> quello che era figurazione.</p>
-      <p>Nel dubbio, <strong>meno sigle</strong>: un&rsquo;analisi troppo rada si corregge, una troppo fitta va rifatta.</p>
-    </div>
-
-    <p class="didascalia">Il confronto fra i due esercizi di oggi dice qual è la vera difficoltà del dettato armonico. <strong>Non è riconoscere gli accordi: è decidere che cosa è un accordo.</strong></p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa portiamo a casa">
-  <div class="slide-interna">
-    <h2>Che cosa portiamo a casa</h2>
-
-    <div class="riquadro compito">
-      <span class="etichetta">Per la lezione prossima</span>
-      <p>Il <strong>dettato in pulito</strong> sul quaderno, comprese le battute lasciate bianche e riempite in classe.<br>
-      Sotto, <strong>una riga</strong>: la nota alterata dove andava a finire, e come lo avete capito.</p>
-    </div>
-
-    <p>&laquo;Come lo avete capito&raquo; &egrave; la parte che conta. Se la risposta &egrave; &laquo;l&rsquo;ho sentito&raquo; va bene; se &egrave; &laquo;me lo aspettavo perch&eacute; l&rsquo;avevamo appena studiato&raquo; va bene anche quella, e va scritta: &egrave; un&rsquo;informazione onesta e serve a tutti e due.</p>
-
-    <p class="didascalia">All&rsquo;ora prossima: la stessa cosa in una sonata di C.&nbsp;P.&nbsp;E.&nbsp;Bach del <strong>1765</strong>, e ci vorranno due minuti a trovarla.</p>
+    <p class="didascalia">Mercoled&igrave; 10/3 (prima ora), ora 64: la restituzione della V4, e la napoletana e la sesta eccedente nell&rsquo;Adagio dell&rsquo;op.&nbsp;18 n.&nbsp;1 di Beethoven. La lezione si chiude con il solfeggio parlato, cantato e ritmico.</p>
   </div>
 </section>
 
@@ -502,12 +175,11 @@ try { module = undefined; exports = undefined; } catch (e) {}
          style="--segno: url('../../_assets/segni/segno-24.png')">
   <div class="slide-interna">
     <p class="compiti-occhiello">Compiti per la prossima volta</p>
-    <h2>1 &middot; Scritto: Otto battute con una sensibile secondaria</h2>
+    <h2>1 &middot; Scritto: Un canto dato di otto battute con la sesta napoletana</h2>
     <div class="riquadro compito">
-      <p>Scrivi <strong>otto battute</strong> di melodia in una tonalit&agrave; maggiore, con <strong>una sola</strong> nota fuori armatura.</p>
-      <p>Quella nota deve <strong>salire di un semitono</strong> alla nota dopo, e la nota dopo dev&rsquo;essere il <strong>quinto grado</strong>. Se non ce la fai a farla stare in una frase che ti piace, il problema quasi sempre &egrave; che l&rsquo;hai messa troppo presto: prova a spostarla verso la fine.</p>
+      <p>Armonizza a quattro parti il canto dato. Le note alterate dicono dove sta la napoletana.</p>
     </div>
-    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook: <a href="../materiali/workbook-uda-09.html#C3-U9-L3-03">apri l&rsquo;esercizio <strong>C3-U9-L3-03</strong> &#8599;</a></p>
+    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook: <a href="../materiali/workbook-uda-09.html#C3-U9-L3-01">apri l&rsquo;esercizio <strong>C3-U9-L3-01</strong> &#8599;</a></p>
   </div>
 </section>
 
@@ -518,7 +190,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <h2>2 &middot; Solfeggio e 3 &middot; dettato</h2>
     <div class="riquadro compito">
       <span class="etichetta">2 &middot; Solfeggio, dal quaderno di lettura</span>
-      <p><a href="../materiali/solfeggi-classe-3.html#n488"><strong>n.&nbsp;488</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n489"><strong>n.&nbsp;489</strong></a> <em>parlato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-3.html#n490"><strong>n.&nbsp;490</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n491"><strong>n.&nbsp;491</strong></a> <em>cantato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-3.html#n492"><strong>n.&nbsp;492</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n493"><strong>n.&nbsp;493</strong></a> <em>ritmico</em></p>
+      <p><a href="../materiali/solfeggi-classe-3.html#n538"><strong>n.&nbsp;538</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n539"><strong>n.&nbsp;539</strong></a> <em>parlato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-3.html#n540"><strong>n.&nbsp;540</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n541"><strong>n.&nbsp;541</strong></a> <em>cantato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-3.html#n542"><strong>n.&nbsp;542</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n543"><strong>n.&nbsp;543</strong></a> <em>ritmico</em></p>
       <p class="rimando">Ogni pezzo a tempo, senza fermarti: il parlato a nomi, il cantato prendendo il primo suono dalla tastiera, il ritmico battendo la pulsazione.</p>
     </div>
     <div class="riquadro compito dettato-casa" id="C3-D-U09-L3">
@@ -546,25 +218,25 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Scrivi un contrappunto di <strong>quinta specie (il contrappunto fiorito)</strong> sopra il canto fermo, in modo ionico (finale do): otto battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
       <tac-stave caption="Il canto fermo" clef="bass" time="4/4" notes="c/3:w | a/2:w | b/2:w | c/3:w | d/3:w | e/3:w | d/3:w | c/3:w" tempo="72" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-CP-U09-L3</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="nHSV23/1azyNGhkYMs4asg==" iv="QweCbUblKijx8z2o" dati="4lQMMRs+gSm/X6x3MItAtEK5KeiMaECu4OORPY1B+EDXWmwaF0boIDN2k48aE5qHPkWJoyBSp90HlY0HFFD6eitDQXK5F5XnSM+aaLDlKWgU5IO8nukyXH9W44SIqYc3ZyHdckRUmdPsY75Jhk/8QF9vKi8DmG/HeAf3Dcv9JQTdmCRnMmKZFbMeOET6tlOt1S9q5BRYghKw3Lv5MkRoOGT4fjaSoEzrOGDLhIqR4kFFH9RCabfFwZZxjf2xkdjOw+gCpa79BLGpwhjHurOW/801sZ5EFuGR9r1a4gi1pV+4VtO5/A86RKY35X9p/A8V2tyTfrbdNMGechSSSdnRL0EpNBvp7+bdgcL7cxfcdKHW+GxSSx86yqvjXEdJWn0RwGfUxoMymLgprdZbzqsPr75Mr7f1fqZ3eDYBOol/bEsOSfZFHw=="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="3YDE5G8oZimLjma1NyRG+g==" iv="JBuiSOCrhknec4c8" dati="pY0ZeCw62x7eKeoDEUdU0nZblgtNl6K8sizGD93cGEcAo0mnwtAVgZraasXED2Tn4T6teoB+83EzTPKIWmujuu7aW2oTDFeH+PpbU3kgmUn/RaRGBVJt0gTJ0zgrvJiz2eqV02/om5+ZeWGTdIWAkBCx6rgUtVuJyJepI7ltiC9SXFesUxC8aERuJNO9kmqoZ6trVfdi6+ZLxcu8GT0092uR1hZGjM2dKKUZbkeZ+sJjtQh6Y/x9+Rj53h0KJMvCCoCC6SR66tKGd8GHBzWXMZ3tNNYmHDKQZ2UWH8TsyvihA5kAe/Qjd/YbkA1nqBMQR4HLYLSfvpiwxS+FWemEx6a4T43MEO8F0xzCIlnPMWk5XDFzH9ae3hup+aNiNV/80HIwsm5D0y8PjuOv4cpDVemQbdM6oKJH4+zue5emw7l+Lcq57Q=="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C3-BD-U09-L3">
       <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C3-BD-U09-L3</span></span>
       <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: otto battute in 4/4, la maggiore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: anche la dominante della dominante.</p>
       <tac-stave caption="Il basso" clef="bass" keysig="A" time="4/4" notes="a/2:h b/2:h | e/3:h f/3:h | d/3:w | b/2:w | g/2:h a/2:h | b/2:w | e/3:h e/3:h | a/3:w" tempo="60" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-BD-U09-L3</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="H8p8543GCRyvgIzCYq58Cg==" iv="P5IG3dqeXL/JKBVB" dati="UTcRSJfPBMvYH4YkWCWNJouCjjqc3RJ0ubN/a0dYGw1MmuICvc7ervkquZCTxbOHLaSy4yP09BK4/R6SDz4ssAgyEJVa5GXrHjNtDHlX7VOv85mL3uQHTheDEsCL/0SOC+W+6rg+2N2JIolvE/SKJ3r3o59TM7/1axuidFGiJQIuzRjQl2MFwNy0/VCeqNtgWu0ungGxYJLvGS/oqcxVk3TjsqP2+ECXXj+r9YxoI33yiTf6GRdry1uikkgQBAfm4877ii4moKpalX6FHeiDic3/fR4R1DCoFwdDSzNKgCvzjQqIXAg07RVTVwMZagSGF58uK6lE0B7iQxTMOzkhvbPFFUoJh5/Qkdv/5l3KP5V9ssVuF5Gl9Y2cDMOg26N/OBA9vC28mobK2L5pwafbZ1KolHQ0kKUxWSSVWXTrYFktTqq0WoZvNfvbSFFTIq7DkdPgpsKhncI+UNP9Y76rU8M2PghRvmDQn1g295bhQG6aqBfsjjsf50tOTLI2lF3rdnrpXkmNOJO9g5uSN8yBFmcg0As9srGwyUbAUA0/XZdaKZeDgLd5uVXsVCYEE3XQyuyIbdXDXsbiBcxoVgVILgHLCM90DASFcd9UuoOWzHcF+VtScmLPWI/ROu2/+Oa8AIrbvPzeyses6g86d6+/Mbr3pSoUOgErpyP4O6J/R+SwbixdWKt4957yDbtVfDDmN4elGHULVqkZgQGvqzXWz9IOZxelOxk9XRYNTC3hvGaA1mf7AfVyFzSLbVODFztq9sB/4/7vSoeO3vvMi1iM"></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="5J9KqFZHfzEahN5s/aKjQw==" iv="ool5fMvyV3JAbl2e" dati="1F6WVSj7YEhS0kcZ9igAkOCD+qdkYmRub1xTlqbE2jeRnFAG+NnDreEEi7Vxt5PZQ3/S3/seiWdtRX46t2ydda074cAkb15OuVo5CsuhfPhds/FR3xd+VOZojOlM0Js6cPXo3ghx5ncAKCRsvi4YtuEdahqX1vP7UzelobSJQdO+KekHF6TITchh4Jknmm4UPcLIF343341KhHJ3UL5Vm7E9yMlqyOOlV0az/ynybN3Y7AwM8UmjGXZSJZMp+720iyQ9I3ePrOMytj443W67fhgj+7RhhPjpUKlIlz9rOy20O93KMEkMrhbWl+j4xaVU+Mr0Y4mAhX5xC9BiHfKxL/Gkgl1/pwRzgNQtJoQf5UBNzlcy9KDQowp0tkEiflymI/1jG+QqQZeMGHTkooX+l9YSyGSWlLo1xyV6ySBlwM2SgiDJGEKGWlnhL0wSxFOCgQu/Hu6lsz7z/1tBDPTfxruw0yiBIn6Bn4E0iab+217WsPRkcCZcK3qw3+ZWsDTqGnBUZ1/o7pLrlJ7HMcjetf+NHl57h30tV2TDVCwrmaBkN8AaH/Sp438YyDzcjpP8u39mhnG1DcLUJnXsrPI8Lz/lzj10S/VSyPVg07AXgTEieEaBZUd284JyVYFfAh73DFkY9wqG91os7t9T24H3llVA8qNqP+/lgj/225pGLCGDhfCIIfbxGovaug4DoaFO7YEdI65A85cxdhWCkDSJEMrnkuWz8p2x9ZmIrOnL609SQmMSboyUsC8GZ5t4OSGkqrc6DvBRyiddRsD/coFD"></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C3-CD-U09-L3">
       <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C3-CD-U09-L3</span></span>
       <p>Armonizza a quattro parti il <strong>canto dato</strong>: otto battute in 4/4, re maggiore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: anche la dominante della dominante.</p>
       <tac-stave caption="Il canto dato" clef="treble" keysig="D" time="4/4" notes="d/5:h b/4:h | e/5:w | e/5:h b/4:h | g#/4:h a/4:h | f/4:h f/4:h | g/4:w | f/4:h e/4:h | d/4:w" tempo="66" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-CD-U09-L3</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="z6eTn3Jddks6J/nnDQKuvA==" iv="72Z6/meZuvyrFJHX" dati="920aYk1y8y+5eT0aPYeM1lF9mGwg60l2KdAZlbLtNtucVio+w3penXRp+X7754R622TU5NzEYe0EIBujQZ0/8f9hHN2ygksZE0yOvUZQtEb6foCAUUHsscagaDAU1+D+xCL7GK1dkFhdmvbxSntAHCSnyLZ20DmGMI5h1VtCiYG4IXQLfUhmTpHnOVrm7y7RNn6W8V//b1iQR/HHk1laWvUStGqbCPMk74afUv8W4uy0duQenVPZTxA8OuytxP/oWGVNcbTKhZUEwc6nxRCa/IgDCiiprfgCbVXNxadOp8ua6T3tuRO0tpp18N5LNfssai1vKJAORpnF1jffyCQ8KfU9IfBaSCvIFN0z11XROOQ9GtXVDq0lf6Ir9/dj71ucHADQw35lLRtRdwvzsG2IdW6RRKhMF56he7PJrmPv5GE2nb+a+vFxP27CUv+7vYnT/ymmvXGM4qS+tsKeqAADD3cxAAWlhrl4RjpeVpwnW+X7wuEoaqu4hSrNbmQ4dOqcXR+YmmhjbiQHRZK072ro80nCNlegsVVhJKhLMMGuQvVDu+70rp+51omOR33gcltlSnsqjJLVMeQhR8YXYVL1UnisQrL0hqErznMy80ijwgKfJVRmvSKxFJm7h2cgI+wfT5e/IZEtT/DUtvGrhXtvwJV2BxyozeuPpA7lxhYrDFodKnyBYuJi6VOCg1FCQOdiErAJvbw72WvOsDhHika8K/5jnaJrP4k8KEctschNA35qIuZMaIKBsKJkQ4hwDmyN03X+7po9EXDsbIIak4CLnpfaUSn8QCacl/aD3XfBeMQGdf+l1CaZJBoHFN9d"></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="7dKwh8b3NsB5D1A+I1eAxw==" iv="5H+v+A95amVFAEtm" dati="Gxd+PsfSZnPwurY0xigCTw9Kh5Sgs0yjqvhrI7vcOTkAcSF3B5nph5O5h1R4iCYg3JaIaP+Q8VALk+kYui7sJQBqc4h3a82rtB915zlQsl4pCdtXosYqHWkDXuDVyTUd8gaXA7NtQPtRfhffOOIrXdDKqZUenJiWla17Ya8Lg+kk4H3vfmrkvOu/vq1E0R6gfdb34BmUgBhxWfq9a1FlGohpCqdC76T/pbAmFTF/mWsEKr9X1mv876cQL0CFviE6x7Hmky5BVnmpq81KU00JZxotoBKrmihYe9ywme9aUVBTAghVyHAt4bn0KTNnhpW/zqoUfv73LruFbR9DmLQqAD66dTo0jXZ0Y7i/kpH5wqhSFVlg3ZdM+F5CoumcRV28reb2ac4aBC2vvxq1xSdWf/fb82L6vylD86JC7xAQ+NHj/TA2GU2VaIDj/UnbQxliSpr/GWXAfIwh7HdZQQwfj9xQND57eMFmP0D7Dp+zKHth/Gb4A/yYsQKN9X0QOYW/3lMdYX1NoxjiwDz1yjrcWqYzWjH7YsqrH3kpxhP7I15XZGecdDkg/0s0eroZWGkAXOaVBujFCNaFAZ4fd1QutMJml3Hbkp72Y2V0pnSsS4U7Yhj42MWWirP1rcC1hGNRwtr+LS/efWvgrAX+EGIzaNxvuMeWunb4fB98Mkq0hMRS95BWxF/H2ujU8oJ+fgJ+5/Y4pyXudjf2Lw18QXxIrDHZdknuHgRRIWOsercMoOzhpz0JaR74rGqd8CzSdlNhanj41eR0DAY8Rsx0t4YhDLlGFEAUNQYbpGsJFVC5qSbsW3aLJkhSL+ySDn6q"></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Otto battute con una sensibile secondaria (Workbook, esercizio C3-U9-L3-03), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 488, 489; cantato n. 490, 491; ritmico n. 492, 493 (a tempo, senza fermarsi). Dettato C3-D-U09-L3 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di quinta specie sul canto fermo (C3-CP-U09-L3). Basso senza numeri da realizzare a quattro parti (C3-BD-U09-L3). Canto dato da armonizzare a quattro parti (C3-CD-U09-L3).</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Un canto dato di otto battute con la sesta napoletana (Workbook, esercizio C3-U9-L3-01), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 538, 539; cantato n. 540, 541; ritmico n. 542, 543 (a tempo, senza fermarsi). Dettato C3-D-U09-L3 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di quinta specie sul canto fermo (C3-CP-U09-L3). Basso senza numeri da realizzare a quattro parti (C3-BD-U09-L3). Canto dato da armonizzare a quattro parti (C3-CD-U09-L3).</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>
@@ -593,7 +265,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: parlato</h2>
     <p>A nomi, a tempo, con la mano che batte. Chi si ferma riparte dalla battuta dopo.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n484">Apri il n.&nbsp;484 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di tenore &middot; 3/4 &middot; la maggiore</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n534">Apri il n.&nbsp;534 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di contralto &middot; 6/8 &middot; re bemolle maggiore</span></p>
   </div>
 </section>
 
@@ -602,8 +274,8 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: cantato</h2>
     <p>Si prende il tono dalla tastiera, si canta insieme; poi a gruppi.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n485">Apri il n.&nbsp;485 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 6/8 &middot; sol maggiore</span></p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n486">Apri il n.&nbsp;486 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 3/4 &middot; la minore</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n535">Apri il n.&nbsp;535 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 2/4 &middot; sol maggiore</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n536">Apri il n.&nbsp;536 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 4/4 &middot; do maggiore</span></p>
   </div>
 </section>
 
@@ -612,18 +284,10 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: ritmico</h2>
     <p>Tutti insieme, battendo la pulsazione. Poi a file, due battute a testa.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n487">Apri il n.&nbsp;487 nel quaderno di lettura &#8599;</a> <span class="rimando">9/8</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n537">Apri il n.&nbsp;537 nel quaderno di lettura &#8599;</a> <span class="rimando">12/8</span></p>
   </div>
 </section>
 
-<section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
-  <div class="slide-interna">
-    <p class="compiti-occhiello">In classe</p>
-    <h2>Scriviamo adesso: La nota che manca</h2>
-    <p>In ogni frammento la <strong>pausa</strong> sta al posto di una nota alterata che nel dettato hai sentito <strong>salire di un semitono</strong> alla nota dopo. Ricostruiscila all’indietro, dalla destinazione:<br><strong>1.</strong> scrivi la nota mancante al posto della pausa, con il segno giusto davanti;<br><strong>2.</strong> sotto la nota d’arrivo scrivi che grado è nella tonalità del frammento;<br><strong>3.</strong> una riga: perché in fa maggiore il segno non è un diesis?</p>
-    <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna.</p>
-  </div>
-</section>
 
 
 </div>

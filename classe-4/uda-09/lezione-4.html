@@ -42,236 +42,221 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=a489d51c" defer></script>
+<script src="../../_assets/js/tac-core.js?v=306746de" defer></script>
 </head>
 <body>
 <div id="tac-deck">
-<!-- 16/10/2026: piano nuovo della 4ª. Era la U9 L5 del piano vecchio; ora è la U9 L4, ora 64 di 90 («L’enarmonia: la settima diminuita e la sesta tedesca come porte»). Da riscrivere per il titolo nuovo. -->
+
 
 <!-- ══════════════════════════════════════════════════════════════════
-     LEZIONE 5 · Gli accordi di sesta eccedente
-     Unità 9, ora 65 di 90 · classe 4ª · teoria/armonia
-     ⚠ VENTI MINUTI + CODA DELL'ORALE (ore.code(4): coda all'ora 65)
+     LEZIONE 4 · L'enarmonia: la settima diminuita e la sesta tedesca come porte
+     Unità 9, ora 64 di 90 · classe 4ª · teoria · venerdì 5/3/2027 (prima ora)
+     ORA INTERA senza coda: la PRIMA MEZZ'ORA È LA RESTITUZIONE DELLA V4
+     (26/2; ore.restituzioni: ora 64). La lezione dura circa 25 minuti e non
+     ha slide per la restituzione, come nelle altre classi.
 
-     PAROLE CHIAVE: sesta eccedente · italiana, francese, tedesca ·
-     enarmonia · settima di dominante riscritta · sesto grado abbassato.
+     26/10/2026 · RISCRITTA (piano nuovo, obiettivi del 15/10). Il testo del
+     piano vecchio (U9 L5, «Lo stesso suono, due destinazioni», con le
+     citazioni di Marenco non ritrovate) è in
+     lezione-4.tpl.html.prima-della-riscrittura-feb.
 
-     ══ IN VENTI MINUTI: UNA COSA SOLA, ED È LA CERNIERA DELL'UNITÀ ══
-     La sesta tedesca e la settima di dominante SUONANO UGUALI. Cambia
-     come si scrivono, e cambiando la scrittura cambia dove vanno.
-     È la seconda metà della tesi: quando non c'è un accordo che
-     appartiene a due toni, serve un SUONO che ne abbia due nomi.
+     CONTENUTO
+     · La settima diminuita come quattro sensibili; la sesta tedesca come V7
+       della napoletana (unità 7, lezione 4) usata come porta.
+     · Due esempi a quattro parti (do minore → la minore; do → re♭),
+       realizzati e controllati con _strumenti/q3.py, che legge il perno
+       enarmonico «vii°7=@Am:vii°65» (lo stesso suono in due tonalità:
+       stesse classi di altezza, stesso basso).
+     · Compito: la minore → do minore per la settima diminuita. Tolti
+       C4-U9-L4-01…03.
 
-     ⚠ QUI NON SI FA IL CAPITOLO. Si nominano tutte e tre le seste e si
-     lavora solo sulla tedesca, che è quella che nasce dalla settima.
-     Le altre si riprendono in quinta.
-
-     ══ FONTE MISURATA ══
-     Marenco p. 96 — la riga che tiene insieme tutta l'unità.
-     Libro, A11, p. 126.
+     I TEMPI · 30 minuti di restituzione + 25 minuti
+     La settima diminuita 10'; la sesta tedesca 10'; sintesi 5'.
      ══════════════════════════════════════════════════════════════════ -->
 
-<!-- Riordinata il 30/09/2026: «Le due strade, e come si sceglie» fusa in «Come si usa» (stessa questione: riscrivere e poi risolvere); «Da dove viene» accanto alle tre specie; l'ascolto dopo «Due strade». -->
-
+<!-- ore-doppie: pagina da due ore -->
 <section class="slide attiva copertina foto" data-titolo="Copertina"
-         style="--foto: url('../../_assets/copertine/c4u9-lezione-5.jpg?v=b6484202');
-                --cop-a:#134e4a; --cop-b:#0d9488; --cop-c:#99f6e4">
+         style="--foto: url('../../_assets/copertine/c4u9-lezione-4.jpg?v=23e575cc');
+                --cop-a:#140a05; --cop-b:#9a3412; --cop-c:#fed7aa">
   <div class="slide-interna">
-    <div class="occhiello">L’armonia del Lied romantico: toni lontani, nona, cromatismo &middot; UdA 9 &middot; Lezione 4 di 9</div>
-    <h1>Lo stesso suono, due destinazioni</h1>
-    <p class="sottotitolo">Un accordo che si scrive in due modi &egrave; una porta che si apre da due parti. La sesta eccedente &egrave; quella porta, e vale l&rsquo;intera unit&agrave;.</p>
-    <blockquote class="aforisma">
-      <p>Caso tipico &egrave; la settima di dominante che con il <strong>cambio enarmonico della settima</strong> si trasforma nella cosiddetta sesta eccedente &laquo;tedesca&raquo;.</p>
-      <cite>Carlo Marenco, <em>Manuale d&rsquo;armonia</em>, p.&nbsp;96</cite>
-    </blockquote>
+    <div class="occhiello">L&rsquo;armonia del Lied romantico: toni lontani, nona, cromatismo &middot; UdA 9 &middot; Lezione 4 di 9</div>
+    <h1>L&rsquo;enarmonia: la settima diminuita e la sesta tedesca come porte</h1>
+    <p class="sottotitolo">Un accordo che si pu&ograve; scrivere in due modi appartiene a due tonalit&agrave;. Si entra leggendolo nella prima, si esce leggendolo nella seconda: il nome di una nota decide la strada.</p>
 
+    <p class="sottotitolo" style="margin-top:.6rem"><strong>Lezione di due ore.</strong> Seconda ora: <em>La nona di dominante, maggiore e minore</em>. I compiti per casa sono alla fine.</p>
     <div class="meta-copertina">
-      <span>20 minuti</span>
-      <span>Poi si interroga</span>
+      <span>2 ore</span>
+      <span>Dopo la restituzione della V4</span>
       <span>Armonia</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Che cos&rsquo;&egrave;">
+<section class="slide" data-titolo="La settima diminuita">
   <div class="slide-interna">
-    <h2>Un intervallo che d&agrave; il nome a tre accordi</h2>
+    <h2>La settima diminuita: quattro sensibili</h2>
 
-    <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
-         «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 4&deg; anno; pagine dall'indice rilevato. -->
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
-      <p><span class="lez">A11</span><strong>Modulazione alla dominante e alla mediante del minore</strong>, pp. 126&ndash;137</p>
-      <p>Sezione A, unit&agrave; 11, lezione 51 &laquo;Accordi di sesta aumentata&raquo;: le tre specie e la risoluzione sulla dominante.</p>
+      <p><span class="lez">C2</span><strong>La modulazione ai toni lontani</strong>, 4&deg;&nbsp;anno, sezione C, lezione 6 &laquo;Modulazione ad altre tonalit&agrave; lontane&raquo;; la sesta tedesca enarmonica, A11, lezione 51, p.&nbsp;135</p>
+    </div>
+    <div class="riquadro definizione">
+      <span class="etichetta">Definizione</span>
+      <p>La settima diminuita &egrave; fatta di tre terze minori sovrapposte; il suo rivolto aggiunge un&rsquo;altra terza minore (una seconda eccedente scritta come terza). Le quattro note sono equidistanti, e ognuna pu&ograve; essere letta come la sensibile di una tonalit&agrave;: <em>si&ndash;re&ndash;fa&ndash;la&#9837;</em> &egrave; il vii&deg;<sup>7</sup> di <em>do</em> minore; scritto <em>sol&#9839;&ndash;si&ndash;re&ndash;fa</em> &egrave; il vii&deg;<sup>7</sup> di <em>la</em> minore; <em>re&ndash;fa&ndash;la&#9837;&ndash;do&#9837;</em> di <em>mi&#9837;</em> minore; <em>mi&#9839;&ndash;sol&#9839;&ndash;si&ndash;re</em> di <em>fa&#9839;</em> minore. Il suono &egrave; lo stesso; la scrittura dice dove va.</p>
+    </div>
+    <div class="righe">
+      <tac-stave time="4/4" keysig="Cm" caption="Do minore → la minore: la settima diminuita alla b. 2 (scritto per la lezione)" soprano="e/5:h c/5:h | f/5:h en/5:h | d/5:h bn/4:h | c/5:w" contralto="g/4:h a/4:h | g#/4:h an/4:h | an/4:h g#/4:h | an/4:w" tenore="c/4:h c/4:h | d/4:h en/4:h | f/4:h en/4:h | en/4:w" basso="c/3:h f/3:h | bn/2:h c/3:h | d/3:h en/3:h | an/2:w" cifre="i &middot; iv &middot; vii°7=@Am:vii°65 &middot; i6 &middot; iv &middot; V &middot; i" segna="b2=si–re–fa–sol♯: vii°7 di do = vii°65 di la · b2=sol♯ → la" width="760" tempo="60" play></tac-stave>
+    </div>
+    <p>La settima diminuita della b.&nbsp;2 arriva come vii&deg;<sup>7</sup> di <em>do</em> minore, sopra il <em>si</em> del basso; nella partitura &egrave; scritta con il <em>sol&#9839;</em>, cio&egrave; come vii&deg;<span class="cifrata"><sup>6</sup><sub>5</sub></span> di <em>la</em> minore, e va dove va la sensibile di <em>la</em>: il <em>sol&#9839;</em> sale al <em>la</em>, il basso sale al <em>do</em> del i<sup>6</sup>. Poi la cadenza conferma <em>la</em> minore.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="La sesta tedesca">
+  <div class="slide-interna">
+    <h2>La sesta tedesca e la settima di dominante</h2>
+
+    <div class="riquadro definizione">
+      <span class="etichetta">Lo stesso suono, due strade (unit&agrave; 7)</span>
+      <p>In <em>do</em> la sesta tedesca &egrave; <em>la&#9837;&ndash;do&ndash;mi&#9837;&ndash;fa&#9839;</em> e va alla dominante di <em>do</em>; scritta <em>la&#9837;&ndash;do&ndash;mi&#9837;&ndash;sol&#9837;</em> &egrave; il V<sup>7</sup> di <em>re&#9837;</em>, e va in <em>re&#9837;</em>. Nell&rsquo;unit&agrave; 7 le due letture restavano dentro la tonalit&agrave;; qui la seconda diventa una porta: si entra nell&rsquo;accordo come sesta tedesca di <em>do</em> e se ne esce come dominante di <em>re&#9837;</em>, un tono lontano cinque alterazioni.</p>
+    </div>
+    <div class="righe">
+      <tac-stave data-toni="2:Cm" time="4/4" keysig="C" caption="Do maggiore → re♭ maggiore: la sesta tedesca riletta come V7 (scritto per la lezione)" soprano="c/5:h e/5:h | f/5:h eb/5:h | db/5:h bb/4:h | c/5:h db/5:h" contralto="e/4:h e/4:h | ab/4:h gb/4:h | f/4:h eb/4:h | eb/4:h db/4:h" tenore="c/4:h c/4:h | c/4:h c/4:h | ab/3:h gb/3:h | gb/3:h f/3:h" basso="c/3:h a/2:h | ab/2:h ab/2:h | db/3:h gb/2:h | ab/2:h db/3:h" cifre="I &middot; vi &middot; iv6 &middot; Td65=@Db:V7 &middot; I &middot; ii6 &middot; V7 &middot; I" segna="b2=la♭–do–mi♭–sol♭: Td65 di do = V7 di re♭ · b3=sol♭ → fa" width="760" tempo="60" play></tac-stave>
+    </div>
+    <div class="riquadro attenzione">
+      <span class="etichetta">Gli errori tipici</span>
+      <p><strong>Scrivere la nota con il nome della tonalit&agrave; di partenza</strong> e poi farla andare nella direzione dell&rsquo;altra: <em>fa&#9839;</em> che scende, <em>la&#9837;</em> che sale. Dopo la porta si scrive con i nomi del tono nuovo. <strong>Usare la porta senza conferma</strong>: dopo l&rsquo;accordo enarmonico serve una cadenza nella tonalit&agrave; d&rsquo;arrivo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Sintesi">
+  <div class="slide-interna">
+    <h2>Sintesi</h2>
+
+    <div class="colonne">
+    <div class="riquadro definizione">
+      <span class="etichetta">La settima diminuita</span>
+      <p>Quattro note equidistanti: ognuna pu&ograve; essere la sensibile, quattro tonalit&agrave; minori (e le loro omonime).</p>
+    </div>
+    <div class="riquadro definizione">
+      <span class="etichetta">La sesta tedesca</span>
+      <p>Suona come il V<sup>7</sup> della napoletana: da sesta di <em>do</em> a dominante di <em>re&#9837;</em>.</p>
+    </div>
+    <div class="riquadro definizione">
+      <span class="etichetta">La scrittura</span>
+      <p>Dopo la porta, i nomi del tono nuovo; poi la cadenza che lo conferma.</p>
+    </div>
     </div>
 
-    <p>Si prende il <strong>sesto grado abbassato</strong> &mdash; in do maggiore, il la&flat; &mdash; e lo si mette al basso. Sopra ci si costruisce una <strong>sesta eccedente</strong>, cio&egrave; il fa&sharp;. Due note che distano una sesta pi&ugrave; un semitono, e che vogliono allargarsi.</p>
-
-    <p>Il la&flat; scende al sol, il fa&sharp; sale al sol. Le due voci vanno in direzioni opposte e arrivano <strong>sulla stessa nota</strong>, che &egrave; la dominante. Tutto qui: l&rsquo;accordo esiste per fare questo.</p>
-
-    <p class="didascalia">Le tre specie &mdash; italiana, francese, tedesca &mdash; differiscono solo per che cosa si mette in mezzo.</p>
+    <p class="didascalia">Venerd&igrave; 5/3 (seconda ora), ora 65: la nona di dominante, maggiore e minore. La lezione si chiude con il solfeggio parlato, cantato e ritmico.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Le tre specie">
+<section class="slide copertina foto" data-titolo="Seconda ora"
+         style="--foto: url('../../_assets/copertine/c4u9-lezione-5.jpg?v=b6484202');
+                --cop-a:#0b1020; --cop-b:#4338ca; --cop-c:#c7d2fe">
   <div class="slide-interna">
-    <h2>Tre, e i nomi sono un accidente della storia</h2>
+    <div class="occhiello">Seconda ora &middot; L&rsquo;armonia del Lied romantico: toni lontani, nona, cromatismo &middot; UdA 9 &middot; Lezione 5 di 9</div>
+    <h1>La nona di dominante, maggiore e minore</h1>
+    <p class="sottotitolo">Sopra il V<sup>7</sup> si aggiunge un&rsquo;altra terza: la nona. Nel maggiore &egrave; maggiore, nel minore &egrave; minore; scende come la settima, e senza la fondamentale diventa una settima di sensibile.</p>
 
-    <tac-stave clef="treble" time="4/4"
-               notes="ab/3+c/4+f#/4:w | ab/3+c/4+d/4+f#/4:w | ab/3+c/4+eb/4+f#/4:w"
-               caption="Italiana (tre note), francese (con il re), tedesca (con il mi&flat;) &mdash; tutte in do maggiore"
-               width="740" tempo="48" play></tac-stave>
-
-    <p>L&rsquo;<strong>italiana</strong> ha tre suoni soli: la&flat;, do, fa&sharp;. La <strong>francese</strong> aggiunge il re, la <strong>tedesca</strong> aggiunge il mi&flat;. I nomi non hanno niente a che vedere con i tre paesi: sono etichette ottocentesche, comode e arbitrarie.</p>
-
-    <p>Oggi ci interessa la <strong>tedesca</strong>, e per una ragione precisa: &egrave; l&rsquo;unica che ha quattro suoni tutti diversi, e quindi &egrave; l&rsquo;unica che pu&ograve; essere scambiata per un altro accordo di quattro suoni.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Da dove viene">
-  <div class="slide-interna">
-    <h2>Da dove viene questo accordo</h2>
-
-    <p>La sesta eccedente non nasce nell&rsquo;Ottocento con i nomi che le abbiamo dato: nasce molto prima, e nasce <strong>per moto delle parti</strong>. Nel Seicento e nel Settecento capita spesso che due voci si allarghino da una sesta a un&rsquo;ottava, e per farlo alterino: quella &egrave; gi&agrave; una sesta eccedente, e nessuno la chiamava cos&igrave;.</p>
-
-    <p>I tre nomi &mdash; italiana, francese, tedesca &mdash; arrivano dai trattati dell&rsquo;Ottocento, quando l&rsquo;accordo era diventato cos&igrave; frequente da meritare una classificazione. Sono etichette di comodo, e non corrispondono a nessuna geografia reale: la &laquo;francese&raquo; si trova in Italia e la &laquo;italiana&raquo; in Germania.</p>
-
-    <p>Nell&rsquo;Ottocento diventa poi uno degli strumenti principali per andare lontano in fretta, e in Schubert e in Wagner &egrave; dappertutto. La cosa che oggi vi sembra un trucco &egrave; stata, per un secolo, il modo normale di cambiare mondo dentro un pezzo.</p>
-
-    <p class="didascalia">Quando in quinta analizzerete un Lied, l&rsquo;avrete davanti nella prima pagina.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La coincidenza">
-  <div class="slide-interna">
-    <h2>La coincidenza su cui &egrave; costruita l&rsquo;ora</h2>
-
-    <p>La sesta tedesca di do maggiore &egrave; <strong>la&flat; &ndash; do &ndash; mi&flat; &ndash; fa&sharp;</strong>. Adesso riscrivete il fa&sharp; come sol&flat;: viene fuori la&flat; &ndash; do &ndash; mi&flat; &ndash; sol&flat;, che &egrave; la <strong>settima di dominante di re&flat;</strong>.</p>
-
-    <div class="riquadro citazione">
-      <span class="etichetta">Marenco, p.&nbsp;96</span>
-      <p>&laquo;Caso tipico &egrave; la settima di dominante che con il cambio enarmonico della settima si trasforma nella cosiddetta sesta eccedente &lsquo;tedesca&rsquo;.&raquo;</p>
+    <div class="meta-copertina">
+      <span>Seconda ora</span>
+      <span>Armonia</span>
+      <span>Nona di dominante</span>
     </div>
-
-    <p>Sul pianoforte i due accordi sono <strong>indistinguibili</strong>. Sulla pagina sono due cose diverse, e vanno in due posti diversi.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Due strade">
+<section class="slide" data-titolo="La nona di dominante">
   <div class="slide-interna">
-    <h2>Le due strade, una accanto all&rsquo;altra</h2>
+    <h2>La nona di dominante</h2>
 
-    <tac-stave clef="treble" time="4/4"
-               notes="ab/3+c/4+eb/4+f#/4:w | g/3+b/3+d/4+g/4:w"
-               caption="Scritto fa&sharp;: sesta tedesca di do, e va sulla dominante di do"
-               width="700" tempo="46" play></tac-stave>
-
-    <tac-stave clef="treble" time="4/4"
-               notes="ab/3+c/4+eb/4+gb/4:w | db/4+f/4+ab/4+db/5:w"
-               caption="Scritto sol&flat;: settima di dominante, e va in re&flat; maggiore"
-               width="700" tempo="46" play></tac-stave>
-
-    <p>Ascoltate il primo accordo delle due righe: &egrave; lo stesso suono. Poi ascoltate dove arrivano. Do maggiore e re&flat; maggiore distano <strong>cinque alterazioni</strong>, e ci si &egrave; passati in un accordo.</p>
-
-    <p class="didascalia">Questa &egrave; la quarta via dell&rsquo;ora scorsa, ed &egrave; l&rsquo;unica che non costa tempo.</p>
+    <div class="riquadro libro">
+      <span class="etichetta">Sul tuo libro</span>
+      <p><span class="lez">A4</span><strong>La nona dominante</strong>, 5&deg;&nbsp;anno, sezione A, UdA 4, lezione 20, da p.&nbsp;52</p>
+    </div>
+    <div class="riquadro definizione">
+      <span class="etichetta">Definizione</span>
+      <p>La <em class="termine">nona di dominante</em> &egrave; il V<sup>7</sup> con una terza in pi&ugrave; sopra la settima: in <em>do</em> <em>sol&ndash;si&ndash;re&ndash;fa&ndash;la</em>. Nel maggiore la nona &egrave; maggiore (<em>la</em>); nel minore &egrave; minore (<em>la&#9837;</em>, il sesto grado del minore). Cinque suoni in quattro voci: si toglie la <strong>quinta</strong>, come nel V<sup>7</sup> incompleto; restano fondamentale (al basso), terza, settima e nona.</p>
+    </div>
+    <table class="tabella">
+      <tr><th>la nota</th><th>dove sta</th><th>dove va</th></tr>
+      <tr><td>la nona</td><td>sopra la terza (la sensibile), di solito al soprano; ad almeno una nona dal basso</td><td>scende di grado: alla quinta della tonica (V<sup>9</sup>&ndash;I), o sulla fondamentale dello stesso V (9&ndash;8, V<sup>9</sup>&ndash;V<sup>7</sup>)</td></tr>
+      <tr><td>la settima</td><td>in una voce interna o al soprano</td><td>scende di grado, come nel V<sup>7</sup></td></tr>
+      <tr><td>la terza (sensibile)</td><td>in una voce interna</td><td>sale alla tonica</td></tr>
+      <tr><td>la fondamentale</td><td>al basso</td><td>va alla tonica</td></tr>
+    </table>
+    <div class="riquadro attenzione">
+      <span class="etichetta">Gli errori tipici</span>
+      <p><strong>La nona sotto la sensibile</strong>: a distanza di seconda dalla sensibile, o sotto di lei, la nona non si sente come nona ma come un grumo; va sopra. <strong>La nona che sale</strong>: &egrave; una dissonanza e scende. <strong>Dimenticare la quinta da togliere</strong> e raddoppiare la sensibile o la settima per far posto alla nona.</p>
+    </div>
   </div>
 </section>
 
-<!-- ───────────────────────────────────────────────────────────────────
-     Due slide, una con musica vera. L'ora spiega l'enarmonia e le tre
-     specie di accordo che la permettono, e non aveva un brano: è la
-     tecnica più astratta dell'anno spiegata senza un suono. Manca il
-     caso in cui la si sente, e manca la ragione per cui funziona —
-     che è una proprietà del temperamento, non della musica.
-     ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="L&rsquo;accordo che non dichiara la tonalit&agrave;">
+<section class="slide" data-titolo="Nel maggiore">
   <div class="slide-interna">
-    <h2>Sentirlo prima di riscriverlo</h2>
+    <h2>Nel maggiore: la nona maggiore</h2>
 
+    <div class="righe">
+      <tac-stave time="4/4" keysig="C" caption="Do maggiore, otto battute: la nona di dominante alle bb. 2 e 4 (scritto per la lezione)" soprano="g/4:h a/4:h | c/5:h a/4:h | g/4:h c/5:h" contralto="e/4:h e/4:h | f/4:h f/4:h | e/4:h g/4:h" tenore="c/4:h c/4:h | a/3:h b/3:h | c/4:h c/4:h" basso="c/3:h a/2:h | f/2:h g/2:h | c/3:h e/3:h" cifre="I &middot; vi &middot; IV &middot; V9 &middot; I &middot; I6" segna="b2=V9: la nona la al soprano, sopra il si · b3=la → sol" width="760" tempo="60" play></tac-stave>
+      <tac-stave keysig="C" soprano="a/4:h f/5:h | e/5:w" contralto="a/4:h a/4:h | g/4:w" tenore="c/4:h b/3:h | c/4:w" basso="f/3:h g/3:h | c/3:w" cifre="IV &middot; V9 &middot; I" segna="b2=V9: la nona al contralto · b3=la → sol, fa → mi" width="760"></tac-stave>
+    </div>
+    <p>Alla b.&nbsp;2 il V<sup>9</sup> ha la nona (<em>la</em>) sopra la sensibile (<em>si</em>) e la settima (<em>fa</em>) al contralto; la quinta (<em>re</em>) manca. Sulla tonica la nona scende al <em>sol</em>, la settima al <em>mi</em>, la sensibile sale al <em>do</em>. Alla b.&nbsp;4 lo stesso accordo con la settima al soprano e la nona al contralto, sempre sopra la sensibile.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Nel minore">
+  <div class="slide-interna">
+    <h2>Nel minore: la nona minore, e la settima diminuita</h2>
+
+    <div class="righe">
+      <tac-stave time="4/4" keysig="Cm" caption="Do minore, otto battute: la nona minore alle bb. 2 e 4 (scritto per la lezione)" soprano="c/5:h e/5:h | f/5:h f/5:h | e/5:h g/5:h" contralto="g/4:h a/4:h | a/4:h a/4:h | g/4:h g/4:h" tenore="e/4:h c/4:h | c/4:h bn/3:h | c/4:h c/4:h" basso="c/3:h ab/2:h | f/2:h g/2:h | c/3:h eb/3:h" cifre="i &middot; VI &middot; iv &middot; V9 &middot; i &middot; i6" segna="b2=V9: la♭, la nona minore · b3=la♭ → sol" width="760" tempo="60" play></tac-stave>
+      <tac-stave keysig="Cm" soprano="f/5:h f/5:h | e/5:w" contralto="a/4:h a/4:h | g/4:w" tenore="c/4:h bn/3:h | c/4:w" basso="f/3:h g/3:h | c/3:w" cifre="iv &middot; V9 &middot; i" segna="b2=V9 · b3=la♭ → sol" width="760"></tac-stave>
+    </div>
+    <div class="riquadro definizione">
+      <span class="etichetta">La nona senza la fondamentale</span>
+      <p>Togliendo la fondamentale alla nona di dominante restano quattro suoni sopra la sensibile. Nel minore: <em>si&ndash;re&ndash;fa&ndash;la&#9837;</em>, la settima diminuita (vii&deg;<sup>7</sup>, unit&agrave; 4 e lezione 4). Nel maggiore: <em>si&ndash;re&ndash;fa&ndash;la</em>, la settima semidiminuita (vii&oslash;<sup>7</sup>). Per questo la settima di sensibile si tratta come una dominante: la nona e la settima scendono, la sensibile sale.</p>
+    </div>
+    <p class="didascalia">Nell&rsquo;esempio la nona minore (<em>la&#9837;</em>) sta al contralto e la settima (<em>fa</em>) al soprano: le due dissonanze scendono insieme, per seste parallele, sul <em>sol</em> e sul <em>mi&#9837;</em> della tonica.</p>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Lavoro guidato" data-in-classe>
+  <div class="slide-interna">
+    <h2>Lavoro guidato: quattro battute in sol maggiore</h2>
+
+    <div class="righe">
+      <tac-stave time="4/4" keysig="G" clef="bass" caption="Basso con le sigle, sol maggiore (bb. 1–4)" notes="g/2:h e/3:h | c/3:h d/3:h | g/2:h b/2:h | c/3:h d/3:h" cifre="I &middot; vi &middot; IV &middot; V9 &middot; I &middot; I6 &middot; IV &middot; V" width="760" tempo="60" play></tac-stave>
+    </div>
     <div class="riquadro compito">
-      <span class="etichetta">Ascolto &middot; 5 minuti</span>
-      <p>Due ascolti. Cercate un accordo di cui <strong>non si capisce dove andrà</strong> finché non ci va.</p>
+      <span class="etichetta">In classe &middot; 12 minuti</span>
+      <p>Realizza a quattro parti le quattro battute. Nel V<sup>9</sup> della b.&nbsp;2 la nona (<em>mi</em>) va al soprano e scende al <em>re</em>; la quinta (<em>la</em>) non c&rsquo;&egrave;.</p>
     </div>
-
-    <tac-brano organico="tastiera" titolo="Bach, Fuga in do minore BWV 847 — la chiusa"
-               metronomo youtube="1XJgy8W0P6Y" esecutore="Robert Hill, clavicembalo" partitura="../../_assets/spartiti/A12_bach-847.png" inciso="../../_assets/incisioni/A12_bach_847.mp3" mappa='{"durata":24920,"eventi":[[0,0],[1,3158],[2,6316],[3,9474],[4,12632],[5,15789],[6,18947]]}' da-battuta="25">
-<script type="application/json">{"titolo":"J. S. Bach, Fuga in do minore BWV 847, la chiusa","metro":"4/4","bpm":76,"battute":7,"anacrusi":0.0,"voci":[[[0.0,0.5,65],[0.5,0.25,74],[0.75,0.25,72],[1.0,0.5,74],[1.5,0.5,65],[2.0,0.5,63],[2.5,0.25,75],[2.75,0.25,74],[3.0,0.5,75],[3.5,0.5,67],[4.0,0.5,65],[4.5,0.25,77],[4.75,0.25,75],[5.0,0.5,77],[5.5,0.5,68],[6.0,0.25,67],[6.25,0.25,77],[6.5,0.25,75],[6.75,0.25,74],[7.0,0.25,72],[7.25,0.25,71],[7.5,0.25,69],[7.75,0.25,67],[8.0,0.5,72],[8.5,0.5,77],[9.0,0.5,75],[9.5,0.5,74],[10.5,0.5,68],[11.0,0.5,67],[11.5,0.5,65],[12.0,0.5,67],[12.5,0.25,65],[12.75,0.25,63],[13.0,0.5,65],[13.5,0.5,62],[14.0,0.5,68],[14.5,0.5,67],[15.5,0.5,69],[16.0,0.5,71],[16.5,0.5,72],[17.0,0.25,65],[17.25,0.25,63],[17.5,0.25,62],[17.75,0.25,60],[18.0,0.5,60],[18.5,0.25,72],[18.75,0.25,71],[19.0,0.5,72],[19.5,0.5,67],[20.0,0.5,68],[20.5,0.25,72],[20.75,0.25,71],[21.0,0.5,72],[21.5,0.5,71],[21.5,0.5,74],[22.0,0.5,67],[22.5,0.25,72],[22.75,0.25,71],[23.0,0.5,72],[23.5,0.5,74],[24.0,0.25,65],[24.25,0.25,67],[24.5,1.0,68],[25.5,0.25,67],[25.75,0.25,65],[26.0,2.0,64]],[[0.0,0.5,59],[1.5,0.5,59],[2.0,0.5,60],[3.5,0.5,63],[4.0,0.5,62],[5.5,0.5,65],[6.0,0.5,65],[7.5,0.5,65],[8.0,0.5,63],[8.5,0.5,68],[9.0,0.5,67],[9.5,0.5,65],[10.0,0.5,63],[10.5,0.5,62],[11.0,0.5,63],[11.5,0.5,65],[12.0,0.5,59],[12.5,0.5,60],[13.0,0.5,62],[13.5,0.5,59],[14.0,0.5,59],[14.5,0.5,60],[15.5,0.5,60],[16.0,0.25,65],[16.25,0.25,62],[16.5,0.25,63],[16.75,0.25,60],[17.0,0.5,60],[17.5,0.5,59],[18.0,1.0,60],[19.5,0.5,64],[20.0,1.0,65],[21.5,0.5,65],[21.5,0.5,68],[22.0,0.5,65],[22.5,0.25,63],[22.75,0.25,62],[23.0,0.5,63],[23.5,0.5,65],[23.5,0.5,68],[24.0,0.5,59],[24.0,0.5,62],[25.0,0.5,59],[25.0,0.5,62],[26.0,2.0,55],[26.0,2.0,60]],[[0.0,1.0,43],[2.25,0.25,43],[2.5,0.25,45],[2.75,0.25,47],[3.0,0.25,48],[3.25,0.25,50],[3.5,0.25,51],[3.75,0.25,53],[4.0,0.25,55],[4.25,0.25,53],[4.5,0.25,56],[4.75,0.25,55],[5.0,0.25,53],[5.25,0.25,51],[5.5,0.25,50],[5.75,0.25,48],[6.0,0.5,47],[6.5,0.25,48],[6.75,0.25,47],[7.0,0.5,48],[7.5,0.5,43],[8.0,0.5,44],[8.5,0.25,48],[8.75,0.25,47],[9.0,0.5,48],[9.5,0.5,50],[10.0,0.5,43],[10.5,0.25,48],[10.75,0.25,47],[11.0,0.5,48],[11.5,0.5,50],[12.0,0.25,41],[12.25,0.25,43],[12.5,1.0,44],[13.5,0.25,43],[13.75,0.25,41],[14.0,1.0,39],[15.5,0.5,51],[16.0,0.5,50],[16.5,0.5,48],[17.0,0.5,55],[17.5,0.5,43],[18.0,2.0,36],[18.0,2.0,48],[20.0,4.0,36],[20.0,4.0,48],[24.0,4.0,36],[24.0,4.0,48]]]}</script>
-</tac-brano>
-
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le tre specie che permettono l&rsquo;enarmonia</span>
-      <p><strong>Settima diminuita</strong> &middot; quattro terze minori uguali: quattro rivolti indistinguibili, quattro risoluzioni.<br>
-      <strong>Triade aumentata</strong> &middot; tre terze maggiori: tre rivolti, tre risoluzioni.<br>
-      <strong>Sesta aumentata</strong> &middot; suona come una settima di dominante, e si riscrive come tale.</p>
-      <p>Tutte e tre hanno una cosa in comune: sono <strong>simmetriche</strong>, e una struttura simmetrica non ha un centro.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Da dove viene, ed è una proprietà del temperamento</span>
-      <p>Nell&rsquo;intonazione naturale un la diesis e un si bemolle sono <strong>due note diverse</strong>, e l&rsquo;enarmonia non esiste. Funziona solo perché il temperamento equabile le fa coincidere.</p>
-      <p>Cioè: questa tecnica è nata quando gli strumenti a tastiera hanno smesso di distinguerle. È una tecnica <strong>resa possibile da un compromesso di accordatura</strong>.</p>
-    </div>
-
-    <p class="didascalia">Alcune possibilità musicali vengono da <strong>limiti degli strumenti</strong>, non da idee dei compositori. Sono le più interessanti da conoscere, perché mostrano quanto la teoria dipenda dalla pratica.</p>
+    <tac-chiuso invito="La soluzione &mdash; si apre alla correzione" sale="OmT/u3NlEE3AWyLRTw3xhg==" iv="J539FNFkgBuSShhj" dati="jxjKJTyIKn95NkG3wd3kiYXA84QID7F04hshIs4cFD+b3dWTeTvKaL4wyxwmCMk9Q2gK3/xgziQd2gTLBjbwucL3ghPkGud2SguvpIVvqE9sRaO8e9mujpVe7t97WkZc9JvgWJyFRjSwEhYs2vkYAd188uuqTHkb2g+7dNJN1i2MRt/O48QeCzWbta9APU5SGlskfFa79zTCLFmW/jvzFNC/wmUGUxs21wEZKpnzU1vJnKccc7GgtojwXvyH8Qr0e3W2nbO0VLrtAUG1p5+8Oy5aGwqOXEFPk9N/0eKC2cb5BlW8Ec6+HQSw8L5FGLq/mzG/0Ar6obS/Ml5IzEQn5b1EQxys1NUpBupIAOKTZtU5aOzlkFP527EtqcPGbCFocsl9Yjd5cq4EKM89z2f2pQlt+fm181B0JjrFCzrZ+/++71LQlBO3Y6WEGxKPdAO/vk/X2Tjn5r4P1OWLreSpmRMcdw9IjH2pcEONGGkBAR4X7HUzIbbjFR49k6IZzDnQAPZmFRzcOsxtNHtL0JOnTQYBhGake5fZ8qIKSdijnOoKtDM/Cu265dx+Z4lbhiT/f+1mmu+i3aju/cVnSZSnldivDS9JQHut7jvGY7U735vZCKhpVQeEmB8O38jnOuX7zar08orcDOEvkIsHnzlq6exIjPt18XOOdgKazJRbGczrIrpu4pv2h/qi8Nw7WDDEq3nzoiSxlNbNoGJyucgY0BNKSt9GHEU2AuEZL+peFRVg4DSR4hXD0qMBwQOY0LIT3AcLmqJ7Vqplpn8fGtWQqdAIMXbQr16jZGX0okkd5ZTcywRvbY7SzskVotDiZ+0zXqrx3Q/+2ccjpCmymZkGLK4tONAvKhlWeyVgTjnGP1sV9+YkLVlKQFf2+8ySTQ7DFoF1+V1Bb1yYBF/+wxnUltJx4Iv/WsJwp14cgaUhs5/FKVWwgO3nUIl72HfIPcmQQJv2z32J+UGXq7OoqHNHXz/t4p4xcygdydDzhjTUMDmKFOxvkl43rCdeMj46onxZW+sZZNjENbQhJaz/94NveRzG5j2gcGebxV8pWmHTyMXolifUWzFqu8xAgUXZ5B/3WZveYEkSCTOclGp6FbtIDWVfo9cHu/rS3QAofqVUytQTR3PESIlQMCCKVyC8Et8Cj0Egs/C6NalZ/ELQ1yYlWrmGfHX5k+bf40zLqL7K"></tac-chiuso>
   </div>
 </section>
 
-<section class="slide" data-titolo="Come si usa">
+<section class="slide" data-titolo="Sintesi">
   <div class="slide-interna">
-    <h2>Come si usa, in pratica</h2>
+    <h2>Sintesi</h2>
 
-    <p>Il meccanismo &egrave; sempre lo stesso e si racconta in una riga: <strong>si entra nell&rsquo;accordo pensandolo in un modo e si esce pensandolo nell&rsquo;altro</strong>.</p>
-
-    <p>Chi scrive prepara l&rsquo;accordo come se fosse una settima di dominante, normale e prevedibile; poi lo <em>riscrive</em> come sesta eccedente e lo risolve dove va la sesta eccedente. L&rsquo;ascoltatore sente un accordo familiare che porta in un posto inaspettato, e quella sorpresa &egrave; tutto l&rsquo;effetto.</p>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Sulla pagina</span>
-      <p>La riscrittura si <strong>vede</strong>: la nota cambia nome a met&agrave; dell&rsquo;accordo, oppure l&rsquo;accordo compare gi&agrave; scritto nel modo che serve all&rsquo;uscita. Non &egrave; un dettaglio tipografico &mdash; &egrave; la modulazione stessa.</p>
-    </div>
-
-<div class="affianca">
-      <div>
-        <tac-stave clef="treble" time="4/4" caption="Scritta così, punta a la minore" notes="g#/4+b/4+d/5+f/5:h a/4+c/5+e/5+a/4:h" width="250" tempo="46" play></tac-stave>
-      </div>
-      <div>
-        <tac-stave clef="treble" time="4/4" caption="Lo stesso suono riscritto: adesso punta a do minore" notes="b/4+d/5+f/5+ab/5:h c/5+eb/5+g/5+c/6:h" width="250" tempo="46" play></tac-stave>
-      </div>
-    </div>
-
+    <div class="colonne">
     <div class="riquadro definizione">
-      <span class="etichetta">Le due strade, in pratica</span>
-      <p><strong>Prima</strong> &middot; si arriva all&rsquo;accordo nella tonalità vecchia, lo si <strong>riscrive</strong>, e lo si risolve nella nuova. La scrittura cambia, il suono no.</p>
-      <p><strong>Seconda</strong> &middot; non si riscrive: si risolve <strong>in modo irregolare</strong>, e la tonalità nuova arriva lo stesso. Si fa, e l&rsquo;analisi lo chiama scambio enarmonico implicito.</p>
+      <span class="etichetta">Il suono</span>
+      <p>V<sup>7</sup> + nona: maggiore nel maggiore, minore nel minore. A quattro parti senza la quinta.</p>
     </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Quale usare nei vostri compiti</span>
-      <p>La prima, sempre. Riscrivere è più chiaro per chi legge, e mostra che avete capito dove state andando.</p>
-      <p>La seconda si incontra analizzando, e va riconosciuta: è la ragione per cui in certe partiture le alterazioni sembrano sbagliate e non lo sono.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">La coincidenza, ed è solo sulla carta</span>
-      <p>Un cantante o un violinista <strong>non</strong> suonano il la diesis e il si bemolle allo stesso modo. In un&rsquo;esecuzione l&rsquo;enarmonia si sente come un piccolo aggiustamento, e i buoni esecutori lo fanno apposta.</p>
-    </div>
-
-    <p class="didascalia">Una tecnica di scrittura può essere <strong>esatta sulla carta e approssimata nel suono</strong>. Conoscere lo scarto è quello che distingue chi legge una partitura da chi la esegue.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa portiamo a casa">
-  <div class="slide-interna">
-    <h2>Un suono, due nomi, due destinazioni</h2>
-
     <div class="riquadro definizione">
-      <span class="etichetta">Da tenere</span>
-      <p>La <strong>sesta tedesca</strong> di un tono e la <strong>settima di dominante</strong> di un altro sono lo stesso suono. Il nome della settima decide dove va: <strong>fa&sharp; sale</strong>, <strong>sol&flat; scende</strong>.</p>
+      <span class="etichetta">La condotta</span>
+      <p>La nona sopra la sensibile, e scende; la settima scende; la sensibile sale.</p>
+    </div>
+    <div class="riquadro definizione">
+      <span class="etichetta">Senza fondamentale</span>
+      <p>La nona diventa la settima di sensibile: diminuita nel minore, semidiminuita nel maggiore.</p>
+    </div>
     </div>
 
-    <p>E con questo l&rsquo;unit&agrave; si chiude su s&eacute; stessa. Luned&igrave; abbiamo detto che si modula con un accordo che appartiene a tutt&rsquo;e due i toni. Oggi: quando quell&rsquo;accordo non c&rsquo;&egrave;, ne basta uno che <strong>si possa scrivere</strong> in tutt&rsquo;e due i toni.</p>
-
-    <p class="didascalia">Le altre due seste, e tutto quello che si pu&ograve; fare con l&rsquo;enarmonia, sono materia di quinta. Domani si canta una melodia che modula due volte, e l&igrave; si sente se tutto questo &egrave; entrato.</p>
+    <p class="didascalia">Gioved&igrave; 11/3, ora 66: ora intera di interrogazioni di teoria. La lezione si chiude con il solfeggio parlato, cantato e ritmico.</p>
   </div>
 </section>
 
@@ -279,12 +264,11 @@ try { module = undefined; exports = undefined; } catch (e) {}
          style="--segno: url('../../_assets/segni/segno-24.png')">
   <div class="slide-interna">
     <p class="compiti-occhiello">Compiti per la prossima volta</p>
-    <h2>1 &middot; Scritto: Lo stesso accordo, due uscite</h2>
+    <h2>1 &middot; Scritto: Un basso con la nona di dominante, in re minore</h2>
     <div class="riquadro compito">
-      <p>Scrivi due volte l&rsquo;accordo <strong>la&flat; &ndash; do &ndash; mi&flat; &ndash; fa&sharp;</strong>: la prima risolvendolo come sesta tedesca di do, la seconda riscrivendo il fa&sharp; come sol&flat; e risolvendolo come settima di dominante.</p>
-      <p>Due righe di rigo, quattro accordi in tutto. &Egrave; il compito pi&ugrave; corto dell&rsquo;unit&agrave; e uno dei pi&ugrave; utili: si vede con gli occhi che la scrittura decide la strada.</p>
+      <p>Realizza a quattro parti il basso numerato. V9 &egrave; la nona di dominante: in <em>re</em> minore <em>la&ndash;do&#9839;&ndash;sol&ndash;si&#9837;</em>, senza la quinta. La nona sopra la sensibile, e scende.</p>
     </div>
-    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook: <a href="../materiali/workbook-uda-09.html#C4-U9-L4-01">apri l&rsquo;esercizio <strong>C4-U9-L4-01</strong> &#8599;</a></p>
+    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook: <a href="../materiali/workbook-uda-09.html#C4-U9-L5-01">apri l&rsquo;esercizio <strong>C4-U9-L5-01</strong> &#8599;</a></p>
   </div>
 </section>
 
@@ -295,20 +279,20 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <h2>2 &middot; Solfeggio e 3 &middot; dettato</h2>
     <div class="riquadro compito">
       <span class="etichetta">2 &middot; Solfeggio, dal quaderno di lettura</span>
-      <p><a href="../materiali/solfeggi-classe-4.html#n529"><strong>n.&nbsp;529</strong></a> e <a href="../materiali/solfeggi-classe-4.html#n530"><strong>n.&nbsp;530</strong></a> <em>parlato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-4.html#n531"><strong>n.&nbsp;531</strong></a> e <a href="../materiali/solfeggi-classe-4.html#n532"><strong>n.&nbsp;532</strong></a> <em>cantato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-4.html#n533"><strong>n.&nbsp;533</strong></a> e <a href="../materiali/solfeggi-classe-4.html#n534"><strong>n.&nbsp;534</strong></a> <em>ritmico</em></p>
+      <p><a href="../materiali/solfeggi-classe-4.html#n559"><strong>n.&nbsp;559</strong></a> e <a href="../materiali/solfeggi-classe-4.html#n560"><strong>n.&nbsp;560</strong></a> <em>parlato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-4.html#n561"><strong>n.&nbsp;561</strong></a> e <a href="../materiali/solfeggi-classe-4.html#n562"><strong>n.&nbsp;562</strong></a> <em>cantato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-4.html#n563"><strong>n.&nbsp;563</strong></a> e <a href="../materiali/solfeggi-classe-4.html#n564"><strong>n.&nbsp;564</strong></a> <em>ritmico</em></p>
       <p class="rimando">Ogni pezzo a tempo, senza fermarti: il parlato a nomi, il cantato prendendo il primo suono dalla tastiera, il ritmico battendo la pulsazione.</p>
     </div>
-    <div class="riquadro compito dettato-casa" id="C4-D-U09-L4">
-      <span class="etichetta">3 &middot; Dettato <span class="dettato-sigla">C4-D-U09-L4</span></span>
-      <p>Scrivi <strong>la linea del basso</strong> sul quaderno, in chiave di basso: otto battute in 9/8, la maggiore. Il primo suono è <strong>do♯</strong>. Prima il riferimento, poi tutto due volte, ogni coppia di battute due volte, il collegamento 1–4, 3–6 e 5–8, e tutto per controllare.</p>
+    <div class="riquadro compito dettato-casa" id="C4-D-U09-L5">
+      <span class="etichetta">3 &middot; Dettato <span class="dettato-sigla">C4-D-U09-L5</span></span>
+      <p>Scrivi <strong>la melodia</strong> sul quaderno, in chiave di violino: otto battute in 12/8, do maggiore. Il primo suono è <strong>do</strong>. Prima il riferimento, poi tutto due volte, ogni coppia di battute due volte, il collegamento 1–4, 3–6 e 5–8, e tutto per controllare.</p>
       <div class="dettato-ascolti">
         <div><p class="didascalia">Il riferimento: accordo di tonica e primo suono</p>
-          <tac-stave nascondi riferimento clef="bass" time="9/8" keysig="A" notes="a/2:q c#/3:q e/3:q a/3:q | c#/4:w" tempo="80" play></tac-stave></div>
+          <tac-stave nascondi riferimento clef="treble" time="12/8" keysig="C" notes="c/4:q e/4:q g/4:q c/5:q | c/4:w" tempo="80" play></tac-stave></div>
         <div><p class="didascalia">Il dettato &middot; otto battute</p>
-          <tac-stave nascondi cifrato guidato="basso" clef="bass" time="9/8" keysig="A" notes="LnE6ciAuaDozL2EgfCAucTozL2IgODozL2EgODozL2EgODozLyNnIDg6My9hIDg6My9hIDg6My9iIHwgLnE6My9hIDg6My8jZyA4OjMvYSA2MTozL2IgNjE6NC8jYyAucTozLyNmIHwgODozLyNnIHE6My9hIDg6My9iIDg6My9iIDg6NC8jYyA4OjMvYiBxOjMvYSB8IDg6My8jZyA2MTozLyNmIDYxOjMvZSA4OjMvI2cgODozLyNnIDg6My8jZiA4OjMvZSA4OjMvI2YgNjE6My8jZyAuODozLyNnIHwgLnE6My8jZiAucTozL2EgcTozL2EgODozLyNmIHwgLnE6My9hIDg6My9iIDg6NC8jYyA4OjQvZCAucTozL2EgfCA2MTozLyNnIDYxOjMvI2YgNjE6My8jZyA2MTozL2EgNjE6My9iIDYxOjQvI2MgcTo0LyNjIDg6My9hIDYxOjMvI2cgNjE6My8jZiA2MTozLyNnIDYxOjMvYSA2MTozL2IgNjE6NC8jYw==" tempo="60" play></tac-stave></div>
+          <tac-stave nascondi cifrato guidato="melodico" clef="treble" time="12/8" keysig="C" notes="Lmg6NC9jIC5oOjQvZCB8IDg6NC9lIDg6NC9mIDYxOjQvZSA2MTo0L2QgNjE6NC9lIDYxOjQvZiA2MTo0L2cgNjE6NC9mIDYxOjQvZSA2MTo0L2QgLnE6NC9nIC5xOjQvZyB8IDg6NC9mIDg6NC9mIDg6NC9lIHE6NC9lIDg6NC9jIC5xOjQvZSBxOjQvZSA4OjQvYyB8IDYxOjQvZCA2MTo0L2UgNjE6NC9mIDYxOjQvZyA2MTo0L2YgNjE6NC9lIDg6NC9kIDg6NC9lIDYxOjQvZiA2MTo0L2cgNjE6NC9mIDYxOjQvZSA2MTo0L2QgNjE6NC9lIDYxOjQvZiA2MTo0L2cgLnE6NC9lIHwgODo0L2YgODo0L2YgODo0L2cgNjE6NC9hIDYxOjQvYiA2MTo1L2MgNjE6NC9iIDYxOjQvYSA2MTo0L2cgLnE6NC9iIDg6NS9jIDg6NC9iIDYxOjQvYSA2MTo0L2cgfCA4OjQvZiA2MTo0L2UgLjg6NC9mIDYxOjQvZyA2MTo0L2EgNjE6NC9mIDYxOjQvZSA2MTo0L2QgNjE6NC9jIDg6NC9kIDg6NC9lIDg6NC9mIDg6NC9nIDg6NC9hIDYxOjQvZyA2MTo0L2YgfCBxOjQvYSA4OjQvZiA4OjQvZSA2MTo0L2QgNjE6NC9lIDg6NC9mIDg6NC9lIDg6NC9kIDg6NC9jIC5xOjQvZiB8IDg6NC9nIHE6NC9nIDYxOjQvYSA2MTo0L2cgNjE6NC9mIDYxOjQvZSA2MTo0L2QgNjE6NC9jIDg6NC9kIDg6NC9lIDYxOjQvZiA2MTo0L2UgLnE6NC9j" tempo="60" play></tac-stave></div>
       </div>
       <p class="rimando">Le sezioni (riferimento, tutto, le coppie, il collegamento) si ascoltano una per una e si ripetono quanto serve; le <strong>fasi</strong> fanno la procedura della classe, con gli annunci e le pause, da qualunque punto.</p>
-      <p class="rimando">Sul quaderno scrivi in testa la sigla <strong>C4-D-U09-L4</strong>. Si corregge all&rsquo;inizio della prossima lezione.</p>
+      <p class="rimando">Sul quaderno scrivi in testa la sigla <strong>C4-D-U09-L5</strong>. Si corregge all&rsquo;inizio della prossima lezione.</p>
     </div>
   </div>
 </section>
@@ -318,30 +302,30 @@ try { module = undefined; exports = undefined; } catch (e) {}
   <div class="slide-interna">
     <p class="compiti-occhiello">Compiti per la prossima volta</p>
     <h2>Scrittura: contrappunto e armonia</h2>
-    <div class="riquadro compito scrittura-casa" id="C4-CP-U09-L4">
-      <span class="etichetta">4 &middot; Contrappunto <span class="dettato-sigla">C4-CP-U09-L4</span></span>
-      <p>Scrivi un contrappunto di <strong>seconda specie (due note contro una)</strong> sotto il canto fermo, in modo misolidio (finale sol): undici battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
-      <tac-stave caption="Il canto fermo" clef="treble" time="4/4" notes="g/4:w | e/4:w | f/4:w | e/4:w | f/4:w | g/4:w | d/4:w | g/4:w | f/4:w | a/4:w | g/4:w" tempo="72" play></tac-stave>
-      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C4-CP-U09-L4</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="Jt7yTGa3BBHpyXP6EFCyDQ==" iv="bM0J3MpdSIDsFlm/" dati="Ud+xLgXZOtOOXvMZ/uKejyiB69ud/DWmwiNKuvQ4t5zy8PuVwQa1LfgY2KAN1hH8AuLApnCujJF5uUtX2pGn4hx7yDW0F0I9DuTVdf4vx/fo9kHyBbhgRWMk6bWAjJB0rWk21xd6AcZoTTtqBqoZRg73Dq71SVkOybheXUrDaDCQ1JNZcGNXKyhZn2aD3gY0OjfaqvunaBqwQFPuc8xoss8nOtx10vG77XBCf7RkhuGD4vULyroSpvKJuorok8kKobV5m8gNdJ8Z91C1eD/vexTLaudZiRWssP3mED0rc9otsRNqCTFyjUbSBV7H984XoT2Pn+ZdTuZyqRvP/mswTL6h+cJV4rTFtKPH7XB3CTYNnxuzNphznOcXTj3/YG0OV4rVDkWehdZPUgrfZEA64TDTc1E49hJPbHly97m6c5ZePSh2DOgZKgsFDubtzySTp9KsATjGx7vAxf7cXJyRlYND0juAZ0a392l+Gaqs"></tac-chiuso>
+    <div class="riquadro compito scrittura-casa" id="C4-CP-U09-L5">
+      <span class="etichetta">4 &middot; Contrappunto <span class="dettato-sigla">C4-CP-U09-L5</span></span>
+      <p>Scrivi un contrappunto di <strong>terza specie (quattro note contro una)</strong> sopra il canto fermo, in modo misolidio (finale sol): nove battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
+      <tac-stave caption="Il canto fermo" clef="bass" time="4/4" notes="g/3:w | b/3:w | a/3:w | e/4:w | d/4:w | c/4:w | b/3:w | a/3:w | g/3:w" tempo="72" play></tac-stave>
+      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C4-CP-U09-L5</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="Fmx3O5Xzjz6SXH9LrXlrzw==" iv="IldRRAYseqDtUJJJ" dati="pg15qEOQd6OtyBYRp3JhSxQR/sMpwRCrvHF+NDmNYSRsdaLBjGswDFSDqDzqyQVufVjTwq6WhS3nL/8vtDHEwNa8KWyRVTuZ+q/TBAvGJhVca4m700PKexXTSJGrkbkb2RL43wy4PIRenZbdGvgoxNbpu6FgFLfwfGq87q+3uOUcGNOOCMbiyhhd7kjrPV9TzBqdCg1WIjPsW4DFmeiqwfyy67XxkauDzpjIOFYpOYoTibj7nGlkhOzNHK1/vex7Gmep+1fCTqCSfSIP4UvAJUpqEZBGC+AB6XahPUN2WYXBYCpoaGyARtwSzv/80HaOWlmiQLEuq7qmYYU62H/A7ymdQpFqd7l89OtsH7Jy6eqxWbZnkJA3dQXr6nSOQ4lDScqUFwh3akFFQzeoh4pU6ehgUAxPU7qwB9Jy8MrCYlfcxnVpr+b+M8oHhEHNaa0yHIoQ2ufDzvS8WsYD+eLDtrHpB0aO9t6Nv9qn8yg97GY11Id78XMkeAcQTe829gr3wyQHJ5XX+hrOkjjccIyEq7DR/D6jqJ5G8JQWOcsAZmsvg4XB"></tac-chiuso>
     </div>
-    <div class="riquadro compito scrittura-casa" id="C4-BD-U09-L4">
-      <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C4-BD-U09-L4</span></span>
-      <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: dodici battute in 4/4, re minore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: tutto quello studiato, e una modulazione a un tono vicino.</p>
-      <tac-stave caption="Il basso" clef="bass" keysig="F" time="4/4" notes="d/3:w | f/3:h b/3:h | g/3:w | a/3:w | b/3:h g/3:h | e/3:h f/3:h | g/3:h a/3:h | d/3:h e/3:h | d/3:h f/3:h | b/3:h g/3:h | a/3:h a/2:h | d/3:w" tempo="60" play></tac-stave>
-      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C4-BD-U09-L4</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="/yVLyK4DPoArAK4hd87ZTw==" iv="ObF9Kq5HMob1Ztvn" dati="VKhWj0VjMPB9Lr2lmXtgJXky4QHI/TbtjwA5t4qCiLRNbBnT3QMf7T83iy0GYummcRugoIGFzu1u6Q6LkXRFlLpVNHf71MiCO17IyR/a7sCszYde5HWhtylS5zAIgGawcPloKACQ+b6cZY0NTa4oet1aRIQKyZREjmIzsevozHsZpmJk35stoHD3K37ScnzGdDNFXFVpss7hFVGjZqPbMVRGgjOmrPDE/2QdKJlcq9sZXt9pT+cT4CN1i9x1tJ2fsVlvF3dxm3YTKVAiqcVze7SHYcxkQpC4T3LvCUUHFYBKaSWRKOrQK7WGqs8ylahL8S7xzJ9GacimmH6h0zo5IbvSWkP9M3IRKDcU8g9rZ8pCzbkl6Ekz0RYIIw/2kBMe0W548vHW2mrTrIOFUqCf0wu1zrnddLcnW3ABdUFzwu9s8AAIeB0FlXomq35DFe2ToN09OmzoddXF1noM0VmByVSBIPuLodXldDqu1daavgcJMrv6yUAA3WooEIUCBTINYVmy6FscEGTotvaS+IdHtjW4SCtcdFmM2t/9qqOL5RxMVHJfo4bZYTjwDp8G61ZQ2NISdwH3EhsixCTVt99kab3fW9pH1BTeQY+uIJXtjRa20nTnvRDxY55Qza6S8ZoAJVBjvuaCm/jzsbIoFGdtJ8gTl8SXzd31BnHdJ28PjwlytnD9jaWcFkoh3H6xGHa7AyT/Y8YdFozcQP5xPFpv7oDkPwBYvYM6dXmWNxDwZyr15SQjvPHecX+5KZHBdJNAQ7apDqVkd2tLAGIa5WZwApSdhEbFudMWF9fxgywUJ9SMxhBiRjQdRllxgGNk7zg+3jvzHzKsQnuruh3nNaF3h5JvU9rIXQNXxet8eExnyZrcZSpYEwJP0spsPQCGehpJmKOrwTmGyW+u9F9aPUDYEdy3t1sssJAMMkGAg7FqwdlIkr6ahoOLQXwBbE7VVAC64t+7Ikk6tPTfKZvlyeazBcwWu5CBnbz2y79vtsx95ug9FF9EDMls1dt/Zl2DkpMXk0Ve79iF4EKXxEAv3QfbTnfYHPjiR72SgXwI3g4r25fLmz6NMbly7YaIW/3SEcZ5Oj70baB8Um5O94g0imj0FnDygYUwIvdw5vK8T6ISCScKL8F1y+jr6a8ySUrM2TVNDO5gXQO7WejtT1HWiE5TFlfdeGw="></tac-chiuso>
+    <div class="riquadro compito scrittura-casa" id="C4-BD-U09-L5">
+      <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C4-BD-U09-L5</span></span>
+      <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: dodici battute in 4/4, sol maggiore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: tutto quello studiato, e una modulazione a un tono vicino.</p>
+      <tac-stave caption="Il basso" clef="bass" keysig="G" time="4/4" notes="g/2:h e/2:h | a/2:w | d/3:h a/2:h | g/2:h a/2:h | d/3:h d/3:h | e/3:w | d/3:h a/2:h | g/2:w | b/2:w | e/3:h c/3:h | d/3:h d/3:h | g/3:w" tempo="60" play></tac-stave>
+      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C4-BD-U09-L5</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="iEFFPMBOM35vI3qhGo909g==" iv="O538UEhJBZ2Q11gC" dati="Xx9NDU9aAXAu01qmE5toPAxAIRhIuXvdVR5AUiX9MGzZWL36l7vHd6Osk1UIyp07MLJiCBUpxMhyjm5bE2nTWVZ2ipCmibc9khoMhfT/RPK1CfNePZ/dnjX+7puxd0V4xPj12g26TsWoMW7h3bNfnUuIRKZRUyDN/HoQhQi+JWqs+UMUQY9+KTnI4PfFKmt9CyCPKj7IXT3CptUgi8Ut4OQN7/czVOuh1h+xs+2uYAexFWilkrp/cMNNLGEO8aHN2jCkgA1dZ9w8OWzVwbuGp4j6FYDwRl2aOgSmQlyMVTJgkRCM66veEYA5YnlHtrlFe3bREbGXu4KKLAD4hHFXw/Rg7NiE5VrnHwrnAFArgLoiC/dsgee8UBJshV/CjoKRwHTtYD+HJC5cCfGCrvSM0x5GCrveyjuL50tp4z52Rx80MusG3w4B9kv+o2QcX9ZbSf6J28XChn5IX/GJMaVkMAxa0Fx3b38NFBUyBZ2thOmsDroHmEwPUQUWP8gvY9sZZb62k9NImPZ/RV/nly4W3Z433iTkkjIbH5zKJXGPN2jGTVHk7CAYb4ChRl2hgxi8RRFat9kwYrqTCm3bvi/3ZQITIMRB4hb2k/VB9KlD2QtHlTCk7+c62GE1daKGtMwomOZGhI1be+4h0q/RLUQOlnbJxhkx6hWiRI1Okvtm2mqspnMKu4q3rDbMV6PRva5/DXSOGYOaYZU2sB0EwJbvO7/Z6l9Xjge4QDWYsyxDw5G7uMBnK1awIImAlcN5rAluxKgj39tdIZZv8I4Eb49waRDfYKG6XUUrQqFR9IMsWAH5jwYgCWlmEuo6reLLpzAa9+Sj9LcoqBdXGwHZf2v37HTANt4ChMNoI/C78rPJQxxG2ZKzetihfiBdKTXmLnTBqbrRMFmR3qat5gQ13L/Gk3P6KzntWPxdAao+zRpgi77GZNmxOgJ2p7hmaPlsXJ6U9VTqpaLOIcBvz8BWU1DDmSajBInYWZ7nu4f+WXhv4tXCqMDD62+LR6+oAXh0TmQghVKA8fOuV9zIMELI50FQFSz/OjftIcAg3vkQOnzEOnXDoqkZvHnnIXKyyw7tkDkr6NBrHLl5qQX64cpPdxDNSr9b+CY2"></tac-chiuso>
     </div>
-    <div class="riquadro compito scrittura-casa" id="C4-CD-U09-L4">
-      <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C4-CD-U09-L4</span></span>
-      <p>Armonizza a quattro parti il <strong>canto dato</strong>: dodici battute in 4/4, si♭ maggiore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: tutto quello studiato, e una modulazione a un tono vicino. La melodia modula: trova dove, e in quale tonalità arriva.</p>
-      <tac-stave caption="Il canto dato" clef="treble" keysig="Bb" time="4/4" notes="d/5:h f#/5:h | g/5:w | f/5:h e/5:h | d/5:h c/5:h | a/4:h c/5:h | b/4:w | b/4:w | d/5:h c/5:h | b/4:h a/4:h | b/4:h b/4:h | a/4:h g/4:h | f/4:w" tempo="66" play></tac-stave>
-      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C4-CD-U09-L4</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="bTyShbERJKxH1/RmpYOx2g==" iv="LSMcNyGV82VSKbz5" dati="f5nhXB+mStQjIRyltFIhUFIA81WncOwYiZ/+CLCfSOC7txGHX77pVE4o+RyCnv+XFNuBLNEqSiW0UhX8oqSSgfFYYuDcD13k52jers6qTPfEpG7kpf/vYvORJFZQel4HvPRdYt09A65tdfgNjpNOaDVMqcujY9TgWVsIVTr4CD0XLhTff/9TQst4iGxU2Nc5YIGZiNB5+NtBE6aUf8rp7MUpGLBs44PRrqY1z/zHYlkuFAtZQG+Zvp/YlypAIbPCeqqMOto1scv3vbwdrPuK8P+xO+LIPHgRKGhnp99l6JxPjA/GoEjkobp5RLL+YYB/PMidZha/tCHwW+wVQ+LPyn1hEkAOYUWZmAJ/HFUTWmgL1aeHD/w6TxJ278dnj8daQy4bumcbmqhdfAxyhOKZ+rUsiAtgQY/5u9ADHk1NtiwicCqQBxu2f82LHE7ygGR5Dn2BAkL1eL/35kG56C1PCgE4PFzoigyWph6uu1iOooTo43sr8o6lEK5jG+dzm24USABGpu05G6fAMXbfiP+IhdCWxo0EphvCmVnjQVpn9lyaF8frlZa2iYeQ0G1PND1W9FhuM+sjjLdWf4nurVFWFB2AGc0FVhEZyT7VoeX7CXeOvbMw4I9unjbAHtP1dJk/YyGLUbeCvioqhOBfgtAlPbO/vIl6j6Erbzm60bYqJY6Q7d0nFhlj/JdMAgVEJ/rXa+hRo2BADMpBycw8RpesNeHzOMpP+O6STGC1+8QqUZ+gjyXjhN5r4WARJY6n6Wy5pr9K/qm3vfQ6rw9cXwzGphNbbqf17lMZvoc8piPP51QgVTXxzKMXZSQQk1+/8WIjCmtxpPDURbBXicutyMjN/iFogJeVLK09EbspJ/4oiL1nX3YhtNASOm8kYtvahNG2Yz40UFmLORnGgPRRGV9t3cgdacZs7sKxGOF2kAy5TvHkHyRcMs53F3oSSfyRY9PYWwRmzYeYLexhbPs7z2WYqLYfydWTNiIZeCsbIcbkTiWvZLs6p9vt40byZ6tsjBgFia2ZiGIXekFHOS+lAzF7FNrvX7qDBncyyNuzKhHhGzNHLLRAOfXp2/PhI8IEknzo5y2Z1vHuxqF0Vc70cJb9EgzO4PTPHumUkf/BlNsMbZ/oFVVNq9Vc2QodG93V4ELKlYMfDMI3XMHvDAQ="></tac-chiuso>
+    <div class="riquadro compito scrittura-casa" id="C4-CD-U09-L5">
+      <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C4-CD-U09-L5</span></span>
+      <p>Armonizza a quattro parti il <strong>canto dato</strong>: dodici battute in 4/4, do minore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: tutto quello studiato, e una modulazione a un tono vicino. La melodia modula: trova dove, e in quale tonalità arriva.</p>
+      <tac-stave caption="Il canto dato" clef="treble" keysig="Eb" time="4/4" notes="g/5:w | f/5:h f/5:h | e/5:w | d/5:h bn/4:h | c/5:h c/5:h | bn/4:h c/5:h | c/5:h an/4:h | b/4:w | d/5:h e/5:h | c/5:h a/4:h | g/4:h f/4:h | e/4:w" tempo="66" play></tac-stave>
+      <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C4-CD-U09-L5</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="+cuUAB67ZmeYeHZaZyvzUw==" iv="/rbl2aoMf+4pxtil" dati="+L9xWAOO5eYfgschzSKVIBbos0P7iGu/Zz0gHF79Moma9cilUKh6EwCdgipxuFZ3O2FYQWoLUYnCXPm0MYth+qBQ/ouI9HbzEU0ZOetzPXQRq5HoylCpJXewedJJ/LzvO12BkamHZKq2eesY5nB6oOumt4goAYw0vReh4tq4QT0Awfwy9z9BkO9veOVjwRSNEzKrZ80hTMfXI2tDxk8FANPnHdxs7akijgirxhibk7RUooMrHM8KcsgXLbqZ3HHFKoR76mhwuOS69O1d6hcmvrq8/n58/PShAjYMzesb8jNczhWMA/AzJQsto6RvgoapqRVIOMooszS5mfuAH5V5V93sYRt4mj7eVuXjj+Gl/sjY7vMt2JTVK2DnDmlTnP1bxLs7KIkoFJpn58Rxe4Wbx9Cv5FxNagBJN21Uw3++pFEEJLSTep0h5nx82oc0olQ8gOCFkVboACGuzTgqlJDNrp26/K4iEupRyD7VvqW8yahvOxVib5yYHLh5Je5lZypFzuxmdj2EGxifNvlr6ZWsrWN5ltmkkkvwCA0tgBJcMV4NLACFbh3c1ITCTCXFuWZdb+8MikCcnN6SpfBvEM9023NbFRzExzHa0GWCeLszbd0qvG/AplyKzSIHKjU/EyxVRqOb6edtBwP8U5Vfa55yo9W0N4MKIQfqAl4jO5P2Jm0kWqBRy+i04B0ph7Av/3jsAtjbdzJBdr8qZuFve4iX+VS09jdnhV8THXFzGNo30x0NwS2OEtWcuxdNRqifkTRoULGh1YiGpLjF+atzybjOylFrF4gavn3lccUhJhxRHsnjFpGfyhvgzdUB+aWjzOQXrFXbvqZyBgNY77TUSYwiaDVle0mc7tGilbJBAxYGoW4a3wvoWsj7uh9qW50KN0YM0OApkFRsxPyauBVlrMGyBvrc4RAYGJc1WAGs9O36X9phDvsf93jREeivjkL0r+6/kYaHsdwKAxHmTaF1mJqsuH4t4Uh2PGRaaBJGe3dYiJT/ZIcsbHLBw9xJQv0133Pt5xbfhVNubV06x+WDexIAcxG4X4z7xAooIvWrmJCXHfX7n3Sr6rY7pfGiKr4Vau1uplPdbUqWbykEON6Qc0OP16/Orvd6w7JJrh7eCl6RvbirW3E3oDaiCFMqRA6fOhVL7icF24U/g+MNkW+RxA=="></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Lo stesso accordo, due uscite (Workbook, esercizio C4-U9-L4-01), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 529, 530; cantato n. 531, 532; ritmico n. 533, 534 (a tempo, senza fermarsi). Dettato C4-D-U09-L4 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di seconda specie sul canto fermo (C4-CP-U09-L4). Basso senza numeri da realizzare a quattro parti (C4-BD-U09-L4). Canto dato da armonizzare a quattro parti (C4-CD-U09-L4).</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Un basso con la nona di dominante, in re minore (Workbook, esercizio C4-U9-L5-01), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 559, 560; cantato n. 561, 562; ritmico n. 563, 564 (a tempo, senza fermarsi). Dettato C4-D-U09-L5 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di terza specie sul canto fermo (C4-CP-U09-L5). Basso senza numeri da realizzare a quattro parti (C4-BD-U09-L5). Canto dato da armonizzare a quattro parti (C4-CD-U09-L5).</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>
@@ -352,7 +336,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: parlato</h2>
     <p>A nomi, a tempo, con la mano che batte. Chi si ferma riparte dalla battuta dopo.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-4.html#n525">Apri il n.&nbsp;525 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di tenore &middot; 3/4 &middot; la maggiore</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-4.html#n555">Apri il n.&nbsp;555 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di tenore &middot; 4/4</span></p>
   </div>
 </section>
 
@@ -361,8 +345,8 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: cantato</h2>
     <p>Si prende il tono dalla tastiera, si canta insieme; poi a gruppi.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-4.html#n526">Apri il n.&nbsp;526 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 6/8 &middot; re minore</span></p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-4.html#n527">Apri il n.&nbsp;527 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 4/4 &middot; re maggiore</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-4.html#n556">Apri il n.&nbsp;556 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 2/4 &middot; sol maggiore</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-4.html#n557">Apri il n.&nbsp;557 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 4/4 &middot; re minore</span></p>
   </div>
 </section>
 
@@ -371,16 +355,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: ritmico</h2>
     <p>Tutti insieme, battendo la pulsazione. Poi a file, due battute a testa.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-4.html#n528">Apri il n.&nbsp;528 nel quaderno di lettura &#8599;</a> <span class="rimando">6/8</span></p>
-  </div>
-</section>
-
-<section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
-  <div class="slide-interna">
-    <p class="compiti-occhiello">In classe</p>
-    <h2>Scriviamo adesso: Le tre seste, e la nota che sale</h2>
-    <p>Scrivi le <strong>tre seste aumentate</strong> &mdash; italiana, francese, tedesca &mdash; in <strong>due tonalit&agrave; minori</strong>, e risolvile.</p>
-    <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna.</p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-4.html#n558">Apri il n.&nbsp;558 nel quaderno di lettura &#8599;</a> <span class="rimando">12/8</span></p>
   </div>
 </section>
 

@@ -1049,6 +1049,47 @@
      in prima (U7 L7, Beethoven op. 18 n. 1; U8 L6) cercando perché i segni
      non comparivano. Ogni `numBeats` adesso toglie un milionesimo prima di
      arrotondare. */
+  /* ══ LE TRAVI, PER MOVIMENTO, CON IL GAMBO GIÀ DECISO ══
+     ⚠ 26 ottobre 2026, Andrea (5ª, «Voiles»): «i tratti d'unione dei
+     trentaduesimi sono sia singoli che uniti». `VF.Beam.generateBeams`
+     raggruppava bene, ma calcolava le travi con il gambo che sceglieva lui
+     (in giù, per le terze acute) e subito dopo il soprano veniva rimesso in
+     su: la trave restava disegnata per l'altro verso, la croma usciva con
+     la codetta e i trentaduesimi uniti a metà. In più certe semicrome delle
+     voci interne restavano senza trave.
+     Qui: dentro ogni battuta, le note più brevi della semiminima che cadono
+     nello stesso movimento (o nel gruppo di `travatura` ottavi) stanno
+     sotto una trave; una pausa o una nota lunga interrompono. Il gambo si
+     fissa PRIMA di costruire la trave: `verso` se c'è (le quattro parti),
+     altrimenti lo sceglie la trave dall'altezza media del gruppo. */
+  function travaPerMovimento(VF, dati, note, perGruppo, verso) {
+    const unita = perGruppo > 0 ? perGruppo / 2 : 1;      // in semiminime
+    const fuori = [];
+    let pos = 0, gruppo = [], quale = -1;
+    const chiudi = () => {
+      if (gruppo.length > 1) {
+        if (verso) gruppo.forEach(n => n.setStemDirection(verso));
+        fuori.push(new VF.Beam(gruppo, !verso));
+      }
+      gruppo = []; quale = -1;
+    };
+    dati.forEach((d, i) => {
+      if (!d || d.stanghetta) { chiudi(); pos = 0; return; }
+      const n = note[i];
+      const breve = !d.pausa && n && typeof n.getDuration === 'function' &&
+        parseInt(n.getDuration(), 10) >= 8;
+      const qui = Math.floor(pos / unita + 1e-6);
+      if (breve && qui === quale) gruppo.push(n);
+      else {
+        chiudi();
+        if (breve) { gruppo = [n]; quale = qui; }
+      }
+      pos += d.battiti || 0;
+    });
+    chiudi();
+    return fuori;
+  }
+
   function costruisciTerzine(VF, dati, note) {
     const gruppi = [];
     let g = [];
@@ -1591,17 +1632,12 @@
           vB.setMode(VF.VoiceMode.SOFT);
           vB.addTickables(noteB);
           const perGruppoB = parseInt(this.getAttribute('travatura') || '', 10);
-          const travB = VF.Beam.generateBeams(
-            noteB.filter((n, i) => !this._datiB[i].pausa && !this._datiB[i].stanghetta),
-            perGruppoB > 0 ? { groups: [new VF.Fraction(perGruppoB, 8)] } : undefined);
+          const travB = travaPerMovimento(VF, this._datiB, noteB, perGruppoB,
+                                          quattro ? VF.Stem.DOWN : null);
           /* e adesso il gambo torna in giù: `generateBeams` l'ha appena
              ricalcolato. Solo a quattro parti — da solo, il basso tiene
              la direzione che gli viene dall'altezza. */
-          if (quattro) noteB.forEach((n, i) => {
-            const d = this._datiB[i];
-            if (d && (d.pausa || d.stanghetta)) return;
-            if (typeof n.setStemDirection === 'function') n.setStemDirection(VF.Stem.DOWN);
-          });
+          /* ⚠ 26/10/2026: niente più gambi rimessi DOPO la trave. In VexFlow 5 `setStemDirection` azzera `note.beam`: la trave restava disegnata e ogni nota disegnava anche la sua codetta (le crome e i trentaduesimi «sia singoli che uniti»). Il verso si fissa alla creazione e in `travaPerMovimento`. */
           /* NON SI FORMATTA ANCORA: si mette da parte. Le due voci vanno
              formattate **insieme**, altrimenti ogni rigo distribuisce le
              sue note per conto suo e le simultanee non cadono incolonnate.
@@ -1710,17 +1746,8 @@
           const perGV = parseInt(this.getAttribute('travatura') || '', 10);
           const opzV = { stemDirection: verso };
           if (perGV > 0) opzV.groups = [new VF.Fraction(perGV, 8)];
-          const travV = [];
-          let grV = [];
-          dV.forEach((d, i) => {
-            if (d.stanghetta) {
-              if (grV.length) travV.push(...VF.Beam.generateBeams(grV, opzV));
-              grV = []; return;
-            }
-            grV.push(noteV[i]);
-          });
-          if (grV.length) travV.push(...VF.Beam.generateBeams(grV, opzV));
-          rimettiGambi(noteV, dV, verso);
+          const travV = travaPerMovimento(VF, dV, noteV, perGV, verso);
+          /* ⚠ 26/10/2026: niente più gambi rimessi DOPO la trave. In VexFlow 5 `setStemDirection` azzera `note.beam`: la trave restava disegnata e ogni nota disegnava anche la sua codetta (le crome e i trentaduesimi «sia singoli che uniti»). Il verso si fissa alla creazione e in `travaPerMovimento`. */
           const tot = dV.reduce((a, d) => a + d.battiti, 0);
           const vv = new VF.Voice({ numBeats: Math.max(1, Math.ceil(tot - 1e-6)), beatValue: 4 });
           vv.setMode(VF.VoiceMode.SOFT);
@@ -1785,18 +1812,10 @@
         this._perGruppo = perGruppo > 0 ? perGruppo : 0;
         const modoTravatura = perGruppo > 0
           ? { groups: [new VF.Fraction(perGruppo, 8)] } : undefined;
-        const travature = [];
-        let gruppo = [];
-        dati.forEach((d, i) => {
-          if (d.stanghetta) {
-            travature.push(...VF.Beam.generateBeams(gruppo, modoTravatura));
-            gruppo = []; return;
-          }
-          if (!d.pausa) gruppo.push(note[i]);
-        });
-        travature.push(...VF.Beam.generateBeams(gruppo, modoTravatura));
+        const travature = travaPerMovimento(VF, dati, note, perGruppo,
+                                            quattro ? VF.Stem.UP : null);
         /* e il soprano riprende il gambo in su, per la stessa ragione */
-        if (quattro) rimettiGambi(note, dati, VF.Stem.UP);
+        /* ⚠ 26/10/2026: niente più gambi rimessi DOPO la trave. In VexFlow 5 `setStemDirection` azzera `note.beam`: la trave restava disegnata e ogni nota disegnava anche la sua codetta (le crome e i trentaduesimi «sia singoli che uniti»). Il verso si fissa alla creazione e in `travaPerMovimento`. */
         /* UN SOLO FORMATTER PER TUTTE LE VOCI DEL SISTEMA. È quello che
            incolonna le simultanee: il formattatore guarda tutte le voci
            insieme, trova gli istanti in cui qualcosa accade e dà a

@@ -42,264 +42,134 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=a489d51c" defer></script>
+<script src="../../_assets/js/tac-core.js?v=306746de" defer></script>
 </head>
 <body>
 <div id="tac-deck">
-<!-- 16/10/2026: piano nuovo della 3ª. Era la U11 L1 del piano vecchio; ora è la U11 L5, ora 83 di 90 («Analisi: la forma sonata nell'esposizione della Sonata K 545 di Mozart»). Da riscrivere per il titolo nuovo. -->
+
+
 <!-- ══════════════════════════════════════════════════════════════════
-     LEZIONE 1 · Analisi formale: gli elementi di base
-     Unità 11, ora 79 di 90 · classe 3ª · teoria
-     ⚠ ORA CON CODA DI ORALE (teoria). Venti minuti, undici slide.
-     PAROLE CHIAVE PER LA BIBLIOTECA:
-        analisi formale · sezione · cadenza · suoni caratteristici
-        sensibile · controsensibile · segmentazione
+     LEZIONE 5 · Analisi: la forma sonata nell'esposizione della Sonata K 545 di Mozart
+     Unità 11, ora 83 di 90 · classe 3ª · analisi · mar 27/4/2027
+     50 minuti.
 
-     ══ LA MOSSA DELL'ORA, IN UNA RIGA ══
-     Si cambia mestiere: per settantotto ore la domanda è stata «come si
-     scrive?», da adesso è «che cosa vedo?». E la prima cosa da dire è
-     che non serve niente di nuovo — servono le stesse tre cose che la
-     classe sa già trovare, guardate da più lontano.
+     26/10/2026 · RISCRITTA (piano nuovo). Il testo del piano vecchio è in
+     lezione-5.tpl.html.prima-della-riscrittura-feb.
 
-     ⚠ IL RISCHIO DI QUEST'UNITÀ È CHE SEMBRI FACILE E VAGA.
-     Un'analisi sbagliata non fa rumore: non ci sono quinte parallele.
-     Per questo la regola sta già in quest'ora, ed è una sola: OGNI
-     AFFERMAZIONE FORMALE SI SOSTIENE CON UNA BATTUTA E UNA CADENZA.
+     CONTENUTO
+     · La forma sonata (libro 4° anno, sezione B, lez. 5–9, p. 154).
+     · Mozart, K 545 (C02): bb. 1–12 trascritte da
+       03_Materiali/_repertorio/xml/C02_mozart_k545_esposizione_intero.musicxml
+       (il file ha 12 battute); primo tema, transizione in progressione, le
+       alterazioni delle bb. 9–10. Il numero di battuta del secondo tema non
+       è dato (non è nel file).
+     · Lavoro guidato e compito (settimana 2 del piano): canone a due voci
+       all'ottava di 16 bb in sol maggiore (canone.completo, controllo con
+       data-canone="7").
 
-     ══ IL LIBRO ══
-     pp. 128–130, Sezione B UdA 1. La citazione della p. 130 è stata
-     riletta sull'immagine della pagina, non sul riconoscimento ottico.
-
-     ══ CHE COSA NON ENTRA ══
-     Il periodo e la sentence: sono la lezione 2. Qui si dice soltanto
-     quali sono i segnali che si cercano.
+     I TEMPI · 50 minuti
+     La forma sonata 10'; Mozart 25'; il canone 10'; sintesi 3'. Chiusura
+     con il solfeggio.
      ══════════════════════════════════════════════════════════════════ -->
 
-<!-- Riordinata il 30/09/2026: ordine già buono; corretta la didascalia del tritono (do diesis–sol è il tritono di re, non di sol) e il refuso «con i numeri sotto»; distinti i «tre segnali di stile» delle slide aggiunte dai tre segnali dell'analisi, retitolata «Tre segni del Barocco, sul rigo» -->
 <section class="slide attiva copertina foto" data-titolo="Copertina"
-         style="--foto: url('../../_assets/copertine/c3u11-lezione-1.jpg?v=c34d621e');
-                --cop-a:#0b1220; --cop-b:#1d4ed8; --cop-c:#bfdbfe">
+         style="--foto: url('../../_assets/copertine/c3u11-lezione-5.jpg?v=dd28103b');
+                --cop-a:#1a0a14; --cop-b:#9d174d; --cop-c:#fbcfe8">
   <div class="slide-interna">
-    <div class="occhiello">Le forme classiche: Lied, minuetto e trio, rondò, forma sonata &middot; UdA 11 &middot; Lezione 5 di 12</div>
-    <h1>Adesso si guarda</h1>
-    <p class="sottotitolo">Settantotto ore a scrivere armonia. Da oggi la stessa roba serve a leggere.</p>
-    <blockquote class="aforisma">
-      <p>I principali indizi da rintracciare per individuare la presenza di una modulazione.</p>
-      <cite><em>Il linguaggio della musica</em>, 3&deg;&nbsp;anno, p.&nbsp;130</cite>
-    </blockquote>
+    <div class="occhiello">Le forme classiche: Lied, minuetto e trio, rond&ograve;, forma sonata &middot; UdA 11 &middot; Lezione 5 di 12</div>
+    <h1>Analisi: la forma sonata nell&rsquo;esposizione della Sonata K&nbsp;545 di Mozart</h1>
+    <p class="sottotitolo">Due tonalit&agrave; e due temi: l&rsquo;esposizione di una forma sonata parte dalla tonica e arriva alla dominante, e la transizione &egrave; il viaggio fra le due.</p>
 
     <div class="meta-copertina">
-      <span>20 minuti</span>
-      <span>Teoria</span>
-      <span>Interrogazioni</span>
+      <span>50 minuti</span>
+      <span>Analisi</span>
+      <span>Mozart, K&nbsp;545</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Che cosa cambia">
+<section class="slide" data-titolo="La forma sonata">
   <div class="slide-interna">
-    <h2>Che cosa cambia da oggi, e non &egrave; l&rsquo;argomento</h2>
+    <h2>La forma sonata</h2>
 
-    <!-- Il rimando al libro di testo (Andrea, 20 settembre 2026:
-         «importantissimo»). D&rsquo;Urso, Odone, Bertolini, <em>Il linguaggio della musica</em> &mdash; 3&deg; anno; pagine dall'indice rilevato. -->
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
-      <p><span class="lez">B1</span><strong>Elementi base della forma musicale</strong>, pp. 128&ndash;141</p>
-      <p>Lezione 1 &laquo;Ripassiamo la forma-periodo&raquo;. Sezione B, unit&agrave; 1 &laquo;Elementi base della forma musicale&raquo;: periodo (lezione 1), sentence (lezione 2), temi ibridi (lezioni 3&ndash;4).</p>
+      <p><span class="lez">B5</span><strong>Architettura della forma sonata; il gruppo tematico principale; la transizione; il gruppo tematico secondario</strong>, 4&deg;&nbsp;anno, lezioni 5&ndash;9, pp.&nbsp;154&ndash;169</p>
     </div>
-
-    <p>Per <strong>settantotto ore</strong> la domanda &egrave; stata sempre la stessa: <em>come si scrive?</em> Da oggi diventa un&rsquo;altra: <em>che cosa vedo?</em></p>
-
     <div class="riquadro definizione">
-      <span class="etichetta">La cosa importante, e vi risparmia met&agrave; della fatica</span>
-      <p>Non serve niente di nuovo. Servono le <strong>stesse tre cose</strong> che sapete gi&agrave; trovare &mdash; cadenze, ripetizioni, alterazioni &mdash; <strong>guardate da pi&ugrave; lontano</strong>.</p>
+      <span class="etichetta">Definizione</span>
+      <p>La <em class="termine">forma sonata</em> ha tre sezioni. L&rsquo;<strong>esposizione</strong> presenta il primo tema (o gruppo tematico) nella tonica, una <strong>transizione</strong> che modula, il secondo tema nella dominante (nel relativo maggiore, se il pezzo &egrave; minore) e una chiusa; di solito si ripete. Lo <strong>sviluppo</strong> elabora i temi attraverso varie tonalit&agrave; e prepara il ritorno. La <strong>ripresa</strong> ripresenta l&rsquo;esposizione, con il secondo tema nella tonica.</p>
     </div>
-
-    <p>Un&rsquo;analisi formale non aggiunge un sapere: d&agrave; un <strong>nome</strong> a cose che sapete gi&agrave; fare, e quel nome permette di vederle in una pagina invece che sul vostro quaderno.</p>
-
-    <p class="didascalia">Chi ha scritto una cadenza sospesa sa gi&agrave; che cos&rsquo;&egrave; un antecedente. Gli manca la parola, non la cosa &mdash; e la parola si impara in trenta secondi.</p>
+    <table class="tabella">
+      <tr><th>sezione</th><th>che cosa</th><th>tonalit&agrave;</th></tr>
+      <tr><td>esposizione</td><td>primo tema, transizione, secondo tema, chiusa</td><td>I &rarr; V</td></tr>
+      <tr><td>sviluppo</td><td>frammenti dei temi, progressioni, modulazioni</td><td>tonalit&agrave; vicine e lontane; alla fine il V</td></tr>
+      <tr><td>ripresa</td><td>primo tema, transizione modificata, secondo tema, chiusa</td><td>I &rarr; I</td></tr>
+    </table>
   </div>
 </section>
 
-<section class="slide" data-titolo="I tre segnali">
+<section class="slide ascolto" data-titolo="Mozart">
   <div class="slide-interna">
-    <h2>I tre segnali che si cercano, e sempre in quest&rsquo;ordine</h2>
-
-    <div class="riquadro procedura">
-      <span class="etichetta">Su qualunque pagina, in qualunque anno</span>
-      <ol>
-        <li>Le <strong>cadenze</strong>: dove la musica si ferma, e come.</li>
-        <li>Le <strong>ripetizioni</strong>: che cosa torna, e trasportato di quanto.</li>
-        <li>I <strong>suoni caratteristici</strong>: le alterazioni che segnalano un cambio di tonalit&agrave;.</li>
-      </ol>
-    </div>
-
-    <p>Sono tre cose che questa classe trova gi&agrave;: le cadenze dall&rsquo;unit&agrave; 3, le ripetizioni dall&rsquo;unit&agrave; 10, le alterazioni dalle unit&agrave; 9 e 10. L&rsquo;unica novit&agrave; &egrave; l&rsquo;<strong>ordine</strong>.</p>
-
-    <p class="didascalia">L&rsquo;ordine conta perch&eacute; le cadenze <strong>tagliano</strong>, le ripetizioni <strong>uniscono</strong> e le alterazioni <strong>spostano</strong>. Chi comincia dalle alterazioni trova cromatismi dappertutto e non sa dove finisce una frase.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="La regola dell&rsquo;unit&agrave;">
-  <div class="slide-interna">
-    <h2>La regola di tutta l&rsquo;unit&agrave;, e vale dalla prima ora</h2>
-
-    <div class="riquadro regola">
-      <span class="etichetta">Non si negozia</span>
-      <p>Ogni affermazione formale si sostiene con <strong>una battuta e una cadenza</strong>.</p>
-    </div>
-
-    <p>Non &laquo;qui finisce A&raquo;, ma <strong>&laquo;qui finisce A, alla battuta 8, con una cadenza autentica in re maggiore&raquo;</strong>. La prima &egrave; un&rsquo;impressione; la seconda &egrave; un&rsquo;analisi.</p>
-
-    <p>C&rsquo;&egrave; una ragione pratica dietro questa insistenza: un&rsquo;analisi sbagliata <strong>non fa rumore</strong>. Quando scrivete armonia, due quinte parallele si sentono e si vedono. Qui no: si possono scrivere &laquo;sezione A, sezione B&raquo; su qualunque pagina e sembrare a posto.</p>
-
-    <p class="didascalia">La cifratura resta il pavimento. Le lettere maiuscole sono quello che ci si costruisce sopra, e non stanno in piedi da sole.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="I suoni caratteristici">
-  <div class="slide-interna">
-    <h2>I suoni caratteristici, e il libro li definisce cos&igrave;</h2>
-
-    <blockquote class="citazione">
-      <p>Una modulazione consiste nell&rsquo;introduzione di un nuovo <strong>centro tonale</strong> e quindi di un nuovo <strong>tritono</strong> che risolve su tale suono, costituito dal 7&#770; (alterato nel modo minore), la <strong>sensibile</strong>, e dal 4&#770;; quest&rsquo;ultimo, quando &egrave; abbinato al 7&#770; per formare un tritono, prende il nome di <strong>controsensibile</strong>.</p>
-      <cite><em>Il linguaggio della musica</em>, 3&deg;&nbsp;anno, p.&nbsp;130</cite>
-    </blockquote>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="Il tritono di re maggiore dentro do: do&#9839; (sensibile) e sol (controsensibile)"
-               notes="c#/5:h g/4:h | d/5:w"
-               width="640" tempo="46" play slow></tac-stave>
-
-    <p>&Egrave; la stessa cosa dell&rsquo;unit&agrave; 10, detta con altre parole: si cerca l&rsquo;alterazione, e si guarda <strong>dove va</strong>. Qui in pi&ugrave; c&rsquo;&egrave; il nome della <strong>seconda</strong> nota del tritono.</p>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="E il tritono di fa maggiore dentro do: si&#9837; (controsensibile) e mi (sensibile)"
-               notes="bb/4:h e/4:h | a/4:w"
-               width="640" tempo="46" play slow></tac-stave>
-
-    <p class="didascalia">Il libro chiama <strong>controsensibile</strong> il quarto grado quando fa coppia con la sensibile. Serve nei casi in cui la sensibile nuova &egrave; gi&agrave; diatonica &mdash; per esempio modulando al IV &mdash; e l&rsquo;unico segno visibile &egrave; l&rsquo;altro.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Dove va la musica">
-  <div class="slide-interna">
-    <h2>E dove va, quasi sempre</h2>
-
-    <blockquote class="citazione">
-      <p>Molto spesso gli spostamenti tonali di un periodo in tonalit&agrave; maggiore avvengono nella <strong>tonalit&agrave; della dominante</strong>.</p>
-      <cite><em>Il linguaggio della musica</em>, 3&deg;&nbsp;anno, p.&nbsp;130</cite>
-    </blockquote>
-
-    <tac-stave time="4/4" keysig="C"
-               caption="La cadenza che chiude la prima met&agrave; di quasi tutto: V di sol, cio&egrave; re&ndash;sol"
-               soprano="f#/4:h a/4:h | b/4:w"
-               basso="d/3:h g/3:h | g/3:w"
-               width="700" tempo="48" play slow></tac-stave>
-
-    <p>&laquo;Quasi sempre&raquo; non &egrave; un&rsquo;approssimazione: &egrave; una <strong>previsione utile</strong>. Aprendo una pagina in do maggiore e cercando dove finisce la prima met&agrave;, la prima cosa da provare &egrave; <strong>una cadenza in sol</strong>.</p>
-
-    <p class="didascalia">E se la trovate, avete finito: quella cadenza &egrave; il confine. Il fa diesis che l&rsquo;annuncia lo cercate da due unit&agrave;, ed &egrave; lo stesso.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa si scrive">
-  <div class="slide-interna">
-    <h2>Che cosa si scrive, su una pagina analizzata</h2>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Tre righe sotto il rigo, e sempre le stesse</span>
-      <p><strong>Sopra</strong>: le lettere delle sezioni, con le parentesi quadre &mdash; le stesse dell&rsquo;ora 75.<br>
-      <strong>Sotto il rigo</strong>: la cifratura, come sempre.<br>
-      <strong>Sotto la cifratura</strong>: le <strong>cadenze</strong> con il numero di battuta.</p>
-    </div>
-
-    <p>La terza riga &egrave; quella nuova, ed &egrave; anche quella che regge tutto il resto: senza cadenze numerate, le lettere di sopra sono un&rsquo;opinione.</p>
-
-    <p class="didascalia">In quarta imparerete una <strong>cifratura formale</strong> pi&ugrave; fitta, con le sigle delle cadenze. Per quest&rsquo;anno bastano tre righe scritte a mano e un numero di battuta accanto a ogni fermata.</p>
-  </div>
-</section>
-
-<!-- ───────────────────────────────────────────────────────────────────
-     Due slide, una con musica vera. L'ora apre la parte sul Barocco
-     elencando «i tre segnali» e «i suoni caratteristici» senza far
-     sentire un brano barocco: cinque delle dodici ore di quest'unità
-     non ne avevano nessuno. Mancava il caso in cui i tre segnali si
-     sentono tutti insieme e su un pezzo intero.
-     ─────────────────────────────────────────────────────────────── -->
-<section class="slide perc" data-titolo="I tre segnali, tutti in un pezzo">
-  <div class="slide-interna">
-    <h2>Come suona una musica barocca</h2>
+    <h2>Mozart, Sonata K&nbsp;545, I: le prime dodici battute</h2>
 
     <div class="riquadro compito">
-      <span class="etichetta">Ascolto &middot; 6 minuti</span>
-      <p>Due ascolti. Tre domande, una risposta ciascuna: la <strong>figura</strong> cambia mai? il <strong>volume</strong> cresce e cala? quante <strong>voci</strong> sentite?</p>
+      <span class="etichetta">Ascolto &middot; 12 minuti</span>
+      <p>Due ascolti dell&rsquo;esposizione con la tabella davanti. Si segnano: l&rsquo;inizio del secondo tema (che cosa fa la mano sinistra); la chiusa; il ritornello. Al secondo ascolto: quale figura del primo tema (o della transizione) ritorna nella chiusa.</p>
     </div>
 
-    <tac-brano organico="tastiera" titolo="Bach, Preludio in do maggiore BWV 846"
-               metronomo youtube="xCqWH9bKzQE" esecutore="Siebe Henstra, clavicembalo (Netherlands Bach Society)" partitura="../../_assets/spartiti/C01_bach-preludio-846.png" riquadri='[[1,13.35,21.06,29.5,7.39],[2,42.85,21.06,25.19,7.39],[3,68.04,21.06,24.85,7.39],[4,7.39,33.84,23.27,7.39],[5,30.66,33.84,19.71,7.39],[6,50.38,33.84,21.29,7.39],[7,71.66,33.84,21.29,7.39],[8,7.39,46.67,23.89,7.39],[9,31.28,46.67,20.4,7.39],[10,51.68,46.67,20.88,7.39],[11,72.55,46.67,20.4,7.39],[12,7.32,59.4,24.85,7.28],[13,32.17,59.4,21.01,7.28],[14,53.18,59.4,19.71,7.28],[15,72.9,59.4,20.19,7.28],[16,7.39,72.03,23.27,7.39],[17,30.66,72.03,21.15,7.39],[18,51.81,72.03,20.33,7.39],[19,72.14,72.03,21.01,7.39],[20,7.32,89.94,23.82,2.04],[21,31.14,89.94,20.19,2.04],[22,51.33,89.94,21.01,2.04],[23,72.35,89.94,20.74,2.04]]' inciso="../../_assets/incisioni/C01_bach_preludio_846.mp3" mappa='{"durata":31399,"eventi":[[0,0],[1,3636],[2,7273],[3,10909],[4,14545],[5,18182],[6,21818],[7,25455]]}' da-battuta="1">
-<script type="application/json">{"titolo":"J. S. Bach, Preludio in do maggiore BWV 846, dal Clavicembalo ben temperato","metro":"4/4","bpm":66,"battute":8,"anacrusi":0.0,"voci":[[[0.5,0.25,67],[0.75,0.25,72],[1.0,0.25,76],[1.25,0.25,67],[1.5,0.25,72],[1.75,0.25,76],[2.5,0.25,67],[2.75,0.25,72],[3.0,0.25,76],[3.25,0.25,67],[3.5,0.25,72],[3.75,0.25,76],[4.5,0.25,69],[4.75,0.25,74],[5.0,0.25,77],[5.25,0.25,69],[5.5,0.25,74],[5.75,0.25,77],[6.5,0.25,69],[6.75,0.25,74],[7.0,0.25,77],[7.25,0.25,69],[7.5,0.25,74],[7.75,0.25,77],[8.5,0.25,67],[8.75,0.25,74],[9.0,0.25,77],[9.25,0.25,67],[9.5,0.25,74],[9.75,0.25,77],[10.5,0.25,67],[10.75,0.25,74],[11.0,0.25,77],[11.25,0.25,67],[11.5,0.25,74],[11.75,0.25,77],[12.5,0.25,67],[12.75,0.25,72],[13.0,0.25,76],[13.25,0.25,67],[13.5,0.25,72],[13.75,0.25,76],[14.5,0.25,67],[14.75,0.25,72],[15.0,0.25,76],[15.25,0.25,67],[15.5,0.25,72],[15.75,0.25,76],[16.5,0.25,69],[16.75,0.25,76],[17.0,0.25,81],[17.25,0.25,69],[17.5,0.25,76],[17.75,0.25,81],[18.5,0.25,69],[18.75,0.25,76],[19.0,0.25,81],[19.25,0.25,69],[19.5,0.25,76],[19.75,0.25,81],[20.5,0.25,66],[20.75,0.25,69],[21.0,0.25,74],[21.25,0.25,66],[21.5,0.25,69],[21.75,0.25,74],[22.5,0.25,66],[22.75,0.25,69],[23.0,0.25,74],[23.25,0.25,66],[23.5,0.25,69],[23.75,0.25,74],[24.5,0.25,67],[24.75,0.25,74],[25.0,0.25,79],[25.25,0.25,67],[25.5,0.25,74],[25.75,0.25,79],[26.5,0.25,67],[26.75,0.25,74],[27.0,0.25,79],[27.25,0.25,67],[27.5,0.25,74],[27.75,0.25,79],[28.5,0.25,64],[28.75,0.25,67],[29.0,0.25,72],[29.25,0.25,64],[29.5,0.25,67],[29.75,0.25,72],[30.5,0.25,64],[30.75,0.25,67],[31.0,0.25,72],[31.25,0.25,64],[31.5,0.25,67],[31.75,0.25,72]],[[0.0,2.0,60],[0.25,0.75,64],[1.0,1.0,64],[2.0,2.0,60],[2.25,0.75,64],[3.0,1.0,64],[4.0,2.0,60],[4.25,0.75,62],[5.0,1.0,62],[6.0,2.0,60],[6.25,0.75,62],[7.0,1.0,62],[8.0,2.0,59],[8.25,0.75,62],[9.0,1.0,62],[10.0,2.0,59],[10.25,0.75,62],[11.0,1.0,62],[12.0,2.0,60],[12.25,0.75,64],[13.0,1.0,64],[14.0,2.0,60],[14.25,0.75,64],[15.0,1.0,64],[16.0,2.0,60],[16.25,0.75,64],[17.0,1.0,64],[18.0,2.0,60],[18.25,0.75,64],[19.0,1.0,64],[20.0,2.0,60],[20.25,0.75,62],[21.0,1.0,62],[22.0,2.0,60],[22.25,0.75,62],[23.0,1.0,62],[24.0,2.0,59],[24.25,0.75,62],[25.0,1.0,62],[26.0,2.0,59],[26.25,0.75,62],[27.0,1.0,62],[28.0,2.0,59],[28.25,0.75,60],[29.0,1.0,60],[30.0,2.0,59],[30.25,0.75,60],[31.0,1.0,60]]]}</script>
+    <tac-brano organico="pianoforte" titolo="W. A. Mozart, Sonata in do maggiore K&nbsp;545, I &mdash; Allegro" metronomo youtube="4xeAsc6m35w" esecutore="Lang Lang, pianoforte (Steinway & Sons)" partitura="../../_assets/spartiti/C02_mozart-k545-esposizione.png" inciso="../../_assets/incisioni/C02_mozart_k545_esposizione.mp3" mappa='{"durata":25861,"eventi":[[0,0],[1,2000],[2,4000],[3,6000],[4,8000],[5,10000],[6,12000],[7,14000],[8,16000],[9,18000],[10,20000],[11,22000]]}' da-battuta="1">
+<script type="application/json">{"titolo":"W. A. Mozart, Sonata K 545, I movimento — l’esposizione, che chiude in dominante","metro":"4/4","bpm":120,"battute":12,"anacrusi":0.0,"voci":[[[0.0,2.0,72],[2.0,1.0,76],[3.0,1.0,79],[4.0,1.5,71],[5.5,0.25,72],[5.75,0.25,74],[6.0,1.0,72],[8.0,2.0,81],[10.0,1.0,79],[11.0,1.0,84],[12.0,1.0,79],[13.0,0.125,77],[13.125,0.125,79],[13.25,0.125,77],[13.375,0.125,79],[13.5,0.25,76],[13.75,0.25,77],[14.0,1.0,76],[16.0,0.5,69],[16.5,0.25,71],[16.75,0.25,72],[17.0,0.25,74],[17.25,0.25,76],[17.5,0.25,77],[17.75,0.25,79],[18.0,0.25,81],[18.25,0.25,79],[18.5,0.25,77],[18.75,0.25,76],[19.0,0.25,74],[19.25,0.25,72],[19.5,0.25,71],[19.75,0.25,69],[20.0,0.5,67],[20.5,0.25,69],[20.75,0.25,71],[21.0,0.25,72],[21.25,0.25,74],[21.5,0.25,76],[21.75,0.25,77],[22.0,0.25,79],[22.25,0.25,77],[22.5,0.25,76],[22.75,0.25,74],[23.0,0.25,72],[23.25,0.25,71],[23.5,0.25,69],[23.75,0.25,67],[24.0,0.5,65],[24.5,0.25,67],[24.75,0.25,69],[25.0,0.25,71],[25.25,0.25,72],[25.5,0.25,74],[25.75,0.25,76],[26.0,0.25,77],[26.25,0.25,76],[26.5,0.25,74],[26.75,0.25,72],[27.0,0.25,71],[27.25,0.25,69],[27.5,0.25,67],[27.75,0.25,65],[28.0,0.5,64],[28.5,0.25,65],[28.75,0.25,67],[29.0,0.25,69],[29.25,0.25,71],[29.5,0.25,72],[29.75,0.25,74],[30.0,0.25,76],[30.25,0.25,74],[30.5,0.25,72],[30.75,0.25,71],[31.0,0.25,69],[31.25,0.25,67],[31.5,0.25,65],[31.75,0.25,64],[32.0,0.5,62],[32.5,0.25,64],[32.75,0.25,65],[33.0,0.25,67],[33.25,0.25,69],[33.5,0.25,71],[33.75,0.25,73],[34.0,0.25,74],[34.25,0.25,69],[34.5,0.25,71],[34.75,0.25,73],[35.0,0.25,74],[35.25,0.25,76],[35.5,0.25,77],[35.75,0.25,79],[36.0,0.25,81],[36.25,0.25,83],[36.5,0.25,84],[36.75,0.25,83],[37.0,0.25,81],[37.25,0.25,79],[37.5,0.25,77],[37.75,0.25,76],[38.0,0.25,77],[38.25,0.25,79],[38.5,0.25,81],[38.75,0.25,79],[39.0,0.25,77],[39.25,0.25,76],[39.5,0.25,74],[39.75,0.25,72],[40.0,0.5,71],[40.5,0.5,79],[41.0,0.5,76],[41.5,0.5,72],[42.0,0.5,74],[42.5,0.5,79],[43.0,0.5,76],[43.5,0.5,72],[44.0,1.0,74],[45.0,1.0,71],[45.0,1.0,74],[45.0,1.0,79],[46.0,1.0,67]],[[0.0,0.5,60],[0.5,0.5,67],[1.0,0.5,64],[1.5,0.5,67],[2.0,0.5,60],[2.5,0.5,67],[3.0,0.5,64],[3.5,0.5,67],[4.0,0.5,62],[4.5,0.5,67],[5.0,0.5,65],[5.5,0.5,67],[6.0,0.5,60],[6.5,0.5,67],[7.0,0.5,64],[7.5,0.5,67],[8.0,0.5,60],[8.5,0.5,69],[9.0,0.5,65],[9.5,0.5,69],[10.0,0.5,60],[10.5,0.5,67],[11.0,0.5,64],[11.5,0.5,67],[12.0,0.5,59],[12.5,0.5,67],[13.0,0.5,62],[13.5,0.5,67],[14.0,0.5,60],[14.5,0.5,67],[15.0,0.5,64],[15.5,0.5,67],[16.0,1.0,65],[19.0,1.0,53],[19.0,1.0,60],[20.0,1.0,52],[20.0,1.0,60],[23.0,1.0,52],[23.0,1.0,60],[24.0,1.0,50],[24.0,1.0,59],[27.0,1.0,50],[27.0,1.0,59],[28.0,1.0,48],[28.0,1.0,60],[31.0,1.0,48],[31.0,1.0,52],[32.0,4.0,53],[32.0,4.0,57],[36.0,1.5,53],[37.5,0.5,55],[38.0,1.5,57],[39.5,0.5,54],[40.0,0.25,43],[40.25,0.25,47],[40.5,0.25,50],[40.75,0.25,55],[41.0,0.25,43],[41.25,0.25,48],[41.5,0.25,52],[41.75,0.25,55],[42.0,0.25,43],[42.25,0.25,47],[42.5,0.25,50],[42.75,0.25,55],[43.0,0.25,43],[43.25,0.25,48],[43.5,0.25,52],[43.75,0.25,55],[44.0,1.0,43],[45.0,1.0,55],[46.0,1.0,43]]]}</script>
 </tac-brano>
-
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Tre segnali di stile, verificati qui</span>
-      <p>Non sono i tre segnali dell&rsquo;analisi &mdash; cadenze, ripetizioni, suoni caratteristici &mdash;: quelli dicono la <strong>forma</strong>, questi l&rsquo;<strong>epoca</strong>.</p>
-      <p><strong>Una figura sola</strong> per tutto il pezzo: il Barocco costruisce per elaborazione di un motivo, non per contrasto di temi.</p>
-      <p><strong>Dinamica a terrazze</strong>: piani e forti che cambiano di colpo, non crescendo.</p>
-      <p><strong>Tessitura continua</strong>: le voci non si fermano tutte insieme, e le frasi non hanno respiri quadrati.</p>
+    <div class="righe">
+      <tac-stave time="4/4" keysig="C" caption="Mozart, K 545, I, bb. 1–12: mano destra e mano sinistra" notes="c/5:h e/5:q g/5:q | b/4:q. c/5:16 d/5:16 c/5:q r:q" bass="c/4:8 g/4:8 e/4:8 g/4:8 c/4:8 g/4:8 e/4:8 g/4:8 | d/4:8 g/4:8 f/4:8 g/4:8 c/4:8 g/4:8 e/4:8 g/4:8" width="760" tempo="72" play></tac-stave>
+      <tac-stave keysig="C" notes="a/5:h g/5:q c/6:q | g/5:q f/5:8 e/5:16 f/5:16 e/5:q r:q" bass="c/4:8 a/4:8 f/4:8 a/4:8 c/4:8 g/4:8 e/4:8 g/4:8 | b/3:8 g/4:8 d/4:8 g/4:8 c/4:8 g/4:8 e/4:8 g/4:8" width="760"></tac-stave>
+      <tac-stave keysig="C" notes="a/4:8 b/4:16 c/5:16 d/5:16 e/5:16 f/5:16 g/5:16 a/5:16 g/5:16 f/5:16 e/5:16 d/5:16 c/5:16 b/4:16 a/4:16 | g/4:8 a/4:16 b/4:16 c/5:16 d/5:16 e/5:16 f/5:16 g/5:16 f/5:16 e/5:16 d/5:16 c/5:16 b/4:16 a/4:16 g/4:16" bass="f/4:q r:q r:q f/3+c/4:q | e/3+c/4:q r:q r:q e/3+c/4:q" width="760"></tac-stave>
+      <tac-stave keysig="C" notes="f/4:8 g/4:16 a/4:16 b/4:16 c/5:16 d/5:16 e/5:16 f/5:16 e/5:16 d/5:16 c/5:16 b/4:16 a/4:16 g/4:16 f/4:16 | e/4:8 f/4:16 g/4:16 a/4:16 b/4:16 c/5:16 d/5:16 e/5:16 d/5:16 c/5:16 b/4:16 a/4:16 g/4:16 f/4:16 e/4:16" bass="d/3+b/3:q r:q r:q d/3+b/3:q | c/3+c/4:q r:q r:q c/3+e/3:q" width="760"></tac-stave>
+      <tac-stave keysig="C" notes="d/4:8 e/4:16 f/4:16 g/4:16 a/4:16 b/4:16 c#/5:16 d/5:16 a/4:16 b/4:16 c#/5:16 d/5:16 e/5:16 f/5:16 g/5:16 | a/5:16 b/5:16 c/6:16 b/5:16 a/5:16 g/5:16 f/5:16 e/5:16 f/5:16 g/5:16 a/5:16 g/5:16 f/5:16 e/5:16 d/5:16 c/5:16" bass="f/3+a/3:w | f/3:q. g/3:8 a/3:q. f#/3:8" width="760"></tac-stave>
+      <tac-stave keysig="C" notes="b/4:8 g/5:8 e/5:8 c/5:8 d/5:8 g/5:8 e/5:8 c/5:8 | d/5:q b/4+d/5+g/5:q g/4:q r:q" bass="g/2:16 b/2:16 d/3:16 g/3:16 g/2:16 c/3:16 e/3:16 g/3:16 g/2:16 b/2:16 d/3:16 g/3:16 g/2:16 c/3:16 e/3:16 g/3:16 | g/2:q g/3:q g/2:q r:q" width="760"></tac-stave>
     </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Il contrasto che vedrete fra due ore</span>
-      <p>Il periodo classico fa l&rsquo;opposto di tutti e tre: <strong>due temi diversi</strong>, dinamica graduale, frasi di quattro e otto battute con respiri chiari.</p>
-      <p>Studiare le due cose vicine serve a questo: si riconoscono per <strong>differenza</strong>, e la differenza è più netta della definizione.</p>
-    </div>
-
-    <p class="didascalia">Le etichette di stile si imparano meglio a coppie. «Barocco» da solo è una parola; «barocco invece che classico, su questi tre punti» è <strong>una cosa che si può verificare ascoltando</strong>.</p>
+    <p><strong>Il primo tema</strong> (bb.&nbsp;1&ndash;4) sta tutto in <em>do</em> maggiore, sopra il basso albertino: I, V<span class="cifrata"><sup>4</sup><sub>3</sub></span>, I, IV<span class="cifrata"><sup>6</sup><sub>4</sub></span>, I, V<sup>6</sup>, I. <strong>La transizione</strong> comincia alla b.&nbsp;5: quattro scale di semicrome, ognuna un grado sotto la precedente (<em>la</em>, <em>sol</em>, <em>fa</em>, <em>mi</em>), sopra il basso che scende <em>fa&ndash;mi&ndash;re&ndash;do</em>: una progressione. Alla b.&nbsp;9 il <em>do&#9839;</em> e alla b.&nbsp;10 il <em>fa&#9839;</em> del basso portano fuori dalla tonica; le bb.&nbsp;11&ndash;12 si fermano sul <em>sol</em>. Subito dopo il secondo tema &egrave; in <em>sol</em> maggiore, la dominante.</p>
   </div>
 </section>
 
-<section class="slide" data-titolo="Tre segni del Barocco, sul rigo">
+<section class="slide" data-titolo="Il canone" data-in-classe>
   <div class="slide-interna">
-    <h2>Tre cose che nel Barocco si vedono scritte</h2>
+    <h2>Lavoro guidato: l&rsquo;inizio di un canone di sedici battute</h2>
 
-    <tac-stave clef="bass" time="4/4" caption="Il basso continuo: una linea sola, con i numeri sotto" notes="c/3:h g/2:h a/2:h f/2:h" width="440" tempo="52" play></tac-stave>
-
-    <div class="riquadro definizione">
-      <span class="etichetta">Le tre, e si riconoscono a colpo d&rsquo;occhio</span>
-      <p><strong>Il basso cifrato</strong> &middot; numeri sotto il rigo grave. Sparisce dopo il 1750.</p>
-      <p><strong>Le sequenze</strong> &middot; figure ripetute a gradini, spesso per quinte discendenti.</p>
-      <p><strong>Le catene di ritardi</strong> &middot; dissonanze preparate una dopo l&rsquo;altra sopra un basso che scende.</p>
+    <div class="righe">
+      <tac-stave data-canone="7" time="4/4" keysig="G" caption="Le prime due battute della proposta: sol maggiore, sedici battute" notes="g/4:w | d/5:h b/4:h | r:w | r:w" bass="r:w | r:w | r:w | r:w" width="760" tempo="72" play></tac-stave>
+      <tac-stave keysig="G" notes="r:w | r:w | r:w | r:w" bass="r:w | r:w | r:w | r:w" width="760"></tac-stave>
+      <tac-stave keysig="G" notes="r:w | r:w | r:w | r:w" bass="r:w | r:w | r:w | r:w" width="760"></tac-stave>
+      <tac-stave keysig="G" notes="r:w | r:w | r:w | r:w" bass="r:w | r:w | r:w | r:w" width="760"></tac-stave>
     </div>
-
-    <div class="riquadro studio">
-      <span class="etichetta">Come si usano per datare un pezzo</span>
-      <p>Basta la prima: se c&rsquo;è un basso cifrato, il pezzo è quasi certamente fra il 1600 e il 1760. È l&rsquo;indizio più affidabile che avete, perché riguarda la <strong>pratica esecutiva</strong> e non lo stile.</p>
-    </div>
-
-    <div class="riquadro attenzione">
-      <span class="etichetta">Il limite, e va detto</span>
-      <p>Sequenze e ritardi si trovano anche in Mozart, in Brahms e nel jazz. Da soli non datano niente: <strong>tre indizi deboli insieme</strong> valgono, uno da solo no.</p>
-    </div>
-
-    <p class="didascalia">Tutte le periodizzazioni funzionano così: si sommano indizi che presi uno a uno non provano niente. Chi ne usa uno solo si trova a chiamare barocco Brahms, ed è capitato a molti.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Che cosa portiamo a casa">
-  <div class="slide-interna">
-    <h2>Che cosa portiamo a casa</h2>
-
     <div class="riquadro compito">
-      <span class="etichetta">Per la lezione prossima</span>
-      <p>Leggere le <strong>pp. 128&ndash;130</strong> del libro &mdash; sono due pagine e mezza &mdash; e ricopiare la definizione di <strong>controsensibile</strong>.<br>
-      Poi, su un pezzo che studiate: trovare <strong>una cadenza</strong> e scriverne la battuta.</p>
+      <span class="etichetta">A coppie &middot; 10 minuti</span>
+      <p>Il canone della lezione 4 dell&rsquo;unit&agrave; 8, pi&ugrave; lungo: all&rsquo;ottava, a una battuta di distanza. Copia la proposta nella risposta, un&rsquo;ottava sotto, battuta per battuta, fino alla b.&nbsp;5. Il resto &egrave; il compito per casa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-titolo="Sintesi">
+  <div class="slide-interna">
+    <h2>Sintesi</h2>
+
+    <div class="colonne">
+    <div class="riquadro definizione">
+      <span class="etichetta">Esposizione</span>
+      <p>Primo tema in tonica, transizione che modula, secondo tema in dominante, chiusa.</p>
+    </div>
+    <div class="riquadro definizione">
+      <span class="etichetta">La transizione</span>
+      <p>Nel K&nbsp;545 una progressione di scale, poi le alterazioni della nuova tonalit&agrave;.</p>
+    </div>
+    <div class="riquadro definizione">
+      <span class="etichetta">Sviluppo e ripresa</span>
+      <p>Elaborazione e ritorno: nella ripresa il secondo tema &egrave; in tonica.</p>
+    </div>
     </div>
 
-    <p>Il secondo compito &egrave; corto apposta. Una cadenza sola, con il suo numero: &egrave; il primo mattone del mestiere nuovo, e chi lo posa bene ha capito la regola di quest&rsquo;ora.</p>
-
-    <p class="didascalia">Adesso i venti minuti sono finiti: interrogazioni di teoria, sull&rsquo;unit&agrave; 10 &mdash; dominanti secondarie e progressioni. La V6 comprende anche quelle, e ripassarle oggi conviene due volte.</p>
+    <p class="didascalia">Mercoled&igrave; 28/4 (prima ora), ora 84: il dettato ritmico-melodico con emiolia cadenzale. La lezione si chiude con il solfeggio parlato, cantato e ritmico.</p>
   </div>
 </section>
 
@@ -307,10 +177,9 @@ try { module = undefined; exports = undefined; } catch (e) {}
          style="--segno: url('../../_assets/segni/segno-24.png')">
   <div class="slide-interna">
     <p class="compiti-occhiello">Compiti per la prossima volta</p>
-    <h2>1 &middot; Scritto: Una cadenza, con la sua battuta</h2>
+    <h2>1 &middot; Scritto: Un canone a due voci all&rsquo;ottava di sedici battute</h2>
     <div class="riquadro compito">
-      <p>Prendi un pezzo che stai studiando e trova <strong>una cadenza</strong>. Scrivi sul quaderno: la <strong>battuta</strong>, il <strong>tipo</strong> e la <strong>tonalit&agrave;</strong> in cui cade.</p>
-      <p>Una sola, e con i tre dati. &Egrave; il primo mattone del mestiere nuovo, e la regola dell&rsquo;ora vale da subito: <strong>ogni affermazione formale si sostiene con una battuta e una cadenza</strong>. Chi scrive &laquo;c&rsquo;&egrave; una cadenza verso la fine&raquo; non ha risposto.</p>
+      <p>Scrivi un canone a due voci all&rsquo;ottava, distanza una battuta, partendo dalle due battute date: la risposta entra alla b.&nbsp;2, un&rsquo;ottava sotto, e ripete la proposta fino alla b.&nbsp;15; la b.&nbsp;15 della proposta &egrave; libera, la b.&nbsp;16 chiude sulla tonica.</p>
     </div>
     <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook: <a href="../materiali/workbook-uda-11.html#C3-U11-L5-01">apri l&rsquo;esercizio <strong>C3-U11-L5-01</strong> &#8599;</a></p>
   </div>
@@ -323,7 +192,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <h2>2 &middot; Solfeggio e 3 &middot; dettato</h2>
     <div class="riquadro compito">
       <span class="etichetta">2 &middot; Solfeggio, dal quaderno di lettura</span>
-      <p><a href="../materiali/solfeggi-classe-3.html#n638"><strong>n.&nbsp;638</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n639"><strong>n.&nbsp;639</strong></a> <em>parlato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-3.html#n640"><strong>n.&nbsp;640</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n641"><strong>n.&nbsp;641</strong></a> <em>cantato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-3.html#n642"><strong>n.&nbsp;642</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n643"><strong>n.&nbsp;643</strong></a> <em>ritmico</em></p>
+      <p><a href="../materiali/solfeggi-classe-3.html#n718"><strong>n.&nbsp;718</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n719"><strong>n.&nbsp;719</strong></a> <em>parlato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-3.html#n720"><strong>n.&nbsp;720</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n721"><strong>n.&nbsp;721</strong></a> <em>cantato</em> &nbsp;&middot;&nbsp; <a href="../materiali/solfeggi-classe-3.html#n722"><strong>n.&nbsp;722</strong></a> e <a href="../materiali/solfeggi-classe-3.html#n723"><strong>n.&nbsp;723</strong></a> <em>ritmico</em></p>
       <p class="rimando">Ogni pezzo a tempo, senza fermarti: il parlato a nomi, il cantato prendendo il primo suono dalla tastiera, il ritmico battendo la pulsazione.</p>
     </div>
     <div class="riquadro compito dettato-casa" id="C3-D-U11-L5">
@@ -351,25 +220,25 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Scrivi un contrappunto di <strong>terza specie (quattro note contro una)</strong> sotto il canto fermo, in modo misolidio (finale sol): otto battute. Comincia su una consonanza perfetta, alla cadenza la sensibile sale alla finale, niente quinte e ottave consecutive.</p>
       <tac-stave caption="Il canto fermo" clef="treble" time="4/4" notes="g/4:w | e/4:w | g/4:w | f/4:w | g/4:w | b/4:w | a/4:w | g/4:w" tempo="72" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-CP-U11-L5</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="Xq0Uz+2COhx+/XM+Nlfb5Q==" iv="hGPZF4CAV8LVpVcA" dati="kmELQLqf2uhTNr0KcDae8ulnfR6b3S2Qj4jXsLRiSyO7d5w3LfeX48VBBYalrxZoNp6Wqa50ipD3/avgAhv/ZjOpdv7vTUpH65vdFvqaJRbUeT0ZF4UMbPjXZjGik3/7qqYCHRsfn6nrlRPrCKW6yq6r4rY2FxXJHZp4bVvaBN+D8mx5DCcTDONrIMO52jjW9eekXHpEOqChG/8KCP2LVOm9xrJRXgVkGYQ2Q78MQFxL137iJIC2irAxlVxhg+ZxZCpV6Dt5Ygw2AweWylW17MufM/NziEFWC6i0J4A9IueZSEwT/zig8mBQX8vkijUvEIQb6vn61ICTEepSgvaNvhmJtip5OccyJL/PHqkig3HQfQaleChb8yMv3ejOK4rp1sItlTYG/8uVF5T486Z9JQrsBVroYDgXFoGT3QXUKh21lXUUtvr1KVqCh2XwnyGVEzNzKZtQpoN7OBJBu6WIQRSh9QAcyygjOIIv5TVjWM35P4oFlOJ5sb+/qZynKUP5tn4="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="+zdKcH+2tg/mtdZLmSYQfA==" iv="4XtozlOTe9Itw/hf" dati="ZV+MjjygBiNkhmxeoD9FWYttNX6zLkRJZwOpv393sMnEReJApSeJOngfrXHBGy/JjuRfb4GpBhwgY2du+YZxdSz4mhVImqLRG8wUKvmnA8Uy2B9AfK2f1JrLxFYPHuonPhtLQKvG+AYQTkR2GBAKqflwso1qvXEdTWeRLsPTK4GdpRqtzCsH+qjKKs+QX7zURePGIEqbOMH1EMxN3f1YJVQgzVxNhq0k6SsC/t10KlX+KW0IgBWWvpdPo3nTeV/Nlmrv0bUZKP3A59dYuMFlLQ1rUbCjviFtd+7LJQ+OMremVVmvgsl75nG4k1SW7ln94jZ1v5z377P4z4NB7gefDqOYmB6/V+4kd8UdXxdIDW6GlsNKHxO61WFedDhtpjW4GBF4HJBIwWqCeAdbdAePxCwUipKC0BM7B+JSzdWmJ7y+0cb+tPTXQzv0EjtQNw8KodIi+zCOSdV6J03YyAfbHAA6nd5B0hHb/jFh8cZFz5NBCNpdO1JExDA217znN8yxAho="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C3-BD-U11-L5">
       <span class="etichetta">5 &middot; Basso da realizzare <span class="dettato-sigla">C3-BD-U11-L5</span></span>
       <p>Realizza a quattro parti il <strong>basso senza numeri</strong>: otto battute in 4/4, do maggiore. Trova tu l&rsquo;accordo di ogni nota (la regola dell&rsquo;ottava &egrave; il punto di partenza) e scrivilo sotto; poi il soprano, poi le voci interne. Accordi che puoi usare: anche le dominanti secondarie.</p>
       <tac-stave caption="Il basso" clef="bass" keysig="C" time="4/4" notes="c/3:w | a/2:h d/3:h | g/3:h a/3:h | f/3:h d/3:h | c/3:w | f/3:w | g/3:h g/2:h | c/3:w" tempo="60" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-BD-U11-L5</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="LIEhkZIZVUDebDus6q9I/g==" iv="0tsef8GWYGYBkoGJ" dati="uJlZ7QtAVz8l/dktqDFOKAJHxvaJNpF30BM/IxWuAdny4U70KGmGgd4k0LhCwfXhfDpRazLqv2v7Sj7aGlxHE3XEExDXwrAKGKFx7bITO1N5QP3QiC61z5R2rxXgT1K0WJEL06MIgoXCjMCPi4On5vvXx3XG6WJpy0CiQunAid84OPGPOR+b8x4XiNlSJNjgFMXrUISIsKo/DbS42cMrsYcjowxFgnNV/JhP1aSwoM+UF0egPx9Zwck2hu/XgtaNCy4tvhWwcof9Ljbj5qHrkWQhjjMGw/qy5eXkJOjBLkJaLioXKC1DpxySh8ksYkBNyCv/6ctQLS8UvYSFaGgvyklQrU/F36yeAXPw1zOfY5LgdKVmKPjyFb5URpTFcWnbPusUWd9vLGTyDyMOh/PmNcbwOzfxqneglkZ1kO8Bu9vaG3Mw14LIyrk0jOficW78HWe05a8DM01BedtSGPSEQpNAFb978Y2kvHaenEGs/MIH8F7RDMfuxIqDx0EHB6L2AmPIxtcjWRMbWznXkLKDJuwKnTnXf8zleduYlOTAkmO2V/9SO6EJidylj+IRVfXmr1uhYnAXaWwW8eJaObI8hBgITW7mlwTPiaNeK6H7JFLwsvlY/pDe+rpNym5tSSol3sWWThLnv4RZF2o3mz9UcZK/oxJQepyC1I3+iiVTs8T83F4g7qugrA40HC55HgS+UQCoVgn4yd3YmJ6ZLS2d8mDZMrHN6ZCNsETKtHriFiEwIu4WMGBKYd9Ge01lNv8y7gRqnkpHi82yebHkqekXbhju"></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="xJgfAsgsIbzHiI94l+DSTw==" iv="PtfbgL4mGcaX8Psj" dati="YGpgll1fk2yeGsvUyb9nB3K1I5NJqyMK+/TneYnG3bJL/N25gavl6hBE2SLETQR+vvLHh/pbuLDLurHqrlHx0w3g8yj2T1MbaX53MJM15JInjuu+YpgCAPC7ps8UMS5QXbRhFDRteRgiQg7Xb3iQ8wnx+dlhQqJB8awcDwYHpO0vZuAWzSFaV0rTsXlO0wf1TucG8uLZthOdR9twOdQNApAsM8juahWeuM+YsDKib2z8w7GHUFLPvig5i3gla3E5Qf/bjxMqHLjrnOfl+XjcOET0sqU8ohUTE97BBB2x6sykQHz8Dss5gprc7T/49rB1jlG62BXFSVuARUwe4jxHVbe0YovFLjdG4GZ5Wct0ucu1Yhp7HPWa84FNq3rtYD//BEA4OziBns4I22mUxwDZG5uzn7QMJyTP5NKf1sy3YT8sksTrYF+BOpZiEWE9lENoRViT0c22256KNXkPoG55wVy3DHZ8It2RMv5FxwemdZBfoZypbnTdwVTSFetK7TZ7h01YEoB3pRh47+YAldW8oZsQJBrk6dZKLWgqdeKtoY5lFxZIRkZUHE0ZDWzC3SqkYOlseY1VX8PY5btwidpfRVlbCEYUtJyd6IPT20wO5S5Hc+2azDCWMPzbeFZ6mZAsu6PAOe4awOSXwZzfU9Sa6IwyOOBkfSo50ZUCx3ptOfJZHJjpzQBFc8yl+zdF056DvTNXCa1m7TU7zRTREu6ffHMGfblgZQGsBdulnl5YVghdy8Gh1Ry/l1Y2fOerB3pPbkVHxbryeZC9E3VeBBGsNqc6"></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C3-CD-U11-L5">
       <span class="etichetta">6 &middot; Canto dato da armonizzare <span class="dettato-sigla">C3-CD-U11-L5</span></span>
       <p>Armonizza a quattro parti il <strong>canto dato</strong>: otto battute in 4/4, sol maggiore. Prima le cadenze, poi il basso per intero, e solo alla fine contralto e tenore. Accordi che puoi usare: anche le dominanti secondarie.</p>
       <tac-stave caption="Il canto dato" clef="treble" keysig="G" time="4/4" notes="g/5:w | e/5:w | f/5:h g/5:h | e/5:w | c/5:w | b/4:h a/4:h | g/4:h f/4:h | g/4:w" tempo="66" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C3-CD-U11-L5</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="Tg+XMsGfBleyx0IcuKkkfg==" iv="SYxRB5RFM4HbdYmo" dati="mz/qv9fp6gUcQCRAzuUAV6kmOsWFcX5yCfKS+ckjzt80F1hcoi1YCJERbizgODZQ0rFnJE5hpJy0L5w+MZYDzLO+4RXEPPYsAsANYveWuyfMicqNH3QN/ZFNtGOMMc2ygFh1CKhVAwBZwq9UZ2MrmNoz0ddYnAd/jKyaMkS77WezqbgzLfPmghqSPZ3rW3UYX0HzYERRGB7x8JVYR4SNcqQc+jErZyUzSJkD7oJIJFFrOSE4TtYi7BG7cpooFXe//xTsQGhMRSIEQMCMFtjb9aT0QVygEeNENfYUzP/oXcyGmgJGb3N1AvxAbiTn0UiJ6TNIS/j+cCAk+KFHrIZJnY+7USBSSbNfElW9Snsvk8uIDBNHxw5JJJNWRoNpIPSzWi+INLvb4ZRYEabT/GgaXOaNdAUALsBCVjgIfV6cQPNp58sD8A/hlyUOZConbfpy551Q+dlFddSWNjKQ5DwAApcMzKyb8yc8DeEVggUmlG5y7oFuizsf/qbR7xxbDRStHJqggoOGoSoxuesvTv3tBujiwUcLwYFJhVlU/kdQ+tNAPdx6yeLOg6E45OdTi8T5my1JevZdha+uewuqUCEeAY8KCJIjcj3DOGNCksPMpDc/rLOey7+nqBb+QgK93WP+3XLT/KIaJmGVCzLPArtFBJ360FfI3qT2qSS0D8wN+Fdsz+XAfbw8PmX/KRt/O6jcn3tf5vPeQVERBa7bglbHzL1/JJ/Ohyad52jlK8QqaHaTkdo="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="Ek96WKlJVgDW0mvFtFkVPg==" iv="ir6TDvidkuZcabIM" dati="dpiv5MXbEUVZGZvCNKyQkB2LZm1Xb4fTqH7c9ef9QornyKPSk7zUJToDHOrOgrJYjY7NLNCLPswGchDbuRQCWjjq/d0sjZW7WoP0IeSTrkw8rtMm/kLap0AqdaG3HD/eX8D7QngGZBkwFmsY7eb5emewVG9qhShpHL9FaM2c8lE8mWk5bk2VteJUcjzAhJhb9BFoTC3gH3djfFILRbKgKapiO2R9rxOSzKNlhBxGcGZB1xceVj/iH/EeJsvgl4ZE/hGeyovjb7iUX07EnWJGkC12PNLbTJpE635FAKqpGeLCJuXVMwu5Sug/xwa1kBLFKyLrEECZNIq3v9zJBAiLcB6VgIeOBWVJPdBducJLl1NDGgjaK0ZEMSfyTCoGUfzo3SHU2Wg+NOa1cZoy9P2bZbxga/Ey2FsKrbNUA2OjVTjdviK6CK8SJ9AtcY0tcxZfFyVz7HPKm54+L70JDxjD3++5oFUoHm6R+/xJVaDOJG300XsIDQjb5l0W1J8ErhDZEZmY1T1ljW4rurEQtrGcXSrjGjuyrGc0mp/vM0y4BsWwE8NOs5RZQYi0drSb3RTURNcTigOMj5FP+MFjYPoejZDCBtJ5s145oFTZaLCkIdjozz2c7CoaHXke+zfry6DcvPFKi/3o6uCZc2CV512GJxS2CKpY0wGxdXa853hQWXxdJMPppMjSB5eQQaSIbMvOh7xjcb2TO8d0RkdAu4IO7dI1dTXUN2tjpzNFVyE2J7WxYps="></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Una cadenza, con la sua battuta (Workbook, esercizio C3-U11-L5-01), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 638, 639; cantato n. 640, 641; ritmico n. 642, 643 (a tempo, senza fermarsi). Dettato C3-D-U11-L5 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di terza specie sul canto fermo (C3-CP-U11-L5). Basso senza numeri da realizzare a quattro parti (C3-BD-U11-L5). Canto dato da armonizzare a quattro parti (C3-CD-U11-L5).</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Un canone a due voci all’ottava di sedici battute (Workbook, esercizio C3-U11-L5-01), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 718, 719; cantato n. 720, 721; ritmico n. 722, 723 (a tempo, senza fermarsi). Dettato C3-D-U11-L5 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Contrappunto di terza specie sul canto fermo (C3-CP-U11-L5). Basso senza numeri da realizzare a quattro parti (C3-BD-U11-L5). Canto dato da armonizzare a quattro parti (C3-CD-U11-L5).</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>
@@ -380,7 +249,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: parlato</h2>
     <p>A nomi, a tempo, con la mano che batte. Chi si ferma riparte dalla battuta dopo.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n634">Apri il n.&nbsp;634 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di tenore &middot; 3/4</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n714">Apri il n.&nbsp;714 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di contralto &middot; 3/4</span></p>
   </div>
 </section>
 
@@ -389,8 +258,8 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: cantato</h2>
     <p>Si prende il tono dalla tastiera, si canta insieme; poi a gruppi.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n635">Apri il n.&nbsp;635 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 3/4 &middot; mi minore</span></p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n636">Apri il n.&nbsp;636 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 6/8 &middot; do maggiore</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n715">Apri il n.&nbsp;715 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 6/8 &middot; mi minore</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n716">Apri il n.&nbsp;716 nel quaderno di lettura &#8599;</a> <span class="rimando">chiave di violino &middot; 6/8 &middot; re maggiore</span></p>
   </div>
 </section>
 
@@ -399,18 +268,10 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="compiti-occhiello">In classe</p>
     <h2>Leggiamo insieme: ritmico</h2>
     <p>Tutti insieme, battendo la pulsazione. Poi a file, due battute a testa.</p>
-    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n637">Apri il n.&nbsp;637 nel quaderno di lettura &#8599;</a> <span class="rimando">2/4</span></p>
+    <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-3.html#n717">Apri il n.&nbsp;717 nel quaderno di lettura &#8599;</a> <span class="rimando">3/4</span></p>
   </div>
 </section>
 
-<section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
-  <div class="slide-interna">
-    <p class="compiti-occhiello">In classe</p>
-    <h2>Scriviamo adesso: Il controsensibile, dal libro</h2>
-    <p>Leggi le <strong>pp. 128&ndash;130</strong> del libro e ricopia sul quaderno la definizione di <strong>controsensibile</strong>.</p>
-    <p class="rimando">Dieci minuti sul quaderno, poi si confronta alla lavagna.</p>
-  </div>
-</section>
 
 
 </div>

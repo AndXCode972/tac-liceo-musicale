@@ -3606,7 +3606,8 @@
       const fine = () => { if (!fatto) { fatto = true; r(); } };
       a.onended = fine; a.onerror = fine;
       a.play().catch(fine);
-      setTimeout(fine, 20000);
+      /* 8/11/2026: d01-intera.m4a dura 21,7 s e il tetto di 20 s lo tagliava sul finale: ora 30 s */
+      setTimeout(fine, 30000);
     });
     const aspettaRigo = (r, c) => new Promise(ok => {
       const t0 = Date.now();

@@ -8,14 +8,14 @@
 <!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
      Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
 <link rel="stylesheet" href="../../_assets/css/tac.css?v=d1427c0c">
-<link rel="stylesheet" href="../../_assets/css/sito.css?v=d65b9664">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=481f682d">
 <script src="../../_assets/lib/vexflow.js"></script>
 <script src="../../_assets/lib/tone.js"></script>
 <!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
      usa, e con `defer` i due file girano nell'ordine in cui stanno
      scritti qui. -->
-<script src="../../_assets/js/codice.js" defer></script>
-<script src="../../_assets/js/tac-core.js?v=306746de" defer></script>
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=d134485f" defer></script>
 <style>
   .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
                 border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
@@ -78,13 +78,13 @@
     <a class="n" href="workbook-uda-03.html" title="Alterazioni e suddivisione">3</a>
     <a class="n" href="workbook-uda-04.html" title="Scala maggiore, tonalità e intervalli">4</a>
     <span class="n qui">5</span>
-    <a class="n" href="workbook-uda-06.html" title="Il modo minore e la prima specie">6</a>
-    <a class="n" href="workbook-uda-07.html" title="La cadenza, il periodo e il primo rivolto">7</a>
-    <a class="n" href="workbook-uda-08.html" title="La sesta e quarta e la settima di dominante">8</a>
-    <a class="n" href="workbook-uda-09.html" title="La seconda specie e la forma binaria">9</a>
-    <a class="n" href="workbook-uda-10.html" title="Il corale">10</a>
-    <a class="n" href="workbook-uda-11.html" title="Il canto dato e la prova di fine anno">11</a>
-    <a class="passo" href="workbook-uda-06.html" title="Il modo minore e la prima specie">unit&agrave; 6 &rsaquo;</a>
+    <a class="n" href="workbook-uda-06.html" title="Il modo minore, le cadenze e il primo rivolto">6</a>
+    <a class="n" href="workbook-uda-07.html" title="La seconda specie, la sesta e quarta e la settima di dominante">7</a>
+    <a class="n" href="workbook-uda-08.html" title="Il II e il VI">8</a>
+    <a class="n" href="workbook-uda-09.html" title="Il corale e la terza specie">9</a>
+    <a class="n" href="workbook-uda-10.html" title="La progressione e il canto dato">10</a>
+    <a class="n" href="workbook-uda-11.html" title="La forma binaria e la prova di fine anno">11</a>
+    <a class="passo" href="workbook-uda-06.html" title="Il modo minore, le cadenze e il primo rivolto">unit&agrave; 6 &rsaquo;</a>
   </nav>
 
   <!-- Niente riga per nome, classe e data: il foglio non si consegna mai.
@@ -117,16 +117,14 @@
       <p class="titolo-consegna"><span class="num">2</span> Soprano e basso dati: le parti interne</p>
       <div class="testo">Soprano e basso sono dati.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">otto battute: soprano e basso</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 46.45" src="incisioni/2c03eb7095b1-1.svg" alt="">
+      <tac-stave clef="treble" time="4/4" keysig="F" caption="otto battute: soprano e basso" notes="a/4:h b/4:h | g/4:h a/4:h | b/4:h a/4:h | g/4:h g/4:h | a/4:h b/4:h | g/4:h a/4:h | b/4:h g/4:h | a/4:w" bass="f/2:h b/2:h | c/3:h f/2:h | b/2:h f/2:h | c/3:h c/3:h | f/2:h b/2:h | c/3:h f/3:h | b/2:h c/3:h | f/2:w" width="900" tempo="60"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C1-U5-L1-22">
       <p class="titolo-consegna"><span class="num">3</span> Una melodia in semibrevi</p>
       <div class="testo">Armonizza la melodia a quattro parti con I, IV e V.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">La melodia</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 43.58" src="incisioni/768ad28e4968-1.svg" alt="">
+      <tac-stave clef="treble" time="4/4" keysig="G" caption="La melodia" notes="b/4:w | c/5:w | d/5:w | e/5:w | d/5:w | c/5:w | a/4:w | g/4:w" bass="r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w" width="900" tempo="60"></tac-stave>
       </div>
     </div>
     </section>
@@ -154,24 +152,21 @@
       <p class="titolo-consegna"><span class="num">2</span> Soprano e basso dati: i collegamenti</p>
       <div class="testo">Soprano e basso sono dati.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">otto battute: soprano e basso</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 45.57" src="incisioni/fbada760d212-1.svg" alt="">
+      <tac-stave clef="treble" time="4/4" keysig="G" caption="otto battute: soprano e basso" notes="d/5:h c/5:h | a/4:h b/4:h | c/5:h a/4:h | b/4:h d/5:h | c/5:h a/4:h | b/4:h c/5:h | a/4:h f/4:h | g/4:w" bass="g/2:h c/3:h | d/3:h g/2:h | c/3:h d/3:h | g/2:h g/3:h | c/3:h d/3:h | g/2:h c/3:h | d/3:h d/3:h | g/2:w" width="900" tempo="60"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C1-U5-L2-22">
       <p class="titolo-consegna"><span class="num">3</span> Una melodia con la semicadenza</p>
       <div class="testo">Armonizza la melodia a quattro parti con I, IV e V.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">La melodia</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 43.58" src="incisioni/8bf6915bf035-1.svg" alt="">
+      <tac-stave clef="treble" time="4/4" keysig="D" caption="La melodia" notes="f/4:h e/4:h | f/4:h g/4:h | a/4:h b/4:h | a/4:w | f/4:h g/4:h | a/4:h d/5:h | c/5:h e/5:h | d/5:w" bass="r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w" width="900" tempo="60"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C1-U5-L2-06">
       <p class="titolo-consegna"><span class="num">4</span> Un basso numerato</p>
       <div class="testo">Realizza a quattro parti il basso numerato.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">il basso con le cifre del soprano</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 119.07" src="incisioni/ee31d34270aa-1.svg" alt="">
+      <tac-stave clef="bass" time="4/4" keysig="D" caption="il basso con le cifre del soprano" notes="d/3:h g/2:h | a/2:h d/3:h | g/2:h d/3:h | a/2:h a/2:h | d/3:h g/2:h | a/2:h d/3:h | g/2:h a/2:h | d/3:w" cifre="5 &middot; 3 &middot; 8 &middot; 5 &middot; 3 &middot; 5 &middot; 3 &middot; 8 &middot; 5 &middot; 3 &middot; 8 &middot; 3 &middot; 8 &middot; 5 &middot; 3" width="900" tempo="60"></tac-stave>
       </div>
     </div>
     </section>
@@ -199,16 +194,14 @@
       <p class="titolo-consegna"><span class="num">2</span> Dalle lettere alle quattro parti: T e D</p>
       <div class="testo">Scrivi a quattro parti, su due righi, otto battute in fa maggiore con <strong>un accordo per battuta</strong>, secondo le funzioni date: <strong>T D T T D D D T</strong>.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">otto battute, funzioni T D T T D D D T</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 43.58" src="incisioni/d2c4a0db3fc8-1.svg" alt="">
+      <tac-stave clef="treble" time="4/4" keysig="F" caption="otto battute, funzioni T D T T D D D T" notes="r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w" bass="r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w" width="900"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C1-U5-L3-22">
       <p class="titolo-consegna"><span class="num">3</span> Una melodia di otto battute</p>
       <div class="testo">Armonizza la melodia a quattro parti con I, IV e V.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">La melodia</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 43.58" src="incisioni/22331d013e0b-1.svg" alt="">
+      <tac-stave clef="treble" time="4/4" keysig="C" caption="La melodia" notes="e/5:h d/5:h | e/5:h f/5:h | e/5:h c/5:h | d/5:w | c/5:h a/4:h | g/4:h c/5:h | c/5:h b/4:h | c/5:w" bass="r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w" width="900" tempo="60"></tac-stave>
       </div>
     </div>
     </section>
@@ -236,8 +229,7 @@
       <p class="titolo-consegna"><span class="num">2</span> Una melodia con le note ribattute</p>
       <div class="testo">Armonizza la melodia a quattro parti con I, IV e V.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">La melodia</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 43.58" src="incisioni/9ad7d8918dd4-1.svg" alt="">
+      <tac-stave clef="treble" time="4/4" keysig="F" caption="La melodia" notes="a/4:h c/5:h | b/4:h a/4:h | g/4:h a/4:h | g/4:w | a/4:h b/4:h | c/5:h a/4:h | b/4:h g/4:h | f/4:w" bass="r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w" width="900" tempo="60"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C1-U5-L4-04">

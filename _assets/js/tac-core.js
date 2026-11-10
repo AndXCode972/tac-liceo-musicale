@@ -1011,6 +1011,39 @@
   /* dove pende la pausa di semibreve: sotto la quarta linea, chiave per chiave */
   const QUARTA_LINEA = { treble: 'd/5', percussion: 'd/5', bass: 'f/3', alto: 'e/4', tenor: 'c/4' };
 
+  /* IL RIGO DA RIEMPIRE.
+
+     Andrea, 10 novembre 2026: «ci sono delle pause che non servono
+     quando si deve riempire il pentagramma».
+
+     Nei fogli degli esercizi il rigo su cui lo studente scrive è dato
+     come una fila di pause (`r:w | r:w | …`): serve a dare la lunghezza
+     alle battute. Disegnate, quelle pause dicevano il contrario della
+     consegna — «qui si tace» sul rigo dove bisogna scrivere — e la pausa
+     del basso finiva per giunta fra i due righi.
+
+     Regola: negli esempi a due righi (o a quattro parti) una voce fatta
+     SOLO di pause (e stanghette) è una voce da scrivere. Le sue pause
+     diventano note fantasma: occupano il tempo, non si vedono. Un rigo
+     solo, fatto di sole pause, resta com'è (le lezioni sulle pause), a
+     meno che il rigo porti l'attributo `da-riempire`: è il foglio
+     bianco di un esercizio («otto battute in 3/4»). */
+  function soloPause(dati) {
+    return !!dati && dati.some(d => d.pausa) && dati.every(d => d.pausa || d.stanghetta);
+  }
+  function fantasmaVF(VF, d, metro) {
+    /* la pausa di semibreve vale la battuta (v. `battuteVuote`): la nota
+       fantasma prende la durata della battuta, perché le stanghette dei
+       due righi restino allineate anche in 3/4 o in 6/8 */
+    let dur = d.dur + (d.puntata ? 'd' : '');
+    const m = /^(\d+)\/(\d+)$/.exec(String(metro || '').trim());
+    if (m && d.dur === 'w' && !d.puntata) {
+      const lung = parseInt(m[1], 10) * 4 / parseInt(m[2], 10);
+      dur = { 4: 'w', 3: 'hd', 2: 'h', 1: 'q', 1.5: 'qd', 6: 'wd' }[lung] || 'w';
+    }
+    return new VF.GhostNote({ duration: dur });
+  }
+
   /* Il segno di battuta, nella forma che VexFlow si aspetta. Se questa
      versione della libreria non avesse BarNote si ripiega su una pausa
      invisibile: meglio una stanghetta mancante che un pentagramma vuoto. */
@@ -1414,6 +1447,17 @@
     return _attesaCarattere;
   }
 
+  /* 10 novembre 2026, Andrea: «in tutti gli esempi musicali nelle slides
+     puoi togliere il pulsante per l'ascolto». L'attributo `play` resta nei
+     sorgenti, ma il tasto si mostra soltanto dove l'ascolto è l'esercizio:
+     il dettato (guidato, o nel blocco «dettato-ascolti») e le slide di
+     percezione. Fuori dalle lezioni (Workbook, verifiche) non cambia nulla. */
+  function ascoltoPermesso(el) {
+    if (!el.hasAttribute('play')) return false;
+    if (!el.closest('section.slide')) return true;
+    return el.hasAttribute('guidato') || !!el.closest('.dettato-ascolti, section.perc');
+  }
+
   class TacStave extends HTMLElement {
     connectedCallback() {
       if (this._fatto) return;
@@ -1616,9 +1660,17 @@
              sopra di lui, sullo stesso rigo, c'è il tenore. Da solo il
              gambo lo sceglie VexFlow guardando l'altezza, ed è giusto
              così. */
+          const vuotoB = soloPause(this._datiB);
           const noteB = this._datiB.map(d => {
             if (d.stanghetta) return stanghettaVF(VF, d.stanghetta);
-            const sn = new VF.StaveNote({ keys: d.keys, duration: d.dur + (d.puntata ? 'd' : '') + (d.pausa ? 'r' : ''), clef: 'bass' });
+            if (vuotoB && d.pausa) return fantasmaVF(VF, d, this.getAttribute('time'));
+            /* ⚠ 10/11/2026: la pausa del rigo di basso nasceva sulla chiave
+               `b/4`, la riga centrale del violino: in chiave di basso finiva
+               sopra il rigo, fra i due pentagrammi (la pausa iniziale del
+               contrappunto sotto il canto dato). Sul rigo di basso la pausa
+               sta al centro (re3); quella di semibreve pende dalla quarta
+               riga (fa3). */
+            const sn = new VF.StaveNote({ keys: d.pausa ? [d.dur === 'w' ? 'f/3' : 'd/3'] : d.keys, duration: d.dur + (d.puntata ? 'd' : '') + (d.pausa ? 'r' : ''), clef: 'bass' });
             if (quattro) sn.setStemDirection(VF.Stem.DOWN);
             if (!d.pausa) d.keys.forEach((k, i) => {
               const p = N.scomponi(k);
@@ -1721,9 +1773,12 @@
           if (testoV === null || !rigo) return;
           const dV = annotaSegni(leggiNote(testoV), keysig);
           if (!dV.length) return;
+          /* contralto o tenore da scrivere: battute vuote (v. `soloPause`) */
+          const vuotoV = soloPause(dV);
           const noteV = dV.map(d => {
             if (d.stanghetta) return stanghettaVF(VF, d.stanghetta);
-            const sn = new VF.StaveNote({ keys: d.keys,
+            if (vuotoV && d.pausa) return fantasmaVF(VF, d, this.getAttribute('time'));
+            const sn = new VF.StaveNote({ keys: (d.pausa && ch === 'bass') ? [d.dur === 'w' ? 'f/3' : 'd/3'] : d.keys,
                                           duration: d.dur + (d.puntata ? 'd' : '') + (d.pausa ? 'r' : ''),
                                           clef: ch });
             sn.setStemDirection(verso);
@@ -1758,8 +1813,10 @@
       this._vociInterne = vociInterne;
 
       if (dati.length) {
+        const vuotoS = soloPause(dati) && (doppio || this.hasAttribute('da-riempire'));
         const note = dati.map(d => {
           if (d.stanghetta) return stanghettaVF(VF, d.stanghetta);
+          if (vuotoS && d.pausa) return fantasmaVF(VF, d, this.getAttribute('time'));
           const semibreve = d.pausa && d.dur === 'w' && !d.puntata;
           const sn = new VF.StaveNote({
             keys: semibreve ? [QUARTA_LINEA[clef] || 'd/5'] : d.keys,
@@ -2290,7 +2347,7 @@
         setTimeout(() => { try { guidaDettato(this); } catch (e) { console.warn('dettato guidato', e); } }, 0);
       }
 
-      if (this.hasAttribute('play') && dati.some(d => !d.pausa && !d.stanghetta)) {
+      if (ascoltoPermesso(this) && dati.some(d => !d.pausa && !d.stanghetta)) {
         /* ══ I COMANDI DI RIPRODUZIONE ═══════════════════════════════
 
            Andrea, 23 settembre 2026: «i tasti ascolta degli esempi devono
@@ -2946,7 +3003,7 @@
         aggiorna();
         /* e se il rigo suona, si sente SOLO il tratto appena segnato:
            è la differenza fra dire «guarda qui» e farlo sentire. */
-        if (this.hasAttribute('play') && quanti) {
+        if (ascoltoPermesso(this) && quanti) {
           const g = gruppi[quanti - 1];
           this.suona(null, 1, g._da, g._a);
         }
@@ -8949,6 +9006,13 @@
        Lo spazio si misura con le proporzioni della finestra, come fa
        `adatta`; la divisione avviene una volta, all'apertura. */
     sdoppia(deck) {
+      /* 10 novembre 2026, Andrea: «Le slide possono scorrere, non c'è
+         bisogno di racchiudere tutto dentro ad un'unica slide, soprattutto
+         le partiture, le analisi, gli esempi più lunghi: tutto può
+         scorrere». Lo sdoppiamento in «(segue)» è spento: una slide lunga
+         resta una sola e si scorre (v. `.slide { overflow-y: auto }`).
+         Il codice qui sotto resta, nel caso servisse riaccenderlo. */
+      if (!window.TAC_SDOPPIA) return;
       const b = document.body.classList;
       if (b.contains('modalita-studio') || b.contains('modalita-dispensa') ||
           b.contains('documento')) return;
@@ -9180,6 +9244,8 @@
           return Object.assign({ sforo: isNaN(sforo) ? null : sforo }, x);
         });
         const gravi = c.filter(x => x.sforo == null || x.sforo >= SOGLIA);
+        /* spento con lo sdoppiamento (10/11): le slide lunghe si scorrono */
+        if (!window.TAC_SDOPPIA) gravi.length = 0;
         av.classList.toggle('acceso', gravi.length > 0);
         av.textContent = gravi.length
           ? 'slide ' + gravi.map(x => x.n + 1).join(', ')

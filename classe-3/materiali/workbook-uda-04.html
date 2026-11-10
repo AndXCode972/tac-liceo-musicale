@@ -8,14 +8,14 @@
 <!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
      Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
 <link rel="stylesheet" href="../../_assets/css/tac.css?v=d1427c0c">
-<link rel="stylesheet" href="../../_assets/css/sito.css?v=d65b9664">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=481f682d">
 <script src="../../_assets/lib/vexflow.js"></script>
 <script src="../../_assets/lib/tone.js"></script>
 <!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
      usa, e con `defer` i due file girano nell'ordine in cui stanno
      scritti qui. -->
-<script src="../../_assets/js/codice.js" defer></script>
-<script src="../../_assets/js/tac-core.js?v=306746de" defer></script>
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=d134485f" defer></script>
 <style>
   .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
                 border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
@@ -99,7 +99,7 @@
     <div class="testa">
       <div>
         <span class="occhiello">Da fare dopo la lezione 1</span>
-        <h2>Lezione 1 &mdash; Una dominante che non porta alla tonica: V/V e V7/V</h2>
+        <h2>Lezione 1 &mdash; Una dominante che non porta alla tonica: V/V e V7/V &middot; <em>due ore, con Dettato: il basso di un frammento a tre parti con le dominanti secondarie</em></h2>
       </div>
       <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
     </div>
@@ -109,9 +109,21 @@
       <p class="titolo-consegna"><span class="num">1</span> Un basso numerato di nove battute</p>
       <div class="testo">Realizza il basso numerato a quattro parti.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">Il basso numerato, nove battute</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 120.16" src="incisioni/10cbf1983d90-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 51.35" src="incisioni/d37589a315b1-1.svg" alt="">
+      <tac-stave finale="no"
+           clef="bass"
+           time="4/4"
+           keysig="C"
+           caption="Il basso numerato, nove battute"
+           notes="c/3:h f/3:h | f#/3:h g/3:h | c/3:h a/2:h | d/3:h g/3:h | c/3:h c/3:h"
+           cifre="- · - · 6:5 · - · - · - · 7:♯ · - · - · 4♯:2"
+           width="900"
+           tempo="60"></tac-stave>
+      <tac-stave time="4/4"
+           clef="bass"
+           keysig="C"
+           notes="b/2:h c/3:h | f/3:h f#/3:h | g/3:h g/3:h | c/3:w"
+           cifre="6 · - · - · 6 · 6:4 · 7 · -"
+           width="900"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C3-U4-L1-22">
@@ -127,10 +139,26 @@
       <p class="titolo-consegna"><span class="num">3</span> Dodici battute con la dominante della dominante</p>
       <div class="testo">Realizzare a quattro parti il basso numerato qui sotto, due voci per rigo con i gambi opposti.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">Il basso numerato, 12 battute</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 54.12" src="incisioni/f88125f65268-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 52.65" src="incisioni/733e019e8ba6-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 53.25" src="incisioni/fb5e9a4878e2-1.svg" alt="">
+      <tac-stave finale="no" clef="bass"
+           time="4/4"
+           keysig="D"
+           caption="Il basso numerato, 12 battute"
+           notes="d/3:h b/2:h | g/2:h g#/2:h | a/2:h g/2:h | f/2:h g/2:h"
+           cifre="- · - · 6 · 6:5 · - · 4:2 · 6 · -"
+           width="900"
+           tempo="60"></tac-stave>
+      <tac-stave finale="no" clef="bass"
+           time="4/4"
+           keysig="D"
+           notes="e/2:h a/2:h | d/3:h d/3:h | c/3:h d/3:h | b/2:h e/3:h"
+           cifre="♯ · - · - · 4♯:2 · 6 · - · - · 7:♯"
+           width="900"></tac-stave>
+      <tac-stave clef="bass"
+           time="4/4"
+           keysig="D"
+           notes="a/2:h f/2:h | g/2:h g#/2:h | a/2:h a/2:h | d/3:w"
+           cifre="- · 6 · 6 · 6 · 6:4 · 7 · -"
+           width="900"></tac-stave>
       </div>
     </div>
     </section>
@@ -140,7 +168,7 @@
     <div class="testa">
       <div>
         <span class="occhiello">Da fare dopo la lezione 2</span>
-        <h2>Lezione 2 &mdash; Dettato: il basso di un frammento a tre parti con le dominanti secondarie &middot; <em>due ore, con Le altre dominanti secondarie: V/IV, V/ii, V/vi e V/iii, nel maggiore e nel minore</em></h2>
+        <h2>Lezione 2 &mdash; Dettato: il basso di un frammento a tre parti con le dominanti secondarie &middot; <em>seconda ora della lezione 1</em></h2>
       </div>
       <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
     </div>
@@ -159,9 +187,20 @@
       <p class="titolo-consegna"><span class="num">2</span> Otto battute con il IV&#9839; al basso</p>
       <div class="testo">Realizzare a quattro parti il basso numerato qui sotto, due voci per rigo con i gambi opposti.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">Il basso numerato, 8 battute</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 51.88" src="incisioni/9189484ec0e7-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 53.78" src="incisioni/2ab956af4978-1.svg" alt="">
+      <tac-stave finale="no" clef="bass"
+           time="4/4"
+           keysig="A"
+           caption="Il basso numerato, 8 battute"
+           notes="a/2:h c/3:h | d/3:h d#/3:h | e/3:h f/3:h | d/3:h e/3:h"
+           cifre="- · 6 · - · 6:5 · - · - · 6 · -"
+           width="900"
+           tempo="60"></tac-stave>
+      <tac-stave clef="bass"
+           time="4/4"
+           keysig="A"
+           notes="a/2:h a/2:h | g/2:h a/2:h | b/2:h e/3:h | e/2:h a/2:h"
+           cifre="- · 4♯:2 · 6 · - · ♯ · 6:4 · 7 · -"
+           width="900"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C3-U4-L2-22">
@@ -180,7 +219,7 @@
     <div class="testa">
       <div>
         <span class="occhiello">Da fare dopo la lezione 3</span>
-        <h2>Lezione 3 &mdash; Le altre dominanti secondarie: V/IV, V/ii, V/vi e V/iii, nel maggiore e nel minore &middot; <em>seconda ora della lezione 2</em></h2>
+        <h2>Lezione 3 &mdash; Le altre dominanti secondarie: V/IV, V/ii, V/vi e V/iii, nel maggiore e nel minore</h2>
       </div>
       <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
     </div>
@@ -190,9 +229,21 @@
       <p class="titolo-consegna"><span class="num">1</span> Un basso numerato di otto battute</p>
       <div class="testo">Realizza il basso numerato a quattro parti.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">Il basso numerato, otto battute</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 51.35" src="incisioni/e838fc610ace-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 54.99" src="incisioni/d40bdc6bd1ff-1.svg" alt="">
+      <tac-stave finale="no"
+           clef="bass"
+           time="4/4"
+           keysig="F"
+           caption="Il basso numerato, otto battute"
+           notes="f/3:h eb/3:h | d/3:h d/3:h | g/2:h c/3:h | a/2:h d/3:h"
+           cifre="- · 4:2 · 6 · ♯ · - · - · ♯ · -"
+           width="900"
+           tempo="60"></tac-stave>
+      <tac-stave time="4/4"
+           clef="bass"
+           keysig="F"
+           notes="e/3:h a/2:h | f#/2:h g/2:h | c/3:h c/3:h | f/2:w"
+           cifre="5♮:♯ · - · 6:5 · - · 6:4 · 7 · -"
+           width="900"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C3-U4-L3-22">
@@ -208,10 +259,26 @@
       <p class="titolo-consegna"><span class="num">3</span> Dodici battute con le dominanti secondarie</p>
       <div class="testo">Realizzare a quattro parti il basso numerato qui sotto, due voci per rigo con i gambi opposti.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">Il basso numerato, 12 battute</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 51.85" src="incisioni/a514c270be46-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 57.45" src="incisioni/271cc4e41a0c-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 52.87" src="incisioni/b9cca0a43f56-1.svg" alt="">
+      <tac-stave finale="no" clef="bass"
+           time="4/4"
+           keysig="Em"
+           caption="Il basso numerato, 12 battute"
+           notes="e/3:h e/3:h | a/2:h d/3:h | g/2:h g/2:h | c/3:h a/2:h"
+           cifre="- · 7:♯ · - · - · - · 7♮ · - · 6"
+           width="900"
+           tempo="60"></tac-stave>
+      <tac-stave finale="no" clef="bass"
+           time="4/4"
+           keysig="Em"
+           notes="b/2:h e/3:h | g/2:h a/2:h | a#/2:h b/2:h | c/3:h d/3:h"
+           cifre="♯ · - · 6 · - · 6:5:♯ · ♯ · - · -"
+           width="900"></tac-stave>
+      <tac-stave clef="bass"
+           time="4/4"
+           keysig="Em"
+           notes="g/2:h c/3:h | a/2:h a/2:h | b/2:h b/2:h | e/3:w"
+           cifre="- · - · - · 6 · 6:4 · 7:♯ · -"
+           width="900"></tac-stave>
       </div>
     </div>
     </section>
@@ -221,7 +288,7 @@
     <div class="testa">
       <div>
         <span class="occhiello">Da fare dopo la lezione 4</span>
-        <h2>Lezione 4 &mdash; La modulazione ai toni vicini: accordo perno, dominante nuova, cadenza</h2>
+        <h2>Lezione 4 &mdash; La modulazione ai toni vicini: accordo perno, dominante nuova, cadenza &middot; <em>due ore, con Solfeggio cantato modulante: alla dominante e alla relativa · ora intera di interrogazioni</em></h2>
       </div>
       <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
     </div>
@@ -231,20 +298,53 @@
       <p class="titolo-consegna"><span class="num">1</span> Un basso numerato di dodici battute che modula</p>
       <div class="testo">Realizza il basso numerato a quattro parti.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">Il basso numerato, dodici battute</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 55.87" src="incisioni/c476023c2ff4-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 55.87" src="incisioni/b04132cf107f-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 54.99" src="incisioni/a79bb107e5d1-1.svg" alt="">
+      <tac-stave finale="no"
+           clef="bass"
+           time="4/4"
+           keysig="Bb"
+           caption="Il basso numerato, dodici battute"
+           notes="b/2:h a/2:h | b/2:h e/3:h | d/3:h g/2:h | en/2:h f/2:h"
+           cifre="- · 6:5 · - · - · 6 · - · 6:5 · -"
+           width="900"
+           tempo="60"></tac-stave>
+      <tac-stave finale="no" time="4/4"
+           clef="bass"
+           keysig="Bb"
+           notes="a/2:h b/2:h | c/3:h c/3:h | f/2:w | f/2:h e/2:h"
+           cifre="6 · - · 6:4 · 7:♮ · - · - · 4:2"
+           width="900"></tac-stave>
+      <tac-stave time="4/4"
+           clef="bass"
+           keysig="Bb"
+           notes="d/2:h g/2:h | e/2:h en/2:h | f/2:h f/2:h | b/2:w"
+           cifre="6 · - · - · 6 · 6:4 · 7 · -"
+           width="900"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C3-U4-L4-01">
       <p class="titolo-consegna"><span class="num">2</span> Dodici battute da sol a re e ritorno</p>
       <div class="testo">Realizzare a quattro parti il basso numerato qui sotto, due voci per rigo con i gambi opposti.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">Il basso numerato, 12 battute</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 53.25" src="incisioni/1255b92d4929-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 53.74" src="incisioni/596eaf5fde49-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 51.35" src="incisioni/459ddeac905f-1.svg" alt="">
+      <tac-stave finale="no" clef="bass"
+           time="4/4"
+           keysig="G"
+           caption="Il basso numerato, 12 battute"
+           notes="g/2:h a/2:q b/2:q | c/3:h d/3:h | e/3:h c/3:h | d/3:h g/2:h"
+           cifre="- · 4:3 · 6 · - · - · - · 6 · - · -"
+           width="900"
+           tempo="60"></tac-stave>
+      <tac-stave finale="no" clef="bass"
+           time="4/4"
+           keysig="G"
+           notes="a/2:h d/3:h | b/2:h g/2:h | a/2:h a/2:h | d/3:h c/3:h"
+           cifre="7:♯ · - · - · - · 6:4 · 7:♯ · - · 4:2"
+           width="900"></tac-stave>
+      <tac-stave clef="bass"
+           time="4/4"
+           keysig="G"
+           notes="b/2:h g/2:h | c/3:h c#/3:h | d/3:h d/3:h | g/2:w"
+           cifre="6 · 7♮ · - · 6 · 6:4 · 7 · -"
+           width="900"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C3-U4-L4-22">
@@ -263,7 +363,7 @@
     <div class="testa">
       <div>
         <span class="occhiello">Da fare dopo la lezione 5</span>
-        <h2>Lezione 5 &mdash; Solfeggio cantato modulante: alla dominante e alla relativa · ora intera di interrogazioni &middot; <em>due ore, con Analisi: il V4/3 di passaggio e il II6 cadenzale; dominanti secondarie e cadenze di frase in un corale di Bach</em></h2>
+        <h2>Lezione 5 &mdash; Solfeggio cantato modulante: alla dominante e alla relativa · ora intera di interrogazioni &middot; <em>seconda ora della lezione 4</em></h2>
       </div>
       <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
     </div>
@@ -304,7 +404,7 @@
     <div class="testa">
       <div>
         <span class="occhiello">Da fare dopo la lezione 6</span>
-        <h2>Lezione 6 &mdash; Analisi: il V4/3 di passaggio e il II6 cadenzale; dominanti secondarie e cadenze di frase in un corale di Bach &middot; <em>seconda ora della lezione 5</em></h2>
+        <h2>Lezione 6 &mdash; Analisi: il V4/3 di passaggio e il II6 cadenzale; dominanti secondarie e cadenze di frase in un corale di Bach</h2>
       </div>
       <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
     </div>
@@ -314,9 +414,21 @@
       <p class="titolo-consegna"><span class="num">1</span> Un basso numerato di dieci battute che modula</p>
       <div class="testo">Realizza il basso numerato a quattro parti.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">Il basso numerato, dieci battute</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 119.94" src="incisioni/dc9f2f60d12a-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 112.24" src="incisioni/a6bb666aa5ca-1.svg" alt="">
+      <tac-stave finale="no"
+           clef="bass"
+           time="4/4"
+           keysig="C"
+           caption="Il basso numerato, dieci battute"
+           notes="a/2:h b/2:h | c/3:h c#/3:h | d/3:h e/3:h | f/3:h g/3:h | c/3:h f/2:h"
+           cifre="- · 6♯:4:3 · 6 · 6:5 · - · ♯ · - · 7 · - · 6"
+           width="900"
+           tempo="60"></tac-stave>
+      <tac-stave time="4/4"
+           clef="bass"
+           keysig="C"
+           notes="g/2:h g/2:h | c/3:w | c/3:h a/2:h | d/2:h e/2:h | a/2:w"
+           cifre="6:4 · 7 · - · - · 7:♯ · - · 7:♯ · -"
+           width="900"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C3-U4-L6-22">
@@ -344,7 +456,7 @@
     <div class="testa">
       <div>
         <span class="occhiello">Da fare dopo la lezione 7</span>
-        <h2>Lezione 7 &mdash; Cantare il basso di un corale che modula</h2>
+        <h2>Lezione 7 &mdash; Cantare il basso di un corale che modula &middot; <em>due ore, con Quarta specie: la nota che resta, preparata, percossa e risolta</em></h2>
       </div>
       <button type="button" class="btn secondario minuto no-stampa" data-stampa>Stampa solo questa</button>
     </div>
@@ -354,11 +466,32 @@
       <p class="titolo-consegna"><span class="num">1</span> Quattordici battute, alla relativa e ritorno</p>
       <div class="testo">Realizzare a quattro parti il basso numerato qui sotto, due voci per rigo con i gambi opposti.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">Il basso numerato, 14 battute</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 55.06" src="incisioni/af104273b517-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 51.35" src="incisioni/bda19034674f-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 54.12" src="incisioni/cd3362015d2d-1.svg" alt="">
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 52.87" src="incisioni/ab98ce320cb3-1.svg" alt="">
+      <tac-stave finale="no" clef="bass"
+           time="4/4"
+           keysig="G"
+           caption="Il basso numerato, 14 battute"
+           notes="e/3:h f/3:q g/3:q | a/3:h b/3:h | e/3:h c/3:h | a/2:h b/2:h"
+           cifre="- · 6♯:4:3 · 6 · - · ♯ · - · - · 6 · ♯"
+           width="900"
+           tempo="60"></tac-stave>
+      <tac-stave finale="no" clef="bass"
+           time="4/4"
+           keysig="G"
+           notes="e/3:h c/3:h | d/3:h g/2:h | c/3:h d/3:h | d/3:h g/2:h"
+           cifre="- · - · 7 · - · - · 6:4 · 7 · -"
+           width="900"></tac-stave>
+      <tac-stave finale="no" clef="bass"
+           time="4/4"
+           keysig="G"
+           notes="a/2:h b/2:h | g/2:h g#/2:h | a/2:h g/2:h"
+           cifre="- · ♯ · 6 · 6:5 · - · 7♮"
+           width="900"></tac-stave>
+      <tac-stave clef="bass"
+           time="4/4"
+           keysig="G"
+           notes="c/3:h a/2:h | b/2:h b/2:h | e/3:w"
+           cifre="- · 6 · 6:4 · 7:♯ · -"
+           width="900"></tac-stave>
       </div>
     </div>
     </section>

@@ -8,14 +8,14 @@
 <!-- Pagina generata da 02_Esercizi e Verifiche/_archivio/esercizi.py.
      Non si corregge qui: si corregge in esercizi.json e si rigenera. -->
 <link rel="stylesheet" href="../../_assets/css/tac.css?v=d1427c0c">
-<link rel="stylesheet" href="../../_assets/css/sito.css?v=d65b9664">
+<link rel="stylesheet" href="../../_assets/css/sito.css?v=481f682d">
 <script src="../../_assets/lib/vexflow.js"></script>
 <script src="../../_assets/lib/tone.js"></script>
 <!-- codice.js prima di tac-core.js: il blocco del codice d'esito lo
      usa, e con `defer` i due file girano nell'ordine in cui stanno
      scritti qui. -->
-<script src="../../_assets/js/codice.js" defer></script>
-<script src="../../_assets/js/tac-core.js?v=306746de" defer></script>
+<script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
+<script src="../../_assets/js/tac-core.js?v=d134485f" defer></script>
 <style>
   .barra-alto { position: sticky; top: 2.7rem; z-index: 10; background: var(--carta2);
                 border-bottom: 1px solid var(--bordo); padding: .7rem 1rem;
@@ -78,12 +78,12 @@
     <a class="n" href="workbook-uda-03.html" title="Alterazioni e suddivisione">3</a>
     <span class="n qui">4</span>
     <a class="n" href="workbook-uda-05.html" title="Le quattro parti con I, IV e V">5</a>
-    <a class="n" href="workbook-uda-06.html" title="Il modo minore e la prima specie">6</a>
-    <a class="n" href="workbook-uda-07.html" title="La cadenza, il periodo e il primo rivolto">7</a>
-    <a class="n" href="workbook-uda-08.html" title="La sesta e quarta e la settima di dominante">8</a>
-    <a class="n" href="workbook-uda-09.html" title="La seconda specie e la forma binaria">9</a>
-    <a class="n" href="workbook-uda-10.html" title="Il corale">10</a>
-    <a class="n" href="workbook-uda-11.html" title="Il canto dato e la prova di fine anno">11</a>
+    <a class="n" href="workbook-uda-06.html" title="Il modo minore, le cadenze e il primo rivolto">6</a>
+    <a class="n" href="workbook-uda-07.html" title="La seconda specie, la sesta e quarta e la settima di dominante">7</a>
+    <a class="n" href="workbook-uda-08.html" title="Il II e il VI">8</a>
+    <a class="n" href="workbook-uda-09.html" title="Il corale e la terza specie">9</a>
+    <a class="n" href="workbook-uda-10.html" title="La progressione e il canto dato">10</a>
+    <a class="n" href="workbook-uda-11.html" title="La forma binaria e la prova di fine anno">11</a>
     <a class="passo" href="workbook-uda-05.html" title="Le quattro parti con I, IV e V">unit&agrave; 5 &rsaquo;</a>
   </nav>
 
@@ -331,8 +331,7 @@
       <p class="titolo-consegna"><span class="num">4</span> Otto consonanze sopra un basso</p>
       <div class="testo">Su due righi, in 4/4: copiare il basso in semibrevi e scrivere sul rigo superiore, entro l&rsquo;ottava sopra ciascuna nota, la consonanza indicata.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">Il basso dato: la voce superiore si scrive al posto delle pause</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 43.58" src="incisioni/da3d859f73c5-1.svg" alt="">
+      <tac-stave clef="treble" time="4/4" caption="Il basso dato: la voce superiore si scrive al posto delle pause" notes="r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w" bass="c/3:w | f/3:w | e/3:w | a/3:w | g/3:w | f/3:w | d/3:w | c/3:w" width="900"></tac-stave>
       </div>
     </div>
     </section>
@@ -364,8 +363,7 @@
       <p class="titolo-consegna"><span class="num">3</span> Dal ritmo e dai gradi</p>
       <div class="testo">Scrivi la melodia con il ritmo e i gradi dati, scegliendo ogni volta la nota pi&ugrave; vicina.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">Il ritmo, con i gradi</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 170.12" src="incisioni/2cf1b57e9327-1.svg" alt="">
+      <tac-stave finale="no" clef="percussion" time="4/4" caption="Il ritmo, con i gradi" notes="b/4:q b/4:q b/4:q b/4:q | b/4:h b/4:h | b/4:q. b/4:8 b/4:q b/4:q | b/4:h b/4:h | b/4:q b/4:q b/4:q b/4:q | b/4:q. b/4:8 b/4:q b/4:q | b/4:q b/4:q b/4:q b/4:q | b/4:w" cifre="1 &middot; 2 &middot; 3 &middot; 4 | 5 &middot; 3 | 4 &middot; 3 &middot; 2 &middot; 4 | 3 &middot; 5 | 6 &middot; 5 &middot; 4 &middot; 3 | 2 &middot; 3 &middot; 4 &middot; 2 | 1 &middot; 3 &middot; 2 &middot; 7 | 1" width="900" tempo="72"></tac-stave>
       <p class="didascalia-rigo">Il rigo, con la prima nota</p>
       <img class="inciso" style="width:155.4mm; aspect-ratio:155.41 / 11.72" src="incisioni/95657500e413-1.svg" alt="">
       </div>
@@ -429,16 +427,14 @@
       <p class="titolo-consegna"><span class="num">2</span> Otto triadi: fondamentale e specie</p>
       <div class="testo">Per ciascuna delle otto triadi scrivi la <strong>fondamentale</strong> e la <strong>specie</strong>: maggiore, minore, diminuita o aumentata.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">Otto triadi allo stato fondamentale</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 43.58" src="incisioni/8466a1147db1-1.svg" alt="">
+      <tac-stave clef="treble" time="4/4" caption="Otto triadi allo stato fondamentale" notes="d/4+f#/4+a/4:w | e/4+g/4+b/4:w | f#/4+a/4+c/5:w | bb/3+d/4+f/4:w | c/4+eb/4+g/4:w | g/4+b/4+d#/5:w | a/4+c/5+e/5:w | b/4+d/5+f/5:w" bass="d/3:w | e/3:w | f#/3:w | bb/2:w | c/3:w | g/2:w | a/2:w | b/2:w" width="760" tempo="48"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C1-U4-L7-22">
       <p class="titolo-consegna"><span class="num">3</span> Sotto il canto fermo</p>
       <div class="testo">Scrivi un contrappunto di prima specie sotto il canto fermo.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">Il canto fermo</p>
-      <img class="inciso" style="width:155.4mm; aspect-ratio:155.41 / 11.72" src="incisioni/a6b4757ea589-1.svg" alt="">
+      <tac-stave clef="treble" time="4/4" keysig="D" caption="Il canto fermo" notes="d/4:w | e/4:w | f/4:w | d/4:w | g/4:w | f/4:w | a/4:w | g/4:w | e/4:w | d/4:w" bass="r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w" width="900" tempo="52"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C1-U4-L8-21">
@@ -467,16 +463,14 @@
       <p class="titolo-consegna"><span class="num">6</span> Un contrappunto sopra il canto fermo</p>
       <div class="testo">Scrivi un contrappunto di <strong>prima specie</strong> sopra questo canto fermo: una semibreve contro ogni semibreve, sul rigo di violino.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">Il canto fermo: dieci semibrevi</p>
-      <img class="inciso" style="width:155.4mm; aspect-ratio:155.41 / 10.23" src="incisioni/aa1fb8ad8cad-1.svg" alt="">
+      <tac-stave clef="treble" time="4/4" keysig="F" caption="Il canto fermo: dieci semibrevi" notes="r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w" bass="f/3:w | g/3:w | a/3:w | f/3:w | d/4:w | c/4:w | b/3:w | a/3:w | g/3:w | f/3:w" width="760" tempo="52"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C1-U4-L7-02">
       <p class="titolo-consegna"><span class="num">7</span> Un contrappunto sotto il canto fermo</p>
       <div class="testo">Lo stesso canto fermo, un&rsquo;ottava sopra, sul rigo di violino.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">Il canto fermo nella voce acuta</p>
-      <img class="inciso" style="width:155.4mm; aspect-ratio:155.41 / 11.72" src="incisioni/77701855dd58-1.svg" alt="">
+      <tac-stave clef="treble" time="4/4" keysig="F" caption="Il canto fermo nella voce acuta" notes="f/4:w | g/4:w | a/4:w | f/4:w | d/5:w | c/5:w | b/4:w | a/4:w | g/4:w | f/4:w" bass="r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w" width="760" tempo="52"></tac-stave>
       </div>
     </div>
     <div class="consegna" id="C1-U4-L8-04">
@@ -495,8 +489,7 @@
       <p class="titolo-consegna"><span class="num">10</span> Il primo esercizio del Gradus, analizzato</p>
       <div class="testo">Il canto fermo di Fux e la prima soluzione dell&rsquo;allievo nel <em>Gradus ad Parnassum</em>.</div>
       <div class="materiale">
-      <p class="didascalia-rigo">Fux, Gradus ad Parnassum: canto fermo nel modo di re e contrappunto sopra (da E. Jones, p.&nbsp;36)</p>
-      <img class="inciso" style="width:155.7mm; aspect-ratio:155.72 / 112.24" src="incisioni/38bf55a276ac-1.svg" alt="">
+      <tac-stave clef="treble" time="4/4" caption="Fux, Gradus ad Parnassum: canto fermo nel modo di re e contrappunto sopra (da E. Jones, p.&nbsp;36)" notes="a/3:w | a/3:w | g/3:w | a/3:w | b/3:w | c/4:w | c/4:w | b/3:w | d/4:w | c#/4:w | d/4:w" bass="d/3:w | f/3:w | e/3:w | d/3:w | g/3:w | f/3:w | a/3:w | g/3:w | f/3:w | e/3:w | d/3:w" width="760" tempo="52"></tac-stave>
       </div>
     </div>
     </section>

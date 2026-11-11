@@ -3097,12 +3097,11 @@ html.tac-soccorso .solo-proiezione { display: none; }
    una slide che scorre, senza segno, si legge come una slide tagliata:
    e' la differenza fra «sfora» e «continua». La sfumatura non copre il
    testo, lo sfuma; la freccia sta nell'angolo e non si stampa. */
-.slide.continua::after {
-  content: ''; position: absolute; left: 0; right: 0; bottom: 0;
-  height: 68px; pointer-events: none;
-  background: linear-gradient(to bottom, transparent, var(--sfondo-slide, #fff));
-  opacity: .92;
-}
+/* 11/11/2026, Andrea: «le slide hanno una fascia più trasparente in mezzo
+   in corrispondenza del punto di scorrimento, possiamo toglierla». La
+   sfumatura stava ferma mentre il testo scorreva, e diventava una fascia
+   velata a metà pagina: tolta. Resta la freccetta nell'angolo. */
+.slide.continua::after { content: none; display: none; }
 .slide.continua::before {
   content: '\2193'; position: absolute; right: 18px; bottom: 10px;
   z-index: 2; pointer-events: none;

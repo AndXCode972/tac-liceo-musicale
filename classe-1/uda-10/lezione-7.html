@@ -5,7 +5,7 @@
 <meta http-equiv="cache-control" content="no-cache, must-revalidate">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lezione 7. La seconda specie: esercitazione sul canto fermo | Il corale</title>
+<title>Lezione 7. Il canto dato: armonizzare una melodia di otto battute | La progressione e il canto dato</title>
 <script>
 /* Rete di sicurezza. Sta prima del foglio di stile apposta: uno script
    messo dopo un foglio ancora in arrivo non parte finche' quel foglio
@@ -42,148 +42,106 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=d134485f" defer></script>
+<script src="../../_assets/js/tac-core.js?v=a6af9ef0" defer></script>
 </head>
 <body>
 <div id="tac-deck">
-<!-- 26/10/2026: piano nuovo della 1ª. LEZIONE NUOVA: U10 L7, ora 73 di 90, martedì 23/3/2027, «La seconda specie: esercitazione sul canto fermo». -->
+<!-- PIANO NUOVO (11/11/2026): lezione 7 dell'unità 10, «Il canto dato: armonizzare una melodia di otto battute». Sorgente di partenza: unità 11 lezione 2 del piano vecchio. -->
+
+<!-- 26/10/2026: piano nuovo della 1ª. LEZIONE NUOVA: U11 L2, ora 80 di 90, martedì 13/4/2027, «Il canto dato: armonizzare una melodia di otto battute». Coda di orali di solfeggio (tre studenti). -->
 
 <!-- ══════════════════════════════════════════════════════════════════
-     LEZIONE 7 · La seconda specie: esercitazione sul canto fermo
-     Unità 10, ora 73 di 90 · classe 1ª · teoria · martedì 23/3/2027
-     50 minuti, senza coda di orali.
+     LEZIONE 2 · Il canto dato: armonizzare una melodia di otto battute
+     Unità 11, ora 80 di 90 · classe 1ª · teoria · martedì 13/4/2027
 
      ══ PERCHÉ QUI ══
-     Obiettivo di fine anno: «seconda specie in primavera». La seconda
-     specie è della U9 L2 (due note contro una, il debole consonante) e
-     della U9 L4 (la nota di passaggio, la cadenza, il minore). Qui si
-     esercita: una pagina da correggere, poi un contrappunto sopra e uno
-     sotto il canto dato. Solo tonalità maggiori: il minore è nella U9 L4.
+     Prova di fine anno (obiettivi del 15/10/2026): «un basso o un canto
+     dato di 8 battute» a quattro parti. Il corale (U10) aveva una nota
+     per accordo e le corone; il canto dato ha durate diverse e frasi di
+     quattro battute. Le note brevi sui tempi deboli possono restare
+     sull’accordo di prima: note dell’accordo, o di passaggio come nella
+     seconda specie (U9 L4). Procedura e controllo della U10 L2 e L8.
 
-     ══ FONTI (come nella U9 L2 e L4) ══
-     · Th. Dubois, Trattato di contrappunto e fuga, p. 11, regole 2–4.
-     · R. Dionisi, La tecnica del contrappunto vocale nel Cinquecento,
-       pp. 24, 26, 27.
-     · F. Salzer, C. Schachter, Contrappunto e composizione, pp. 44, 46.
+     ══ FONTI ══
+     · O. Károlyi, La grammatica della musica, p. 122 (la citazione della
+       copertina, già usata nella U7).
+     · libro C8, pp. 282–293 (le cadenze); C14, p. 316 (la frase).
 
-     ══ ESEMPI (_strumenti/specie.py; controllo.py e prova.py) ══
-     Sol maggiore, 10 bb., contrappunto sopra: la versione con tre errori
-     (data-errori: quinte dal debole al forte bb. 4–5, dissonanza sul
-     forte b. 6, nota ripetuta b. 7) e quella corretta (chiusa). Lavoro
-     guidato sopra il canto dato in re maggiore (8 bb.) e sotto il canto
-     dato in fa maggiore (8 bb.); compito sopra il canto dato in do
-     maggiore (10 bb.). Tutte le soluzioni passano il controllo della
-     seconda specie e cantabile.
+     ══ ESEMPI (quattro4.py sullo scheletro, una nota per accordo; poi le
+        note brevi al soprano sopra lo stesso accordo; controllo.py: 0
+        errori; cantabile = []) ══
+     Re maggiore, 3/4, 8 bb.: I | IV V | I | V (CS) || I IV | I | IV I⁶₄ V7
+     | I (CAp); note d’accordo alle bb. 1 e 3, nota di passaggio alla b. 6.
+     Compito in fa maggiore, 4/4, due accordi per battuta, V7 alla b. 2,
+     CS alla b. 4, I⁶₄–V7–I alla fine.
 
-     ══ TEMPI · 50 minuti ══
-       ·  6'  le regole in una pagina
-       ·  9'  la pagina da correggere
-       · 15'  sopra il canto dato
-       · 15'  sotto il canto dato
-       ·  5'  sintesi; poi il solfeggio
+     ══ CODA DI ORALI (solfeggio, tre studenti) ══
+     Circa 20 minuti frontali; poi le interrogazioni di solfeggio, che la
+     classe segue (nessuna attività parallela).
+       ·  6'  dal corale al canto dato: che cosa cambia
+       · 12'  un canto dato alla lavagna, insieme
+       ·  2'  il compito
      ══════════════════════════════════════════════════════════════════ -->
 
 <section class="slide attiva copertina foto" data-titolo="Copertina"
-         style="--foto: url('../../_assets/copertine/c1u10-lezione-7.jpg?v=f1a1d606');
-                --cop-a:#0a1a14; --cop-b:#047857; --cop-c:#d1fae5">
+         style="--foto: url('../../_assets/copertine/c1u11-lezione-2.jpg?v=7b64ad48');
+                --cop-a:#0f172a; --cop-b:#0369a1; --cop-c:#e0f2fe">
   <div class="slide-interna">
-    <div class="occhiello">Il corale &middot; UdA 10 &middot; Lezione 7 di 12</div>
-    <h1>Due minime, ancora</h1>
-    <p class="sottotitolo">Un’ora di esercizio: correggere, poi scrivere sopra e sotto il canto dato, con lo scheletro dei tempi forti e la cadenza.</p>
+    <div class="occhiello">La progressione e il canto dato &middot; UdA 10 &middot; Lezione 7 di 12</div>
+    <h1>Il canto dato</h1>
+    <p class="sottotitolo">Una melodia di otto battute al soprano, con note lunghe e brevi: si armonizzano i tempi forti, e le cadenze chiudono le due frasi.</p>
     <blockquote class="aforisma">
-      <p>Il tempo forte deve sempre essere in consonanza; il tempo debole può essere in consonanza o in dissonanza di passaggio.</p>
-      <cite>Théodore Dubois, <em>Trattato di contrappunto e fuga</em>, p.&nbsp;11</cite>
+      <p>Una frase musicale &egrave; formata da uno o pi&ugrave; motivi e la sua conclusione &egrave; generalmente indicata da una cadenza.</p>
+      <cite>Ott&oacute; K&aacute;rolyi, <em>La grammatica della musica</em>, p.&nbsp;122</cite>
     </blockquote>
     <div class="meta-copertina">
-      <span>50 minuti</span>
+      <span>20 minuti</span>
       <span>Teoria</span>
-      <span>Seconda specie</span>
+      <span>Canto dato</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Le regole in una pagina">
+<section class="slide" data-titolo="Dal corale al canto dato">
   <div class="slide-interna">
-    <h2>Le regole della seconda specie, in una pagina</h2>
+    <h2>Dal corale al canto dato</h2>
 
     <table class="tabella">
-      <tr><th>dove</th><th>la regola</th><th>la fonte</th></tr>
-      <tr><td>il tempo forte</td><td>sempre una consonanza</td><td>Dubois, p.&nbsp;11</td></tr>
-      <tr><td>il tempo debole</td><td>una consonanza, per grado o per salto; oppure una dissonanza di passaggio, raggiunta e lasciata per grado nella stessa direzione</td><td>Dubois, p.&nbsp;11; Dionisi, pp.&nbsp;24 e 26</td></tr>
-      <tr><td>l’inizio</td><td>pausa di minima, poi una consonanza perfetta (sotto il canto dato: ottava o unisono)</td><td>Dionisi, p.&nbsp;27</td></tr>
-      <tr><td>la penultima battuta</td><td>sul forte la quinta o la terza; sul debole la sensibile, che sale alla tonica</td><td>Salzer e Schachter, p.&nbsp;46</td></tr>
-      <tr><td>la fine</td><td>ottava o unisono, in semibreve</td><td>U9&nbsp;L2</td></tr>
-      <tr><td>le parallele</td><td>niente quinte e ottave sui forti di battute vicine, né dal debole al forte che segue</td><td>Dubois, p.&nbsp;11; Salzer e Schachter, p.&nbsp;44</td></tr>
-      <tr><td>la linea</td><td>niente note ripetute; salti consonanti e recuperati; un culmine</td><td>U9&nbsp;L4</td></tr>
+      <tr><th></th><th>corale (U10)</th><th>canto dato</th></tr>
+      <tr><td>la melodia</td><td>semiminime, una nota per accordo</td><td>durate diverse, in 2/4, 3/4 o 4/4</td></tr>
+      <tr><td>le frasi</td><td>due battute, con la corona</td><td>quattro battute, senza corona: cadenze alle bb.&nbsp;4 e 8</td></tr>
+      <tr><td>gli accordi</td><td>uno sotto ogni nota</td><td>uno sotto ogni tempo forte e sotto ogni nota lunga</td></tr>
+      <tr><td>le note brevi</td><td>&mdash;</td><td>sul tempo debole possono restare sull’accordo di prima</td></tr>
     </table>
-    <div class="riquadro procedura">
-      <span class="etichetta">La procedura (U9&nbsp;L4)</span>
-      <p><strong>1.</strong> Lo scheletro dei tempi forti, come una prima specie, con l’inizio e la cadenza. <strong>2.</strong> Fra due forti a distanza di terza, una nota di passaggio; a distanza di quarta o più, una consonanza di salto. <strong>3.</strong> Il controllo delle parallele, delle note ripetute e del culmine.</p>
+    <div class="colonne">
+      <div class="riquadro definizione">
+        <span class="etichetta">Le note brevi</span>
+        <p>Una nota breve sul tempo debole non chiede un accordo nuovo se è una nota dell’accordo che suona, oppure se è di passaggio: sta fra due note dell’accordo, per grado e nella stessa direzione, come nella seconda specie (U9&nbsp;L4). Le altre voci restano ferme.</p>
+      </div>
+      <div class="riquadro procedura">
+        <span class="etichetta">La procedura</span>
+        <p><strong>1</strong> &middot; le cadenze: b.&nbsp;4 (di solito sospesa o imperfetta) e b.&nbsp;8 (perfetta, anche con I<span class="cifrata"><sup>6</sup><sub>4</sub></span>&ndash;V7&ndash;I). <strong>2</strong> &middot; un accordo per ogni tempo forte. <strong>3</strong> &middot; il basso. <strong>4</strong> &middot; le voci interne. <strong>5</strong> &middot; il controllo della U10&nbsp;L8.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="Una pagina da correggere">
+<section class="slide esercizio" data-titolo="Insieme alla lavagna" data-in-classe>
   <div class="slide-interna">
-    <h2>Una pagina da correggere: tre errori</h2>
+    <h2>Insieme alla lavagna: un canto dato in 3/4</h2>
     <tac-stave clef="treble"
-               time="4/4"
-               keysig="G"
-               data-errori
-               caption="Contrappunto sopra il canto dato, con tre errori"
-               notes="r:h g/4:h | e/4:h a/4:h | b/4:h a/4:h | g/4:h b/4:h | a/4:h d/5:h | f/5:h e/5:h | c/5:h c/5:h | g/4:h d/4:h | e/4:h f/4:h | g/4:w"
-               bass="g/3:w | c/4:w | b/3:w | e/4:w | d/4:w | c/4:w | a/3:w | b/3:w | a/3:w | g/3:w"
-               width="960"
-               tempo="60"
-               play
-               slow></tac-stave>
-    <div class="riquadro compito">
-      <span class="etichetta">Da soli, poi insieme &middot; 9 minuti</span>
-      <p>Trova i tre errori, scrivi quale regola infrangono e correggili cambiando il minor numero di note.</p>
-    </div>
-    <tac-chiuso invito="La soluzione &mdash; si apre alla correzione" sale="qPZUi4TAj9pnd4bc1N44XQ==" iv="6460RWg6YxTSRrBI" dati="XZMqX6R2qBohqEgEsFe3Yl2ICo2ZoEe4A2DH/+rpbwdpBlvLu4w80tboM/0DqCaIN2azkwZ9tIhrvik4tQuVdzFGNybbTXLvr61Ati1YnLLJiPnR0ARb5fDUdtxOuB5Yp98KJxirVsA8t+Yf455GO0WEmXDSELMCwQuKo/uF5oeF54lkHZsql9ShDXR83/Uwp8x+CIqgjb0vFpOvxK3oX3YKkzkYvMuqnArXN6UM2H2m2b9ATqpEkwf0f8QCPx/Q/mZ1tkD4qklekTpDxfyoZBueCnkMMpcsn+c3Yzp6U5g0iLHDzTucLI5vBKaMuelZBbXh+rj2060DF+qdZ8dML6C7MoIpxztfrryDbINJ728HYL5MrgYd9Y61Y2x6xVtaUNCP0JMAkyCD/8lgCcDlATG6qASPhM47cYdw0CxZECbWT+lbKiPcpET13rOfDTI9S1r60/rZf3ESWURdIQ6WrzHPmFqKOEPb+GQYRixggxbBJV1X43uTomdpIM5mANdAUkgrYCioQaiAb+bGOS42nhAK0qFmZaOUnpwaNlVt1/2lCx1kYCVnwpOMxHJkU8767Czh8Dr7xEROZVBA76DH443TCwinx/MQs5hbKejrP4FPKF6pmBa6IGiVddaK/mJC5s2tMtd3JrKYdWNAGAadsIRY30HR7pOKAybRaUHbCs9AUzSsWyH1bagwIMrTCPiFhsZlMW3Q501V+gtlJFYfnNNgfvEKD5SxPuN6Tia0cxDEJjeTXXoLpmDY7DPUxkKyAMKGgh01Y4jB+BwcT46CaUX0ndzI3dx1d+ZIyw0RS+JQhx+CZtF0rA1SoMwsBKlEz+6lnOf2zLvNifw8a5yPSQVs+EJbqckA/e1QK9MWAkcVCdkB/fXIlZEgoTZPtG40hpvJ23bZZ065jACKKSG2FwQRGIqHjiiqNP9LQMppLorL1aUVSLQnDMilhVCnjHt+LXYL9kylPsG1Nl5RoL5Gg/QBv4hORnIKaY8PZhz+61KYpWjyBI+2IENA4KG7iapPXs/OWhqdPFsaM+uvhxgthoVP9/ldnMnDKzjhxg4kL0Zr006PrA17o29TQzyDBnrB23LWHMiy3ObqJ5gegQ4Cv1wjB7HpzXBWKqa49TQ1f9CUMD2P7usQHMjRQgDtkBaw2LaLBBkJfHyCLWzvsksptQMTInYBF7uH335pKXnpxtPbax/5jEx+onW8ZI8UbxctvM4CLs9jcuzyacxAySyvuqABLmB5WT4iB9qh4ksSZdSh9IoWYAC/9GKKReH0oSOMw41SFHcdoodt//zOjHUNncBdkhJlfvq/mPl8BqQGeKpD9ujFBL1UzjaLCEYE7QGb5oo06cCyusRil/3TyqkfF/TYic6uPKdnGndhmYLp9XTslToi0tRG40XUSUSdV4AALaJ8a85/dik8NrySGGV13JJudkxnrx2y+Vy6rAKQcSeHFOZQ8wLYrZXFumPZu8wldGCmg9AGYJVXdtKuOViqBKa+K8/53aSuYtZZzgYZ1padZHmJPGYItHTs39I8KHvnOhUsOZ8RCOK55s2K3tfTa06fVyQtlY4qiYt+7o2EwB+spZBkSQMVhEIEqCWDav8RGJdS6jwHDyI2ETnUAq5WNS2gxLIdaIXgmEAD2yaeVxFMpCKub9LjGFs6eL0DCqn3imxJ28uVAQl1fzPbb+1xb4C272tx+125afEjJuebyJody0a8L2T8IWdeoUZ9GsXMQOcUWDsZvVNLbskCeWN8k6OEcGH5Mp2/J44E+iFNgv11qeqG5OhQNtK0Fxp4FDLLnjSow5Jp9NWISNFtDbMjcESevc0KHiOxQ9vObYWxCfPsc1/MMYl75W1Zx0fPt+RGFR0HVqeo1QxcIRlzOUZzKb8bEsQqdYZ6Xi35LzYF7dwTsHS7FoQQ8wix9wgEnfvShys+4g=="></tac-chiuso>
-  </div>
-</section>
-
-<section class="slide esercizio" data-titolo="Sopra il canto dato" data-in-classe>
-  <div class="slide-interna">
-    <h2>Lavoro guidato: sopra il canto dato</h2>
-    <tac-stave clef="treble"
-               time="4/4"
+               time="3/4"
                keysig="D"
-               caption="Il canto dato, otto battute"
-               notes="r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w"
-               bass="d/4:w | f/4:w | e/4:w | a/4:w | g/4:w | f/4:w | e/4:w | d/4:w"
-               width="960"
-               tempo="60"
-               play
-               slow></tac-stave>
+               caption="Canto dato, otto battute"
+               notes="f/5:h a/5:q | g/5:h e/5:q | d/5:h f/5:q | e/5:h. | f/5:h g/5:q | f/5:q g/5:q a/5:q | g/5:q f/5:q e/5:q | d/5:h."
+               width="900"
+               tempo="72"
+               play></tac-stave>
     <div class="riquadro compito">
-      <span class="etichetta">Da soli &middot; 12 minuti, poi 3 di correzione</span>
-      <p>Scrivi un contrappunto di seconda specie sopra il canto dato, con almeno una nota di passaggio dissonante. Sotto ogni minima scrivi l’intervallo.</p>
+      <span class="etichetta">Tutti insieme &middot; 12 minuti</span>
+      <p>Armonizza a quattro parti con I, IV, V, V7 e la sesta e quarta cadenzale. Prima le due cadenze, poi un accordo per ogni tempo forte, poi il basso e le voci interne.</p>
     </div>
-    <tac-chiuso invito="Una soluzione &mdash; si apre alla correzione" sale="9z3wSfuv1ariZByGSir/4Q==" iv="/pzGoeo30ec25xBL" dati="uP44PVgRjwy2roIQ6v8DPvsRTrXTAZZe5nDWCRZdh3GWLCY0dqxqOjYWR6abub+5v10W1+1tqAyDwhdzja5up0TJV8Zzs+5+nfznLm78d85cCeZGS5XgUAxsqWQoIatt92VariY7FHFieTd9sW1b1YSddYCuqeu2csId8RHXLwgevQvZ9LdP5pBl41BWsOcZmJROlZPeF2gltJe3uU/92wU0DIitYVkK9bSpMUMRyDSGOAnPConQiG5y0bG434s0Y09dV63xIMaOxdQs0sPt9nepzJO83s4L1KQsI2sB5VGTza+JQyCbPf4MkKXigSXG17FXh+0W56O7/gtMMi6T9MOg5GI+IHdazjBr0Y5dRvis/GNzaQuPPLVcITkVEdSIrXCZ2E/0O2uHH+1/71yNnsvkMxLv/BKJYwolM1ufWVO5iPWjalR4OeM9x8zwHRirQInZPYvG/4IIfU6BVh7Zwly7b+6m7epmrMLqcCppoNnL6/7pVZ7CDd5ZAx+WjzT9o9BLIs+bjAEiJyy7POFFzf1HbEwhp5w8e3+7pX6/nuRygT/jy+U+TdFWjUVYaBsFJOk9g1tyJh2O/v0v5lEekqYxZQ7fKnI79DWrB79u2PhsKd5A3X9kIjBTDfn/weTNwMYV13Rq5WZcwtQ4S5HgxQDpHo9eb8GhY6RRU7RePw8cpw+CgipL9V/gCzuvQ4nPzkHd4+tErfbw7aVlHYf5/h/0Gis+ct8gm1KXR0+J8gqvlpxmlvBpmc8CUShpZWH+F3u+riSO4cIX/E8lX1/r27bzNjUaVHOIVzbyOH5cw6XHwl17BYQwEGxYpheLoPAGSwEfTnxl7h8kOAfbMkmNXx3UzNaqYsxDVzfToTv19+Er5GHBSQcW3NdyYQF5hJpIAgaZCTdJTstyZd+dGMnSi69RPbavKZt3r+YTcyenOA2cniU/wmV0JQXDwCS13cHrNeZwOT7GqYc174OudRuyT3LFFEROddYnkcPNRLQ7zzcxIUpj+OOAgChd3IHZdbQyl28f2aNOwajzDE+lNCA4DhFN8+we7U2BoKfP5DVzNFtnbeUlU4qliioRQ9Ma1byoldNAA1Ef4LxIZVflSYrdFzD+jbV8xzy92Mz3QxRZRoRaS22HbSSP6HLZJma+ffx9F6YWkPpgt/W5vNpiYFEXA47euF/mzSn5a/w/M4w00vHq7QWASHrRyFiPIyfj9sbbInFSW4NovmGtz0cMaA7hVSxzhGAex6agsHrhU/16qG1JJKP7cWWZnVHMVdxwGhqON6u/xlNyb3b0/rbe607u0n26444fZRqwD6uuu7YlDJCw5vpY6vRU9uouhPEMZ/WPXoZXHzzDH8A0XzhM5p0jeNSpcLPFZc67C8FpFPA/mm6y2V/ulUtV/pvYLoxHxrFUaJHzyPCUH4uncnI9"></tac-chiuso>
-  </div>
-</section>
-
-<section class="slide esercizio" data-titolo="Sotto il canto dato" data-in-classe>
-  <div class="slide-interna">
-    <h2>Lavoro guidato: sotto il canto dato</h2>
-    <tac-stave clef="treble"
-               time="4/4"
-               keysig="F"
-               caption="Il canto dato, otto battute"
-               notes="f/4:w | a/4:w | g/4:w | c/5:w | b/4:w | a/4:w | g/4:w | f/4:w"
-               bass="r:w | r:w | r:w | r:w | r:w | r:w | r:w | r:w"
-               width="960"
-               tempo="60"
-               play
-               slow></tac-stave>
-    <div class="riquadro compito">
-      <span class="etichetta">Da soli &middot; 12 minuti, poi 3 di correzione</span>
-      <p>Scrivi un contrappunto di seconda specie sotto il canto dato. Sotto ogni minima scrivi l’intervallo.</p>
-    </div>
-    <tac-chiuso invito="Una soluzione &mdash; si apre alla correzione" sale="P83g56NIbIkfNHR5E0b6iQ==" iv="FHGd5GejEf+LXNF1" dati="B/5yOIc2Yl3RxpQF4A1LD7e/TNmrGljiELl2hRoOKolpdj9rKUHJ9bfoAmlxSv4DNRz8aHsMM7cziiP34NTyrq5nMxa5fqdqCAmldUwasZNCS/N6sqUl6H9fDpQchVejitxx433aLBx/jg5IbeNUSkjpzB2FUp17SAEUrxjdanW4juu9VAmIadufuoLl2rg+UQprnhKzVWmvpqfXtoC7EK5OYvaEAtFdg8ptJVVh8fsnRKOxxQw/T/lJpiDv/S0JS26Gb5+fV2GuVtGUEc/dDtr6lecMi5fn3DRDND3i98Yl08hsLyEffOLycrEePCfx8zvRNQcXu5kdMQlNS/01htb8bo3erew2BiOEhYl2rTdAPxrEoESKP91YXWV3SWsLS6Guglhj1mnyHzDk1YzqBfq0WX3/VIV7iZJOCZ73wlGIh5bU7t4S0d/dehsCzBSr4XVJYL/Dxjh1hlYLOs1HMWiWK0hwR8Go4pBgasXFkLeOibQpPU+eiFtnom1BkNAWdq3YFRgHX2bh6tboPnP8zIJ7pkLMiLx+vMPhj9QbNVMT2mK8176w/wAEPmjyM9mLTAcoWDX5nykDh5C3V9Po4sTYHqXUGoI7TfwvfG7Dm2JKVODqQLFwq3rG26/jwrxCynwp2hSdItlohvN6D0zw4IjwGD55OLBsUtAIoCRpJR/IG51kbJrIM5fMQGPwW00rqEGtwW2utPMsRhPrA70mmZS1KrtdjTajEBPlJTUpyOg++AaWDy7HtkovpZDFHJCN/A3YuGcKwHKMzn/imciw7SqiSf8dxxDy6O3tCiNKR7C1LYPbo3uu1kqZOjUB3vR3oUu0mJwB8PWsCD8tLD1tJWDJwgKVqLPoam5ubFTwyCvhbutWm7TUyJIuMww4/0lYkN1YHiMG7iA4IveSsZL4my8277DG2BNbrCa/GvchFtQDm0yBID2FQ7VnG6txI6x8ofRDiPpdW9MHtApEBU+sEJZF+faUdpHCFqdffTOTmkZk71vyuWvFJErYBWEKyHUwzwr3VGpe7WRhYZeWrttuir2P+8BRjqa3uUcMxPxhFHEChyH4HlptacIV3YnPFeTA/uPdVrtNc4xiLXWygdL7rgoJtEpxOYH7vEJBDGDWjpyltKbbjnhjUjOfYXCQ24txV+HJH+JvzUsMhRYcNrKHpGIxIBQctENk8C6zivHRtE2hQeMZ0QqyaiuC/EpV2tJkytZcqRS5w0g42gZ/GTU0KDUJLy73fEVDL+xo7ZlUAPbaU3FX0LELIvDb56EaW7LqW+hraIE4GpsWO9LNKYjgJBU3PYDyGJCfwnq7AGPU48Sp5eDdwoUy74NYdhWn6zna7kHKZxAaSAda+Usr8hSOuoTKCBxRkuLYaUP7oiiXax0eZbrZbZFIBqzk6QGHrnjjxnSk8sPrymC5Xc6ADgEr7gUdGtQq"></tac-chiuso>
+    <tac-chiuso invito="La soluzione &mdash; si apre alla correzione" sale="umwIIDw/wwwwD+8atrsm0g==" iv="F8dKt9ml1MgR7Jc7" dati="QAuYGRHkTuV/VA/wwReL4imFfLAxQu12Z9PlVODrIW3aTNJZRhO/QtJFuTV+YvwffxFuCsbC8jkanSyWXAzazkHeKQfA0wmmkhrlsIwuas8PiTRoCqXFA+VdlJBCSaf2yRsEpfw1MJ/Yd009w+CGHP7rluJVDCVykJFuDF7EJpK0WZqIpGXXe58YnnK7NIvpew2JmYPrL++Wv6QNwAxosnT17u+FHzokMZ4sQ/ObI+ZBXIS+OJJSXveUzpNvGF1wrT9x0TszqCXzG+blicry0lfJF+6DFb/X9SEUWHkniCfeNS/t/7HWSj+/4KeDe/+tGHw/dgYiKigM3mqja/MqSPLEV2ZejI9RMfON4Zkk3ockS1i2zruiShxG6gIWhT94x0hAXw6P+gXeqcUdu2fHRBPqOO0LLUaBitx/yNDBchzQzHRLyoSWfRfC5my8Vn8V3Az0XgZUmJL/o3qZNNnOGxM2fF01b5OHTQOfsPU3VMKibk3/GM523QrjUYsI3pszbuwMe36jf9HJLm5QLBWt45esUmI7rABkVq5oCC4NLdBuAf8OUPMIVQkTNLlH1e70Mb+ErqmwTzvkoLZ89A9tDEcaBHrsKbQJnHBJQO31Lx2VkaG8Hx1OyOM5FmhIuJ3IdCMhH80Iul61p1uE7caKGap3EFaJ8/FTHZG3DqZwtyWeMmLNJXh8S45tnlXFnaVyZ0NOwsZzN8V/ZSDc+NLaqPSCRve5iqF4zSQxXehenjCjT5F/ASoLhcrGBe0PbC6OwOom2+F2P+Ukyb7vT92ktF+rSFv6WIMaelZo2tw9wV013PoCczw2i0tfopQKVkuS1glT4Yij1l0o9zNaQyrhaK9QxHSlckplqEVrgrvAQ1hu2HT8CB3CNQtQNbdnHMAul8CZPvZZ81TXAHwYSJtcKcrck7YKKcZ3V3zC+0mD5cWBNKKDr0F8ln3QPSKqtAW1GeAmQB3cY7gMaGBdKsMqfdQSD6fO/WjPRma1DAqjul416QfF6QruZNlmLGj21vq1iOCEussCaqUTyzD+jUSoNGuKOXV5iafmtFIhSIsY+17CSbJIayX1Cq3E0zXFR8CQGRW0SwFzh0vRFEge8oQkHSrhHcBVhiHE7a5rv5YlrlgIq7dVyWfe7X99MOHEVASXS/8GR6mbW84HHc/W0/kVnI2hvzMg68rOeko5TookFlrh0tWXcO11zm7XpL2/+m7dFF0TTm5fGnJ12v53kZoz4+cbG5vSu/qwxjHbFeIJUClmkj1SDkorfMIuHDmVJgTWuIMCTQr4l/h5q+a96dweOwxnQVpPcXOIFYiIZm7tikgIht4ijnmg2Akn+4DbRYxqTJVhDOeaavAqZ7KgBNn5x2sv3YR9qo1FlZugAq4amWLnsGGKsvMYqmi5tWknPlBABgVPiS/t/DqogwIaMLIR11KwKCx7RuETb62H/GxXEbjoJPagQn6YSqpLaHSLxe3qd9HJnAQnW9gGLpAAKU9CPPODKpTZAdHlchSI+088HTxz6xhDSF0nAwGneu7e3iJcXbEZv39Q6PvEMZWHvffVNPniEg+uyn2BL/ygjdLXjujuc+vP5E1LAREPIzBrQE8j2DSz1arPyftTQzVgbDy0I2e1DzbN4mKOHnuqVM1a9hEANsBNLu05mrDysm0InIbsRF+q/3OVvRlrnRQYXtujqHNs3jZHaXqL3vUSOm/17YzGyALCyhmE9nbNpd+HkInkRc5+UBS3gixxtlwdsRMxToPRWTbZH/uok8anL7X5R8A0XpU0Y+sMpUJr+/G7YmZLEkgMhEANmAu7FN/Pkpnv2KY0OVGSDXkRqKtUd0SXimsQlTVmqVFLCoKQIqpMjaLqvnEJZB857buWSRDOUOLIthu/Vt4="></tac-chiuso>
   </div>
 </section>
 
@@ -193,15 +151,27 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
     <div class="colonne">
       <div class="riquadro definizione">
-        <span class="etichetta">Lo scheletro</span>
-        <p>Prima i tempi forti, come una prima specie, con l’inizio e la cadenza; poi i deboli: passaggio fra le terze, salti consonanti fra le quarte e le quinte.</p>
+        <span class="etichetta">Il canto dato</span>
+        <p>Otto battute al soprano, due frasi di quattro: le cadenze alle bb.&nbsp;4 e 8.</p>
       </div>
       <div class="riquadro definizione">
-        <span class="etichetta">Il controllo</span>
-        <p>Il forte consonante; la dissonanza solo di passaggio; niente perfette uguali sui forti vicini né dal debole al forte; niente note ripetute.</p>
+        <span class="etichetta">Le note brevi</span>
+        <p>Un accordo per ogni tempo forte; la nota breve sul debole resta sull’accordo se è sua o se è di passaggio.</p>
       </div>
     </div>
-    <p class="didascalia">Domani la lezione 8: esercitazione, armonizzare una melodia di corale. La lezione si chiude con il solfeggio: parlato, cantato e ritmico.</p>
+    <p class="didascalia">Il resto dell’ora è per le interrogazioni di solfeggio. Domani la lezione 3: il dettato melodico con la cadenza finale.</p>
+  </div>
+</section>
+
+<section class="slide compiti-slide" data-titolo="Compiti · lo scritto" data-segno
+         style="--segno: url('../../_assets/segni/segno-24.png')">
+  <div class="slide-interna">
+    <p class="compiti-occhiello">Compiti per la prossima volta</p>
+    <h2>1 &middot; Scritto: Un canto dato di otto battute, in fa maggiore</h2>
+    <div class="riquadro compito">
+      <p>Armonizza a quattro parti il canto dato di <strong>otto battute in fa maggiore</strong>. Usa i primi rivolti dove il basso deve muoversi per grado, un inganno V&ndash;VI a met&agrave; della seconda frase e la sesta e quarta cadenzale.</p>
+    </div>
+    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook: <a href="../materiali/workbook-uda-10.html#C1-U10-L7-31">apri l&rsquo;esercizio <strong>C1-U10-L7-31</strong> &#8599;</a></p>
   </div>
 </section>
 
@@ -217,12 +187,12 @@ try { module = undefined; exports = undefined; } catch (e) {}
     </div>
     <div class="riquadro compito dettato-casa" id="C1-D-U10-L7">
       <span class="etichetta">3 &middot; Dettato <span class="dettato-sigla">C1-D-U10-L7</span></span>
-      <p>Scrivi <strong>la melodia</strong> sul quaderno, in chiave di violino: otto battute in 6/8, do maggiore. Il primo suono è <strong>mi</strong>. Prima il riferimento, poi tutto due volte, ogni coppia di battute due volte, il collegamento 1–4, 3–6 e 5–8, e tutto per controllare.</p>
+      <p>Scrivi <strong>la melodia</strong> sul quaderno, in chiave di violino: otto battute in 2/4, la minore. Il primo suono è <strong>la</strong>. Prima il riferimento, poi tutto due volte, ogni coppia di battute due volte, il collegamento 1–4, 3–6 e 5–8, e tutto per controllare.</p>
       <div class="dettato-ascolti">
         <div><p class="didascalia">Il riferimento: accordo di tonica e primo suono</p>
-          <tac-stave nascondi riferimento clef="treble" time="6/8" keysig="C" notes="c/4:q e/4:q g/4:q c/5:q | e/4:w" tempo="80" play></tac-stave></div>
+          <tac-stave nascondi riferimento clef="treble" time="2/4" keysig="C" notes="a/3:q c/4:q e/4:q a/4:q | a/4:w" tempo="80" play></tac-stave></div>
         <div><p class="didascalia">Il dettato &middot; otto battute</p>
-          <tac-stave nascondi cifrato guidato="melodico" clef="treble" time="6/8" keysig="C" notes="Lmg6NC9jIHwgLnE6NC9kIC5xOjQvZCB8IDg6NC9lIDg6NC9kIDg6NC9jIC5xOjUvYyB8IDg6NC9hIHE6NC9nIHE6NC9lIDg6NC9nIHwgODo0L2EgODo0L2EgODo0L2IgLnE6NC9nIHwgLnE6NC9mIC5xOjQvZiB8IC5xOjQvYSAucTo0L2YgfCA4OjQvZiBxOjQvZyAucTo0L2U=" tempo="60" play></tac-stave></div>
+          <tac-stave nascondi cifrato guidato="melodico" clef="treble" time="2/4" keysig="C" notes="aDo0L2EgfCBxOjQvYiBxOjQvYiB8IGg6NC9hIHwgODo0L2YgcTo0L2UgODo0L2MgfCBoOjQvZSB8IGg6NC9kIHwgcTo0L2YgODo0L2YgODo0L2EgfCBxOjUvYyBxOjQvYQ==" tempo="60" play></tac-stave></div>
       </div>
       <p class="rimando">Le sezioni (riferimento, tutto, le coppie, il collegamento) si ascoltano una per una e si ripetono quanto serve; le <strong>fasi</strong> fanno la procedura della classe, con gli annunci e le pause, da qualunque punto.</p>
       <p class="rimando">Sul quaderno scrivi in testa la sigla <strong>C1-D-U10-L7</strong>. Si corregge all&rsquo;inizio della prossima lezione.</p>
@@ -240,18 +210,18 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Continua la <strong>melodia</strong> fino a <strong>otto battute</strong>, in <strong>si&#9837; maggiore</strong>, chiave di basso, metro 3/4: le prime due sono date. Muoviti soprattutto per grado congiunto, e dopo un salto di quarta o più torna indietro per grado; metti almeno due salti fra la quarta e la sesta; chiudi sulla <strong>tonica</strong>, arrivandoci per grado. Ogni battuta piena, l&rsquo;ultima con una nota sola. Poi cantala o suonala.</p>
       <tac-stave caption="Le prime due battute" clef="bass" keysig="Bb" time="3/4" notes="b/2:h d/3:q | c/3:q f/3:q e/3:q" tempo="72" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C1-ME-U10-L7</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="pca2QMigzL+gq6e8h6gxpg==" iv="ZsJ2DfaCL1vpMNeE" dati="ioSnaSuWTGn+TLw8JYjLzjbaXfkb91xi9fiusgrbxHKZ70EAZHYxpzpmyNm8bJYhHD/E3g+sVDag+dyRy1IViNgl8nzqvxyyUEjWA2kDGvD6Jkz/6YFVgVtEe1LojaCLi88q38Siiu4ypLeNhVyKQ6hKRlVtmac11yg0torJhDr5vxg26rpfXzLyHaqQWHnTJfROyoJCYK4UuatSUn3D7zwOQT5omXlk5P1zVAFGzaBj5WNsCZ+vbrN486k1K0BO6zW2yKUg85D43fbnBPMdZ6Wy2F2epi5FC7zAzFxEBCLf0GKfPMZodFQJ2PAmlYv9y8OnyAjc+78McEcTIR/2O290l64B3A/08HgbCHlHHS+VqEW3argyHxpQ+YhO1xVC53SVrknYHAaeJk0OOMWkShQ="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="QckBnaJ0jPYm/a0HJOOJcQ==" iv="WxgaV/15mtk0UDko" dati="FvOppwHXED6NG/rrFK5JIbfu4XS0OPMKAP0Tjxb5NcbD0u62t2zEVvpFGIwpwtlGZgvhu2QX0sAw4kmX7osLQSaLp+YiqqTK2xCCLKda3uZQ3dgD/Fv3+E1KIkP229V216MEfqCe1DEorOEuIy1bqYt+XNKd2QG5OWGRl5DMBeN3nOLsNeDwPKwta5/UFIJyAIZWh1aKZ+Y5JG6pRDWs4Hze72vLY2Qw7sANVcvx5gV5UURUkfsTtl51fF+yED0D4HJd9XymH5/j+tZZpGqNVxRx5zauTqQGxUr0kyZQqUif/W5uXMhS897P/rRgu0qHeiEf9DwFEDR4jEkuBvo/ysngn/zrvE6dHCd+GZTt/3KTHUIbTT/Fu/CXFdPPigFx9DkdU85P2OXYpAyZQnol8aU="></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C1-BS-U10-L7">
       <span class="etichetta">5 &middot; Il basso sotto la melodia <span class="dettato-sigla">C1-BS-U10-L7</span></span>
       <p>Sotto la melodia scrivi il <strong>basso</strong>, in chiave di basso: <strong>una nota per battuta</strong>, lunga quanto la battuta. La melodia è in <strong>sol maggiore</strong>, metro 4/4. Per ogni battuta scegli fra la <strong>tonica</strong> (I: sol&ndash;si&ndash;re), la <strong>sottodominante</strong> (IV: do&ndash;mi&ndash;sol) e la <strong>dominante</strong> (V: re&ndash;fa&#9839;&ndash;la): guarda la nota sul tempo forte e le note più lunghe, e prendi l&rsquo;accordo che le contiene; scrivi sotto il numero romano. La prima e l&rsquo;ultima battuta sono sulla tonica, la penultima sulla dominante.</p>
       <tac-stave caption="La melodia" clef="treble" keysig="G" time="4/4" notes="b/4:q c/5:8 b/4:8 g/4:q b/4:q | a/4:h f/4:h | b/4:q a/4:q b/4:8 g/4:8 g/4:q | a/4:8 f/4:8 g/4:q f/4:h | a/4:q b/4:q a/4:q f/4:q | g/4:h b/4:h | f/4:q g/4:q f/4:h | g/4:w" tempo="66" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C1-BS-U10-L7</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="oUxwYD2qaYxsW3vNe87ZtA==" iv="Dkzjwx4uA2WKkVXg" dati="OIPzgO38XwpRnWIOWFM90UIYzxDyGbzBASY+baBxkrtHA1BH5BoYpn//QVNYcjE+Jk9CPhiYij5Ltch7J+z+9y6u5+r7PC2ZHrkkM8kSXZPkv/UzI0eBJPatQJqosxIgL0ikJuZOQ/mea7RJPCzN0GEh5gXXofi7ZnqLTPqPPaPBdOZgwl9YKjItCkuiZL/4ooRIQNJNmZSILAYVxFS7Gaq70OOoO24+FkzPDRt6A5gOmL54iOYLFKrA/saZyPPV7FIp8+5BavKV4bjmC1cebzjpEUn3RSDuGA/NrSUOYDwgX/zq8pY2uchQxAwn4T11jbB5V8KtKhCg3NmpSAUuUaqI6lH6SCG7zAfBxxZYgbUwwdVP8os4+qnL5/VjPuF1zonR6MoU2WTJfkWlAY+exeDaNcxuGceb+X7kVfvTYSAWKaHVzXmf3L+n5691KBPtxJ30m7/4+oRSZ4o4i04pOuUbG1e1YirYLe0W3ydLr1XcKYTjpf7jolkkAMbnT0BsY9khL03RRLpe6OJlKcyXL2SE/R9oI+SUMir6U8ldymKDT0n+oRAc"></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="l/VxcRHf1BP+tjC+dB0BPg==" iv="fkgLZpziP51h/VSe" dati="mTbl8IyhJnMmC9VY6/9oTvEUZYP4YqhmZwRRZ5NaBkUewnrb3kG2AaLUwD/kDvyTxViqo9qukiepRJ6lshv8vwt/7KJXx1O/ntaPt2Apd+IBd17ZkaXvArqo3u/f5w2tObK0nw2UVCscI+e0Ww7yhIjIQ5nllC6r8JfUzjYrBKWSTCEgb1wowdkginUlfV9EsTPukHVs+Kp9hHiJM4V9hpl6h++Uostghpq2U8/cZQd9HAf6i2m/WU7u/G9QWHCdt4Lawthwg4wvxXOJif2VNpJFVAGPPp1WaROvOkSNoH8BhTSVjovD8T3V4T4bJ00yIEDU5g1pQoiUfU60bwhWBX0ljBs4ty+qUFPiAaqmLmW86lDUZlksRipIjd5KNj0jdVA1yNYUb6HOyvOSc3rFW+GdNXcw24e7BSS9UBqiKHjuI33/8bNoVot8k574oJjook5xokjRb589idSPXh3DAUvZOwlKOJGewUXqIJqSZkFsmtlUVwBiV6FbNosd/70OEUG6BwznSM5W9y9py0UCpPdPqno0QKTLzUqElaKnXKmkhRjb7swu"></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Solfeggio dal quaderno di lettura: parlato n. 676, 677; cantato n. 678, 679; ritmico n. 680, 681 (a tempo, senza fermarsi). Dettato C1-D-U10-L7 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Melodia da continuare fino a otto battute (C1-ME-U10-L7). Basso sotto la melodia, una nota per battuta (C1-BS-U10-L7).</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Un canto dato di otto battute, in fa maggiore (Workbook, esercizio C1-U10-L7-31), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 676, 677; cantato n. 678, 679; ritmico n. 680, 681 (a tempo, senza fermarsi). Dettato C1-D-U10-L7 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Melodia da continuare fino a otto battute (C1-ME-U10-L7). Basso sotto la melodia, una nota per battuta (C1-BS-U10-L7).</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>
@@ -284,6 +254,7 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-1.html#n675">Apri il n.&nbsp;675 nel quaderno di lettura &#8599;</a> <span class="rimando">2/4</span></p>
   </div>
 </section>
+
 
 
 </div>

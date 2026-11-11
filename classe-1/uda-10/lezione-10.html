@@ -5,7 +5,7 @@
 <meta http-equiv="cache-control" content="no-cache, must-revalidate">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lezione 10. Analisi: le cadenze come punteggiatura, in un brano vero | Il corale</title>
+<title>Lezione 10. Analisi: la forma binaria in una danza | La progressione e il canto dato</title>
 <script>
 /* Rete di sicurezza. Sta prima del foglio di stile apposta: uno script
    messo dopo un foglio ancora in arrivo non parte finche' quel foglio
@@ -42,169 +42,179 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
 
 <script src="../../_assets/js/codice.js?v=d08015bc" defer></script>
-<script src="../../_assets/js/tac-core.js?v=d134485f" defer></script>
+<script src="../../_assets/js/tac-core.js?v=a6af9ef0" defer></script>
 </head>
 <body>
 <div id="tac-deck">
-<!-- 26/10/2026: piano nuovo della 1ª. LEZIONE RISCRITTA: U10 L10, ora 76 di 90, lunedì 5/4/2027, «Analisi: le cadenze come punteggiatura, in un brano vero». Il giorno dopo c'è la V5 (martedì 6/4). Backup della lezione vecchia: .prima-della-riscrittura-feb. -->
+<!-- PIANO NUOVO (11/11/2026): lezione 10 dell'unità 10, «Analisi: la forma binaria in una danza». Sorgente di partenza: unità 11 lezione 1 del piano vecchio. -->
+
+<!-- 26/10/2026: piano nuovo della 1ª. LEZIONE NUOVA: U11 L1, ora 79 di 90, lunedì 12/4/2027, «Analisi: la forma binaria in una danza». -->
 
 <!-- ══════════════════════════════════════════════════════════════════
-     LEZIONE 10 · Analisi: le cadenze come punteggiatura, in un brano vero
-     Unità 10, ora 76 di 90 · lunedì 5/4/2027 · classe 1ª · ORA DI ANALISI
-     Niente coda (programmatore: l'ora 76 non ha orali né solfeggio).
+     LEZIONE 1 · Analisi: la forma binaria in una danza
+     Unità 11, ora 79 di 90 · classe 1ª · analisi · lunedì 12/4/2027
+     50 minuti, senza coda di orali e senza dettato di verifica.
 
      ══ PERCHÉ QUI ══
-     Dopo il dettato delle cadenze di frase (L9, BWV 326) le stesse
-     cadenze in un brano per pianoforte, dove le frasi non hanno la
-     corona: si trovano dalle soste della melodia e dagli ultimi due
-     bassi. Ultima ora prima della V5. Il periodo (U7) torna in grande:
-     8 + 8 battute; la forma binaria e il minuetto sono nella U11.
-
-     ══ IL BRANO ══
-     Mozart, K 545, II (Andante, sol maggiore, 3/4), bb. 1–16: ritagli
-     dalla stampa Breitkopf 1878 (scansioni/C02, p. 4 del pdf). Non è
-     nel catalogo degli ascolti (C02 è il I movimento): il docente lo
-     suona al pianoforte. Heidenröslein (A10), il brano vero della
-     lezione vecchia, è già in sei lezioni di 1ª: non si ripete.
-     Lettura della stampa (sinistra in semicrome albertine):
-       b.1 I I V⁴₃ | b.2 I (sol al basso) | b.3 sul pedale di sol |
-       b.4 I | b.5 V⁴₃ | b.6 I VI I6 | b.7 IV (do–mi–sol) | b.8 V (sol–
-       fa♯ sul re) → CS. bb.9–14 = bb.1–6 variate (f) | b.15 basso do,
-       re (I⁶₄), re (V7) | b.16 I, con le appoggiature la–sol e do–si → CAp.
-     Per la 1ª si analizzano solo le soste e le cadenze: le armonie sul
-     pedale (b. 3) e i rivolti del V7 restano fuori.
+     Obiettivo di fine anno (15/10/2026): «frasi, periodo, cadenze e
+     funzioni in danze, minuetti, corali; la forma binaria». La classe
+     conosce frase, periodo e cadenze (U7, U9 L5, U10). Qui le due parti
+     con il ritornello e la ripresa. NB: la U9 L1 sul computer è ancora
+     il testo del piano vecchio; se si porta la riscrittura dell'ondata
+     del 20/10 (minuetto di Mozart K 156, A02), questa lezione ne è il
+     seguito e la definizione è la stessa.
 
      ══ FONTI ══
-     · O. Károlyi, La grammatica della musica, p. 122 (copertina) e
-       pp. 90–91 (le cadenze come segni di punteggiatura), come nella
-       lezione del piano vecchio.
-     · D. D'Urso, A. Odone, Il linguaggio della musica: C8 (cadenze,
-       pp. 282–293), C14 lezione 40 «Il periodo» (pp. 316–319).
+     · G. Bas, Trattato di forma musicale, p. 72 (la citazione della
+       copertina, ripresa con la pagina dalla 2ª U11: da confrontare).
+     · libro C14, pp. 316–319 (frase e periodo; la forma di un minuetto
+       intero non è nel libro di quest'anno).
+     · ascolto e partitura: C03, Haydn, Quartetto op. 1 n. 1, II,
+       Menuetto, bb. 1–34 (corpus music21 haydn/opus1no1/movement2,
+       confrontato con la stampa Trautwein della scansione del catalogo:
+       corrette le bb. 2 e 4 del violino I e il mi♮ della b. 12).
+       Forma: ||: bb. 1–10 :||: bb. 11–24 + bb. 25–34 (= 1–10) :||.
+
+     ══ ESEMPI (controllo.py: esterne e melodia senza errori;
+        cantabile.difetti = []) ══
+     Minuetto originale in sol maggiore, 16 bb., melodia e basso, in
+     classe (soluzione chiusa); minuetto originale in fa maggiore per
+     casa. Stessa forma di Haydn in piccolo: A, ritornello, B, ripresa.
 
      ══ TEMPI · 50 minuti ══
-       ·  5'  la punteggiatura: cinque cadenze, cinque segni
-       ·  3'  dove si cerca: la sosta della melodia, gli ultimi due bassi
-       · 12'  K 545, bb. 1–8, insieme
-       · 12'  bb. 9–16 da soli, poi 5' di correzione
-       ·  8'  il periodo di sedici battute
-       ·  5'  sintesi; la V5 di domani
+       ·  7'  la forma binaria: due parti, due ritornelli, la ripresa
+       ·  8'  la prima parte di Haydn (bb. 1–10)
+       ·  8'  la seconda parte e la ripresa (bb. 11–34)
+       ·  7'  l'ascolto con lo schema
+       · 15'  in classe: un minuetto di sedici battute
+       ·  5'  sintesi; poi il solfeggio
      ══════════════════════════════════════════════════════════════════ -->
 
 <section class="slide attiva copertina foto" data-titolo="Copertina"
-         style="--foto: url('../../_assets/copertine/c1u10-lezione-10.jpg?v=6753df89');
-                --cop-a:#0b1a14; --cop-b:#047857; --cop-c:#d1fae5">
+         style="--foto: url('../../_assets/copertine/c1u11-lezione-1.jpg?v=7234a0ab');
+                --cop-a:#1f1408; --cop-b:#a16207; --cop-c:#fef3c7">
   <div class="slide-interna">
-    <div class="occhiello">Il corale &middot; UdA 10 &middot; Lezione 10 di 12</div>
-    <h1>La punteggiatura</h1>
-    <p class="sottotitolo">In un brano per pianoforte non ci sono le corone: le frasi si trovano dove la melodia si ferma, e la cadenza la dicono gli ultimi due bassi.</p>
+    <div class="occhiello">La progressione e il canto dato &middot; UdA 10 &middot; Lezione 10 di 12</div>
+    <h1>Due ritornelli e una ripresa</h1>
+    <p class="sottotitolo">Il minuetto ha due parti, e ciascuna si ripete; alla fine della seconda torna l’inizio.</p>
     <blockquote class="aforisma">
-      <p>Una frase musicale è formata da uno o più motivi e la sua conclusione è generalmente indicata da una cadenza.</p>
-      <cite>Ottó Károlyi, <em>La grammatica della musica</em>, p.&nbsp;122</cite>
+      <p>L&rsquo;elemento b reca variet&agrave;, e la ripresa di a in a&sup2;, col richiamo alla rispondenza, d&agrave; particolare senso di conclusione.</p>
+      <cite>Giulio Bas, <em>Trattato di forma musicale</em>, p.&nbsp;72</cite>
     </blockquote>
     <div class="meta-copertina">
       <span>50 minuti</span>
       <span>Analisi</span>
-      <span>Cadenze e periodo</span>
+      <span>Forma binaria</span>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="La punteggiatura">
+<section class="slide" data-titolo="La forma binaria">
   <div class="slide-interna">
-    <h2>Cinque cadenze, cinque segni</h2>
+    <h2>La forma binaria: due parti, due ritornelli</h2>
 
     <div class="riquadro libro">
       <span class="etichetta">Sul tuo libro</span>
-      <p><span class="lez">C8</span><strong>Successioni armoniche e cadenze</strong>, pp.&nbsp;282&ndash;293; <span class="lez">C14</span><strong>Il periodo</strong>, lezione 40, pp.&nbsp;316&ndash;319.</p>
+      <p><span class="lez">C14</span><strong>Forme elementari della melodia tonale</strong>, pp.&nbsp;316&ndash;319</p>
+      <p>Sezione C, unità 14, lezione 40 «Il periodo»: frasi e cadenze. La forma di un minuetto intero non è nel libro di quest’anno.</p>
     </div>
-    <table class="tabella">
-      <tr><th>gli ultimi due bassi</th><th>la cadenza</th><th>il segno</th></tr>
-      <tr><td>V&ndash;I, soprano sulla tonica</td><td>autentica perfetta, CAp</td><td>il punto: il discorso è finito</td></tr>
-      <tr><td>V&ndash;I, soprano sulla terza o sulla quinta</td><td>autentica imperfetta, CAi</td><td>il punto e virgola</td></tr>
-      <tr><td>IV&ndash;I</td><td>plagale, CP</td><td>un punto, più morbido</td></tr>
-      <tr><td>&hellip;&ndash;V</td><td>sospesa, CS</td><td>i due punti: si aspetta il seguito</td></tr>
-      <tr><td>V&ndash;VI</td><td>d’inganno, CI</td><td>la virgola, o la lineetta</td></tr>
-    </table>
-    <p class="didascalia">Károlyi (<em>La grammatica della musica</em>, pp.&nbsp;90&ndash;91): l’autentica ha «la stessa funzione del punto fermo»; la d’inganno dà un’impressione non conclusiva, come una virgola o una lineetta.</p>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Dove si cerca">
-  <div class="slide-interna">
-    <h2>Dove si cerca una cadenza</h2>
-
-    <div class="riquadro procedura">
-      <span class="etichetta">La procedura</span>
-      <p><strong>1</strong> &middot; Nella melodia: la nota lunga, la pausa, il punto dove un cantante respirerebbe. Lì finisce qualcosa. <strong>2</strong> &middot; Gli ultimi due bassi prima della sosta: il grado e la sigla. <strong>3</strong> &middot; Se il basso non fa una delle cinque mosse della tabella (resta fermo, o si muove di grado sotto un accordo rivoltato) è una <strong>sosta</strong>, non una cadenza: una virgola.</p>
+    <div class="riquadro definizione">
+      <span class="etichetta">Definizione</span>
+      <p>Un brano in <em class="termine">forma binaria</em> ha due parti, e ciascuna si ripete: il segno di ritornello chiude la prima e la seconda. La prima parte parte dalla tonica e finisce con una cadenza; la seconda si allontana, di solito verso la dominante, e torna alla tonica. Spesso, prima della fine, la seconda parte riprende l’inizio del brano: è la <em class="termine">ripresa</em>. Lo schema si scrive con le lettere: <strong>||: A :||: B A :||</strong>. Il minuetto, danza in 3/4, è quasi sempre in questa forma.</p>
     </div>
-    <div class="riquadro studio">
-      <span class="etichetta">Che cosa cambia rispetto al corale</span>
-      <p>Nel corale la corona dice dove finisce la frase. In un brano per pianoforte la sinistra si muove sempre: qui suona un accordo spezzato in semicrome (il <em>basso albertino</em>). L’accordo è quello di tutto il gruppo di quattro semicrome, e il basso è la prima.</p>
+    <div class="riquadro attenzione">
+      <span class="etichetta">L’errore tipico</span>
+      <p>Contare le parti dalle melodie invece che dai ritornelli. Quando l’inizio torna, nella ripresa, non comincia una terza parte: la ripresa sta dentro la seconda parte, e il ritornello è uno solo, alla fine.</p>
     </div>
   </div>
 </section>
 
-<section class="slide" data-titolo="K 545 &middot; bb. 1&ndash;8">
+<section class="slide" data-titolo="La prima parte">
   <div class="slide-interna">
-    <h2>Mozart, K 545, Andante: bb. 1&ndash;8, insieme</h2>
-    <figure style="margin:.4rem 0">
-      <img src="../../_assets/spartiti/C02_mozart-k545-II_es-b1-8.png" alt="Le battute 1-8 del secondo movimento della Sonata K 545 di Mozart, stampa Breitkopf" style="width:100%;display:block;margin:.4rem 0">
-      <figcaption class="didascalia">W. A. Mozart, Sonata in do maggiore K 545, II movimento (Andante, in sol maggiore), bb. 1–8. Dalla stampa Breitkopf &amp; Härtel (1878), W. A. M. 545.</figcaption>
-    </figure>
-    <div class="riquadro compito">
-      <span class="etichetta">Insieme &middot; 12 minuti</span>
-      <p>Il docente suona le otto battute due volte. Poi, sulla stampa: dove si ferma la melodia? Che cosa fa il basso in quel punto?</p>
-    </div>
-    <table class="tabella">
-      <tr><th>dove</th><th>la melodia</th><th>il basso</th><th>che cosa è</th></tr>
-      <tr><td>b.&nbsp;2</td><td>scende al <em>sol</em>, poi la pausa</td><td><em>la&ndash;sol</em>: il V con il <em>la</em> al basso, poi il I</td><td>sosta, virgola</td></tr>
-      <tr><td>b.&nbsp;4</td><td>di nuovo al <em>sol</em>, poi la pausa</td><td>resta sul <em>sol</em> per le bb.&nbsp;3 e 4</td><td>sosta, virgola</td></tr>
-      <tr><td>b.&nbsp;6</td><td>sale al <em>sol</em>, poi la pausa</td><td><em>sol&ndash;mi&ndash;si</em>: I, VI, I6</td><td>sosta, virgola</td></tr>
-      <tr><td>b.&nbsp;8</td><td>arriva al <em>la</em>; tre crome riportano all’inizio</td><td><em>do</em> (b.&nbsp;7) &ndash; <em>re</em>: IV&ndash;V</td><td>cadenza sospesa, due punti</td></tr>
-    </table>
+    <h2>Haydn: la prima parte, bb.&nbsp;1&ndash;10</h2>
+    <tac-stave clef="treble"
+               time="3/4"
+               keysig="Bb"
+               data-reale
+               caption="F. J. Haydn, Quartetto op. 1 n. 1, II, Menuetto, bb. 1–10: violino I e violoncello"
+               notes="b/4:h b/5:q | b/5:8 a/5:8 a/5:8 g/5:8 g/5:8 f/5:8 | f/5:h f#/5:q | g/5:q r:q b/5:8t g/5:8t e/5:8t | d/5:q r:q e/5:8t c/5:8t a/4:8t | b/4:q r:q d/5:8t b/4:8t g/4:8t | f/4:h e/4:q | d/4:q b/4:q d/5:8t b/4:8t g/4:8t | f/4:h e/4:q | d/4:q r:q r:q :|"
+               bass="b/2:q b/2:q b/2:q | b/2:q b/2:q b/2:q | b/2:q b/2:q b/2:q | b/2:q b/2:q b/2:q | b/2:q b/2:q b/2:q | b/2:q r:q r:q | f/3:q f/3:q f/3:q | b/2:q r:q r:q | f/2:q f/2:q f/2:q | b/2:q r:q r:q :|"
+               segna="b1=I · b7=V7 · b8.1=I · b9=V7 · b10.1=I: CAi"
+               width="900"
+               tempo="132"
+               play
+               slow></tac-stave>
     <div class="riquadro studio">
       <span class="etichetta">Che cosa si osserva</span>
-      <p>Nelle prime quattro battute il basso torna sempre al <em>sol</em>, e nelle bb.&nbsp;3&ndash;4 non lo lascia mai (un <em>pedale</em> di tonica): la melodia si ferma due volte, ma l’armonia non chiude. Alla b.&nbsp;7 la sinistra cambia scrittura, accordi tenuti al posto delle semicrome; nella b.&nbsp;8 il <em>sol</em> scende al <em>fa♯</em> sopra il <em>re</em>: è il V, e la frase resta aperta.</p>
+      <p>Bb.&nbsp;1&ndash;6: il violoncello ripete il <em>si♭</em>, la tonica, e il violino I si muove sopra. Bb.&nbsp;7&ndash;8: il violoncello sale al <em>fa</em>, il violino I ha <em>fa&ndash;mi♭</em>: è il V7, e il <em>mi♭</em>, la settima, scende al <em>re</em> (U8&nbsp;L4). Bb.&nbsp;9&ndash;10: la stessa cadenza, con il <em>fa</em> grave del violoncello. La prima parte finisce sulla tonica, con il <em>re</em> in alto: autentica imperfetta. Poi il segno di ritornello.</p>
     </div>
+    <p class="didascalia">Alle bb.&nbsp;4&ndash;8 il violino I ha gruppi di tre crome in un movimento, le terzine: per l’analisi della forma qui conta dove finisce la frase.</p>
   </div>
 </section>
 
-<section class="slide esercizio" data-titolo="K 545 &middot; bb. 9&ndash;16">
+<section class="slide" data-titolo="La seconda parte e la ripresa">
   <div class="slide-interna">
-    <h2>Bb. 9&ndash;16, da soli</h2>
-    <figure style="margin:.4rem 0">
-      <img src="../../_assets/spartiti/C02_mozart-k545-II_es-b9-16.png" alt="Le battute 9-16 del secondo movimento della Sonata K 545 di Mozart, stampa Breitkopf" style="width:100%;display:block;margin:.4rem 0">
-      <figcaption class="didascalia">W. A. Mozart, Sonata K 545, II movimento, bb. 9–16. Dalla stampa Breitkopf &amp; Härtel (1878), W. A. M. 545.</figcaption>
-    </figure>
-    <div class="riquadro compito">
-      <span class="etichetta">Da soli &middot; 12 minuti, poi 5 di correzione</span>
-      <ol>
-        <li>Segna le battute in cui la melodia si ferma.</li>
-        <li>Per ognuna scrivi che cosa fa il basso, con i gradi.</li>
-        <li>Scrivi se è una sosta o una cadenza, con la sigla e il segno di punteggiatura.</li>
-      </ol>
-    </div>
-    <tac-chiuso invito="La soluzione &mdash; si apre alla correzione" sale="Q1Jt03VSJG1507xGgMZiCg==" iv="fqYno8CjEaDpODSi" dati="6N6w+VQ6eaZ/POjKua8W5AgWdThM5V+/nyPZOUv7A+G+SXdpgth39HNdTpQgaOx6HZuUQHP6R2jCXtbUaLtZ96yYVy3Vq6ZL5MDHoG1kE/zRFz2ytDQ04d/d+AYBqhEpAilxg3kY9om67J4vCDDC3xNHFzMM1yRtcTemO4eyRDjHp8hOMzF5Pio9a7oJPZ4EHMqwGhbb/2/kHKHAIzVNHzCBN1FgtaGoAGmAPf3ddvmtWXCkmr8tdLWAUoAWG+wqa4Vb3UsirdY+8aSuBppJjaO90TSu0v4opQv4D8Vh7OW5G/6fj9SsQXkMUnP2/SZ4jCyVC8moki4pN9JgeuNJNdAQokkcrt4WtWtP6UdAID3Fscr0I2HXghsHD0iP88q9hEi2I+SfGvBCleeBdQnM9DvYUgNCYB3Sqwgu/ju0nbIUDNFsJW4aFaF2/z3wgd22X0YGG9y6kinBkfNfH8gfFMdzyEqiAw3M79FHmG5QB9AMGixqaiFAFML2tt6VHKUzXDQuzuEEm6vEhbFICGChsEVTWV+JjU2I2znSkq0LfZsbqRmVoOloZyEpbW2aVXXZugO2e9qxa4ElUSQZNkcgsXmxSS1lA79vVgxYNaEzNsm1pcQ6tR+YKojoR8eWisFVmiB2MTCkUAbGIpbWglyHqbGQ0kN8dG2q/GyAUz1PydWkBIJPnfjX59bLcHA4VWYYTQNzJpsoVaH5gOtVLcS5hrtfhobzBkXE8uc8Ozj8r1lgiIBaYKgVrAz9MlhHZEPoLYKwq63D1FuqokVVdSO7BVte1+NtkrQse0tjN6oYGHNBvvzooI7wMJ/Op0DOTG/h0dcSKU/sDfAE12o7+8V0tXHi671nEtjOJLrUgWLZl0q0WloJ9jxZ+J7Xvthc457GYzpZsbo0EFo7y8VYcjAW2sBHYqso//u+vzQFb1tSUbsRGV0JVCyXj0OsWcs7o4kRpa3AFNo8qm2QikAEc0lSv07xSPa3jmrdvHsCM05a0Lrb2KyFuaXVN/cMpL33M7Mq/t8poQxAJEavwdRUa3oEdpQ8N8DnYLdrJKfRJ8y+iiujjq2o9CMU5q6ooS8ahexxOI8dQMrqAd+tBLfvQjUfMYVKkzQSq86DFRSdLlGvloXINFyaa90adzHMj2BHnPLQBZyTM/21c7xFG42qxPwEbG5JysUWqy3wNPiVrzU8OgZoDszXbRip0LvoooDQ/FRn/1NPKRlG6wTJkmSVjmOVL1pyG2ngd9R1+tuoUsVnnnRve9ZoI3a2e0F52B/NdC/AFuPb3vsmUgIFbpZztuzLAaDENVctsEqdZzzavxdedtcONB3LfrqqWHBukf18EtnKn5zJZSF7Sjf/bmuTEcwdMC8zlV3nDrbsvyt3HO56OArVKiOkr4knkhMgC65hx5mLalY62zvAoKdtsi5lIehljK4KfmxGtagRa8BdRyjp8N4qmKRgXjPnlv594E6tR2g05bpYK/IM5bme8igJLy6Yy94muvipjXa3gm+ApRbYFiqIAfy95iQuBJ9Yq8LVUrl09Wbp7pO7SXOnZo0Cimtq7sxL0AZHC9w4XMAMES0yzhuPo2sBy9ceR1dAQCDxgbwcKmU7fOoQrnqmFElm/f1cfoW1cNDr+g+CwMa7eoID+GbJ4Wn21g3asubSx79jwaUe"></tac-chiuso>
-  </div>
-</section>
-
-<section class="slide" data-titolo="Il periodo">
-  <div class="slide-interna">
-    <h2>Sedici battute: un periodo</h2>
-
+    <h2>La seconda parte e la ripresa, bb.&nbsp;11&ndash;34</h2>
+    <tac-stave clef="treble"
+               time="3/4"
+               keysig="Bb"
+               data-reale
+               caption="F. J. Haydn, Menuetto, bb. 11–14: violino I e violoncello"
+               notes="c/5:h f/5:q | f/5:8 en/5:8 g/5:8 f/5:8 a/5:8 g/5:8 | c/5:h b/5:q | b/5:8 a/5:8 c/6:8 b/5:8 d/6:8 c/6:8"
+               bass="f/3:q f/3:q f/3:q | g/3:q r:q r:q | en/3:q en/3:q en/3:q | f/3:q r:q r:q"
+               segna="b2.2=mi♮ · b3=mi♮ al basso · b4.1=fa"
+               width="900"
+               tempo="132"
+               play
+               slow></tac-stave>
     <table class="tabella">
-      <tr><th>battute</th><th>la parte</th><th>finisce con</th></tr>
-      <tr><td>1&ndash;8</td><td>antecedente: la domanda</td><td>cadenza sospesa, b.&nbsp;8</td></tr>
-      <tr><td>9&ndash;16</td><td>conseguente: la risposta</td><td>autentica perfetta, b.&nbsp;16</td></tr>
+      <tr><th>battute</th><th>parte</th><th>che cosa succede</th></tr>
+      <tr><td>1&ndash;10</td><td>prima parte (A), con il ritornello</td><td>sulla tonica; V7&ndash;I alla b.&nbsp;10, autentica imperfetta</td></tr>
+      <tr><td>11&ndash;14</td><td>seconda parte (B)</td><td>il <em>mi♮</em> è la sensibile di <em>fa</em>: la musica va verso la dominante e alla b.&nbsp;14 arriva sull’accordo di <em>fa</em></td></tr>
+      <tr><td>15&ndash;24</td><td>seconda parte (B)</td><td>torna il <em>mi♭</em>; la b.&nbsp;24 si ferma sul V, con il violoncello che scende <em>fa&ndash;mi♭&ndash;re&ndash;do</em>: cadenza sospesa</td></tr>
+      <tr><td>25&ndash;34</td><td>ripresa (A), dentro la seconda parte</td><td>tornano le bb.&nbsp;1&ndash;10; la fine è sulla tonica; poi il ritornello</td></tr>
     </table>
     <div class="riquadro definizione">
-      <span class="etichetta">Il periodo, più grande</span>
-      <p>Nella U7 il periodo era di otto battute, quattro più quattro. Qui ogni metà dura otto battute, e dentro ci sono le soste ogni due: la punteggiatura ha più livelli, come in un testo, dove dentro una frase lunga ci sono le virgole e alla fine il punto. Il conseguente comincia come l’antecedente e cambia solo la fine: è il modo più semplice di rispondere a una domanda.</p>
+      <span class="etichetta">Lo schema</span>
+      <p><strong>||: A (10 bb.) :||: B (14 bb.) A (10 bb.) :||</strong>. La sospesa della b.&nbsp;24 è la «virgola» prima della ripresa: la frase resta aperta, e l’inizio che torna la chiude.</p>
     </div>
+  </div>
+</section>
+
+<section class="slide perc" data-titolo="All’ascolto">
+  <div class="slide-interna">
+    <h2>All’ascolto: seguire lo schema</h2>
+
     <div class="riquadro compito">
-      <span class="etichetta">Ascolto &middot; 3 minuti</span>
-      <p>Il docente suona le sedici battute di seguito. Alzate la mano alle virgole, e tutte e due alla fine di ogni metà.</p>
+      <span class="etichetta">Ascolto &middot; 7 minuti</span>
+      <p>Il minuetto dura circa un minuto, con i ritornelli. Primo ascolto: alzare la mano quando la musica ricomincia da capo (sono tre volte: il ritornello della prima parte, la ripresa, il ritornello della seconda parte). Secondo ascolto: dire ad alta voce la lettera della parte, A o B, ogni volta che cambia. L’ascolto si ferma alla fine del minuetto: dopo viene il trio, che ha la stessa forma.</p>
     </div>
+
+    <tac-brano organico="archi" titolo="F. J. Haydn, Quartetto op. 1 n. 1, II &mdash; Menuetto e Trio" metronomo youtube="ozjtNgZGSV4" esecutore="Aeolian String Quartet" partitura="../../_assets/spartiti/C03_haydn-minuetto-op1.png" inciso="../../_assets/incisioni/C03_haydn_minuetto_op1.mp3" mappa='{"durata":13453,"eventi":[[0,0],[1,1364],[2,2727],[3,4091],[4,5455],[5,6818],[6,8182],[7,9545]]}' da-battuta="1">
+<script type="application/json">{"titolo":"F. J. Haydn, Quartetto op. 1 n. 1, II — Minuetto e Trio","metro":"3/4","bpm":132,"battute":8,"anacrusi":0.0,"voci":[[[0.0,2.0,70],[2.0,1.0,82],[3.0,0.5,84],[3.5,0.5,81],[4.0,0.5,81],[4.5,0.5,79],[5.0,0.5,81],[5.5,0.5,77],[6.0,2.0,77],[8.0,1.0,78],[9.0,1.0,81],[11.0,0.3333,82],[11.3333,0.3333,79],[11.6667,0.3333,75],[12.0,1.0,74],[14.0,0.3333,75],[14.3333,0.3333,72],[14.6667,0.3333,69],[15.0,1.0,70],[17.0,0.3333,74],[17.3333,0.3333,70],[17.6667,0.3333,67],[18.0,2.0,65],[20.0,0.125,63],[20.125,0.125,65],[20.25,0.125,63],[20.375,0.125,65],[20.5,0.125,63],[20.625,0.125,65],[20.75,0.125,63],[20.875,0.125,65],[21.0,1.0,62],[22.0,1.0,70],[23.0,0.3333,74],[23.3333,0.3333,70],[23.6667,0.3333,67]],[[0.0,2.0,62],[2.0,1.0,67],[3.0,0.5,67],[3.5,0.5,65],[4.0,0.5,65],[4.5,0.5,63],[5.0,0.5,63],[5.5,0.5,62],[6.0,1.0,62],[7.0,1.0,62],[8.0,1.0,62],[9.0,1.0,63],[10.0,1.0,63],[11.0,1.0,67],[12.0,1.0,65],[13.0,1.0,65],[14.0,0.3333,67],[14.3333,0.3333,63],[14.6667,0.3333,60],[15.0,1.0,62],[18.0,2.0,62],[20.0,1.0,60],[21.0,1.0,58]],[[0.0,1.0,58],[1.0,1.0,58],[2.0,1.0,58],[3.0,1.0,58],[4.0,1.0,58],[5.0,1.0,58],[6.0,1.0,58],[7.0,1.0,58],[8.0,1.0,58],[9.0,1.0,58],[10.0,1.0,58],[11.0,1.0,58],[12.0,1.0,58],[13.0,1.0,58],[14.0,1.0,58],[15.0,1.0,58],[18.0,1.0,65],[19.0,1.0,65],[20.0,1.0,65],[21.0,1.0,58]],[[0.0,1.0,46],[1.0,1.0,46],[2.0,1.0,46],[3.0,1.0,46],[4.0,1.0,46],[5.0,1.0,46],[6.0,1.0,46],[7.0,1.0,46],[8.0,1.0,46],[9.0,1.0,46],[10.0,1.0,46],[11.0,1.0,46],[12.0,1.0,46],[13.0,1.0,46],[14.0,1.0,46],[15.0,1.0,46],[18.0,1.0,53],[19.0,1.0,53],[20.0,1.0,53],[21.0,1.0,46]]]}</script>
+</tac-brano>
+
+    <tac-chiuso invito="La soluzione &mdash; si apre alla correzione" sale="wqWXOfQIXL0uoT6r1KK/3Q==" iv="ZnKq5vq+jRIaYP12" dati="8lmYgXJqLireNGutg7VoteI/ZtP9PratKU6Wk3PCl5WC5l4TI9STVtBYo7V//MIDS1QgRjTpVqwjTSAmxv3SDei05V3/gXCLtbZZDJtipJdxtPfgqta1oVYj8JLnDhVFYXyQ/HGsmm7UFVkIraXWNrH/+fP5LMYzL+RafAWyjvFgIPIAMyMeAhh/aeRewcQc1wNw/b3fap3+kjJB4CzSATwMwRdwweyw81ZYq3VtI7W5FBbbUU0BNrIc2lPKMEeqJdeGzIyC+LjdVstizzxJVghtAlREQskr4Dkf+Ha5Xst4"></tac-chiuso>
+  </div>
+</section>
+
+<section class="slide esercizio" data-titolo="In classe" data-in-classe>
+  <div class="slide-interna">
+    <h2>In classe: un minuetto di sedici battute</h2>
+    <tac-stave clef="treble"
+               time="3/4"
+               keysig="G"
+               caption="Un minuetto in due parti, melodia e basso"
+               notes="b/4:h d/5:q | e/5:q g/5:q e/5:q | d/5:h a/4:q | b/4:h. | g/4:q b/4:q d/5:q | e/5:q d/5:q c/5:q | b/4:h g/4:q | a/4:h. :| a/4:q d/5:q f/5:q | g/5:h d/5:q | e/5:q c/5:q e/5:q | d/5:h. | b/4:h d/5:q | e/5:q g/5:q e/5:q | d/5:q c/5:q a/4:q | g/4:h. :|"
+               bass="g/2:h. | c/3:h. | d/3:h. | g/2:h. | b/2:h. | c/3:h. | g/2:h. | d/3:h. :| d/3:h. | b/2:h. | c/3:h. | d/3:h. | g/2:h. | c/3:h. | d/3:h. | g/2:h. :|"
+               width="900"
+               tempo="120"
+               play></tac-stave>
+    <div class="riquadro compito">
+      <span class="etichetta">Da soli, poi insieme &middot; 15 minuti</span>
+      <p>Scrivi lo schema con le lettere e le battute di ogni parte. Sotto le bb.&nbsp;4, 8, 12 e 16 scrivi la sigla della cadenza. Indica dove comincia la ripresa e che cosa cambia rispetto all’inizio.</p>
+    </div>
+    <tac-chiuso invito="La soluzione &mdash; si apre alla correzione" sale="bUmpHOtEXJnbwm7WAnFQJQ==" iv="zmZJTh0OsYIzDrS+" dati="1X2flzkXYRiE5PDN8YZcCkZF9LvbXmEwrhO2Ce2zF9lOMAmhDH4/4liEk9DliD1qF+Ekam9/vK/NqK/v+spBZd3ba/DPf9kndFI2FFAOCcsya/6jEMuDnLWq9izYIwtRqwsONY4/c/gCZkOyhC/vq1l/rvv7xXneAnytfsjwnx1q4J1GkkZKweN7Av28qpPeoQQfmxIcEvrEEWy1XWl5owlLNJFSDcCV8CDOwzHchqzLuAVubeUOUXcVMzKzYpitL2tffsxeYx1Z8MOipANZjFQzxp1vIFM/dlO7CSe7hdKaceHp6Kkf/W+JAsyY+jNYXqCW6vnwY4ktPwt/5HY0rOCWW/2j2fgtjg/VuoqnWi9qc7ARZTvWNqrfS3FoKGj4IkkJKDYEPHgPBiCv4KDzUzaPuuLxq/9axPShGxo9tRnDjFVzBdAuaQBLJ3pKwS4MpyhEtScbkrQ5QQI55nw10qNrD2irwX99iNM0qw+cgYh+E1gEmWPBbybm8pxM1FNJGUPm+DS1aNWXKa3e6SaBpEamQ3xDhNewUylR4jE8fL49KzftyzbAVMautPTs5iQUT1oYDqFqeN96aoMv365yWKOMK9szslKnJO5rUHxrx7DyQGd4upqscdGa+pdXRr1bQJUA3hzMfeg8hcnKOFPI4jz2YcTqx/L/ndJBlxCQtzE3z+1I4JXTE5DnLhEQkc024EW1P75p6PKPDDEG1moL+xjj4dIQyMuoJLLcOVqCYy+qdZ8kCLUJ86mqwxI4bqpe6tocx6Wa/IK8/Yugjj75/iypDZrHsWbx+Q6nrtLfCvO3xPzo3IVIWu0fkGh7VqVzqaE="></tac-chiuso>
   </div>
 </section>
 
@@ -214,27 +224,15 @@ try { module = undefined; exports = undefined; } catch (e) {}
 
     <div class="colonne">
       <div class="riquadro definizione">
-        <span class="etichetta">Dove</span>
-        <p>Dove la melodia si ferma: nota lunga, pausa, respiro.</p>
+        <span class="etichetta">La forma binaria</span>
+        <p>Due parti, ciascuna con il ritornello. La prima finisce con una cadenza; la seconda si allontana e torna alla tonica.</p>
       </div>
       <div class="riquadro definizione">
-        <span class="etichetta">Che cosa</span>
-        <p>Gli ultimi due bassi: V&ndash;I punto (o punto e virgola), IV&ndash;I punto morbido, &hellip;&ndash;V due punti, V&ndash;VI virgola. Se il basso non fa una di queste mosse, è una sosta.</p>
+        <span class="etichetta">La ripresa</span>
+        <p>L’inizio che torna dentro la seconda parte: <strong>||: A :||: B A :||</strong>. Prima della ripresa, spesso, una sospesa.</p>
       </div>
     </div>
-    <p class="didascalia">Domani, martedì 6/4, la V5.</p>
-  </div>
-</section>
-
-<section class="slide compiti-slide" data-titolo="Compiti · lo scritto" data-segno
-         style="--segno: url('../../_assets/segni/segno-24.png')">
-  <div class="slide-interna">
-    <p class="compiti-occhiello">Compiti per la prossima volta</p>
-    <h2>1 &middot; Scritto: Soste e cadenze in otto battute</h2>
-    <div class="riquadro compito">
-      <p>1. Segna le battute in cui la musica si ferma. 2. Per ognuna scrivi gli ultimi due bassi e i loro gradi. 3. Scrivi la sigla della cadenza, oppure «sosta» se non è una cadenza, e il segno di punteggiatura.</p>
-    </div>
-    <p class="rimando">Sul <strong>quaderno</strong>, a matita. La foto del lavoro finito va su <strong>Classroom</strong>. Nel Workbook: <a href="../materiali/workbook-uda-10.html#C1-U10-L10-11">apri l&rsquo;esercizio <strong>C1-U10-L10-11</strong> &#8599;</a></p>
+    <p class="didascalia">Domani la lezione 2: il canto dato, armonizzare una melodia di otto battute. La lezione si chiude con il solfeggio: parlato, cantato e ritmico.</p>
   </div>
 </section>
 
@@ -250,10 +248,12 @@ try { module = undefined; exports = undefined; } catch (e) {}
     </div>
     <div class="riquadro compito dettato-casa" id="C1-D-U10-L10">
       <span class="etichetta">3 &middot; Dettato <span class="dettato-sigla">C1-D-U10-L10</span></span>
-      <p>Scrivi <strong>il ritmo</strong> sul quaderno: otto battute in 6/8. Ascolta tutto due volte, poi ogni coppia di battute due volte, poi il collegamento 1–4, 3–6 e 5–8, e tutto per controllare.</p>
+      <p>Scrivi <strong>il basso</strong> sul rigo, in chiave di basso, e sotto ogni accordo <strong>il grado</strong> (I, II, IV, V o VI): otto battute in 4/4, do maggiore. Il basso comincia da <strong>do</strong>. Se avanza tempo, anche il soprano. Prima il riferimento, poi tutto due volte, ogni coppia di battute due volte, il collegamento, e tutto per controllare.</p>
       <div class="dettato-ascolti">
+        <div><p class="didascalia">Il riferimento: accordo di tonica e primo suono</p>
+          <tac-stave nascondi riferimento clef="bass" time="4/4" keysig="C" notes="c/3:q e/3:q g/3:q c/4:q | c/3:w" tempo="80" play></tac-stave></div>
         <div><p class="didascalia">Il dettato &middot; otto battute</p>
-          <tac-stave nascondi cifrato guidato="ritmico" clef="percussion" time="6/8" notes="Lmg6NC9iIHwgODo0L2IgcTo0L2IgODo0L2IgODo0L2IgODo0L2IgfCAucTo0L2IgODo0L2IgcTo0L2IgfCAucTo0L2IgODo0L2IgODo0L2IgODo0L2IgfCA4OjQvYiBxOjQvYiBxOjQvYiA4OjQvYiB8IC5xOjQvYiA4OnIgcTo0L2IgfCAucTo0L2IgLnE6NC9iIHwgLnE6NC9iIDg6NC9iIHE6NC9i" tempo="60" play></tac-stave></div>
+          <tac-stave nascondi cifrato guidato="armonico" voci-cifrate time="4/4" keysig="C" soprano="dzo0L2cgfCB3OjQvZyB8IHc6NC9mIHwgdzo0L2cgfCB3OjQvYSB8IHc6NS9jIHwgdzo1L2QgfCB3OjUvZQ==" contralto="dzo0L2UgfCB3OjQvZCB8IHc6NC9kIHwgdzo0L2UgfCB3OjQvZiB8IHc6NC9lIHwgdzo0L2cgfCB3OjQvZw==" tenore="dzo0L2MgfCB3OjMvYiB8IHc6My9hIHwgdzo0L2MgfCB3OjQvYyB8IHc6NC9jIHwgdzozL2IgfCB3OjQvYw==" basso="dzozL2MgfCB3OjIvZyB8IHc6My9kIHwgdzozL2MgfCB3OjIvZiB8IHc6Mi9hIHwgdzoyL2cgfCB3OjMvYw==" notes="dzozL2MgfCB3OjIvZyB8IHc6My9kIHwgdzozL2MgfCB3OjIvZiB8IHc6Mi9hIHwgdzoyL2cgfCB3OjMvYw==" tempo="56" play></tac-stave></div>
       </div>
       <p class="rimando">Le sezioni (riferimento, tutto, le coppie, il collegamento) si ascoltano una per una e si ripetono quanto serve; le <strong>fasi</strong> fanno la procedura della classe, con gli annunci e le pause, da qualunque punto.</p>
       <p class="rimando">Sul quaderno scrivi in testa la sigla <strong>C1-D-U10-L10</strong>. Si corregge all&rsquo;inizio della prossima lezione.</p>
@@ -271,18 +271,18 @@ try { module = undefined; exports = undefined; } catch (e) {}
       <p>Continua la <strong>melodia</strong> fino a <strong>otto battute</strong>, in <strong>la minore armonica</strong>, chiave di violino, metro 2/4: le prime due sono date. Muoviti soprattutto per grado congiunto, e dopo un salto di quarta o più torna indietro per grado; metti almeno due salti fra la quarta e la sesta; il settimo grado alzato (sol&#9839;) sale sempre alla tonica; chiudi sulla <strong>tonica</strong>, arrivandoci per grado. Ogni battuta piena, l&rsquo;ultima con una nota sola. Poi cantala o suonala.</p>
       <tac-stave caption="Le prime due battute" clef="treble" keysig="C" time="2/4" notes="a/4:q b/4:q | a/4:8 b/4:8 a/4:8 c/5:8" tempo="72" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C1-ME-U10-L10</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="+TTpawjTsMEzs2gq1eqI9Q==" iv="5/rWwIgsYPCf9ZEU" dati="u0MzH3oj58BCDDglyWRvIBbK+kbHaz9chO7jpiKGm/h9HLmH5HON6ODdNZbpZwyuk4l0uXMuFwqCJkz8iuriSr8GmAUDpAlIbq70wRfJOUgBrLdo24FjbGkswrQkp3YRLlQO+syrKKaPXNr+jhUebHNzTV5Lt6tvzYm0XdXrywcEgf4/g+5OTlngfyKZBJBBnXUw6T8uUUx71dNEiDAuqs3I4pTNCFe3fKu18Cx2V/KiSMkZR2pz2tO6iaPTRbL6OVNntnnL0W37iRy8flv8Icyn1RHQolQFw6wfzZEAqOt5F0niHpmtq0vVqQm6GzSJ2xS09wbMN1Wc0wvchsLqxLm7SDhG3V5ILTYKIkJuvXilNO7wYqvNdUomJPt8A1kVCNJqMcqJwYBWegJa"></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="qvIXsgDSAtUdtYa8l/yIwA==" iv="iHkJM223pvgmAvNW" dati="asVxH1bv9ddeoq2/T1HFVLMVAztecXezFJydg0ae9sozD6t7TYWUlDeOoocwSeDnuGoTlQtLJnk7IyHVItbsgXewXLTD0U6Qd/r/XUTvQTGxmD38VYXPAerUPICcmSDR6keNtTZSWwcHbxZiWcnmtcBLdAXhxxsEyfSciC8fyIVNLdcz6CMVTNpQeTHP8AqFskPGBNSI8YKa0WhGmetn1Ugi86k8oyheHuNyApCEZhrB7ozdWbG5tU5TbNbiVY5KsFA36T0yvyySzeJCPmAyferu4OSWUHfu8a2VYUMDWkWdm6hnyd3/QSwWYdlR1O5or9s3ZVu82H5+CgXmDwqLlQ1jILfoW1unCFmOwXZE42zIjM5VZ7jxUTTEFqpNAPlI8CLDUcSk44cft3NE"></tac-chiuso>
     </div>
     <div class="riquadro compito scrittura-casa" id="C1-BS-U10-L10">
       <span class="etichetta">5 &middot; Il basso sotto la melodia <span class="dettato-sigla">C1-BS-U10-L10</span></span>
       <p>Sotto la melodia scrivi il <strong>basso</strong>, in chiave di basso: <strong>una nota per battuta</strong>, lunga quanto la battuta. La melodia è in <strong>fa maggiore</strong>, metro 4/4. Per ogni battuta scegli fra la <strong>tonica</strong> (I: fa&ndash;la&ndash;do), la <strong>sottodominante</strong> (IV: si&#9837;&ndash;re&ndash;fa) e la <strong>dominante</strong> (V: do&ndash;mi&ndash;sol): guarda la nota sul tempo forte e le note più lunghe, e prendi l&rsquo;accordo che le contiene; scrivi sotto il numero romano. La prima e l&rsquo;ultima battuta sono sulla tonica, la penultima sulla dominante.</p>
       <tac-stave caption="La melodia" clef="treble" keysig="F" time="4/4" notes="a/4:q b/4:q a/4:h | f/4:q g/4:q f/4:8 g/4:8 a/4:q | e/4:q f/4:q g/4:h | e/4:8 f/4:8 e/4:q c/4:h | d/4:h c/4:q d/4:q | e/4:h d/4:q e/4:q | g/4:q a/4:q g/4:q e/4:q | f/4:w" tempo="66" play></tac-stave>
       <p class="rimando">Sul <strong>quaderno</strong>, con la sigla <strong>C1-BS-U10-L10</strong> in testa; la foto va su <strong>Classroom</strong>.</p>
-      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="QadEzWU0Z3+MmNDHDHHvSA==" iv="v0b8g3dM5mvOFkLf" dati="9VdbEEtzNHnbzjtxVr+brRPvRtdkBSmSNKa61PBo2WXSglWMSYhX0SHaWDX3mrfASpTL7pWtOTI+3jakcF+N/DIWb0uJ7mbvjme1xLiQy6G/WKotNIhG4DBTa5BjgnKKWLDjZL8IjPR65qWW0vWayU397PenpwXScUpcCdHfvunCwRur6JJdiigi3bsYkziUzq6rxCJTWwmp6+bBI4tP8L0+trt/0ajm1/ZbLTY2t68iL+Rl+r67luwD3NYurIdsES2PqJL6iNKeBFPPinmp7g/IfHPMEBtMAe/Vta5I8WjtkdNEEgl+eN4sG8c4ngUZTxJS//MorSgbTwyCaXWW6DHKht9QT87aH93ZSlG8Zp3C/fUCSeKL//HF80sVbrDAgdPk5UiKu1boOhukLT6LvzZlTI31WNX3YM5h6xFGc+zVB6gWpegIr4bSPQ//xBf8A2ZnuwUD4pm1sDJfS7DwJkymrY+OLxuFPVjVYeCIAJwbVv4uo4I6Ng6kjg64Uw9OJwv99RuJ8Cz9l9NzeeFWYekxGukEEAOSpi3h2YZu49HEiJhd0VRTuw=="></tac-chiuso>
+      <tac-chiuso invito="La soluzione &mdash; si apre in classe, alla correzione" sale="wDFhEcXN0r5WvqfjAof1Ug==" iv="hNwy76S+deKd8tI2" dati="jxlpe3TieWYLLaKE3TUzssOdQKXLG0ZYgtNDEw+QM7rzxmpBZkcM3ROevh/HUVRvFTNVhSVPkbNlBHf11QyDSZl3TUrQv7grQuZCVWg5KAfGaocyhkUNu5biZn0R6ugMe8Jbad28kUHorLgwh3Rdyx9ov8VeRAQpyDpKINzbrh8ueZ0ZTB+ROrFlOfit/ZgRKJSnVmga3OaFZBB8FJEZ62ipNIVTPJZlIBfft3WaEHnh6qxAzrnOxQmW5Cvk2N1PonRox8IuUFrL70DzPjcFIpFjfHMIcv4QCp1lzeESzvjJPGVs9bE7jaWdSH8WxeWoRN7RIadHFshLlGKMSQcq8a8j/TzP6YDoXZLt40VU8MNF+hzkALYHVRikl7acNhp8yBjCVIBkUs4u6sJ9x7nzTOwJGFy5lF8otEY24UgjcSU8SZ0FzmUTPGVIFVv7J+I+Xn7kb/+7YTnROlbAdZqzbhyIukI/zW10j9oeqf6QYl+DHTIgFZesN99MaL5dJEi7oZSYkQWOo/du05HKOQm/JpTBB+DZcs78DF7HFuXQmtc0cLPyOIpBHw=="></tac-chiuso>
     </div>
     <details class="per-registro" style="margin-top:1rem;font-size:.85rem;opacity:.9">
       <summary style="cursor:pointer">Testo per il registro elettronico</summary>
-      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Scritto: Soste e cadenze in otto battute (Workbook, esercizio C1-U10-L10-11), sul quaderno; la foto va su Classroom. Solfeggio dal quaderno di lettura: parlato n. 706, 707; cantato n. 708, 709; ritmico n. 710, 711 (a tempo, senza fermarsi). Dettato C1-D-U10-L10 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Melodia da continuare fino a otto battute (C1-ME-U10-L10). Basso sotto la melodia, una nota per battuta (C1-BS-U10-L10).</p>
+      <p class="testo-registro" style="margin:.4rem 0;padding:.5rem .7rem;background:#f5f3ff;border-radius:6px;user-select:all">Solfeggio dal quaderno di lettura: parlato n. 706, 707; cantato n. 708, 709; ritmico n. 710, 711 (a tempo, senza fermarsi). Dettato C1-D-U10-L10 dalla pagina della lezione (sezioni da ascoltare, o le fasi della procedura guidata), sul quaderno con la sigla. Melodia da continuare fino a otto battute (C1-ME-U10-L10). Basso sotto la melodia, una nota per battuta (C1-BS-U10-L10).</p>
       <button type="button" style="font:inherit;font-size:.8rem;padding:.15rem .7rem;border:1px solid #c4b5fd;border-radius:5px;background:#4c1d95;color:#fff;cursor:pointer" onclick="var b=this,t=b.parentNode.querySelector('.testo-registro').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)},function(){prompt('Copia il testo:',t)})">Copia</button>
     </details>
   </div>
@@ -313,15 +313,6 @@ try { module = undefined; exports = undefined; } catch (e) {}
     <h2>Leggiamo insieme: ritmico</h2>
     <p>Tutti insieme, battendo la pulsazione. Poi a file, due battute a testa.</p>
     <p class="apri-solfeggio"><a class="btn" target="_blank" rel="noopener" href="../materiali/solfeggi-classe-1.html#n705">Apri il n.&nbsp;705 nel quaderno di lettura &#8599;</a> <span class="rimando">6/8</span></p>
-  </div>
-</section>
-
-<section class="slide esercizio insieme-slide" data-titolo="In classe · scriviamo">
-  <div class="slide-interna">
-    <p class="compiti-occhiello">In classe</p>
-    <h2>Cominciamo il compito: Soste e cadenze in otto battute</h2>
-    <p>1. Segna le battute in cui la musica si ferma. 2. Per ognuna scrivi gli ultimi due bassi e i loro gradi. 3. Scrivi la sigla della cadenza, oppure «sosta» se non è una cadenza, e il segno di punteggiatura.</p>
-    <p class="rimando">Dieci minuti insieme sul quaderno, alla lavagna il primo punto; il resto &egrave; il compito per casa.</p>
   </div>
 </section>
 

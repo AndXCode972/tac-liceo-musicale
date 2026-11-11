@@ -1452,10 +1452,16 @@
      sorgenti, ma il tasto si mostra soltanto dove l'ascolto è l'esercizio:
      il dettato (guidato, o nel blocco «dettato-ascolti») e le slide di
      percezione. Fuori dalle lezioni (Workbook, verifiche) non cambia nulla. */
+  /* ⚠ 11/11/2026, Andrea: «puoi togliere la striscia con i pulsanti
+     ascolta dagli esempi? continuo a vederla ovunque». Prima la striscia
+     restava fuori dalle slide (quaderno, materiali) e nelle slide di
+     percezione. Adesso resta SOLO nel dettato: il rigo nascosto, il
+     riferimento, la procedura guidata. Gli ascolti veri (`tac-brano`)
+     non passano di qui e restano. */
   function ascoltoPermesso(el) {
     if (!el.hasAttribute('play')) return false;
-    if (!el.closest('section.slide')) return true;
-    return el.hasAttribute('guidato') || !!el.closest('.dettato-ascolti, section.perc');
+    return el.hasAttribute('guidato') || el.hasAttribute('nascondi') ||
+           !!el.closest('.dettato-ascolti, .dettato-casa, tac-dettato');
   }
 
   class TacStave extends HTMLElement {

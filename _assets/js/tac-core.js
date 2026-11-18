@@ -3995,6 +3995,13 @@
       prova.registra(ospite, dati.risposte);
       return null;
     }
+    /* 11/11/2026, Andrea: «possiamo togliere i codici, non penso che ne
+       farò uso» — «il codice può rimanere per il dettato». Il codice d'esito
+       compare solo dentro un dettato; altrove l'esercizio si corregge da sé
+       e basta. */
+    var dettato = ospite.closest &&
+      ospite.closest('tac-dettato, .dettato-casa, .dettato-ascolti, [data-dettato]');
+    if (!dettato) return null;
     return bloccoCodice(ospite, dati);
   }
 
@@ -8693,6 +8700,9 @@
           h += '<div class="tac-voce vuota">' + (u.stato || 'da preparare') + '</div>';
         }
         lez.forEach(l => {
+          /* 18 novembre 2026, Andrea: le interrogazioni non si comunicano
+             sul sito; l'ora di sole interrogazioni non compare. */
+          if (l.stato === 'interrogazioni') return;
           const corrente = suUnita && l.n === qui.lezione;
           const dove = via(cl, suUnita ? null : viaU, l.file);
           if (corrente)

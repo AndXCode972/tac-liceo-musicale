@@ -2642,7 +2642,7 @@
 
       const corpo = 18;
       const occhio = corpo * .8;      /* quanto sale il segno sopra la base */
-      const base = Math.max(fondo + 40, inchiostro + 10 + occhio);
+      const base = Math.max(fondo + 32, inchiostro + 8 + occhio);
 
       let k = 0;
       let piuGiu = base;
@@ -2660,8 +2660,33 @@
         String(c).split('=').forEach(function (parte, n) {
           parte.split(':').forEach(function (pezzo) {
             if (!pezzo.trim()) return;
-            riga(x, y, pezzo.trim(),
-                 n ? 'tac-cifra tac-cifra-due' : 'tac-cifra', corpo);
+            const cl = n ? 'tac-cifra tac-cifra-due' : 'tac-cifra';
+            /* ⚠ 18 novembre 2026, Andrea: «controlla anche le numeriche, i
+               numeri e le alterazioni devono essere incolonnati
+               correttamente». Prima «6♯» si scriveva come un testo solo,
+               centrato: il numero usciva di colonna, il ♯ (che in
+               MusAnalysis non c'è e arrivava da un altro carattere, più
+               alto) urtava il 4 di sotto, e il ♯ da solo stava più in basso
+               dei numeri. Adesso il NUMERO sta sempre in colonna sulla nota,
+               l'alterazione gli sta a SINISTRA (♯6, ♮6, ♭7: come nei
+               trattati), più piccola e alla stessa altezza; un'alterazione
+               da sola (la terza alterata) si centra sulla colonna. */
+            const fig = pezzo.trim()
+              .replace(/^#/, '\u266F').replace(/#$/, '\u266F')
+              .match(/^([\u266F\u266D\u266E]?)(\d{1,2})([\u266F\u266D\u266E]?)$|^([\u266F\u266D\u266E])$/);
+            if (fig && fig[4]) {
+              riga(x, y - corpo * .22, fig[4], cl + ' tac-cifra-alt', corpo * .9);
+            } else if (fig) {
+              const alt = fig[1] || fig[3];
+              riga(x, y, fig[2], cl, corpo);
+              if (alt) {
+                const t = riga(x - corpo * (.28 * fig[2].length + .1), y - corpo * .24, alt,
+                               cl + ' tac-cifra-alt', corpo * .82);
+                t.setAttribute('text-anchor', 'end');
+              }
+            } else {
+              riga(x, y, pezzo.trim(), cl, corpo);
+            }
             y += 19;
             if (y > piuGiu) piuGiu = y;
           });
